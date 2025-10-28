@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSLocationProperty
-  = AWSLocationProperty {subnetArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-awslocation.html>
+    AWSLocationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-awslocation.html#cfn-networkmanager-device-awslocation-subnetarn>
+                         subnetArn :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-awslocation.html#cfn-networkmanager-device-awslocation-zone>
                          zone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSLocationProperty :: AWSLocationProperty
 mkAWSLocationProperty
   = AWSLocationProperty
-      {subnetArn = Prelude.Nothing, zone = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetArn = Prelude.Nothing,
+       zone = Prelude.Nothing}
 instance ToResourceProperties AWSLocationProperty where
   toResourceProperties AWSLocationProperty {..}
     = ResourceProperties

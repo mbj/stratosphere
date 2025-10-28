@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.EKS.IdentityProviderConfig.RequiredClaimPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OidcIdentityProviderConfigProperty
-  = OidcIdentityProviderConfigProperty {clientId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html>
+    OidcIdentityProviderConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-clientid>
+                                        clientId :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-groupsclaim>
                                         groupsClaim :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-groupsprefix>
                                         groupsPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-issuerurl>
                                         issuerUrl :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-requiredclaims>
                                         requiredClaims :: (Prelude.Maybe [RequiredClaimProperty]),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-usernameclaim>
                                         usernameClaim :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html#cfn-eks-identityproviderconfig-oidcidentityproviderconfig-usernameprefix>
                                         usernamePrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOidcIdentityProviderConfigProperty ::
@@ -22,10 +31,10 @@ mkOidcIdentityProviderConfigProperty ::
   -> Value Prelude.Text -> OidcIdentityProviderConfigProperty
 mkOidcIdentityProviderConfigProperty clientId issuerUrl
   = OidcIdentityProviderConfigProperty
-      {clientId = clientId, issuerUrl = issuerUrl,
-       groupsClaim = Prelude.Nothing, groupsPrefix = Prelude.Nothing,
-       requiredClaims = Prelude.Nothing, usernameClaim = Prelude.Nothing,
-       usernamePrefix = Prelude.Nothing}
+      {haddock_workaround_ = (), clientId = clientId,
+       issuerUrl = issuerUrl, groupsClaim = Prelude.Nothing,
+       groupsPrefix = Prelude.Nothing, requiredClaims = Prelude.Nothing,
+       usernameClaim = Prelude.Nothing, usernamePrefix = Prelude.Nothing}
 instance ToResourceProperties OidcIdentityProviderConfigProperty where
   toResourceProperties OidcIdentityProviderConfigProperty {..}
     = ResourceProperties

@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Connector.ConnectorProvisioningConfig
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Connector
-  = Connector {connectorLabel :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html>
+    Connector {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html#cfn-appflow-connector-connectorlabel>
+               connectorLabel :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html#cfn-appflow-connector-connectorprovisioningconfig>
                connectorProvisioningConfig :: ConnectorProvisioningConfigProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html#cfn-appflow-connector-connectorprovisioningtype>
                connectorProvisioningType :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html#cfn-appflow-connector-description>
                description :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
@@ -18,7 +24,8 @@ mkConnector ::
   -> Value Prelude.Text -> Connector
 mkConnector connectorProvisioningConfig connectorProvisioningType
   = Connector
-      {connectorProvisioningConfig = connectorProvisioningConfig,
+      {haddock_workaround_ = (),
+       connectorProvisioningConfig = connectorProvisioningConfig,
        connectorProvisioningType = connectorProvisioningType,
        connectorLabel = Prelude.Nothing, description = Prelude.Nothing}
 instance ToResourceProperties Connector where

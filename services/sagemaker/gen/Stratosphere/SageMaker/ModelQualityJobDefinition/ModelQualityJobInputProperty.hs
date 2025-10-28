@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.EndpointI
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelQualityJobInputProperty
-  = ModelQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>
+    ModelQualityJobInputProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-batchtransforminput>
+                                  batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput>
                                   endpointInput :: (Prelude.Maybe EndpointInputProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input>
                                   groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityJobInputProperty ::
@@ -19,7 +24,7 @@ mkModelQualityJobInputProperty ::
   -> ModelQualityJobInputProperty
 mkModelQualityJobInputProperty groundTruthS3Input
   = ModelQualityJobInputProperty
-      {groundTruthS3Input = groundTruthS3Input,
+      {haddock_workaround_ = (), groundTruthS3Input = groundTruthS3Input,
        batchTransformInput = Prelude.Nothing,
        endpointInput = Prelude.Nothing}
 instance ToResourceProperties ModelQualityJobInputProperty where

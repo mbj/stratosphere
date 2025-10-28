@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.PostDialogCodeHookInvocationSpecifica
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DialogCodeHookInvocationSettingProperty
-  = DialogCodeHookInvocationSettingProperty {enableCodeHookInvocation :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html>
+    DialogCodeHookInvocationSettingProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html#cfn-lex-bot-dialogcodehookinvocationsetting-enablecodehookinvocation>
+                                             enableCodeHookInvocation :: (Value Prelude.Bool),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html#cfn-lex-bot-dialogcodehookinvocationsetting-invocationlabel>
                                              invocationLabel :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html#cfn-lex-bot-dialogcodehookinvocationsetting-isactive>
                                              isActive :: (Value Prelude.Bool),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html#cfn-lex-bot-dialogcodehookinvocationsetting-postcodehookspecification>
                                              postCodeHookSpecification :: PostDialogCodeHookInvocationSpecificationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogCodeHookInvocationSettingProperty ::
@@ -24,7 +30,8 @@ mkDialogCodeHookInvocationSettingProperty
   isActive
   postCodeHookSpecification
   = DialogCodeHookInvocationSettingProperty
-      {enableCodeHookInvocation = enableCodeHookInvocation,
+      {haddock_workaround_ = (),
+       enableCodeHookInvocation = enableCodeHookInvocation,
        isActive = isActive,
        postCodeHookSpecification = postCodeHookSpecification,
        invocationLabel = Prelude.Nothing}

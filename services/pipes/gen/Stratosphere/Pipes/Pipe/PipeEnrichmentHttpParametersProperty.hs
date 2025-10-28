@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeEnrichmentHttpParametersProperty
-  = PipeEnrichmentHttpParametersProperty {headerParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html>
+    PipeEnrichmentHttpParametersProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html#cfn-pipes-pipe-pipeenrichmenthttpparameters-headerparameters>
+                                          headerParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html#cfn-pipes-pipe-pipeenrichmenthttpparameters-pathparametervalues>
                                           pathParameterValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html#cfn-pipes-pipe-pipeenrichmenthttpparameters-querystringparameters>
                                           queryStringParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeEnrichmentHttpParametersProperty ::
   PipeEnrichmentHttpParametersProperty
 mkPipeEnrichmentHttpParametersProperty
   = PipeEnrichmentHttpParametersProperty
-      {headerParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), headerParameters = Prelude.Nothing,
        pathParameterValues = Prelude.Nothing,
        queryStringParameters = Prelude.Nothing}
 instance ToResourceProperties PipeEnrichmentHttpParametersProperty where

@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NewDefaultValuesProperty
-  = NewDefaultValuesProperty {dateTimeStaticValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html>
+    NewDefaultValuesProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html#cfn-quicksight-dataset-newdefaultvalues-datetimestaticvalues>
+                              dateTimeStaticValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html#cfn-quicksight-dataset-newdefaultvalues-decimalstaticvalues>
                               decimalStaticValues :: (Prelude.Maybe (ValueList Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html#cfn-quicksight-dataset-newdefaultvalues-integerstaticvalues>
                               integerStaticValues :: (Prelude.Maybe (ValueList Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html#cfn-quicksight-dataset-newdefaultvalues-stringstaticvalues>
                               stringStaticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNewDefaultValuesProperty :: NewDefaultValuesProperty
 mkNewDefaultValuesProperty
   = NewDefaultValuesProperty
-      {dateTimeStaticValues = Prelude.Nothing,
+      {haddock_workaround_ = (), dateTimeStaticValues = Prelude.Nothing,
        decimalStaticValues = Prelude.Nothing,
        integerStaticValues = Prelude.Nothing,
        stringStaticValues = Prelude.Nothing}

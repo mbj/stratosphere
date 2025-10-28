@@ -13,18 +13,33 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.OpenMonitoringProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Cluster
-  = Cluster {brokerNodeGroupInfo :: BrokerNodeGroupInfoProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html>
+    Cluster {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-brokernodegroupinfo>
+             brokerNodeGroupInfo :: BrokerNodeGroupInfoProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-clientauthentication>
              clientAuthentication :: (Prelude.Maybe ClientAuthenticationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-clustername>
              clusterName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-configurationinfo>
              configurationInfo :: (Prelude.Maybe ConfigurationInfoProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-currentversion>
              currentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-encryptioninfo>
              encryptionInfo :: (Prelude.Maybe EncryptionInfoProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-enhancedmonitoring>
              enhancedMonitoring :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion>
              kafkaVersion :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-logginginfo>
              loggingInfo :: (Prelude.Maybe LoggingInfoProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes>
              numberOfBrokerNodes :: (Value Prelude.Integer),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring>
              openMonitoring :: (Prelude.Maybe OpenMonitoringProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-storagemode>
              storageMode :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags>
              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
@@ -37,7 +52,8 @@ mkCluster
   kafkaVersion
   numberOfBrokerNodes
   = Cluster
-      {brokerNodeGroupInfo = brokerNodeGroupInfo,
+      {haddock_workaround_ = (),
+       brokerNodeGroupInfo = brokerNodeGroupInfo,
        clusterName = clusterName, kafkaVersion = kafkaVersion,
        numberOfBrokerNodes = numberOfBrokerNodes,
        clientAuthentication = Prelude.Nothing,

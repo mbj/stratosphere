@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.ClassicLoadBalancerProperty as Exports
 import Stratosphere.ResourceProperties
 data ClassicLoadBalancersConfigProperty
-  = ClassicLoadBalancersConfigProperty {classicLoadBalancers :: [ClassicLoadBalancerProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html>
+    ClassicLoadBalancersConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers>
+                                        classicLoadBalancers :: [ClassicLoadBalancerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClassicLoadBalancersConfigProperty ::
   [ClassicLoadBalancerProperty] -> ClassicLoadBalancersConfigProperty
 mkClassicLoadBalancersConfigProperty classicLoadBalancers
   = ClassicLoadBalancersConfigProperty
-      {classicLoadBalancers = classicLoadBalancers}
+      {haddock_workaround_ = (),
+       classicLoadBalancers = classicLoadBalancers}
 instance ToResourceProperties ClassicLoadBalancersConfigProperty where
   toResourceProperties ClassicLoadBalancersConfigProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON ClassicLoadBalancersConfigProperty where
     = JSON.object ["ClassicLoadBalancers" JSON..= classicLoadBalancers]
 instance Property "ClassicLoadBalancers" ClassicLoadBalancersConfigProperty where
   type PropertyType "ClassicLoadBalancers" ClassicLoadBalancersConfigProperty = [ClassicLoadBalancerProperty]
-  set newValue ClassicLoadBalancersConfigProperty {}
+  set newValue ClassicLoadBalancersConfigProperty {..}
     = ClassicLoadBalancersConfigProperty
         {classicLoadBalancers = newValue, ..}

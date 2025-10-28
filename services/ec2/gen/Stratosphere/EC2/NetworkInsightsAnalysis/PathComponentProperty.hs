@@ -15,29 +15,49 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.TransitGatewayRou
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathComponentProperty
-  = PathComponentProperty {aclRule :: (Prelude.Maybe AnalysisAclRuleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html>
+    PathComponentProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule>
+                           aclRule :: (Prelude.Maybe AnalysisAclRuleProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-additionaldetails>
                            additionalDetails :: (Prelude.Maybe [AdditionalDetailProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component>
                            component :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc>
                            destinationVpc :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-elasticloadbalancerlistener>
                            elasticLoadBalancerListener :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-explanations>
                            explanations :: (Prelude.Maybe [ExplanationProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader>
                            inboundHeader :: (Prelude.Maybe AnalysisPacketHeaderProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader>
                            outboundHeader :: (Prelude.Maybe AnalysisPacketHeaderProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute>
                            routeTableRoute :: (Prelude.Maybe AnalysisRouteTableRouteProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule>
                            securityGroupRule :: (Prelude.Maybe AnalysisSecurityGroupRuleProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber>
                            sequenceNumber :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-servicename>
                            serviceName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc>
                            sourceVpc :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet>
                            subnet :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgateway>
                            transitGateway :: (Prelude.Maybe AnalysisComponentProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgatewayroutetableroute>
                            transitGatewayRouteTableRoute :: (Prelude.Maybe TransitGatewayRouteTableRouteProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc>
                            vpc :: (Prelude.Maybe AnalysisComponentProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathComponentProperty :: PathComponentProperty
 mkPathComponentProperty
   = PathComponentProperty
-      {aclRule = Prelude.Nothing, additionalDetails = Prelude.Nothing,
-       component = Prelude.Nothing, destinationVpc = Prelude.Nothing,
+      {haddock_workaround_ = (), aclRule = Prelude.Nothing,
+       additionalDetails = Prelude.Nothing, component = Prelude.Nothing,
+       destinationVpc = Prelude.Nothing,
        elasticLoadBalancerListener = Prelude.Nothing,
        explanations = Prelude.Nothing, inboundHeader = Prelude.Nothing,
        outboundHeader = Prelude.Nothing,

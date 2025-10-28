@@ -12,19 +12,26 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.ServiceNowSource
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.ZendeskSourcePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceConnectorPropertiesProperty
-  = SourceConnectorPropertiesProperty {marketo :: (Prelude.Maybe MarketoSourcePropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html>
+    SourceConnectorPropertiesProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo>
+                                       marketo :: (Prelude.Maybe MarketoSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3>
                                        s3 :: (Prelude.Maybe S3SourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce>
                                        salesforce :: (Prelude.Maybe SalesforceSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow>
                                        serviceNow :: (Prelude.Maybe ServiceNowSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk>
                                        zendesk :: (Prelude.Maybe ZendeskSourcePropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectorPropertiesProperty ::
   SourceConnectorPropertiesProperty
 mkSourceConnectorPropertiesProperty
   = SourceConnectorPropertiesProperty
-      {marketo = Prelude.Nothing, s3 = Prelude.Nothing,
-       salesforce = Prelude.Nothing, serviceNow = Prelude.Nothing,
-       zendesk = Prelude.Nothing}
+      {haddock_workaround_ = (), marketo = Prelude.Nothing,
+       s3 = Prelude.Nothing, salesforce = Prelude.Nothing,
+       serviceNow = Prelude.Nothing, zendesk = Prelude.Nothing}
 instance ToResourceProperties SourceConnectorPropertiesProperty where
   toResourceProperties SourceConnectorPropertiesProperty {..}
     = ResourceProperties

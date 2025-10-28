@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortRangeProperty
-  = PortRangeProperty {from :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html>
+    PortRangeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from>
+                       from :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to>
                        to :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortRangeProperty :: PortRangeProperty
 mkPortRangeProperty
-  = PortRangeProperty {from = Prelude.Nothing, to = Prelude.Nothing}
+  = PortRangeProperty
+      {haddock_workaround_ = (), from = Prelude.Nothing,
+       to = Prelude.Nothing}
 instance ToResourceProperties PortRangeProperty where
   toResourceProperties PortRangeProperty {..}
     = ResourceProperties

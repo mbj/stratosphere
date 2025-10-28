@@ -7,19 +7,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserProperty
-  = UserProperty {consoleAccess :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html>
+    UserProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-consoleaccess>
+                  consoleAccess :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-groups>
                   groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-password>
                   password :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-replicationuser>
                   replicationUser :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-username>
                   username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProperty ::
   Value Prelude.Text -> Value Prelude.Text -> UserProperty
 mkUserProperty password username
   = UserProperty
-      {password = password, username = username,
-       consoleAccess = Prelude.Nothing, groups = Prelude.Nothing,
-       replicationUser = Prelude.Nothing}
+      {haddock_workaround_ = (), password = password,
+       username = username, consoleAccess = Prelude.Nothing,
+       groups = Prelude.Nothing, replicationUser = Prelude.Nothing}
 instance ToResourceProperties UserProperty where
   toResourceProperties UserProperty {..}
     = ResourceProperties

@@ -8,19 +8,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SoftwarePackageVersion
-  = SoftwarePackageVersion {attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html>
+    SoftwarePackageVersion {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html#cfn-iot-softwarepackageversion-attributes>
+                            attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html#cfn-iot-softwarepackageversion-description>
                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html#cfn-iot-softwarepackageversion-packagename>
                             packageName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html#cfn-iot-softwarepackageversion-tags>
                             tags :: (Prelude.Maybe [Tag]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html#cfn-iot-softwarepackageversion-versionname>
                             versionName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSoftwarePackageVersion ::
   Value Prelude.Text -> SoftwarePackageVersion
 mkSoftwarePackageVersion packageName
   = SoftwarePackageVersion
-      {packageName = packageName, attributes = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing,
-       versionName = Prelude.Nothing}
+      {haddock_workaround_ = (), packageName = packageName,
+       attributes = Prelude.Nothing, description = Prelude.Nothing,
+       tags = Prelude.Nothing, versionName = Prelude.Nothing}
 instance ToResourceProperties SoftwarePackageVersion where
   toResourceProperties SoftwarePackageVersion {..}
     = ResourceProperties

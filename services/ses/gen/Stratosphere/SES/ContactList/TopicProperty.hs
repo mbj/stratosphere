@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicProperty
-  = TopicProperty {defaultSubscriptionStatus :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html>
+    TopicProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-defaultsubscriptionstatus>
+                   defaultSubscriptionStatus :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-displayname>
                    displayName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-topicname>
                    topicName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicProperty ::
@@ -17,7 +23,8 @@ mkTopicProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> TopicProperty
 mkTopicProperty defaultSubscriptionStatus displayName topicName
   = TopicProperty
-      {defaultSubscriptionStatus = defaultSubscriptionStatus,
+      {haddock_workaround_ = (),
+       defaultSubscriptionStatus = defaultSubscriptionStatus,
        displayName = displayName, topicName = topicName,
        description = Prelude.Nothing}
 instance ToResourceProperties TopicProperty where

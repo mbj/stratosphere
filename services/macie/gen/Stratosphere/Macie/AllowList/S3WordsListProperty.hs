@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3WordsListProperty
-  = S3WordsListProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-s3wordslist.html>
+    S3WordsListProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-s3wordslist.html#cfn-macie-allowlist-s3wordslist-bucketname>
+                         bucketName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-s3wordslist.html#cfn-macie-allowlist-s3wordslist-objectkey>
                          objectKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3WordsListProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3WordsListProperty
 mkS3WordsListProperty bucketName objectKey
   = S3WordsListProperty
-      {bucketName = bucketName, objectKey = objectKey}
+      {haddock_workaround_ = (), bucketName = bucketName,
+       objectKey = objectKey}
 instance ToResourceProperties S3WordsListProperty where
   toResourceProperties S3WordsListProperty {..}
     = ResourceProperties

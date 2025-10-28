@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.HookConfigurationPropert
 import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.InlineDocumentEnrichmentConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DocumentEnrichmentConfigurationProperty
-  = DocumentEnrichmentConfigurationProperty {inlineConfigurations :: (Prelude.Maybe [InlineDocumentEnrichmentConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html>
+    DocumentEnrichmentConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-inlineconfigurations>
+                                             inlineConfigurations :: (Prelude.Maybe [InlineDocumentEnrichmentConfigurationProperty]),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-postextractionhookconfiguration>
                                              postExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-preextractionhookconfiguration>
                                              preExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentEnrichmentConfigurationProperty ::
   DocumentEnrichmentConfigurationProperty
 mkDocumentEnrichmentConfigurationProperty
   = DocumentEnrichmentConfigurationProperty
-      {inlineConfigurations = Prelude.Nothing,
+      {haddock_workaround_ = (), inlineConfigurations = Prelude.Nothing,
        postExtractionHookConfiguration = Prelude.Nothing,
        preExtractionHookConfiguration = Prelude.Nothing}
 instance ToResourceProperties DocumentEnrichmentConfigurationProperty where

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolverConfig
-  = ResolverConfig {autodefinedReverseFlag :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html>
+    ResolverConfig {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-autodefinedreverseflag>
+                    autodefinedReverseFlag :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html#cfn-route53resolver-resolverconfig-resourceid>
                     resourceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverConfig ::
   Value Prelude.Text -> Value Prelude.Text -> ResolverConfig
 mkResolverConfig autodefinedReverseFlag resourceId
   = ResolverConfig
-      {autodefinedReverseFlag = autodefinedReverseFlag,
+      {haddock_workaround_ = (),
+       autodefinedReverseFlag = autodefinedReverseFlag,
        resourceId = resourceId}
 instance ToResourceProperties ResolverConfig where
   toResourceProperties ResolverConfig {..}

@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioSilenceFailoverSettingsProperty
-  = AudioSilenceFailoverSettingsProperty {audioSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html>
+    AudioSilenceFailoverSettingsProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audioselectorname>
+                                          audioSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html#cfn-medialive-channel-audiosilencefailoversettings-audiosilencethresholdmsec>
                                           audioSilenceThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSilenceFailoverSettingsProperty ::
   AudioSilenceFailoverSettingsProperty
 mkAudioSilenceFailoverSettingsProperty
   = AudioSilenceFailoverSettingsProperty
-      {audioSelectorName = Prelude.Nothing,
+      {haddock_workaround_ = (), audioSelectorName = Prelude.Nothing,
        audioSilenceThresholdMsec = Prelude.Nothing}
 instance ToResourceProperties AudioSilenceFailoverSettingsProperty where
   toResourceProperties AudioSilenceFailoverSettingsProperty {..}

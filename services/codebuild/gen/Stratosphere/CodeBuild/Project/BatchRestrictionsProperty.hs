@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchRestrictionsProperty
-  = BatchRestrictionsProperty {computeTypesAllowed :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html>
+    BatchRestrictionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed>
+                               computeTypesAllowed :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed>
                                maximumBuildsAllowed :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchRestrictionsProperty :: BatchRestrictionsProperty
 mkBatchRestrictionsProperty
   = BatchRestrictionsProperty
-      {computeTypesAllowed = Prelude.Nothing,
+      {haddock_workaround_ = (), computeTypesAllowed = Prelude.Nothing,
        maximumBuildsAllowed = Prelude.Nothing}
 instance ToResourceProperties BatchRestrictionsProperty where
   toResourceProperties BatchRestrictionsProperty {..}

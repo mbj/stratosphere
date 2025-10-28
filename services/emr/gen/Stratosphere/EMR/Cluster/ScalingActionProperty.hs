@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.SimpleScalingPolicyConfigurationP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingActionProperty
-  = ScalingActionProperty {market :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html>
+    ScalingActionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-market>
+                           market :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-simplescalingpolicyconfiguration>
                            simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingActionProperty ::
   SimpleScalingPolicyConfigurationProperty -> ScalingActionProperty
 mkScalingActionProperty simpleScalingPolicyConfiguration
   = ScalingActionProperty
-      {simpleScalingPolicyConfiguration = simpleScalingPolicyConfiguration,
+      {haddock_workaround_ = (),
+       simpleScalingPolicyConfiguration = simpleScalingPolicyConfiguration,
        market = Prelude.Nothing}
 instance ToResourceProperties ScalingActionProperty where
   toResourceProperties ScalingActionProperty {..}

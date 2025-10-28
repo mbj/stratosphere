@@ -9,12 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Link
-  = Link {bandwidth :: BandwidthProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html>
+    Link {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth>
+          bandwidth :: BandwidthProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description>
           description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid>
           globalNetworkId :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider>
           provider :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid>
           siteId :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type>
           type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLink ::
@@ -22,10 +31,10 @@ mkLink ::
   -> Value Prelude.Text -> Value Prelude.Text -> Link
 mkLink bandwidth globalNetworkId siteId
   = Link
-      {bandwidth = bandwidth, globalNetworkId = globalNetworkId,
-       siteId = siteId, description = Prelude.Nothing,
-       provider = Prelude.Nothing, tags = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), bandwidth = bandwidth,
+       globalNetworkId = globalNetworkId, siteId = siteId,
+       description = Prelude.Nothing, provider = Prelude.Nothing,
+       tags = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties Link where
   toResourceProperties Link {..}
     = ResourceProperties

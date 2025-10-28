@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputOriginProperty
-  = InputOriginProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html>
+    InputOriginProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html#cfn-lightsail-distribution-inputorigin-name>
+                         name :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html#cfn-lightsail-distribution-inputorigin-protocolpolicy>
                          protocolPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html#cfn-lightsail-distribution-inputorigin-regionname>
                          regionName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputOriginProperty :: InputOriginProperty
 mkInputOriginProperty
   = InputOriginProperty
-      {name = Prelude.Nothing, protocolPolicy = Prelude.Nothing,
-       regionName = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       protocolPolicy = Prelude.Nothing, regionName = Prelude.Nothing}
 instance ToResourceProperties InputOriginProperty where
   toResourceProperties InputOriginProperty {..}
     = ResourceProperties

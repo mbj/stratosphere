@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationRuleFilterProperty
-  = ReplicationRuleFilterProperty {and :: (Prelude.Maybe ReplicationRuleAndOperatorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html>
+    ReplicationRuleFilterProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and>
+                                   and :: (Prelude.Maybe ReplicationRuleAndOperatorProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix>
                                    prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter>
                                    tagFilter :: (Prelude.Maybe TagFilterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleFilterProperty :: ReplicationRuleFilterProperty
 mkReplicationRuleFilterProperty
   = ReplicationRuleFilterProperty
-      {and = Prelude.Nothing, prefix = Prelude.Nothing,
-       tagFilter = Prelude.Nothing}
+      {haddock_workaround_ = (), and = Prelude.Nothing,
+       prefix = Prelude.Nothing, tagFilter = Prelude.Nothing}
 instance ToResourceProperties ReplicationRuleFilterProperty where
   toResourceProperties ReplicationRuleFilterProperty {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.FileSourceProperty as 
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DriftCheckExplainabilityProperty
-  = DriftCheckExplainabilityProperty {configFile :: (Prelude.Maybe FileSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html>
+    DriftCheckExplainabilityProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html#cfn-sagemaker-modelpackage-driftcheckexplainability-configfile>
+                                      configFile :: (Prelude.Maybe FileSourceProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html#cfn-sagemaker-modelpackage-driftcheckexplainability-constraints>
                                       constraints :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckExplainabilityProperty ::
   DriftCheckExplainabilityProperty
 mkDriftCheckExplainabilityProperty
   = DriftCheckExplainabilityProperty
-      {configFile = Prelude.Nothing, constraints = Prelude.Nothing}
+      {haddock_workaround_ = (), configFile = Prelude.Nothing,
+       constraints = Prelude.Nothing}
 instance ToResourceProperties DriftCheckExplainabilityProperty where
   toResourceProperties DriftCheckExplainabilityProperty {..}
     = ResourceProperties

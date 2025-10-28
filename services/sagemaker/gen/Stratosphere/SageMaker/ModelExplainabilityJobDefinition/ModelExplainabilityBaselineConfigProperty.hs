@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.Co
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelExplainabilityBaselineConfigProperty
-  = ModelExplainabilityBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html>
+    ModelExplainabilityBaselineConfigProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname>
+                                               baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource>
                                                constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelExplainabilityBaselineConfigProperty ::
   ModelExplainabilityBaselineConfigProperty
 mkModelExplainabilityBaselineConfigProperty
   = ModelExplainabilityBaselineConfigProperty
-      {baseliningJobName = Prelude.Nothing,
+      {haddock_workaround_ = (), baseliningJobName = Prelude.Nothing,
        constraintsResource = Prelude.Nothing}
 instance ToResourceProperties ModelExplainabilityBaselineConfigProperty where
   toResourceProperties ModelExplainabilityBaselineConfigProperty {..}

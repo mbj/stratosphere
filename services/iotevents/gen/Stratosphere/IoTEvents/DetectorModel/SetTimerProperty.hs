@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SetTimerProperty
-  = SetTimerProperty {durationExpression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html>
+    SetTimerProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression>
+                      durationExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds>
                       seconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername>
                       timerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSetTimerProperty :: Value Prelude.Text -> SetTimerProperty
 mkSetTimerProperty timerName
   = SetTimerProperty
-      {timerName = timerName, durationExpression = Prelude.Nothing,
-       seconds = Prelude.Nothing}
+      {haddock_workaround_ = (), timerName = timerName,
+       durationExpression = Prelude.Nothing, seconds = Prelude.Nothing}
 instance ToResourceProperties SetTimerProperty where
   toResourceProperties SetTimerProperty {..}
     = ResourceProperties

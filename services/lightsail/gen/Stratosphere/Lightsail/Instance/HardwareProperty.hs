@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Instance.DiskProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HardwareProperty
-  = HardwareProperty {cpuCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html>
+    HardwareProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-cpucount>
+                      cpuCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-disks>
                       disks :: (Prelude.Maybe [DiskProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html#cfn-lightsail-instance-hardware-ramsizeingb>
                       ramSizeInGb :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHardwareProperty :: HardwareProperty
 mkHardwareProperty
   = HardwareProperty
-      {cpuCount = Prelude.Nothing, disks = Prelude.Nothing,
-       ramSizeInGb = Prelude.Nothing}
+      {haddock_workaround_ = (), cpuCount = Prelude.Nothing,
+       disks = Prelude.Nothing, ramSizeInGb = Prelude.Nothing}
 instance ToResourceProperties HardwareProperty where
   toResourceProperties HardwareProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackNamesProperty
-  = StackNamesProperty {exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stacknames.html>
+    StackNamesProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stacknames.html#cfn-cloudformation-lambdahook-stacknames-exclude>
+                        exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stacknames.html#cfn-cloudformation-lambdahook-stacknames-include>
                         include :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackNamesProperty :: StackNamesProperty
 mkStackNamesProperty
   = StackNamesProperty
-      {exclude = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), exclude = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties StackNamesProperty where
   toResourceProperties StackNamesProperty {..}
     = ResourceProperties

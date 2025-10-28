@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.S3Outposts.Bucket.FilterTagProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {andOperator :: (Prelude.Maybe FilterAndOperatorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html>
+    FilterProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-andoperator>
+                    andOperator :: (Prelude.Maybe FilterAndOperatorProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-prefix>
                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html#cfn-s3outposts-bucket-filter-tag>
                     tag :: (Prelude.Maybe FilterTagProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
 mkFilterProperty
   = FilterProperty
-      {andOperator = Prelude.Nothing, prefix = Prelude.Nothing,
-       tag = Prelude.Nothing}
+      {haddock_workaround_ = (), andOperator = Prelude.Nothing,
+       prefix = Prelude.Nothing, tag = Prelude.Nothing}
 instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties

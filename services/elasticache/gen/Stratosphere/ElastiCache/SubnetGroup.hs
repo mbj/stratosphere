@@ -8,17 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SubnetGroup
-  = SubnetGroup {cacheSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html>
+    SubnetGroup {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-cachesubnetgroupname>
+                 cacheSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-description>
                  description :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-subnetids>
                  subnetIds :: (ValueList Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetGroup ::
   Value Prelude.Text -> ValueList Prelude.Text -> SubnetGroup
 mkSubnetGroup description subnetIds
   = SubnetGroup
-      {description = description, subnetIds = subnetIds,
-       cacheSubnetGroupName = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = description,
+       subnetIds = subnetIds, cacheSubnetGroupName = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SubnetGroup where
   toResourceProperties SubnetGroup {..}
     = ResourceProperties

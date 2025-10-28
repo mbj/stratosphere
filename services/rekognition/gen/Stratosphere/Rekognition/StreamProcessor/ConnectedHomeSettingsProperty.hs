@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectedHomeSettingsProperty
-  = ConnectedHomeSettingsProperty {labels :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html>
+    ConnectedHomeSettingsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-labels>
+                                   labels :: (ValueList Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html#cfn-rekognition-streamprocessor-connectedhomesettings-minconfidence>
                                    minConfidence :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectedHomeSettingsProperty ::
   ValueList Prelude.Text -> ConnectedHomeSettingsProperty
 mkConnectedHomeSettingsProperty labels
   = ConnectedHomeSettingsProperty
-      {labels = labels, minConfidence = Prelude.Nothing}
+      {haddock_workaround_ = (), labels = labels,
+       minConfidence = Prelude.Nothing}
 instance ToResourceProperties ConnectedHomeSettingsProperty where
   toResourceProperties ConnectedHomeSettingsProperty {..}
     = ResourceProperties

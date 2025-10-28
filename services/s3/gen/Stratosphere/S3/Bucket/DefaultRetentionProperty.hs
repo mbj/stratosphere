@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultRetentionProperty
-  = DefaultRetentionProperty {days :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html>
+    DefaultRetentionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days>
+                              days :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode>
                               mode :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years>
                               years :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultRetentionProperty :: DefaultRetentionProperty
 mkDefaultRetentionProperty
   = DefaultRetentionProperty
-      {days = Prelude.Nothing, mode = Prelude.Nothing,
-       years = Prelude.Nothing}
+      {haddock_workaround_ = (), days = Prelude.Nothing,
+       mode = Prelude.Nothing, years = Prelude.Nothing}
 instance ToResourceProperties DefaultRetentionProperty where
   toResourceProperties DefaultRetentionProperty {..}
     = ResourceProperties

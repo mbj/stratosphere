@@ -10,15 +10,27 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupPlan.LifecycleResourceTypeProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupRuleResourceTypeProperty
-  = BackupRuleResourceTypeProperty {completionWindowMinutes :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html>
+    BackupRuleResourceTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes>
+                                    completionWindowMinutes :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions>
                                     copyActions :: (Prelude.Maybe [CopyActionResourceTypeProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup>
                                     enableContinuousBackup :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle>
                                     lifecycle :: (Prelude.Maybe LifecycleResourceTypeProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags>
                                     recoveryPointTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename>
                                     ruleName :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression>
                                     scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone>
                                     scheduleExpressionTimezone :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes>
                                     startWindowMinutes :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault>
                                     targetBackupVault :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupRuleResourceTypeProperty ::
@@ -26,7 +38,8 @@ mkBackupRuleResourceTypeProperty ::
   -> Value Prelude.Text -> BackupRuleResourceTypeProperty
 mkBackupRuleResourceTypeProperty ruleName targetBackupVault
   = BackupRuleResourceTypeProperty
-      {ruleName = ruleName, targetBackupVault = targetBackupVault,
+      {haddock_workaround_ = (), ruleName = ruleName,
+       targetBackupVault = targetBackupVault,
        completionWindowMinutes = Prelude.Nothing,
        copyActions = Prelude.Nothing,
        enableContinuousBackup = Prelude.Nothing,

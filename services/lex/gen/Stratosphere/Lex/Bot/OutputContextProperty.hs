@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputContextProperty
-  = OutputContextProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html>
+    OutputContextProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-name>
+                           name :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-timetoliveinseconds>
                            timeToLiveInSeconds :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html#cfn-lex-bot-outputcontext-turnstolive>
                            turnsToLive :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputContextProperty ::
@@ -17,7 +22,8 @@ mkOutputContextProperty ::
      -> Value Prelude.Integer -> OutputContextProperty
 mkOutputContextProperty name timeToLiveInSeconds turnsToLive
   = OutputContextProperty
-      {name = name, timeToLiveInSeconds = timeToLiveInSeconds,
+      {haddock_workaround_ = (), name = name,
+       timeToLiveInSeconds = timeToLiveInSeconds,
        turnsToLive = turnsToLive}
 instance ToResourceProperties OutputContextProperty where
   toResourceProperties OutputContextProperty {..}

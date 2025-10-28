@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UplinkEchoConfigProperty
-  = UplinkEchoConfigProperty {antennaUplinkConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html>
+    UplinkEchoConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn>
+                              antennaUplinkConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled>
                               enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUplinkEchoConfigProperty :: UplinkEchoConfigProperty
 mkUplinkEchoConfigProperty
   = UplinkEchoConfigProperty
-      {antennaUplinkConfigArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       antennaUplinkConfigArn = Prelude.Nothing,
        enabled = Prelude.Nothing}
 instance ToResourceProperties UplinkEchoConfigProperty where
   toResourceProperties UplinkEchoConfigProperty {..}

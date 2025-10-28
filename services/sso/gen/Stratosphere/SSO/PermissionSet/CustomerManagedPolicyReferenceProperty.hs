@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerManagedPolicyReferenceProperty
-  = CustomerManagedPolicyReferenceProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-customermanagedpolicyreference.html>
+    CustomerManagedPolicyReferenceProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-customermanagedpolicyreference.html#cfn-sso-permissionset-customermanagedpolicyreference-name>
+                                            name :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-customermanagedpolicyreference.html#cfn-sso-permissionset-customermanagedpolicyreference-path>
                                             path :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedPolicyReferenceProperty ::
   Value Prelude.Text -> CustomerManagedPolicyReferenceProperty
 mkCustomerManagedPolicyReferenceProperty name
   = CustomerManagedPolicyReferenceProperty
-      {name = name, path = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, path = Prelude.Nothing}
 instance ToResourceProperties CustomerManagedPolicyReferenceProperty where
   toResourceProperties CustomerManagedPolicyReferenceProperty {..}
     = ResourceProperties

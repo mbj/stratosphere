@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CapacityReservationTargetP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityReservationSpecificationProperty
-  = CapacityReservationSpecificationProperty {capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html>
+    CapacityReservationSpecificationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html#cfn-ec2-launchtemplate-capacityreservationspecification-capacityreservationpreference>
+                                              capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html#cfn-ec2-launchtemplate-capacityreservationspecification-capacityreservationtarget>
                                               capacityReservationTarget :: (Prelude.Maybe CapacityReservationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationSpecificationProperty ::
   CapacityReservationSpecificationProperty
 mkCapacityReservationSpecificationProperty
   = CapacityReservationSpecificationProperty
-      {capacityReservationPreference = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       capacityReservationPreference = Prelude.Nothing,
        capacityReservationTarget = Prelude.Nothing}
 instance ToResourceProperties CapacityReservationSpecificationProperty where
   toResourceProperties CapacityReservationSpecificationProperty {..}

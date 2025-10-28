@@ -9,17 +9,23 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Project.ProvisioningParameterProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceCatalogProvisioningDetailsProperty
-  = ServiceCatalogProvisioningDetailsProperty {pathId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html>
+    ServiceCatalogProvisioningDetailsProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html#cfn-sagemaker-project-servicecatalogprovisioningdetails-pathid>
+                                               pathId :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html#cfn-sagemaker-project-servicecatalogprovisioningdetails-productid>
                                                productId :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html#cfn-sagemaker-project-servicecatalogprovisioningdetails-provisioningartifactid>
                                                provisioningArtifactId :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html#cfn-sagemaker-project-servicecatalogprovisioningdetails-provisioningparameters>
                                                provisioningParameters :: (Prelude.Maybe [ProvisioningParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceCatalogProvisioningDetailsProperty ::
   Value Prelude.Text -> ServiceCatalogProvisioningDetailsProperty
 mkServiceCatalogProvisioningDetailsProperty productId
   = ServiceCatalogProvisioningDetailsProperty
-      {productId = productId, pathId = Prelude.Nothing,
-       provisioningArtifactId = Prelude.Nothing,
+      {haddock_workaround_ = (), productId = productId,
+       pathId = Prelude.Nothing, provisioningArtifactId = Prelude.Nothing,
        provisioningParameters = Prelude.Nothing}
 instance ToResourceProperties ServiceCatalogProvisioningDetailsProperty where
   toResourceProperties ServiceCatalogProvisioningDetailsProperty {..}

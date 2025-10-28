@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotVersionLocaleDetailsProperty
-  = BotVersionLocaleDetailsProperty {sourceBotVersion :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html>
+    BotVersionLocaleDetailsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html#cfn-lex-botversion-botversionlocaledetails-sourcebotversion>
+                                     sourceBotVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersionLocaleDetailsProperty ::
   Value Prelude.Text -> BotVersionLocaleDetailsProperty
 mkBotVersionLocaleDetailsProperty sourceBotVersion
   = BotVersionLocaleDetailsProperty
-      {sourceBotVersion = sourceBotVersion}
+      {haddock_workaround_ = (), sourceBotVersion = sourceBotVersion}
 instance ToResourceProperties BotVersionLocaleDetailsProperty where
   toResourceProperties BotVersionLocaleDetailsProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON BotVersionLocaleDetailsProperty where
     = JSON.object ["SourceBotVersion" JSON..= sourceBotVersion]
 instance Property "SourceBotVersion" BotVersionLocaleDetailsProperty where
   type PropertyType "SourceBotVersion" BotVersionLocaleDetailsProperty = Value Prelude.Text
-  set newValue BotVersionLocaleDetailsProperty {}
+  set newValue BotVersionLocaleDetailsProperty {..}
     = BotVersionLocaleDetailsProperty {sourceBotVersion = newValue, ..}

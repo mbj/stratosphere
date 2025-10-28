@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FleetLaunchTemplateSpecificationRequestProperty
-  = FleetLaunchTemplateSpecificationRequestProperty {launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html>
+    FleetLaunchTemplateSpecificationRequestProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplateid>
+                                                     launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename>
                                                      launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version>
                                                      version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateSpecificationRequestProperty ::
@@ -17,7 +22,8 @@ mkFleetLaunchTemplateSpecificationRequestProperty ::
   -> FleetLaunchTemplateSpecificationRequestProperty
 mkFleetLaunchTemplateSpecificationRequestProperty version
   = FleetLaunchTemplateSpecificationRequestProperty
-      {version = version, launchTemplateId = Prelude.Nothing,
+      {haddock_workaround_ = (), version = version,
+       launchTemplateId = Prelude.Nothing,
        launchTemplateName = Prelude.Nothing}
 instance ToResourceProperties FleetLaunchTemplateSpecificationRequestProperty where
   toResourceProperties

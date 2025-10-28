@@ -8,16 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocalGatewayRouteTable
-  = LocalGatewayRouteTable {localGatewayId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html>
+    LocalGatewayRouteTable {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html#cfn-ec2-localgatewayroutetable-localgatewayid>
+                            localGatewayId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html#cfn-ec2-localgatewayroutetable-mode>
                             mode :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html#cfn-ec2-localgatewayroutetable-tags>
                             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTable ::
   Value Prelude.Text -> LocalGatewayRouteTable
 mkLocalGatewayRouteTable localGatewayId
   = LocalGatewayRouteTable
-      {localGatewayId = localGatewayId, mode = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), localGatewayId = localGatewayId,
+       mode = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LocalGatewayRouteTable where
   toResourceProperties LocalGatewayRouteTable {..}
     = ResourceProperties

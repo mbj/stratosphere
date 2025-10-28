@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyGroupConfigProperty
-  = KeyGroupConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html>
+    KeyGroupConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment>
+                            comment :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items>
                             items :: (ValueList Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyGroupConfigProperty ::
@@ -16,7 +21,8 @@ mkKeyGroupConfigProperty ::
   -> Value Prelude.Text -> KeyGroupConfigProperty
 mkKeyGroupConfigProperty items name
   = KeyGroupConfigProperty
-      {items = items, name = name, comment = Prelude.Nothing}
+      {haddock_workaround_ = (), items = items, name = name,
+       comment = Prelude.Nothing}
 instance ToResourceProperties KeyGroupConfigProperty where
   toResourceProperties KeyGroupConfigProperty {..}
     = ResourceProperties

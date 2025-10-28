@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VpcConnector
-  = VpcConnector {securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html>
+    VpcConnector {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-securitygroups>
+                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-subnets>
                   subnets :: (ValueList Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-tags>
                   tags :: (Prelude.Maybe [Tag]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-vpcconnectorname>
                   vpcConnectorName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnector :: ValueList Prelude.Text -> VpcConnector
 mkVpcConnector subnets
   = VpcConnector
-      {subnets = subnets, securityGroups = Prelude.Nothing,
-       tags = Prelude.Nothing, vpcConnectorName = Prelude.Nothing}
+      {haddock_workaround_ = (), subnets = subnets,
+       securityGroups = Prelude.Nothing, tags = Prelude.Nothing,
+       vpcConnectorName = Prelude.Nothing}
 instance ToResourceProperties VpcConnector where
   toResourceProperties VpcConnector {..}
     = ResourceProperties

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterConstraintsProperty
-  = ParameterConstraintsProperty {required :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>
+    ParameterConstraintsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html#cfn-apigatewayv2-routeresponse-parameterconstraints-required>
+                                  required :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterConstraintsProperty ::
   Value Prelude.Bool -> ParameterConstraintsProperty
 mkParameterConstraintsProperty required
-  = ParameterConstraintsProperty {required = required}
+  = ParameterConstraintsProperty
+      {haddock_workaround_ = (), required = required}
 instance ToResourceProperties ParameterConstraintsProperty where
   toResourceProperties ParameterConstraintsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ParameterConstraintsProperty where
     = JSON.object ["Required" JSON..= required]
 instance Property "Required" ParameterConstraintsProperty where
   type PropertyType "Required" ParameterConstraintsProperty = Value Prelude.Bool
-  set newValue ParameterConstraintsProperty {}
+  set newValue ParameterConstraintsProperty {..}
     = ParameterConstraintsProperty {required = newValue, ..}

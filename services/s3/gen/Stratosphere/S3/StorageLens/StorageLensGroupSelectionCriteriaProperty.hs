@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageLensGroupSelectionCriteriaProperty
-  = StorageLensGroupSelectionCriteriaProperty {exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgroupselectioncriteria.html>
+    StorageLensGroupSelectionCriteriaProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgroupselectioncriteria.html#cfn-s3-storagelens-storagelensgroupselectioncriteria-exclude>
+                                               exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgroupselectioncriteria.html#cfn-s3-storagelens-storagelensgroupselectioncriteria-include>
                                                include :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLensGroupSelectionCriteriaProperty ::
   StorageLensGroupSelectionCriteriaProperty
 mkStorageLensGroupSelectionCriteriaProperty
   = StorageLensGroupSelectionCriteriaProperty
-      {exclude = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), exclude = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties StorageLensGroupSelectionCriteriaProperty where
   toResourceProperties StorageLensGroupSelectionCriteriaProperty {..}
     = ResourceProperties

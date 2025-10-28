@@ -9,13 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Fleet
-  = Fleet {configuration :: FleetConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html>
+    Fleet {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-configuration>
+           configuration :: FleetConfigurationProperty,
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-displayname>
            displayName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-farmid>
            farmId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-maxworkercount>
            maxWorkerCount :: (Value Prelude.Integer),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-minworkercount>
            minWorkerCount :: (Prelude.Maybe (Value Prelude.Integer)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-rolearn>
            roleArn :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet ::
@@ -25,10 +35,11 @@ mkFleet ::
         -> Value Prelude.Integer -> Value Prelude.Text -> Fleet
 mkFleet configuration displayName farmId maxWorkerCount roleArn
   = Fleet
-      {configuration = configuration, displayName = displayName,
-       farmId = farmId, maxWorkerCount = maxWorkerCount,
-       roleArn = roleArn, description = Prelude.Nothing,
-       minWorkerCount = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), configuration = configuration,
+       displayName = displayName, farmId = farmId,
+       maxWorkerCount = maxWorkerCount, roleArn = roleArn,
+       description = Prelude.Nothing, minWorkerCount = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties

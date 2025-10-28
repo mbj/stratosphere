@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BandwidthProperty
-  = BandwidthProperty {downloadSpeed :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html>
+    BandwidthProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed>
+                       downloadSpeed :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed>
                        uploadSpeed :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBandwidthProperty :: BandwidthProperty
 mkBandwidthProperty
   = BandwidthProperty
-      {downloadSpeed = Prelude.Nothing, uploadSpeed = Prelude.Nothing}
+      {haddock_workaround_ = (), downloadSpeed = Prelude.Nothing,
+       uploadSpeed = Prelude.Nothing}
 instance ToResourceProperties BandwidthProperty where
   toResourceProperties BandwidthProperty {..}
     = ResourceProperties

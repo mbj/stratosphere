@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.AnalysisComponent
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdditionalDetailProperty
-  = AdditionalDetailProperty {additionalDetailType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html>
+    AdditionalDetailProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-additionaldetailtype>
+                              additionalDetailType :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-component>
                               component :: (Prelude.Maybe AnalysisComponentProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-loadbalancers>
                               loadBalancers :: (Prelude.Maybe [AnalysisComponentProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html#cfn-ec2-networkinsightsanalysis-additionaldetail-servicename>
                               serviceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalDetailProperty :: AdditionalDetailProperty
 mkAdditionalDetailProperty
   = AdditionalDetailProperty
-      {additionalDetailType = Prelude.Nothing,
+      {haddock_workaround_ = (), additionalDetailType = Prelude.Nothing,
        component = Prelude.Nothing, loadBalancers = Prelude.Nothing,
        serviceName = Prelude.Nothing}
 instance ToResourceProperties AdditionalDetailProperty where

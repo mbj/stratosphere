@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LockConfigurationTypeProperty
-  = LockConfigurationTypeProperty {changeableForDays :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html>
+    LockConfigurationTypeProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-changeablefordays>
+                                   changeableForDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-maxretentiondays>
                                    maxRetentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html#cfn-backup-backupvault-lockconfigurationtype-minretentiondays>
                                    minRetentionDays :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLockConfigurationTypeProperty ::
   Value Prelude.Integer -> LockConfigurationTypeProperty
 mkLockConfigurationTypeProperty minRetentionDays
   = LockConfigurationTypeProperty
-      {minRetentionDays = minRetentionDays,
+      {haddock_workaround_ = (), minRetentionDays = minRetentionDays,
        changeableForDays = Prelude.Nothing,
        maxRetentionDays = Prelude.Nothing}
 instance ToResourceProperties LockConfigurationTypeProperty where

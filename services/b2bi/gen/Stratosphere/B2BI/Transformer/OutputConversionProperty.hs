@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.B2BI.Transformer.FormatOptionsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputConversionProperty
-  = OutputConversionProperty {formatOptions :: (Prelude.Maybe FormatOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html>
+    OutputConversionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-formatoptions>
+                              formatOptions :: (Prelude.Maybe FormatOptionsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-toformat>
                               toFormat :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputConversionProperty ::
   Value Prelude.Text -> OutputConversionProperty
 mkOutputConversionProperty toFormat
   = OutputConversionProperty
-      {toFormat = toFormat, formatOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), toFormat = toFormat,
+       formatOptions = Prelude.Nothing}
 instance ToResourceProperties OutputConversionProperty where
   toResourceProperties OutputConversionProperty {..}
     = ResourceProperties

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingConfigProperty
-  = IdMappingConfigProperty {allowUseAsDimensionColumn :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html>
+    IdMappingConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html#cfn-cleanrooms-idnamespaceassociation-idmappingconfig-allowuseasdimensioncolumn>
+                             allowUseAsDimensionColumn :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingConfigProperty ::
   Value Prelude.Bool -> IdMappingConfigProperty
 mkIdMappingConfigProperty allowUseAsDimensionColumn
   = IdMappingConfigProperty
-      {allowUseAsDimensionColumn = allowUseAsDimensionColumn}
+      {haddock_workaround_ = (),
+       allowUseAsDimensionColumn = allowUseAsDimensionColumn}
 instance ToResourceProperties IdMappingConfigProperty where
   toResourceProperties IdMappingConfigProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON IdMappingConfigProperty where
         ["AllowUseAsDimensionColumn" JSON..= allowUseAsDimensionColumn]
 instance Property "AllowUseAsDimensionColumn" IdMappingConfigProperty where
   type PropertyType "AllowUseAsDimensionColumn" IdMappingConfigProperty = Value Prelude.Bool
-  set newValue IdMappingConfigProperty {}
+  set newValue IdMappingConfigProperty {..}
     = IdMappingConfigProperty
         {allowUseAsDimensionColumn = newValue, ..}

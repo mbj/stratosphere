@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SearchProperty
-  = SearchProperty {displayable :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html>
+    SearchProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-displayable>
+                    displayable :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-facetable>
                     facetable :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-searchable>
                     searchable :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-sortable>
                     sortable :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSearchProperty :: SearchProperty
 mkSearchProperty
   = SearchProperty
-      {displayable = Prelude.Nothing, facetable = Prelude.Nothing,
-       searchable = Prelude.Nothing, sortable = Prelude.Nothing}
+      {haddock_workaround_ = (), displayable = Prelude.Nothing,
+       facetable = Prelude.Nothing, searchable = Prelude.Nothing,
+       sortable = Prelude.Nothing}
 instance ToResourceProperties SearchProperty where
   toResourceProperties SearchProperty {..}
     = ResourceProperties

@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.ActionParametersPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentEventProperty
-  = ComponentEventProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html>
+    ComponentEventProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-action>
+                            action :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-bindingevent>
                             bindingEvent :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-parameters>
                             parameters :: (Prelude.Maybe ActionParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentEventProperty :: ComponentEventProperty
 mkComponentEventProperty
   = ComponentEventProperty
-      {action = Prelude.Nothing, bindingEvent = Prelude.Nothing,
-       parameters = Prelude.Nothing}
+      {haddock_workaround_ = (), action = Prelude.Nothing,
+       bindingEvent = Prelude.Nothing, parameters = Prelude.Nothing}
 instance ToResourceProperties ComponentEventProperty where
   toResourceProperties ComponentEventProperty {..}
     = ResourceProperties

@@ -10,16 +10,22 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Network.TagsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Network
-  = Network {ipPools :: [IpPoolProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html>
+    Network {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html#cfn-medialive-network-ippools>
+             ipPools :: [IpPoolProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html#cfn-medialive-network-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html#cfn-medialive-network-routes>
              routes :: (Prelude.Maybe [RouteProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html#cfn-medialive-network-tags>
              tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetwork :: [IpPoolProperty] -> Value Prelude.Text -> Network
 mkNetwork ipPools name
   = Network
-      {ipPools = ipPools, name = name, routes = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), ipPools = ipPools, name = name,
+       routes = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Network where
   toResourceProperties Network {..}
     = ResourceProperties

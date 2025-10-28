@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldValueProperty
-  = FieldValueProperty {booleanValue :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html>
+    FieldValueProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html#cfn-connect-rule-fieldvalue-booleanvalue>
+                        booleanValue :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html#cfn-connect-rule-fieldvalue-doublevalue>
                         doubleValue :: (Prelude.Maybe (Value Prelude.Double)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html#cfn-connect-rule-fieldvalue-emptyvalue>
                         emptyValue :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html#cfn-connect-rule-fieldvalue-stringvalue>
                         stringValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldValueProperty :: FieldValueProperty
 mkFieldValueProperty
   = FieldValueProperty
-      {booleanValue = Prelude.Nothing, doubleValue = Prelude.Nothing,
-       emptyValue = Prelude.Nothing, stringValue = Prelude.Nothing}
+      {haddock_workaround_ = (), booleanValue = Prelude.Nothing,
+       doubleValue = Prelude.Nothing, emptyValue = Prelude.Nothing,
+       stringValue = Prelude.Nothing}
 instance ToResourceProperties FieldValueProperty where
   toResourceProperties FieldValueProperty {..}
     = ResourceProperties

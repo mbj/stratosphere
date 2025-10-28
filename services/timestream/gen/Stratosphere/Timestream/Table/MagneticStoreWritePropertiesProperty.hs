@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Timestream.Table.MagneticStoreRejectedDataLoc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MagneticStoreWritePropertiesProperty
-  = MagneticStoreWritePropertiesProperty {enableMagneticStoreWrites :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html>
+    MagneticStoreWritePropertiesProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html#cfn-timestream-table-magneticstorewriteproperties-enablemagneticstorewrites>
+                                          enableMagneticStoreWrites :: (Value Prelude.Bool),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html#cfn-timestream-table-magneticstorewriteproperties-magneticstorerejecteddatalocation>
                                           magneticStoreRejectedDataLocation :: (Prelude.Maybe MagneticStoreRejectedDataLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreWritePropertiesProperty ::
   Value Prelude.Bool -> MagneticStoreWritePropertiesProperty
 mkMagneticStoreWritePropertiesProperty enableMagneticStoreWrites
   = MagneticStoreWritePropertiesProperty
-      {enableMagneticStoreWrites = enableMagneticStoreWrites,
+      {haddock_workaround_ = (),
+       enableMagneticStoreWrites = enableMagneticStoreWrites,
        magneticStoreRejectedDataLocation = Prelude.Nothing}
 instance ToResourceProperties MagneticStoreWritePropertiesProperty where
   toResourceProperties MagneticStoreWritePropertiesProperty {..}

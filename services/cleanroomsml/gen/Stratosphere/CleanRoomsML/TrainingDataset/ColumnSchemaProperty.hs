@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnSchemaProperty
-  = ColumnSchemaProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-columnschema.html>
+    ColumnSchemaProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-columnschema.html#cfn-cleanroomsml-trainingdataset-columnschema-columnname>
+                          columnName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-columnschema.html#cfn-cleanroomsml-trainingdataset-columnschema-columntypes>
                           columnTypes :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnSchemaProperty ::
@@ -15,7 +19,8 @@ mkColumnSchemaProperty ::
   -> ValueList Prelude.Text -> ColumnSchemaProperty
 mkColumnSchemaProperty columnName columnTypes
   = ColumnSchemaProperty
-      {columnName = columnName, columnTypes = columnTypes}
+      {haddock_workaround_ = (), columnName = columnName,
+       columnTypes = columnTypes}
 instance ToResourceProperties ColumnSchemaProperty where
   toResourceProperties ColumnSchemaProperty {..}
     = ResourceProperties

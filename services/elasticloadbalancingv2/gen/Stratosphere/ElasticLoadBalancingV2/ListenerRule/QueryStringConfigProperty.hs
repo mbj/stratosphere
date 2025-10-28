@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStringKeyValueProperty as Exports
 import Stratosphere.ResourceProperties
 data QueryStringConfigProperty
-  = QueryStringConfigProperty {values :: (Prelude.Maybe [QueryStringKeyValueProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html>
+    QueryStringConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values>
+                               values :: (Prelude.Maybe [QueryStringKeyValueProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryStringConfigProperty :: QueryStringConfigProperty
 mkQueryStringConfigProperty
-  = QueryStringConfigProperty {values = Prelude.Nothing}
+  = QueryStringConfigProperty
+      {haddock_workaround_ = (), values = Prelude.Nothing}
 instance ToResourceProperties QueryStringConfigProperty where
   toResourceProperties QueryStringConfigProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON QueryStringConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" QueryStringConfigProperty where
   type PropertyType "Values" QueryStringConfigProperty = [QueryStringKeyValueProperty]
-  set newValue QueryStringConfigProperty {}
+  set newValue QueryStringConfigProperty {..}
     = QueryStringConfigProperty {values = Prelude.pure newValue, ..}

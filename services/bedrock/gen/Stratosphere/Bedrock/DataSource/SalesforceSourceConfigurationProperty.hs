@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceSourceConfigurationProperty
-  = SalesforceSourceConfigurationProperty {authType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html>
+    SalesforceSourceConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html#cfn-bedrock-datasource-salesforcesourceconfiguration-authtype>
+                                           authType :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html#cfn-bedrock-datasource-salesforcesourceconfiguration-credentialssecretarn>
                                            credentialsSecretArn :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html#cfn-bedrock-datasource-salesforcesourceconfiguration-hosturl>
                                            hostUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceSourceConfigurationProperty ::
@@ -21,8 +26,8 @@ mkSalesforceSourceConfigurationProperty
   credentialsSecretArn
   hostUrl
   = SalesforceSourceConfigurationProperty
-      {authType = authType, credentialsSecretArn = credentialsSecretArn,
-       hostUrl = hostUrl}
+      {haddock_workaround_ = (), authType = authType,
+       credentialsSecretArn = credentialsSecretArn, hostUrl = hostUrl}
 instance ToResourceProperties SalesforceSourceConfigurationProperty where
   toResourceProperties SalesforceSourceConfigurationProperty {..}
     = ResourceProperties

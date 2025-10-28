@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.OnInputProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StateProperty
-  = StateProperty {onEnter :: (Prelude.Maybe OnEnterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html>
+    StateProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter>
+                   onEnter :: (Prelude.Maybe OnEnterProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit>
                    onExit :: (Prelude.Maybe OnExitProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput>
                    onInput :: (Prelude.Maybe OnInputProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename>
                    stateName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStateProperty :: Value Prelude.Text -> StateProperty
 mkStateProperty stateName
   = StateProperty
-      {stateName = stateName, onEnter = Prelude.Nothing,
-       onExit = Prelude.Nothing, onInput = Prelude.Nothing}
+      {haddock_workaround_ = (), stateName = stateName,
+       onEnter = Prelude.Nothing, onExit = Prelude.Nothing,
+       onInput = Prelude.Nothing}
 instance ToResourceProperties StateProperty where
   toResourceProperties StateProperty {..}
     = ResourceProperties

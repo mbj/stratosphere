@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyGroupProperty
-  = PropertyGroupProperty {groupType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertygroup.html>
+    PropertyGroupProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertygroup.html#cfn-iottwinmaker-entity-propertygroup-grouptype>
+                           groupType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertygroup.html#cfn-iottwinmaker-entity-propertygroup-propertynames>
                            propertyNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyGroupProperty :: PropertyGroupProperty
 mkPropertyGroupProperty
   = PropertyGroupProperty
-      {groupType = Prelude.Nothing, propertyNames = Prelude.Nothing}
+      {haddock_workaround_ = (), groupType = Prelude.Nothing,
+       propertyNames = Prelude.Nothing}
 instance ToResourceProperties PropertyGroupProperty where
   toResourceProperties PropertyGroupProperty {..}
     = ResourceProperties

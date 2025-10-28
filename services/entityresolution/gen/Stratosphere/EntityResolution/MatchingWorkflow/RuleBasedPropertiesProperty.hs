@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.RulePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleBasedPropertiesProperty
-  = RuleBasedPropertiesProperty {attributeMatchingModel :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html>
+    RuleBasedPropertiesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-attributematchingmodel>
+                                 attributeMatchingModel :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-matchpurpose>
                                  matchPurpose :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-rules>
                                  rules :: [RuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleBasedPropertiesProperty ::
   Value Prelude.Text -> [RuleProperty] -> RuleBasedPropertiesProperty
 mkRuleBasedPropertiesProperty attributeMatchingModel rules
   = RuleBasedPropertiesProperty
-      {attributeMatchingModel = attributeMatchingModel, rules = rules,
+      {haddock_workaround_ = (),
+       attributeMatchingModel = attributeMatchingModel, rules = rules,
        matchPurpose = Prelude.Nothing}
 instance ToResourceProperties RuleBasedPropertiesProperty where
   toResourceProperties RuleBasedPropertiesProperty {..}

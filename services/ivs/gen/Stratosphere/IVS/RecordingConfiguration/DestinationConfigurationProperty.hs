@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html>
+    DestinationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3>
+                                      s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
   DestinationConfigurationProperty
 mkDestinationConfigurationProperty
-  = DestinationConfigurationProperty {s3 = Prelude.Nothing}
+  = DestinationConfigurationProperty
+      {haddock_workaround_ = (), s3 = Prelude.Nothing}
 instance ToResourceProperties DestinationConfigurationProperty where
   toResourceProperties DestinationConfigurationProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON DestinationConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "S3" Prelude.<$> s3]))
 instance Property "S3" DestinationConfigurationProperty where
   type PropertyType "S3" DestinationConfigurationProperty = S3DestinationConfigurationProperty
-  set newValue DestinationConfigurationProperty {}
+  set newValue DestinationConfigurationProperty {..}
     = DestinationConfigurationProperty {s3 = Prelude.pure newValue, ..}

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OwnershipSettingsProperty
-  = OwnershipSettingsProperty {ownerUserProfileName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html>
+    OwnershipSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html#cfn-sagemaker-space-ownershipsettings-owneruserprofilename>
+                               ownerUserProfileName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOwnershipSettingsProperty ::
   Value Prelude.Text -> OwnershipSettingsProperty
 mkOwnershipSettingsProperty ownerUserProfileName
   = OwnershipSettingsProperty
-      {ownerUserProfileName = ownerUserProfileName}
+      {haddock_workaround_ = (),
+       ownerUserProfileName = ownerUserProfileName}
 instance ToResourceProperties OwnershipSettingsProperty where
   toResourceProperties OwnershipSettingsProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON OwnershipSettingsProperty where
     = JSON.object ["OwnerUserProfileName" JSON..= ownerUserProfileName]
 instance Property "OwnerUserProfileName" OwnershipSettingsProperty where
   type PropertyType "OwnerUserProfileName" OwnershipSettingsProperty = Value Prelude.Text
-  set newValue OwnershipSettingsProperty {}
+  set newValue OwnershipSettingsProperty {..}
     = OwnershipSettingsProperty {ownerUserProfileName = newValue, ..}

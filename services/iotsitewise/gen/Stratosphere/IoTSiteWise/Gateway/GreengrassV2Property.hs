@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreengrassV2Property
-  = GreengrassV2Property {coreDeviceThingName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html>
+    GreengrassV2Property {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname>
+                          coreDeviceThingName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGreengrassV2Property ::
   Value Prelude.Text -> GreengrassV2Property
 mkGreengrassV2Property coreDeviceThingName
-  = GreengrassV2Property {coreDeviceThingName = coreDeviceThingName}
+  = GreengrassV2Property
+      {haddock_workaround_ = (),
+       coreDeviceThingName = coreDeviceThingName}
 instance ToResourceProperties GreengrassV2Property where
   toResourceProperties GreengrassV2Property {..}
     = ResourceProperties
@@ -24,5 +29,5 @@ instance JSON.ToJSON GreengrassV2Property where
     = JSON.object ["CoreDeviceThingName" JSON..= coreDeviceThingName]
 instance Property "CoreDeviceThingName" GreengrassV2Property where
   type PropertyType "CoreDeviceThingName" GreengrassV2Property = Value Prelude.Text
-  set newValue GreengrassV2Property {}
+  set newValue GreengrassV2Property {..}
     = GreengrassV2Property {coreDeviceThingName = newValue, ..}

@@ -8,19 +8,28 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ScriptProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreateRuleProperty
-  = CreateRuleProperty {cronExpression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html>
+    CreateRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-cronexpression>
+                        cronExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-interval>
                         interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-intervalunit>
                         intervalUnit :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-location>
                         location :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-scripts>
                         scripts :: (Prelude.Maybe [ScriptProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-times>
                         times :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateRuleProperty :: CreateRuleProperty
 mkCreateRuleProperty
   = CreateRuleProperty
-      {cronExpression = Prelude.Nothing, interval = Prelude.Nothing,
-       intervalUnit = Prelude.Nothing, location = Prelude.Nothing,
-       scripts = Prelude.Nothing, times = Prelude.Nothing}
+      {haddock_workaround_ = (), cronExpression = Prelude.Nothing,
+       interval = Prelude.Nothing, intervalUnit = Prelude.Nothing,
+       location = Prelude.Nothing, scripts = Prelude.Nothing,
+       times = Prelude.Nothing}
 instance ToResourceProperties CreateRuleProperty where
   toResourceProperties CreateRuleProperty {..}
     = ResourceProperties

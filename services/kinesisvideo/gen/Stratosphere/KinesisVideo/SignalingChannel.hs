@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SignalingChannel
-  = SignalingChannel {messageTtlSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html>
+    SignalingChannel {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html#cfn-kinesisvideo-signalingchannel-messagettlseconds>
+                      messageTtlSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html#cfn-kinesisvideo-signalingchannel-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html#cfn-kinesisvideo-signalingchannel-tags>
                       tags :: (Prelude.Maybe [Tag]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html#cfn-kinesisvideo-signalingchannel-type>
                       type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalingChannel :: SignalingChannel
 mkSignalingChannel
   = SignalingChannel
-      {messageTtlSeconds = Prelude.Nothing, name = Prelude.Nothing,
-       tags = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), messageTtlSeconds = Prelude.Nothing,
+       name = Prelude.Nothing, tags = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties SignalingChannel where
   toResourceProperties SignalingChannel {..}
     = ResourceProperties

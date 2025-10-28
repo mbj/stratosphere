@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ServiceNetwork
-  = ServiceNetwork {authType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html>
+    ServiceNetwork {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-authtype>
+                    authType :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-name>
                     name :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-sharingconfig>
                     sharingConfig :: (Prelude.Maybe SharingConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNetwork :: ServiceNetwork
 mkServiceNetwork
   = ServiceNetwork
-      {authType = Prelude.Nothing, name = Prelude.Nothing,
-       sharingConfig = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), authType = Prelude.Nothing,
+       name = Prelude.Nothing, sharingConfig = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ServiceNetwork where
   toResourceProperties ServiceNetwork {..}
     = ResourceProperties

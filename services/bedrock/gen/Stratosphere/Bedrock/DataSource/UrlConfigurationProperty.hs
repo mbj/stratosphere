@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SeedUrlProperty as Exports
 import Stratosphere.ResourceProperties
 data UrlConfigurationProperty
-  = UrlConfigurationProperty {seedUrls :: [SeedUrlProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html>
+    UrlConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html#cfn-bedrock-datasource-urlconfiguration-seedurls>
+                              seedUrls :: [SeedUrlProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUrlConfigurationProperty ::
   [SeedUrlProperty] -> UrlConfigurationProperty
 mkUrlConfigurationProperty seedUrls
-  = UrlConfigurationProperty {seedUrls = seedUrls}
+  = UrlConfigurationProperty
+      {haddock_workaround_ = (), seedUrls = seedUrls}
 instance ToResourceProperties UrlConfigurationProperty where
   toResourceProperties UrlConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON UrlConfigurationProperty where
     = JSON.object ["SeedUrls" JSON..= seedUrls]
 instance Property "SeedUrls" UrlConfigurationProperty where
   type PropertyType "SeedUrls" UrlConfigurationProperty = [SeedUrlProperty]
-  set newValue UrlConfigurationProperty {}
+  set newValue UrlConfigurationProperty {..}
     = UrlConfigurationProperty {seedUrls = newValue, ..}

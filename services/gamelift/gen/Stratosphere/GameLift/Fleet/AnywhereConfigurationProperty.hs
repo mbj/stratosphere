@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnywhereConfigurationProperty
-  = AnywhereConfigurationProperty {cost :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>
+    AnywhereConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html#cfn-gamelift-fleet-anywhereconfiguration-cost>
+                                   cost :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnywhereConfigurationProperty ::
   Value Prelude.Text -> AnywhereConfigurationProperty
 mkAnywhereConfigurationProperty cost
-  = AnywhereConfigurationProperty {cost = cost}
+  = AnywhereConfigurationProperty
+      {haddock_workaround_ = (), cost = cost}
 instance ToResourceProperties AnywhereConfigurationProperty where
   toResourceProperties AnywhereConfigurationProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON AnywhereConfigurationProperty where
     = JSON.object ["Cost" JSON..= cost]
 instance Property "Cost" AnywhereConfigurationProperty where
   type PropertyType "Cost" AnywhereConfigurationProperty = Value Prelude.Text
-  set newValue AnywhereConfigurationProperty {}
+  set newValue AnywhereConfigurationProperty {..}
     = AnywhereConfigurationProperty {cost = newValue, ..}

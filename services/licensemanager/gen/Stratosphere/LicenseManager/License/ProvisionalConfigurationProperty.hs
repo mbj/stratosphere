@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionalConfigurationProperty
-  = ProvisionalConfigurationProperty {maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html>
+    ProvisionalConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes>
+                                      maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionalConfigurationProperty ::
   Value Prelude.Integer -> ProvisionalConfigurationProperty
 mkProvisionalConfigurationProperty maxTimeToLiveInMinutes
   = ProvisionalConfigurationProperty
-      {maxTimeToLiveInMinutes = maxTimeToLiveInMinutes}
+      {haddock_workaround_ = (),
+       maxTimeToLiveInMinutes = maxTimeToLiveInMinutes}
 instance ToResourceProperties ProvisionalConfigurationProperty where
   toResourceProperties ProvisionalConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ProvisionalConfigurationProperty where
         ["MaxTimeToLiveInMinutes" JSON..= maxTimeToLiveInMinutes]
 instance Property "MaxTimeToLiveInMinutes" ProvisionalConfigurationProperty where
   type PropertyType "MaxTimeToLiveInMinutes" ProvisionalConfigurationProperty = Value Prelude.Integer
-  set newValue ProvisionalConfigurationProperty {}
+  set newValue ProvisionalConfigurationProperty {..}
     = ProvisionalConfigurationProperty
         {maxTimeToLiveInMinutes = newValue, ..}

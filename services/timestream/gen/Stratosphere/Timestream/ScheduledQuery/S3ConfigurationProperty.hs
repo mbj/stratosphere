@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigurationProperty
-  = S3ConfigurationProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html>
+    S3ConfigurationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-bucketname>
+                             bucketName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-encryptionoption>
                              encryptionOption :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-objectkeyprefix>
                              objectKeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigurationProperty ::
   Value Prelude.Text -> S3ConfigurationProperty
 mkS3ConfigurationProperty bucketName
   = S3ConfigurationProperty
-      {bucketName = bucketName, encryptionOption = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketName = bucketName,
+       encryptionOption = Prelude.Nothing,
        objectKeyPrefix = Prelude.Nothing}
 instance ToResourceProperties S3ConfigurationProperty where
   toResourceProperties S3ConfigurationProperty {..}

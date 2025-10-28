@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutocommitPeriodProperty
-  = AutocommitPeriodProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>
+    AutocommitPeriodProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html#cfn-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod-type>
+                              type' :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html#cfn-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod-value>
                               value :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutocommitPeriodProperty ::
   Value Prelude.Text -> AutocommitPeriodProperty
 mkAutocommitPeriodProperty type'
-  = AutocommitPeriodProperty {type' = type', value = Prelude.Nothing}
+  = AutocommitPeriodProperty
+      {haddock_workaround_ = (), type' = type', value = Prelude.Nothing}
 instance ToResourceProperties AutocommitPeriodProperty where
   toResourceProperties AutocommitPeriodProperty {..}
     = ResourceProperties

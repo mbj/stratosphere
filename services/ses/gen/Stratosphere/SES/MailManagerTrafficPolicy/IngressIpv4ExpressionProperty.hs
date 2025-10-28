@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressIpToEvalu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressIpv4ExpressionProperty
-  = IngressIpv4ExpressionProperty {evaluate :: IngressIpToEvaluateProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html>
+    IngressIpv4ExpressionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-evaluate>
+                                   evaluate :: IngressIpToEvaluateProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-operator>
                                    operator :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-values>
                                    values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressIpv4ExpressionProperty ::
@@ -19,7 +24,8 @@ mkIngressIpv4ExpressionProperty ::
      -> ValueList Prelude.Text -> IngressIpv4ExpressionProperty
 mkIngressIpv4ExpressionProperty evaluate operator values
   = IngressIpv4ExpressionProperty
-      {evaluate = evaluate, operator = operator, values = values}
+      {haddock_workaround_ = (), evaluate = evaluate,
+       operator = operator, values = values}
 instance ToResourceProperties IngressIpv4ExpressionProperty where
   toResourceProperties IngressIpv4ExpressionProperty {..}
     = ResourceProperties

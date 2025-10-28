@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SimpleRuleProperty
-  = SimpleRuleProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html>
+    SimpleRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html#cfn-iotevents-alarmmodel-simplerule-comparisonoperator>
+                        comparisonOperator :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html#cfn-iotevents-alarmmodel-simplerule-inputproperty>
                         inputProperty :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html#cfn-iotevents-alarmmodel-simplerule-threshold>
                         threshold :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleRuleProperty ::
@@ -16,7 +21,7 @@ mkSimpleRuleProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> SimpleRuleProperty
 mkSimpleRuleProperty comparisonOperator inputProperty threshold
   = SimpleRuleProperty
-      {comparisonOperator = comparisonOperator,
+      {haddock_workaround_ = (), comparisonOperator = comparisonOperator,
        inputProperty = inputProperty, threshold = threshold}
 instance ToResourceProperties SimpleRuleProperty where
   toResourceProperties SimpleRuleProperty {..}

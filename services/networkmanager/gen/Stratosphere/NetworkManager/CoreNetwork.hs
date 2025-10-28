@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CoreNetwork
-  = CoreNetwork {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html>
+    CoreNetwork {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html#cfn-networkmanager-corenetwork-description>
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html#cfn-networkmanager-corenetwork-globalnetworkid>
                  globalNetworkId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html#cfn-networkmanager-corenetwork-policydocument>
                  policyDocument :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html#cfn-networkmanager-corenetwork-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetwork :: Value Prelude.Text -> CoreNetwork
 mkCoreNetwork globalNetworkId
   = CoreNetwork
-      {globalNetworkId = globalNetworkId, description = Prelude.Nothing,
-       policyDocument = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), globalNetworkId = globalNetworkId,
+       description = Prelude.Nothing, policyDocument = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties CoreNetwork where
   toResourceProperties CoreNetwork {..}
     = ResourceProperties

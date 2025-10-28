@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.AlarmProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoRollbackConfigProperty
-  = AutoRollbackConfigProperty {alarms :: [AlarmProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>
+    AutoRollbackConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms>
+                                alarms :: [AlarmProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoRollbackConfigProperty ::
   [AlarmProperty] -> AutoRollbackConfigProperty
 mkAutoRollbackConfigProperty alarms
-  = AutoRollbackConfigProperty {alarms = alarms}
+  = AutoRollbackConfigProperty
+      {haddock_workaround_ = (), alarms = alarms}
 instance ToResourceProperties AutoRollbackConfigProperty where
   toResourceProperties AutoRollbackConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON AutoRollbackConfigProperty where
     = JSON.object ["Alarms" JSON..= alarms]
 instance Property "Alarms" AutoRollbackConfigProperty where
   type PropertyType "Alarms" AutoRollbackConfigProperty = [AlarmProperty]
-  set newValue AutoRollbackConfigProperty {}
+  set newValue AutoRollbackConfigProperty {..}
     = AutoRollbackConfigProperty {alarms = newValue, ..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextTransformationProperty
-  = TextTransformationProperty {priority :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html>
+    TextTransformationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority>
+                                priority :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextTransformationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> TextTransformationProperty
 mkTextTransformationProperty priority type'
-  = TextTransformationProperty {priority = priority, type' = type'}
+  = TextTransformationProperty
+      {haddock_workaround_ = (), priority = priority, type' = type'}
 instance ToResourceProperties TextTransformationProperty where
   toResourceProperties TextTransformationProperty {..}
     = ResourceProperties

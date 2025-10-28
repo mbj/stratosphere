@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormInputValuePropertyBindingPropertiesProperty
-  = FormInputValuePropertyBindingPropertiesProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvaluepropertybindingproperties.html>
+    FormInputValuePropertyBindingPropertiesProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvaluepropertybindingproperties.html#cfn-amplifyuibuilder-form-forminputvaluepropertybindingproperties-field>
+                                                     field :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvaluepropertybindingproperties.html#cfn-amplifyuibuilder-form-forminputvaluepropertybindingproperties-property>
                                                      property :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormInputValuePropertyBindingPropertiesProperty ::
@@ -16,7 +20,8 @@ mkFormInputValuePropertyBindingPropertiesProperty ::
   -> FormInputValuePropertyBindingPropertiesProperty
 mkFormInputValuePropertyBindingPropertiesProperty property
   = FormInputValuePropertyBindingPropertiesProperty
-      {property = property, field = Prelude.Nothing}
+      {haddock_workaround_ = (), property = property,
+       field = Prelude.Nothing}
 instance ToResourceProperties FormInputValuePropertyBindingPropertiesProperty where
   toResourceProperties
     FormInputValuePropertyBindingPropertiesProperty {..}

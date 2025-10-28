@@ -15,24 +15,35 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.SnsProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.SqsProperty as Exports
 import Stratosphere.ResourceProperties
 data AlarmActionProperty
-  = AlarmActionProperty {dynamoDB :: (Prelude.Maybe DynamoDBProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html>
+    AlarmActionProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodb>
+                         dynamoDB :: (Prelude.Maybe DynamoDBProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-dynamodbv2>
                          dynamoDBv2 :: (Prelude.Maybe DynamoDBv2Property),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-firehose>
                          firehose :: (Prelude.Maybe FirehoseProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iotevents>
                          iotEvents :: (Prelude.Maybe IotEventsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iotsitewise>
                          iotSiteWise :: (Prelude.Maybe IotSiteWiseProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-iottopicpublish>
                          iotTopicPublish :: (Prelude.Maybe IotTopicPublishProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-lambda>
                          lambda :: (Prelude.Maybe LambdaProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sns>
                          sns :: (Prelude.Maybe SnsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html#cfn-iotevents-alarmmodel-alarmaction-sqs>
                          sqs :: (Prelude.Maybe SqsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmActionProperty :: AlarmActionProperty
 mkAlarmActionProperty
   = AlarmActionProperty
-      {dynamoDB = Prelude.Nothing, dynamoDBv2 = Prelude.Nothing,
-       firehose = Prelude.Nothing, iotEvents = Prelude.Nothing,
-       iotSiteWise = Prelude.Nothing, iotTopicPublish = Prelude.Nothing,
-       lambda = Prelude.Nothing, sns = Prelude.Nothing,
-       sqs = Prelude.Nothing}
+      {haddock_workaround_ = (), dynamoDB = Prelude.Nothing,
+       dynamoDBv2 = Prelude.Nothing, firehose = Prelude.Nothing,
+       iotEvents = Prelude.Nothing, iotSiteWise = Prelude.Nothing,
+       iotTopicPublish = Prelude.Nothing, lambda = Prelude.Nothing,
+       sns = Prelude.Nothing, sqs = Prelude.Nothing}
 instance ToResourceProperties AlarmActionProperty where
   toResourceProperties AlarmActionProperty {..}
     = ResourceProperties

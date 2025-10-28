@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data BillingGroup
-  = BillingGroup {billingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html>
+    BillingGroup {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html#cfn-iot-billinggroup-billinggroupname>
+                  billingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html#cfn-iot-billinggroup-billinggroupproperties>
                   billingGroupProperties :: (Prelude.Maybe BillingGroupPropertiesProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html#cfn-iot-billinggroup-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingGroup :: BillingGroup
 mkBillingGroup
   = BillingGroup
-      {billingGroupName = Prelude.Nothing,
+      {haddock_workaround_ = (), billingGroupName = Prelude.Nothing,
        billingGroupProperties = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties BillingGroup where
   toResourceProperties BillingGroup {..}

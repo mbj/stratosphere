@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.AppStream.AppBlock.S3LocationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptDetailsProperty
-  = ScriptDetailsProperty {executableParameters :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html>
+    ScriptDetailsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executableparameters>
+                           executableParameters :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executablepath>
                            executablePath :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-scripts3location>
                            scriptS3Location :: S3LocationProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-timeoutinseconds>
                            timeoutInSeconds :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptDetailsProperty ::
@@ -22,7 +28,7 @@ mkScriptDetailsProperty
   scriptS3Location
   timeoutInSeconds
   = ScriptDetailsProperty
-      {executablePath = executablePath,
+      {haddock_workaround_ = (), executablePath = executablePath,
        scriptS3Location = scriptS3Location,
        timeoutInSeconds = timeoutInSeconds,
        executableParameters = Prelude.Nothing}

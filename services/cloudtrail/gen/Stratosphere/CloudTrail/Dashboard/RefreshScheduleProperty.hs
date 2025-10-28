@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.CloudTrail.Dashboard.FrequencyProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RefreshScheduleProperty
-  = RefreshScheduleProperty {frequency :: (Prelude.Maybe FrequencyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html>
+    RefreshScheduleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-frequency>
+                             frequency :: (Prelude.Maybe FrequencyProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-status>
                              status :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-timeofday>
                              timeOfDay :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshScheduleProperty :: RefreshScheduleProperty
 mkRefreshScheduleProperty
   = RefreshScheduleProperty
-      {frequency = Prelude.Nothing, status = Prelude.Nothing,
-       timeOfDay = Prelude.Nothing}
+      {haddock_workaround_ = (), frequency = Prelude.Nothing,
+       status = Prelude.Nothing, timeOfDay = Prelude.Nothing}
 instance ToResourceProperties RefreshScheduleProperty where
   toResourceProperties RefreshScheduleProperty {..}
     = ResourceProperties

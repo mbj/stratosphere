@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UploadSettingsProperty
-  = UploadSettingsProperty {containsHeader :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html>
+    UploadSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader>
+                            containsHeader :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter>
                             delimiter :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format>
                             format :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow>
                             startFromRow :: (Prelude.Maybe (Value Prelude.Double)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier>
                             textQualifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUploadSettingsProperty :: UploadSettingsProperty
 mkUploadSettingsProperty
   = UploadSettingsProperty
-      {containsHeader = Prelude.Nothing, delimiter = Prelude.Nothing,
-       format = Prelude.Nothing, startFromRow = Prelude.Nothing,
-       textQualifier = Prelude.Nothing}
+      {haddock_workaround_ = (), containsHeader = Prelude.Nothing,
+       delimiter = Prelude.Nothing, format = Prelude.Nothing,
+       startFromRow = Prelude.Nothing, textQualifier = Prelude.Nothing}
 instance ToResourceProperties UploadSettingsProperty where
   toResourceProperties UploadSettingsProperty {..}
     = ResourceProperties

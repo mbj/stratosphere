@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AthenaParametersProperty
-  = AthenaParametersProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html>
+    AthenaParametersProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-rolearn>
+                              roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup>
                               workGroup :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAthenaParametersProperty :: AthenaParametersProperty
 mkAthenaParametersProperty
   = AthenaParametersProperty
-      {roleArn = Prelude.Nothing, workGroup = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = Prelude.Nothing,
+       workGroup = Prelude.Nothing}
 instance ToResourceProperties AthenaParametersProperty where
   toResourceProperties AthenaParametersProperty {..}
     = ResourceProperties

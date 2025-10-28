@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.ProviderProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigProperty
-  = EncryptionConfigProperty {provider :: (Prelude.Maybe ProviderProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html>
+    EncryptionConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-provider>
+                              provider :: (Prelude.Maybe ProviderProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html#cfn-eks-cluster-encryptionconfig-resources>
                               resources :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigProperty :: EncryptionConfigProperty
 mkEncryptionConfigProperty
   = EncryptionConfigProperty
-      {provider = Prelude.Nothing, resources = Prelude.Nothing}
+      {haddock_workaround_ = (), provider = Prelude.Nothing,
+       resources = Prelude.Nothing}
 instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties

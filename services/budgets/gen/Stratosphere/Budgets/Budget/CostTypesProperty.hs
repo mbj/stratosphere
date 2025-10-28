@@ -7,22 +7,35 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CostTypesProperty
-  = CostTypesProperty {includeCredit :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html>
+    CostTypesProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit>
+                       includeCredit :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount>
                        includeDiscount :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription>
                        includeOtherSubscription :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring>
                        includeRecurring :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund>
                        includeRefund :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription>
                        includeSubscription :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport>
                        includeSupport :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax>
                        includeTax :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront>
                        includeUpfront :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized>
                        useAmortized :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended>
                        useBlended :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCostTypesProperty :: CostTypesProperty
 mkCostTypesProperty
   = CostTypesProperty
-      {includeCredit = Prelude.Nothing,
+      {haddock_workaround_ = (), includeCredit = Prelude.Nothing,
        includeDiscount = Prelude.Nothing,
        includeOtherSubscription = Prelude.Nothing,
        includeRecurring = Prelude.Nothing,

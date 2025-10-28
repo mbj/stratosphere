@@ -10,20 +10,31 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.EbsConfigurationProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceTypeConfigProperty
-  = InstanceTypeConfigProperty {bidPrice :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html>
+    InstanceTypeConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-bidprice>
+                                bidPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-bidpriceaspercentageofondemandprice>
                                 bidPriceAsPercentageOfOnDemandPrice :: (Prelude.Maybe (Value Prelude.Double)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-configurations>
                                 configurations :: (Prelude.Maybe [ConfigurationProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-customamiid>
                                 customAmiId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-ebsconfiguration>
                                 ebsConfiguration :: (Prelude.Maybe EbsConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-instancetype>
                                 instanceType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-priority>
                                 priority :: (Prelude.Maybe (Value Prelude.Double)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-weightedcapacity>
                                 weightedCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceTypeConfigProperty ::
   Value Prelude.Text -> InstanceTypeConfigProperty
 mkInstanceTypeConfigProperty instanceType
   = InstanceTypeConfigProperty
-      {instanceType = instanceType, bidPrice = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceType = instanceType,
+       bidPrice = Prelude.Nothing,
        bidPriceAsPercentageOfOnDemandPrice = Prelude.Nothing,
        configurations = Prelude.Nothing, customAmiId = Prelude.Nothing,
        ebsConfiguration = Prelude.Nothing, priority = Prelude.Nothing,

@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.NimbleStudio.StudioComponent.ActiveDirectoryC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActiveDirectoryConfigurationProperty
-  = ActiveDirectoryConfigurationProperty {computerAttributes :: (Prelude.Maybe [ActiveDirectoryComputerAttributeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html>
+    ActiveDirectoryConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes>
+                                          computerAttributes :: (Prelude.Maybe [ActiveDirectoryComputerAttributeProperty]),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid>
                                           directoryId :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname>
                                           organizationalUnitDistinguishedName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActiveDirectoryConfigurationProperty ::
   ActiveDirectoryConfigurationProperty
 mkActiveDirectoryConfigurationProperty
   = ActiveDirectoryConfigurationProperty
-      {computerAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), computerAttributes = Prelude.Nothing,
        directoryId = Prelude.Nothing,
        organizationalUnitDistinguishedName = Prelude.Nothing}
 instance ToResourceProperties ActiveDirectoryConfigurationProperty where

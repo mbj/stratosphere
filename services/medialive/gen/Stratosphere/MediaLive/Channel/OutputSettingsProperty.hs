@@ -17,21 +17,33 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtOutputSettingsProperty a
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpOutputSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputSettingsProperty
-  = OutputSettingsProperty {archiveOutputSettings :: (Prelude.Maybe ArchiveOutputSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html>
+    OutputSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-archiveoutputsettings>
+                            archiveOutputSettings :: (Prelude.Maybe ArchiveOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-cmafingestoutputsettings>
                             cmafIngestOutputSettings :: (Prelude.Maybe CmafIngestOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-framecaptureoutputsettings>
                             frameCaptureOutputSettings :: (Prelude.Maybe FrameCaptureOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-hlsoutputsettings>
                             hlsOutputSettings :: (Prelude.Maybe HlsOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-mediapackageoutputsettings>
                             mediaPackageOutputSettings :: (Prelude.Maybe MediaPackageOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-mssmoothoutputsettings>
                             msSmoothOutputSettings :: (Prelude.Maybe MsSmoothOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-multiplexoutputsettings>
                             multiplexOutputSettings :: (Prelude.Maybe MultiplexOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-rtmpoutputsettings>
                             rtmpOutputSettings :: (Prelude.Maybe RtmpOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-srtoutputsettings>
                             srtOutputSettings :: (Prelude.Maybe SrtOutputSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-udpoutputsettings>
                             udpOutputSettings :: (Prelude.Maybe UdpOutputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputSettingsProperty :: OutputSettingsProperty
 mkOutputSettingsProperty
   = OutputSettingsProperty
-      {archiveOutputSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), archiveOutputSettings = Prelude.Nothing,
        cmafIngestOutputSettings = Prelude.Nothing,
        frameCaptureOutputSettings = Prelude.Nothing,
        hlsOutputSettings = Prelude.Nothing,

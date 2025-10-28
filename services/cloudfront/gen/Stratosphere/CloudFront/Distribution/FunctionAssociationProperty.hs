@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionAssociationProperty
-  = FunctionAssociationProperty {eventType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html>
+    FunctionAssociationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype>
+                                 eventType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn>
                                  functionARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionAssociationProperty :: FunctionAssociationProperty
 mkFunctionAssociationProperty
   = FunctionAssociationProperty
-      {eventType = Prelude.Nothing, functionARN = Prelude.Nothing}
+      {haddock_workaround_ = (), eventType = Prelude.Nothing,
+       functionARN = Prelude.Nothing}
 instance ToResourceProperties FunctionAssociationProperty where
   toResourceProperties FunctionAssociationProperty {..}
     = ResourceProperties

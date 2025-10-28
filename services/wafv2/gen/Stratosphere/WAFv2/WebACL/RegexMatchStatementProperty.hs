@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegexMatchStatementProperty
-  = RegexMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html>
+    RegexMatchStatementProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-fieldtomatch>
+                                 fieldToMatch :: FieldToMatchProperty,
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-regexstring>
                                  regexString :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-texttransformations>
                                  textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexMatchStatementProperty ::
@@ -23,7 +28,8 @@ mkRegexMatchStatementProperty
   regexString
   textTransformations
   = RegexMatchStatementProperty
-      {fieldToMatch = fieldToMatch, regexString = regexString,
+      {haddock_workaround_ = (), fieldToMatch = fieldToMatch,
+       regexString = regexString,
        textTransformations = textTransformations}
 instance ToResourceProperties RegexMatchStatementProperty where
   toResourceProperties RegexMatchStatementProperty {..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data IntermediateStorageProperty
-  = IntermediateStorageProperty {s3Location :: S3LocationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-intermediatestorage.html>
+    IntermediateStorageProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-intermediatestorage.html#cfn-bedrock-datasource-intermediatestorage-s3location>
+                                 s3Location :: S3LocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntermediateStorageProperty ::
   S3LocationProperty -> IntermediateStorageProperty
 mkIntermediateStorageProperty s3Location
-  = IntermediateStorageProperty {s3Location = s3Location}
+  = IntermediateStorageProperty
+      {haddock_workaround_ = (), s3Location = s3Location}
 instance ToResourceProperties IntermediateStorageProperty where
   toResourceProperties IntermediateStorageProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IntermediateStorageProperty where
     = JSON.object ["S3Location" JSON..= s3Location]
 instance Property "S3Location" IntermediateStorageProperty where
   type PropertyType "S3Location" IntermediateStorageProperty = S3LocationProperty
-  set newValue IntermediateStorageProperty {}
+  set newValue IntermediateStorageProperty {..}
     = IntermediateStorageProperty {s3Location = newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.Input.AttributeProperty as Exports
 import Stratosphere.ResourceProperties
 data InputDefinitionProperty
-  = InputDefinitionProperty {attributes :: [AttributeProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html>
+    InputDefinitionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes>
+                             attributes :: [AttributeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDefinitionProperty ::
   [AttributeProperty] -> InputDefinitionProperty
 mkInputDefinitionProperty attributes
-  = InputDefinitionProperty {attributes = attributes}
+  = InputDefinitionProperty
+      {haddock_workaround_ = (), attributes = attributes}
 instance ToResourceProperties InputDefinitionProperty where
   toResourceProperties InputDefinitionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON InputDefinitionProperty where
     = JSON.object ["Attributes" JSON..= attributes]
 instance Property "Attributes" InputDefinitionProperty where
   type PropertyType "Attributes" InputDefinitionProperty = [AttributeProperty]
-  set newValue InputDefinitionProperty {}
+  set newValue InputDefinitionProperty {..}
     = InputDefinitionProperty {attributes = newValue, ..}

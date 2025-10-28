@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MulticastSourceCreateRequestProperty
-  = MulticastSourceCreateRequestProperty {sourceIp :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourcecreaterequest.html>
+    MulticastSourceCreateRequestProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourcecreaterequest.html#cfn-medialive-input-multicastsourcecreaterequest-sourceip>
+                                          sourceIp :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourcecreaterequest.html#cfn-medialive-input-multicastsourcecreaterequest-url>
                                           url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMulticastSourceCreateRequestProperty ::
   MulticastSourceCreateRequestProperty
 mkMulticastSourceCreateRequestProperty
   = MulticastSourceCreateRequestProperty
-      {sourceIp = Prelude.Nothing, url = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceIp = Prelude.Nothing,
+       url = Prelude.Nothing}
 instance ToResourceProperties MulticastSourceCreateRequestProperty where
   toResourceProperties MulticastSourceCreateRequestProperty {..}
     = ResourceProperties

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigProperty
-  = VpcConfigProperty {securityGroupIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html>
+    VpcConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids>
+                       securityGroupIds :: (ValueList Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets>
                        subnets :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigProperty ::
@@ -15,7 +19,8 @@ mkVpcConfigProperty ::
   -> ValueList Prelude.Text -> VpcConfigProperty
 mkVpcConfigProperty securityGroupIds subnets
   = VpcConfigProperty
-      {securityGroupIds = securityGroupIds, subnets = subnets}
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds,
+       subnets = subnets}
 instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties

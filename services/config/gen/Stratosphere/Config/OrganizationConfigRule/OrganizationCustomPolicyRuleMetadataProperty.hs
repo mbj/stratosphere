@@ -8,16 +8,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationCustomPolicyRuleMetadataProperty
-  = OrganizationCustomPolicyRuleMetadataProperty {debugLogDeliveryAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html>
+    OrganizationCustomPolicyRuleMetadataProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-debuglogdeliveryaccounts>
+                                                  debugLogDeliveryAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-description>
                                                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-inputparameters>
                                                   inputParameters :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-maximumexecutionfrequency>
                                                   maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-organizationconfigruletriggertypes>
                                                   organizationConfigRuleTriggerTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-policytext>
                                                   policyText :: (Value Prelude.Text),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-resourceidscope>
                                                   resourceIdScope :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-resourcetypesscope>
                                                   resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-runtime>
                                                   runtime :: (Value Prelude.Text),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-tagkeyscope>
                                                   tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata-tagvaluescope>
                                                   tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationCustomPolicyRuleMetadataProperty ::
@@ -26,8 +39,8 @@ mkOrganizationCustomPolicyRuleMetadataProperty ::
      -> OrganizationCustomPolicyRuleMetadataProperty
 mkOrganizationCustomPolicyRuleMetadataProperty policyText runtime
   = OrganizationCustomPolicyRuleMetadataProperty
-      {policyText = policyText, runtime = runtime,
-       debugLogDeliveryAccounts = Prelude.Nothing,
+      {haddock_workaround_ = (), policyText = policyText,
+       runtime = runtime, debugLogDeliveryAccounts = Prelude.Nothing,
        description = Prelude.Nothing, inputParameters = Prelude.Nothing,
        maximumExecutionFrequency = Prelude.Nothing,
        organizationConfigRuleTriggerTypes = Prelude.Nothing,

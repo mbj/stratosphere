@@ -13,22 +13,33 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.S3ActionProperty as Ex
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.SendActionProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleActionProperty
-  = RuleActionProperty {addHeader :: (Prelude.Maybe AddHeaderActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html>
+    RuleActionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-addheader>
+                        addHeader :: (Prelude.Maybe AddHeaderActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-archive>
                         archive :: (Prelude.Maybe ArchiveActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertomailbox>
                         deliverToMailbox :: (Prelude.Maybe DeliverToMailboxActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-drop>
                         drop :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-relay>
                         relay :: (Prelude.Maybe RelayActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-replacerecipient>
                         replaceRecipient :: (Prelude.Maybe ReplaceRecipientActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-send>
                         send :: (Prelude.Maybe SendActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-writetos3>
                         writeToS3 :: (Prelude.Maybe S3ActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionProperty :: RuleActionProperty
 mkRuleActionProperty
   = RuleActionProperty
-      {addHeader = Prelude.Nothing, archive = Prelude.Nothing,
-       deliverToMailbox = Prelude.Nothing, drop = Prelude.Nothing,
-       relay = Prelude.Nothing, replaceRecipient = Prelude.Nothing,
-       send = Prelude.Nothing, writeToS3 = Prelude.Nothing}
+      {haddock_workaround_ = (), addHeader = Prelude.Nothing,
+       archive = Prelude.Nothing, deliverToMailbox = Prelude.Nothing,
+       drop = Prelude.Nothing, relay = Prelude.Nothing,
+       replaceRecipient = Prelude.Nothing, send = Prelude.Nothing,
+       writeToS3 = Prelude.Nothing}
 instance ToResourceProperties RuleActionProperty where
   toResourceProperties RuleActionProperty {..}
     = ResourceProperties

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectTypeKeyProperty
-  = ObjectTypeKeyProperty {fieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html>
+    ObjectTypeKeyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames>
+                           fieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers>
                            standardIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectTypeKeyProperty :: ObjectTypeKeyProperty
 mkObjectTypeKeyProperty
   = ObjectTypeKeyProperty
-      {fieldNames = Prelude.Nothing,
+      {haddock_workaround_ = (), fieldNames = Prelude.Nothing,
        standardIdentifiers = Prelude.Nothing}
 instance ToResourceProperties ObjectTypeKeyProperty where
   toResourceProperties ObjectTypeKeyProperty {..}

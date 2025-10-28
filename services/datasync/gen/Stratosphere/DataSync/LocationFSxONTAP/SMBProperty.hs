@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.SmbMountOptionsProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SMBProperty
-  = SMBProperty {domain :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html>
+    SMBProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-domain>
+                 domain :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-mountoptions>
                  mountOptions :: SmbMountOptionsProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-password>
                  password :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-user>
                  user :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSMBProperty ::
@@ -18,8 +24,8 @@ mkSMBProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> SMBProperty
 mkSMBProperty mountOptions password user
   = SMBProperty
-      {mountOptions = mountOptions, password = password, user = user,
-       domain = Prelude.Nothing}
+      {haddock_workaround_ = (), mountOptions = mountOptions,
+       password = password, user = user, domain = Prelude.Nothing}
 instance ToResourceProperties SMBProperty where
   toResourceProperties SMBProperty {..}
     = ResourceProperties

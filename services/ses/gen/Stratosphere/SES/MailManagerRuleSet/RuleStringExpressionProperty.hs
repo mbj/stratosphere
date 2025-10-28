@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleStringToEvaluatePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleStringExpressionProperty
-  = RuleStringExpressionProperty {evaluate :: RuleStringToEvaluateProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html>
+    RuleStringExpressionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html#cfn-ses-mailmanagerruleset-rulestringexpression-evaluate>
+                                  evaluate :: RuleStringToEvaluateProperty,
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html#cfn-ses-mailmanagerruleset-rulestringexpression-operator>
                                   operator :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html#cfn-ses-mailmanagerruleset-rulestringexpression-values>
                                   values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleStringExpressionProperty ::
@@ -19,7 +24,8 @@ mkRuleStringExpressionProperty ::
      -> ValueList Prelude.Text -> RuleStringExpressionProperty
 mkRuleStringExpressionProperty evaluate operator values
   = RuleStringExpressionProperty
-      {evaluate = evaluate, operator = operator, values = values}
+      {haddock_workaround_ = (), evaluate = evaluate,
+       operator = operator, values = values}
 instance ToResourceProperties RuleStringExpressionProperty where
   toResourceProperties RuleStringExpressionProperty {..}
     = ResourceProperties

@@ -11,15 +11,20 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DocumentAttributeTargetProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InlineCustomDocumentEnrichmentConfigurationProperty
-  = InlineCustomDocumentEnrichmentConfigurationProperty {condition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html>
+    InlineCustomDocumentEnrichmentConfigurationProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-condition>
+                                                         condition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-documentcontentdeletion>
                                                          documentContentDeletion :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html#cfn-kendra-datasource-inlinecustomdocumentenrichmentconfiguration-target>
                                                          target :: (Prelude.Maybe DocumentAttributeTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInlineCustomDocumentEnrichmentConfigurationProperty ::
   InlineCustomDocumentEnrichmentConfigurationProperty
 mkInlineCustomDocumentEnrichmentConfigurationProperty
   = InlineCustomDocumentEnrichmentConfigurationProperty
-      {condition = Prelude.Nothing,
+      {haddock_workaround_ = (), condition = Prelude.Nothing,
        documentContentDeletion = Prelude.Nothing,
        target = Prelude.Nothing}
 instance ToResourceProperties InlineCustomDocumentEnrichmentConfigurationProperty where

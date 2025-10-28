@@ -11,14 +11,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CertificateAuthority
-  = CertificateAuthority {csrExtensions :: (Prelude.Maybe CsrExtensionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html>
+    CertificateAuthority {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions>
+                          csrExtensions :: (Prelude.Maybe CsrExtensionsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm>
                           keyAlgorithm :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard>
                           keyStorageSecurityStandard :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration>
                           revocationConfiguration :: (Prelude.Maybe RevocationConfigurationProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm>
                           signingAlgorithm :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject>
                           subject :: SubjectProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags>
                           tags :: (Prelude.Maybe [Tag]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type>
                           type' :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-usagemode>
                           usageMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateAuthority ::
@@ -27,8 +38,9 @@ mkCertificateAuthority ::
      -> SubjectProperty -> Value Prelude.Text -> CertificateAuthority
 mkCertificateAuthority keyAlgorithm signingAlgorithm subject type'
   = CertificateAuthority
-      {keyAlgorithm = keyAlgorithm, signingAlgorithm = signingAlgorithm,
-       subject = subject, type' = type', csrExtensions = Prelude.Nothing,
+      {haddock_workaround_ = (), keyAlgorithm = keyAlgorithm,
+       signingAlgorithm = signingAlgorithm, subject = subject,
+       type' = type', csrExtensions = Prelude.Nothing,
        keyStorageSecurityStandard = Prelude.Nothing,
        revocationConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
        usageMode = Prelude.Nothing}

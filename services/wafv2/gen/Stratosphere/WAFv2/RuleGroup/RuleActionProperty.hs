@@ -11,18 +11,25 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ChallengeActionProperty as Ex
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CountActionProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleActionProperty
-  = RuleActionProperty {allow :: (Prelude.Maybe AllowActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html>
+    RuleActionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow>
+                        allow :: (Prelude.Maybe AllowActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block>
                         block :: (Prelude.Maybe BlockActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-captcha>
                         captcha :: (Prelude.Maybe CaptchaActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-challenge>
                         challenge :: (Prelude.Maybe ChallengeActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count>
                         count :: (Prelude.Maybe CountActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionProperty :: RuleActionProperty
 mkRuleActionProperty
   = RuleActionProperty
-      {allow = Prelude.Nothing, block = Prelude.Nothing,
-       captcha = Prelude.Nothing, challenge = Prelude.Nothing,
-       count = Prelude.Nothing}
+      {haddock_workaround_ = (), allow = Prelude.Nothing,
+       block = Prelude.Nothing, captcha = Prelude.Nothing,
+       challenge = Prelude.Nothing, count = Prelude.Nothing}
 instance ToResourceProperties RuleActionProperty where
   toResourceProperties RuleActionProperty {..}
     = ResourceProperties

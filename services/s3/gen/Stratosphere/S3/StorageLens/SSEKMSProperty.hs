@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SSEKMSProperty
-  = SSEKMSProperty {keyId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html>
+    SSEKMSProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html#cfn-s3-storagelens-ssekms-keyid>
+                    keyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSSEKMSProperty :: Value Prelude.Text -> SSEKMSProperty
-mkSSEKMSProperty keyId = SSEKMSProperty {keyId = keyId}
+mkSSEKMSProperty keyId
+  = SSEKMSProperty {haddock_workaround_ = (), keyId = keyId}
 instance ToResourceProperties SSEKMSProperty where
   toResourceProperties SSEKMSProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON SSEKMSProperty where
   toJSON SSEKMSProperty {..} = JSON.object ["KeyId" JSON..= keyId]
 instance Property "KeyId" SSEKMSProperty where
   type PropertyType "KeyId" SSEKMSProperty = Value Prelude.Text
-  set newValue SSEKMSProperty {}
+  set newValue SSEKMSProperty {..}
     = SSEKMSProperty {keyId = newValue, ..}

@@ -10,18 +10,25 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpContainerSettingsPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SrtOutputSettingsProperty
-  = SrtOutputSettingsProperty {bufferMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html>
+    SrtOutputSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html#cfn-medialive-channel-srtoutputsettings-buffermsec>
+                               bufferMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html#cfn-medialive-channel-srtoutputsettings-containersettings>
                                containerSettings :: (Prelude.Maybe UdpContainerSettingsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html#cfn-medialive-channel-srtoutputsettings-destination>
                                destination :: (Prelude.Maybe OutputLocationRefProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html#cfn-medialive-channel-srtoutputsettings-encryptiontype>
                                encryptionType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html#cfn-medialive-channel-srtoutputsettings-latency>
                                latency :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtOutputSettingsProperty :: SrtOutputSettingsProperty
 mkSrtOutputSettingsProperty
   = SrtOutputSettingsProperty
-      {bufferMsec = Prelude.Nothing, containerSettings = Prelude.Nothing,
-       destination = Prelude.Nothing, encryptionType = Prelude.Nothing,
-       latency = Prelude.Nothing}
+      {haddock_workaround_ = (), bufferMsec = Prelude.Nothing,
+       containerSettings = Prelude.Nothing, destination = Prelude.Nothing,
+       encryptionType = Prelude.Nothing, latency = Prelude.Nothing}
 instance ToResourceProperties SrtOutputSettingsProperty where
   toResourceProperties SrtOutputSettingsProperty {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContentProperty
-  = ContentProperty {s3Bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html>
+    ContentProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3bucket>
+                     s3Bucket :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3key>
                      s3Key :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3objectversion>
                      s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ContentProperty
 mkContentProperty s3Bucket s3Key
   = ContentProperty
-      {s3Bucket = s3Bucket, s3Key = s3Key,
+      {haddock_workaround_ = (), s3Bucket = s3Bucket, s3Key = s3Key,
        s3ObjectVersion = Prelude.Nothing}
 instance ToResourceProperties ContentProperty where
   toResourceProperties ContentProperty {..}

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Theme.ThemeValueProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThemeValuesProperty
-  = ThemeValuesProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html>
+    ThemeValuesProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-key>
+                         key :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalues.html#cfn-amplifyuibuilder-theme-themevalues-value>
                          value :: (Prelude.Maybe ThemeValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeValuesProperty :: ThemeValuesProperty
 mkThemeValuesProperty
   = ThemeValuesProperty
-      {key = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), key = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties ThemeValuesProperty where
   toResourceProperties ThemeValuesProperty {..}
     = ResourceProperties

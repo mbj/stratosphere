@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.ScalingConstraintsPro
 import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.ScalingRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoScalingPolicyProperty
-  = AutoScalingPolicyProperty {constraints :: ScalingConstraintsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html>
+    AutoScalingPolicyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-constraints>
+                               constraints :: ScalingConstraintsProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-rules>
                                rules :: [ScalingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::
@@ -17,7 +21,8 @@ mkAutoScalingPolicyProperty ::
   -> [ScalingRuleProperty] -> AutoScalingPolicyProperty
 mkAutoScalingPolicyProperty constraints rules
   = AutoScalingPolicyProperty
-      {constraints = constraints, rules = rules}
+      {haddock_workaround_ = (), constraints = constraints,
+       rules = rules}
 instance ToResourceProperties AutoScalingPolicyProperty where
   toResourceProperties AutoScalingPolicyProperty {..}
     = ResourceProperties

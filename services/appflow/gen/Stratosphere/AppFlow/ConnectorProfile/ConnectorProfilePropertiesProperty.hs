@@ -21,32 +21,49 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.VeevaConnectorProfil
 import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ZendeskConnectorProfilePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorProfilePropertiesProperty
-  = ConnectorProfilePropertiesProperty {customConnector :: (Prelude.Maybe CustomConnectorProfilePropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html>
+    ConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-customconnector>
+                                        customConnector :: (Prelude.Maybe CustomConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog>
                                         datadog :: (Prelude.Maybe DatadogConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace>
                                         dynatrace :: (Prelude.Maybe DynatraceConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus>
                                         inforNexus :: (Prelude.Maybe InforNexusConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo>
                                         marketo :: (Prelude.Maybe MarketoConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-pardot>
                                         pardot :: (Prelude.Maybe PardotConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift>
                                         redshift :: (Prelude.Maybe RedshiftConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-sapodata>
                                         sAPOData :: (Prelude.Maybe SAPODataConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce>
                                         salesforce :: (Prelude.Maybe SalesforceConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow>
                                         serviceNow :: (Prelude.Maybe ServiceNowConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack>
                                         slack :: (Prelude.Maybe SlackConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake>
                                         snowflake :: (Prelude.Maybe SnowflakeConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva>
                                         veeva :: (Prelude.Maybe VeevaConnectorProfilePropertiesProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk>
                                         zendesk :: (Prelude.Maybe ZendeskConnectorProfilePropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfilePropertiesProperty ::
   ConnectorProfilePropertiesProperty
 mkConnectorProfilePropertiesProperty
   = ConnectorProfilePropertiesProperty
-      {customConnector = Prelude.Nothing, datadog = Prelude.Nothing,
-       dynatrace = Prelude.Nothing, inforNexus = Prelude.Nothing,
-       marketo = Prelude.Nothing, pardot = Prelude.Nothing,
-       redshift = Prelude.Nothing, sAPOData = Prelude.Nothing,
-       salesforce = Prelude.Nothing, serviceNow = Prelude.Nothing,
-       slack = Prelude.Nothing, snowflake = Prelude.Nothing,
-       veeva = Prelude.Nothing, zendesk = Prelude.Nothing}
+      {haddock_workaround_ = (), customConnector = Prelude.Nothing,
+       datadog = Prelude.Nothing, dynatrace = Prelude.Nothing,
+       inforNexus = Prelude.Nothing, marketo = Prelude.Nothing,
+       pardot = Prelude.Nothing, redshift = Prelude.Nothing,
+       sAPOData = Prelude.Nothing, salesforce = Prelude.Nothing,
+       serviceNow = Prelude.Nothing, slack = Prelude.Nothing,
+       snowflake = Prelude.Nothing, veeva = Prelude.Nothing,
+       zendesk = Prelude.Nothing}
 instance ToResourceProperties ConnectorProfilePropertiesProperty where
   toResourceProperties ConnectorProfilePropertiesProperty {..}
     = ResourceProperties

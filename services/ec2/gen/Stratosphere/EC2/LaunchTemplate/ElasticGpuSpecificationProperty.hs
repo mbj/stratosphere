@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ElasticGpuSpecificationProperty
-  = ElasticGpuSpecificationProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html>
+    ElasticGpuSpecificationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html#cfn-ec2-launchtemplate-elasticgpuspecification-type>
+                                     type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticGpuSpecificationProperty ::
   ElasticGpuSpecificationProperty
 mkElasticGpuSpecificationProperty
-  = ElasticGpuSpecificationProperty {type' = Prelude.Nothing}
+  = ElasticGpuSpecificationProperty
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties ElasticGpuSpecificationProperty where
   toResourceProperties ElasticGpuSpecificationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ElasticGpuSpecificationProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" ElasticGpuSpecificationProperty where
   type PropertyType "Type" ElasticGpuSpecificationProperty = Value Prelude.Text
-  set newValue ElasticGpuSpecificationProperty {}
+  set newValue ElasticGpuSpecificationProperty {..}
     = ElasticGpuSpecificationProperty
         {type' = Prelude.pure newValue, ..}

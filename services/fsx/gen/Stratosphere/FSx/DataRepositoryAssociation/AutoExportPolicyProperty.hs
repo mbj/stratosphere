@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoExportPolicyProperty
-  = AutoExportPolicyProperty {events :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html>
+    AutoExportPolicyProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html#cfn-fsx-datarepositoryassociation-autoexportpolicy-events>
+                              events :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoExportPolicyProperty ::
   ValueList Prelude.Text -> AutoExportPolicyProperty
 mkAutoExportPolicyProperty events
-  = AutoExportPolicyProperty {events = events}
+  = AutoExportPolicyProperty
+      {haddock_workaround_ = (), events = events}
 instance ToResourceProperties AutoExportPolicyProperty where
   toResourceProperties AutoExportPolicyProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AutoExportPolicyProperty where
     = JSON.object ["Events" JSON..= events]
 instance Property "Events" AutoExportPolicyProperty where
   type PropertyType "Events" AutoExportPolicyProperty = ValueList Prelude.Text
-  set newValue AutoExportPolicyProperty {}
+  set newValue AutoExportPolicyProperty {..}
     = AutoExportPolicyProperty {events = newValue, ..}

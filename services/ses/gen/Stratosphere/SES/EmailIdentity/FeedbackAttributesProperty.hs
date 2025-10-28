@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FeedbackAttributesProperty
-  = FeedbackAttributesProperty {emailForwardingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-feedbackattributes.html>
+    FeedbackAttributesProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-feedbackattributes.html#cfn-ses-emailidentity-feedbackattributes-emailforwardingenabled>
+                                emailForwardingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFeedbackAttributesProperty :: FeedbackAttributesProperty
 mkFeedbackAttributesProperty
   = FeedbackAttributesProperty
-      {emailForwardingEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       emailForwardingEnabled = Prelude.Nothing}
 instance ToResourceProperties FeedbackAttributesProperty where
   toResourceProperties FeedbackAttributesProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON FeedbackAttributesProperty where
                  Prelude.<$> emailForwardingEnabled]))
 instance Property "EmailForwardingEnabled" FeedbackAttributesProperty where
   type PropertyType "EmailForwardingEnabled" FeedbackAttributesProperty = Value Prelude.Bool
-  set newValue FeedbackAttributesProperty {}
+  set newValue FeedbackAttributesProperty {..}
     = FeedbackAttributesProperty
         {emailForwardingEnabled = Prelude.pure newValue, ..}

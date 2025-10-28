@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceStandardObjectConfigurationProperty
-  = SalesforceStandardObjectConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html>
+    SalesforceStandardObjectConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documentdatafieldname>
+                                                   documentDataFieldName :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname>
                                                    documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings>
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name>
                                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardObjectConfigurationProperty ::
@@ -22,7 +28,8 @@ mkSalesforceStandardObjectConfigurationProperty
   documentDataFieldName
   name
   = SalesforceStandardObjectConfigurationProperty
-      {documentDataFieldName = documentDataFieldName, name = name,
+      {haddock_workaround_ = (),
+       documentDataFieldName = documentDataFieldName, name = name,
        documentTitleFieldName = Prelude.Nothing,
        fieldMappings = Prelude.Nothing}
 instance ToResourceProperties SalesforceStandardObjectConfigurationProperty where

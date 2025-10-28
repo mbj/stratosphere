@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLocationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlackoutSlateProperty
-  = BlackoutSlateProperty {blackoutSlateImage :: (Prelude.Maybe InputLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html>
+    BlackoutSlateProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html#cfn-medialive-channel-blackoutslate-blackoutslateimage>
+                           blackoutSlateImage :: (Prelude.Maybe InputLocationProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html#cfn-medialive-channel-blackoutslate-networkendblackout>
                            networkEndBlackout :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html#cfn-medialive-channel-blackoutslate-networkendblackoutimage>
                            networkEndBlackoutImage :: (Prelude.Maybe InputLocationProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html#cfn-medialive-channel-blackoutslate-networkid>
                            networkId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html#cfn-medialive-channel-blackoutslate-state>
                            state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlackoutSlateProperty :: BlackoutSlateProperty
 mkBlackoutSlateProperty
   = BlackoutSlateProperty
-      {blackoutSlateImage = Prelude.Nothing,
+      {haddock_workaround_ = (), blackoutSlateImage = Prelude.Nothing,
        networkEndBlackout = Prelude.Nothing,
        networkEndBlackoutImage = Prelude.Nothing,
        networkId = Prelude.Nothing, state = Prelude.Nothing}

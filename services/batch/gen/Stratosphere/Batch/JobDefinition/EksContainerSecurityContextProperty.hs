@@ -8,18 +8,27 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksContainerSecurityContextProperty
-  = EksContainerSecurityContextProperty {allowPrivilegeEscalation :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html>
+    EksContainerSecurityContextProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-allowprivilegeescalation>
+                                         allowPrivilegeEscalation :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-privileged>
                                          privileged :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-readonlyrootfilesystem>
                                          readOnlyRootFilesystem :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-runasgroup>
                                          runAsGroup :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-runasnonroot>
                                          runAsNonRoot :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html#cfn-batch-jobdefinition-ekscontainersecuritycontext-runasuser>
                                          runAsUser :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerSecurityContextProperty ::
   EksContainerSecurityContextProperty
 mkEksContainerSecurityContextProperty
   = EksContainerSecurityContextProperty
-      {allowPrivilegeEscalation = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       allowPrivilegeEscalation = Prelude.Nothing,
        privileged = Prelude.Nothing,
        readOnlyRootFilesystem = Prelude.Nothing,
        runAsGroup = Prelude.Nothing, runAsNonRoot = Prelude.Nothing,

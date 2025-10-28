@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TotalLocalStorageGBProperty
-  = TotalLocalStorageGBProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html>
+    TotalLocalStorageGBProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html#cfn-ec2-launchtemplate-totallocalstoragegb-max>
+                                 max :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html#cfn-ec2-launchtemplate-totallocalstoragegb-min>
                                  min :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalLocalStorageGBProperty :: TotalLocalStorageGBProperty
 mkTotalLocalStorageGBProperty
   = TotalLocalStorageGBProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties TotalLocalStorageGBProperty where
   toResourceProperties TotalLocalStorageGBProperty {..}
     = ResourceProperties

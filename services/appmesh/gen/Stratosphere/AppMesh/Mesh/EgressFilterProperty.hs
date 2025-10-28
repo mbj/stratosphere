@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EgressFilterProperty
-  = EgressFilterProperty {type' :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html>
+    EgressFilterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html#cfn-appmesh-mesh-egressfilter-type>
+                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressFilterProperty ::
   Value Prelude.Text -> EgressFilterProperty
-mkEgressFilterProperty type' = EgressFilterProperty {type' = type'}
+mkEgressFilterProperty type'
+  = EgressFilterProperty {haddock_workaround_ = (), type' = type'}
 instance ToResourceProperties EgressFilterProperty where
   toResourceProperties EgressFilterProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON EgressFilterProperty where
     = JSON.object ["Type" JSON..= type']
 instance Property "Type" EgressFilterProperty where
   type PropertyType "Type" EgressFilterProperty = Value Prelude.Text
-  set newValue EgressFilterProperty {}
+  set newValue EgressFilterProperty {..}
     = EgressFilterProperty {type' = newValue, ..}

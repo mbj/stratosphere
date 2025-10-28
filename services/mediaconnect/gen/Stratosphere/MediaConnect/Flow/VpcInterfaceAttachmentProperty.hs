@@ -8,12 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcInterfaceAttachmentProperty
-  = VpcInterfaceAttachmentProperty {vpcInterfaceName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterfaceattachment.html>
+    VpcInterfaceAttachmentProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterfaceattachment.html#cfn-mediaconnect-flow-vpcinterfaceattachment-vpcinterfacename>
+                                    vpcInterfaceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcInterfaceAttachmentProperty :: VpcInterfaceAttachmentProperty
 mkVpcInterfaceAttachmentProperty
   = VpcInterfaceAttachmentProperty
-      {vpcInterfaceName = Prelude.Nothing}
+      {haddock_workaround_ = (), vpcInterfaceName = Prelude.Nothing}
 instance ToResourceProperties VpcInterfaceAttachmentProperty where
   toResourceProperties VpcInterfaceAttachmentProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON VpcInterfaceAttachmentProperty where
               [(JSON..=) "VpcInterfaceName" Prelude.<$> vpcInterfaceName]))
 instance Property "VpcInterfaceName" VpcInterfaceAttachmentProperty where
   type PropertyType "VpcInterfaceName" VpcInterfaceAttachmentProperty = Value Prelude.Text
-  set newValue VpcInterfaceAttachmentProperty {}
+  set newValue VpcInterfaceAttachmentProperty {..}
     = VpcInterfaceAttachmentProperty
         {vpcInterfaceName = Prelude.pure newValue, ..}

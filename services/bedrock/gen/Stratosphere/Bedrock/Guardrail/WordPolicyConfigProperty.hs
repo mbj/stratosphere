@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ManagedWordsConfigProperty 
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.WordConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data WordPolicyConfigProperty
-  = WordPolicyConfigProperty {managedWordListsConfig :: (Prelude.Maybe [ManagedWordsConfigProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordpolicyconfig.html>
+    WordPolicyConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordpolicyconfig.html#cfn-bedrock-guardrail-wordpolicyconfig-managedwordlistsconfig>
+                              managedWordListsConfig :: (Prelude.Maybe [ManagedWordsConfigProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordpolicyconfig.html#cfn-bedrock-guardrail-wordpolicyconfig-wordsconfig>
                               wordsConfig :: (Prelude.Maybe [WordConfigProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWordPolicyConfigProperty :: WordPolicyConfigProperty
 mkWordPolicyConfigProperty
   = WordPolicyConfigProperty
-      {managedWordListsConfig = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       managedWordListsConfig = Prelude.Nothing,
        wordsConfig = Prelude.Nothing}
 instance ToResourceProperties WordPolicyConfigProperty where
   toResourceProperties WordPolicyConfigProperty {..}

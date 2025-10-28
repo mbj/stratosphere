@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.AssetPropertyVariantProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyValueProperty
-  = AssetPropertyValueProperty {quality :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html>
+    AssetPropertyValueProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality>
+                                quality :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp>
                                 timestamp :: AssetPropertyTimestampProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value>
                                 value :: AssetPropertyVariantProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyValueProperty ::
@@ -19,7 +24,8 @@ mkAssetPropertyValueProperty ::
   -> AssetPropertyVariantProperty -> AssetPropertyValueProperty
 mkAssetPropertyValueProperty timestamp value
   = AssetPropertyValueProperty
-      {timestamp = timestamp, value = value, quality = Prelude.Nothing}
+      {haddock_workaround_ = (), timestamp = timestamp, value = value,
+       quality = Prelude.Nothing}
 instance ToResourceProperties AssetPropertyValueProperty where
   toResourceProperties AssetPropertyValueProperty {..}
     = ResourceProperties

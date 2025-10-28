@@ -12,16 +12,24 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.SageMakerMachin
 import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.SecretsManagerSecretResourceDataProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceDataContainerProperty
-  = ResourceDataContainerProperty {localDeviceResourceData :: (Prelude.Maybe LocalDeviceResourceDataProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html>
+    ResourceDataContainerProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-localdeviceresourcedata>
+                                   localDeviceResourceData :: (Prelude.Maybe LocalDeviceResourceDataProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-localvolumeresourcedata>
                                    localVolumeResourceData :: (Prelude.Maybe LocalVolumeResourceDataProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-s3machinelearningmodelresourcedata>
                                    s3MachineLearningModelResourceData :: (Prelude.Maybe S3MachineLearningModelResourceDataProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-sagemakermachinelearningmodelresourcedata>
                                    sageMakerMachineLearningModelResourceData :: (Prelude.Maybe SageMakerMachineLearningModelResourceDataProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html#cfn-greengrass-resourcedefinition-resourcedatacontainer-secretsmanagersecretresourcedata>
                                    secretsManagerSecretResourceData :: (Prelude.Maybe SecretsManagerSecretResourceDataProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDataContainerProperty :: ResourceDataContainerProperty
 mkResourceDataContainerProperty
   = ResourceDataContainerProperty
-      {localDeviceResourceData = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       localDeviceResourceData = Prelude.Nothing,
        localVolumeResourceData = Prelude.Nothing,
        s3MachineLearningModelResourceData = Prelude.Nothing,
        sageMakerMachineLearningModelResourceData = Prelude.Nothing,

@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FulfillmentStartResponseSpecificationProperty
-  = FulfillmentStartResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html>
+    FulfillmentStartResponseSpecificationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-allowinterrupt>
+                                                   allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-delayinseconds>
                                                    delayInSeconds :: (Value Prelude.Integer),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html#cfn-lex-bot-fulfillmentstartresponsespecification-messagegroups>
                                                    messageGroups :: [MessageGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentStartResponseSpecificationProperty ::
@@ -21,8 +26,8 @@ mkFulfillmentStartResponseSpecificationProperty
   delayInSeconds
   messageGroups
   = FulfillmentStartResponseSpecificationProperty
-      {delayInSeconds = delayInSeconds, messageGroups = messageGroups,
-       allowInterrupt = Prelude.Nothing}
+      {haddock_workaround_ = (), delayInSeconds = delayInSeconds,
+       messageGroups = messageGroups, allowInterrupt = Prelude.Nothing}
 instance ToResourceProperties FulfillmentStartResponseSpecificationProperty where
   toResourceProperties
     FulfillmentStartResponseSpecificationProperty {..}

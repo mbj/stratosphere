@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentReaderConfigProperty
-  = DocumentReaderConfigProperty {documentReadAction :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html>
+    DocumentReaderConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html#cfn-comprehend-documentclassifier-documentreaderconfig-documentreadaction>
+                                  documentReadAction :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html#cfn-comprehend-documentclassifier-documentreaderconfig-documentreadmode>
                                   documentReadMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html#cfn-comprehend-documentclassifier-documentreaderconfig-featuretypes>
                                   featureTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentReaderConfigProperty ::
   Value Prelude.Text -> DocumentReaderConfigProperty
 mkDocumentReaderConfigProperty documentReadAction
   = DocumentReaderConfigProperty
-      {documentReadAction = documentReadAction,
+      {haddock_workaround_ = (), documentReadAction = documentReadAction,
        documentReadMode = Prelude.Nothing, featureTypes = Prelude.Nothing}
 instance ToResourceProperties DocumentReaderConfigProperty where
   toResourceProperties DocumentReaderConfigProperty {..}

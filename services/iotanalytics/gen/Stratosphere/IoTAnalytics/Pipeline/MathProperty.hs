@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MathProperty
-  = MathProperty {attribute :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html>
+    MathProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-attribute>
+                  attribute :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-math>
                   math :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html#cfn-iotanalytics-pipeline-math-next>
                   next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMathProperty ::
@@ -17,8 +23,8 @@ mkMathProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> MathProperty
 mkMathProperty attribute math name
   = MathProperty
-      {attribute = attribute, math = math, name = name,
-       next = Prelude.Nothing}
+      {haddock_workaround_ = (), attribute = attribute, math = math,
+       name = name, next = Prelude.Nothing}
 instance ToResourceProperties MathProperty where
   toResourceProperties MathProperty {..}
     = ResourceProperties

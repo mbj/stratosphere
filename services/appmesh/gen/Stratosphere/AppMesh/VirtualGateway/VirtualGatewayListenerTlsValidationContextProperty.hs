@@ -10,7 +10,11 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeName
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayListenerTlsValidationContextProperty
-  = VirtualGatewayListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html>
+    VirtualGatewayListenerTlsValidationContextProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext-subjectalternativenames>
+                                                        subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext-trust>
                                                         trust :: VirtualGatewayListenerTlsValidationContextTrustProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsValidationContextProperty ::
@@ -18,7 +22,8 @@ mkVirtualGatewayListenerTlsValidationContextProperty ::
   -> VirtualGatewayListenerTlsValidationContextProperty
 mkVirtualGatewayListenerTlsValidationContextProperty trust
   = VirtualGatewayListenerTlsValidationContextProperty
-      {trust = trust, subjectAlternativeNames = Prelude.Nothing}
+      {haddock_workaround_ = (), trust = trust,
+       subjectAlternativeNames = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayListenerTlsValidationContextProperty where
   toResourceProperties
     VirtualGatewayListenerTlsValidationContextProperty {..}

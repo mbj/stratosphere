@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationObjectTypeProperty
-  = NotificationObjectTypeProperty {backupVaultEvents :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html>
+    NotificationObjectTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents>
+                                    backupVaultEvents :: (ValueList Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn>
                                     sNSTopicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationObjectTypeProperty ::
@@ -16,7 +20,8 @@ mkNotificationObjectTypeProperty ::
   -> Value Prelude.Text -> NotificationObjectTypeProperty
 mkNotificationObjectTypeProperty backupVaultEvents sNSTopicArn
   = NotificationObjectTypeProperty
-      {backupVaultEvents = backupVaultEvents, sNSTopicArn = sNSTopicArn}
+      {haddock_workaround_ = (), backupVaultEvents = backupVaultEvents,
+       sNSTopicArn = sNSTopicArn}
 instance ToResourceProperties NotificationObjectTypeProperty where
   toResourceProperties NotificationObjectTypeProperty {..}
     = ResourceProperties

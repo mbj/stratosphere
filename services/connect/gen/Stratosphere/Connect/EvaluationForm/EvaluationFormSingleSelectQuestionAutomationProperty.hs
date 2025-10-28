@@ -10,7 +10,11 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionAutomationProperty
-  = EvaluationFormSingleSelectQuestionAutomationProperty {defaultOptionRefId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html>
+    EvaluationFormSingleSelectQuestionAutomationProperty {haddock_workaround_ :: (),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid>
+                                                          defaultOptionRefId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options>
                                                           options :: [EvaluationFormSingleSelectQuestionAutomationOptionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionAutomationProperty ::
@@ -18,7 +22,8 @@ mkEvaluationFormSingleSelectQuestionAutomationProperty ::
   -> EvaluationFormSingleSelectQuestionAutomationProperty
 mkEvaluationFormSingleSelectQuestionAutomationProperty options
   = EvaluationFormSingleSelectQuestionAutomationProperty
-      {options = options, defaultOptionRefId = Prelude.Nothing}
+      {haddock_workaround_ = (), options = options,
+       defaultOptionRefId = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionAutomationProperty where
   toResourceProperties
     EvaluationFormSingleSelectQuestionAutomationProperty {..}

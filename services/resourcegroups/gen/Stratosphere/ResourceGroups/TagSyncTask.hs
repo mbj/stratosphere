@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagSyncTask
-  = TagSyncTask {group :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html>
+    TagSyncTask {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-group>
+                 group :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-rolearn>
                  roleArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-tagkey>
                  tagKey :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-tagvalue>
                  tagValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagSyncTask ::
@@ -18,8 +24,8 @@ mkTagSyncTask ::
      -> Value Prelude.Text -> Value Prelude.Text -> TagSyncTask
 mkTagSyncTask group roleArn tagKey tagValue
   = TagSyncTask
-      {group = group, roleArn = roleArn, tagKey = tagKey,
-       tagValue = tagValue}
+      {haddock_workaround_ = (), group = group, roleArn = roleArn,
+       tagKey = tagKey, tagValue = tagValue}
 instance ToResourceProperties TagSyncTask where
   toResourceProperties TagSyncTask {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.WAF.SqlInjectionMatchSet.SqlInjectionMatchTup
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlInjectionMatchSet
-  = SqlInjectionMatchSet {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html>
+    SqlInjectionMatchSet {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-name>
+                          name :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples>
                           sqlInjectionMatchTuples :: (Prelude.Maybe [SqlInjectionMatchTupleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlInjectionMatchSet ::
   Value Prelude.Text -> SqlInjectionMatchSet
 mkSqlInjectionMatchSet name
   = SqlInjectionMatchSet
-      {name = name, sqlInjectionMatchTuples = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       sqlInjectionMatchTuples = Prelude.Nothing}
 instance ToResourceProperties SqlInjectionMatchSet where
   toResourceProperties SqlInjectionMatchSet {..}
     = ResourceProperties

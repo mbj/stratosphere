@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.CalculatedColumnProperty as Exports
 import Stratosphere.ResourceProperties
 data CreateColumnsOperationProperty
-  = CreateColumnsOperationProperty {columns :: [CalculatedColumnProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html>
+    CreateColumnsOperationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns>
+                                    columns :: [CalculatedColumnProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateColumnsOperationProperty ::
   [CalculatedColumnProperty] -> CreateColumnsOperationProperty
 mkCreateColumnsOperationProperty columns
-  = CreateColumnsOperationProperty {columns = columns}
+  = CreateColumnsOperationProperty
+      {haddock_workaround_ = (), columns = columns}
 instance ToResourceProperties CreateColumnsOperationProperty where
   toResourceProperties CreateColumnsOperationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CreateColumnsOperationProperty where
     = JSON.object ["Columns" JSON..= columns]
 instance Property "Columns" CreateColumnsOperationProperty where
   type PropertyType "Columns" CreateColumnsOperationProperty = [CalculatedColumnProperty]
-  set newValue CreateColumnsOperationProperty {}
+  set newValue CreateColumnsOperationProperty {..}
     = CreateColumnsOperationProperty {columns = newValue, ..}

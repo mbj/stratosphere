@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigProperty
-  = EncryptionConfigProperty {kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-encryptionconfig.html>
+    EncryptionConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-encryptionconfig.html#cfn-forecast-dataset-encryptionconfig-kmskeyarn>
+                              kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-encryptionconfig.html#cfn-forecast-dataset-encryptionconfig-rolearn>
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigProperty :: EncryptionConfigProperty
 mkEncryptionConfigProperty
   = EncryptionConfigProperty
-      {kmsKeyArn = Prelude.Nothing, roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), kmsKeyArn = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties

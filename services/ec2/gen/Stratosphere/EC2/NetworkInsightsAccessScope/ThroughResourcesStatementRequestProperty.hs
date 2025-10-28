@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.ResourceStatementRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data ThroughResourcesStatementRequestProperty
-  = ThroughResourcesStatementRequestProperty {resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html>
+    ThroughResourcesStatementRequestProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html#cfn-ec2-networkinsightsaccessscope-throughresourcesstatementrequest-resourcestatement>
+                                              resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThroughResourcesStatementRequestProperty ::
   ThroughResourcesStatementRequestProperty
 mkThroughResourcesStatementRequestProperty
   = ThroughResourcesStatementRequestProperty
-      {resourceStatement = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceStatement = Prelude.Nothing}
 instance ToResourceProperties ThroughResourcesStatementRequestProperty where
   toResourceProperties ThroughResourcesStatementRequestProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ThroughResourcesStatementRequestProperty where
               [(JSON..=) "ResourceStatement" Prelude.<$> resourceStatement]))
 instance Property "ResourceStatement" ThroughResourcesStatementRequestProperty where
   type PropertyType "ResourceStatement" ThroughResourcesStatementRequestProperty = ResourceStatementRequestProperty
-  set newValue ThroughResourcesStatementRequestProperty {}
+  set newValue ThroughResourcesStatementRequestProperty {..}
     = ThroughResourcesStatementRequestProperty
         {resourceStatement = Prelude.pure newValue, ..}

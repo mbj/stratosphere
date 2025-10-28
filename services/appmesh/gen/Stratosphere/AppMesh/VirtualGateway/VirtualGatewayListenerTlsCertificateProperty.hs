@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListener
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayListenerTlsCertificateProperty
-  = VirtualGatewayListenerTlsCertificateProperty {aCM :: (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html>
+    VirtualGatewayListenerTlsCertificateProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-acm>
+                                                  aCM :: (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificateProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-file>
                                                   file :: (Prelude.Maybe VirtualGatewayListenerTlsFileCertificateProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-sds>
                                                   sDS :: (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsCertificateProperty ::
   VirtualGatewayListenerTlsCertificateProperty
 mkVirtualGatewayListenerTlsCertificateProperty
   = VirtualGatewayListenerTlsCertificateProperty
-      {aCM = Prelude.Nothing, file = Prelude.Nothing,
-       sDS = Prelude.Nothing}
+      {haddock_workaround_ = (), aCM = Prelude.Nothing,
+       file = Prelude.Nothing, sDS = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayListenerTlsCertificateProperty where
   toResourceProperties
     VirtualGatewayListenerTlsCertificateProperty {..}

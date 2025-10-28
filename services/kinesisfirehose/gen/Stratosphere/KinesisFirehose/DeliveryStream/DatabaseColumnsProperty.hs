@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseColumnsProperty
-  = DatabaseColumnsProperty {exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html>
+    DatabaseColumnsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html#cfn-kinesisfirehose-deliverystream-databasecolumns-exclude>
+                             exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html#cfn-kinesisfirehose-deliverystream-databasecolumns-include>
                              include :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseColumnsProperty :: DatabaseColumnsProperty
 mkDatabaseColumnsProperty
   = DatabaseColumnsProperty
-      {exclude = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), exclude = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties DatabaseColumnsProperty where
   toResourceProperties DatabaseColumnsProperty {..}
     = ResourceProperties

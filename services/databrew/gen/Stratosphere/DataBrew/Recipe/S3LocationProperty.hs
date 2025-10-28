@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3LocationProperty
-  = S3LocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html>
+    S3LocationProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket>
+                        bucket :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key>
                         key :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty :: Value Prelude.Text -> S3LocationProperty
 mkS3LocationProperty bucket
-  = S3LocationProperty {bucket = bucket, key = Prelude.Nothing}
+  = S3LocationProperty
+      {haddock_workaround_ = (), bucket = bucket, key = Prelude.Nothing}
 instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties

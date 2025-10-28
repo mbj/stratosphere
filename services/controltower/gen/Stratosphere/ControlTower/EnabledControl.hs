@@ -9,16 +9,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EnabledControl
-  = EnabledControl {controlIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html>
+    EnabledControl {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-controlidentifier>
+                    controlIdentifier :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-parameters>
                     parameters :: (Prelude.Maybe [EnabledControlParameterProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-tags>
                     tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-targetidentifier>
                     targetIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnabledControl ::
   Value Prelude.Text -> Value Prelude.Text -> EnabledControl
 mkEnabledControl controlIdentifier targetIdentifier
   = EnabledControl
-      {controlIdentifier = controlIdentifier,
+      {haddock_workaround_ = (), controlIdentifier = controlIdentifier,
        targetIdentifier = targetIdentifier, parameters = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties EnabledControl where

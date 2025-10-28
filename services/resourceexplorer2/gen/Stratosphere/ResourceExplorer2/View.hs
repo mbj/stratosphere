@@ -9,18 +9,25 @@ import {-# SOURCE #-} Stratosphere.ResourceExplorer2.View.SearchFilterProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data View
-  = View {filters :: (Prelude.Maybe SearchFilterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html>
+    View {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-filters>
+          filters :: (Prelude.Maybe SearchFilterProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-includedproperties>
           includedProperties :: (Prelude.Maybe [IncludedPropertyProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-scope>
           scope :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-tags>
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-viewname>
           viewName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkView :: Value Prelude.Text -> View
 mkView viewName
   = View
-      {viewName = viewName, filters = Prelude.Nothing,
-       includedProperties = Prelude.Nothing, scope = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), viewName = viewName,
+       filters = Prelude.Nothing, includedProperties = Prelude.Nothing,
+       scope = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties View where
   toResourceProperties View {..}
     = ResourceProperties

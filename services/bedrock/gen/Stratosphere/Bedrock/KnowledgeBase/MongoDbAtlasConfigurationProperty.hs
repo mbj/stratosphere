@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasFieldMappin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MongoDbAtlasConfigurationProperty
-  = MongoDbAtlasConfigurationProperty {collectionName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html>
+    MongoDbAtlasConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-collectionname>
+                                       collectionName :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-credentialssecretarn>
                                        credentialsSecretArn :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-databasename>
                                        databaseName :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-endpoint>
                                        endpoint :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-endpointservicename>
                                        endpointServiceName :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-fieldmapping>
                                        fieldMapping :: MongoDbAtlasFieldMappingProperty,
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-vectorindexname>
                                        vectorIndexName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMongoDbAtlasConfigurationProperty ::
@@ -32,7 +41,7 @@ mkMongoDbAtlasConfigurationProperty
   fieldMapping
   vectorIndexName
   = MongoDbAtlasConfigurationProperty
-      {collectionName = collectionName,
+      {haddock_workaround_ = (), collectionName = collectionName,
        credentialsSecretArn = credentialsSecretArn,
        databaseName = databaseName, endpoint = endpoint,
        fieldMapping = fieldMapping, vectorIndexName = vectorIndexName,

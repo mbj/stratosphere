@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.StatusCodesProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginGroupFailoverCriteriaProperty
-  = OriginGroupFailoverCriteriaProperty {statusCodes :: StatusCodesProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html>
+    OriginGroupFailoverCriteriaProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes>
+                                         statusCodes :: StatusCodesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupFailoverCriteriaProperty ::
   StatusCodesProperty -> OriginGroupFailoverCriteriaProperty
 mkOriginGroupFailoverCriteriaProperty statusCodes
-  = OriginGroupFailoverCriteriaProperty {statusCodes = statusCodes}
+  = OriginGroupFailoverCriteriaProperty
+      {haddock_workaround_ = (), statusCodes = statusCodes}
 instance ToResourceProperties OriginGroupFailoverCriteriaProperty where
   toResourceProperties OriginGroupFailoverCriteriaProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON OriginGroupFailoverCriteriaProperty where
     = JSON.object ["StatusCodes" JSON..= statusCodes]
 instance Property "StatusCodes" OriginGroupFailoverCriteriaProperty where
   type PropertyType "StatusCodes" OriginGroupFailoverCriteriaProperty = StatusCodesProperty
-  set newValue OriginGroupFailoverCriteriaProperty {}
+  set newValue OriginGroupFailoverCriteriaProperty {..}
     = OriginGroupFailoverCriteriaProperty {statusCodes = newValue, ..}

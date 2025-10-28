@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.PropertyTypeProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetModelPropertyProperty
-  = AssetModelPropertyProperty {dataType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html>
+    AssetModelPropertyProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype>
+                                dataType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec>
                                 dataTypeSpec :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-externalid>
                                 externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-id>
                                 id :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid>
                                 logicalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name>
                                 name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type>
                                 type' :: PropertyTypeProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit>
                                 unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelPropertyProperty ::
@@ -24,10 +34,10 @@ mkAssetModelPropertyProperty ::
      -> PropertyTypeProperty -> AssetModelPropertyProperty
 mkAssetModelPropertyProperty dataType name type'
   = AssetModelPropertyProperty
-      {dataType = dataType, name = name, type' = type',
-       dataTypeSpec = Prelude.Nothing, externalId = Prelude.Nothing,
-       id = Prelude.Nothing, logicalId = Prelude.Nothing,
-       unit = Prelude.Nothing}
+      {haddock_workaround_ = (), dataType = dataType, name = name,
+       type' = type', dataTypeSpec = Prelude.Nothing,
+       externalId = Prelude.Nothing, id = Prelude.Nothing,
+       logicalId = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties AssetModelPropertyProperty where
   toResourceProperties AssetModelPropertyProperty {..}
     = ResourceProperties

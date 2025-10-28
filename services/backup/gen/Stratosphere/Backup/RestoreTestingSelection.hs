@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.Backup.RestoreTestingSelection.ProtectedResou
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RestoreTestingSelection
-  = RestoreTestingSelection {iamRoleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html>
+    RestoreTestingSelection {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-iamrolearn>
+                             iamRoleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-protectedresourcearns>
                              protectedResourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-protectedresourceconditions>
                              protectedResourceConditions :: (Prelude.Maybe ProtectedResourceConditionsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-protectedresourcetype>
                              protectedResourceType :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoremetadataoverrides>
                              restoreMetadataOverrides :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingplanname>
                              restoreTestingPlanName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingselectionname>
                              restoreTestingSelectionName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-validationwindowhours>
                              validationWindowHours :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestoreTestingSelection ::
@@ -29,7 +39,7 @@ mkRestoreTestingSelection
   restoreTestingPlanName
   restoreTestingSelectionName
   = RestoreTestingSelection
-      {iamRoleArn = iamRoleArn,
+      {haddock_workaround_ = (), iamRoleArn = iamRoleArn,
        protectedResourceType = protectedResourceType,
        restoreTestingPlanName = restoreTestingPlanName,
        restoreTestingSelectionName = restoreTestingSelectionName,

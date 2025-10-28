@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.UplinkSpectrumConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AntennaUplinkConfigProperty
-  = AntennaUplinkConfigProperty {spectrumConfig :: (Prelude.Maybe UplinkSpectrumConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html>
+    AntennaUplinkConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig>
+                                 spectrumConfig :: (Prelude.Maybe UplinkSpectrumConfigProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp>
                                  targetEirp :: (Prelude.Maybe EirpProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled>
                                  transmitDisabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaUplinkConfigProperty :: AntennaUplinkConfigProperty
 mkAntennaUplinkConfigProperty
   = AntennaUplinkConfigProperty
-      {spectrumConfig = Prelude.Nothing, targetEirp = Prelude.Nothing,
-       transmitDisabled = Prelude.Nothing}
+      {haddock_workaround_ = (), spectrumConfig = Prelude.Nothing,
+       targetEirp = Prelude.Nothing, transmitDisabled = Prelude.Nothing}
 instance ToResourceProperties AntennaUplinkConfigProperty where
   toResourceProperties AntennaUplinkConfigProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DimensionMappingProperty
-  = DimensionMappingProperty {dimensionName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html>
+    DimensionMappingProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html#cfn-pipes-pipe-dimensionmapping-dimensionname>
+                              dimensionName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html#cfn-pipes-pipe-dimensionmapping-dimensionvalue>
                               dimensionValue :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html#cfn-pipes-pipe-dimensionmapping-dimensionvaluetype>
                               dimensionValueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionMappingProperty ::
@@ -20,7 +25,8 @@ mkDimensionMappingProperty
   dimensionValue
   dimensionValueType
   = DimensionMappingProperty
-      {dimensionName = dimensionName, dimensionValue = dimensionValue,
+      {haddock_workaround_ = (), dimensionName = dimensionName,
+       dimensionValue = dimensionValue,
        dimensionValueType = dimensionValueType}
 instance ToResourceProperties DimensionMappingProperty where
   toResourceProperties DimensionMappingProperty {..}

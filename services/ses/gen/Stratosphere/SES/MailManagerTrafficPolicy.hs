@@ -10,10 +10,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data MailManagerTrafficPolicy
-  = MailManagerTrafficPolicy {defaultAction :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html>
+    MailManagerTrafficPolicy {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html#cfn-ses-mailmanagertrafficpolicy-defaultaction>
+                              defaultAction :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html#cfn-ses-mailmanagertrafficpolicy-maxmessagesizebytes>
                               maxMessageSizeBytes :: (Prelude.Maybe (Value Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html#cfn-ses-mailmanagertrafficpolicy-policystatements>
                               policyStatements :: [PolicyStatementProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html#cfn-ses-mailmanagertrafficpolicy-tags>
                               tags :: (Prelude.Maybe [Tag]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html#cfn-ses-mailmanagertrafficpolicy-trafficpolicyname>
                               trafficPolicyName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMailManagerTrafficPolicy ::
@@ -21,7 +28,7 @@ mkMailManagerTrafficPolicy ::
   -> [PolicyStatementProperty] -> MailManagerTrafficPolicy
 mkMailManagerTrafficPolicy defaultAction policyStatements
   = MailManagerTrafficPolicy
-      {defaultAction = defaultAction,
+      {haddock_workaround_ = (), defaultAction = defaultAction,
        policyStatements = policyStatements,
        maxMessageSizeBytes = Prelude.Nothing, tags = Prelude.Nothing,
        trafficPolicyName = Prelude.Nothing}

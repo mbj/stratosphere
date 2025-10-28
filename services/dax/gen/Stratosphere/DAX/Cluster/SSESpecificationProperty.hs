@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SSESpecificationProperty
-  = SSESpecificationProperty {sSEEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html>
+    SSESpecificationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html#cfn-dax-cluster-ssespecification-sseenabled>
+                              sSEEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSSESpecificationProperty :: SSESpecificationProperty
 mkSSESpecificationProperty
-  = SSESpecificationProperty {sSEEnabled = Prelude.Nothing}
+  = SSESpecificationProperty
+      {haddock_workaround_ = (), sSEEnabled = Prelude.Nothing}
 instance ToResourceProperties SSESpecificationProperty where
   toResourceProperties SSESpecificationProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON SSESpecificationProperty where
               [(JSON..=) "SSEEnabled" Prelude.<$> sSEEnabled]))
 instance Property "SSEEnabled" SSESpecificationProperty where
   type PropertyType "SSEEnabled" SSESpecificationProperty = Value Prelude.Bool
-  set newValue SSESpecificationProperty {}
+  set newValue SSESpecificationProperty {..}
     = SSESpecificationProperty {sSEEnabled = Prelude.pure newValue, ..}

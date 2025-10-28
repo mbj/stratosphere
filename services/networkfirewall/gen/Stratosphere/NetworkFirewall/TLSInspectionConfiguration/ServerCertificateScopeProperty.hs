@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.TLSInspectionConfiguration.Po
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerCertificateScopeProperty
-  = ServerCertificateScopeProperty {destinationPorts :: (Prelude.Maybe [PortRangeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html>
+    ServerCertificateScopeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificatescope-destinationports>
+                                    destinationPorts :: (Prelude.Maybe [PortRangeProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificatescope-destinations>
                                     destinations :: (Prelude.Maybe [AddressProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificatescope-protocols>
                                     protocols :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificatescope-sourceports>
                                     sourcePorts :: (Prelude.Maybe [PortRangeProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificatescope-sources>
                                     sources :: (Prelude.Maybe [AddressProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificateScopeProperty :: ServerCertificateScopeProperty
 mkServerCertificateScopeProperty
   = ServerCertificateScopeProperty
-      {destinationPorts = Prelude.Nothing,
+      {haddock_workaround_ = (), destinationPorts = Prelude.Nothing,
        destinations = Prelude.Nothing, protocols = Prelude.Nothing,
        sourcePorts = Prelude.Nothing, sources = Prelude.Nothing}
 instance ToResourceProperties ServerCertificateScopeProperty where

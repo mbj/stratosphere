@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingTableInputSourceProperty
-  = IdMappingTableInputSourceProperty {idNamespaceAssociationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputsource.html>
+    IdMappingTableInputSourceProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputsource.html#cfn-cleanrooms-idmappingtable-idmappingtableinputsource-idnamespaceassociationid>
+                                       idNamespaceAssociationId :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputsource.html#cfn-cleanrooms-idmappingtable-idmappingtableinputsource-type>
                                        type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingTableInputSourceProperty ::
@@ -16,8 +20,8 @@ mkIdMappingTableInputSourceProperty ::
   -> Value Prelude.Text -> IdMappingTableInputSourceProperty
 mkIdMappingTableInputSourceProperty idNamespaceAssociationId type'
   = IdMappingTableInputSourceProperty
-      {idNamespaceAssociationId = idNamespaceAssociationId,
-       type' = type'}
+      {haddock_workaround_ = (),
+       idNamespaceAssociationId = idNamespaceAssociationId, type' = type'}
 instance ToResourceProperties IdMappingTableInputSourceProperty where
   toResourceProperties IdMappingTableInputSourceProperty {..}
     = ResourceProperties

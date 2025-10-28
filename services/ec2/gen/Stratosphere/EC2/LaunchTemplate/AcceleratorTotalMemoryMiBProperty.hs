@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceleratorTotalMemoryMiBProperty
-  = AcceleratorTotalMemoryMiBProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html>
+    AcceleratorTotalMemoryMiBProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-max>
+                                       max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html#cfn-ec2-launchtemplate-acceleratortotalmemorymib-min>
                                        min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorTotalMemoryMiBProperty ::
   AcceleratorTotalMemoryMiBProperty
 mkAcceleratorTotalMemoryMiBProperty
   = AcceleratorTotalMemoryMiBProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties AcceleratorTotalMemoryMiBProperty where
   toResourceProperties AcceleratorTotalMemoryMiBProperty {..}
     = ResourceProperties

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.CalculatedAttributeDefinitio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDetailsProperty
-  = AttributeDetailsProperty {attributes :: [AttributeItemProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html>
+    AttributeDetailsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html#cfn-customerprofiles-calculatedattributedefinition-attributedetails-attributes>
+                              attributes :: [AttributeItemProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html#cfn-customerprofiles-calculatedattributedefinition-attributedetails-expression>
                               expression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDetailsProperty ::
@@ -17,7 +21,8 @@ mkAttributeDetailsProperty ::
   -> Value Prelude.Text -> AttributeDetailsProperty
 mkAttributeDetailsProperty attributes expression
   = AttributeDetailsProperty
-      {attributes = attributes, expression = expression}
+      {haddock_workaround_ = (), attributes = attributes,
+       expression = expression}
 instance ToResourceProperties AttributeDetailsProperty where
   toResourceProperties AttributeDetailsProperty {..}
     = ResourceProperties

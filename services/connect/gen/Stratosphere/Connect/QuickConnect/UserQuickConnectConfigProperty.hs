@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserQuickConnectConfigProperty
-  = UserQuickConnectConfigProperty {contactFlowArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html>
+    UserQuickConnectConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn>
+                                    contactFlowArn :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn>
                                     userArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserQuickConnectConfigProperty ::
@@ -16,7 +20,8 @@ mkUserQuickConnectConfigProperty ::
   -> Value Prelude.Text -> UserQuickConnectConfigProperty
 mkUserQuickConnectConfigProperty contactFlowArn userArn
   = UserQuickConnectConfigProperty
-      {contactFlowArn = contactFlowArn, userArn = userArn}
+      {haddock_workaround_ = (), contactFlowArn = contactFlowArn,
+       userArn = userArn}
 instance ToResourceProperties UserQuickConnectConfigProperty where
   toResourceProperties UserQuickConnectConfigProperty {..}
     = ResourceProperties

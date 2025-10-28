@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.JmxExporterProperty as Exports
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.NodeExporterProperty as Exports
 import Stratosphere.ResourceProperties
 data PrometheusProperty
-  = PrometheusProperty {jmxExporter :: (Prelude.Maybe JmxExporterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html>
+    PrometheusProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-jmxexporter>
+                        jmxExporter :: (Prelude.Maybe JmxExporterProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html#cfn-msk-cluster-prometheus-nodeexporter>
                         nodeExporter :: (Prelude.Maybe NodeExporterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrometheusProperty :: PrometheusProperty
 mkPrometheusProperty
   = PrometheusProperty
-      {jmxExporter = Prelude.Nothing, nodeExporter = Prelude.Nothing}
+      {haddock_workaround_ = (), jmxExporter = Prelude.Nothing,
+       nodeExporter = Prelude.Nothing}
 instance ToResourceProperties PrometheusProperty where
   toResourceProperties PrometheusProperty {..}
     = ResourceProperties

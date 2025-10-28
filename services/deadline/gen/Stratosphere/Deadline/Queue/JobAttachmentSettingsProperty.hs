@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobAttachmentSettingsProperty
-  = JobAttachmentSettingsProperty {rootPrefix :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobattachmentsettings.html>
+    JobAttachmentSettingsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobattachmentsettings.html#cfn-deadline-queue-jobattachmentsettings-rootprefix>
+                                   rootPrefix :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobattachmentsettings.html#cfn-deadline-queue-jobattachmentsettings-s3bucketname>
                                    s3BucketName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobAttachmentSettingsProperty ::
@@ -15,7 +19,8 @@ mkJobAttachmentSettingsProperty ::
   -> Value Prelude.Text -> JobAttachmentSettingsProperty
 mkJobAttachmentSettingsProperty rootPrefix s3BucketName
   = JobAttachmentSettingsProperty
-      {rootPrefix = rootPrefix, s3BucketName = s3BucketName}
+      {haddock_workaround_ = (), rootPrefix = rootPrefix,
+       s3BucketName = s3BucketName}
 instance ToResourceProperties JobAttachmentSettingsProperty where
   toResourceProperties JobAttachmentSettingsProperty {..}
     = ResourceProperties

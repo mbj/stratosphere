@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.SubscriptionDefinition.SubscriptionProperty as Exports
 import Stratosphere.ResourceProperties
 data SubscriptionDefinitionVersionProperty
-  = SubscriptionDefinitionVersionProperty {subscriptions :: [SubscriptionProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html>
+    SubscriptionDefinitionVersionProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinition-subscriptiondefinitionversion-subscriptions>
+                                           subscriptions :: [SubscriptionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinitionVersionProperty ::
   [SubscriptionProperty] -> SubscriptionDefinitionVersionProperty
 mkSubscriptionDefinitionVersionProperty subscriptions
   = SubscriptionDefinitionVersionProperty
-      {subscriptions = subscriptions}
+      {haddock_workaround_ = (), subscriptions = subscriptions}
 instance ToResourceProperties SubscriptionDefinitionVersionProperty where
   toResourceProperties SubscriptionDefinitionVersionProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SubscriptionDefinitionVersionProperty where
     = JSON.object ["Subscriptions" JSON..= subscriptions]
 instance Property "Subscriptions" SubscriptionDefinitionVersionProperty where
   type PropertyType "Subscriptions" SubscriptionDefinitionVersionProperty = [SubscriptionProperty]
-  set newValue SubscriptionDefinitionVersionProperty {}
+  set newValue SubscriptionDefinitionVersionProperty {..}
     = SubscriptionDefinitionVersionProperty
         {subscriptions = newValue, ..}

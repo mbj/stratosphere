@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInterfaceOptionsProperty
-  = NetworkInterfaceOptionsProperty {networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html>
+    NetworkInterfaceOptionsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-networkinterfaceid>
+                                     networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-port>
                                      port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-protocol>
                                      protocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceOptionsProperty ::
   NetworkInterfaceOptionsProperty
 mkNetworkInterfaceOptionsProperty
   = NetworkInterfaceOptionsProperty
-      {networkInterfaceId = Prelude.Nothing, port = Prelude.Nothing,
-       protocol = Prelude.Nothing}
+      {haddock_workaround_ = (), networkInterfaceId = Prelude.Nothing,
+       port = Prelude.Nothing, protocol = Prelude.Nothing}
 instance ToResourceProperties NetworkInterfaceOptionsProperty where
   toResourceProperties NetworkInterfaceOptionsProperty {..}
     = ResourceProperties

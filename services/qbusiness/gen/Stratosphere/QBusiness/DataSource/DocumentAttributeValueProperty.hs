@@ -8,16 +8,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentAttributeValueProperty
-  = DocumentAttributeValueProperty {dateValue :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html>
+    DocumentAttributeValueProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html#cfn-qbusiness-datasource-documentattributevalue-datevalue>
+                                    dateValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html#cfn-qbusiness-datasource-documentattributevalue-longvalue>
                                     longValue :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html#cfn-qbusiness-datasource-documentattributevalue-stringlistvalue>
                                     stringListValue :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html#cfn-qbusiness-datasource-documentattributevalue-stringvalue>
                                     stringValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeValueProperty :: DocumentAttributeValueProperty
 mkDocumentAttributeValueProperty
   = DocumentAttributeValueProperty
-      {dateValue = Prelude.Nothing, longValue = Prelude.Nothing,
-       stringListValue = Prelude.Nothing, stringValue = Prelude.Nothing}
+      {haddock_workaround_ = (), dateValue = Prelude.Nothing,
+       longValue = Prelude.Nothing, stringListValue = Prelude.Nothing,
+       stringValue = Prelude.Nothing}
 instance ToResourceProperties DocumentAttributeValueProperty where
   toResourceProperties DocumentAttributeValueProperty {..}
     = ResourceProperties

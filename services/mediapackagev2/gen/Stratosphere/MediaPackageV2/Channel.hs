@@ -8,18 +8,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
-  = Channel {channelGroupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html>
+    Channel {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-channelgroupname>
+             channelGroupName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-channelname>
              channelName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-description>
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-inputtype>
              inputType :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Value Prelude.Text -> Value Prelude.Text -> Channel
 mkChannel channelGroupName channelName
   = Channel
-      {channelGroupName = channelGroupName, channelName = channelName,
-       description = Prelude.Nothing, inputType = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), channelGroupName = channelGroupName,
+       channelName = channelName, description = Prelude.Nothing,
+       inputType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties

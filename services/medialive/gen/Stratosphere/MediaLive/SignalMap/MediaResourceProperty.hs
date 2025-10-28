@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.SignalMap.MediaResourceNeighborProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaResourceProperty
-  = MediaResourceProperty {destinations :: (Prelude.Maybe [MediaResourceNeighborProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html>
+    MediaResourceProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html#cfn-medialive-signalmap-mediaresource-destinations>
+                           destinations :: (Prelude.Maybe [MediaResourceNeighborProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html#cfn-medialive-signalmap-mediaresource-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html#cfn-medialive-signalmap-mediaresource-sources>
                            sources :: (Prelude.Maybe [MediaResourceNeighborProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaResourceProperty :: MediaResourceProperty
 mkMediaResourceProperty
   = MediaResourceProperty
-      {destinations = Prelude.Nothing, name = Prelude.Nothing,
-       sources = Prelude.Nothing}
+      {haddock_workaround_ = (), destinations = Prelude.Nothing,
+       name = Prelude.Nothing, sources = Prelude.Nothing}
 instance ToResourceProperties MediaResourceProperty where
   toResourceProperties MediaResourceProperty {..}
     = ResourceProperties

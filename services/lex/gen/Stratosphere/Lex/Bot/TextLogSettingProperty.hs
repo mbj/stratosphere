@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.TextLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextLogSettingProperty
-  = TextLogSettingProperty {destination :: TextLogDestinationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html>
+    TextLogSettingProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html#cfn-lex-bot-textlogsetting-destination>
+                            destination :: TextLogDestinationProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html#cfn-lex-bot-textlogsetting-enabled>
                             enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextLogSettingProperty ::
@@ -17,7 +21,8 @@ mkTextLogSettingProperty ::
   -> Value Prelude.Bool -> TextLogSettingProperty
 mkTextLogSettingProperty destination enabled
   = TextLogSettingProperty
-      {destination = destination, enabled = enabled}
+      {haddock_workaround_ = (), destination = destination,
+       enabled = enabled}
 instance ToResourceProperties TextLogSettingProperty where
   toResourceProperties TextLogSettingProperty {..}
     = ResourceProperties

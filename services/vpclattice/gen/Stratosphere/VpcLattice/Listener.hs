@@ -9,20 +9,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Listener
-  = Listener {defaultAction :: DefaultActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html>
+    Listener {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-defaultaction>
+              defaultAction :: DefaultActionProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-port>
               port :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-protocol>
               protocol :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-serviceidentifier>
               serviceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListener ::
   DefaultActionProperty -> Value Prelude.Text -> Listener
 mkListener defaultAction protocol
   = Listener
-      {defaultAction = defaultAction, protocol = protocol,
-       name = Prelude.Nothing, port = Prelude.Nothing,
-       serviceIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), defaultAction = defaultAction,
+       protocol = protocol, name = Prelude.Nothing,
+       port = Prelude.Nothing, serviceIdentifier = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Listener where
   toResourceProperties Listener {..}
     = ResourceProperties

@@ -10,16 +10,22 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateSp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchTemplateOverridesProperty
-  = LaunchTemplateOverridesProperty {instanceRequirements :: (Prelude.Maybe InstanceRequirementsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html>
+    LaunchTemplateOverridesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancerequirements>
+                                     instanceRequirements :: (Prelude.Maybe InstanceRequirementsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype>
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification>
                                      launchTemplateSpecification :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity>
                                      weightedCapacity :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateOverridesProperty ::
   LaunchTemplateOverridesProperty
 mkLaunchTemplateOverridesProperty
   = LaunchTemplateOverridesProperty
-      {instanceRequirements = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceRequirements = Prelude.Nothing,
        instanceType = Prelude.Nothing,
        launchTemplateSpecification = Prelude.Nothing,
        weightedCapacity = Prelude.Nothing}

@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLoggingOptionsProperty
-  = CloudWatchLoggingOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html>
+    CloudWatchLoggingOptionsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-enabled>
+                                      enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-loggroupname>
                                       logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-logstreamname>
                                       logStreamName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLoggingOptionsProperty ::
   CloudWatchLoggingOptionsProperty
 mkCloudWatchLoggingOptionsProperty
   = CloudWatchLoggingOptionsProperty
-      {enabled = Prelude.Nothing, logGroupName = Prelude.Nothing,
-       logStreamName = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       logGroupName = Prelude.Nothing, logStreamName = Prelude.Nothing}
 instance ToResourceProperties CloudWatchLoggingOptionsProperty where
   toResourceProperties CloudWatchLoggingOptionsProperty {..}
     = ResourceProperties

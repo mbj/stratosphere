@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpQueryParameterMatchP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryParameterProperty
-  = QueryParameterProperty {match :: (Prelude.Maybe HttpQueryParameterMatchProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html>
+    QueryParameterProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html#cfn-appmesh-gatewayroute-queryparameter-match>
+                            match :: (Prelude.Maybe HttpQueryParameterMatchProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html#cfn-appmesh-gatewayroute-queryparameter-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryParameterProperty ::
   Value Prelude.Text -> QueryParameterProperty
 mkQueryParameterProperty name
-  = QueryParameterProperty {name = name, match = Prelude.Nothing}
+  = QueryParameterProperty
+      {haddock_workaround_ = (), name = name, match = Prelude.Nothing}
 instance ToResourceProperties QueryParameterProperty where
   toResourceProperties QueryParameterProperty {..}
     = ResourceProperties

@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidityPeriodProperty
-  = ValidityPeriodProperty {period :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-validityperiod.html>
+    ValidityPeriodProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-validityperiod.html#cfn-pcaconnectorad-template-validityperiod-period>
+                            period :: (Value Prelude.Double),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-validityperiod.html#cfn-pcaconnectorad-template-validityperiod-periodtype>
                             periodType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidityPeriodProperty ::
   Value Prelude.Double
   -> Value Prelude.Text -> ValidityPeriodProperty
 mkValidityPeriodProperty period periodType
-  = ValidityPeriodProperty {period = period, periodType = periodType}
+  = ValidityPeriodProperty
+      {haddock_workaround_ = (), period = period,
+       periodType = periodType}
 instance ToResourceProperties ValidityPeriodProperty where
   toResourceProperties ValidityPeriodProperty {..}
     = ResourceProperties

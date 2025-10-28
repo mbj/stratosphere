@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectActionProperty
-  = ConnectActionProperty {iAMRoleARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html>
+    ConnectActionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html#cfn-ses-receiptrule-connectaction-iamrolearn>
+                           iAMRoleARN :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html#cfn-ses-receiptrule-connectaction-instancearn>
                            instanceARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ConnectActionProperty
 mkConnectActionProperty iAMRoleARN instanceARN
   = ConnectActionProperty
-      {iAMRoleARN = iAMRoleARN, instanceARN = instanceARN}
+      {haddock_workaround_ = (), iAMRoleARN = iAMRoleARN,
+       instanceARN = instanceARN}
 instance ToResourceProperties ConnectActionProperty where
   toResourceProperties ConnectActionProperty {..}
     = ResourceProperties

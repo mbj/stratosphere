@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TraceContentProperty
-  = TraceContentProperty {logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html>
+    TraceContentProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html#cfn-iotwireless-networkanalyzerconfiguration-tracecontent-loglevel>
+                          logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html#cfn-iotwireless-networkanalyzerconfiguration-tracecontent-wirelessdeviceframeinfo>
                           wirelessDeviceFrameInfo :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTraceContentProperty :: TraceContentProperty
 mkTraceContentProperty
   = TraceContentProperty
-      {logLevel = Prelude.Nothing,
+      {haddock_workaround_ = (), logLevel = Prelude.Nothing,
        wirelessDeviceFrameInfo = Prelude.Nothing}
 instance ToResourceProperties TraceContentProperty where
   toResourceProperties TraceContentProperty {..}

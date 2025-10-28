@@ -8,14 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContextualGroundingFilterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContextualGroundingPolicyConfigProperty
-  = ContextualGroundingPolicyConfigProperty {filtersConfig :: [ContextualGroundingFilterConfigProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html>
+    ContextualGroundingPolicyConfigProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig-filtersconfig>
+                                             filtersConfig :: [ContextualGroundingFilterConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContextualGroundingPolicyConfigProperty ::
   [ContextualGroundingFilterConfigProperty]
   -> ContextualGroundingPolicyConfigProperty
 mkContextualGroundingPolicyConfigProperty filtersConfig
   = ContextualGroundingPolicyConfigProperty
-      {filtersConfig = filtersConfig}
+      {haddock_workaround_ = (), filtersConfig = filtersConfig}
 instance ToResourceProperties ContextualGroundingPolicyConfigProperty where
   toResourceProperties ContextualGroundingPolicyConfigProperty {..}
     = ResourceProperties
@@ -27,6 +30,6 @@ instance JSON.ToJSON ContextualGroundingPolicyConfigProperty where
     = JSON.object ["FiltersConfig" JSON..= filtersConfig]
 instance Property "FiltersConfig" ContextualGroundingPolicyConfigProperty where
   type PropertyType "FiltersConfig" ContextualGroundingPolicyConfigProperty = [ContextualGroundingFilterConfigProperty]
-  set newValue ContextualGroundingPolicyConfigProperty {}
+  set newValue ContextualGroundingPolicyConfigProperty {..}
     = ContextualGroundingPolicyConfigProperty
         {filtersConfig = newValue, ..}

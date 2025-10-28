@@ -9,16 +9,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Workspace
-  = Workspace {alertManagerDefinition :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html>
+    Workspace {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition>
+               alertManagerDefinition :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias>
                alias :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-kmskeyarn>
                kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration>
                loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace :: Workspace
 mkWorkspace
   = Workspace
-      {alertManagerDefinition = Prelude.Nothing, alias = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       alertManagerDefinition = Prelude.Nothing, alias = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Workspace where

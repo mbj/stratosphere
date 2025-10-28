@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BasicAuthConfigProperty
-  = BasicAuthConfigProperty {enableBasicAuth :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html>
+    BasicAuthConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth>
+                             enableBasicAuth :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password>
                              password :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username>
                              username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBasicAuthConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> BasicAuthConfigProperty
 mkBasicAuthConfigProperty password username
   = BasicAuthConfigProperty
-      {password = password, username = username,
-       enableBasicAuth = Prelude.Nothing}
+      {haddock_workaround_ = (), password = password,
+       username = username, enableBasicAuth = Prelude.Nothing}
 instance ToResourceProperties BasicAuthConfigProperty where
   toResourceProperties BasicAuthConfigProperty {..}
     = ResourceProperties

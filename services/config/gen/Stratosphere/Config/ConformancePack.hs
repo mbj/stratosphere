@@ -9,18 +9,28 @@ import {-# SOURCE #-} Stratosphere.Config.ConformancePack.TemplateSSMDocumentDet
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConformancePack
-  = ConformancePack {conformancePackInputParameters :: (Prelude.Maybe [ConformancePackInputParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html>
+    ConformancePack {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters>
+                     conformancePackInputParameters :: (Prelude.Maybe [ConformancePackInputParameterProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname>
                      conformancePackName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket>
                      deliveryS3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix>
                      deliveryS3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody>
                      templateBody :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri>
                      templateS3Uri :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatessmdocumentdetails>
                      templateSSMDocumentDetails :: (Prelude.Maybe TemplateSSMDocumentDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConformancePack :: Value Prelude.Text -> ConformancePack
 mkConformancePack conformancePackName
   = ConformancePack
-      {conformancePackName = conformancePackName,
+      {haddock_workaround_ = (),
+       conformancePackName = conformancePackName,
        conformancePackInputParameters = Prelude.Nothing,
        deliveryS3Bucket = Prelude.Nothing,
        deliveryS3KeyPrefix = Prelude.Nothing,

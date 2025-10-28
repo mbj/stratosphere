@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.CrossChannelBehaviorPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaConcurrencyProperty
-  = MediaConcurrencyProperty {channel :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html>
+    MediaConcurrencyProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html#cfn-connect-routingprofile-mediaconcurrency-channel>
+                              channel :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html#cfn-connect-routingprofile-mediaconcurrency-concurrency>
                               concurrency :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html#cfn-connect-routingprofile-mediaconcurrency-crosschannelbehavior>
                               crossChannelBehavior :: (Prelude.Maybe CrossChannelBehaviorProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaConcurrencyProperty ::
@@ -18,8 +23,8 @@ mkMediaConcurrencyProperty ::
   -> Value Prelude.Integer -> MediaConcurrencyProperty
 mkMediaConcurrencyProperty channel concurrency
   = MediaConcurrencyProperty
-      {channel = channel, concurrency = concurrency,
-       crossChannelBehavior = Prelude.Nothing}
+      {haddock_workaround_ = (), channel = channel,
+       concurrency = concurrency, crossChannelBehavior = Prelude.Nothing}
 instance ToResourceProperties MediaConcurrencyProperty where
   toResourceProperties MediaConcurrencyProperty {..}
     = ResourceProperties

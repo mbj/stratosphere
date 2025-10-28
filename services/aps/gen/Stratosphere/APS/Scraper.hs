@@ -11,10 +11,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Scraper
-  = Scraper {alias :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html>
+    Scraper {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-alias>
+             alias :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-destination>
              destination :: DestinationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scrapeconfiguration>
              scrapeConfiguration :: ScrapeConfigurationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-source>
              source :: SourceProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScraper ::
@@ -22,7 +29,7 @@ mkScraper ::
   -> ScrapeConfigurationProperty -> SourceProperty -> Scraper
 mkScraper destination scrapeConfiguration source
   = Scraper
-      {destination = destination,
+      {haddock_workaround_ = (), destination = destination,
        scrapeConfiguration = scrapeConfiguration, source = source,
        alias = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Scraper where

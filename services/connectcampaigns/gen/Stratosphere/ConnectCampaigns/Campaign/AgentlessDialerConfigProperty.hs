@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentlessDialerConfigProperty
-  = AgentlessDialerConfigProperty {dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html>
+    AgentlessDialerConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html#cfn-connectcampaigns-campaign-agentlessdialerconfig-dialingcapacity>
+                                   dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentlessDialerConfigProperty :: AgentlessDialerConfigProperty
 mkAgentlessDialerConfigProperty
-  = AgentlessDialerConfigProperty {dialingCapacity = Prelude.Nothing}
+  = AgentlessDialerConfigProperty
+      {haddock_workaround_ = (), dialingCapacity = Prelude.Nothing}
 instance ToResourceProperties AgentlessDialerConfigProperty where
   toResourceProperties AgentlessDialerConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AgentlessDialerConfigProperty where
               [(JSON..=) "DialingCapacity" Prelude.<$> dialingCapacity]))
 instance Property "DialingCapacity" AgentlessDialerConfigProperty where
   type PropertyType "DialingCapacity" AgentlessDialerConfigProperty = Value Prelude.Double
-  set newValue AgentlessDialerConfigProperty {}
+  set newValue AgentlessDialerConfigProperty {..}
     = AgentlessDialerConfigProperty
         {dialingCapacity = Prelude.pure newValue, ..}

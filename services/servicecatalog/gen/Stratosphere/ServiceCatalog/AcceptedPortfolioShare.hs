@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceptedPortfolioShare
-  = AcceptedPortfolioShare {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html>
+    AcceptedPortfolioShare {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html#cfn-servicecatalog-acceptedportfolioshare-acceptlanguage>
+                            acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html#cfn-servicecatalog-acceptedportfolioshare-portfolioid>
                             portfolioId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceptedPortfolioShare ::
   Value Prelude.Text -> AcceptedPortfolioShare
 mkAcceptedPortfolioShare portfolioId
   = AcceptedPortfolioShare
-      {portfolioId = portfolioId, acceptLanguage = Prelude.Nothing}
+      {haddock_workaround_ = (), portfolioId = portfolioId,
+       acceptLanguage = Prelude.Nothing}
 instance ToResourceProperties AcceptedPortfolioShare where
   toResourceProperties AcceptedPortfolioShare {..}
     = ResourceProperties

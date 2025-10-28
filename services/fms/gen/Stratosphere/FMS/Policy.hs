@@ -11,19 +11,35 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.SecurityServicePolicyDataProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Policy
-  = Policy {deleteAllPolicyResources :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html>
+    Policy {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources>
+            deleteAllPolicyResources :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap>
             excludeMap :: (Prelude.Maybe IEMapProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags>
             excludeResourceTags :: (Value Prelude.Bool),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap>
             includeMap :: (Prelude.Maybe IEMapProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policydescription>
             policyDescription :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname>
             policyName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled>
             remediationEnabled :: (Value Prelude.Bool),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcesetids>
             resourceSetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags>
             resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype>
             resourceType :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist>
             resourceTypeList :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcescleanup>
             resourcesCleanUp :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata>
             securityServicePolicyData :: SecurityServicePolicyDataProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags>
             tags :: (Prelude.Maybe [PolicyTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy ::
@@ -37,8 +53,9 @@ mkPolicy
   remediationEnabled
   securityServicePolicyData
   = Policy
-      {excludeResourceTags = excludeResourceTags,
-       policyName = policyName, remediationEnabled = remediationEnabled,
+      {haddock_workaround_ = (),
+       excludeResourceTags = excludeResourceTags, policyName = policyName,
+       remediationEnabled = remediationEnabled,
        securityServicePolicyData = securityServicePolicyData,
        deleteAllPolicyResources = Prelude.Nothing,
        excludeMap = Prelude.Nothing, includeMap = Prelude.Nothing,

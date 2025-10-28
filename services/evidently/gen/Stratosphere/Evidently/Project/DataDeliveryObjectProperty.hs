@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Evidently.Project.S3DestinationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataDeliveryObjectProperty
-  = DataDeliveryObjectProperty {logGroup :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html>
+    DataDeliveryObjectProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html#cfn-evidently-project-datadeliveryobject-loggroup>
+                                logGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html#cfn-evidently-project-datadeliveryobject-s3>
                                 s3 :: (Prelude.Maybe S3DestinationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataDeliveryObjectProperty :: DataDeliveryObjectProperty
 mkDataDeliveryObjectProperty
   = DataDeliveryObjectProperty
-      {logGroup = Prelude.Nothing, s3 = Prelude.Nothing}
+      {haddock_workaround_ = (), logGroup = Prelude.Nothing,
+       s3 = Prelude.Nothing}
 instance ToResourceProperties DataDeliveryObjectProperty where
   toResourceProperties DataDeliveryObjectProperty {..}
     = ResourceProperties

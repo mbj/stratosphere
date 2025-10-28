@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessorPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProcessingConfigurationProperty
-  = ProcessingConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html>
+    ProcessingConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled>
+                                     enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors>
                                      processors :: (Prelude.Maybe [ProcessorProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessingConfigurationProperty ::
   ProcessingConfigurationProperty
 mkProcessingConfigurationProperty
   = ProcessingConfigurationProperty
-      {enabled = Prelude.Nothing, processors = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       processors = Prelude.Nothing}
 instance ToResourceProperties ProcessingConfigurationProperty where
   toResourceProperties ProcessingConfigurationProperty {..}
     = ResourceProperties

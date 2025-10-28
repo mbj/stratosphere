@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSAccountProperty
-  = AWSAccountProperty {emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html>
+    AWSAccountProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress>
+                        emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id>
                         id :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name>
                         name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSAccountProperty :: AWSAccountProperty
 mkAWSAccountProperty
   = AWSAccountProperty
-      {emailAddress = Prelude.Nothing, id = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), emailAddress = Prelude.Nothing,
+       id = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties AWSAccountProperty where
   toResourceProperties AWSAccountProperty {..}
     = ResourceProperties

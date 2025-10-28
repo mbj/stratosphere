@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.VolumeSpecificationPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsBlockDeviceConfigProperty
-  = EbsBlockDeviceConfigProperty {volumeSpecification :: VolumeSpecificationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html>
+    EbsBlockDeviceConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification>
+                                  volumeSpecification :: VolumeSpecificationProperty,
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumesperinstance>
                                   volumesPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsBlockDeviceConfigProperty ::
   VolumeSpecificationProperty -> EbsBlockDeviceConfigProperty
 mkEbsBlockDeviceConfigProperty volumeSpecification
   = EbsBlockDeviceConfigProperty
-      {volumeSpecification = volumeSpecification,
+      {haddock_workaround_ = (),
+       volumeSpecification = volumeSpecification,
        volumesPerInstance = Prelude.Nothing}
 instance ToResourceProperties EbsBlockDeviceConfigProperty where
   toResourceProperties EbsBlockDeviceConfigProperty {..}

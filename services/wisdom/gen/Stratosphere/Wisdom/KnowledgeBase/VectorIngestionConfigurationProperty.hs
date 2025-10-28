@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.ChunkingConfigurationPro
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.ParsingConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data VectorIngestionConfigurationProperty
-  = VectorIngestionConfigurationProperty {chunkingConfiguration :: (Prelude.Maybe ChunkingConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html>
+    VectorIngestionConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html#cfn-wisdom-knowledgebase-vectoringestionconfiguration-chunkingconfiguration>
+                                          chunkingConfiguration :: (Prelude.Maybe ChunkingConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html#cfn-wisdom-knowledgebase-vectoringestionconfiguration-parsingconfiguration>
                                           parsingConfiguration :: (Prelude.Maybe ParsingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorIngestionConfigurationProperty ::
   VectorIngestionConfigurationProperty
 mkVectorIngestionConfigurationProperty
   = VectorIngestionConfigurationProperty
-      {chunkingConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), chunkingConfiguration = Prelude.Nothing,
        parsingConfiguration = Prelude.Nothing}
 instance ToResourceProperties VectorIngestionConfigurationProperty where
   toResourceProperties VectorIngestionConfigurationProperty {..}

@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Requ
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestBasedSliProperty
-  = RequestBasedSliProperty {comparisonOperator :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html>
+    RequestBasedSliProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-comparisonoperator>
+                             comparisonOperator :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-metricthreshold>
                              metricThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-requestbasedslimetric>
                              requestBasedSliMetric :: RequestBasedSliMetricProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestBasedSliProperty ::
   RequestBasedSliMetricProperty -> RequestBasedSliProperty
 mkRequestBasedSliProperty requestBasedSliMetric
   = RequestBasedSliProperty
-      {requestBasedSliMetric = requestBasedSliMetric,
+      {haddock_workaround_ = (),
+       requestBasedSliMetric = requestBasedSliMetric,
        comparisonOperator = Prelude.Nothing,
        metricThreshold = Prelude.Nothing}
 instance ToResourceProperties RequestBasedSliProperty where

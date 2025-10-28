@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WaitCondition
-  = WaitCondition {count :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html>
+    WaitCondition {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count>
+                   count :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle>
                    handle :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout>
                    timeout :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitCondition :: WaitCondition
 mkWaitCondition
   = WaitCondition
-      {count = Prelude.Nothing, handle = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), count = Prelude.Nothing,
+       handle = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties WaitCondition where
   toResourceProperties WaitCondition {..}
     = ResourceProperties

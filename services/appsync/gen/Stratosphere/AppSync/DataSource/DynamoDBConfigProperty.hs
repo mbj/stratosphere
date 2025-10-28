@@ -9,18 +9,25 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.DeltaSyncConfigProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBConfigProperty
-  = DynamoDBConfigProperty {awsRegion :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html>
+    DynamoDBConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-awsregion>
+                            awsRegion :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-deltasyncconfig>
                             deltaSyncConfig :: (Prelude.Maybe DeltaSyncConfigProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-tablename>
                             tableName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials>
                             useCallerCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-versioned>
                             versioned :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DynamoDBConfigProperty
 mkDynamoDBConfigProperty awsRegion tableName
   = DynamoDBConfigProperty
-      {awsRegion = awsRegion, tableName = tableName,
-       deltaSyncConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), awsRegion = awsRegion,
+       tableName = tableName, deltaSyncConfig = Prelude.Nothing,
        useCallerCredentials = Prelude.Nothing,
        versioned = Prelude.Nothing}
 instance ToResourceProperties DynamoDBConfigProperty where

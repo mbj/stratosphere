@@ -10,22 +10,36 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.TargetTrackingConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingPolicy
-  = ScalingPolicy {adjustmentType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html>
+    ScalingPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-adjustmenttype>
+                   adjustmentType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-autoscalinggroupname>
                    autoScalingGroupName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-cooldown>
                    cooldown :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-estimatedinstancewarmup>
                    estimatedInstanceWarmup :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-metricaggregationtype>
                    metricAggregationType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-minadjustmentmagnitude>
                    minAdjustmentMagnitude :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-policytype>
                    policyType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration>
                    predictiveScalingConfiguration :: (Prelude.Maybe PredictiveScalingConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-scalingadjustment>
                    scalingAdjustment :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-stepadjustments>
                    stepAdjustments :: (Prelude.Maybe [StepAdjustmentProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration>
                    targetTrackingConfiguration :: (Prelude.Maybe TargetTrackingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicy :: Value Prelude.Text -> ScalingPolicy
 mkScalingPolicy autoScalingGroupName
   = ScalingPolicy
-      {autoScalingGroupName = autoScalingGroupName,
+      {haddock_workaround_ = (),
+       autoScalingGroupName = autoScalingGroupName,
        adjustmentType = Prelude.Nothing, cooldown = Prelude.Nothing,
        estimatedInstanceWarmup = Prelude.Nothing,
        metricAggregationType = Prelude.Nothing,

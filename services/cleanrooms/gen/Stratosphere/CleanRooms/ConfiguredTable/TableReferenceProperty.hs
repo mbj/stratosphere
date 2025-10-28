@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.GlueTableReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 data TableReferenceProperty
-  = TableReferenceProperty {glue :: GlueTableReferenceProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html>
+    TableReferenceProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-glue>
+                            glue :: GlueTableReferenceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableReferenceProperty ::
   GlueTableReferenceProperty -> TableReferenceProperty
 mkTableReferenceProperty glue
-  = TableReferenceProperty {glue = glue}
+  = TableReferenceProperty {haddock_workaround_ = (), glue = glue}
 instance ToResourceProperties TableReferenceProperty where
   toResourceProperties TableReferenceProperty {..}
     = ResourceProperties
@@ -24,5 +27,5 @@ instance JSON.ToJSON TableReferenceProperty where
     = JSON.object ["Glue" JSON..= glue]
 instance Property "Glue" TableReferenceProperty where
   type PropertyType "Glue" TableReferenceProperty = GlueTableReferenceProperty
-  set newValue TableReferenceProperty {}
+  set newValue TableReferenceProperty {..}
     = TableReferenceProperty {glue = newValue, ..}

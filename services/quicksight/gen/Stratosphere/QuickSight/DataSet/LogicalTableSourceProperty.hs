@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.JoinInstructionProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogicalTableSourceProperty
-  = LogicalTableSourceProperty {dataSetArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html>
+    LogicalTableSourceProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-datasetarn>
+                                dataSetArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction>
                                 joinInstruction :: (Prelude.Maybe JoinInstructionProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid>
                                 physicalTableId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableSourceProperty :: LogicalTableSourceProperty
 mkLogicalTableSourceProperty
   = LogicalTableSourceProperty
-      {dataSetArn = Prelude.Nothing, joinInstruction = Prelude.Nothing,
+      {haddock_workaround_ = (), dataSetArn = Prelude.Nothing,
+       joinInstruction = Prelude.Nothing,
        physicalTableId = Prelude.Nothing}
 instance ToResourceProperties LogicalTableSourceProperty where
   toResourceProperties LogicalTableSourceProperty {..}

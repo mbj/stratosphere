@@ -7,20 +7,32 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCCidrBlock
-  = VPCCidrBlock {amazonProvidedIpv6CidrBlock :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html>
+    VPCCidrBlock {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock>
+                  amazonProvidedIpv6CidrBlock :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-cidrblock>
                   cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4ipampoolid>
                   ipv4IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv4netmasklength>
                   ipv4NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblock>
                   ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6ipampoolid>
                   ipv6IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6netmasklength>
                   ipv6NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6pool>
                   ipv6Pool :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid>
                   vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCCidrBlock :: Value Prelude.Text -> VPCCidrBlock
 mkVPCCidrBlock vpcId
   = VPCCidrBlock
-      {vpcId = vpcId, amazonProvidedIpv6CidrBlock = Prelude.Nothing,
+      {haddock_workaround_ = (), vpcId = vpcId,
+       amazonProvidedIpv6CidrBlock = Prelude.Nothing,
        cidrBlock = Prelude.Nothing, ipv4IpamPoolId = Prelude.Nothing,
        ipv4NetmaskLength = Prelude.Nothing,
        ipv6CidrBlock = Prelude.Nothing, ipv6IpamPoolId = Prelude.Nothing,

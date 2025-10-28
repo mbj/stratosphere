@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoGroupConfigurationProperty
-  = CognitoGroupConfigurationProperty {groupEntityType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html>
+    CognitoGroupConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html#cfn-verifiedpermissions-identitysource-cognitogroupconfiguration-groupentitytype>
+                                       groupEntityType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoGroupConfigurationProperty ::
   Value Prelude.Text -> CognitoGroupConfigurationProperty
 mkCognitoGroupConfigurationProperty groupEntityType
   = CognitoGroupConfigurationProperty
-      {groupEntityType = groupEntityType}
+      {haddock_workaround_ = (), groupEntityType = groupEntityType}
 instance ToResourceProperties CognitoGroupConfigurationProperty where
   toResourceProperties CognitoGroupConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON CognitoGroupConfigurationProperty where
     = JSON.object ["GroupEntityType" JSON..= groupEntityType]
 instance Property "GroupEntityType" CognitoGroupConfigurationProperty where
   type PropertyType "GroupEntityType" CognitoGroupConfigurationProperty = Value Prelude.Text
-  set newValue CognitoGroupConfigurationProperty {}
+  set newValue CognitoGroupConfigurationProperty {..}
     = CognitoGroupConfigurationProperty
         {groupEntityType = newValue, ..}

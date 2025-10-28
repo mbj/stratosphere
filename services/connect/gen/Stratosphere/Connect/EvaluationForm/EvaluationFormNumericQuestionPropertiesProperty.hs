@@ -11,9 +11,15 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQ
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormNumericQuestionPropertiesProperty
-  = EvaluationFormNumericQuestionPropertiesProperty {automation :: (Prelude.Maybe EvaluationFormNumericQuestionAutomationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html>
+    EvaluationFormNumericQuestionPropertiesProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-automation>
+                                                     automation :: (Prelude.Maybe EvaluationFormNumericQuestionAutomationProperty),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-maxvalue>
                                                      maxValue :: (Value Prelude.Integer),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-minvalue>
                                                      minValue :: (Value Prelude.Integer),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-options>
                                                      options :: (Prelude.Maybe [EvaluationFormNumericQuestionOptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionPropertiesProperty ::
@@ -22,8 +28,9 @@ mkEvaluationFormNumericQuestionPropertiesProperty ::
      -> EvaluationFormNumericQuestionPropertiesProperty
 mkEvaluationFormNumericQuestionPropertiesProperty maxValue minValue
   = EvaluationFormNumericQuestionPropertiesProperty
-      {maxValue = maxValue, minValue = minValue,
-       automation = Prelude.Nothing, options = Prelude.Nothing}
+      {haddock_workaround_ = (), maxValue = maxValue,
+       minValue = minValue, automation = Prelude.Nothing,
+       options = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormNumericQuestionPropertiesProperty where
   toResourceProperties
     EvaluationFormNumericQuestionPropertiesProperty {..}

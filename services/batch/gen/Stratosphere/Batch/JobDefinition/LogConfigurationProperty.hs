@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
-  = LogConfigurationProperty {logDriver :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html>
+    LogConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-logdriver>
+                              logDriver :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-options>
                               options :: (Prelude.Maybe JSON.Object),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-secretoptions>
                               secretOptions :: (Prelude.Maybe [SecretProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty ::
   Value Prelude.Text -> LogConfigurationProperty
 mkLogConfigurationProperty logDriver
   = LogConfigurationProperty
-      {logDriver = logDriver, options = Prelude.Nothing,
-       secretOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), logDriver = logDriver,
+       options = Prelude.Nothing, secretOptions = Prelude.Nothing}
 instance ToResourceProperties LogConfigurationProperty where
   toResourceProperties LogConfigurationProperty {..}
     = ResourceProperties

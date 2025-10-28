@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RotationRulesProperty
-  = RotationRulesProperty {automaticallyAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html>
+    RotationRulesProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html#cfn-secretsmanager-rotationschedule-rotationrules-automaticallyafterdays>
+                           automaticallyAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html#cfn-secretsmanager-rotationschedule-rotationrules-duration>
                            duration :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html#cfn-secretsmanager-rotationschedule-rotationrules-scheduleexpression>
                            scheduleExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRotationRulesProperty :: RotationRulesProperty
 mkRotationRulesProperty
   = RotationRulesProperty
-      {automaticallyAfterDays = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       automaticallyAfterDays = Prelude.Nothing,
        duration = Prelude.Nothing, scheduleExpression = Prelude.Nothing}
 instance ToResourceProperties RotationRulesProperty where
   toResourceProperties RotationRulesProperty {..}

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppSyncParametersProperty
-  = AppSyncParametersProperty {graphQLOperation :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html>
+    AppSyncParametersProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html#cfn-events-rule-appsyncparameters-graphqloperation>
+                               graphQLOperation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppSyncParametersProperty ::
   Value Prelude.Text -> AppSyncParametersProperty
 mkAppSyncParametersProperty graphQLOperation
-  = AppSyncParametersProperty {graphQLOperation = graphQLOperation}
+  = AppSyncParametersProperty
+      {haddock_workaround_ = (), graphQLOperation = graphQLOperation}
 instance ToResourceProperties AppSyncParametersProperty where
   toResourceProperties AppSyncParametersProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AppSyncParametersProperty where
     = JSON.object ["GraphQLOperation" JSON..= graphQLOperation]
 instance Property "GraphQLOperation" AppSyncParametersProperty where
   type PropertyType "GraphQLOperation" AppSyncParametersProperty = Value Prelude.Text
-  set newValue AppSyncParametersProperty {}
+  set newValue AppSyncParametersProperty {..}
     = AppSyncParametersProperty {graphQLOperation = newValue, ..}

@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.QBusiness.Plugin.APISchemaProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPluginConfigurationProperty
-  = CustomPluginConfigurationProperty {apiSchema :: APISchemaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-custompluginconfiguration.html>
+    CustomPluginConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-custompluginconfiguration.html#cfn-qbusiness-plugin-custompluginconfiguration-apischema>
+                                       apiSchema :: APISchemaProperty,
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-custompluginconfiguration.html#cfn-qbusiness-plugin-custompluginconfiguration-apischematype>
                                        apiSchemaType :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-custompluginconfiguration.html#cfn-qbusiness-plugin-custompluginconfiguration-description>
                                        description :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginConfigurationProperty ::
@@ -22,8 +27,8 @@ mkCustomPluginConfigurationProperty
   apiSchemaType
   description
   = CustomPluginConfigurationProperty
-      {apiSchema = apiSchema, apiSchemaType = apiSchemaType,
-       description = description}
+      {haddock_workaround_ = (), apiSchema = apiSchema,
+       apiSchemaType = apiSchemaType, description = description}
 instance ToResourceProperties CustomPluginConfigurationProperty where
   toResourceProperties CustomPluginConfigurationProperty {..}
     = ResourceProperties

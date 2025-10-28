@@ -12,18 +12,28 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.TemplateConfigurationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WriteTreatmentResourceProperty
-  = WriteTreatmentResourceProperty {customDeliveryConfiguration :: (Prelude.Maybe CustomDeliveryConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html>
+    WriteTreatmentResourceProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-customdeliveryconfiguration>
+                                    customDeliveryConfiguration :: (Prelude.Maybe CustomDeliveryConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-messageconfiguration>
                                     messageConfiguration :: (Prelude.Maybe MessageConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-schedule>
                                     schedule :: (Prelude.Maybe ScheduleProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-sizepercent>
                                     sizePercent :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-templateconfiguration>
                                     templateConfiguration :: (Prelude.Maybe TemplateConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-treatmentdescription>
                                     treatmentDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html#cfn-pinpoint-campaign-writetreatmentresource-treatmentname>
                                     treatmentName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWriteTreatmentResourceProperty :: WriteTreatmentResourceProperty
 mkWriteTreatmentResourceProperty
   = WriteTreatmentResourceProperty
-      {customDeliveryConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       customDeliveryConfiguration = Prelude.Nothing,
        messageConfiguration = Prelude.Nothing, schedule = Prelude.Nothing,
        sizePercent = Prelude.Nothing,
        templateConfiguration = Prelude.Nothing,

@@ -8,20 +8,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data APNSPushNotificationTemplateProperty
-  = APNSPushNotificationTemplateProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html>
+    APNSPushNotificationTemplateProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-action>
+                                          action :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-body>
                                           body :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-mediaurl>
                                           mediaUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-sound>
                                           sound :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-title>
                                           title :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html#cfn-pinpoint-pushtemplate-apnspushnotificationtemplate-url>
                                           url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAPNSPushNotificationTemplateProperty ::
   APNSPushNotificationTemplateProperty
 mkAPNSPushNotificationTemplateProperty
   = APNSPushNotificationTemplateProperty
-      {action = Prelude.Nothing, body = Prelude.Nothing,
-       mediaUrl = Prelude.Nothing, sound = Prelude.Nothing,
-       title = Prelude.Nothing, url = Prelude.Nothing}
+      {haddock_workaround_ = (), action = Prelude.Nothing,
+       body = Prelude.Nothing, mediaUrl = Prelude.Nothing,
+       sound = Prelude.Nothing, title = Prelude.Nothing,
+       url = Prelude.Nothing}
 instance ToResourceProperties APNSPushNotificationTemplateProperty where
   toResourceProperties APNSPushNotificationTemplateProperty {..}
     = ResourceProperties

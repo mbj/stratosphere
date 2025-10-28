@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextInputSpecificationProperty
-  = TextInputSpecificationProperty {startTimeoutMs :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textinputspecification.html>
+    TextInputSpecificationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textinputspecification.html#cfn-lex-bot-textinputspecification-starttimeoutms>
+                                    startTimeoutMs :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextInputSpecificationProperty ::
   Value Prelude.Integer -> TextInputSpecificationProperty
 mkTextInputSpecificationProperty startTimeoutMs
-  = TextInputSpecificationProperty {startTimeoutMs = startTimeoutMs}
+  = TextInputSpecificationProperty
+      {haddock_workaround_ = (), startTimeoutMs = startTimeoutMs}
 instance ToResourceProperties TextInputSpecificationProperty where
   toResourceProperties TextInputSpecificationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TextInputSpecificationProperty where
     = JSON.object ["StartTimeoutMs" JSON..= startTimeoutMs]
 instance Property "StartTimeoutMs" TextInputSpecificationProperty where
   type PropertyType "StartTimeoutMs" TextInputSpecificationProperty = Value Prelude.Integer
-  set newValue TextInputSpecificationProperty {}
+  set newValue TextInputSpecificationProperty {..}
     = TextInputSpecificationProperty {startTimeoutMs = newValue, ..}

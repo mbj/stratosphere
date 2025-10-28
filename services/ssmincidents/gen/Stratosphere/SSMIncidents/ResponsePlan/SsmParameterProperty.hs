@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SsmParameterProperty
-  = SsmParameterProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html>
+    SsmParameterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key>
+                          key :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values>
                           values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> SsmParameterProperty
 mkSsmParameterProperty key values
-  = SsmParameterProperty {key = key, values = values}
+  = SsmParameterProperty
+      {haddock_workaround_ = (), key = key, values = values}
 instance ToResourceProperties SsmParameterProperty where
   toResourceProperties SsmParameterProperty {..}
     = ResourceProperties

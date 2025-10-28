@@ -10,17 +10,26 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.Route
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageOverridesProperty
-  = StageOverridesProperty {accessLogSettings :: (Prelude.Maybe AccessLogSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html>
+    StageOverridesProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-accesslogsettings>
+                            accessLogSettings :: (Prelude.Maybe AccessLogSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-autodeploy>
                             autoDeploy :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-defaultroutesettings>
                             defaultRouteSettings :: (Prelude.Maybe RouteSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-description>
                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-routesettings>
                             routeSettings :: (Prelude.Maybe JSON.Object),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stageoverrides-stagevariables>
                             stageVariables :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageOverridesProperty :: StageOverridesProperty
 mkStageOverridesProperty
   = StageOverridesProperty
-      {accessLogSettings = Prelude.Nothing, autoDeploy = Prelude.Nothing,
+      {haddock_workaround_ = (), accessLogSettings = Prelude.Nothing,
+       autoDeploy = Prelude.Nothing,
        defaultRouteSettings = Prelude.Nothing,
        description = Prelude.Nothing, routeSettings = Prelude.Nothing,
        stageVariables = Prelude.Nothing}

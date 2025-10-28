@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.MemberFabricConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MemberFrameworkConfigurationProperty
-  = MemberFrameworkConfigurationProperty {memberFabricConfiguration :: (Prelude.Maybe MemberFabricConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html>
+    MemberFrameworkConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html#cfn-managedblockchain-member-memberframeworkconfiguration-memberfabricconfiguration>
+                                          memberFabricConfiguration :: (Prelude.Maybe MemberFabricConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberFrameworkConfigurationProperty ::
   MemberFrameworkConfigurationProperty
 mkMemberFrameworkConfigurationProperty
   = MemberFrameworkConfigurationProperty
-      {memberFabricConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       memberFabricConfiguration = Prelude.Nothing}
 instance ToResourceProperties MemberFrameworkConfigurationProperty where
   toResourceProperties MemberFrameworkConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON MemberFrameworkConfigurationProperty where
                  Prelude.<$> memberFabricConfiguration]))
 instance Property "MemberFabricConfiguration" MemberFrameworkConfigurationProperty where
   type PropertyType "MemberFabricConfiguration" MemberFrameworkConfigurationProperty = MemberFabricConfigurationProperty
-  set newValue MemberFrameworkConfigurationProperty {}
+  set newValue MemberFrameworkConfigurationProperty {..}
     = MemberFrameworkConfigurationProperty
         {memberFabricConfiguration = Prelude.pure newValue, ..}

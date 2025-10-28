@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Cale
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.RollingIntervalProperty as Exports
 import Stratosphere.ResourceProperties
 data IntervalProperty
-  = IntervalProperty {calendarInterval :: (Prelude.Maybe CalendarIntervalProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html>
+    IntervalProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html#cfn-applicationsignals-servicelevelobjective-interval-calendarinterval>
+                      calendarInterval :: (Prelude.Maybe CalendarIntervalProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html#cfn-applicationsignals-servicelevelobjective-interval-rollinginterval>
                       rollingInterval :: (Prelude.Maybe RollingIntervalProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntervalProperty :: IntervalProperty
 mkIntervalProperty
   = IntervalProperty
-      {calendarInterval = Prelude.Nothing,
+      {haddock_workaround_ = (), calendarInterval = Prelude.Nothing,
        rollingInterval = Prelude.Nothing}
 instance ToResourceProperties IntervalProperty where
   toResourceProperties IntervalProperty {..}

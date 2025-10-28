@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateKeyFlagsV3Property
-  = PrivateKeyFlagsV3Property {clientVersion :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html>
+    PrivateKeyFlagsV3Property {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html#cfn-pcaconnectorad-template-privatekeyflagsv3-clientversion>
+                               clientVersion :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html#cfn-pcaconnectorad-template-privatekeyflagsv3-exportablekey>
                                exportableKey :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html#cfn-pcaconnectorad-template-privatekeyflagsv3-requirealternatesignaturealgorithm>
                                requireAlternateSignatureAlgorithm :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html#cfn-pcaconnectorad-template-privatekeyflagsv3-strongkeyprotectionrequired>
                                strongKeyProtectionRequired :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateKeyFlagsV3Property ::
   Value Prelude.Text -> PrivateKeyFlagsV3Property
 mkPrivateKeyFlagsV3Property clientVersion
   = PrivateKeyFlagsV3Property
-      {clientVersion = clientVersion, exportableKey = Prelude.Nothing,
+      {haddock_workaround_ = (), clientVersion = clientVersion,
+       exportableKey = Prelude.Nothing,
        requireAlternateSignatureAlgorithm = Prelude.Nothing,
        strongKeyProtectionRequired = Prelude.Nothing}
 instance ToResourceProperties PrivateKeyFlagsV3Property where

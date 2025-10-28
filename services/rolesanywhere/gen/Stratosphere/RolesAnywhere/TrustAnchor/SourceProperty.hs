@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.RolesAnywhere.TrustAnchor.SourceDataProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceProperty
-  = SourceProperty {sourceData :: (Prelude.Maybe SourceDataProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html>
+    SourceProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html#cfn-rolesanywhere-trustanchor-source-sourcedata>
+                    sourceData :: (Prelude.Maybe SourceDataProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html#cfn-rolesanywhere-trustanchor-source-sourcetype>
                     sourceType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: SourceProperty
 mkSourceProperty
   = SourceProperty
-      {sourceData = Prelude.Nothing, sourceType = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceData = Prelude.Nothing,
+       sourceType = Prelude.Nothing}
 instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties

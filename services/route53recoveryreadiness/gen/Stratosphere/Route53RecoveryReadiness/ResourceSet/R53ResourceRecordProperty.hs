@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data R53ResourceRecordProperty
-  = R53ResourceRecordProperty {domainName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html>
+    R53ResourceRecordProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname>
+                               domainName :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid>
                                recordSetId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkR53ResourceRecordProperty :: R53ResourceRecordProperty
 mkR53ResourceRecordProperty
   = R53ResourceRecordProperty
-      {domainName = Prelude.Nothing, recordSetId = Prelude.Nothing}
+      {haddock_workaround_ = (), domainName = Prelude.Nothing,
+       recordSetId = Prelude.Nothing}
 instance ToResourceProperties R53ResourceRecordProperty where
   toResourceProperties R53ResourceRecordProperty {..}
     = ResourceProperties

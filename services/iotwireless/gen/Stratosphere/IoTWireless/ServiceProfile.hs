@@ -9,15 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ServiceProfile
-  = ServiceProfile {loRaWAN :: (Prelude.Maybe LoRaWANServiceProfileProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html>
+    ServiceProfile {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan>
+                    loRaWAN :: (Prelude.Maybe LoRaWANServiceProfileProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name>
                     name :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceProfile :: ServiceProfile
 mkServiceProfile
   = ServiceProfile
-      {loRaWAN = Prelude.Nothing, name = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), loRaWAN = Prelude.Nothing,
+       name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ServiceProfile where
   toResourceProperties ServiceProfile {..}
     = ResourceProperties

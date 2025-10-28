@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftCredentialConfigurationProperty
-  = RedshiftCredentialConfigurationProperty {secretManagerArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftcredentialconfiguration.html>
+    RedshiftCredentialConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftcredentialconfiguration.html#cfn-datazone-datasource-redshiftcredentialconfiguration-secretmanagerarn>
+                                             secretManagerArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftCredentialConfigurationProperty ::
   Value Prelude.Text -> RedshiftCredentialConfigurationProperty
 mkRedshiftCredentialConfigurationProperty secretManagerArn
   = RedshiftCredentialConfigurationProperty
-      {secretManagerArn = secretManagerArn}
+      {haddock_workaround_ = (), secretManagerArn = secretManagerArn}
 instance ToResourceProperties RedshiftCredentialConfigurationProperty where
   toResourceProperties RedshiftCredentialConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON RedshiftCredentialConfigurationProperty where
     = JSON.object ["SecretManagerArn" JSON..= secretManagerArn]
 instance Property "SecretManagerArn" RedshiftCredentialConfigurationProperty where
   type PropertyType "SecretManagerArn" RedshiftCredentialConfigurationProperty = Value Prelude.Text
-  set newValue RedshiftCredentialConfigurationProperty {}
+  set newValue RedshiftCredentialConfigurationProperty {..}
     = RedshiftCredentialConfigurationProperty
         {secretManagerArn = newValue, ..}

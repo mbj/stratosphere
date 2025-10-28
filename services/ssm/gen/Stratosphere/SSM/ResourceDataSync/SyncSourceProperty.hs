@@ -8,17 +8,23 @@ import {-# SOURCE #-} Stratosphere.SSM.ResourceDataSync.AwsOrganizationsSourcePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SyncSourceProperty
-  = SyncSourceProperty {awsOrganizationsSource :: (Prelude.Maybe AwsOrganizationsSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html>
+    SyncSourceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource>
+                        awsOrganizationsSource :: (Prelude.Maybe AwsOrganizationsSourceProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions>
                         includeFutureRegions :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions>
                         sourceRegions :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype>
                         sourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncSourceProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> SyncSourceProperty
 mkSyncSourceProperty sourceRegions sourceType
   = SyncSourceProperty
-      {sourceRegions = sourceRegions, sourceType = sourceType,
-       awsOrganizationsSource = Prelude.Nothing,
+      {haddock_workaround_ = (), sourceRegions = sourceRegions,
+       sourceType = sourceType, awsOrganizationsSource = Prelude.Nothing,
        includeFutureRegions = Prelude.Nothing}
 instance ToResourceProperties SyncSourceProperty where
   toResourceProperties SyncSourceProperty {..}

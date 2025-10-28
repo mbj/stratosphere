@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThresholdProperty
-  = ThresholdProperty {operator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html>
+    ThresholdProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html#cfn-customerprofiles-calculatedattributedefinition-threshold-operator>
+                       operator :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html#cfn-customerprofiles-calculatedattributedefinition-threshold-value>
                        value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThresholdProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ThresholdProperty
 mkThresholdProperty operator value
-  = ThresholdProperty {operator = operator, value = value}
+  = ThresholdProperty
+      {haddock_workaround_ = (), operator = operator, value = value}
 instance ToResourceProperties ThresholdProperty where
   toResourceProperties ThresholdProperty {..}
     = ResourceProperties

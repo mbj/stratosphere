@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3OutputProperty
-  = S3OutputProperty {localPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html>
+    S3OutputProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath>
+                      localPath :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode>
                       s3UploadMode :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri>
                       s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3OutputProperty
 mkS3OutputProperty localPath s3Uri
   = S3OutputProperty
-      {localPath = localPath, s3Uri = s3Uri,
+      {haddock_workaround_ = (), localPath = localPath, s3Uri = s3Uri,
        s3UploadMode = Prelude.Nothing}
 instance ToResourceProperties S3OutputProperty where
   toResourceProperties S3OutputProperty {..}

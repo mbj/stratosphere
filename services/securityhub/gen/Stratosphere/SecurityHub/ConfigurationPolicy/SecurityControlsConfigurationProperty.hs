@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.SecurityContr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityControlsConfigurationProperty
-  = SecurityControlsConfigurationProperty {disabledSecurityControlIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html>
+    SecurityControlsConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-disabledsecuritycontrolidentifiers>
+                                           disabledSecurityControlIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-enabledsecuritycontrolidentifiers>
                                            enabledSecurityControlIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-securitycontrolcustomparameters>
                                            securityControlCustomParameters :: (Prelude.Maybe [SecurityControlCustomParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityControlsConfigurationProperty ::
   SecurityControlsConfigurationProperty
 mkSecurityControlsConfigurationProperty
   = SecurityControlsConfigurationProperty
-      {disabledSecurityControlIdentifiers = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       disabledSecurityControlIdentifiers = Prelude.Nothing,
        enabledSecurityControlIdentifiers = Prelude.Nothing,
        securityControlCustomParameters = Prelude.Nothing}
 instance ToResourceProperties SecurityControlsConfigurationProperty where

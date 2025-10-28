@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.LogPatternPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogPatternSetProperty
-  = LogPatternSetProperty {logPatterns :: [LogPatternProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html>
+    LogPatternSetProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns>
+                           logPatterns :: [LogPatternProperty],
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname>
                            patternSetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPatternSetProperty ::
   [LogPatternProperty] -> Value Prelude.Text -> LogPatternSetProperty
 mkLogPatternSetProperty logPatterns patternSetName
   = LogPatternSetProperty
-      {logPatterns = logPatterns, patternSetName = patternSetName}
+      {haddock_workaround_ = (), logPatterns = logPatterns,
+       patternSetName = patternSetName}
 instance ToResourceProperties LogPatternSetProperty where
   toResourceProperties LogPatternSetProperty {..}
     = ResourceProperties

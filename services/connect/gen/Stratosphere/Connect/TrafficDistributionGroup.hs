@@ -8,9 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TrafficDistributionGroup
-  = TrafficDistributionGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html>
+    TrafficDistributionGroup {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html#cfn-connect-trafficdistributiongroup-description>
+                              description :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html#cfn-connect-trafficdistributiongroup-instancearn>
                               instanceArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html#cfn-connect-trafficdistributiongroup-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html#cfn-connect-trafficdistributiongroup-tags>
                               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficDistributionGroup ::
@@ -18,7 +24,7 @@ mkTrafficDistributionGroup ::
   -> Value Prelude.Text -> TrafficDistributionGroup
 mkTrafficDistributionGroup instanceArn name
   = TrafficDistributionGroup
-      {instanceArn = instanceArn, name = name,
+      {haddock_workaround_ = (), instanceArn = instanceArn, name = name,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TrafficDistributionGroup where
   toResourceProperties TrafficDistributionGroup {..}

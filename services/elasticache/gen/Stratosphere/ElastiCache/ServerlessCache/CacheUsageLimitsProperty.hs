@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.ServerlessCache.DataStorageProper
 import {-# SOURCE #-} Stratosphere.ElastiCache.ServerlessCache.ECPUPerSecondProperty as Exports
 import Stratosphere.ResourceProperties
 data CacheUsageLimitsProperty
-  = CacheUsageLimitsProperty {dataStorage :: (Prelude.Maybe DataStorageProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html>
+    CacheUsageLimitsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html#cfn-elasticache-serverlesscache-cacheusagelimits-datastorage>
+                              dataStorage :: (Prelude.Maybe DataStorageProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html#cfn-elasticache-serverlesscache-cacheusagelimits-ecpupersecond>
                               eCPUPerSecond :: (Prelude.Maybe ECPUPerSecondProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheUsageLimitsProperty :: CacheUsageLimitsProperty
 mkCacheUsageLimitsProperty
   = CacheUsageLimitsProperty
-      {dataStorage = Prelude.Nothing, eCPUPerSecond = Prelude.Nothing}
+      {haddock_workaround_ = (), dataStorage = Prelude.Nothing,
+       eCPUPerSecond = Prelude.Nothing}
 instance ToResourceProperties CacheUsageLimitsProperty where
   toResourceProperties CacheUsageLimitsProperty {..}
     = ResourceProperties

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NLBResourceProperty
-  = NLBResourceProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html>
+    NLBResourceProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn>
+                         arn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNLBResourceProperty :: NLBResourceProperty
-mkNLBResourceProperty = NLBResourceProperty {arn = Prelude.Nothing}
+mkNLBResourceProperty
+  = NLBResourceProperty
+      {haddock_workaround_ = (), arn = Prelude.Nothing}
 instance ToResourceProperties NLBResourceProperty where
   toResourceProperties NLBResourceProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON NLBResourceProperty where
            (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn]))
 instance Property "Arn" NLBResourceProperty where
   type PropertyType "Arn" NLBResourceProperty = Value Prelude.Text
-  set newValue NLBResourceProperty {}
+  set newValue NLBResourceProperty {..}
     = NLBResourceProperty {arn = Prelude.pure newValue, ..}

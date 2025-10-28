@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.S3ContentLocat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeContentProperty
-  = CodeContentProperty {s3ContentLocation :: (Prelude.Maybe S3ContentLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html>
+    CodeContentProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-s3contentlocation>
+                         s3ContentLocation :: (Prelude.Maybe S3ContentLocationProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-textcontent>
                          textContent :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html#cfn-kinesisanalyticsv2-application-codecontent-zipfilecontent>
                          zipFileContent :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeContentProperty :: CodeContentProperty
 mkCodeContentProperty
   = CodeContentProperty
-      {s3ContentLocation = Prelude.Nothing,
+      {haddock_workaround_ = (), s3ContentLocation = Prelude.Nothing,
        textContent = Prelude.Nothing, zipFileContent = Prelude.Nothing}
 instance ToResourceProperties CodeContentProperty where
   toResourceProperties CodeContentProperty {..}

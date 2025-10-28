@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemResourceLimitsProperty
-  = SystemResourceLimitsProperty {cpus :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html>
+    SystemResourceLimitsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html#cfn-greengrassv2-deployment-systemresourcelimits-cpus>
+                                  cpus :: (Prelude.Maybe (Value Prelude.Double)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html#cfn-greengrassv2-deployment-systemresourcelimits-memory>
                                   memory :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemResourceLimitsProperty :: SystemResourceLimitsProperty
 mkSystemResourceLimitsProperty
   = SystemResourceLimitsProperty
-      {cpus = Prelude.Nothing, memory = Prelude.Nothing}
+      {haddock_workaround_ = (), cpus = Prelude.Nothing,
+       memory = Prelude.Nothing}
 instance ToResourceProperties SystemResourceLimitsProperty where
   toResourceProperties SystemResourceLimitsProperty {..}
     = ResourceProperties

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RuleActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleActionOverrideProperty
-  = RuleActionOverrideProperty {actionToUse :: RuleActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html>
+    RuleActionOverrideProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-actiontouse>
+                                actionToUse :: RuleActionProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-name>
                                 name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionOverrideProperty ::
@@ -17,7 +21,7 @@ mkRuleActionOverrideProperty ::
   -> Value Prelude.Text -> RuleActionOverrideProperty
 mkRuleActionOverrideProperty actionToUse name
   = RuleActionOverrideProperty
-      {actionToUse = actionToUse, name = name}
+      {haddock_workaround_ = (), actionToUse = actionToUse, name = name}
 instance ToResourceProperties RuleActionOverrideProperty where
   toResourceProperties RuleActionOverrideProperty {..}
     = ResourceProperties

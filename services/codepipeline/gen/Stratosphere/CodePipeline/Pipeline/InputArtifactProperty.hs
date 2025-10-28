@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputArtifactProperty
-  = InputArtifactProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html>
+    InputArtifactProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html#cfn-codepipeline-pipeline-inputartifact-name>
+                           name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputArtifactProperty ::
   Value Prelude.Text -> InputArtifactProperty
-mkInputArtifactProperty name = InputArtifactProperty {name = name}
+mkInputArtifactProperty name
+  = InputArtifactProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties InputArtifactProperty where
   toResourceProperties InputArtifactProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON InputArtifactProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" InputArtifactProperty where
   type PropertyType "Name" InputArtifactProperty = Value Prelude.Text
-  set newValue InputArtifactProperty {}
+  set newValue InputArtifactProperty {..}
     = InputArtifactProperty {name = newValue, ..}

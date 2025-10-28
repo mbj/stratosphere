@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRetryPolicyProperty
-  = HttpRetryPolicyProperty {httpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html>
+    HttpRetryPolicyProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-httpretryevents>
+                             httpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-maxretries>
                              maxRetries :: (Value Prelude.Integer),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-perretrytimeout>
                              perRetryTimeout :: DurationProperty,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html#cfn-appmesh-route-httpretrypolicy-tcpretryevents>
                              tcpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRetryPolicyProperty ::
@@ -19,7 +25,8 @@ mkHttpRetryPolicyProperty ::
   -> DurationProperty -> HttpRetryPolicyProperty
 mkHttpRetryPolicyProperty maxRetries perRetryTimeout
   = HttpRetryPolicyProperty
-      {maxRetries = maxRetries, perRetryTimeout = perRetryTimeout,
+      {haddock_workaround_ = (), maxRetries = maxRetries,
+       perRetryTimeout = perRetryTimeout,
        httpRetryEvents = Prelude.Nothing,
        tcpRetryEvents = Prelude.Nothing}
 instance ToResourceProperties HttpRetryPolicyProperty where

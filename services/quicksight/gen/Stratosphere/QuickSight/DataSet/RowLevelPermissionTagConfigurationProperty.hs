@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RowLevelPermissionTagRuleP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RowLevelPermissionTagConfigurationProperty
-  = RowLevelPermissionTagConfigurationProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html>
+    RowLevelPermissionTagConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-status>
+                                                status :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagruleconfigurations>
                                                 tagRuleConfigurations :: (Prelude.Maybe JSON.Object),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagrules>
                                                 tagRules :: [RowLevelPermissionTagRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagConfigurationProperty ::
@@ -18,8 +23,8 @@ mkRowLevelPermissionTagConfigurationProperty ::
   -> RowLevelPermissionTagConfigurationProperty
 mkRowLevelPermissionTagConfigurationProperty tagRules
   = RowLevelPermissionTagConfigurationProperty
-      {tagRules = tagRules, status = Prelude.Nothing,
-       tagRuleConfigurations = Prelude.Nothing}
+      {haddock_workaround_ = (), tagRules = tagRules,
+       status = Prelude.Nothing, tagRuleConfigurations = Prelude.Nothing}
 instance ToResourceProperties RowLevelPermissionTagConfigurationProperty where
   toResourceProperties
     RowLevelPermissionTagConfigurationProperty {..}

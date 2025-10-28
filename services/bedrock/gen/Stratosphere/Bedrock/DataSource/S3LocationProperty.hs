@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3LocationProperty
-  = S3LocationProperty {uRI :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3location.html>
+    S3LocationProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3location.html#cfn-bedrock-datasource-s3location-uri>
+                        uRI :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty :: Value Prelude.Text -> S3LocationProperty
-mkS3LocationProperty uRI = S3LocationProperty {uRI = uRI}
+mkS3LocationProperty uRI
+  = S3LocationProperty {haddock_workaround_ = (), uRI = uRI}
 instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON S3LocationProperty where
   toJSON S3LocationProperty {..} = JSON.object ["URI" JSON..= uRI]
 instance Property "URI" S3LocationProperty where
   type PropertyType "URI" S3LocationProperty = Value Prelude.Text
-  set newValue S3LocationProperty {}
+  set newValue S3LocationProperty {..}
     = S3LocationProperty {uRI = newValue, ..}

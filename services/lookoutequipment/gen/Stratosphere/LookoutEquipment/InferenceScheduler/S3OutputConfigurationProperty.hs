@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3OutputConfigurationProperty
-  = S3OutputConfigurationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html>
+    S3OutputConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html#cfn-lookoutequipment-inferencescheduler-s3outputconfiguration-bucket>
+                                   bucket :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html#cfn-lookoutequipment-inferencescheduler-s3outputconfiguration-prefix>
                                    prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputConfigurationProperty ::
   Value Prelude.Text -> S3OutputConfigurationProperty
 mkS3OutputConfigurationProperty bucket
   = S3OutputConfigurationProperty
-      {bucket = bucket, prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket,
+       prefix = Prelude.Nothing}
 instance ToResourceProperties S3OutputConfigurationProperty where
   toResourceProperties S3OutputConfigurationProperty {..}
     = ResourceProperties

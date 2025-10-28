@@ -8,12 +8,18 @@ import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.NFSProperty as Expo
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.SMBProperty as Exports
 import Stratosphere.ResourceProperties
 data ProtocolProperty
-  = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html>
+    ProtocolProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-nfs>
+                      nFS :: (Prelude.Maybe NFSProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-smb>
                       sMB :: (Prelude.Maybe SMBProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolProperty :: ProtocolProperty
 mkProtocolProperty
-  = ProtocolProperty {nFS = Prelude.Nothing, sMB = Prelude.Nothing}
+  = ProtocolProperty
+      {haddock_workaround_ = (), nFS = Prelude.Nothing,
+       sMB = Prelude.Nothing}
 instance ToResourceProperties ProtocolProperty where
   toResourceProperties ProtocolProperty {..}
     = ResourceProperties

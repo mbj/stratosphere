@@ -16,22 +16,34 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Pipeline.RemoveAttributesPropert
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Pipeline.SelectAttributesProperty as Exports
 import Stratosphere.ResourceProperties
 data ActivityProperty
-  = ActivityProperty {addAttributes :: (Prelude.Maybe AddAttributesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html>
+    ActivityProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-addattributes>
+                      addAttributes :: (Prelude.Maybe AddAttributesProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-channel>
                       channel :: (Prelude.Maybe ChannelProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-datastore>
                       datastore :: (Prelude.Maybe DatastoreProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceregistryenrich>
                       deviceRegistryEnrich :: (Prelude.Maybe DeviceRegistryEnrichProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-deviceshadowenrich>
                       deviceShadowEnrich :: (Prelude.Maybe DeviceShadowEnrichProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-filter>
                       filter :: (Prelude.Maybe FilterProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-lambda>
                       lambda :: (Prelude.Maybe LambdaProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-math>
                       math :: (Prelude.Maybe MathProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-removeattributes>
                       removeAttributes :: (Prelude.Maybe RemoveAttributesProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html#cfn-iotanalytics-pipeline-activity-selectattributes>
                       selectAttributes :: (Prelude.Maybe SelectAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActivityProperty :: ActivityProperty
 mkActivityProperty
   = ActivityProperty
-      {addAttributes = Prelude.Nothing, channel = Prelude.Nothing,
-       datastore = Prelude.Nothing,
+      {haddock_workaround_ = (), addAttributes = Prelude.Nothing,
+       channel = Prelude.Nothing, datastore = Prelude.Nothing,
        deviceRegistryEnrich = Prelude.Nothing,
        deviceShadowEnrich = Prelude.Nothing, filter = Prelude.Nothing,
        lambda = Prelude.Nothing, math = Prelude.Nothing,

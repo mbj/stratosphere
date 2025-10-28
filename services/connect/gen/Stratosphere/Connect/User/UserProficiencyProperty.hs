@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserProficiencyProperty
-  = UserProficiencyProperty {attributeName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html>
+    UserProficiencyProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html#cfn-connect-user-userproficiency-attributename>
+                             attributeName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html#cfn-connect-user-userproficiency-attributevalue>
                              attributeValue :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html#cfn-connect-user-userproficiency-level>
                              level :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProficiencyProperty ::
@@ -17,8 +22,8 @@ mkUserProficiencyProperty ::
      -> Value Prelude.Double -> UserProficiencyProperty
 mkUserProficiencyProperty attributeName attributeValue level
   = UserProficiencyProperty
-      {attributeName = attributeName, attributeValue = attributeValue,
-       level = level}
+      {haddock_workaround_ = (), attributeName = attributeName,
+       attributeValue = attributeValue, level = level}
 instance ToResourceProperties UserProficiencyProperty where
   toResourceProperties UserProficiencyProperty {..}
     = ResourceProperties

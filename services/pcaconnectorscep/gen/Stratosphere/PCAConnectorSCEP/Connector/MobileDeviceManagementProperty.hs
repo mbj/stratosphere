@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.PCAConnectorSCEP.Connector.IntuneConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MobileDeviceManagementProperty
-  = MobileDeviceManagementProperty {intune :: IntuneConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html>
+    MobileDeviceManagementProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html#cfn-pcaconnectorscep-connector-mobiledevicemanagement-intune>
+                                    intune :: IntuneConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMobileDeviceManagementProperty ::
   IntuneConfigurationProperty -> MobileDeviceManagementProperty
 mkMobileDeviceManagementProperty intune
-  = MobileDeviceManagementProperty {intune = intune}
+  = MobileDeviceManagementProperty
+      {haddock_workaround_ = (), intune = intune}
 instance ToResourceProperties MobileDeviceManagementProperty where
   toResourceProperties MobileDeviceManagementProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON MobileDeviceManagementProperty where
     = JSON.object ["Intune" JSON..= intune]
 instance Property "Intune" MobileDeviceManagementProperty where
   type PropertyType "Intune" MobileDeviceManagementProperty = IntuneConfigurationProperty
-  set newValue MobileDeviceManagementProperty {}
+  set newValue MobileDeviceManagementProperty {..}
     = MobileDeviceManagementProperty {intune = newValue, ..}

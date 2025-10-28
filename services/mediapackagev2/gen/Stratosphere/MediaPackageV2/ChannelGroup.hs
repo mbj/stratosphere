@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ChannelGroup
-  = ChannelGroup {channelGroupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html>
+    ChannelGroup {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-channelgroupname>
+                  channelGroupName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelGroup :: Value Prelude.Text -> ChannelGroup
 mkChannelGroup channelGroupName
   = ChannelGroup
-      {channelGroupName = channelGroupName,
+      {haddock_workaround_ = (), channelGroupName = channelGroupName,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ChannelGroup where
   toResourceProperties ChannelGroup {..}

@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ComputeLimitsProperty as Exports
 import Stratosphere.ResourceProperties
 data ManagedScalingPolicyProperty
-  = ManagedScalingPolicyProperty {computeLimits :: (Prelude.Maybe ComputeLimitsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html>
+    ManagedScalingPolicyProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits>
+                                  computeLimits :: (Prelude.Maybe ComputeLimitsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedScalingPolicyProperty :: ManagedScalingPolicyProperty
 mkManagedScalingPolicyProperty
-  = ManagedScalingPolicyProperty {computeLimits = Prelude.Nothing}
+  = ManagedScalingPolicyProperty
+      {haddock_workaround_ = (), computeLimits = Prelude.Nothing}
 instance ToResourceProperties ManagedScalingPolicyProperty where
   toResourceProperties ManagedScalingPolicyProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON ManagedScalingPolicyProperty where
               [(JSON..=) "ComputeLimits" Prelude.<$> computeLimits]))
 instance Property "ComputeLimits" ManagedScalingPolicyProperty where
   type PropertyType "ComputeLimits" ManagedScalingPolicyProperty = ComputeLimitsProperty
-  set newValue ManagedScalingPolicyProperty {}
+  set newValue ManagedScalingPolicyProperty {..}
     = ManagedScalingPolicyProperty
         {computeLimits = Prelude.pure newValue, ..}

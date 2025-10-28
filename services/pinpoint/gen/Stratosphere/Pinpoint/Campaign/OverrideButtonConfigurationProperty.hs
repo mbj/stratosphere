@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OverrideButtonConfigurationProperty
-  = OverrideButtonConfigurationProperty {buttonAction :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-overridebuttonconfiguration.html>
+    OverrideButtonConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-overridebuttonconfiguration.html#cfn-pinpoint-campaign-overridebuttonconfiguration-buttonaction>
+                                         buttonAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-overridebuttonconfiguration.html#cfn-pinpoint-campaign-overridebuttonconfiguration-link>
                                          link :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideButtonConfigurationProperty ::
   OverrideButtonConfigurationProperty
 mkOverrideButtonConfigurationProperty
   = OverrideButtonConfigurationProperty
-      {buttonAction = Prelude.Nothing, link = Prelude.Nothing}
+      {haddock_workaround_ = (), buttonAction = Prelude.Nothing,
+       link = Prelude.Nothing}
 instance ToResourceProperties OverrideButtonConfigurationProperty where
   toResourceProperties OverrideButtonConfigurationProperty {..}
     = ResourceProperties

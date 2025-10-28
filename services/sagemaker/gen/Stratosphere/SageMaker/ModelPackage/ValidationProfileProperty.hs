@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.TransformJobDefinition
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationProfileProperty
-  = ValidationProfileProperty {profileName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html>
+    ValidationProfileProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-profilename>
+                               profileName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html#cfn-sagemaker-modelpackage-validationprofile-transformjobdefinition>
                                transformJobDefinition :: TransformJobDefinitionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationProfileProperty ::
@@ -17,7 +21,7 @@ mkValidationProfileProperty ::
   -> TransformJobDefinitionProperty -> ValidationProfileProperty
 mkValidationProfileProperty profileName transformJobDefinition
   = ValidationProfileProperty
-      {profileName = profileName,
+      {haddock_workaround_ = (), profileName = profileName,
        transformJobDefinition = transformJobDefinition}
 instance ToResourceProperties ValidationProfileProperty where
   toResourceProperties ValidationProfileProperty {..}

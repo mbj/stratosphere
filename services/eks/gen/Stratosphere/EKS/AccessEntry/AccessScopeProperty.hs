@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessScopeProperty
-  = AccessScopeProperty {namespaces :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accessscope.html>
+    AccessScopeProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accessscope.html#cfn-eks-accessentry-accessscope-namespaces>
+                         namespaces :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accessscope.html#cfn-eks-accessentry-accessscope-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessScopeProperty :: Value Prelude.Text -> AccessScopeProperty
 mkAccessScopeProperty type'
-  = AccessScopeProperty {type' = type', namespaces = Prelude.Nothing}
+  = AccessScopeProperty
+      {haddock_workaround_ = (), type' = type',
+       namespaces = Prelude.Nothing}
 instance ToResourceProperties AccessScopeProperty where
   toResourceProperties AccessScopeProperty {..}
     = ResourceProperties

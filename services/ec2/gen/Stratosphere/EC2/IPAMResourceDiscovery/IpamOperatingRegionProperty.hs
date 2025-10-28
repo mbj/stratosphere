@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpamOperatingRegionProperty
-  = IpamOperatingRegionProperty {regionName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html>
+    IpamOperatingRegionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html#cfn-ec2-ipamresourcediscovery-ipamoperatingregion-regionname>
+                                 regionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpamOperatingRegionProperty ::
   Value Prelude.Text -> IpamOperatingRegionProperty
 mkIpamOperatingRegionProperty regionName
-  = IpamOperatingRegionProperty {regionName = regionName}
+  = IpamOperatingRegionProperty
+      {haddock_workaround_ = (), regionName = regionName}
 instance ToResourceProperties IpamOperatingRegionProperty where
   toResourceProperties IpamOperatingRegionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON IpamOperatingRegionProperty where
     = JSON.object ["RegionName" JSON..= regionName]
 instance Property "RegionName" IpamOperatingRegionProperty where
   type PropertyType "RegionName" IpamOperatingRegionProperty = Value Prelude.Text
-  set newValue IpamOperatingRegionProperty {}
+  set newValue IpamOperatingRegionProperty {..}
     = IpamOperatingRegionProperty {regionName = newValue, ..}

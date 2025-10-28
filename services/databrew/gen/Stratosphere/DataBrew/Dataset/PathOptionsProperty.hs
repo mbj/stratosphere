@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.FilterExpressionProperty as 
 import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.PathParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data PathOptionsProperty
-  = PathOptionsProperty {filesLimit :: (Prelude.Maybe FilesLimitProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html>
+    PathOptionsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit>
+                         filesLimit :: (Prelude.Maybe FilesLimitProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition>
                          lastModifiedDateCondition :: (Prelude.Maybe FilterExpressionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters>
                          parameters :: (Prelude.Maybe [PathParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathOptionsProperty :: PathOptionsProperty
 mkPathOptionsProperty
   = PathOptionsProperty
-      {filesLimit = Prelude.Nothing,
+      {haddock_workaround_ = (), filesLimit = Prelude.Nothing,
        lastModifiedDateCondition = Prelude.Nothing,
        parameters = Prelude.Nothing}
 instance ToResourceProperties PathOptionsProperty where

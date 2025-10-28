@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayGrpcConnectionPoolProperty
-  = VirtualGatewayGrpcConnectionPoolProperty {maxRequests :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html>
+    VirtualGatewayGrpcConnectionPoolProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests>
+                                              maxRequests :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayGrpcConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualGatewayGrpcConnectionPoolProperty
 mkVirtualGatewayGrpcConnectionPoolProperty maxRequests
   = VirtualGatewayGrpcConnectionPoolProperty
-      {maxRequests = maxRequests}
+      {haddock_workaround_ = (), maxRequests = maxRequests}
 instance ToResourceProperties VirtualGatewayGrpcConnectionPoolProperty where
   toResourceProperties VirtualGatewayGrpcConnectionPoolProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON VirtualGatewayGrpcConnectionPoolProperty where
     = JSON.object ["MaxRequests" JSON..= maxRequests]
 instance Property "MaxRequests" VirtualGatewayGrpcConnectionPoolProperty where
   type PropertyType "MaxRequests" VirtualGatewayGrpcConnectionPoolProperty = Value Prelude.Integer
-  set newValue VirtualGatewayGrpcConnectionPoolProperty {}
+  set newValue VirtualGatewayGrpcConnectionPoolProperty {..}
     = VirtualGatewayGrpcConnectionPoolProperty
         {maxRequests = newValue, ..}

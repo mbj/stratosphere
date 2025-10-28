@@ -13,21 +13,32 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicNamedEntityProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetMetadataProperty
-  = DatasetMetadataProperty {calculatedFields :: (Prelude.Maybe [TopicCalculatedFieldProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html>
+    DatasetMetadataProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-calculatedfields>
+                             calculatedFields :: (Prelude.Maybe [TopicCalculatedFieldProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-columns>
                              columns :: (Prelude.Maybe [TopicColumnProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-dataaggregation>
                              dataAggregation :: (Prelude.Maybe DataAggregationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetarn>
                              datasetArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetdescription>
                              datasetDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-datasetname>
                              datasetName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-filters>
                              filters :: (Prelude.Maybe [TopicFilterProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html#cfn-quicksight-topic-datasetmetadata-namedentities>
                              namedEntities :: (Prelude.Maybe [TopicNamedEntityProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetMetadataProperty ::
   Value Prelude.Text -> DatasetMetadataProperty
 mkDatasetMetadataProperty datasetArn
   = DatasetMetadataProperty
-      {datasetArn = datasetArn, calculatedFields = Prelude.Nothing,
-       columns = Prelude.Nothing, dataAggregation = Prelude.Nothing,
+      {haddock_workaround_ = (), datasetArn = datasetArn,
+       calculatedFields = Prelude.Nothing, columns = Prelude.Nothing,
+       dataAggregation = Prelude.Nothing,
        datasetDescription = Prelude.Nothing,
        datasetName = Prelude.Nothing, filters = Prelude.Nothing,
        namedEntities = Prelude.Nothing}

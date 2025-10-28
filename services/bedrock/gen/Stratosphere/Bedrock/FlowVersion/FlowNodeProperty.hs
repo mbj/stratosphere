@@ -10,18 +10,26 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.FlowNodeOutputProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowNodeProperty
-  = FlowNodeProperty {configuration :: (Prelude.Maybe FlowNodeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html>
+    FlowNodeProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html#cfn-bedrock-flowversion-flownode-configuration>
+                      configuration :: (Prelude.Maybe FlowNodeConfigurationProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html#cfn-bedrock-flowversion-flownode-inputs>
                       inputs :: (Prelude.Maybe [FlowNodeInputProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html#cfn-bedrock-flowversion-flownode-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html#cfn-bedrock-flowversion-flownode-outputs>
                       outputs :: (Prelude.Maybe [FlowNodeOutputProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html#cfn-bedrock-flowversion-flownode-type>
                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowNodeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FlowNodeProperty
 mkFlowNodeProperty name type'
   = FlowNodeProperty
-      {name = name, type' = type', configuration = Prelude.Nothing,
-       inputs = Prelude.Nothing, outputs = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, type' = type',
+       configuration = Prelude.Nothing, inputs = Prelude.Nothing,
+       outputs = Prelude.Nothing}
 instance ToResourceProperties FlowNodeProperty where
   toResourceProperties FlowNodeProperty {..}
     = ResourceProperties

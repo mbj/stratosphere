@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.TableWildcardProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableResourceProperty
-  = TableResourceProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html>
+    TableResourceProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid>
+                           catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename>
                            databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard>
                            tableWildcard :: (Prelude.Maybe TableWildcardProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableResourceProperty :: TableResourceProperty
 mkTableResourceProperty
   = TableResourceProperty
-      {catalogId = Prelude.Nothing, databaseName = Prelude.Nothing,
-       name = Prelude.Nothing, tableWildcard = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = Prelude.Nothing,
+       databaseName = Prelude.Nothing, name = Prelude.Nothing,
+       tableWildcard = Prelude.Nothing}
 instance ToResourceProperties TableResourceProperty where
   toResourceProperties TableResourceProperty {..}
     = ResourceProperties

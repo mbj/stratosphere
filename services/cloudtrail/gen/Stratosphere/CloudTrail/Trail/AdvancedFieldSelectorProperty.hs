@@ -7,22 +7,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedFieldSelectorProperty
-  = AdvancedFieldSelectorProperty {endsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html>
+    AdvancedFieldSelectorProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-endswith>
+                                   endsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-equals>
                                    equals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-field>
                                    field :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-notendswith>
                                    notEndsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-notequals>
                                    notEquals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-notstartswith>
                                    notStartsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html#cfn-cloudtrail-trail-advancedfieldselector-startswith>
                                    startsWith :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedFieldSelectorProperty ::
   Value Prelude.Text -> AdvancedFieldSelectorProperty
 mkAdvancedFieldSelectorProperty field
   = AdvancedFieldSelectorProperty
-      {field = field, endsWith = Prelude.Nothing,
-       equals = Prelude.Nothing, notEndsWith = Prelude.Nothing,
-       notEquals = Prelude.Nothing, notStartsWith = Prelude.Nothing,
-       startsWith = Prelude.Nothing}
+      {haddock_workaround_ = (), field = field,
+       endsWith = Prelude.Nothing, equals = Prelude.Nothing,
+       notEndsWith = Prelude.Nothing, notEquals = Prelude.Nothing,
+       notStartsWith = Prelude.Nothing, startsWith = Prelude.Nothing}
 instance ToResourceProperties AdvancedFieldSelectorProperty where
   toResourceProperties AdvancedFieldSelectorProperty {..}
     = ResourceProperties

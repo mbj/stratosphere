@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderMatchPatternProperty
-  = HeaderMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html>
+    HeaderMatchPatternProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html#cfn-wafv2-rulegroup-headermatchpattern-all>
+                                all :: (Prelude.Maybe JSON.Object),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html#cfn-wafv2-rulegroup-headermatchpattern-excludedheaders>
                                 excludedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headermatchpattern.html#cfn-wafv2-rulegroup-headermatchpattern-includedheaders>
                                 includedHeaders :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderMatchPatternProperty :: HeaderMatchPatternProperty
 mkHeaderMatchPatternProperty
   = HeaderMatchPatternProperty
-      {all = Prelude.Nothing, excludedHeaders = Prelude.Nothing,
+      {haddock_workaround_ = (), all = Prelude.Nothing,
+       excludedHeaders = Prelude.Nothing,
        includedHeaders = Prelude.Nothing}
 instance ToResourceProperties HeaderMatchPatternProperty where
   toResourceProperties HeaderMatchPatternProperty {..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data ConditionFlowNodeConfigurationProperty
-  = ConditionFlowNodeConfigurationProperty {conditions :: [FlowConditionProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-conditionflownodeconfiguration.html>
+    ConditionFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-conditionflownodeconfiguration.html#cfn-bedrock-flow-conditionflownodeconfiguration-conditions>
+                                            conditions :: [FlowConditionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionFlowNodeConfigurationProperty ::
   [FlowConditionProperty] -> ConditionFlowNodeConfigurationProperty
 mkConditionFlowNodeConfigurationProperty conditions
-  = ConditionFlowNodeConfigurationProperty {conditions = conditions}
+  = ConditionFlowNodeConfigurationProperty
+      {haddock_workaround_ = (), conditions = conditions}
 instance ToResourceProperties ConditionFlowNodeConfigurationProperty where
   toResourceProperties ConditionFlowNodeConfigurationProperty {..}
     = ResourceProperties
@@ -25,6 +29,6 @@ instance JSON.ToJSON ConditionFlowNodeConfigurationProperty where
     = JSON.object ["Conditions" JSON..= conditions]
 instance Property "Conditions" ConditionFlowNodeConfigurationProperty where
   type PropertyType "Conditions" ConditionFlowNodeConfigurationProperty = [FlowConditionProperty]
-  set newValue ConditionFlowNodeConfigurationProperty {}
+  set newValue ConditionFlowNodeConfigurationProperty {..}
     = ConditionFlowNodeConfigurationProperty
         {conditions = newValue, ..}

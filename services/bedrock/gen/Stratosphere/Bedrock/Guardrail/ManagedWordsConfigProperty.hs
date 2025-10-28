@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedWordsConfigProperty
-  = ManagedWordsConfigProperty {type' :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html>
+    ManagedWordsConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-type>
+                                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedWordsConfigProperty ::
   Value Prelude.Text -> ManagedWordsConfigProperty
 mkManagedWordsConfigProperty type'
-  = ManagedWordsConfigProperty {type' = type'}
+  = ManagedWordsConfigProperty
+      {haddock_workaround_ = (), type' = type'}
 instance ToResourceProperties ManagedWordsConfigProperty where
   toResourceProperties ManagedWordsConfigProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ManagedWordsConfigProperty where
     = JSON.object ["Type" JSON..= type']
 instance Property "Type" ManagedWordsConfigProperty where
   type PropertyType "Type" ManagedWordsConfigProperty = Value Prelude.Text
-  set newValue ManagedWordsConfigProperty {}
+  set newValue ManagedWordsConfigProperty {..}
     = ManagedWordsConfigProperty {type' = newValue, ..}

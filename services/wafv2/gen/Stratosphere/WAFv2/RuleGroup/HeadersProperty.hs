@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.HeaderMatchPatternProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeadersProperty
-  = HeadersProperty {matchPattern :: HeaderMatchPatternProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html>
+    HeadersProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchpattern>
+                     matchPattern :: HeaderMatchPatternProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-matchscope>
                      matchScope :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headers.html#cfn-wafv2-rulegroup-headers-oversizehandling>
                      oversizeHandling :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeadersProperty ::
@@ -17,8 +22,8 @@ mkHeadersProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> HeadersProperty
 mkHeadersProperty matchPattern matchScope oversizeHandling
   = HeadersProperty
-      {matchPattern = matchPattern, matchScope = matchScope,
-       oversizeHandling = oversizeHandling}
+      {haddock_workaround_ = (), matchPattern = matchPattern,
+       matchScope = matchScope, oversizeHandling = oversizeHandling}
 instance ToResourceProperties HeadersProperty where
   toResourceProperties HeadersProperty {..}
     = ResourceProperties

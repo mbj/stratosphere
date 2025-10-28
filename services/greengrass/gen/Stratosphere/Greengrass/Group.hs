@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.Greengrass.Group.GroupVersionProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Group
-  = Group {initialVersion :: (Prelude.Maybe GroupVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html>
+    Group {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-initialversion>
+           initialVersion :: (Prelude.Maybe GroupVersionProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-name>
            name :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-rolearn>
            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-tags>
            tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Group
 mkGroup name
   = Group
-      {name = name, initialVersion = Prelude.Nothing,
-       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, roleArn = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties

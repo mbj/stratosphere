@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoshiftObserverNotificationStatus
-  = AutoshiftObserverNotificationStatus {status :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html>
+    AutoshiftObserverNotificationStatus {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html#cfn-arczonalshift-autoshiftobservernotificationstatus-status>
+                                         status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoshiftObserverNotificationStatus ::
   Value Prelude.Text -> AutoshiftObserverNotificationStatus
 mkAutoshiftObserverNotificationStatus status
-  = AutoshiftObserverNotificationStatus {status = status}
+  = AutoshiftObserverNotificationStatus
+      {haddock_workaround_ = (), status = status}
 instance ToResourceProperties AutoshiftObserverNotificationStatus where
   toResourceProperties AutoshiftObserverNotificationStatus {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON AutoshiftObserverNotificationStatus where
     = JSON.object ["Status" JSON..= status]
 instance Property "Status" AutoshiftObserverNotificationStatus where
   type PropertyType "Status" AutoshiftObserverNotificationStatus = Value Prelude.Text
-  set newValue AutoshiftObserverNotificationStatus {}
+  set newValue AutoshiftObserverNotificationStatus {..}
     = AutoshiftObserverNotificationStatus {status = newValue, ..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotEventsDestinationConfigurationProperty
-  = IotEventsDestinationConfigurationProperty {inputName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html>
+    IotEventsDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html#cfn-iotanalytics-dataset-ioteventsdestinationconfiguration-inputname>
+                                               inputName :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html#cfn-iotanalytics-dataset-ioteventsdestinationconfiguration-rolearn>
                                                roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsDestinationConfigurationProperty ::
@@ -16,7 +20,8 @@ mkIotEventsDestinationConfigurationProperty ::
   -> Value Prelude.Text -> IotEventsDestinationConfigurationProperty
 mkIotEventsDestinationConfigurationProperty inputName roleArn
   = IotEventsDestinationConfigurationProperty
-      {inputName = inputName, roleArn = roleArn}
+      {haddock_workaround_ = (), inputName = inputName,
+       roleArn = roleArn}
 instance ToResourceProperties IotEventsDestinationConfigurationProperty where
   toResourceProperties IotEventsDestinationConfigurationProperty {..}
     = ResourceProperties

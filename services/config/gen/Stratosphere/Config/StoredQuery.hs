@@ -8,17 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StoredQuery
-  = StoredQuery {queryDescription :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html>
+    StoredQuery {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription>
+                 queryDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression>
                  queryExpression :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname>
                  queryName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStoredQuery ::
   Value Prelude.Text -> Value Prelude.Text -> StoredQuery
 mkStoredQuery queryExpression queryName
   = StoredQuery
-      {queryExpression = queryExpression, queryName = queryName,
-       queryDescription = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), queryExpression = queryExpression,
+       queryName = queryName, queryDescription = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties StoredQuery where
   toResourceProperties StoredQuery {..}
     = ResourceProperties

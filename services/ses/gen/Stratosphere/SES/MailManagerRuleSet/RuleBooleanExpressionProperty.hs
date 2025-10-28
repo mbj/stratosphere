@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleBooleanToEvaluateP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleBooleanExpressionProperty
-  = RuleBooleanExpressionProperty {evaluate :: RuleBooleanToEvaluateProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html>
+    RuleBooleanExpressionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html#cfn-ses-mailmanagerruleset-rulebooleanexpression-evaluate>
+                                   evaluate :: RuleBooleanToEvaluateProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html#cfn-ses-mailmanagerruleset-rulebooleanexpression-operator>
                                    operator :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleBooleanExpressionProperty ::
@@ -17,7 +21,8 @@ mkRuleBooleanExpressionProperty ::
   -> Value Prelude.Text -> RuleBooleanExpressionProperty
 mkRuleBooleanExpressionProperty evaluate operator
   = RuleBooleanExpressionProperty
-      {evaluate = evaluate, operator = operator}
+      {haddock_workaround_ = (), evaluate = evaluate,
+       operator = operator}
 instance ToResourceProperties RuleBooleanExpressionProperty where
   toResourceProperties RuleBooleanExpressionProperty {..}
     = ResourceProperties

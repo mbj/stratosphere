@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HookDefaultVersion
-  = HookDefaultVersion {typeName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html>
+    HookDefaultVersion {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typename>
+                        typeName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typeversionarn>
                         typeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-versionid>
                         versionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHookDefaultVersion :: HookDefaultVersion
 mkHookDefaultVersion
   = HookDefaultVersion
-      {typeName = Prelude.Nothing, typeVersionArn = Prelude.Nothing,
-       versionId = Prelude.Nothing}
+      {haddock_workaround_ = (), typeName = Prelude.Nothing,
+       typeVersionArn = Prelude.Nothing, versionId = Prelude.Nothing}
 instance ToResourceProperties HookDefaultVersion where
   toResourceProperties HookDefaultVersion {..}
     = ResourceProperties

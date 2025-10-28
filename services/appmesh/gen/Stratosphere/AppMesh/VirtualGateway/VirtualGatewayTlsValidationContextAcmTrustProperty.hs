@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextAcmTrustProperty
-  = VirtualGatewayTlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html>
+    VirtualGatewayTlsValidationContextAcmTrustProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns>
+                                                        certificateAuthorityArns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextAcmTrustProperty ::
   ValueList Prelude.Text
@@ -16,7 +19,8 @@ mkVirtualGatewayTlsValidationContextAcmTrustProperty ::
 mkVirtualGatewayTlsValidationContextAcmTrustProperty
   certificateAuthorityArns
   = VirtualGatewayTlsValidationContextAcmTrustProperty
-      {certificateAuthorityArns = certificateAuthorityArns}
+      {haddock_workaround_ = (),
+       certificateAuthorityArns = certificateAuthorityArns}
 instance ToResourceProperties VirtualGatewayTlsValidationContextAcmTrustProperty where
   toResourceProperties
     VirtualGatewayTlsValidationContextAcmTrustProperty {..}
@@ -31,6 +35,8 @@ instance JSON.ToJSON VirtualGatewayTlsValidationContextAcmTrustProperty where
         ["CertificateAuthorityArns" JSON..= certificateAuthorityArns]
 instance Property "CertificateAuthorityArns" VirtualGatewayTlsValidationContextAcmTrustProperty where
   type PropertyType "CertificateAuthorityArns" VirtualGatewayTlsValidationContextAcmTrustProperty = ValueList Prelude.Text
-  set newValue VirtualGatewayTlsValidationContextAcmTrustProperty {}
+  set
+    newValue
+    VirtualGatewayTlsValidationContextAcmTrustProperty {..}
     = VirtualGatewayTlsValidationContextAcmTrustProperty
         {certificateAuthorityArns = newValue, ..}

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PosixProfileProperty
-  = PosixProfileProperty {gid :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html>
+    PosixProfileProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-gid>
+                          gid :: (Value Prelude.Double),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-secondarygids>
                           secondaryGids :: (Prelude.Maybe (ValueList Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-uid>
                           uid :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPosixProfileProperty ::
@@ -16,7 +21,8 @@ mkPosixProfileProperty ::
   -> Value Prelude.Double -> PosixProfileProperty
 mkPosixProfileProperty gid uid
   = PosixProfileProperty
-      {gid = gid, uid = uid, secondaryGids = Prelude.Nothing}
+      {haddock_workaround_ = (), gid = gid, uid = uid,
+       secondaryGids = Prelude.Nothing}
 instance ToResourceProperties PosixProfileProperty where
   toResourceProperties PosixProfileProperty {..}
     = ResourceProperties

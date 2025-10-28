@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeBurninSettingsPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameCaptureSettingsProperty
-  = FrameCaptureSettingsProperty {captureInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html>
+    FrameCaptureSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureinterval>
+                                  captureInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-captureintervalunits>
                                   captureIntervalUnits :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html#cfn-medialive-channel-framecapturesettings-timecodeburninsettings>
                                   timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureSettingsProperty :: FrameCaptureSettingsProperty
 mkFrameCaptureSettingsProperty
   = FrameCaptureSettingsProperty
-      {captureInterval = Prelude.Nothing,
+      {haddock_workaround_ = (), captureInterval = Prelude.Nothing,
        captureIntervalUnits = Prelude.Nothing,
        timecodeBurninSettings = Prelude.Nothing}
 instance ToResourceProperties FrameCaptureSettingsProperty where

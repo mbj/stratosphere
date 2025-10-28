@@ -7,11 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigProperty
-  = S3ConfigProperty {bucketAccessRoleArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html>
+    S3ConfigProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn>
+                      bucketAccessRoleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty :: Value Prelude.Text -> S3ConfigProperty
 mkS3ConfigProperty bucketAccessRoleArn
-  = S3ConfigProperty {bucketAccessRoleArn = bucketAccessRoleArn}
+  = S3ConfigProperty
+      {haddock_workaround_ = (),
+       bucketAccessRoleArn = bucketAccessRoleArn}
 instance ToResourceProperties S3ConfigProperty where
   toResourceProperties S3ConfigProperty {..}
     = ResourceProperties
@@ -23,5 +28,5 @@ instance JSON.ToJSON S3ConfigProperty where
     = JSON.object ["BucketAccessRoleArn" JSON..= bucketAccessRoleArn]
 instance Property "BucketAccessRoleArn" S3ConfigProperty where
   type PropertyType "BucketAccessRoleArn" S3ConfigProperty = Value Prelude.Text
-  set newValue S3ConfigProperty {}
+  set newValue S3ConfigProperty {..}
     = S3ConfigProperty {bucketAccessRoleArn = newValue, ..}

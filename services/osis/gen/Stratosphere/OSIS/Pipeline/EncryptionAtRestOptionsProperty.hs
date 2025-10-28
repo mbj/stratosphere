@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionAtRestOptionsProperty
-  = EncryptionAtRestOptionsProperty {kmsKeyArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html>
+    EncryptionAtRestOptionsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html#cfn-osis-pipeline-encryptionatrestoptions-kmskeyarn>
+                                     kmsKeyArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestOptionsProperty ::
   Value Prelude.Text -> EncryptionAtRestOptionsProperty
 mkEncryptionAtRestOptionsProperty kmsKeyArn
-  = EncryptionAtRestOptionsProperty {kmsKeyArn = kmsKeyArn}
+  = EncryptionAtRestOptionsProperty
+      {haddock_workaround_ = (), kmsKeyArn = kmsKeyArn}
 instance ToResourceProperties EncryptionAtRestOptionsProperty where
   toResourceProperties EncryptionAtRestOptionsProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON EncryptionAtRestOptionsProperty where
     = JSON.object ["KmsKeyArn" JSON..= kmsKeyArn]
 instance Property "KmsKeyArn" EncryptionAtRestOptionsProperty where
   type PropertyType "KmsKeyArn" EncryptionAtRestOptionsProperty = Value Prelude.Text
-  set newValue EncryptionAtRestOptionsProperty {}
+  set newValue EncryptionAtRestOptionsProperty {..}
     = EncryptionAtRestOptionsProperty {kmsKeyArn = newValue, ..}

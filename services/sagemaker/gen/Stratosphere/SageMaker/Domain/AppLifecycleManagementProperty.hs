@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.IdleSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data AppLifecycleManagementProperty
-  = AppLifecycleManagementProperty {idleSettings :: (Prelude.Maybe IdleSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-applifecyclemanagement.html>
+    AppLifecycleManagementProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-applifecyclemanagement.html#cfn-sagemaker-domain-applifecyclemanagement-idlesettings>
+                                    idleSettings :: (Prelude.Maybe IdleSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppLifecycleManagementProperty :: AppLifecycleManagementProperty
 mkAppLifecycleManagementProperty
-  = AppLifecycleManagementProperty {idleSettings = Prelude.Nothing}
+  = AppLifecycleManagementProperty
+      {haddock_workaround_ = (), idleSettings = Prelude.Nothing}
 instance ToResourceProperties AppLifecycleManagementProperty where
   toResourceProperties AppLifecycleManagementProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON AppLifecycleManagementProperty where
               [(JSON..=) "IdleSettings" Prelude.<$> idleSettings]))
 instance Property "IdleSettings" AppLifecycleManagementProperty where
   type PropertyType "IdleSettings" AppLifecycleManagementProperty = IdleSettingsProperty
-  set newValue AppLifecycleManagementProperty {}
+  set newValue AppLifecycleManagementProperty {..}
     = AppLifecycleManagementProperty
         {idleSettings = Prelude.pure newValue, ..}

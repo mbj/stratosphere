@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApprovalThresholdPolicyProperty
-  = ApprovalThresholdPolicyProperty {proposalDurationInHours :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html>
+    ApprovalThresholdPolicyProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-proposaldurationinhours>
+                                     proposalDurationInHours :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-thresholdcomparator>
                                      thresholdComparator :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-thresholdpercentage>
                                      thresholdPercentage :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApprovalThresholdPolicyProperty ::
   ApprovalThresholdPolicyProperty
 mkApprovalThresholdPolicyProperty
   = ApprovalThresholdPolicyProperty
-      {proposalDurationInHours = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       proposalDurationInHours = Prelude.Nothing,
        thresholdComparator = Prelude.Nothing,
        thresholdPercentage = Prelude.Nothing}
 instance ToResourceProperties ApprovalThresholdPolicyProperty where

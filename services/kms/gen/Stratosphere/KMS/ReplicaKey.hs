@@ -8,19 +8,28 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ReplicaKey
-  = ReplicaKey {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html>
+    ReplicaKey {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description>
+                description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled>
                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy>
                 keyPolicy :: JSON.Object,
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays>
                 pendingWindowInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn>
                 primaryKeyArn :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaKey :: JSON.Object -> Value Prelude.Text -> ReplicaKey
 mkReplicaKey keyPolicy primaryKeyArn
   = ReplicaKey
-      {keyPolicy = keyPolicy, primaryKeyArn = primaryKeyArn,
-       description = Prelude.Nothing, enabled = Prelude.Nothing,
-       pendingWindowInDays = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), keyPolicy = keyPolicy,
+       primaryKeyArn = primaryKeyArn, description = Prelude.Nothing,
+       enabled = Prelude.Nothing, pendingWindowInDays = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ReplicaKey where
   toResourceProperties ReplicaKey {..}
     = ResourceProperties

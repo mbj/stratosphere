@@ -8,11 +8,19 @@ import {-# SOURCE #-} Stratosphere.S3Outposts.Endpoint.FailedReasonProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Endpoint
-  = Endpoint {accessType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html>
+    Endpoint {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype>
+              accessType :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool>
               customerOwnedIpv4Pool :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-failedreason>
               failedReason :: (Prelude.Maybe FailedReasonProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid>
               outpostId :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid>
               securityGroupId :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid>
               subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint ::
@@ -20,8 +28,9 @@ mkEndpoint ::
   -> Value Prelude.Text -> Value Prelude.Text -> Endpoint
 mkEndpoint outpostId securityGroupId subnetId
   = Endpoint
-      {outpostId = outpostId, securityGroupId = securityGroupId,
-       subnetId = subnetId, accessType = Prelude.Nothing,
+      {haddock_workaround_ = (), outpostId = outpostId,
+       securityGroupId = securityGroupId, subnetId = subnetId,
+       accessType = Prelude.Nothing,
        customerOwnedIpv4Pool = Prelude.Nothing,
        failedReason = Prelude.Nothing}
 instance ToResourceProperties Endpoint where

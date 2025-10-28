@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SyncJob
-  = SyncJob {syncRole :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html>
+    SyncJob {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html#cfn-iottwinmaker-syncjob-syncrole>
+             syncRole :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html#cfn-iottwinmaker-syncjob-syncsource>
              syncSource :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html#cfn-iottwinmaker-syncjob-tags>
              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html#cfn-iottwinmaker-syncjob-workspaceid>
              workspaceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncJob ::
@@ -17,8 +23,9 @@ mkSyncJob ::
   -> Value Prelude.Text -> Value Prelude.Text -> SyncJob
 mkSyncJob syncRole syncSource workspaceId
   = SyncJob
-      {syncRole = syncRole, syncSource = syncSource,
-       workspaceId = workspaceId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), syncRole = syncRole,
+       syncSource = syncSource, workspaceId = workspaceId,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SyncJob where
   toResourceProperties SyncJob {..}
     = ResourceProperties

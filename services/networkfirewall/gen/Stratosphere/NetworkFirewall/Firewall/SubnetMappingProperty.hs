@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubnetMappingProperty
-  = SubnetMappingProperty {iPAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html>
+    SubnetMappingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-ipaddresstype>
+                           iPAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid>
                            subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetMappingProperty ::
   Value Prelude.Text -> SubnetMappingProperty
 mkSubnetMappingProperty subnetId
   = SubnetMappingProperty
-      {subnetId = subnetId, iPAddressType = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetId = subnetId,
+       iPAddressType = Prelude.Nothing}
 instance ToResourceProperties SubnetMappingProperty where
   toResourceProperties SubnetMappingProperty {..}
     = ResourceProperties

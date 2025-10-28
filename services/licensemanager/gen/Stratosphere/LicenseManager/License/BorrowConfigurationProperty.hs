@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BorrowConfigurationProperty
-  = BorrowConfigurationProperty {allowEarlyCheckIn :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html>
+    BorrowConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin>
+                                 allowEarlyCheckIn :: (Value Prelude.Bool),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes>
                                  maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBorrowConfigurationProperty ::
@@ -17,7 +21,7 @@ mkBorrowConfigurationProperty
   allowEarlyCheckIn
   maxTimeToLiveInMinutes
   = BorrowConfigurationProperty
-      {allowEarlyCheckIn = allowEarlyCheckIn,
+      {haddock_workaround_ = (), allowEarlyCheckIn = allowEarlyCheckIn,
        maxTimeToLiveInMinutes = maxTimeToLiveInMinutes}
 instance ToResourceProperties BorrowConfigurationProperty where
   toResourceProperties BorrowConfigurationProperty {..}

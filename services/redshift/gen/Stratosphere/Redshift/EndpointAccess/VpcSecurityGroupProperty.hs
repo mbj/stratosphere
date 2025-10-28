@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcSecurityGroupProperty
-  = VpcSecurityGroupProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>
+    VpcSecurityGroupProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-status>
+                              status :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html#cfn-redshift-endpointaccess-vpcsecuritygroup-vpcsecuritygroupid>
                               vpcSecurityGroupId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcSecurityGroupProperty :: VpcSecurityGroupProperty
 mkVpcSecurityGroupProperty
   = VpcSecurityGroupProperty
-      {status = Prelude.Nothing, vpcSecurityGroupId = Prelude.Nothing}
+      {haddock_workaround_ = (), status = Prelude.Nothing,
+       vpcSecurityGroupId = Prelude.Nothing}
 instance ToResourceProperties VpcSecurityGroupProperty where
   toResourceProperties VpcSecurityGroupProperty {..}
     = ResourceProperties

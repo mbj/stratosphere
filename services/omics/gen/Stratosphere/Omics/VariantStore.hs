@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.Omics.VariantStore.SseConfigProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VariantStore
-  = VariantStore {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html>
+    VariantStore {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html#cfn-omics-variantstore-description>
+                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html#cfn-omics-variantstore-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html#cfn-omics-variantstore-reference>
                   reference :: ReferenceItemProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html#cfn-omics-variantstore-sseconfig>
                   sseConfig :: (Prelude.Maybe SseConfigProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html#cfn-omics-variantstore-tags>
                   tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVariantStore ::
   Value Prelude.Text -> ReferenceItemProperty -> VariantStore
 mkVariantStore name reference
   = VariantStore
-      {name = name, reference = reference, description = Prelude.Nothing,
-       sseConfig = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, reference = reference,
+       description = Prelude.Nothing, sseConfig = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties VariantStore where
   toResourceProperties VariantStore {..}
     = ResourceProperties

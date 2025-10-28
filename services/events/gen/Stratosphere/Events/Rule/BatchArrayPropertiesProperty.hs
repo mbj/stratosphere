@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchArrayPropertiesProperty
-  = BatchArrayPropertiesProperty {size :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html>
+    BatchArrayPropertiesProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html#cfn-events-rule-batcharrayproperties-size>
+                                  size :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchArrayPropertiesProperty :: BatchArrayPropertiesProperty
 mkBatchArrayPropertiesProperty
-  = BatchArrayPropertiesProperty {size = Prelude.Nothing}
+  = BatchArrayPropertiesProperty
+      {haddock_workaround_ = (), size = Prelude.Nothing}
 instance ToResourceProperties BatchArrayPropertiesProperty where
   toResourceProperties BatchArrayPropertiesProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON BatchArrayPropertiesProperty where
            (Prelude.catMaybes [(JSON..=) "Size" Prelude.<$> size]))
 instance Property "Size" BatchArrayPropertiesProperty where
   type PropertyType "Size" BatchArrayPropertiesProperty = Value Prelude.Integer
-  set newValue BatchArrayPropertiesProperty {}
+  set newValue BatchArrayPropertiesProperty {..}
     = BatchArrayPropertiesProperty {size = Prelude.pure newValue, ..}

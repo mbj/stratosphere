@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetReferenceProperty
-  = IPSetReferenceProperty {referenceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html>
+    IPSetReferenceProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html#cfn-networkfirewall-rulegroup-ipsetreference-referencearn>
+                            referenceArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetReferenceProperty :: IPSetReferenceProperty
 mkIPSetReferenceProperty
-  = IPSetReferenceProperty {referenceArn = Prelude.Nothing}
+  = IPSetReferenceProperty
+      {haddock_workaround_ = (), referenceArn = Prelude.Nothing}
 instance ToResourceProperties IPSetReferenceProperty where
   toResourceProperties IPSetReferenceProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON IPSetReferenceProperty where
               [(JSON..=) "ReferenceArn" Prelude.<$> referenceArn]))
 instance Property "ReferenceArn" IPSetReferenceProperty where
   type PropertyType "ReferenceArn" IPSetReferenceProperty = Value Prelude.Text
-  set newValue IPSetReferenceProperty {}
+  set newValue IPSetReferenceProperty {..}
     = IPSetReferenceProperty {referenceArn = Prelude.pure newValue, ..}

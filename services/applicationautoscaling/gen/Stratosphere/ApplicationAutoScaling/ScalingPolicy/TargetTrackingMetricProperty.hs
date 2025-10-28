@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingMetricProperty
-  = TargetTrackingMetricProperty {dimensions :: (Prelude.Maybe [TargetTrackingMetricDimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html>
+    TargetTrackingMetricProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetric-dimensions>
+                                  dimensions :: (Prelude.Maybe [TargetTrackingMetricDimensionProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetric-metricname>
                                   metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetric-namespace>
                                   namespace :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingMetricProperty :: TargetTrackingMetricProperty
 mkTargetTrackingMetricProperty
   = TargetTrackingMetricProperty
-      {dimensions = Prelude.Nothing, metricName = Prelude.Nothing,
-       namespace = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing,
+       metricName = Prelude.Nothing, namespace = Prelude.Nothing}
 instance ToResourceProperties TargetTrackingMetricProperty where
   toResourceProperties TargetTrackingMetricProperty {..}
     = ResourceProperties

@@ -8,15 +8,22 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.Application.InputProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Application
-  = Application {applicationCode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html>
+    Application {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationcode>
+                 applicationCode :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationdescription>
                  applicationDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-applicationname>
                  applicationName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html#cfn-kinesisanalytics-application-inputs>
                  inputs :: [InputProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: [InputProperty] -> Application
 mkApplication inputs
   = Application
-      {inputs = inputs, applicationCode = Prelude.Nothing,
+      {haddock_workaround_ = (), inputs = inputs,
+       applicationCode = Prelude.Nothing,
        applicationDescription = Prelude.Nothing,
        applicationName = Prelude.Nothing}
 instance ToResourceProperties Application where

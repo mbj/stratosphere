@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ProfileAssociation
-  = ProfileAssociation {arn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html>
+    ProfileAssociation {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-arn>
+                        arn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-profileid>
                         profileId :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-resourceid>
                         resourceId :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProfileAssociation ::
@@ -19,8 +26,9 @@ mkProfileAssociation ::
   -> Value Prelude.Text -> Value Prelude.Text -> ProfileAssociation
 mkProfileAssociation name profileId resourceId
   = ProfileAssociation
-      {name = name, profileId = profileId, resourceId = resourceId,
-       arn = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, profileId = profileId,
+       resourceId = resourceId, arn = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ProfileAssociation where
   toResourceProperties ProfileAssociation {..}
     = ResourceProperties

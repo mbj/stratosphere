@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveScalingPredefinedScalingMetricProperty
-  = PredictiveScalingPredefinedScalingMetricProperty {predefinedMetricType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html>
+    PredictiveScalingPredefinedScalingMetricProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html#cfn-autoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric-predefinedmetrictype>
+                                                      predefinedMetricType :: (Value Prelude.Text),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html#cfn-autoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric-resourcelabel>
                                                       resourceLabel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingPredefinedScalingMetricProperty ::
@@ -17,7 +21,8 @@ mkPredictiveScalingPredefinedScalingMetricProperty ::
 mkPredictiveScalingPredefinedScalingMetricProperty
   predefinedMetricType
   = PredictiveScalingPredefinedScalingMetricProperty
-      {predefinedMetricType = predefinedMetricType,
+      {haddock_workaround_ = (),
+       predefinedMetricType = predefinedMetricType,
        resourceLabel = Prelude.Nothing}
 instance ToResourceProperties PredictiveScalingPredefinedScalingMetricProperty where
   toResourceProperties

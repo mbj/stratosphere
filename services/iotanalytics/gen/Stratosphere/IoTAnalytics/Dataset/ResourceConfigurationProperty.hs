@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceConfigurationProperty
-  = ResourceConfigurationProperty {computeType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html>
+    ResourceConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-computetype>
+                                   computeType :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html#cfn-iotanalytics-dataset-resourceconfiguration-volumesizeingb>
                                    volumeSizeInGB :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceConfigurationProperty ::
@@ -15,7 +19,8 @@ mkResourceConfigurationProperty ::
   -> Value Prelude.Integer -> ResourceConfigurationProperty
 mkResourceConfigurationProperty computeType volumeSizeInGB
   = ResourceConfigurationProperty
-      {computeType = computeType, volumeSizeInGB = volumeSizeInGB}
+      {haddock_workaround_ = (), computeType = computeType,
+       volumeSizeInGB = volumeSizeInGB}
 instance ToResourceProperties ResourceConfigurationProperty where
   toResourceProperties ResourceConfigurationProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateRangeProperty
-  = DateRangeProperty {unit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-daterange.html>
+    DateRangeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-daterange.html#cfn-securityhub-automationrule-daterange-unit>
+                       unit :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-daterange.html#cfn-securityhub-automationrule-daterange-value>
                        value :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateRangeProperty ::
   Value Prelude.Text -> Value Prelude.Double -> DateRangeProperty
 mkDateRangeProperty unit value
-  = DateRangeProperty {unit = unit, value = value}
+  = DateRangeProperty
+      {haddock_workaround_ = (), unit = unit, value = value}
 instance ToResourceProperties DateRangeProperty where
   toResourceProperties DateRangeProperty {..}
     = ResourceProperties

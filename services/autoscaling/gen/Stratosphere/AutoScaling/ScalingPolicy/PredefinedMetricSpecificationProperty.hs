@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredefinedMetricSpecificationProperty
-  = PredefinedMetricSpecificationProperty {predefinedMetricType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html>
+    PredefinedMetricSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype>
+                                           predefinedMetricType :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel>
                                            resourceLabel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredefinedMetricSpecificationProperty ::
   Value Prelude.Text -> PredefinedMetricSpecificationProperty
 mkPredefinedMetricSpecificationProperty predefinedMetricType
   = PredefinedMetricSpecificationProperty
-      {predefinedMetricType = predefinedMetricType,
+      {haddock_workaround_ = (),
+       predefinedMetricType = predefinedMetricType,
        resourceLabel = Prelude.Nothing}
 instance ToResourceProperties PredefinedMetricSpecificationProperty where
   toResourceProperties PredefinedMetricSpecificationProperty {..}

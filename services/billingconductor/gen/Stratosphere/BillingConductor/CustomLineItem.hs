@@ -10,20 +10,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CustomLineItem
-  = CustomLineItem {accountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html>
+    CustomLineItem {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-accountid>
+                    accountId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billinggrouparn>
                     billingGroupArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billingperiodrange>
                     billingPeriodRange :: (Prelude.Maybe BillingPeriodRangeProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-customlineitemchargedetails>
                     customLineItemChargeDetails :: (Prelude.Maybe CustomLineItemChargeDetailsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItem ::
   Value Prelude.Text -> Value Prelude.Text -> CustomLineItem
 mkCustomLineItem billingGroupArn name
   = CustomLineItem
-      {billingGroupArn = billingGroupArn, name = name,
-       accountId = Prelude.Nothing, billingPeriodRange = Prelude.Nothing,
+      {haddock_workaround_ = (), billingGroupArn = billingGroupArn,
+       name = name, accountId = Prelude.Nothing,
+       billingPeriodRange = Prelude.Nothing,
        customLineItemChargeDetails = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CustomLineItem where

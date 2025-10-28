@@ -11,11 +11,19 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateBasedStatementProperty
-  = RateBasedStatementProperty {aggregateKeyType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>
+    RateBasedStatementProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype>
+                                aggregateKeyType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-customkeys>
                                 customKeys :: (Prelude.Maybe [RateBasedStatementCustomKeyProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-evaluationwindowsec>
                                 evaluationWindowSec :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig>
                                 forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit>
                                 limit :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement>
                                 scopeDownStatement :: (Prelude.Maybe StatementProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedStatementProperty ::
@@ -23,8 +31,8 @@ mkRateBasedStatementProperty ::
   -> Value Prelude.Integer -> RateBasedStatementProperty
 mkRateBasedStatementProperty aggregateKeyType limit
   = RateBasedStatementProperty
-      {aggregateKeyType = aggregateKeyType, limit = limit,
-       customKeys = Prelude.Nothing,
+      {haddock_workaround_ = (), aggregateKeyType = aggregateKeyType,
+       limit = limit, customKeys = Prelude.Nothing,
        evaluationWindowSec = Prelude.Nothing,
        forwardedIPConfig = Prelude.Nothing,
        scopeDownStatement = Prelude.Nothing}

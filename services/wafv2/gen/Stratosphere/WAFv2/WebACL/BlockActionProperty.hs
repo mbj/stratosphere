@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomResponseProperty as Exports
 import Stratosphere.ResourceProperties
 data BlockActionProperty
-  = BlockActionProperty {customResponse :: (Prelude.Maybe CustomResponseProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html>
+    BlockActionProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse>
+                         customResponse :: (Prelude.Maybe CustomResponseProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockActionProperty :: BlockActionProperty
 mkBlockActionProperty
-  = BlockActionProperty {customResponse = Prelude.Nothing}
+  = BlockActionProperty
+      {haddock_workaround_ = (), customResponse = Prelude.Nothing}
 instance ToResourceProperties BlockActionProperty where
   toResourceProperties BlockActionProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON BlockActionProperty where
               [(JSON..=) "CustomResponse" Prelude.<$> customResponse]))
 instance Property "CustomResponse" BlockActionProperty where
   type PropertyType "CustomResponse" BlockActionProperty = CustomResponseProperty
-  set newValue BlockActionProperty {}
+  set newValue BlockActionProperty {..}
     = BlockActionProperty {customResponse = Prelude.pure newValue, ..}

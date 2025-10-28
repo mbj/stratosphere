@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryAuthConfigProperty
-  = RepositoryAuthConfigProperty {repositoryCredentialsProviderArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>
+    RepositoryAuthConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig-repositorycredentialsproviderarn>
+                                  repositoryCredentialsProviderArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryAuthConfigProperty ::
   Value Prelude.Text -> RepositoryAuthConfigProperty
 mkRepositoryAuthConfigProperty repositoryCredentialsProviderArn
   = RepositoryAuthConfigProperty
-      {repositoryCredentialsProviderArn = repositoryCredentialsProviderArn}
+      {haddock_workaround_ = (),
+       repositoryCredentialsProviderArn = repositoryCredentialsProviderArn}
 instance ToResourceProperties RepositoryAuthConfigProperty where
   toResourceProperties RepositoryAuthConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON RepositoryAuthConfigProperty where
            JSON..= repositoryCredentialsProviderArn]
 instance Property "RepositoryCredentialsProviderArn" RepositoryAuthConfigProperty where
   type PropertyType "RepositoryCredentialsProviderArn" RepositoryAuthConfigProperty = Value Prelude.Text
-  set newValue RepositoryAuthConfigProperty {}
+  set newValue RepositoryAuthConfigProperty {..}
     = RepositoryAuthConfigProperty
         {repositoryCredentialsProviderArn = newValue, ..}

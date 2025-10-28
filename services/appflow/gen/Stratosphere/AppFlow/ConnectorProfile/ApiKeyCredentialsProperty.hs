@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiKeyCredentialsProperty
-  = ApiKeyCredentialsProperty {apiKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-apikeycredentials.html>
+    ApiKeyCredentialsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-apikeycredentials.html#cfn-appflow-connectorprofile-apikeycredentials-apikey>
+                               apiKey :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-apikeycredentials.html#cfn-appflow-connectorprofile-apikeycredentials-apisecretkey>
                                apiSecretKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKeyCredentialsProperty ::
   Value Prelude.Text -> ApiKeyCredentialsProperty
 mkApiKeyCredentialsProperty apiKey
   = ApiKeyCredentialsProperty
-      {apiKey = apiKey, apiSecretKey = Prelude.Nothing}
+      {haddock_workaround_ = (), apiKey = apiKey,
+       apiSecretKey = Prelude.Nothing}
 instance ToResourceProperties ApiKeyCredentialsProperty where
   toResourceProperties ApiKeyCredentialsProperty {..}
     = ResourceProperties

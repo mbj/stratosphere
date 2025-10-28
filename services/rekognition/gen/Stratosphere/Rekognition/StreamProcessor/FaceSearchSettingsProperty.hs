@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FaceSearchSettingsProperty
-  = FaceSearchSettingsProperty {collectionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html>
+    FaceSearchSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html#cfn-rekognition-streamprocessor-facesearchsettings-collectionid>
+                                collectionId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html#cfn-rekognition-streamprocessor-facesearchsettings-facematchthreshold>
                                 faceMatchThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFaceSearchSettingsProperty ::
   Value Prelude.Text -> FaceSearchSettingsProperty
 mkFaceSearchSettingsProperty collectionId
   = FaceSearchSettingsProperty
-      {collectionId = collectionId, faceMatchThreshold = Prelude.Nothing}
+      {haddock_workaround_ = (), collectionId = collectionId,
+       faceMatchThreshold = Prelude.Nothing}
 instance ToResourceProperties FaceSearchSettingsProperty where
   toResourceProperties FaceSearchSettingsProperty {..}
     = ResourceProperties

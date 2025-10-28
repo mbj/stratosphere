@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VersioningConfigurationProperty
-  = VersioningConfigurationProperty {maxVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html>
+    VersioningConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html#cfn-iotanalytics-dataset-versioningconfiguration-maxversions>
+                                     maxVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html#cfn-iotanalytics-dataset-versioningconfiguration-unlimited>
                                      unlimited :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVersioningConfigurationProperty ::
   VersioningConfigurationProperty
 mkVersioningConfigurationProperty
   = VersioningConfigurationProperty
-      {maxVersions = Prelude.Nothing, unlimited = Prelude.Nothing}
+      {haddock_workaround_ = (), maxVersions = Prelude.Nothing,
+       unlimited = Prelude.Nothing}
 instance ToResourceProperties VersioningConfigurationProperty where
   toResourceProperties VersioningConfigurationProperty {..}
     = ResourceProperties

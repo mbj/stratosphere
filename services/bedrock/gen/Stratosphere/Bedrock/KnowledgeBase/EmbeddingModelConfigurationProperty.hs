@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.BedrockEmbeddingModelConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data EmbeddingModelConfigurationProperty
-  = EmbeddingModelConfigurationProperty {bedrockEmbeddingModelConfiguration :: (Prelude.Maybe BedrockEmbeddingModelConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>
+    EmbeddingModelConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-embeddingmodelconfiguration-bedrockembeddingmodelconfiguration>
+                                         bedrockEmbeddingModelConfiguration :: (Prelude.Maybe BedrockEmbeddingModelConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddingModelConfigurationProperty ::
   EmbeddingModelConfigurationProperty
 mkEmbeddingModelConfigurationProperty
   = EmbeddingModelConfigurationProperty
-      {bedrockEmbeddingModelConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       bedrockEmbeddingModelConfiguration = Prelude.Nothing}
 instance ToResourceProperties EmbeddingModelConfigurationProperty where
   toResourceProperties EmbeddingModelConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON EmbeddingModelConfigurationProperty where
                  Prelude.<$> bedrockEmbeddingModelConfiguration]))
 instance Property "BedrockEmbeddingModelConfiguration" EmbeddingModelConfigurationProperty where
   type PropertyType "BedrockEmbeddingModelConfiguration" EmbeddingModelConfigurationProperty = BedrockEmbeddingModelConfigurationProperty
-  set newValue EmbeddingModelConfigurationProperty {}
+  set newValue EmbeddingModelConfigurationProperty {..}
     = EmbeddingModelConfigurationProperty
         {bedrockEmbeddingModelConfiguration = Prelude.pure newValue, ..}

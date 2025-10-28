@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityPoolPrincipalTag
-  = IdentityPoolPrincipalTag {identityPoolId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html>
+    IdentityPoolPrincipalTag {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html#cfn-cognito-identitypoolprincipaltag-identitypoolid>
+                              identityPoolId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html#cfn-cognito-identitypoolprincipaltag-identityprovidername>
                               identityProviderName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html#cfn-cognito-identitypoolprincipaltag-principaltags>
                               principalTags :: (Prelude.Maybe JSON.Object),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html#cfn-cognito-identitypoolprincipaltag-usedefaults>
                               useDefaults :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolPrincipalTag ::
@@ -17,7 +23,7 @@ mkIdentityPoolPrincipalTag ::
   -> Value Prelude.Text -> IdentityPoolPrincipalTag
 mkIdentityPoolPrincipalTag identityPoolId identityProviderName
   = IdentityPoolPrincipalTag
-      {identityPoolId = identityPoolId,
+      {haddock_workaround_ = (), identityPoolId = identityPoolId,
        identityProviderName = identityProviderName,
        principalTags = Prelude.Nothing, useDefaults = Prelude.Nothing}
 instance ToResourceProperties IdentityPoolPrincipalTag where

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Master
-  = Master {detectorId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html>
+    Master {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid>
+            detectorId :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid>
             invitationId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-masterid>
             masterId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaster :: Value Prelude.Text -> Value Prelude.Text -> Master
 mkMaster detectorId masterId
   = Master
-      {detectorId = detectorId, masterId = masterId,
-       invitationId = Prelude.Nothing}
+      {haddock_workaround_ = (), detectorId = detectorId,
+       masterId = masterId, invitationId = Prelude.Nothing}
 instance ToResourceProperties Master where
   toResourceProperties Master {..}
     = ResourceProperties

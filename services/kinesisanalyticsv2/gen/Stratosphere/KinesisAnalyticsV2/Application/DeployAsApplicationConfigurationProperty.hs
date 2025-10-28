@@ -8,14 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.S3ContentBaseLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data DeployAsApplicationConfigurationProperty
-  = DeployAsApplicationConfigurationProperty {s3ContentLocation :: S3ContentBaseLocationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html>
+    DeployAsApplicationConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-deployasapplicationconfiguration-s3contentlocation>
+                                              s3ContentLocation :: S3ContentBaseLocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployAsApplicationConfigurationProperty ::
   S3ContentBaseLocationProperty
   -> DeployAsApplicationConfigurationProperty
 mkDeployAsApplicationConfigurationProperty s3ContentLocation
   = DeployAsApplicationConfigurationProperty
-      {s3ContentLocation = s3ContentLocation}
+      {haddock_workaround_ = (), s3ContentLocation = s3ContentLocation}
 instance ToResourceProperties DeployAsApplicationConfigurationProperty where
   toResourceProperties DeployAsApplicationConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +30,6 @@ instance JSON.ToJSON DeployAsApplicationConfigurationProperty where
     = JSON.object ["S3ContentLocation" JSON..= s3ContentLocation]
 instance Property "S3ContentLocation" DeployAsApplicationConfigurationProperty where
   type PropertyType "S3ContentLocation" DeployAsApplicationConfigurationProperty = S3ContentBaseLocationProperty
-  set newValue DeployAsApplicationConfigurationProperty {}
+  set newValue DeployAsApplicationConfigurationProperty {..}
     = DeployAsApplicationConfigurationProperty
         {s3ContentLocation = newValue, ..}

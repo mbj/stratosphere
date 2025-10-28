@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentVariableProperty
-  = EnvironmentVariableProperty {value :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html>
+    EnvironmentVariableProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-value>
+                                 value :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html#cfn-lightsail-container-environmentvariable-variable>
                                  variable :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentVariableProperty :: EnvironmentVariableProperty
 mkEnvironmentVariableProperty
   = EnvironmentVariableProperty
-      {value = Prelude.Nothing, variable = Prelude.Nothing}
+      {haddock_workaround_ = (), value = Prelude.Nothing,
+       variable = Prelude.Nothing}
 instance ToResourceProperties EnvironmentVariableProperty where
   toResourceProperties EnvironmentVariableProperty {..}
     = ResourceProperties

@@ -8,20 +8,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsInstanceBlockDeviceSpecificationProperty
-  = EbsInstanceBlockDeviceSpecificationProperty {deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html>
+    EbsInstanceBlockDeviceSpecificationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination>
+                                                 deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted>
                                                  encrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops>
                                                  iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid>
                                                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid>
                                                  snapshotId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-throughput>
                                                  throughput :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize>
                                                  volumeSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype>
                                                  volumeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsInstanceBlockDeviceSpecificationProperty ::
   EbsInstanceBlockDeviceSpecificationProperty
 mkEbsInstanceBlockDeviceSpecificationProperty
   = EbsInstanceBlockDeviceSpecificationProperty
-      {deleteOnTermination = Prelude.Nothing,
+      {haddock_workaround_ = (), deleteOnTermination = Prelude.Nothing,
        encrypted = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, snapshotId = Prelude.Nothing,
        throughput = Prelude.Nothing, volumeSize = Prelude.Nothing,

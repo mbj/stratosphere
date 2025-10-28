@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PhysicalResourceIdProperty
-  = PhysicalResourceIdProperty {awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>
+    PhysicalResourceIdProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsaccountid>
+                                awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-awsregion>
                                 awsRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-identifier>
                                 identifier :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html#cfn-resiliencehub-app-physicalresourceid-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPhysicalResourceIdProperty ::
@@ -17,7 +23,7 @@ mkPhysicalResourceIdProperty ::
   -> Value Prelude.Text -> PhysicalResourceIdProperty
 mkPhysicalResourceIdProperty identifier type'
   = PhysicalResourceIdProperty
-      {identifier = identifier, type' = type',
+      {haddock_workaround_ = (), identifier = identifier, type' = type',
        awsAccountId = Prelude.Nothing, awsRegion = Prelude.Nothing}
 instance ToResourceProperties PhysicalResourceIdProperty where
   toResourceProperties PhysicalResourceIdProperty {..}

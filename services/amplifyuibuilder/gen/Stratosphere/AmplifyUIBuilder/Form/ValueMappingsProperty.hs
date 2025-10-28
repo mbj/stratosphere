@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FormInputBindingPropert
 import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.ValueMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data ValueMappingsProperty
-  = ValueMappingsProperty {bindingProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text FormInputBindingPropertiesValueProperty)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemappings.html>
+    ValueMappingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemappings.html#cfn-amplifyuibuilder-form-valuemappings-bindingproperties>
+                           bindingProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text FormInputBindingPropertiesValueProperty)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemappings.html#cfn-amplifyuibuilder-form-valuemappings-values>
                            values :: [ValueMappingProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValueMappingsProperty ::
   [ValueMappingProperty] -> ValueMappingsProperty
 mkValueMappingsProperty values
   = ValueMappingsProperty
-      {values = values, bindingProperties = Prelude.Nothing}
+      {haddock_workaround_ = (), values = values,
+       bindingProperties = Prelude.Nothing}
 instance ToResourceProperties ValueMappingsProperty where
   toResourceProperties ValueMappingsProperty {..}
     = ResourceProperties

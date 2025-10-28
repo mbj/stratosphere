@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedInputTypesProperty
-  = AllowedInputTypesProperty {allowAudioInput :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html>
+    AllowedInputTypesProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html#cfn-lex-bot-allowedinputtypes-allowaudioinput>
+                               allowAudioInput :: (Value Prelude.Bool),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html#cfn-lex-bot-allowedinputtypes-allowdtmfinput>
                                allowDTMFInput :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedInputTypesProperty ::
@@ -15,7 +19,7 @@ mkAllowedInputTypesProperty ::
   -> Value Prelude.Bool -> AllowedInputTypesProperty
 mkAllowedInputTypesProperty allowAudioInput allowDTMFInput
   = AllowedInputTypesProperty
-      {allowAudioInput = allowAudioInput,
+      {haddock_workaround_ = (), allowAudioInput = allowAudioInput,
        allowDTMFInput = allowDTMFInput}
 instance ToResourceProperties AllowedInputTypesProperty where
   toResourceProperties AllowedInputTypesProperty {..}

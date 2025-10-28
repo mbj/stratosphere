@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SkewedInfoProperty
-  = SkewedInfoProperty {skewedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html>
+    SkewedInfoProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames>
+                        skewedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps>
                         skewedColumnValueLocationMaps :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues>
                         skewedColumnValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSkewedInfoProperty :: SkewedInfoProperty
 mkSkewedInfoProperty
   = SkewedInfoProperty
-      {skewedColumnNames = Prelude.Nothing,
+      {haddock_workaround_ = (), skewedColumnNames = Prelude.Nothing,
        skewedColumnValueLocationMaps = Prelude.Nothing,
        skewedColumnValues = Prelude.Nothing}
 instance ToResourceProperties SkewedInfoProperty where

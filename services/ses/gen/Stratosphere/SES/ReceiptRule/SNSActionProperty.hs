@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SNSActionProperty
-  = SNSActionProperty {encoding :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html>
+    SNSActionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding>
+                       encoding :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn>
                        topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSNSActionProperty :: SNSActionProperty
 mkSNSActionProperty
   = SNSActionProperty
-      {encoding = Prelude.Nothing, topicArn = Prelude.Nothing}
+      {haddock_workaround_ = (), encoding = Prelude.Nothing,
+       topicArn = Prelude.Nothing}
 instance ToResourceProperties SNSActionProperty where
   toResourceProperties SNSActionProperty {..}
     = ResourceProperties

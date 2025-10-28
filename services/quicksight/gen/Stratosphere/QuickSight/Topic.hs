@@ -8,19 +8,28 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.DatasetMetadataProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Topic
-  = Topic {awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html>
+    Topic {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-awsaccountid>
+           awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-datasets>
            dataSets :: (Prelude.Maybe [DatasetMetadataProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-name>
            name :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-topicid>
            topicId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-userexperienceversion>
            userExperienceVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopic :: Topic
 mkTopic
   = Topic
-      {awsAccountId = Prelude.Nothing, dataSets = Prelude.Nothing,
-       description = Prelude.Nothing, name = Prelude.Nothing,
-       topicId = Prelude.Nothing, userExperienceVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), awsAccountId = Prelude.Nothing,
+       dataSets = Prelude.Nothing, description = Prelude.Nothing,
+       name = Prelude.Nothing, topicId = Prelude.Nothing,
+       userExperienceVersion = Prelude.Nothing}
 instance ToResourceProperties Topic where
   toResourceProperties Topic {..}
     = ResourceProperties

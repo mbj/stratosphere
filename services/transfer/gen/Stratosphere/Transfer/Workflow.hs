@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Workflow
-  = Workflow {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html>
+    Workflow {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-onexceptionsteps>
               onExceptionSteps :: (Prelude.Maybe [WorkflowStepProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-steps>
               steps :: [WorkflowStepProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: [WorkflowStepProperty] -> Workflow
 mkWorkflow steps
   = Workflow
-      {steps = steps, description = Prelude.Nothing,
-       onExceptionSteps = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), steps = steps,
+       description = Prelude.Nothing, onExceptionSteps = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}
     = ResourceProperties

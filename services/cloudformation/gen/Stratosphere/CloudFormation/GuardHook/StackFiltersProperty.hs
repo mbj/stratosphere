@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.GuardHook.StackRolesProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackFiltersProperty
-  = StackFiltersProperty {filteringCriteria :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html>
+    StackFiltersProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-filteringcriteria>
+                          filteringCriteria :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stacknames>
                           stackNames :: (Prelude.Maybe StackNamesProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stackroles>
                           stackRoles :: (Prelude.Maybe StackRolesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackFiltersProperty ::
   Value Prelude.Text -> StackFiltersProperty
 mkStackFiltersProperty filteringCriteria
   = StackFiltersProperty
-      {filteringCriteria = filteringCriteria,
+      {haddock_workaround_ = (), filteringCriteria = filteringCriteria,
        stackNames = Prelude.Nothing, stackRoles = Prelude.Nothing}
 instance ToResourceProperties StackFiltersProperty where
   toResourceProperties StackFiltersProperty {..}

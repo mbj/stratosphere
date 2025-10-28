@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceComponentComputeResourceRequirementsProperty
-  = InferenceComponentComputeResourceRequirementsProperty {maxMemoryRequiredInMb :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html>
+    InferenceComponentComputeResourceRequirementsProperty {haddock_workaround_ :: (),
+                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html#cfn-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements-maxmemoryrequiredinmb>
+                                                           maxMemoryRequiredInMb :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html#cfn-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements-minmemoryrequiredinmb>
                                                            minMemoryRequiredInMb :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html#cfn-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements-numberofacceleratordevicesrequired>
                                                            numberOfAcceleratorDevicesRequired :: (Prelude.Maybe (Value Prelude.Double)),
+                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html#cfn-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements-numberofcpucoresrequired>
                                                            numberOfCpuCoresRequired :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponentComputeResourceRequirementsProperty ::
   InferenceComponentComputeResourceRequirementsProperty
 mkInferenceComponentComputeResourceRequirementsProperty
   = InferenceComponentComputeResourceRequirementsProperty
-      {maxMemoryRequiredInMb = Prelude.Nothing,
+      {haddock_workaround_ = (), maxMemoryRequiredInMb = Prelude.Nothing,
        minMemoryRequiredInMb = Prelude.Nothing,
        numberOfAcceleratorDevicesRequired = Prelude.Nothing,
        numberOfCpuCoresRequired = Prelude.Nothing}

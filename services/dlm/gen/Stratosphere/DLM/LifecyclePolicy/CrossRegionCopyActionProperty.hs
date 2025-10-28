@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.EncryptionConfigurationPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrossRegionCopyActionProperty
-  = CrossRegionCopyActionProperty {encryptionConfiguration :: EncryptionConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html>
+    CrossRegionCopyActionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration>
+                                   encryptionConfiguration :: EncryptionConfigurationProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-retainrule>
                                    retainRule :: (Prelude.Maybe CrossRegionCopyRetainRuleProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target>
                                    target :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyActionProperty ::
@@ -19,8 +24,9 @@ mkCrossRegionCopyActionProperty ::
   -> Value Prelude.Text -> CrossRegionCopyActionProperty
 mkCrossRegionCopyActionProperty encryptionConfiguration target
   = CrossRegionCopyActionProperty
-      {encryptionConfiguration = encryptionConfiguration,
-       target = target, retainRule = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       encryptionConfiguration = encryptionConfiguration, target = target,
+       retainRule = Prelude.Nothing}
 instance ToResourceProperties CrossRegionCopyActionProperty where
   toResourceProperties CrossRegionCopyActionProperty {..}
     = ResourceProperties

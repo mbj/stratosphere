@@ -14,25 +14,41 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntentConfirmationSettingProperty
-  = IntentConfirmationSettingProperty {codeHook :: (Prelude.Maybe DialogCodeHookInvocationSettingProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html>
+    IntentConfirmationSettingProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-codehook>
+                                       codeHook :: (Prelude.Maybe DialogCodeHookInvocationSettingProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationconditional>
                                        confirmationConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationnextstep>
                                        confirmationNextStep :: (Prelude.Maybe DialogStateProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-confirmationresponse>
                                        confirmationResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationconditional>
                                        declinationConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationnextstep>
                                        declinationNextStep :: (Prelude.Maybe DialogStateProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-declinationresponse>
                                        declinationResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-elicitationcodehook>
                                        elicitationCodeHook :: (Prelude.Maybe ElicitationCodeHookInvocationSettingProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failureconditional>
                                        failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failurenextstep>
                                        failureNextStep :: (Prelude.Maybe DialogStateProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-failureresponse>
                                        failureResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-isactive>
                                        isActive :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-promptspecification>
                                        promptSpecification :: PromptSpecificationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentConfirmationSettingProperty ::
   PromptSpecificationProperty -> IntentConfirmationSettingProperty
 mkIntentConfirmationSettingProperty promptSpecification
   = IntentConfirmationSettingProperty
-      {promptSpecification = promptSpecification,
+      {haddock_workaround_ = (),
+       promptSpecification = promptSpecification,
        codeHook = Prelude.Nothing,
        confirmationConditional = Prelude.Nothing,
        confirmationNextStep = Prelude.Nothing,

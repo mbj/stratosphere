@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.TopicConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data TopicPolicyConfigProperty
-  = TopicPolicyConfigProperty {topicsConfig :: [TopicConfigProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html>
+    TopicPolicyConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicsconfig>
+                               topicsConfig :: [TopicConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicPolicyConfigProperty ::
   [TopicConfigProperty] -> TopicPolicyConfigProperty
 mkTopicPolicyConfigProperty topicsConfig
-  = TopicPolicyConfigProperty {topicsConfig = topicsConfig}
+  = TopicPolicyConfigProperty
+      {haddock_workaround_ = (), topicsConfig = topicsConfig}
 instance ToResourceProperties TopicPolicyConfigProperty where
   toResourceProperties TopicPolicyConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TopicPolicyConfigProperty where
     = JSON.object ["TopicsConfig" JSON..= topicsConfig]
 instance Property "TopicsConfig" TopicPolicyConfigProperty where
   type PropertyType "TopicsConfig" TopicPolicyConfigProperty = [TopicConfigProperty]
-  set newValue TopicPolicyConfigProperty {}
+  set newValue TopicPolicyConfigProperty {..}
     = TopicPolicyConfigProperty {topicsConfig = newValue, ..}

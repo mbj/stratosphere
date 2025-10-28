@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseDestinationConfigurationProperty
-  = FirehoseDestinationConfigurationProperty {deliveryStreamName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html>
+    FirehoseDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html#cfn-ivschat-loggingconfiguration-firehosedestinationconfiguration-deliverystreamname>
+                                              deliveryStreamName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseDestinationConfigurationProperty ::
   Value Prelude.Text -> FirehoseDestinationConfigurationProperty
 mkFirehoseDestinationConfigurationProperty deliveryStreamName
   = FirehoseDestinationConfigurationProperty
-      {deliveryStreamName = deliveryStreamName}
+      {haddock_workaround_ = (), deliveryStreamName = deliveryStreamName}
 instance ToResourceProperties FirehoseDestinationConfigurationProperty where
   toResourceProperties FirehoseDestinationConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON FirehoseDestinationConfigurationProperty where
     = JSON.object ["DeliveryStreamName" JSON..= deliveryStreamName]
 instance Property "DeliveryStreamName" FirehoseDestinationConfigurationProperty where
   type PropertyType "DeliveryStreamName" FirehoseDestinationConfigurationProperty = Value Prelude.Text
-  set newValue FirehoseDestinationConfigurationProperty {}
+  set newValue FirehoseDestinationConfigurationProperty {..}
     = FirehoseDestinationConfigurationProperty
         {deliveryStreamName = newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.TargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetGroupsConfigProperty
-  = TargetGroupsConfigProperty {targetGroups :: [TargetGroupProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html>
+    TargetGroupsConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups>
+                                targetGroups :: [TargetGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupsConfigProperty ::
   [TargetGroupProperty] -> TargetGroupsConfigProperty
 mkTargetGroupsConfigProperty targetGroups
-  = TargetGroupsConfigProperty {targetGroups = targetGroups}
+  = TargetGroupsConfigProperty
+      {haddock_workaround_ = (), targetGroups = targetGroups}
 instance ToResourceProperties TargetGroupsConfigProperty where
   toResourceProperties TargetGroupsConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TargetGroupsConfigProperty where
     = JSON.object ["TargetGroups" JSON..= targetGroups]
 instance Property "TargetGroups" TargetGroupsConfigProperty where
   type PropertyType "TargetGroups" TargetGroupsConfigProperty = [TargetGroupProperty]
-  set newValue TargetGroupsConfigProperty {}
+  set newValue TargetGroupsConfigProperty {..}
     = TargetGroupsConfigProperty {targetGroups = newValue, ..}

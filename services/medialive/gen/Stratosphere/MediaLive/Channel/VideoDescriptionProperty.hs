@@ -9,21 +9,30 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoCodecSettingsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoDescriptionProperty
-  = VideoDescriptionProperty {codecSettings :: (Prelude.Maybe VideoCodecSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html>
+    VideoDescriptionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-codecsettings>
+                              codecSettings :: (Prelude.Maybe VideoCodecSettingsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-height>
                               height :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-name>
                               name :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-respondtoafd>
                               respondToAfd :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-scalingbehavior>
                               scalingBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-sharpness>
                               sharpness :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-width>
                               width :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoDescriptionProperty :: VideoDescriptionProperty
 mkVideoDescriptionProperty
   = VideoDescriptionProperty
-      {codecSettings = Prelude.Nothing, height = Prelude.Nothing,
-       name = Prelude.Nothing, respondToAfd = Prelude.Nothing,
-       scalingBehavior = Prelude.Nothing, sharpness = Prelude.Nothing,
-       width = Prelude.Nothing}
+      {haddock_workaround_ = (), codecSettings = Prelude.Nothing,
+       height = Prelude.Nothing, name = Prelude.Nothing,
+       respondToAfd = Prelude.Nothing, scalingBehavior = Prelude.Nothing,
+       sharpness = Prelude.Nothing, width = Prelude.Nothing}
 instance ToResourceProperties VideoDescriptionProperty where
   toResourceProperties VideoDescriptionProperty {..}
     = ResourceProperties

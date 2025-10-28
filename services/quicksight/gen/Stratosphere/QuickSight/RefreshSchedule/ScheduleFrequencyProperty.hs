@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.QuickSight.RefreshSchedule.RefreshOnDayProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleFrequencyProperty
-  = ScheduleFrequencyProperty {interval :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html>
+    ScheduleFrequencyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-interval>
+                               interval :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-refreshonday>
                                refreshOnDay :: (Prelude.Maybe RefreshOnDayProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-timeoftheday>
                                timeOfTheDay :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html#cfn-quicksight-refreshschedule-schedulefrequency-timezone>
                                timeZone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleFrequencyProperty :: ScheduleFrequencyProperty
 mkScheduleFrequencyProperty
   = ScheduleFrequencyProperty
-      {interval = Prelude.Nothing, refreshOnDay = Prelude.Nothing,
-       timeOfTheDay = Prelude.Nothing, timeZone = Prelude.Nothing}
+      {haddock_workaround_ = (), interval = Prelude.Nothing,
+       refreshOnDay = Prelude.Nothing, timeOfTheDay = Prelude.Nothing,
+       timeZone = Prelude.Nothing}
 instance ToResourceProperties ScheduleFrequencyProperty where
   toResourceProperties ScheduleFrequencyProperty {..}
     = ResourceProperties

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.SubComponentC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubComponentTypeConfigurationProperty
-  = SubComponentTypeConfigurationProperty {subComponentConfigurationDetails :: SubComponentConfigurationDetailsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html>
+    SubComponentTypeConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails>
+                                           subComponentConfigurationDetails :: SubComponentConfigurationDetailsProperty,
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype>
                                            subComponentType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentTypeConfigurationProperty ::
@@ -19,7 +23,8 @@ mkSubComponentTypeConfigurationProperty
   subComponentConfigurationDetails
   subComponentType
   = SubComponentTypeConfigurationProperty
-      {subComponentConfigurationDetails = subComponentConfigurationDetails,
+      {haddock_workaround_ = (),
+       subComponentConfigurationDetails = subComponentConfigurationDetails,
        subComponentType = subComponentType}
 instance ToResourceProperties SubComponentTypeConfigurationProperty where
   toResourceProperties SubComponentTypeConfigurationProperty {..}

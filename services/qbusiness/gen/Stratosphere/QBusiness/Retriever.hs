@@ -9,11 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Retriever
-  = Retriever {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html>
+    Retriever {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-applicationid>
+               applicationId :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-configuration>
                configuration :: RetrieverConfigurationProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-displayname>
                displayName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-rolearn>
                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html#cfn-qbusiness-retriever-type>
                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetriever ::
@@ -22,9 +30,9 @@ mkRetriever ::
      -> Value Prelude.Text -> Value Prelude.Text -> Retriever
 mkRetriever applicationId configuration displayName type'
   = Retriever
-      {applicationId = applicationId, configuration = configuration,
-       displayName = displayName, type' = type',
-       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationId = applicationId,
+       configuration = configuration, displayName = displayName,
+       type' = type', roleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Retriever where
   toResourceProperties Retriever {..}
     = ResourceProperties

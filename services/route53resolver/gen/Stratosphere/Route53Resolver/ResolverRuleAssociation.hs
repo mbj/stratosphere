@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolverRuleAssociation
-  = ResolverRuleAssociation {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html>
+    ResolverRuleAssociation {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-name>
+                             name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-resolverruleid>
                              resolverRuleId :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-vpcid>
                              vPCId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverRuleAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> ResolverRuleAssociation
 mkResolverRuleAssociation resolverRuleId vPCId
   = ResolverRuleAssociation
-      {resolverRuleId = resolverRuleId, vPCId = vPCId,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), resolverRuleId = resolverRuleId,
+       vPCId = vPCId, name = Prelude.Nothing}
 instance ToResourceProperties ResolverRuleAssociation where
   toResourceProperties ResolverRuleAssociation {..}
     = ResourceProperties

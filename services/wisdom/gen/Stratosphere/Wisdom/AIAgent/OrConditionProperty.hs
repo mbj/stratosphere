@@ -7,13 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.TagConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data OrConditionProperty
-  = OrConditionProperty {andConditions :: (Prelude.Maybe [TagConditionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html>
+    OrConditionProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html#cfn-wisdom-aiagent-orcondition-andconditions>
+                         andConditions :: (Prelude.Maybe [TagConditionProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html#cfn-wisdom-aiagent-orcondition-tagcondition>
                          tagCondition :: (Prelude.Maybe TagConditionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrConditionProperty :: OrConditionProperty
 mkOrConditionProperty
   = OrConditionProperty
-      {andConditions = Prelude.Nothing, tagCondition = Prelude.Nothing}
+      {haddock_workaround_ = (), andConditions = Prelude.Nothing,
+       tagCondition = Prelude.Nothing}
 instance ToResourceProperties OrConditionProperty where
   toResourceProperties OrConditionProperty {..}
     = ResourceProperties

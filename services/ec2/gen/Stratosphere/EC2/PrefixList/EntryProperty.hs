@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntryProperty
-  = EntryProperty {cidr :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html>
+    EntryProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr>
+                   cidr :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description>
                    description :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntryProperty :: Value Prelude.Text -> EntryProperty
 mkEntryProperty cidr
-  = EntryProperty {cidr = cidr, description = Prelude.Nothing}
+  = EntryProperty
+      {haddock_workaround_ = (), cidr = cidr,
+       description = Prelude.Nothing}
 instance ToResourceProperties EntryProperty where
   toResourceProperties EntryProperty {..}
     = ResourceProperties

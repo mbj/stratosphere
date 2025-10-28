@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.Logs.MetricFilter.MetricTransformationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricFilter
-  = MetricFilter {filterName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html>
+    MetricFilter {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername>
+                  filterName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filterpattern>
                   filterPattern :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-loggroupname>
                   logGroupName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations>
                   metricTransformations :: [MetricTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricFilter ::
@@ -19,7 +25,8 @@ mkMetricFilter ::
      -> [MetricTransformationProperty] -> MetricFilter
 mkMetricFilter filterPattern logGroupName metricTransformations
   = MetricFilter
-      {filterPattern = filterPattern, logGroupName = logGroupName,
+      {haddock_workaround_ = (), filterPattern = filterPattern,
+       logGroupName = logGroupName,
        metricTransformations = metricTransformations,
        filterName = Prelude.Nothing}
 instance ToResourceProperties MetricFilter where

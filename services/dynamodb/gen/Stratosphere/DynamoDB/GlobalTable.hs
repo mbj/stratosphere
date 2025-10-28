@@ -18,18 +18,33 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.WriteProvisionedThroughp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlobalTable
-  = GlobalTable {attributeDefinitions :: [AttributeDefinitionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html>
+    GlobalTable {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions>
+                 attributeDefinitions :: [AttributeDefinitionProperty],
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode>
                  billingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes>
                  globalSecondaryIndexes :: (Prelude.Maybe [GlobalSecondaryIndexProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema>
                  keySchema :: [KeySchemaProperty],
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes>
                  localSecondaryIndexes :: (Prelude.Maybe [LocalSecondaryIndexProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas>
                  replicas :: [ReplicaSpecificationProperty],
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification>
                  sSESpecification :: (Prelude.Maybe SSESpecificationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification>
                  streamSpecification :: (Prelude.Maybe StreamSpecificationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename>
                  tableName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification>
                  timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-warmthroughput>
                  warmThroughput :: (Prelude.Maybe WarmThroughputProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings>
                  writeOnDemandThroughputSettings :: (Prelude.Maybe WriteOnDemandThroughputSettingsProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings>
                  writeProvisionedThroughputSettings :: (Prelude.Maybe WriteProvisionedThroughputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalTable ::
@@ -38,9 +53,9 @@ mkGlobalTable ::
      -> [ReplicaSpecificationProperty] -> GlobalTable
 mkGlobalTable attributeDefinitions keySchema replicas
   = GlobalTable
-      {attributeDefinitions = attributeDefinitions,
-       keySchema = keySchema, replicas = replicas,
-       billingMode = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       attributeDefinitions = attributeDefinitions, keySchema = keySchema,
+       replicas = replicas, billingMode = Prelude.Nothing,
        globalSecondaryIndexes = Prelude.Nothing,
        localSecondaryIndexes = Prelude.Nothing,
        sSESpecification = Prelude.Nothing,

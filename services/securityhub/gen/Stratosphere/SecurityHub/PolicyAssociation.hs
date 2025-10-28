@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyAssociation
-  = PolicyAssociation {configurationPolicyId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html>
+    PolicyAssociation {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-configurationpolicyid>
+                       configurationPolicyId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-targetid>
                        targetId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-targettype>
                        targetType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyAssociation ::
@@ -16,8 +21,9 @@ mkPolicyAssociation ::
   -> Value Prelude.Text -> Value Prelude.Text -> PolicyAssociation
 mkPolicyAssociation configurationPolicyId targetId targetType
   = PolicyAssociation
-      {configurationPolicyId = configurationPolicyId,
-       targetId = targetId, targetType = targetType}
+      {haddock_workaround_ = (),
+       configurationPolicyId = configurationPolicyId, targetId = targetId,
+       targetType = targetType}
 instance ToResourceProperties PolicyAssociation where
   toResourceProperties PolicyAssociation {..}
     = ResourceProperties

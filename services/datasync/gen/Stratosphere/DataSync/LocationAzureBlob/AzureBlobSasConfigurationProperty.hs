@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AzureBlobSasConfigurationProperty
-  = AzureBlobSasConfigurationProperty {azureBlobSasToken :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html>
+    AzureBlobSasConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html#cfn-datasync-locationazureblob-azureblobsasconfiguration-azureblobsastoken>
+                                       azureBlobSasToken :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAzureBlobSasConfigurationProperty ::
   Value Prelude.Text -> AzureBlobSasConfigurationProperty
 mkAzureBlobSasConfigurationProperty azureBlobSasToken
   = AzureBlobSasConfigurationProperty
-      {azureBlobSasToken = azureBlobSasToken}
+      {haddock_workaround_ = (), azureBlobSasToken = azureBlobSasToken}
 instance ToResourceProperties AzureBlobSasConfigurationProperty where
   toResourceProperties AzureBlobSasConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON AzureBlobSasConfigurationProperty where
     = JSON.object ["AzureBlobSasToken" JSON..= azureBlobSasToken]
 instance Property "AzureBlobSasToken" AzureBlobSasConfigurationProperty where
   type PropertyType "AzureBlobSasToken" AzureBlobSasConfigurationProperty = Value Prelude.Text
-  set newValue AzureBlobSasConfigurationProperty {}
+  set newValue AzureBlobSasConfigurationProperty {..}
     = AzureBlobSasConfigurationProperty
         {azureBlobSasToken = newValue, ..}

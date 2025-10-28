@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferrerPolicyProperty
-  = ReferrerPolicyProperty {override :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html>
+    ReferrerPolicyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html#cfn-cloudfront-responseheaderspolicy-referrerpolicy-override>
+                            override :: (Value Prelude.Bool),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html#cfn-cloudfront-responseheaderspolicy-referrerpolicy-referrerpolicy>
                             referrerPolicy :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferrerPolicyProperty ::
   Value Prelude.Bool -> Value Prelude.Text -> ReferrerPolicyProperty
 mkReferrerPolicyProperty override referrerPolicy
   = ReferrerPolicyProperty
-      {override = override, referrerPolicy = referrerPolicy}
+      {haddock_workaround_ = (), override = override,
+       referrerPolicy = referrerPolicy}
 instance ToResourceProperties ReferrerPolicyProperty where
   toResourceProperties ReferrerPolicyProperty {..}
     = ResourceProperties

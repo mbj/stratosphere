@@ -8,28 +8,47 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditCheckConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AuditCheckConfigurationsProperty
-  = AuditCheckConfigurationsProperty {authenticatedCognitoRoleOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html>
+    AuditCheckConfigurationsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck>
+                                      authenticatedCognitoRoleOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck>
                                       caCertificateExpiringCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck>
                                       caCertificateKeyQualityCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck>
                                       conflictingClientIdsCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck>
                                       deviceCertificateExpiringCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck>
                                       deviceCertificateKeyQualityCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck>
                                       deviceCertificateSharedCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-intermediatecarevokedforactivedevicecertificatescheck>
                                       intermediateCaRevokedForActiveDeviceCertificatesCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicypotentialmisconfigurationcheck>
                                       ioTPolicyPotentialMisConfigurationCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck>
                                       iotPolicyOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck>
                                       iotRoleAliasAllowsAccessToUnusedServicesCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck>
                                       iotRoleAliasOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck>
                                       loggingDisabledCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck>
                                       revokedCaCertificateStillActiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck>
                                       revokedDeviceCertificateStillActiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck>
                                       unauthenticatedCognitoRoleOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditCheckConfigurationsProperty ::
   AuditCheckConfigurationsProperty
 mkAuditCheckConfigurationsProperty
   = AuditCheckConfigurationsProperty
-      {authenticatedCognitoRoleOverlyPermissiveCheck = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       authenticatedCognitoRoleOverlyPermissiveCheck = Prelude.Nothing,
        caCertificateExpiringCheck = Prelude.Nothing,
        caCertificateKeyQualityCheck = Prelude.Nothing,
        conflictingClientIdsCheck = Prelude.Nothing,

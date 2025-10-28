@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionSpecificationProperty
-  = EncryptionSpecificationProperty {encryptionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html>
+    EncryptionSpecificationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype>
+                                     encryptionType :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier>
                                      kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionSpecificationProperty ::
   Value Prelude.Text -> EncryptionSpecificationProperty
 mkEncryptionSpecificationProperty encryptionType
   = EncryptionSpecificationProperty
-      {encryptionType = encryptionType,
+      {haddock_workaround_ = (), encryptionType = encryptionType,
        kmsKeyIdentifier = Prelude.Nothing}
 instance ToResourceProperties EncryptionSpecificationProperty where
   toResourceProperties EncryptionSpecificationProperty {..}

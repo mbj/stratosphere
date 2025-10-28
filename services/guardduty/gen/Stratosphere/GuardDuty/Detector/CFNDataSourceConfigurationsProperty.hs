@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNMalwareProtectionConfig
 import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNS3LogsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CFNDataSourceConfigurationsProperty
-  = CFNDataSourceConfigurationsProperty {kubernetes :: (Prelude.Maybe CFNKubernetesConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html>
+    CFNDataSourceConfigurationsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-kubernetes>
+                                         kubernetes :: (Prelude.Maybe CFNKubernetesConfigurationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-malwareprotection>
                                          malwareProtection :: (Prelude.Maybe CFNMalwareProtectionConfigurationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs>
                                          s3Logs :: (Prelude.Maybe CFNS3LogsConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNDataSourceConfigurationsProperty ::
   CFNDataSourceConfigurationsProperty
 mkCFNDataSourceConfigurationsProperty
   = CFNDataSourceConfigurationsProperty
-      {kubernetes = Prelude.Nothing, malwareProtection = Prelude.Nothing,
-       s3Logs = Prelude.Nothing}
+      {haddock_workaround_ = (), kubernetes = Prelude.Nothing,
+       malwareProtection = Prelude.Nothing, s3Logs = Prelude.Nothing}
 instance ToResourceProperties CFNDataSourceConfigurationsProperty where
   toResourceProperties CFNDataSourceConfigurationsProperty {..}
     = ResourceProperties

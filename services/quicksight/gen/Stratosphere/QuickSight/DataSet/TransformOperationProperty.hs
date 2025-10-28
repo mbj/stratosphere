@@ -15,19 +15,30 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.TagColumnOperationProperty
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.UntagColumnOperationProperty as Exports
 import Stratosphere.ResourceProperties
 data TransformOperationProperty
-  = TransformOperationProperty {castColumnTypeOperation :: (Prelude.Maybe CastColumnTypeOperationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html>
+    TransformOperationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation>
+                                castColumnTypeOperation :: (Prelude.Maybe CastColumnTypeOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation>
                                 createColumnsOperation :: (Prelude.Maybe CreateColumnsOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation>
                                 filterOperation :: (Prelude.Maybe FilterOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-overridedatasetparameteroperation>
                                 overrideDatasetParameterOperation :: (Prelude.Maybe OverrideDatasetParameterOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation>
                                 projectOperation :: (Prelude.Maybe ProjectOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation>
                                 renameColumnOperation :: (Prelude.Maybe RenameColumnOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation>
                                 tagColumnOperation :: (Prelude.Maybe TagColumnOperationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-untagcolumnoperation>
                                 untagColumnOperation :: (Prelude.Maybe UntagColumnOperationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformOperationProperty :: TransformOperationProperty
 mkTransformOperationProperty
   = TransformOperationProperty
-      {castColumnTypeOperation = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       castColumnTypeOperation = Prelude.Nothing,
        createColumnsOperation = Prelude.Nothing,
        filterOperation = Prelude.Nothing,
        overrideDatasetParameterOperation = Prelude.Nothing,

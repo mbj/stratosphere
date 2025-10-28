@@ -9,19 +9,27 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.KeyValuePairProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeConfigurationValuesProperty
-  = CodeConfigurationValuesProperty {buildCommand :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html>
+    CodeConfigurationValuesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand>
+                                     buildCommand :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port>
                                      port :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime>
                                      runtime :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentsecrets>
                                      runtimeEnvironmentSecrets :: (Prelude.Maybe [KeyValuePairProperty]),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables>
                                      runtimeEnvironmentVariables :: (Prelude.Maybe [KeyValuePairProperty]),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand>
                                      startCommand :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeConfigurationValuesProperty ::
   Value Prelude.Text -> CodeConfigurationValuesProperty
 mkCodeConfigurationValuesProperty runtime
   = CodeConfigurationValuesProperty
-      {runtime = runtime, buildCommand = Prelude.Nothing,
-       port = Prelude.Nothing,
+      {haddock_workaround_ = (), runtime = runtime,
+       buildCommand = Prelude.Nothing, port = Prelude.Nothing,
        runtimeEnvironmentSecrets = Prelude.Nothing,
        runtimeEnvironmentVariables = Prelude.Nothing,
        startCommand = Prelude.Nothing}

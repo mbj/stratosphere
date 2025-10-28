@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LicenseSpecificationProperty
-  = LicenseSpecificationProperty {licenseConfigurationArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html>
+    LicenseSpecificationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn>
+                                  licenseConfigurationArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLicenseSpecificationProperty ::
   Value Prelude.Text -> LicenseSpecificationProperty
 mkLicenseSpecificationProperty licenseConfigurationArn
   = LicenseSpecificationProperty
-      {licenseConfigurationArn = licenseConfigurationArn}
+      {haddock_workaround_ = (),
+       licenseConfigurationArn = licenseConfigurationArn}
 instance ToResourceProperties LicenseSpecificationProperty where
   toResourceProperties LicenseSpecificationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON LicenseSpecificationProperty where
         ["LicenseConfigurationArn" JSON..= licenseConfigurationArn]
 instance Property "LicenseConfigurationArn" LicenseSpecificationProperty where
   type PropertyType "LicenseConfigurationArn" LicenseSpecificationProperty = Value Prelude.Text
-  set newValue LicenseSpecificationProperty {}
+  set newValue LicenseSpecificationProperty {..}
     = LicenseSpecificationProperty
         {licenseConfigurationArn = newValue, ..}

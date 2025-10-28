@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RowLevelPermissionTagRuleProperty
-  = RowLevelPermissionTagRuleProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html>
+    RowLevelPermissionTagRuleProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-columnname>
+                                       columnName :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-matchallvalue>
                                        matchAllValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-tagkey>
                                        tagKey :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-tagmultivaluedelimiter>
                                        tagMultiValueDelimiter :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagRuleProperty ::
@@ -18,8 +24,8 @@ mkRowLevelPermissionTagRuleProperty ::
   -> Value Prelude.Text -> RowLevelPermissionTagRuleProperty
 mkRowLevelPermissionTagRuleProperty columnName tagKey
   = RowLevelPermissionTagRuleProperty
-      {columnName = columnName, tagKey = tagKey,
-       matchAllValue = Prelude.Nothing,
+      {haddock_workaround_ = (), columnName = columnName,
+       tagKey = tagKey, matchAllValue = Prelude.Nothing,
        tagMultiValueDelimiter = Prelude.Nothing}
 instance ToResourceProperties RowLevelPermissionTagRuleProperty where
   toResourceProperties RowLevelPermissionTagRuleProperty {..}

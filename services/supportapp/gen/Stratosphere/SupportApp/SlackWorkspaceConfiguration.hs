@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackWorkspaceConfiguration
-  = SlackWorkspaceConfiguration {teamId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html>
+    SlackWorkspaceConfiguration {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html#cfn-supportapp-slackworkspaceconfiguration-teamid>
+                                 teamId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html#cfn-supportapp-slackworkspaceconfiguration-versionid>
                                  versionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackWorkspaceConfiguration ::
   Value Prelude.Text -> SlackWorkspaceConfiguration
 mkSlackWorkspaceConfiguration teamId
   = SlackWorkspaceConfiguration
-      {teamId = teamId, versionId = Prelude.Nothing}
+      {haddock_workaround_ = (), teamId = teamId,
+       versionId = Prelude.Nothing}
 instance ToResourceProperties SlackWorkspaceConfiguration where
   toResourceProperties SlackWorkspaceConfiguration {..}
     = ResourceProperties

@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.KeyUsageProperty as Export
 import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.PolicyInformationProperty as Exports
 import Stratosphere.ResourceProperties
 data ExtensionsProperty
-  = ExtensionsProperty {certificatePolicies :: (Prelude.Maybe [PolicyInformationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html>
+    ExtensionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies>
+                        certificatePolicies :: (Prelude.Maybe [PolicyInformationProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-customextensions>
                         customExtensions :: (Prelude.Maybe [CustomExtensionProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage>
                         extendedKeyUsage :: (Prelude.Maybe [ExtendedKeyUsageProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage>
                         keyUsage :: (Prelude.Maybe KeyUsageProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames>
                         subjectAlternativeNames :: (Prelude.Maybe [GeneralNameProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExtensionsProperty :: ExtensionsProperty
 mkExtensionsProperty
   = ExtensionsProperty
-      {certificatePolicies = Prelude.Nothing,
+      {haddock_workaround_ = (), certificatePolicies = Prelude.Nothing,
        customExtensions = Prelude.Nothing,
        extendedKeyUsage = Prelude.Nothing, keyUsage = Prelude.Nothing,
        subjectAlternativeNames = Prelude.Nothing}

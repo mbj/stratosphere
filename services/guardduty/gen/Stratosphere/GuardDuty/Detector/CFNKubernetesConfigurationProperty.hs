@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNKubernetesAuditLogsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CFNKubernetesConfigurationProperty
-  = CFNKubernetesConfigurationProperty {auditLogs :: CFNKubernetesAuditLogsConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html>
+    CFNKubernetesConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs>
+                                        auditLogs :: CFNKubernetesAuditLogsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesConfigurationProperty ::
   CFNKubernetesAuditLogsConfigurationProperty
   -> CFNKubernetesConfigurationProperty
 mkCFNKubernetesConfigurationProperty auditLogs
-  = CFNKubernetesConfigurationProperty {auditLogs = auditLogs}
+  = CFNKubernetesConfigurationProperty
+      {haddock_workaround_ = (), auditLogs = auditLogs}
 instance ToResourceProperties CFNKubernetesConfigurationProperty where
   toResourceProperties CFNKubernetesConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON CFNKubernetesConfigurationProperty where
     = JSON.object ["AuditLogs" JSON..= auditLogs]
 instance Property "AuditLogs" CFNKubernetesConfigurationProperty where
   type PropertyType "AuditLogs" CFNKubernetesConfigurationProperty = CFNKubernetesAuditLogsConfigurationProperty
-  set newValue CFNKubernetesConfigurationProperty {}
+  set newValue CFNKubernetesConfigurationProperty {..}
     = CFNKubernetesConfigurationProperty {auditLogs = newValue, ..}

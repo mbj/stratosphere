@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LinkAssociation
-  = LinkAssociation {deviceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html>
+    LinkAssociation {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid>
+                     deviceId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid>
                      globalNetworkId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid>
                      linkId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLinkAssociation ::
@@ -16,8 +21,8 @@ mkLinkAssociation ::
   -> Value Prelude.Text -> Value Prelude.Text -> LinkAssociation
 mkLinkAssociation deviceId globalNetworkId linkId
   = LinkAssociation
-      {deviceId = deviceId, globalNetworkId = globalNetworkId,
-       linkId = linkId}
+      {haddock_workaround_ = (), deviceId = deviceId,
+       globalNetworkId = globalNetworkId, linkId = linkId}
 instance ToResourceProperties LinkAssociation where
   toResourceProperties LinkAssociation {..}
     = ResourceProperties

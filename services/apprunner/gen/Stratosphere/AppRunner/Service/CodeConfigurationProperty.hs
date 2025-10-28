@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.CodeConfigurationValuesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeConfigurationProperty
-  = CodeConfigurationProperty {codeConfigurationValues :: (Prelude.Maybe CodeConfigurationValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html>
+    CodeConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues>
+                               codeConfigurationValues :: (Prelude.Maybe CodeConfigurationValuesProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource>
                                configurationSource :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeConfigurationProperty ::
   Value Prelude.Text -> CodeConfigurationProperty
 mkCodeConfigurationProperty configurationSource
   = CodeConfigurationProperty
-      {configurationSource = configurationSource,
+      {haddock_workaround_ = (),
+       configurationSource = configurationSource,
        codeConfigurationValues = Prelude.Nothing}
 instance ToResourceProperties CodeConfigurationProperty where
   toResourceProperties CodeConfigurationProperty {..}

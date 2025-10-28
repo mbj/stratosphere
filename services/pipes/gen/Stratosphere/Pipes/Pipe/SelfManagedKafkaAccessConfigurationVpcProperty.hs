@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelfManagedKafkaAccessConfigurationVpcProperty
-  = SelfManagedKafkaAccessConfigurationVpcProperty {securityGroup :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html>
+    SelfManagedKafkaAccessConfigurationVpcProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html#cfn-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc-securitygroup>
+                                                    securityGroup :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html#cfn-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc-subnets>
                                                     subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedKafkaAccessConfigurationVpcProperty ::
   SelfManagedKafkaAccessConfigurationVpcProperty
 mkSelfManagedKafkaAccessConfigurationVpcProperty
   = SelfManagedKafkaAccessConfigurationVpcProperty
-      {securityGroup = Prelude.Nothing, subnets = Prelude.Nothing}
+      {haddock_workaround_ = (), securityGroup = Prelude.Nothing,
+       subnets = Prelude.Nothing}
 instance ToResourceProperties SelfManagedKafkaAccessConfigurationVpcProperty where
   toResourceProperties
     SelfManagedKafkaAccessConfigurationVpcProperty {..}

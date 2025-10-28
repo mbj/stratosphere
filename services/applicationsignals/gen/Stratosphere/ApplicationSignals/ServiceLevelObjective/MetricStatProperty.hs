@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Metr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricStatProperty
-  = MetricStatProperty {metric :: MetricProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html>
+    MetricStatProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html#cfn-applicationsignals-servicelevelobjective-metricstat-metric>
+                        metric :: MetricProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html#cfn-applicationsignals-servicelevelobjective-metricstat-period>
                         period :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html#cfn-applicationsignals-servicelevelobjective-metricstat-stat>
                         stat :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html#cfn-applicationsignals-servicelevelobjective-metricstat-unit>
                         unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStatProperty ::
@@ -19,8 +25,8 @@ mkMetricStatProperty ::
      -> Value Prelude.Text -> MetricStatProperty
 mkMetricStatProperty metric period stat
   = MetricStatProperty
-      {metric = metric, period = period, stat = stat,
-       unit = Prelude.Nothing}
+      {haddock_workaround_ = (), metric = metric, period = period,
+       stat = stat, unit = Prelude.Nothing}
 instance ToResourceProperties MetricStatProperty where
   toResourceProperties MetricStatProperty {..}
     = ResourceProperties

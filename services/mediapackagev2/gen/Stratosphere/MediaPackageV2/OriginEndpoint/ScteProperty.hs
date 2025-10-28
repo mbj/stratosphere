@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScteProperty
-  = ScteProperty {scteFilter :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html>
+    ScteProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html#cfn-mediapackagev2-originendpoint-scte-sctefilter>
+                  scteFilter :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScteProperty :: ScteProperty
-mkScteProperty = ScteProperty {scteFilter = Prelude.Nothing}
+mkScteProperty
+  = ScteProperty
+      {haddock_workaround_ = (), scteFilter = Prelude.Nothing}
 instance ToResourceProperties ScteProperty where
   toResourceProperties ScteProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON ScteProperty where
               [(JSON..=) "ScteFilter" Prelude.<$> scteFilter]))
 instance Property "ScteFilter" ScteProperty where
   type PropertyType "ScteFilter" ScteProperty = ValueList Prelude.Text
-  set newValue ScteProperty {}
+  set newValue ScteProperty {..}
     = ScteProperty {scteFilter = Prelude.pure newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceProfileModelProperty
-  = InferenceProfileModelProperty {modelArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html>
+    InferenceProfileModelProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilemodel-modelarn>
+                                   modelArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceProfileModelProperty :: InferenceProfileModelProperty
 mkInferenceProfileModelProperty
-  = InferenceProfileModelProperty {modelArn = Prelude.Nothing}
+  = InferenceProfileModelProperty
+      {haddock_workaround_ = (), modelArn = Prelude.Nothing}
 instance ToResourceProperties InferenceProfileModelProperty where
   toResourceProperties InferenceProfileModelProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON InferenceProfileModelProperty where
            (Prelude.catMaybes [(JSON..=) "ModelArn" Prelude.<$> modelArn]))
 instance Property "ModelArn" InferenceProfileModelProperty where
   type PropertyType "ModelArn" InferenceProfileModelProperty = Value Prelude.Text
-  set newValue InferenceProfileModelProperty {}
+  set newValue InferenceProfileModelProperty {..}
     = InferenceProfileModelProperty
         {modelArn = Prelude.pure newValue, ..}

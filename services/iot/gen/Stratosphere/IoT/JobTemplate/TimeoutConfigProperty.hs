@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeoutConfigProperty
-  = TimeoutConfigProperty {inProgressTimeoutInMinutes :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html>
+    TimeoutConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html#cfn-iot-jobtemplate-timeoutconfig-inprogresstimeoutinminutes>
+                           inProgressTimeoutInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeoutConfigProperty ::
   Value Prelude.Integer -> TimeoutConfigProperty
 mkTimeoutConfigProperty inProgressTimeoutInMinutes
   = TimeoutConfigProperty
-      {inProgressTimeoutInMinutes = inProgressTimeoutInMinutes}
+      {haddock_workaround_ = (),
+       inProgressTimeoutInMinutes = inProgressTimeoutInMinutes}
 instance ToResourceProperties TimeoutConfigProperty where
   toResourceProperties TimeoutConfigProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON TimeoutConfigProperty where
         ["InProgressTimeoutInMinutes" JSON..= inProgressTimeoutInMinutes]
 instance Property "InProgressTimeoutInMinutes" TimeoutConfigProperty where
   type PropertyType "InProgressTimeoutInMinutes" TimeoutConfigProperty = Value Prelude.Integer
-  set newValue TimeoutConfigProperty {}
+  set newValue TimeoutConfigProperty {..}
     = TimeoutConfigProperty {inProgressTimeoutInMinutes = newValue, ..}

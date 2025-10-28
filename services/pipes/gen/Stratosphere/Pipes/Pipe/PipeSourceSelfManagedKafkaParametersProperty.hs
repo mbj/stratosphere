@@ -10,21 +10,32 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfiguratio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeSourceSelfManagedKafkaParametersProperty
-  = PipeSourceSelfManagedKafkaParametersProperty {additionalBootstrapServers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html>
+    PipeSourceSelfManagedKafkaParametersProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-additionalbootstrapservers>
+                                                  additionalBootstrapServers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-batchsize>
                                                   batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-consumergroupid>
                                                   consumerGroupID :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-credentials>
                                                   credentials :: (Prelude.Maybe SelfManagedKafkaAccessConfigurationCredentialsProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-maximumbatchingwindowinseconds>
                                                   maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-serverrootcacertificate>
                                                   serverRootCaCertificate :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-startingposition>
                                                   startingPosition :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-topicname>
                                                   topicName :: (Value Prelude.Text),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-vpc>
                                                   vpc :: (Prelude.Maybe SelfManagedKafkaAccessConfigurationVpcProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceSelfManagedKafkaParametersProperty ::
   Value Prelude.Text -> PipeSourceSelfManagedKafkaParametersProperty
 mkPipeSourceSelfManagedKafkaParametersProperty topicName
   = PipeSourceSelfManagedKafkaParametersProperty
-      {topicName = topicName,
+      {haddock_workaround_ = (), topicName = topicName,
        additionalBootstrapServers = Prelude.Nothing,
        batchSize = Prelude.Nothing, consumerGroupID = Prelude.Nothing,
        credentials = Prelude.Nothing,

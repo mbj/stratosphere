@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CatalogConfigurationProperty
-  = CatalogConfigurationProperty {catalogArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html>
+    CatalogConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html#cfn-kinesisfirehose-deliverystream-catalogconfiguration-catalogarn>
+                                  catalogArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCatalogConfigurationProperty :: CatalogConfigurationProperty
 mkCatalogConfigurationProperty
-  = CatalogConfigurationProperty {catalogArn = Prelude.Nothing}
+  = CatalogConfigurationProperty
+      {haddock_workaround_ = (), catalogArn = Prelude.Nothing}
 instance ToResourceProperties CatalogConfigurationProperty where
   toResourceProperties CatalogConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON CatalogConfigurationProperty where
               [(JSON..=) "CatalogArn" Prelude.<$> catalogArn]))
 instance Property "CatalogArn" CatalogConfigurationProperty where
   type PropertyType "CatalogArn" CatalogConfigurationProperty = Value Prelude.Text
-  set newValue CatalogConfigurationProperty {}
+  set newValue CatalogConfigurationProperty {..}
     = CatalogConfigurationProperty
         {catalogArn = Prelude.pure newValue, ..}

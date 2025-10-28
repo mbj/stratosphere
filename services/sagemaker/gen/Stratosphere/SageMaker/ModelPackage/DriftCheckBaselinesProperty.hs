@@ -11,15 +11,22 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.DriftCheckModelDataQua
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.DriftCheckModelQualityProperty as Exports
 import Stratosphere.ResourceProperties
 data DriftCheckBaselinesProperty
-  = DriftCheckBaselinesProperty {bias :: (Prelude.Maybe DriftCheckBiasProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html>
+    DriftCheckBaselinesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-bias>
+                                 bias :: (Prelude.Maybe DriftCheckBiasProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-explainability>
                                  explainability :: (Prelude.Maybe DriftCheckExplainabilityProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-modeldataquality>
                                  modelDataQuality :: (Prelude.Maybe DriftCheckModelDataQualityProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html#cfn-sagemaker-modelpackage-driftcheckbaselines-modelquality>
                                  modelQuality :: (Prelude.Maybe DriftCheckModelQualityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckBaselinesProperty :: DriftCheckBaselinesProperty
 mkDriftCheckBaselinesProperty
   = DriftCheckBaselinesProperty
-      {bias = Prelude.Nothing, explainability = Prelude.Nothing,
+      {haddock_workaround_ = (), bias = Prelude.Nothing,
+       explainability = Prelude.Nothing,
        modelDataQuality = Prelude.Nothing, modelQuality = Prelude.Nothing}
 instance ToResourceProperties DriftCheckBaselinesProperty where
   toResourceProperties DriftCheckBaselinesProperty {..}

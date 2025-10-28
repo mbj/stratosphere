@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.MediaTailor.Channel.HlsPlaylistSettingsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestOutputItemProperty
-  = RequestOutputItemProperty {dashPlaylistSettings :: (Prelude.Maybe DashPlaylistSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html>
+    RequestOutputItemProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html#cfn-mediatailor-channel-requestoutputitem-dashplaylistsettings>
+                               dashPlaylistSettings :: (Prelude.Maybe DashPlaylistSettingsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html#cfn-mediatailor-channel-requestoutputitem-hlsplaylistsettings>
                                hlsPlaylistSettings :: (Prelude.Maybe HlsPlaylistSettingsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html#cfn-mediatailor-channel-requestoutputitem-manifestname>
                                manifestName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html#cfn-mediatailor-channel-requestoutputitem-sourcegroup>
                                sourceGroup :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestOutputItemProperty ::
@@ -20,8 +26,8 @@ mkRequestOutputItemProperty ::
   -> Value Prelude.Text -> RequestOutputItemProperty
 mkRequestOutputItemProperty manifestName sourceGroup
   = RequestOutputItemProperty
-      {manifestName = manifestName, sourceGroup = sourceGroup,
-       dashPlaylistSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), manifestName = manifestName,
+       sourceGroup = sourceGroup, dashPlaylistSettings = Prelude.Nothing,
        hlsPlaylistSettings = Prelude.Nothing}
 instance ToResourceProperties RequestOutputItemProperty where
   toResourceProperties RequestOutputItemProperty {..}

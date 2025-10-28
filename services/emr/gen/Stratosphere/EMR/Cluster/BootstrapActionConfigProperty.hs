@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScriptBootstrapActionConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BootstrapActionConfigProperty
-  = BootstrapActionConfigProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html>
+    BootstrapActionConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-name>
+                                   name :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-scriptbootstrapaction>
                                    scriptBootstrapAction :: ScriptBootstrapActionConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBootstrapActionConfigProperty ::
@@ -18,7 +22,8 @@ mkBootstrapActionConfigProperty ::
      -> BootstrapActionConfigProperty
 mkBootstrapActionConfigProperty name scriptBootstrapAction
   = BootstrapActionConfigProperty
-      {name = name, scriptBootstrapAction = scriptBootstrapAction}
+      {haddock_workaround_ = (), name = name,
+       scriptBootstrapAction = scriptBootstrapAction}
 instance ToResourceProperties BootstrapActionConfigProperty where
   toResourceProperties BootstrapActionConfigProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskPropertiesObjectProperty
-  = TaskPropertiesObjectProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html>
+    TaskPropertiesObjectProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key>
+                                  key :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value>
                                   value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskPropertiesObjectProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TaskPropertiesObjectProperty
 mkTaskPropertiesObjectProperty key value
-  = TaskPropertiesObjectProperty {key = key, value = value}
+  = TaskPropertiesObjectProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties TaskPropertiesObjectProperty where
   toResourceProperties TaskPropertiesObjectProperty {..}
     = ResourceProperties

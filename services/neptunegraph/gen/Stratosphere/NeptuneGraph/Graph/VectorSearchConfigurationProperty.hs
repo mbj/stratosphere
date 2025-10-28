@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VectorSearchConfigurationProperty
-  = VectorSearchConfigurationProperty {vectorSearchDimension :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html>
+    VectorSearchConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html#cfn-neptunegraph-graph-vectorsearchconfiguration-vectorsearchdimension>
+                                       vectorSearchDimension :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorSearchConfigurationProperty ::
   Value Prelude.Integer -> VectorSearchConfigurationProperty
 mkVectorSearchConfigurationProperty vectorSearchDimension
   = VectorSearchConfigurationProperty
-      {vectorSearchDimension = vectorSearchDimension}
+      {haddock_workaround_ = (),
+       vectorSearchDimension = vectorSearchDimension}
 instance ToResourceProperties VectorSearchConfigurationProperty where
   toResourceProperties VectorSearchConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON VectorSearchConfigurationProperty where
         ["VectorSearchDimension" JSON..= vectorSearchDimension]
 instance Property "VectorSearchDimension" VectorSearchConfigurationProperty where
   type PropertyType "VectorSearchDimension" VectorSearchConfigurationProperty = Value Prelude.Integer
-  set newValue VectorSearchConfigurationProperty {}
+  set newValue VectorSearchConfigurationProperty {..}
     = VectorSearchConfigurationProperty
         {vectorSearchDimension = newValue, ..}

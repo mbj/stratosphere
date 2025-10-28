@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeltaTimeProperty
-  = DeltaTimeProperty {offsetSeconds :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html>
+    DeltaTimeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-offsetseconds>
+                       offsetSeconds :: (Value Prelude.Integer),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-timeexpression>
                        timeExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTimeProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> DeltaTimeProperty
 mkDeltaTimeProperty offsetSeconds timeExpression
   = DeltaTimeProperty
-      {offsetSeconds = offsetSeconds, timeExpression = timeExpression}
+      {haddock_workaround_ = (), offsetSeconds = offsetSeconds,
+       timeExpression = timeExpression}
 instance ToResourceProperties DeltaTimeProperty where
   toResourceProperties DeltaTimeProperty {..}
     = ResourceProperties

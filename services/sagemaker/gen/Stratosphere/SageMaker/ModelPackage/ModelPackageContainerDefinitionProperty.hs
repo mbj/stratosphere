@@ -10,26 +10,39 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelInputProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelPackageContainerDefinitionProperty
-  = ModelPackageContainerDefinitionProperty {containerHostname :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>
+    ModelPackageContainerDefinitionProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-containerhostname>
+                                             containerHostname :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-environment>
                                              environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-framework>
                                              framework :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-frameworkversion>
                                              frameworkVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-image>
                                              image :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-imagedigest>
                                              imageDigest :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modeldatasource>
                                              modelDataSource :: (Prelude.Maybe ModelDataSourceProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modeldataurl>
                                              modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modelinput>
                                              modelInput :: (Prelude.Maybe ModelInputProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-nearestmodelname>
                                              nearestModelName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageContainerDefinitionProperty ::
   Value Prelude.Text -> ModelPackageContainerDefinitionProperty
 mkModelPackageContainerDefinitionProperty image
   = ModelPackageContainerDefinitionProperty
-      {image = image, containerHostname = Prelude.Nothing,
-       environment = Prelude.Nothing, framework = Prelude.Nothing,
-       frameworkVersion = Prelude.Nothing, imageDigest = Prelude.Nothing,
-       modelDataSource = Prelude.Nothing, modelDataUrl = Prelude.Nothing,
-       modelInput = Prelude.Nothing, nearestModelName = Prelude.Nothing}
+      {haddock_workaround_ = (), image = image,
+       containerHostname = Prelude.Nothing, environment = Prelude.Nothing,
+       framework = Prelude.Nothing, frameworkVersion = Prelude.Nothing,
+       imageDigest = Prelude.Nothing, modelDataSource = Prelude.Nothing,
+       modelDataUrl = Prelude.Nothing, modelInput = Prelude.Nothing,
+       nearestModelName = Prelude.Nothing}
 instance ToResourceProperties ModelPackageContainerDefinitionProperty where
   toResourceProperties ModelPackageContainerDefinitionProperty {..}
     = ResourceProperties

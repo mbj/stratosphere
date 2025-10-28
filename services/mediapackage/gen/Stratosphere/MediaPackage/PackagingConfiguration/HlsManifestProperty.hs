@@ -8,17 +8,25 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.StreamSel
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsManifestProperty
-  = HlsManifestProperty {adMarkers :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html>
+    HlsManifestProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers>
+                         adMarkers :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream>
                          includeIframeOnlyStream :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname>
                          manifestName :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds>
                          programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey>
                          repeatExtXKey :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection>
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestProperty :: HlsManifestProperty
 mkHlsManifestProperty
   = HlsManifestProperty
-      {adMarkers = Prelude.Nothing,
+      {haddock_workaround_ = (), adMarkers = Prelude.Nothing,
        includeIframeOnlyStream = Prelude.Nothing,
        manifestName = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,

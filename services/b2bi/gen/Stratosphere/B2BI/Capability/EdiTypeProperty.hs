@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Capability.X12DetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data EdiTypeProperty
-  = EdiTypeProperty {x12Details :: X12DetailsProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-editype.html>
+    EdiTypeProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-editype.html#cfn-b2bi-capability-editype-x12details>
+                     x12Details :: X12DetailsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiTypeProperty :: X12DetailsProperty -> EdiTypeProperty
 mkEdiTypeProperty x12Details
-  = EdiTypeProperty {x12Details = x12Details}
+  = EdiTypeProperty
+      {haddock_workaround_ = (), x12Details = x12Details}
 instance ToResourceProperties EdiTypeProperty where
   toResourceProperties EdiTypeProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON EdiTypeProperty where
     = JSON.object ["X12Details" JSON..= x12Details]
 instance Property "X12Details" EdiTypeProperty where
   type PropertyType "X12Details" EdiTypeProperty = X12DetailsProperty
-  set newValue EdiTypeProperty {}
+  set newValue EdiTypeProperty {..}
     = EdiTypeProperty {x12Details = newValue, ..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemoryGiBPerVCpuRequestProperty
-  = MemoryGiBPerVCpuRequestProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html>
+    MemoryGiBPerVCpuRequestProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html#cfn-ec2-spotfleet-memorygibpervcpurequest-max>
+                                     max :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html#cfn-ec2-spotfleet-memorygibpervcpurequest-min>
                                      min :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemoryGiBPerVCpuRequestProperty ::
   MemoryGiBPerVCpuRequestProperty
 mkMemoryGiBPerVCpuRequestProperty
   = MemoryGiBPerVCpuRequestProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties MemoryGiBPerVCpuRequestProperty where
   toResourceProperties MemoryGiBPerVCpuRequestProperty {..}
     = ResourceProperties

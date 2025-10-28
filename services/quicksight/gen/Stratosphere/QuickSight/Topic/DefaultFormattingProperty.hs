@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.DisplayFormatOptionsProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultFormattingProperty
-  = DefaultFormattingProperty {displayFormat :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html>
+    DefaultFormattingProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html#cfn-quicksight-topic-defaultformatting-displayformat>
+                               displayFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html#cfn-quicksight-topic-defaultformatting-displayformatoptions>
                                displayFormatOptions :: (Prelude.Maybe DisplayFormatOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFormattingProperty :: DefaultFormattingProperty
 mkDefaultFormattingProperty
   = DefaultFormattingProperty
-      {displayFormat = Prelude.Nothing,
+      {haddock_workaround_ = (), displayFormat = Prelude.Nothing,
        displayFormatOptions = Prelude.Nothing}
 instance ToResourceProperties DefaultFormattingProperty where
   toResourceProperties DefaultFormattingProperty {..}

@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.WAF.SizeConstraintSet.FieldToMatchProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SizeConstraintProperty
-  = SizeConstraintProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html>
+    SizeConstraintProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator>
+                            comparisonOperator :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-fieldtomatch>
                             fieldToMatch :: FieldToMatchProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-size>
                             size :: (Value Prelude.Integer),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-texttransformation>
                             textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintProperty ::
@@ -25,7 +31,7 @@ mkSizeConstraintProperty
   size
   textTransformation
   = SizeConstraintProperty
-      {comparisonOperator = comparisonOperator,
+      {haddock_workaround_ = (), comparisonOperator = comparisonOperator,
        fieldToMatch = fieldToMatch, size = size,
        textTransformation = textTransformation}
 instance ToResourceProperties SizeConstraintProperty where

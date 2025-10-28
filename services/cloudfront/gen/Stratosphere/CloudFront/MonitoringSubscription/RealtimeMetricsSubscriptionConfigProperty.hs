@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeMetricsSubscriptionConfigProperty
-  = RealtimeMetricsSubscriptionConfigProperty {realtimeMetricsSubscriptionStatus :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>
+    RealtimeMetricsSubscriptionConfigProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html#cfn-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig-realtimemetricssubscriptionstatus>
+                                               realtimeMetricsSubscriptionStatus :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeMetricsSubscriptionConfigProperty ::
   Value Prelude.Text -> RealtimeMetricsSubscriptionConfigProperty
 mkRealtimeMetricsSubscriptionConfigProperty
   realtimeMetricsSubscriptionStatus
   = RealtimeMetricsSubscriptionConfigProperty
-      {realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus}
+      {haddock_workaround_ = (),
+       realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus}
 instance ToResourceProperties RealtimeMetricsSubscriptionConfigProperty where
   toResourceProperties RealtimeMetricsSubscriptionConfigProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON RealtimeMetricsSubscriptionConfigProperty where
            JSON..= realtimeMetricsSubscriptionStatus]
 instance Property "RealtimeMetricsSubscriptionStatus" RealtimeMetricsSubscriptionConfigProperty where
   type PropertyType "RealtimeMetricsSubscriptionStatus" RealtimeMetricsSubscriptionConfigProperty = Value Prelude.Text
-  set newValue RealtimeMetricsSubscriptionConfigProperty {}
+  set newValue RealtimeMetricsSubscriptionConfigProperty {..}
     = RealtimeMetricsSubscriptionConfigProperty
         {realtimeMetricsSubscriptionStatus = newValue, ..}

@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonProperty
-  = JsonProperty {line :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-json.html>
+    JsonProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-json.html#cfn-sagemaker-modelexplainabilityjobdefinition-json-line>
+                  line :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonProperty :: JsonProperty
-mkJsonProperty = JsonProperty {line = Prelude.Nothing}
+mkJsonProperty
+  = JsonProperty {haddock_workaround_ = (), line = Prelude.Nothing}
 instance ToResourceProperties JsonProperty where
   toResourceProperties JsonProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON JsonProperty where
            (Prelude.catMaybes [(JSON..=) "Line" Prelude.<$> line]))
 instance Property "Line" JsonProperty where
   type PropertyType "Line" JsonProperty = Value Prelude.Bool
-  set newValue JsonProperty {}
+  set newValue JsonProperty {..}
     = JsonProperty {line = Prelude.pure newValue, ..}

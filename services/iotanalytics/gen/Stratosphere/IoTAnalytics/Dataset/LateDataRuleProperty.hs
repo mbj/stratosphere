@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.LateDataRuleConfiguratio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LateDataRuleProperty
-  = LateDataRuleProperty {ruleConfiguration :: LateDataRuleConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html>
+    LateDataRuleProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-ruleconfiguration>
+                          ruleConfiguration :: LateDataRuleConfigurationProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html#cfn-iotanalytics-dataset-latedatarule-rulename>
                           ruleName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLateDataRuleProperty ::
   LateDataRuleConfigurationProperty -> LateDataRuleProperty
 mkLateDataRuleProperty ruleConfiguration
   = LateDataRuleProperty
-      {ruleConfiguration = ruleConfiguration, ruleName = Prelude.Nothing}
+      {haddock_workaround_ = (), ruleConfiguration = ruleConfiguration,
+       ruleName = Prelude.Nothing}
 instance ToResourceProperties LateDataRuleProperty where
   toResourceProperties LateDataRuleProperty {..}
     = ResourceProperties

@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScalingTriggerProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingRuleProperty
-  = ScalingRuleProperty {action :: ScalingActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html>
+    ScalingRuleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html#cfn-elasticmapreduce-cluster-scalingrule-action>
+                         action :: ScalingActionProperty,
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html#cfn-elasticmapreduce-cluster-scalingrule-description>
                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html#cfn-elasticmapreduce-cluster-scalingrule-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html#cfn-elasticmapreduce-cluster-scalingrule-trigger>
                          trigger :: ScalingTriggerProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingRuleProperty ::
@@ -20,8 +26,8 @@ mkScalingRuleProperty ::
      -> ScalingTriggerProperty -> ScalingRuleProperty
 mkScalingRuleProperty action name trigger
   = ScalingRuleProperty
-      {action = action, name = name, trigger = trigger,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action, name = name,
+       trigger = trigger, description = Prelude.Nothing}
 instance ToResourceProperties ScalingRuleProperty where
   toResourceProperties ScalingRuleProperty {..}
     = ResourceProperties

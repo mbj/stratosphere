@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionTypeIdProperty
-  = ActionTypeIdProperty {category :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html>
+    ActionTypeIdProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html#cfn-codepipeline-pipeline-actiontypeid-category>
+                          category :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html#cfn-codepipeline-pipeline-actiontypeid-owner>
                           owner :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html#cfn-codepipeline-pipeline-actiontypeid-provider>
                           provider :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html#cfn-codepipeline-pipeline-actiontypeid-version>
                           version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionTypeIdProperty ::
@@ -18,8 +24,8 @@ mkActionTypeIdProperty ::
      -> Value Prelude.Text -> Value Prelude.Text -> ActionTypeIdProperty
 mkActionTypeIdProperty category owner provider version
   = ActionTypeIdProperty
-      {category = category, owner = owner, provider = provider,
-       version = version}
+      {haddock_workaround_ = (), category = category, owner = owner,
+       provider = provider, version = version}
 instance ToResourceProperties ActionTypeIdProperty where
   toResourceProperties ActionTypeIdProperty {..}
     = ResourceProperties

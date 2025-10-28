@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeToLiveSpecificationProperty
-  = TimeToLiveSpecificationProperty {attributeName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html>
+    TimeToLiveSpecificationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename>
+                                     attributeName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled>
                                      enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeToLiveSpecificationProperty ::
   Value Prelude.Bool -> TimeToLiveSpecificationProperty
 mkTimeToLiveSpecificationProperty enabled
   = TimeToLiveSpecificationProperty
-      {enabled = enabled, attributeName = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       attributeName = Prelude.Nothing}
 instance ToResourceProperties TimeToLiveSpecificationProperty where
   toResourceProperties TimeToLiveSpecificationProperty {..}
     = ResourceProperties

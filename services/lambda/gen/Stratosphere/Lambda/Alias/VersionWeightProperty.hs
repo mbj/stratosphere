@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VersionWeightProperty
-  = VersionWeightProperty {functionVersion :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html>
+    VersionWeightProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionversion>
+                           functionVersion :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionweight>
                            functionWeight :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVersionWeightProperty ::
   Value Prelude.Text -> Value Prelude.Double -> VersionWeightProperty
 mkVersionWeightProperty functionVersion functionWeight
   = VersionWeightProperty
-      {functionVersion = functionVersion,
+      {haddock_workaround_ = (), functionVersion = functionVersion,
        functionWeight = functionWeight}
 instance ToResourceProperties VersionWeightProperty where
   toResourceProperties VersionWeightProperty {..}

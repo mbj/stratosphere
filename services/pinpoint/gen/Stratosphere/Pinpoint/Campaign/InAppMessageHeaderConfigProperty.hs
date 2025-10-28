@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InAppMessageHeaderConfigProperty
-  = InAppMessageHeaderConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html>
+    InAppMessageHeaderConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-alignment>
+                                      alignment :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-header>
                                       header :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html#cfn-pinpoint-campaign-inappmessageheaderconfig-textcolor>
                                       textColor :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageHeaderConfigProperty ::
   InAppMessageHeaderConfigProperty
 mkInAppMessageHeaderConfigProperty
   = InAppMessageHeaderConfigProperty
-      {alignment = Prelude.Nothing, header = Prelude.Nothing,
-       textColor = Prelude.Nothing}
+      {haddock_workaround_ = (), alignment = Prelude.Nothing,
+       header = Prelude.Nothing, textColor = Prelude.Nothing}
 instance ToResourceProperties InAppMessageHeaderConfigProperty where
   toResourceProperties InAppMessageHeaderConfigProperty {..}
     = ResourceProperties

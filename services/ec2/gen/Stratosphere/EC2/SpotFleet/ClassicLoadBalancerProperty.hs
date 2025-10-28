@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClassicLoadBalancerProperty
-  = ClassicLoadBalancerProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html>
+    ClassicLoadBalancerProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html#cfn-ec2-spotfleet-classicloadbalancer-name>
+                                 name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClassicLoadBalancerProperty ::
   Value Prelude.Text -> ClassicLoadBalancerProperty
 mkClassicLoadBalancerProperty name
-  = ClassicLoadBalancerProperty {name = name}
+  = ClassicLoadBalancerProperty
+      {haddock_workaround_ = (), name = name}
 instance ToResourceProperties ClassicLoadBalancerProperty where
   toResourceProperties ClassicLoadBalancerProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ClassicLoadBalancerProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" ClassicLoadBalancerProperty where
   type PropertyType "Name" ClassicLoadBalancerProperty = Value Prelude.Text
-  set newValue ClassicLoadBalancerProperty {}
+  set newValue ClassicLoadBalancerProperty {..}
     = ClassicLoadBalancerProperty {name = newValue, ..}

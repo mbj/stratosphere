@@ -8,13 +8,18 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Graph
-  = Graph {autoEnableMembers :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html>
+    Graph {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-autoenablemembers>
+           autoEnableMembers :: (Prelude.Maybe (Value Prelude.Bool)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGraph :: Graph
 mkGraph
   = Graph
-      {autoEnableMembers = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), autoEnableMembers = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Graph where
   toResourceProperties Graph {..}
     = ResourceProperties

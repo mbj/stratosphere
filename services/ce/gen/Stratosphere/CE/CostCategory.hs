@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CostCategory
-  = CostCategory {defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html>
+    CostCategory {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue>
+                  defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion>
                   ruleVersion :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules>
                   rules :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules>
                   splitChargeRules :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCostCategory ::
@@ -18,8 +25,9 @@ mkCostCategory ::
   -> Value Prelude.Text -> Value Prelude.Text -> CostCategory
 mkCostCategory name ruleVersion rules
   = CostCategory
-      {name = name, ruleVersion = ruleVersion, rules = rules,
-       defaultValue = Prelude.Nothing, splitChargeRules = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, ruleVersion = ruleVersion,
+       rules = rules, defaultValue = Prelude.Nothing,
+       splitChargeRules = Prelude.Nothing}
 instance ToResourceProperties CostCategory where
   toResourceProperties CostCategory {..}
     = ResourceProperties

@@ -8,11 +8,19 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.RouteResponse.ParameterConstrain
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RouteResponse
-  = RouteResponse {apiId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html>
+    RouteResponse {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid>
+                   apiId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-modelselectionexpression>
                    modelSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responsemodels>
                    responseModels :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responseparameters>
                    responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterConstraintsProperty)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid>
                    routeId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey>
                    routeResponseKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteResponse ::
@@ -20,7 +28,7 @@ mkRouteResponse ::
   -> Value Prelude.Text -> Value Prelude.Text -> RouteResponse
 mkRouteResponse apiId routeId routeResponseKey
   = RouteResponse
-      {apiId = apiId, routeId = routeId,
+      {haddock_workaround_ = (), apiId = apiId, routeId = routeId,
        routeResponseKey = routeResponseKey,
        modelSelectionExpression = Prelude.Nothing,
        responseModels = Prelude.Nothing,

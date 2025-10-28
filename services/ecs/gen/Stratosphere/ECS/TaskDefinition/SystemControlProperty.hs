@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemControlProperty
-  = SystemControlProperty {namespace :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html>
+    SystemControlProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace>
+                           namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value>
                            value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemControlProperty :: SystemControlProperty
 mkSystemControlProperty
   = SystemControlProperty
-      {namespace = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), namespace = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties SystemControlProperty where
   toResourceProperties SystemControlProperty {..}
     = ResourceProperties

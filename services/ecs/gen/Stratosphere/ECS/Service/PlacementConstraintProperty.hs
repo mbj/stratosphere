@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlacementConstraintProperty
-  = PlacementConstraintProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html>
+    PlacementConstraintProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression>
+                                 expression :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-type>
                                  type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementConstraintProperty ::
   Value Prelude.Text -> PlacementConstraintProperty
 mkPlacementConstraintProperty type'
   = PlacementConstraintProperty
-      {type' = type', expression = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       expression = Prelude.Nothing}
 instance ToResourceProperties PlacementConstraintProperty where
   toResourceProperties PlacementConstraintProperty {..}
     = ResourceProperties

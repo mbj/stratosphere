@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileSystemLocationProperty
-  = FileSystemLocationProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-storageprofile-filesystemlocation.html>
+    FileSystemLocationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-storageprofile-filesystemlocation.html#cfn-deadline-storageprofile-filesystemlocation-name>
+                                name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-storageprofile-filesystemlocation.html#cfn-deadline-storageprofile-filesystemlocation-path>
                                 path :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-storageprofile-filesystemlocation.html#cfn-deadline-storageprofile-filesystemlocation-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystemLocationProperty ::
@@ -17,7 +22,7 @@ mkFileSystemLocationProperty ::
      -> Value Prelude.Text -> FileSystemLocationProperty
 mkFileSystemLocationProperty name path type'
   = FileSystemLocationProperty
-      {name = name, path = path, type' = type'}
+      {haddock_workaround_ = (), name = name, path = path, type' = type'}
 instance ToResourceProperties FileSystemLocationProperty where
   toResourceProperties FileSystemLocationProperty {..}
     = ResourceProperties

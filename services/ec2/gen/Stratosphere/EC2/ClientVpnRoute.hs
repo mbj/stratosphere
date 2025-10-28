@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientVpnRoute
-  = ClientVpnRoute {clientVpnEndpointId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html>
+    ClientVpnRoute {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-clientvpnendpointid>
+                    clientVpnEndpointId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-destinationcidrblock>
                     destinationCidrBlock :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-targetvpcsubnetid>
                     targetVpcSubnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnRoute ::
@@ -20,7 +26,8 @@ mkClientVpnRoute
   destinationCidrBlock
   targetVpcSubnetId
   = ClientVpnRoute
-      {clientVpnEndpointId = clientVpnEndpointId,
+      {haddock_workaround_ = (),
+       clientVpnEndpointId = clientVpnEndpointId,
        destinationCidrBlock = destinationCidrBlock,
        targetVpcSubnetId = targetVpcSubnetId,
        description = Prelude.Nothing}

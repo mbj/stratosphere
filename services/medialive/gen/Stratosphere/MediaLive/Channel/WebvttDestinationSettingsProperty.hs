@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebvttDestinationSettingsProperty
-  = WebvttDestinationSettingsProperty {styleControl :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html>
+    WebvttDestinationSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html#cfn-medialive-channel-webvttdestinationsettings-stylecontrol>
+                                       styleControl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebvttDestinationSettingsProperty ::
   WebvttDestinationSettingsProperty
 mkWebvttDestinationSettingsProperty
   = WebvttDestinationSettingsProperty
-      {styleControl = Prelude.Nothing}
+      {haddock_workaround_ = (), styleControl = Prelude.Nothing}
 instance ToResourceProperties WebvttDestinationSettingsProperty where
   toResourceProperties WebvttDestinationSettingsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON WebvttDestinationSettingsProperty where
               [(JSON..=) "StyleControl" Prelude.<$> styleControl]))
 instance Property "StyleControl" WebvttDestinationSettingsProperty where
   type PropertyType "StyleControl" WebvttDestinationSettingsProperty = Value Prelude.Text
-  set newValue WebvttDestinationSettingsProperty {}
+  set newValue WebvttDestinationSettingsProperty {..}
     = WebvttDestinationSettingsProperty
         {styleControl = Prelude.pure newValue, ..}

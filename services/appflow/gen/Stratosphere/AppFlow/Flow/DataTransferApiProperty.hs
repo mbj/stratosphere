@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataTransferApiProperty
-  = DataTransferApiProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html>
+    DataTransferApiProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html#cfn-appflow-flow-datatransferapi-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html#cfn-appflow-flow-datatransferapi-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataTransferApiProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DataTransferApiProperty
 mkDataTransferApiProperty name type'
-  = DataTransferApiProperty {name = name, type' = type'}
+  = DataTransferApiProperty
+      {haddock_workaround_ = (), name = name, type' = type'}
 instance ToResourceProperties DataTransferApiProperty where
   toResourceProperties DataTransferApiProperty {..}
     = ResourceProperties

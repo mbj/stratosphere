@@ -8,13 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobBookmarksEncryptionProperty
-  = JobBookmarksEncryptionProperty {jobBookmarksEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html>
+    JobBookmarksEncryptionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode>
+                                    jobBookmarksEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn>
                                     kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobBookmarksEncryptionProperty :: JobBookmarksEncryptionProperty
 mkJobBookmarksEncryptionProperty
   = JobBookmarksEncryptionProperty
-      {jobBookmarksEncryptionMode = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       jobBookmarksEncryptionMode = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing}
 instance ToResourceProperties JobBookmarksEncryptionProperty where
   toResourceProperties JobBookmarksEncryptionProperty {..}

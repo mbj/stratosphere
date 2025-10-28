@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PosixUserProperty
-  = PosixUserProperty {group :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-posixuser.html>
+    PosixUserProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-posixuser.html#cfn-deadline-queue-posixuser-group>
+                       group :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-posixuser.html#cfn-deadline-queue-posixuser-user>
                        user :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPosixUserProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PosixUserProperty
 mkPosixUserProperty group user
-  = PosixUserProperty {group = group, user = user}
+  = PosixUserProperty
+      {haddock_workaround_ = (), group = group, user = user}
 instance ToResourceProperties PosixUserProperty where
   toResourceProperties PosixUserProperty {..}
     = ResourceProperties

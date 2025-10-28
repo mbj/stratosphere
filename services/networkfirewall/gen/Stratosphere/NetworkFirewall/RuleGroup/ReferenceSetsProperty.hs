@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.IPSetReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 data ReferenceSetsProperty
-  = ReferenceSetsProperty {iPSetReferences :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetReferenceProperty))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html>
+    ReferenceSetsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html#cfn-networkfirewall-rulegroup-referencesets-ipsetreferences>
+                           iPSetReferences :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetReferenceProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSetsProperty :: ReferenceSetsProperty
 mkReferenceSetsProperty
-  = ReferenceSetsProperty {iPSetReferences = Prelude.Nothing}
+  = ReferenceSetsProperty
+      {haddock_workaround_ = (), iPSetReferences = Prelude.Nothing}
 instance ToResourceProperties ReferenceSetsProperty where
   toResourceProperties ReferenceSetsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ReferenceSetsProperty where
               [(JSON..=) "IPSetReferences" Prelude.<$> iPSetReferences]))
 instance Property "IPSetReferences" ReferenceSetsProperty where
   type PropertyType "IPSetReferences" ReferenceSetsProperty = Prelude.Map Prelude.Text IPSetReferenceProperty
-  set newValue ReferenceSetsProperty {}
+  set newValue ReferenceSetsProperty {..}
     = ReferenceSetsProperty
         {iPSetReferences = Prelude.pure newValue, ..}

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.PromptFlowNodeInlineConfiguratio
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.PromptFlowNodeResourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PromptFlowNodeSourceConfigurationProperty
-  = PromptFlowNodeSourceConfigurationProperty {inline :: (Prelude.Maybe PromptFlowNodeInlineConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodesourceconfiguration.html>
+    PromptFlowNodeSourceConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodesourceconfiguration.html#cfn-bedrock-flow-promptflownodesourceconfiguration-inline>
+                                               inline :: (Prelude.Maybe PromptFlowNodeInlineConfigurationProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodesourceconfiguration.html#cfn-bedrock-flow-promptflownodesourceconfiguration-resource>
                                                resource :: (Prelude.Maybe PromptFlowNodeResourceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptFlowNodeSourceConfigurationProperty ::
   PromptFlowNodeSourceConfigurationProperty
 mkPromptFlowNodeSourceConfigurationProperty
   = PromptFlowNodeSourceConfigurationProperty
-      {inline = Prelude.Nothing, resource = Prelude.Nothing}
+      {haddock_workaround_ = (), inline = Prelude.Nothing,
+       resource = Prelude.Nothing}
 instance ToResourceProperties PromptFlowNodeSourceConfigurationProperty where
   toResourceProperties PromptFlowNodeSourceConfigurationProperty {..}
     = ResourceProperties

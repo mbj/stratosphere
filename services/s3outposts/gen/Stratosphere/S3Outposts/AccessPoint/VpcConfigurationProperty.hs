@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigurationProperty
-  = VpcConfigurationProperty {vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html>
+    VpcConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid>
+                              vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigurationProperty :: VpcConfigurationProperty
 mkVpcConfigurationProperty
-  = VpcConfigurationProperty {vpcId = Prelude.Nothing}
+  = VpcConfigurationProperty
+      {haddock_workaround_ = (), vpcId = Prelude.Nothing}
 instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON VpcConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "VpcId" Prelude.<$> vpcId]))
 instance Property "VpcId" VpcConfigurationProperty where
   type PropertyType "VpcId" VpcConfigurationProperty = Value Prelude.Text
-  set newValue VpcConfigurationProperty {}
+  set newValue VpcConfigurationProperty {..}
     = VpcConfigurationProperty {vpcId = Prelude.pure newValue, ..}

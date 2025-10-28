@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnProperty
-  = ColumnProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html>
+    ColumnProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html#cfn-iotanalytics-datastore-column-name>
+                    name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html#cfn-iotanalytics-datastore-column-type>
                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ColumnProperty
 mkColumnProperty name type'
-  = ColumnProperty {name = name, type' = type'}
+  = ColumnProperty
+      {haddock_workaround_ = (), name = name, type' = type'}
 instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties

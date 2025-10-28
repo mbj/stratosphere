@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAggregationSourceProperty
-  = AccountAggregationSourceProperty {accountIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html>
+    AccountAggregationSourceProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids>
+                                      accountIds :: (ValueList Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions>
                                       allAwsRegions :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions>
                                       awsRegions :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAggregationSourceProperty ::
   ValueList Prelude.Text -> AccountAggregationSourceProperty
 mkAccountAggregationSourceProperty accountIds
   = AccountAggregationSourceProperty
-      {accountIds = accountIds, allAwsRegions = Prelude.Nothing,
-       awsRegions = Prelude.Nothing}
+      {haddock_workaround_ = (), accountIds = accountIds,
+       allAwsRegions = Prelude.Nothing, awsRegions = Prelude.Nothing}
 instance ToResourceProperties AccountAggregationSourceProperty where
   toResourceProperties AccountAggregationSourceProperty {..}
     = ResourceProperties

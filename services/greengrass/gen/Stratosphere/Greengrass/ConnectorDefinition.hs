@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ConnectorDefinition.ConnectorDefin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectorDefinition
-  = ConnectorDefinition {initialVersion :: (Prelude.Maybe ConnectorDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html>
+    ConnectorDefinition {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-initialversion>
+                         initialVersion :: (Prelude.Maybe ConnectorDefinitionVersionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html#cfn-greengrass-connectordefinition-tags>
                          tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinition :: Value Prelude.Text -> ConnectorDefinition
 mkConnectorDefinition name
   = ConnectorDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConnectorDefinition where
   toResourceProperties ConnectorDefinition {..}
     = ResourceProperties

@@ -9,14 +9,25 @@ import {-# SOURCE #-} Stratosphere.AppConfig.ConfigurationProfile.ValidatorsProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationProfile
-  = ConfigurationProfile {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html>
+    ConfigurationProfile {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid>
+                          applicationId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description>
                           description :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-kmskeyidentifier>
                           kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-locationuri>
                           locationUri :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-name>
                           name :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn>
                           retrievalRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-tags>
                           tags :: (Prelude.Maybe [TagsProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-type>
                           type' :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-validators>
                           validators :: (Prelude.Maybe [ValidatorsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProfile ::
@@ -24,9 +35,9 @@ mkConfigurationProfile ::
   -> Value Prelude.Text -> Value Prelude.Text -> ConfigurationProfile
 mkConfigurationProfile applicationId locationUri name
   = ConfigurationProfile
-      {applicationId = applicationId, locationUri = locationUri,
-       name = name, description = Prelude.Nothing,
-       kmsKeyIdentifier = Prelude.Nothing,
+      {haddock_workaround_ = (), applicationId = applicationId,
+       locationUri = locationUri, name = name,
+       description = Prelude.Nothing, kmsKeyIdentifier = Prelude.Nothing,
        retrievalRoleArn = Prelude.Nothing, tags = Prelude.Nothing,
        type' = Prelude.Nothing, validators = Prelude.Nothing}
 instance ToResourceProperties ConfigurationProfile where

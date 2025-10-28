@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfigurationProperty
-  = DeploymentConfigurationProperty {impairmentStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html>
+    DeploymentConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html#cfn-gamelift-containerfleet-deploymentconfiguration-impairmentstrategy>
+                                     impairmentStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html#cfn-gamelift-containerfleet-deploymentconfiguration-minimumhealthypercentage>
                                      minimumHealthyPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html#cfn-gamelift-containerfleet-deploymentconfiguration-protectionstrategy>
                                      protectionStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigurationProperty ::
   DeploymentConfigurationProperty
 mkDeploymentConfigurationProperty
   = DeploymentConfigurationProperty
-      {impairmentStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), impairmentStrategy = Prelude.Nothing,
        minimumHealthyPercentage = Prelude.Nothing,
        protectionStrategy = Prelude.Nothing}
 instance ToResourceProperties DeploymentConfigurationProperty where

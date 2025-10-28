@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.PayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseProperty
-  = FirehoseProperty {deliveryStreamName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html>
+    FirehoseProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname>
+                      deliveryStreamName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload>
                       payload :: (Prelude.Maybe PayloadProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator>
                       separator :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseProperty :: Value Prelude.Text -> FirehoseProperty
 mkFirehoseProperty deliveryStreamName
   = FirehoseProperty
-      {deliveryStreamName = deliveryStreamName,
+      {haddock_workaround_ = (), deliveryStreamName = deliveryStreamName,
        payload = Prelude.Nothing, separator = Prelude.Nothing}
 instance ToResourceProperties FirehoseProperty where
   toResourceProperties FirehoseProperty {..}

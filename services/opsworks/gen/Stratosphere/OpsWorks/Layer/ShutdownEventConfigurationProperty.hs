@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShutdownEventConfigurationProperty
-  = ShutdownEventConfigurationProperty {delayUntilElbConnectionsDrained :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html>
+    ShutdownEventConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration-delayuntilelbconnectionsdrained>
+                                        delayUntilElbConnectionsDrained :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration-executiontimeout>
                                         executionTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkShutdownEventConfigurationProperty ::
   ShutdownEventConfigurationProperty
 mkShutdownEventConfigurationProperty
   = ShutdownEventConfigurationProperty
-      {delayUntilElbConnectionsDrained = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       delayUntilElbConnectionsDrained = Prelude.Nothing,
        executionTimeout = Prelude.Nothing}
 instance ToResourceProperties ShutdownEventConfigurationProperty where
   toResourceProperties ShutdownEventConfigurationProperty {..}

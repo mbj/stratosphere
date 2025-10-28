@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RefreshCadenceProperty
-  = RefreshCadenceProperty {frequency :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-refreshcadence.html>
+    RefreshCadenceProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-refreshcadence.html#cfn-bcmdataexports-export-refreshcadence-frequency>
+                            frequency :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshCadenceProperty ::
   Value Prelude.Text -> RefreshCadenceProperty
 mkRefreshCadenceProperty frequency
-  = RefreshCadenceProperty {frequency = frequency}
+  = RefreshCadenceProperty
+      {haddock_workaround_ = (), frequency = frequency}
 instance ToResourceProperties RefreshCadenceProperty where
   toResourceProperties RefreshCadenceProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RefreshCadenceProperty where
     = JSON.object ["Frequency" JSON..= frequency]
 instance Property "Frequency" RefreshCadenceProperty where
   type PropertyType "Frequency" RefreshCadenceProperty = Value Prelude.Text
-  set newValue RefreshCadenceProperty {}
+  set newValue RefreshCadenceProperty {..}
     = RefreshCadenceProperty {frequency = newValue, ..}

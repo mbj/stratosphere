@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderMatchTypeProperty
-  = HeaderMatchTypeProperty {contains :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html>
+    HeaderMatchTypeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-contains>
+                             contains :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-exact>
                              exact :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html#cfn-vpclattice-rule-headermatchtype-prefix>
                              prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderMatchTypeProperty :: HeaderMatchTypeProperty
 mkHeaderMatchTypeProperty
   = HeaderMatchTypeProperty
-      {contains = Prelude.Nothing, exact = Prelude.Nothing,
-       prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), contains = Prelude.Nothing,
+       exact = Prelude.Nothing, prefix = Prelude.Nothing}
 instance ToResourceProperties HeaderMatchTypeProperty where
   toResourceProperties HeaderMatchTypeProperty {..}
     = ResourceProperties

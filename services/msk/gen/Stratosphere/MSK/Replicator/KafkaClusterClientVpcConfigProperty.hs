@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterClientVpcConfigProperty
-  = KafkaClusterClientVpcConfigProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html>
+    KafkaClusterClientVpcConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html#cfn-msk-replicator-kafkaclusterclientvpcconfig-securitygroupids>
+                                         securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html#cfn-msk-replicator-kafkaclusterclientvpcconfig-subnetids>
                                          subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterClientVpcConfigProperty ::
   ValueList Prelude.Text -> KafkaClusterClientVpcConfigProperty
 mkKafkaClusterClientVpcConfigProperty subnetIds
   = KafkaClusterClientVpcConfigProperty
-      {subnetIds = subnetIds, securityGroupIds = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetIds = subnetIds,
+       securityGroupIds = Prelude.Nothing}
 instance ToResourceProperties KafkaClusterClientVpcConfigProperty where
   toResourceProperties KafkaClusterClientVpcConfigProperty {..}
     = ResourceProperties

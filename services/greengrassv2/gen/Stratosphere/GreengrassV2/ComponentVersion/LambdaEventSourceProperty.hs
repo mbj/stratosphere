@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaEventSourceProperty
-  = LambdaEventSourceProperty {topic :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html>
+    LambdaEventSourceProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic>
+                               topic :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-type>
                                type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaEventSourceProperty :: LambdaEventSourceProperty
 mkLambdaEventSourceProperty
   = LambdaEventSourceProperty
-      {topic = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), topic = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties LambdaEventSourceProperty where
   toResourceProperties LambdaEventSourceProperty {..}
     = ResourceProperties

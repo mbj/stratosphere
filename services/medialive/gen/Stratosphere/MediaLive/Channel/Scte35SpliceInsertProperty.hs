@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Scte35SpliceInsertProperty
-  = Scte35SpliceInsertProperty {adAvailOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html>
+    Scte35SpliceInsertProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-adavailoffset>
+                                adAvailOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-noregionalblackoutflag>
                                 noRegionalBlackoutFlag :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html#cfn-medialive-channel-scte35spliceinsert-webdeliveryallowedflag>
                                 webDeliveryAllowedFlag :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScte35SpliceInsertProperty :: Scte35SpliceInsertProperty
 mkScte35SpliceInsertProperty
   = Scte35SpliceInsertProperty
-      {adAvailOffset = Prelude.Nothing,
+      {haddock_workaround_ = (), adAvailOffset = Prelude.Nothing,
        noRegionalBlackoutFlag = Prelude.Nothing,
        webDeliveryAllowedFlag = Prelude.Nothing}
 instance ToResourceProperties Scte35SpliceInsertProperty where

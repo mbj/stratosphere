@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.GameLift.GameServerGroup.TargetTrackingConfig
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingPolicyProperty
-  = AutoScalingPolicyProperty {estimatedInstanceWarmup :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html>
+    AutoScalingPolicyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup>
+                               estimatedInstanceWarmup :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration>
                                targetTrackingConfiguration :: TargetTrackingConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::
   TargetTrackingConfigurationProperty -> AutoScalingPolicyProperty
 mkAutoScalingPolicyProperty targetTrackingConfiguration
   = AutoScalingPolicyProperty
-      {targetTrackingConfiguration = targetTrackingConfiguration,
+      {haddock_workaround_ = (),
+       targetTrackingConfiguration = targetTrackingConfiguration,
        estimatedInstanceWarmup = Prelude.Nothing}
 instance ToResourceProperties AutoScalingPolicyProperty where
   toResourceProperties AutoScalingPolicyProperty {..}

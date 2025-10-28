@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptureContentTypeHeaderProperty
-  = CaptureContentTypeHeaderProperty {csvContentTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>
+    CaptureContentTypeHeaderProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html#cfn-sagemaker-inferenceexperiment-capturecontenttypeheader-csvcontenttypes>
+                                      csvContentTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html#cfn-sagemaker-inferenceexperiment-capturecontenttypeheader-jsoncontenttypes>
                                       jsonContentTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptureContentTypeHeaderProperty ::
   CaptureContentTypeHeaderProperty
 mkCaptureContentTypeHeaderProperty
   = CaptureContentTypeHeaderProperty
-      {csvContentTypes = Prelude.Nothing,
+      {haddock_workaround_ = (), csvContentTypes = Prelude.Nothing,
        jsonContentTypes = Prelude.Nothing}
 instance ToResourceProperties CaptureContentTypeHeaderProperty where
   toResourceProperties CaptureContentTypeHeaderProperty {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarginStyleProperty
-  = MarginStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html>
+    MarginStyleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show>
+                         show :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMarginStyleProperty :: MarginStyleProperty
 mkMarginStyleProperty
-  = MarginStyleProperty {show = Prelude.Nothing}
+  = MarginStyleProperty
+      {haddock_workaround_ = (), show = Prelude.Nothing}
 instance ToResourceProperties MarginStyleProperty where
   toResourceProperties MarginStyleProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON MarginStyleProperty where
            (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show]))
 instance Property "Show" MarginStyleProperty where
   type PropertyType "Show" MarginStyleProperty = Value Prelude.Bool
-  set newValue MarginStyleProperty {}
+  set newValue MarginStyleProperty {..}
     = MarginStyleProperty {show = Prelude.pure newValue, ..}

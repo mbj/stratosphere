@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StaticIp
-  = StaticIp {attachedTo :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html>
+    StaticIp {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-attachedto>
+              attachedTo :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html#cfn-lightsail-staticip-staticipname>
               staticIpName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStaticIp :: Value Prelude.Text -> StaticIp
 mkStaticIp staticIpName
   = StaticIp
-      {staticIpName = staticIpName, attachedTo = Prelude.Nothing}
+      {haddock_workaround_ = (), staticIpName = staticIpName,
+       attachedTo = Prelude.Nothing}
 instance ToResourceProperties StaticIp where
   toResourceProperties StaticIp {..}
     = ResourceProperties

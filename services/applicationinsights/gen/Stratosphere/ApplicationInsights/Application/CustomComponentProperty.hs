@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomComponentProperty
-  = CustomComponentProperty {componentName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html>
+    CustomComponentProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname>
+                             componentName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist>
                              resourceList :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomComponentProperty ::
@@ -15,7 +19,8 @@ mkCustomComponentProperty ::
   -> ValueList Prelude.Text -> CustomComponentProperty
 mkCustomComponentProperty componentName resourceList
   = CustomComponentProperty
-      {componentName = componentName, resourceList = resourceList}
+      {haddock_workaround_ = (), componentName = componentName,
+       resourceList = resourceList}
 instance ToResourceProperties CustomComponentProperty where
   toResourceProperties CustomComponentProperty {..}
     = ResourceProperties

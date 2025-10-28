@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSetti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReadProvisionedThroughputSettingsProperty
-  = ReadProvisionedThroughputSettingsProperty {readCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html>
+    ReadProvisionedThroughputSettingsProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings>
+                                               readCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits>
                                                readCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadProvisionedThroughputSettingsProperty ::
   ReadProvisionedThroughputSettingsProperty
 mkReadProvisionedThroughputSettingsProperty
   = ReadProvisionedThroughputSettingsProperty
-      {readCapacityAutoScalingSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       readCapacityAutoScalingSettings = Prelude.Nothing,
        readCapacityUnits = Prelude.Nothing}
 instance ToResourceProperties ReadProvisionedThroughputSettingsProperty where
   toResourceProperties ReadProvisionedThroughputSettingsProperty {..}

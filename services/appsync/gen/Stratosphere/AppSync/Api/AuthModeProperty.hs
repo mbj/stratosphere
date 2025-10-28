@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthModeProperty
-  = AuthModeProperty {authType :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authmode.html>
+    AuthModeProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authmode.html#cfn-appsync-api-authmode-authtype>
+                      authType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthModeProperty :: AuthModeProperty
-mkAuthModeProperty = AuthModeProperty {authType = Prelude.Nothing}
+mkAuthModeProperty
+  = AuthModeProperty
+      {haddock_workaround_ = (), authType = Prelude.Nothing}
 instance ToResourceProperties AuthModeProperty where
   toResourceProperties AuthModeProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON AuthModeProperty where
            (Prelude.catMaybes [(JSON..=) "AuthType" Prelude.<$> authType]))
 instance Property "AuthType" AuthModeProperty where
   type PropertyType "AuthType" AuthModeProperty = Value Prelude.Text
-  set newValue AuthModeProperty {}
+  set newValue AuthModeProperty {..}
     = AuthModeProperty {authType = Prelude.pure newValue, ..}

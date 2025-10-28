@@ -10,7 +10,11 @@ import {-# SOURCE #-} Stratosphere.Shield.Protection.ActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationLayerAutomaticResponseConfigurationProperty
-  = ApplicationLayerAutomaticResponseConfigurationProperty {action :: ActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html>
+    ApplicationLayerAutomaticResponseConfigurationProperty {haddock_workaround_ :: (),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html#cfn-shield-protection-applicationlayerautomaticresponseconfiguration-action>
+                                                            action :: ActionProperty,
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html#cfn-shield-protection-applicationlayerautomaticresponseconfiguration-status>
                                                             status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationLayerAutomaticResponseConfigurationProperty ::
@@ -21,7 +25,7 @@ mkApplicationLayerAutomaticResponseConfigurationProperty
   action
   status
   = ApplicationLayerAutomaticResponseConfigurationProperty
-      {action = action, status = status}
+      {haddock_workaround_ = (), action = action, status = status}
 instance ToResourceProperties ApplicationLayerAutomaticResponseConfigurationProperty where
   toResourceProperties
     ApplicationLayerAutomaticResponseConfigurationProperty {..}

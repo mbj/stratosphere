@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationSettingsProperty
-  = ValidationSettingsProperty {mode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html>
+    ValidationSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html#cfn-verifiedpermissions-policystore-validationsettings-mode>
+                                mode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationSettingsProperty ::
   Value Prelude.Text -> ValidationSettingsProperty
 mkValidationSettingsProperty mode
-  = ValidationSettingsProperty {mode = mode}
+  = ValidationSettingsProperty
+      {haddock_workaround_ = (), mode = mode}
 instance ToResourceProperties ValidationSettingsProperty where
   toResourceProperties ValidationSettingsProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ValidationSettingsProperty where
     = JSON.object ["Mode" JSON..= mode]
 instance Property "Mode" ValidationSettingsProperty where
   type PropertyType "Mode" ValidationSettingsProperty = Value Prelude.Text
-  set newValue ValidationSettingsProperty {}
+  set newValue ValidationSettingsProperty {..}
     = ValidationSettingsProperty {mode = newValue, ..}

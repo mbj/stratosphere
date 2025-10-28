@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.Glue.Classifier.JsonClassifierProperty as Exp
 import {-# SOURCE #-} Stratosphere.Glue.Classifier.XMLClassifierProperty as Exports
 import Stratosphere.ResourceProperties
 data Classifier
-  = Classifier {csvClassifier :: (Prelude.Maybe CsvClassifierProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html>
+    Classifier {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-csvclassifier>
+                csvClassifier :: (Prelude.Maybe CsvClassifierProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-grokclassifier>
                 grokClassifier :: (Prelude.Maybe GrokClassifierProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-jsonclassifier>
                 jsonClassifier :: (Prelude.Maybe JsonClassifierProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html#cfn-glue-classifier-xmlclassifier>
                 xMLClassifier :: (Prelude.Maybe XMLClassifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClassifier :: Classifier
 mkClassifier
   = Classifier
-      {csvClassifier = Prelude.Nothing, grokClassifier = Prelude.Nothing,
-       jsonClassifier = Prelude.Nothing, xMLClassifier = Prelude.Nothing}
+      {haddock_workaround_ = (), csvClassifier = Prelude.Nothing,
+       grokClassifier = Prelude.Nothing, jsonClassifier = Prelude.Nothing,
+       xMLClassifier = Prelude.Nothing}
 instance ToResourceProperties Classifier where
   toResourceProperties Classifier {..}
     = ResourceProperties

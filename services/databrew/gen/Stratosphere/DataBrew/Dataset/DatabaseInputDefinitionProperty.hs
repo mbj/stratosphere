@@ -9,16 +9,22 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.S3LocationProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseInputDefinitionProperty
-  = DatabaseInputDefinitionProperty {databaseTableName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html>
+    DatabaseInputDefinitionProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename>
+                                     databaseTableName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname>
                                      glueConnectionName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-querystring>
                                      queryString :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory>
                                      tempDirectory :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseInputDefinitionProperty ::
   Value Prelude.Text -> DatabaseInputDefinitionProperty
 mkDatabaseInputDefinitionProperty glueConnectionName
   = DatabaseInputDefinitionProperty
-      {glueConnectionName = glueConnectionName,
+      {haddock_workaround_ = (), glueConnectionName = glueConnectionName,
        databaseTableName = Prelude.Nothing, queryString = Prelude.Nothing,
        tempDirectory = Prelude.Nothing}
 instance ToResourceProperties DatabaseInputDefinitionProperty where

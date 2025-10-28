@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnSuccessProperty
-  = OnSuccessProperty {destination :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html>
+    OnSuccessProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html#cfn-lambda-eventinvokeconfig-onsuccess-destination>
+                       destination :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnSuccessProperty :: Value Prelude.Text -> OnSuccessProperty
 mkOnSuccessProperty destination
-  = OnSuccessProperty {destination = destination}
+  = OnSuccessProperty
+      {haddock_workaround_ = (), destination = destination}
 instance ToResourceProperties OnSuccessProperty where
   toResourceProperties OnSuccessProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON OnSuccessProperty where
     = JSON.object ["Destination" JSON..= destination]
 instance Property "Destination" OnSuccessProperty where
   type PropertyType "Destination" OnSuccessProperty = Value Prelude.Text
-  set newValue OnSuccessProperty {}
+  set newValue OnSuccessProperty {..}
     = OnSuccessProperty {destination = newValue, ..}

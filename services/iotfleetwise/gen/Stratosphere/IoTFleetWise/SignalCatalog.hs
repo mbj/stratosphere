@@ -10,18 +10,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SignalCatalog
-  = SignalCatalog {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html>
+    SignalCatalog {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-name>
                    name :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-nodecounts>
                    nodeCounts :: (Prelude.Maybe NodeCountsProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-nodes>
                    nodes :: (Prelude.Maybe [NodeProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html#cfn-iotfleetwise-signalcatalog-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalCatalog :: SignalCatalog
 mkSignalCatalog
   = SignalCatalog
-      {description = Prelude.Nothing, name = Prelude.Nothing,
-       nodeCounts = Prelude.Nothing, nodes = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       name = Prelude.Nothing, nodeCounts = Prelude.Nothing,
+       nodes = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties SignalCatalog where
   toResourceProperties SignalCatalog {..}
     = ResourceProperties

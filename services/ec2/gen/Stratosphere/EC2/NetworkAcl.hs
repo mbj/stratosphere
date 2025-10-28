@@ -8,12 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data NetworkAcl
-  = NetworkAcl {tags :: (Prelude.Maybe [Tag]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html>
+    NetworkAcl {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html#cfn-ec2-networkacl-tags>
+                tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html#cfn-ec2-networkacl-vpcid>
                 vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAcl :: Value Prelude.Text -> NetworkAcl
 mkNetworkAcl vpcId
-  = NetworkAcl {vpcId = vpcId, tags = Prelude.Nothing}
+  = NetworkAcl
+      {haddock_workaround_ = (), vpcId = vpcId, tags = Prelude.Nothing}
 instance ToResourceProperties NetworkAcl where
   toResourceProperties NetworkAcl {..}
     = ResourceProperties

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AggregateColumnProperty
-  = AggregateColumnProperty {columnNames :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html>
+    AggregateColumnProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html#cfn-cleanrooms-configuredtable-aggregatecolumn-columnnames>
+                             columnNames :: (ValueList Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html#cfn-cleanrooms-configuredtable-aggregatecolumn-function>
                              function :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregateColumnProperty ::
@@ -15,7 +19,8 @@ mkAggregateColumnProperty ::
   -> Value Prelude.Text -> AggregateColumnProperty
 mkAggregateColumnProperty columnNames function
   = AggregateColumnProperty
-      {columnNames = columnNames, function = function}
+      {haddock_workaround_ = (), columnNames = columnNames,
+       function = function}
 instance ToResourceProperties AggregateColumnProperty where
   toResourceProperties AggregateColumnProperty {..}
     = ResourceProperties

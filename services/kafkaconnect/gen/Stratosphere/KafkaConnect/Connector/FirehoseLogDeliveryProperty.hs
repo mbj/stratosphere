@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseLogDeliveryProperty
-  = FirehoseLogDeliveryProperty {deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html>
+    FirehoseLogDeliveryProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html#cfn-kafkaconnect-connector-firehoselogdelivery-deliverystream>
+                                 deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html#cfn-kafkaconnect-connector-firehoselogdelivery-enabled>
                                  enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseLogDeliveryProperty ::
   Value Prelude.Bool -> FirehoseLogDeliveryProperty
 mkFirehoseLogDeliveryProperty enabled
   = FirehoseLogDeliveryProperty
-      {enabled = enabled, deliveryStream = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       deliveryStream = Prelude.Nothing}
 instance ToResourceProperties FirehoseLogDeliveryProperty where
   toResourceProperties FirehoseLogDeliveryProperty {..}
     = ResourceProperties

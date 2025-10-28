@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppSyncRuntimeProperty
-  = AppSyncRuntimeProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-appsyncruntime.html>
+    AppSyncRuntimeProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-appsyncruntime.html#cfn-appsync-functionconfiguration-appsyncruntime-name>
+                            name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-appsyncruntime.html#cfn-appsync-functionconfiguration-appsyncruntime-runtimeversion>
                             runtimeVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppSyncRuntimeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AppSyncRuntimeProperty
 mkAppSyncRuntimeProperty name runtimeVersion
   = AppSyncRuntimeProperty
-      {name = name, runtimeVersion = runtimeVersion}
+      {haddock_workaround_ = (), name = name,
+       runtimeVersion = runtimeVersion}
 instance ToResourceProperties AppSyncRuntimeProperty where
   toResourceProperties AppSyncRuntimeProperty {..}
     = ResourceProperties

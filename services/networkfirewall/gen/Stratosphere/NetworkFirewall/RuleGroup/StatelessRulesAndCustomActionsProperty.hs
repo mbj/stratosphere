@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.CustomActionPropert
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.StatelessRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data StatelessRulesAndCustomActionsProperty
-  = StatelessRulesAndCustomActionsProperty {customActions :: (Prelude.Maybe [CustomActionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html>
+    StatelessRulesAndCustomActionsProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions>
+                                            customActions :: (Prelude.Maybe [CustomActionProperty]),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules>
                                             statelessRules :: [StatelessRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRulesAndCustomActionsProperty ::
   [StatelessRuleProperty] -> StatelessRulesAndCustomActionsProperty
 mkStatelessRulesAndCustomActionsProperty statelessRules
   = StatelessRulesAndCustomActionsProperty
-      {statelessRules = statelessRules, customActions = Prelude.Nothing}
+      {haddock_workaround_ = (), statelessRules = statelessRules,
+       customActions = Prelude.Nothing}
 instance ToResourceProperties StatelessRulesAndCustomActionsProperty where
   toResourceProperties StatelessRulesAndCustomActionsProperty {..}
     = ResourceProperties

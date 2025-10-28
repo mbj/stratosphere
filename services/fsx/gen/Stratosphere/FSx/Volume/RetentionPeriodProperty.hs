@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetentionPeriodProperty
-  = RetentionPeriodProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-retentionperiod.html>
+    RetentionPeriodProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-retentionperiod.html#cfn-fsx-volume-retentionperiod-type>
+                             type' :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-retentionperiod.html#cfn-fsx-volume-retentionperiod-value>
                              value :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetentionPeriodProperty ::
   Value Prelude.Text -> RetentionPeriodProperty
 mkRetentionPeriodProperty type'
-  = RetentionPeriodProperty {type' = type', value = Prelude.Nothing}
+  = RetentionPeriodProperty
+      {haddock_workaround_ = (), type' = type', value = Prelude.Nothing}
 instance ToResourceProperties RetentionPeriodProperty where
   toResourceProperties RetentionPeriodProperty {..}
     = ResourceProperties

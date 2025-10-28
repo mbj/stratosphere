@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.ReplicationGroup.CloudWatchLogsDe
 import {-# SOURCE #-} Stratosphere.ElastiCache.ReplicationGroup.KinesisFirehoseDestinationDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationDetailsProperty
-  = DestinationDetailsProperty {cloudWatchLogsDetails :: (Prelude.Maybe CloudWatchLogsDestinationDetailsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html>
+    DestinationDetailsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails>
+                                cloudWatchLogsDetails :: (Prelude.Maybe CloudWatchLogsDestinationDetailsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails>
                                 kinesisFirehoseDetails :: (Prelude.Maybe KinesisFirehoseDestinationDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationDetailsProperty :: DestinationDetailsProperty
 mkDestinationDetailsProperty
   = DestinationDetailsProperty
-      {cloudWatchLogsDetails = Prelude.Nothing,
+      {haddock_workaround_ = (), cloudWatchLogsDetails = Prelude.Nothing,
        kinesisFirehoseDetails = Prelude.Nothing}
 instance ToResourceProperties DestinationDetailsProperty where
   toResourceProperties DestinationDetailsProperty {..}

@@ -7,19 +7,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResizeClusterMessageProperty
-  = ResizeClusterMessageProperty {classic :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html>
+    ResizeClusterMessageProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html#cfn-redshift-scheduledaction-resizeclustermessage-classic>
+                                  classic :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html#cfn-redshift-scheduledaction-resizeclustermessage-clusteridentifier>
                                   clusterIdentifier :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html#cfn-redshift-scheduledaction-resizeclustermessage-clustertype>
                                   clusterType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html#cfn-redshift-scheduledaction-resizeclustermessage-nodetype>
                                   nodeType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html#cfn-redshift-scheduledaction-resizeclustermessage-numberofnodes>
                                   numberOfNodes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResizeClusterMessageProperty ::
   Value Prelude.Text -> ResizeClusterMessageProperty
 mkResizeClusterMessageProperty clusterIdentifier
   = ResizeClusterMessageProperty
-      {clusterIdentifier = clusterIdentifier, classic = Prelude.Nothing,
-       clusterType = Prelude.Nothing, nodeType = Prelude.Nothing,
-       numberOfNodes = Prelude.Nothing}
+      {haddock_workaround_ = (), clusterIdentifier = clusterIdentifier,
+       classic = Prelude.Nothing, clusterType = Prelude.Nothing,
+       nodeType = Prelude.Nothing, numberOfNodes = Prelude.Nothing}
 instance ToResourceProperties ResizeClusterMessageProperty where
   toResourceProperties ResizeClusterMessageProperty {..}
     = ResourceProperties

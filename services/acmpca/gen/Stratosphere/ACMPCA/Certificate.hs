@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.ValidityProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Certificate
-  = Certificate {apiPassthrough :: (Prelude.Maybe ApiPassthroughProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html>
+    Certificate {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough>
+                 apiPassthrough :: (Prelude.Maybe ApiPassthroughProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn>
                  certificateAuthorityArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest>
                  certificateSigningRequest :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm>
                  signingAlgorithm :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn>
                  templateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity>
                  validity :: ValidityProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore>
                  validityNotBefore :: (Prelude.Maybe ValidityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate ::
@@ -27,7 +36,8 @@ mkCertificate
   signingAlgorithm
   validity
   = Certificate
-      {certificateAuthorityArn = certificateAuthorityArn,
+      {haddock_workaround_ = (),
+       certificateAuthorityArn = certificateAuthorityArn,
        certificateSigningRequest = certificateSigningRequest,
        signingAlgorithm = signingAlgorithm, validity = validity,
        apiPassthrough = Prelude.Nothing, templateArn = Prelude.Nothing,

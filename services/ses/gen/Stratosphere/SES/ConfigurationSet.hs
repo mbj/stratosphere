@@ -13,19 +13,28 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.VdmOptionsProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationSet
-  = ConfigurationSet {deliveryOptions :: (Prelude.Maybe DeliveryOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html>
+    ConfigurationSet {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-deliveryoptions>
+                      deliveryOptions :: (Prelude.Maybe DeliveryOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-reputationoptions>
                       reputationOptions :: (Prelude.Maybe ReputationOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-sendingoptions>
                       sendingOptions :: (Prelude.Maybe SendingOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-suppressionoptions>
                       suppressionOptions :: (Prelude.Maybe SuppressionOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-trackingoptions>
                       trackingOptions :: (Prelude.Maybe TrackingOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-vdmoptions>
                       vdmOptions :: (Prelude.Maybe VdmOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSet :: ConfigurationSet
 mkConfigurationSet
   = ConfigurationSet
-      {deliveryOptions = Prelude.Nothing, name = Prelude.Nothing,
-       reputationOptions = Prelude.Nothing,
+      {haddock_workaround_ = (), deliveryOptions = Prelude.Nothing,
+       name = Prelude.Nothing, reputationOptions = Prelude.Nothing,
        sendingOptions = Prelude.Nothing,
        suppressionOptions = Prelude.Nothing,
        trackingOptions = Prelude.Nothing, vdmOptions = Prelude.Nothing}

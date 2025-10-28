@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.EncryptionContrac
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpekeKeyProviderProperty
-  = SpekeKeyProviderProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html>
+    SpekeKeyProviderProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn>
+                              certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-encryptioncontractconfiguration>
                               encryptionContractConfiguration :: (Prelude.Maybe EncryptionContractConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid>
                               resourceId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids>
                               systemIds :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url>
                               url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpekeKeyProviderProperty ::
@@ -23,8 +31,9 @@ mkSpekeKeyProviderProperty ::
         -> Value Prelude.Text -> SpekeKeyProviderProperty
 mkSpekeKeyProviderProperty resourceId roleArn systemIds url
   = SpekeKeyProviderProperty
-      {resourceId = resourceId, roleArn = roleArn, systemIds = systemIds,
-       url = url, certificateArn = Prelude.Nothing,
+      {haddock_workaround_ = (), resourceId = resourceId,
+       roleArn = roleArn, systemIds = systemIds, url = url,
+       certificateArn = Prelude.Nothing,
        encryptionContractConfiguration = Prelude.Nothing}
 instance ToResourceProperties SpekeKeyProviderProperty where
   toResourceProperties SpekeKeyProviderProperty {..}

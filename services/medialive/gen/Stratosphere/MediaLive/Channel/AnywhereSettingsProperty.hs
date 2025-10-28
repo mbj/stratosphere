@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnywhereSettingsProperty
-  = AnywhereSettingsProperty {channelPlacementGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-anywheresettings.html>
+    AnywhereSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-anywheresettings.html#cfn-medialive-channel-anywheresettings-channelplacementgroupid>
+                              channelPlacementGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-anywheresettings.html#cfn-medialive-channel-anywheresettings-clusterid>
                               clusterId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnywhereSettingsProperty :: AnywhereSettingsProperty
 mkAnywhereSettingsProperty
   = AnywhereSettingsProperty
-      {channelPlacementGroupId = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       channelPlacementGroupId = Prelude.Nothing,
        clusterId = Prelude.Nothing}
 instance ToResourceProperties AnywhereSettingsProperty where
   toResourceProperties AnywhereSettingsProperty {..}

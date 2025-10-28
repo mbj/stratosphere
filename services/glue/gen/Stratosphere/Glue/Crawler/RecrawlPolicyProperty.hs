@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecrawlPolicyProperty
-  = RecrawlPolicyProperty {recrawlBehavior :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html>
+    RecrawlPolicyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior>
+                           recrawlBehavior :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecrawlPolicyProperty :: RecrawlPolicyProperty
 mkRecrawlPolicyProperty
-  = RecrawlPolicyProperty {recrawlBehavior = Prelude.Nothing}
+  = RecrawlPolicyProperty
+      {haddock_workaround_ = (), recrawlBehavior = Prelude.Nothing}
 instance ToResourceProperties RecrawlPolicyProperty where
   toResourceProperties RecrawlPolicyProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON RecrawlPolicyProperty where
               [(JSON..=) "RecrawlBehavior" Prelude.<$> recrawlBehavior]))
 instance Property "RecrawlBehavior" RecrawlPolicyProperty where
   type PropertyType "RecrawlBehavior" RecrawlPolicyProperty = Value Prelude.Text
-  set newValue RecrawlPolicyProperty {}
+  set newValue RecrawlPolicyProperty {..}
     = RecrawlPolicyProperty
         {recrawlBehavior = Prelude.pure newValue, ..}

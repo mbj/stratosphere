@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.TLSInspectionConfiguration.Se
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerCertificateConfigurationProperty
-  = ServerCertificateConfigurationProperty {certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html>
+    ServerCertificateConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration-certificateauthorityarn>
+                                            certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration-checkcertificaterevocationstatus>
                                             checkCertificateRevocationStatus :: (Prelude.Maybe CheckCertificateRevocationStatusProperty),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration-scopes>
                                             scopes :: (Prelude.Maybe [ServerCertificateScopeProperty]),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration-servercertificates>
                                             serverCertificates :: (Prelude.Maybe [ServerCertificateProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificateConfigurationProperty ::
   ServerCertificateConfigurationProperty
 mkServerCertificateConfigurationProperty
   = ServerCertificateConfigurationProperty
-      {certificateAuthorityArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       certificateAuthorityArn = Prelude.Nothing,
        checkCertificateRevocationStatus = Prelude.Nothing,
        scopes = Prelude.Nothing, serverCertificates = Prelude.Nothing}
 instance ToResourceProperties ServerCertificateConfigurationProperty where

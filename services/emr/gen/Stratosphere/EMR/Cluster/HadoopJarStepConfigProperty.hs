@@ -9,17 +9,23 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.KeyValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HadoopJarStepConfigProperty
-  = HadoopJarStepConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html>
+    HadoopJarStepConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-args>
+                                 args :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-jar>
                                  jar :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-mainclass>
                                  mainClass :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-stepproperties>
                                  stepProperties :: (Prelude.Maybe [KeyValueProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHadoopJarStepConfigProperty ::
   Value Prelude.Text -> HadoopJarStepConfigProperty
 mkHadoopJarStepConfigProperty jar
   = HadoopJarStepConfigProperty
-      {jar = jar, args = Prelude.Nothing, mainClass = Prelude.Nothing,
-       stepProperties = Prelude.Nothing}
+      {haddock_workaround_ = (), jar = jar, args = Prelude.Nothing,
+       mainClass = Prelude.Nothing, stepProperties = Prelude.Nothing}
 instance ToResourceProperties HadoopJarStepConfigProperty where
   toResourceProperties HadoopJarStepConfigProperty {..}
     = ResourceProperties

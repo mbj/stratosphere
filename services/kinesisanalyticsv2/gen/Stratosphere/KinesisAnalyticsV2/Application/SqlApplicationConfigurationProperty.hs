@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.InputProperty as Exports
 import Stratosphere.ResourceProperties
 data SqlApplicationConfigurationProperty
-  = SqlApplicationConfigurationProperty {inputs :: (Prelude.Maybe [InputProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html>
+    SqlApplicationConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-sqlapplicationconfiguration-inputs>
+                                         inputs :: (Prelude.Maybe [InputProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlApplicationConfigurationProperty ::
   SqlApplicationConfigurationProperty
 mkSqlApplicationConfigurationProperty
-  = SqlApplicationConfigurationProperty {inputs = Prelude.Nothing}
+  = SqlApplicationConfigurationProperty
+      {haddock_workaround_ = (), inputs = Prelude.Nothing}
 instance ToResourceProperties SqlApplicationConfigurationProperty where
   toResourceProperties SqlApplicationConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SqlApplicationConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Inputs" Prelude.<$> inputs]))
 instance Property "Inputs" SqlApplicationConfigurationProperty where
   type PropertyType "Inputs" SqlApplicationConfigurationProperty = [InputProperty]
-  set newValue SqlApplicationConfigurationProperty {}
+  set newValue SqlApplicationConfigurationProperty {..}
     = SqlApplicationConfigurationProperty
         {inputs = Prelude.pure newValue, ..}

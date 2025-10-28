@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowNodeInputProperty
-  = FlowNodeInputProperty {expression :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html>
+    FlowNodeInputProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-expression>
+                           expression :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-name>
                            name :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowNodeInputProperty ::
@@ -17,7 +22,8 @@ mkFlowNodeInputProperty ::
      -> Value Prelude.Text -> FlowNodeInputProperty
 mkFlowNodeInputProperty expression name type'
   = FlowNodeInputProperty
-      {expression = expression, name = name, type' = type'}
+      {haddock_workaround_ = (), expression = expression, name = name,
+       type' = type'}
 instance ToResourceProperties FlowNodeInputProperty where
   toResourceProperties FlowNodeInputProperty {..}
     = ResourceProperties

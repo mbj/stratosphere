@@ -6,12 +6,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EncryptionContractConfigurationProperty
-  = EncryptionContractConfigurationProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-encryptioncontractconfiguration.html>
+    EncryptionContractConfigurationProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionContractConfigurationProperty ::
   EncryptionContractConfigurationProperty
 mkEncryptionContractConfigurationProperty
-  = EncryptionContractConfigurationProperty {}
+  = EncryptionContractConfigurationProperty
+      {haddock_workaround_ = ()}
 instance ToResourceProperties EncryptionContractConfigurationProperty where
   toResourceProperties EncryptionContractConfigurationProperty {}
     = ResourceProperties

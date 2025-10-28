@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FeatureDefinitionProperty
-  = FeatureDefinitionProperty {featureName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html>
+    FeatureDefinitionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename>
+                               featureName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype>
                                featureType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureDefinitionProperty ::
@@ -15,7 +19,8 @@ mkFeatureDefinitionProperty ::
   -> Value Prelude.Text -> FeatureDefinitionProperty
 mkFeatureDefinitionProperty featureName featureType
   = FeatureDefinitionProperty
-      {featureName = featureName, featureType = featureType}
+      {haddock_workaround_ = (), featureName = featureName,
+       featureType = featureType}
 instance ToResourceProperties FeatureDefinitionProperty where
   toResourceProperties FeatureDefinitionProperty {..}
     = ResourceProperties

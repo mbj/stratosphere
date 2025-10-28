@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchTemplateSpecificationProperty
-  = LaunchTemplateSpecificationProperty {launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html>
+    LaunchTemplateSpecificationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid>
+                                         launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename>
                                          launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version>
                                          version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateSpecificationProperty ::
   Value Prelude.Text -> LaunchTemplateSpecificationProperty
 mkLaunchTemplateSpecificationProperty version
   = LaunchTemplateSpecificationProperty
-      {version = version, launchTemplateId = Prelude.Nothing,
+      {haddock_workaround_ = (), version = version,
+       launchTemplateId = Prelude.Nothing,
        launchTemplateName = Prelude.Nothing}
 instance ToResourceProperties LaunchTemplateSpecificationProperty where
   toResourceProperties LaunchTemplateSpecificationProperty {..}

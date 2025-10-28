@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateProperty
-  = TemplateProperty {htmlPart :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html>
+    TemplateProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart>
+                      htmlPart :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart>
                       subjectPart :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename>
                       templateName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart>
                       textPart :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateProperty :: Value Prelude.Text -> TemplateProperty
 mkTemplateProperty subjectPart
   = TemplateProperty
-      {subjectPart = subjectPart, htmlPart = Prelude.Nothing,
-       templateName = Prelude.Nothing, textPart = Prelude.Nothing}
+      {haddock_workaround_ = (), subjectPart = subjectPart,
+       htmlPart = Prelude.Nothing, templateName = Prelude.Nothing,
+       textPart = Prelude.Nothing}
 instance ToResourceProperties TemplateProperty where
   toResourceProperties TemplateProperty {..}
     = ResourceProperties

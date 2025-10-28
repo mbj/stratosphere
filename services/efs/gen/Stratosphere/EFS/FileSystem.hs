@@ -12,24 +12,39 @@ import {-# SOURCE #-} Stratosphere.EFS.FileSystem.ReplicationConfigurationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileSystem
-  = FileSystem {availabilityZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html>
+    FileSystem {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename>
+                availabilityZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy>
                 backupPolicy :: (Prelude.Maybe BackupPolicyProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck>
                 bypassPolicyLockoutSafetyCheck :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted>
                 encrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy>
                 fileSystemPolicy :: (Prelude.Maybe JSON.Object),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemprotection>
                 fileSystemProtection :: (Prelude.Maybe FileSystemProtectionProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags>
                 fileSystemTags :: (Prelude.Maybe [ElasticFileSystemTagProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid>
                 kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies>
                 lifecyclePolicies :: (Prelude.Maybe [LifecyclePolicyProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode>
                 performanceMode :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps>
                 provisionedThroughputInMibps :: (Prelude.Maybe (Value Prelude.Double)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-replicationconfiguration>
                 replicationConfiguration :: (Prelude.Maybe ReplicationConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode>
                 throughputMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystem :: FileSystem
 mkFileSystem
   = FileSystem
-      {availabilityZoneName = Prelude.Nothing,
+      {haddock_workaround_ = (), availabilityZoneName = Prelude.Nothing,
        backupPolicy = Prelude.Nothing,
        bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
        encrypted = Prelude.Nothing, fileSystemPolicy = Prelude.Nothing,

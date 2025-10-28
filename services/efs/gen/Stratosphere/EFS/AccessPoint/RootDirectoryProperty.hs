@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.EFS.AccessPoint.CreationInfoProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RootDirectoryProperty
-  = RootDirectoryProperty {creationInfo :: (Prelude.Maybe CreationInfoProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html>
+    RootDirectoryProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo>
+                           creationInfo :: (Prelude.Maybe CreationInfoProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path>
                            path :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRootDirectoryProperty :: RootDirectoryProperty
 mkRootDirectoryProperty
   = RootDirectoryProperty
-      {creationInfo = Prelude.Nothing, path = Prelude.Nothing}
+      {haddock_workaround_ = (), creationInfo = Prelude.Nothing,
+       path = Prelude.Nothing}
 instance ToResourceProperties RootDirectoryProperty where
   toResourceProperties RootDirectoryProperty {..}
     = ResourceProperties

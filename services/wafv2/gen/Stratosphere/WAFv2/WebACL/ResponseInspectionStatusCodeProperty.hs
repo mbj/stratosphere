@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseInspectionStatusCodeProperty
-  = ResponseInspectionStatusCodeProperty {failureCodes :: (ValueList Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html>
+    ResponseInspectionStatusCodeProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html#cfn-wafv2-webacl-responseinspectionstatuscode-failurecodes>
+                                          failureCodes :: (ValueList Prelude.Integer),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html#cfn-wafv2-webacl-responseinspectionstatuscode-successcodes>
                                           successCodes :: (ValueList Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionStatusCodeProperty ::
@@ -17,7 +21,8 @@ mkResponseInspectionStatusCodeProperty ::
      -> ResponseInspectionStatusCodeProperty
 mkResponseInspectionStatusCodeProperty failureCodes successCodes
   = ResponseInspectionStatusCodeProperty
-      {failureCodes = failureCodes, successCodes = successCodes}
+      {haddock_workaround_ = (), failureCodes = failureCodes,
+       successCodes = successCodes}
 instance ToResourceProperties ResponseInspectionStatusCodeProperty where
   toResourceProperties ResponseInspectionStatusCodeProperty {..}
     = ResourceProperties

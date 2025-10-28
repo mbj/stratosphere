@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Instance.MonthlyTransferProperty as
 import {-# SOURCE #-} Stratosphere.Lightsail.Instance.PortProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkingProperty
-  = NetworkingProperty {monthlyTransfer :: (Prelude.Maybe MonthlyTransferProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html>
+    NetworkingProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-monthlytransfer>
+                        monthlyTransfer :: (Prelude.Maybe MonthlyTransferProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html#cfn-lightsail-instance-networking-ports>
                         ports :: [PortProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkingProperty :: [PortProperty] -> NetworkingProperty
 mkNetworkingProperty ports
   = NetworkingProperty
-      {ports = ports, monthlyTransfer = Prelude.Nothing}
+      {haddock_workaround_ = (), ports = ports,
+       monthlyTransfer = Prelude.Nothing}
 instance ToResourceProperties NetworkingProperty where
   toResourceProperties NetworkingProperty {..}
     = ResourceProperties

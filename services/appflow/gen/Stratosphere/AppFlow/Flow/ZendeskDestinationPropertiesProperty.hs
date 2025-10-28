@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskDestinationPropertiesProperty
-  = ZendeskDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html>
+    ZendeskDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig>
+                                          errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames>
                                           idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object>
                                           object :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype>
                                           writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskDestinationPropertiesProperty ::
   Value Prelude.Text -> ZendeskDestinationPropertiesProperty
 mkZendeskDestinationPropertiesProperty object
   = ZendeskDestinationPropertiesProperty
-      {object = object, errorHandlingConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), object = object,
+       errorHandlingConfig = Prelude.Nothing,
        idFieldNames = Prelude.Nothing,
        writeOperationType = Prelude.Nothing}
 instance ToResourceProperties ZendeskDestinationPropertiesProperty where

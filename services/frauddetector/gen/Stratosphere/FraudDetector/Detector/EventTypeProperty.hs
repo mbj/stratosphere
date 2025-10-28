@@ -11,25 +11,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EventTypeProperty
-  = EventTypeProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html>
+    EventTypeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn>
+                       arn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime>
                        createdTime :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes>
                        entityTypes :: (Prelude.Maybe [EntityTypeProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables>
                        eventVariables :: (Prelude.Maybe [EventVariableProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline>
                        inline :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels>
                        labels :: (Prelude.Maybe [LabelProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime>
                        lastUpdatedTime :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name>
                        name :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags>
                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventTypeProperty :: EventTypeProperty
 mkEventTypeProperty
   = EventTypeProperty
-      {arn = Prelude.Nothing, createdTime = Prelude.Nothing,
-       description = Prelude.Nothing, entityTypes = Prelude.Nothing,
-       eventVariables = Prelude.Nothing, inline = Prelude.Nothing,
-       labels = Prelude.Nothing, lastUpdatedTime = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = Prelude.Nothing,
+       createdTime = Prelude.Nothing, description = Prelude.Nothing,
+       entityTypes = Prelude.Nothing, eventVariables = Prelude.Nothing,
+       inline = Prelude.Nothing, labels = Prelude.Nothing,
+       lastUpdatedTime = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EventTypeProperty where
   toResourceProperties EventTypeProperty {..}
     = ResourceProperties

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.ServiceCatalog.CloudFormationProduct.Connecti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceConnectionProperty
-  = SourceConnectionProperty {connectionParameters :: ConnectionParametersProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html>
+    SourceConnectionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters>
+                              connectionParameters :: ConnectionParametersProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-type>
                               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectionProperty ::
@@ -17,7 +21,8 @@ mkSourceConnectionProperty ::
   -> Value Prelude.Text -> SourceConnectionProperty
 mkSourceConnectionProperty connectionParameters type'
   = SourceConnectionProperty
-      {connectionParameters = connectionParameters, type' = type'}
+      {haddock_workaround_ = (),
+       connectionParameters = connectionParameters, type' = type'}
 instance ToResourceProperties SourceConnectionProperty where
   toResourceProperties SourceConnectionProperty {..}
     = ResourceProperties

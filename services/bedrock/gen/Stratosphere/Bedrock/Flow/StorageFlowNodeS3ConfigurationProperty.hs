@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageFlowNodeS3ConfigurationProperty
-  = StorageFlowNodeS3ConfigurationProperty {bucketName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodes3configuration.html>
+    StorageFlowNodeS3ConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodes3configuration.html#cfn-bedrock-flow-storageflownodes3configuration-bucketname>
+                                            bucketName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageFlowNodeS3ConfigurationProperty ::
   Value Prelude.Text -> StorageFlowNodeS3ConfigurationProperty
 mkStorageFlowNodeS3ConfigurationProperty bucketName
-  = StorageFlowNodeS3ConfigurationProperty {bucketName = bucketName}
+  = StorageFlowNodeS3ConfigurationProperty
+      {haddock_workaround_ = (), bucketName = bucketName}
 instance ToResourceProperties StorageFlowNodeS3ConfigurationProperty where
   toResourceProperties StorageFlowNodeS3ConfigurationProperty {..}
     = ResourceProperties
@@ -25,6 +29,6 @@ instance JSON.ToJSON StorageFlowNodeS3ConfigurationProperty where
     = JSON.object ["BucketName" JSON..= bucketName]
 instance Property "BucketName" StorageFlowNodeS3ConfigurationProperty where
   type PropertyType "BucketName" StorageFlowNodeS3ConfigurationProperty = Value Prelude.Text
-  set newValue StorageFlowNodeS3ConfigurationProperty {}
+  set newValue StorageFlowNodeS3ConfigurationProperty {..}
     = StorageFlowNodeS3ConfigurationProperty
         {bucketName = newValue, ..}

@@ -10,19 +10,28 @@ import {-# SOURCE #-} Stratosphere.MSK.Replicator.ReplicationTopicNameConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicReplicationProperty
-  = TopicReplicationProperty {copyAccessControlListsForTopics :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html>
+    TopicReplicationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-copyaccesscontrollistsfortopics>
+                              copyAccessControlListsForTopics :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-copytopicconfigurations>
                               copyTopicConfigurations :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-detectandcopynewtopics>
                               detectAndCopyNewTopics :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-startingposition>
                               startingPosition :: (Prelude.Maybe ReplicationStartingPositionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicnameconfiguration>
                               topicNameConfiguration :: (Prelude.Maybe ReplicationTopicNameConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicstoexclude>
                               topicsToExclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicstoreplicate>
                               topicsToReplicate :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicReplicationProperty ::
   ValueList Prelude.Text -> TopicReplicationProperty
 mkTopicReplicationProperty topicsToReplicate
   = TopicReplicationProperty
-      {topicsToReplicate = topicsToReplicate,
+      {haddock_workaround_ = (), topicsToReplicate = topicsToReplicate,
        copyAccessControlListsForTopics = Prelude.Nothing,
        copyTopicConfigurations = Prelude.Nothing,
        detectAndCopyNewTopics = Prelude.Nothing,

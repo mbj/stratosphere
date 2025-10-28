@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimestampPartitionProperty
-  = TimestampPartitionProperty {attributeName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html>
+    TimestampPartitionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-attributename>
+                                attributeName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html#cfn-iotanalytics-datastore-timestamppartition-timestampformat>
                                 timestampFormat :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestampPartitionProperty ::
   Value Prelude.Text -> TimestampPartitionProperty
 mkTimestampPartitionProperty attributeName
   = TimestampPartitionProperty
-      {attributeName = attributeName, timestampFormat = Prelude.Nothing}
+      {haddock_workaround_ = (), attributeName = attributeName,
+       timestampFormat = Prelude.Nothing}
 instance ToResourceProperties TimestampPartitionProperty where
   toResourceProperties TimestampPartitionProperty {..}
     = ResourceProperties

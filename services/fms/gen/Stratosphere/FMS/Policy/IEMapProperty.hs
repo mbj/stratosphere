@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IEMapProperty
-  = IEMapProperty {aCCOUNT :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html>
+    IEMapProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account>
+                   aCCOUNT :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit>
                    oRGUNIT :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIEMapProperty :: IEMapProperty
 mkIEMapProperty
   = IEMapProperty
-      {aCCOUNT = Prelude.Nothing, oRGUNIT = Prelude.Nothing}
+      {haddock_workaround_ = (), aCCOUNT = Prelude.Nothing,
+       oRGUNIT = Prelude.Nothing}
 instance ToResourceProperties IEMapProperty where
   toResourceProperties IEMapProperty {..}
     = ResourceProperties

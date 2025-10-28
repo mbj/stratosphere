@@ -8,10 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionConfigurationProperty
-  = ConnectionConfigurationProperty {databaseHost :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html>
+    ConnectionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost>
+                                     databaseHost :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasename>
                                      databaseName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databaseport>
                                      databasePort :: (Value Prelude.Integer),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-secretarn>
                                      secretArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-tablename>
                                      tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionConfigurationProperty ::
@@ -27,9 +34,9 @@ mkConnectionConfigurationProperty
   secretArn
   tableName
   = ConnectionConfigurationProperty
-      {databaseHost = databaseHost, databaseName = databaseName,
-       databasePort = databasePort, secretArn = secretArn,
-       tableName = tableName}
+      {haddock_workaround_ = (), databaseHost = databaseHost,
+       databaseName = databaseName, databasePort = databasePort,
+       secretArn = secretArn, tableName = tableName}
 instance ToResourceProperties ConnectionConfigurationProperty where
   toResourceProperties ConnectionConfigurationProperty {..}
     = ResourceProperties

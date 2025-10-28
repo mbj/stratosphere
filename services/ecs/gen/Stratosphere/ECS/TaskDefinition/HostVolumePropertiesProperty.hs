@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostVolumePropertiesProperty
-  = HostVolumePropertiesProperty {sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostvolumeproperties.html>
+    HostVolumePropertiesProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostvolumeproperties.html#cfn-ecs-taskdefinition-hostvolumeproperties-sourcepath>
+                                  sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHostVolumePropertiesProperty :: HostVolumePropertiesProperty
 mkHostVolumePropertiesProperty
-  = HostVolumePropertiesProperty {sourcePath = Prelude.Nothing}
+  = HostVolumePropertiesProperty
+      {haddock_workaround_ = (), sourcePath = Prelude.Nothing}
 instance ToResourceProperties HostVolumePropertiesProperty where
   toResourceProperties HostVolumePropertiesProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON HostVolumePropertiesProperty where
               [(JSON..=) "SourcePath" Prelude.<$> sourcePath]))
 instance Property "SourcePath" HostVolumePropertiesProperty where
   type PropertyType "SourcePath" HostVolumePropertiesProperty = Value Prelude.Text
-  set newValue HostVolumePropertiesProperty {}
+  set newValue HostVolumePropertiesProperty {..}
     = HostVolumePropertiesProperty
         {sourcePath = Prelude.pure newValue, ..}

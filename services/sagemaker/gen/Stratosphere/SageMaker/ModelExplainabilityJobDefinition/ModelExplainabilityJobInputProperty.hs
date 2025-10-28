@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.Ba
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.EndpointInputProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelExplainabilityJobInputProperty
-  = ModelExplainabilityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>
+    ModelExplainabilityJobInputProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-batchtransforminput>
+                                         batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput>
                                          endpointInput :: (Prelude.Maybe EndpointInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelExplainabilityJobInputProperty ::
   ModelExplainabilityJobInputProperty
 mkModelExplainabilityJobInputProperty
   = ModelExplainabilityJobInputProperty
-      {batchTransformInput = Prelude.Nothing,
+      {haddock_workaround_ = (), batchTransformInput = Prelude.Nothing,
        endpointInput = Prelude.Nothing}
 instance ToResourceProperties ModelExplainabilityJobInputProperty where
   toResourceProperties ModelExplainabilityJobInputProperty {..}

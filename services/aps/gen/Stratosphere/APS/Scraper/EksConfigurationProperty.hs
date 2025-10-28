@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksConfigurationProperty
-  = EksConfigurationProperty {clusterArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html>
+    EksConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-clusterarn>
+                              clusterArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-securitygroupids>
                               securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-subnetids>
                               subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksConfigurationProperty ::
@@ -16,8 +21,8 @@ mkEksConfigurationProperty ::
   -> ValueList Prelude.Text -> EksConfigurationProperty
 mkEksConfigurationProperty clusterArn subnetIds
   = EksConfigurationProperty
-      {clusterArn = clusterArn, subnetIds = subnetIds,
-       securityGroupIds = Prelude.Nothing}
+      {haddock_workaround_ = (), clusterArn = clusterArn,
+       subnetIds = subnetIds, securityGroupIds = Prelude.Nothing}
 instance ToResourceProperties EksConfigurationProperty where
   toResourceProperties EksConfigurationProperty {..}
     = ResourceProperties

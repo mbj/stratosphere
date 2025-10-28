@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatchRangeProperty
-  = MatchRangeProperty {end :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html>
+    MatchRangeProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html#cfn-appmesh-route-matchrange-end>
+                        end :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html#cfn-appmesh-route-matchrange-start>
                         start :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchRangeProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> MatchRangeProperty
 mkMatchRangeProperty end start
-  = MatchRangeProperty {end = end, start = start}
+  = MatchRangeProperty
+      {haddock_workaround_ = (), end = end, start = start}
 instance ToResourceProperties MatchRangeProperty where
   toResourceProperties MatchRangeProperty {..}
     = ResourceProperties

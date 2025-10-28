@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StateMachineVersion
-  = StateMachineVersion {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html>
+    StateMachineVersion {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html#cfn-stepfunctions-statemachineversion-description>
+                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html#cfn-stepfunctions-statemachineversion-statemachinearn>
                          stateMachineArn :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html#cfn-stepfunctions-statemachineversion-statemachinerevisionid>
                          stateMachineRevisionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStateMachineVersion :: Value Prelude.Text -> StateMachineVersion
 mkStateMachineVersion stateMachineArn
   = StateMachineVersion
-      {stateMachineArn = stateMachineArn, description = Prelude.Nothing,
+      {haddock_workaround_ = (), stateMachineArn = stateMachineArn,
+       description = Prelude.Nothing,
        stateMachineRevisionId = Prelude.Nothing}
 instance ToResourceProperties StateMachineVersion where
   toResourceProperties StateMachineVersion {..}

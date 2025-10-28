@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.ECS.Cluster.ExecuteCommandLogConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecuteCommandConfigurationProperty
-  = ExecuteCommandConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html>
+    ExecuteCommandConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid>
+                                         kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration>
                                          logConfiguration :: (Prelude.Maybe ExecuteCommandLogConfigurationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging>
                                          logging :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecuteCommandConfigurationProperty ::
   ExecuteCommandConfigurationProperty
 mkExecuteCommandConfigurationProperty
   = ExecuteCommandConfigurationProperty
-      {kmsKeyId = Prelude.Nothing, logConfiguration = Prelude.Nothing,
-       logging = Prelude.Nothing}
+      {haddock_workaround_ = (), kmsKeyId = Prelude.Nothing,
+       logConfiguration = Prelude.Nothing, logging = Prelude.Nothing}
 instance ToResourceProperties ExecuteCommandConfigurationProperty where
   toResourceProperties ExecuteCommandConfigurationProperty {..}
     = ResourceProperties

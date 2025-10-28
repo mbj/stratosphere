@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrackerConsumer
-  = TrackerConsumer {consumerArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html>
+    TrackerConsumer {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn>
+                     consumerArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername>
                      trackerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackerConsumer ::
   Value Prelude.Text -> Value Prelude.Text -> TrackerConsumer
 mkTrackerConsumer consumerArn trackerName
   = TrackerConsumer
-      {consumerArn = consumerArn, trackerName = trackerName}
+      {haddock_workaround_ = (), consumerArn = consumerArn,
+       trackerName = trackerName}
 instance ToResourceProperties TrackerConsumer where
   toResourceProperties TrackerConsumer {..}
     = ResourceProperties

@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecretsManagerAccessTokenConfigurationProperty
-  = SecretsManagerAccessTokenConfigurationProperty {headerName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html>
+    SecretsManagerAccessTokenConfigurationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html#cfn-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration-headername>
+                                                    headerName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html#cfn-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration-secretarn>
                                                     secretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html#cfn-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration-secretstringkey>
                                                     secretStringKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretsManagerAccessTokenConfigurationProperty ::
   SecretsManagerAccessTokenConfigurationProperty
 mkSecretsManagerAccessTokenConfigurationProperty
   = SecretsManagerAccessTokenConfigurationProperty
-      {headerName = Prelude.Nothing, secretArn = Prelude.Nothing,
-       secretStringKey = Prelude.Nothing}
+      {haddock_workaround_ = (), headerName = Prelude.Nothing,
+       secretArn = Prelude.Nothing, secretStringKey = Prelude.Nothing}
 instance ToResourceProperties SecretsManagerAccessTokenConfigurationProperty where
   toResourceProperties
     SecretsManagerAccessTokenConfigurationProperty {..}

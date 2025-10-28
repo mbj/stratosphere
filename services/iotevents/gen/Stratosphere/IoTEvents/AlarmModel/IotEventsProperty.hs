@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotEventsProperty
-  = IotEventsProperty {inputName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotevents.html>
+    IotEventsProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotevents.html#cfn-iotevents-alarmmodel-iotevents-inputname>
+                       inputName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotevents.html#cfn-iotevents-alarmmodel-iotevents-payload>
                        payload :: (Prelude.Maybe PayloadProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsProperty :: Value Prelude.Text -> IotEventsProperty
 mkIotEventsProperty inputName
   = IotEventsProperty
-      {inputName = inputName, payload = Prelude.Nothing}
+      {haddock_workaround_ = (), inputName = inputName,
+       payload = Prelude.Nothing}
 instance ToResourceProperties IotEventsProperty where
   toResourceProperties IotEventsProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortMappingProperty
-  = PortMappingProperty {port :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html>
+    PortMappingProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-port>
+                         port :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html#cfn-appmesh-virtualnode-portmapping-protocol>
                          protocol :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortMappingProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> PortMappingProperty
 mkPortMappingProperty port protocol
-  = PortMappingProperty {port = port, protocol = protocol}
+  = PortMappingProperty
+      {haddock_workaround_ = (), port = port, protocol = protocol}
 instance ToResourceProperties PortMappingProperty where
   toResourceProperties PortMappingProperty {..}
     = ResourceProperties

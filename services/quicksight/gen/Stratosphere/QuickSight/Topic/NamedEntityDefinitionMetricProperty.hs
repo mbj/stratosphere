@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamedEntityDefinitionMetricProperty
-  = NamedEntityDefinitionMetricProperty {aggregation :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html>
+    NamedEntityDefinitionMetricProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html#cfn-quicksight-topic-namedentitydefinitionmetric-aggregation>
+                                         aggregation :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html#cfn-quicksight-topic-namedentitydefinitionmetric-aggregationfunctionparameters>
                                          aggregationFunctionParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedEntityDefinitionMetricProperty ::
   NamedEntityDefinitionMetricProperty
 mkNamedEntityDefinitionMetricProperty
   = NamedEntityDefinitionMetricProperty
-      {aggregation = Prelude.Nothing,
+      {haddock_workaround_ = (), aggregation = Prelude.Nothing,
        aggregationFunctionParameters = Prelude.Nothing}
 instance ToResourceProperties NamedEntityDefinitionMetricProperty where
   toResourceProperties NamedEntityDefinitionMetricProperty {..}

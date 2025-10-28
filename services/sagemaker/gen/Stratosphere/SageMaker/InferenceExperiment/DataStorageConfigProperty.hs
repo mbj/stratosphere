@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceExperiment.CaptureContentT
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataStorageConfigProperty
-  = DataStorageConfigProperty {contentType :: (Prelude.Maybe CaptureContentTypeHeaderProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html>
+    DataStorageConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-contenttype>
+                               contentType :: (Prelude.Maybe CaptureContentTypeHeaderProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-destination>
                                destination :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html#cfn-sagemaker-inferenceexperiment-datastorageconfig-kmskey>
                                kmsKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataStorageConfigProperty ::
   Value Prelude.Text -> DataStorageConfigProperty
 mkDataStorageConfigProperty destination
   = DataStorageConfigProperty
-      {destination = destination, contentType = Prelude.Nothing,
-       kmsKey = Prelude.Nothing}
+      {haddock_workaround_ = (), destination = destination,
+       contentType = Prelude.Nothing, kmsKey = Prelude.Nothing}
 instance ToResourceProperties DataStorageConfigProperty where
   toResourceProperties DataStorageConfigProperty {..}
     = ResourceProperties

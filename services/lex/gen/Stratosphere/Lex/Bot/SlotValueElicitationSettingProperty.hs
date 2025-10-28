@@ -13,18 +13,26 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.WaitAndContinueSpecificationProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueElicitationSettingProperty
-  = SlotValueElicitationSettingProperty {defaultValueSpecification :: (Prelude.Maybe SlotDefaultValueSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html>
+    SlotValueElicitationSettingProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-defaultvaluespecification>
+                                         defaultValueSpecification :: (Prelude.Maybe SlotDefaultValueSpecificationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-promptspecification>
                                          promptSpecification :: (Prelude.Maybe PromptSpecificationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-sampleutterances>
                                          sampleUtterances :: (Prelude.Maybe [SampleUtteranceProperty]),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-slotcapturesetting>
                                          slotCaptureSetting :: (Prelude.Maybe SlotCaptureSettingProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-slotconstraint>
                                          slotConstraint :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html#cfn-lex-bot-slotvalueelicitationsetting-waitandcontinuespecification>
                                          waitAndContinueSpecification :: (Prelude.Maybe WaitAndContinueSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueElicitationSettingProperty ::
   Value Prelude.Text -> SlotValueElicitationSettingProperty
 mkSlotValueElicitationSettingProperty slotConstraint
   = SlotValueElicitationSettingProperty
-      {slotConstraint = slotConstraint,
+      {haddock_workaround_ = (), slotConstraint = slotConstraint,
        defaultValueSpecification = Prelude.Nothing,
        promptSpecification = Prelude.Nothing,
        sampleUtterances = Prelude.Nothing,

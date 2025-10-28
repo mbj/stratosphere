@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplaceRecipientActionProperty
-  = ReplaceRecipientActionProperty {replaceWith :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-replacerecipientaction.html>
+    ReplaceRecipientActionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-replacerecipientaction.html#cfn-ses-mailmanagerruleset-replacerecipientaction-replacewith>
+                                    replaceWith :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplaceRecipientActionProperty :: ReplaceRecipientActionProperty
 mkReplaceRecipientActionProperty
-  = ReplaceRecipientActionProperty {replaceWith = Prelude.Nothing}
+  = ReplaceRecipientActionProperty
+      {haddock_workaround_ = (), replaceWith = Prelude.Nothing}
 instance ToResourceProperties ReplaceRecipientActionProperty where
   toResourceProperties ReplaceRecipientActionProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON ReplaceRecipientActionProperty where
               [(JSON..=) "ReplaceWith" Prelude.<$> replaceWith]))
 instance Property "ReplaceWith" ReplaceRecipientActionProperty where
   type PropertyType "ReplaceWith" ReplaceRecipientActionProperty = ValueList Prelude.Text
-  set newValue ReplaceRecipientActionProperty {}
+  set newValue ReplaceRecipientActionProperty {..}
     = ReplaceRecipientActionProperty
         {replaceWith = Prelude.pure newValue, ..}

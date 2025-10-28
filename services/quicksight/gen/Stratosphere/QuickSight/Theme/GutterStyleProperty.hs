@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GutterStyleProperty
-  = GutterStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html>
+    GutterStyleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show>
+                         show :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGutterStyleProperty :: GutterStyleProperty
 mkGutterStyleProperty
-  = GutterStyleProperty {show = Prelude.Nothing}
+  = GutterStyleProperty
+      {haddock_workaround_ = (), show = Prelude.Nothing}
 instance ToResourceProperties GutterStyleProperty where
   toResourceProperties GutterStyleProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON GutterStyleProperty where
            (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show]))
 instance Property "Show" GutterStyleProperty where
   type PropertyType "Show" GutterStyleProperty = Value Prelude.Bool
-  set newValue GutterStyleProperty {}
+  set newValue GutterStyleProperty {..}
     = GutterStyleProperty {show = Prelude.pure newValue, ..}

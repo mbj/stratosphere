@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data XSSProtectionProperty
-  = XSSProtectionProperty {modeBlock :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html>
+    XSSProtectionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-modeblock>
+                           modeBlock :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-override>
                            override :: (Value Prelude.Bool),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-protection>
                            protection :: (Value Prelude.Bool),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html#cfn-cloudfront-responseheaderspolicy-xssprotection-reporturi>
                            reportUri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXSSProtectionProperty ::
   Value Prelude.Bool -> Value Prelude.Bool -> XSSProtectionProperty
 mkXSSProtectionProperty override protection
   = XSSProtectionProperty
-      {override = override, protection = protection,
-       modeBlock = Prelude.Nothing, reportUri = Prelude.Nothing}
+      {haddock_workaround_ = (), override = override,
+       protection = protection, modeBlock = Prelude.Nothing,
+       reportUri = Prelude.Nothing}
 instance ToResourceProperties XSSProtectionProperty where
   toResourceProperties XSSProtectionProperty {..}
     = ResourceProperties

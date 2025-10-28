@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.LambdaCodeHookProperty as Exports
 import Stratosphere.ResourceProperties
 data CodeHookSpecificationProperty
-  = CodeHookSpecificationProperty {lambdaCodeHook :: LambdaCodeHookProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-codehookspecification.html>
+    CodeHookSpecificationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-codehookspecification.html#cfn-lex-bot-codehookspecification-lambdacodehook>
+                                   lambdaCodeHook :: LambdaCodeHookProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeHookSpecificationProperty ::
   LambdaCodeHookProperty -> CodeHookSpecificationProperty
 mkCodeHookSpecificationProperty lambdaCodeHook
-  = CodeHookSpecificationProperty {lambdaCodeHook = lambdaCodeHook}
+  = CodeHookSpecificationProperty
+      {haddock_workaround_ = (), lambdaCodeHook = lambdaCodeHook}
 instance ToResourceProperties CodeHookSpecificationProperty where
   toResourceProperties CodeHookSpecificationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CodeHookSpecificationProperty where
     = JSON.object ["LambdaCodeHook" JSON..= lambdaCodeHook]
 instance Property "LambdaCodeHook" CodeHookSpecificationProperty where
   type PropertyType "LambdaCodeHook" CodeHookSpecificationProperty = LambdaCodeHookProperty
-  set newValue CodeHookSpecificationProperty {}
+  set newValue CodeHookSpecificationProperty {..}
     = CodeHookSpecificationProperty {lambdaCodeHook = newValue, ..}

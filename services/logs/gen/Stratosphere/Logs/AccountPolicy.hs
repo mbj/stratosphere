@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountPolicy
-  = AccountPolicy {policyDocument :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html>
+    AccountPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-policydocument>
+                   policyDocument :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-policyname>
                    policyName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-policytype>
                    policyType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-scope>
                    scope :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-selectioncriteria>
                    selectionCriteria :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountPolicy ::
@@ -18,9 +25,9 @@ mkAccountPolicy ::
   -> Value Prelude.Text -> Value Prelude.Text -> AccountPolicy
 mkAccountPolicy policyDocument policyName policyType
   = AccountPolicy
-      {policyDocument = policyDocument, policyName = policyName,
-       policyType = policyType, scope = Prelude.Nothing,
-       selectionCriteria = Prelude.Nothing}
+      {haddock_workaround_ = (), policyDocument = policyDocument,
+       policyName = policyName, policyType = policyType,
+       scope = Prelude.Nothing, selectionCriteria = Prelude.Nothing}
 instance ToResourceProperties AccountPolicy where
   toResourceProperties AccountPolicy {..}
     = ResourceProperties

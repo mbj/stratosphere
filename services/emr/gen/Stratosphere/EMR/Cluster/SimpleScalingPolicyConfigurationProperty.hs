@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SimpleScalingPolicyConfigurationProperty
-  = SimpleScalingPolicyConfigurationProperty {adjustmentType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html>
+    SimpleScalingPolicyConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-adjustmenttype>
+                                              adjustmentType :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-cooldown>
                                               coolDown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-scalingadjustment>
                                               scalingAdjustment :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleScalingPolicyConfigurationProperty ::
   Value Prelude.Integer -> SimpleScalingPolicyConfigurationProperty
 mkSimpleScalingPolicyConfigurationProperty scalingAdjustment
   = SimpleScalingPolicyConfigurationProperty
-      {scalingAdjustment = scalingAdjustment,
+      {haddock_workaround_ = (), scalingAdjustment = scalingAdjustment,
        adjustmentType = Prelude.Nothing, coolDown = Prelude.Nothing}
 instance ToResourceProperties SimpleScalingPolicyConfigurationProperty where
   toResourceProperties SimpleScalingPolicyConfigurationProperty {..}

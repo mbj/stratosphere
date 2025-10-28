@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsProperty
-  = TlsProperty {certificateAuthorityArnList :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>
+    TlsProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-certificateauthorityarnlist>
+                 certificateAuthorityArnList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-enabled>
                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsProperty :: TlsProperty
 mkTlsProperty
   = TlsProperty
-      {certificateAuthorityArnList = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       certificateAuthorityArnList = Prelude.Nothing,
        enabled = Prelude.Nothing}
 instance ToResourceProperties TlsProperty where
   toResourceProperties TlsProperty {..}

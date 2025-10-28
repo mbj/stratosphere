@@ -8,11 +8,19 @@ import {-# SOURCE #-} Stratosphere.RDS.DBProxyEndpoint.TagFormatProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBProxyEndpoint
-  = DBProxyEndpoint {dBProxyEndpointName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html>
+    DBProxyEndpoint {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname>
+                     dBProxyEndpointName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname>
                      dBProxyName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags>
                      tags :: (Prelude.Maybe [TagFormatProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole>
                      targetRole :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids>
                      vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids>
                      vpcSubnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxyEndpoint ::
@@ -20,7 +28,8 @@ mkDBProxyEndpoint ::
   -> Value Prelude.Text -> ValueList Prelude.Text -> DBProxyEndpoint
 mkDBProxyEndpoint dBProxyEndpointName dBProxyName vpcSubnetIds
   = DBProxyEndpoint
-      {dBProxyEndpointName = dBProxyEndpointName,
+      {haddock_workaround_ = (),
+       dBProxyEndpointName = dBProxyEndpointName,
        dBProxyName = dBProxyName, vpcSubnetIds = vpcSubnetIds,
        tags = Prelude.Nothing, targetRole = Prelude.Nothing,
        vpcSecurityGroupIds = Prelude.Nothing}

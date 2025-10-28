@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterEncryptionInTransitProperty
-  = KafkaClusterEncryptionInTransitProperty {encryptionType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html>
+    KafkaClusterEncryptionInTransitProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype>
+                                             encryptionType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterEncryptionInTransitProperty ::
   Value Prelude.Text -> KafkaClusterEncryptionInTransitProperty
 mkKafkaClusterEncryptionInTransitProperty encryptionType
   = KafkaClusterEncryptionInTransitProperty
-      {encryptionType = encryptionType}
+      {haddock_workaround_ = (), encryptionType = encryptionType}
 instance ToResourceProperties KafkaClusterEncryptionInTransitProperty where
   toResourceProperties KafkaClusterEncryptionInTransitProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON KafkaClusterEncryptionInTransitProperty where
     = JSON.object ["EncryptionType" JSON..= encryptionType]
 instance Property "EncryptionType" KafkaClusterEncryptionInTransitProperty where
   type PropertyType "EncryptionType" KafkaClusterEncryptionInTransitProperty = Value Prelude.Text
-  set newValue KafkaClusterEncryptionInTransitProperty {}
+  set newValue KafkaClusterEncryptionInTransitProperty {..}
     = KafkaClusterEncryptionInTransitProperty
         {encryptionType = newValue, ..}

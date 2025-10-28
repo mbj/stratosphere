@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.SES.VdmAttributes.DashboardAttributesProperty
 import {-# SOURCE #-} Stratosphere.SES.VdmAttributes.GuardianAttributesProperty as Exports
 import Stratosphere.ResourceProperties
 data VdmAttributes
-  = VdmAttributes {dashboardAttributes :: (Prelude.Maybe DashboardAttributesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html>
+    VdmAttributes {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html#cfn-ses-vdmattributes-dashboardattributes>
+                   dashboardAttributes :: (Prelude.Maybe DashboardAttributesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html#cfn-ses-vdmattributes-guardianattributes>
                    guardianAttributes :: (Prelude.Maybe GuardianAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVdmAttributes :: VdmAttributes
 mkVdmAttributes
   = VdmAttributes
-      {dashboardAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), dashboardAttributes = Prelude.Nothing,
        guardianAttributes = Prelude.Nothing}
 instance ToResourceProperties VdmAttributes where
   toResourceProperties VdmAttributes {..}

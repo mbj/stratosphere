@@ -10,17 +10,25 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.SuccessResponseHandlingConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataDestinationPropertiesProperty
-  = SAPODataDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html>
+    SAPODataDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-errorhandlingconfig>
+                                           errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-idfieldnames>
                                            idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-objectpath>
                                            objectPath :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-successresponsehandlingconfig>
                                            successResponseHandlingConfig :: (Prelude.Maybe SuccessResponseHandlingConfigProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html#cfn-appflow-flow-sapodatadestinationproperties-writeoperationtype>
                                            writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataDestinationPropertiesProperty ::
   Value Prelude.Text -> SAPODataDestinationPropertiesProperty
 mkSAPODataDestinationPropertiesProperty objectPath
   = SAPODataDestinationPropertiesProperty
-      {objectPath = objectPath, errorHandlingConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), objectPath = objectPath,
+       errorHandlingConfig = Prelude.Nothing,
        idFieldNames = Prelude.Nothing,
        successResponseHandlingConfig = Prelude.Nothing,
        writeOperationType = Prelude.Nothing}

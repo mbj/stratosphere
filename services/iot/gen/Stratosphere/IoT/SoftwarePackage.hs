@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SoftwarePackage
-  = SoftwarePackage {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html>
+    SoftwarePackage {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-description>
+                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-packagename>
                      packageName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSoftwarePackage :: SoftwarePackage
 mkSoftwarePackage
   = SoftwarePackage
-      {description = Prelude.Nothing, packageName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       packageName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties SoftwarePackage where
   toResourceProperties SoftwarePackage {..}
     = ResourceProperties

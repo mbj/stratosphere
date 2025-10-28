@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PerformanceFactorReferenceRequestProperty
-  = PerformanceFactorReferenceRequestProperty {instanceFamily :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-performancefactorreferencerequest.html>
+    PerformanceFactorReferenceRequestProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-performancefactorreferencerequest.html#cfn-autoscaling-autoscalinggroup-performancefactorreferencerequest-instancefamily>
+                                               instanceFamily :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPerformanceFactorReferenceRequestProperty ::
   PerformanceFactorReferenceRequestProperty
 mkPerformanceFactorReferenceRequestProperty
   = PerformanceFactorReferenceRequestProperty
-      {instanceFamily = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceFamily = Prelude.Nothing}
 instance ToResourceProperties PerformanceFactorReferenceRequestProperty where
   toResourceProperties PerformanceFactorReferenceRequestProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON PerformanceFactorReferenceRequestProperty where
               [(JSON..=) "InstanceFamily" Prelude.<$> instanceFamily]))
 instance Property "InstanceFamily" PerformanceFactorReferenceRequestProperty where
   type PropertyType "InstanceFamily" PerformanceFactorReferenceRequestProperty = Value Prelude.Text
-  set newValue PerformanceFactorReferenceRequestProperty {}
+  set newValue PerformanceFactorReferenceRequestProperty {..}
     = PerformanceFactorReferenceRequestProperty
         {instanceFamily = Prelude.pure newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpRouteActionProperty
-  = HttpRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html>
+    HttpRouteActionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html#cfn-appmesh-route-httprouteaction-weightedtargets>
+                             weightedTargets :: [WeightedTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteActionProperty ::
   [WeightedTargetProperty] -> HttpRouteActionProperty
 mkHttpRouteActionProperty weightedTargets
-  = HttpRouteActionProperty {weightedTargets = weightedTargets}
+  = HttpRouteActionProperty
+      {haddock_workaround_ = (), weightedTargets = weightedTargets}
 instance ToResourceProperties HttpRouteActionProperty where
   toResourceProperties HttpRouteActionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON HttpRouteActionProperty where
     = JSON.object ["WeightedTargets" JSON..= weightedTargets]
 instance Property "WeightedTargets" HttpRouteActionProperty where
   type PropertyType "WeightedTargets" HttpRouteActionProperty = [WeightedTargetProperty]
-  set newValue HttpRouteActionProperty {}
+  set newValue HttpRouteActionProperty {..}
     = HttpRouteActionProperty {weightedTargets = newValue, ..}

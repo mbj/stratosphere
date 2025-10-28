@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceParametersProperty
-  = ResourceParametersProperty {resourceAssociationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html>
+    ResourceParametersProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html#cfn-events-connection-resourceparameters-resourceassociationarn>
+                                resourceAssociationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html#cfn-events-connection-resourceparameters-resourceconfigurationarn>
                                 resourceConfigurationArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceParametersProperty ::
   Value Prelude.Text -> ResourceParametersProperty
 mkResourceParametersProperty resourceConfigurationArn
   = ResourceParametersProperty
-      {resourceConfigurationArn = resourceConfigurationArn,
+      {haddock_workaround_ = (),
+       resourceConfigurationArn = resourceConfigurationArn,
        resourceAssociationArn = Prelude.Nothing}
 instance ToResourceProperties ResourceParametersProperty where
   toResourceProperties ResourceParametersProperty {..}

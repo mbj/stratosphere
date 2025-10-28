@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntuneConfigurationProperty
-  = IntuneConfigurationProperty {azureApplicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-intuneconfiguration.html>
+    IntuneConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-intuneconfiguration.html#cfn-pcaconnectorscep-connector-intuneconfiguration-azureapplicationid>
+                                 azureApplicationId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-intuneconfiguration.html#cfn-pcaconnectorscep-connector-intuneconfiguration-domain>
                                  domain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntuneConfigurationProperty ::
@@ -15,7 +19,8 @@ mkIntuneConfigurationProperty ::
   -> Value Prelude.Text -> IntuneConfigurationProperty
 mkIntuneConfigurationProperty azureApplicationId domain
   = IntuneConfigurationProperty
-      {azureApplicationId = azureApplicationId, domain = domain}
+      {haddock_workaround_ = (), azureApplicationId = azureApplicationId,
+       domain = domain}
 instance ToResourceProperties IntuneConfigurationProperty where
   toResourceProperties IntuneConfigurationProperty {..}
     = ResourceProperties

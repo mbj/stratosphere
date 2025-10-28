@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Destination
-  = Destination {destinationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html>
+    Destination {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationname>
+                 destinationName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationpolicy>
                  destinationPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-rolearn>
                  roleArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-targetarn>
                  targetArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestination ::
@@ -17,8 +23,9 @@ mkDestination ::
   -> Value Prelude.Text -> Value Prelude.Text -> Destination
 mkDestination destinationName roleArn targetArn
   = Destination
-      {destinationName = destinationName, roleArn = roleArn,
-       targetArn = targetArn, destinationPolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationName = destinationName,
+       roleArn = roleArn, targetArn = targetArn,
+       destinationPolicy = Prelude.Nothing}
 instance ToResourceProperties Destination where
   toResourceProperties Destination {..}
     = ResourceProperties

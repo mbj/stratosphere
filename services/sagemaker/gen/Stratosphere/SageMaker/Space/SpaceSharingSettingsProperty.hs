@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpaceSharingSettingsProperty
-  = SpaceSharingSettingsProperty {sharingType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesharingsettings.html>
+    SpaceSharingSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesharingsettings.html#cfn-sagemaker-space-spacesharingsettings-sharingtype>
+                                  sharingType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceSharingSettingsProperty ::
   Value Prelude.Text -> SpaceSharingSettingsProperty
 mkSpaceSharingSettingsProperty sharingType
-  = SpaceSharingSettingsProperty {sharingType = sharingType}
+  = SpaceSharingSettingsProperty
+      {haddock_workaround_ = (), sharingType = sharingType}
 instance ToResourceProperties SpaceSharingSettingsProperty where
   toResourceProperties SpaceSharingSettingsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON SpaceSharingSettingsProperty where
     = JSON.object ["SharingType" JSON..= sharingType]
 instance Property "SharingType" SpaceSharingSettingsProperty where
   type PropertyType "SharingType" SpaceSharingSettingsProperty = Value Prelude.Text
-  set newValue SpaceSharingSettingsProperty {}
+  set newValue SpaceSharingSettingsProperty {..}
     = SpaceSharingSettingsProperty {sharingType = newValue, ..}

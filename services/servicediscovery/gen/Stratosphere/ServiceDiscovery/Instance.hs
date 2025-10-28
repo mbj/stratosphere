@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Instance
-  = Instance {instanceAttributes :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html>
+    Instance {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes>
+              instanceAttributes :: JSON.Object,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid>
               instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid>
               serviceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance :: JSON.Object -> Value Prelude.Text -> Instance
 mkInstance instanceAttributes serviceId
   = Instance
-      {instanceAttributes = instanceAttributes, serviceId = serviceId,
-       instanceId = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceAttributes = instanceAttributes,
+       serviceId = serviceId, instanceId = Prelude.Nothing}
 instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties

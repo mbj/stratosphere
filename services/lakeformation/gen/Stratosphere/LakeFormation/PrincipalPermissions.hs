@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.PrincipalPermissions.ResourcePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrincipalPermissions
-  = PrincipalPermissions {catalog :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html>
+    PrincipalPermissions {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-catalog>
+                          catalog :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-permissions>
                           permissions :: (ValueList Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-permissionswithgrantoption>
                           permissionsWithGrantOption :: (ValueList Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-principal>
                           principal :: DataLakePrincipalProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html#cfn-lakeformation-principalpermissions-resource>
                           resource :: ResourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrincipalPermissions ::
@@ -26,7 +33,7 @@ mkPrincipalPermissions
   principal
   resource
   = PrincipalPermissions
-      {permissions = permissions,
+      {haddock_workaround_ = (), permissions = permissions,
        permissionsWithGrantOption = permissionsWithGrantOption,
        principal = principal, resource = resource,
        catalog = Prelude.Nothing}

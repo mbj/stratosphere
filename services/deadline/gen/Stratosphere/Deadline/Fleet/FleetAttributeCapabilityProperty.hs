@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FleetAttributeCapabilityProperty
-  = FleetAttributeCapabilityProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetattributecapability.html>
+    FleetAttributeCapabilityProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetattributecapability.html#cfn-deadline-fleet-fleetattributecapability-name>
+                                      name :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetattributecapability.html#cfn-deadline-fleet-fleetattributecapability-values>
                                       values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetAttributeCapabilityProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> FleetAttributeCapabilityProperty
 mkFleetAttributeCapabilityProperty name values
-  = FleetAttributeCapabilityProperty {name = name, values = values}
+  = FleetAttributeCapabilityProperty
+      {haddock_workaround_ = (), name = name, values = values}
 instance ToResourceProperties FleetAttributeCapabilityProperty where
   toResourceProperties FleetAttributeCapabilityProperty {..}
     = ResourceProperties

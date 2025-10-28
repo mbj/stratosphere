@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomHTTPHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomRequestHandlingProperty
-  = CustomRequestHandlingProperty {insertHeaders :: [CustomHTTPHeaderProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customrequesthandling.html>
+    CustomRequestHandlingProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customrequesthandling.html#cfn-wafv2-rulegroup-customrequesthandling-insertheaders>
+                                   insertHeaders :: [CustomHTTPHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomRequestHandlingProperty ::
   [CustomHTTPHeaderProperty] -> CustomRequestHandlingProperty
 mkCustomRequestHandlingProperty insertHeaders
-  = CustomRequestHandlingProperty {insertHeaders = insertHeaders}
+  = CustomRequestHandlingProperty
+      {haddock_workaround_ = (), insertHeaders = insertHeaders}
 instance ToResourceProperties CustomRequestHandlingProperty where
   toResourceProperties CustomRequestHandlingProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CustomRequestHandlingProperty where
     = JSON.object ["InsertHeaders" JSON..= insertHeaders]
 instance Property "InsertHeaders" CustomRequestHandlingProperty where
   type PropertyType "InsertHeaders" CustomRequestHandlingProperty = [CustomHTTPHeaderProperty]
-  set newValue CustomRequestHandlingProperty {}
+  set newValue CustomRequestHandlingProperty {..}
     = CustomRequestHandlingProperty {insertHeaders = newValue, ..}

@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.PaymentCryptography.Key.KeyModesOfUseProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyAttributesProperty
-  = KeyAttributesProperty {keyAlgorithm :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html>
+    KeyAttributesProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyalgorithm>
+                           keyAlgorithm :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyclass>
                            keyClass :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keymodesofuse>
                            keyModesOfUse :: KeyModesOfUseProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyusage>
                            keyUsage :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyAttributesProperty ::
@@ -24,8 +30,9 @@ mkKeyAttributesProperty
   keyModesOfUse
   keyUsage
   = KeyAttributesProperty
-      {keyAlgorithm = keyAlgorithm, keyClass = keyClass,
-       keyModesOfUse = keyModesOfUse, keyUsage = keyUsage}
+      {haddock_workaround_ = (), keyAlgorithm = keyAlgorithm,
+       keyClass = keyClass, keyModesOfUse = keyModesOfUse,
+       keyUsage = keyUsage}
 instance ToResourceProperties KeyAttributesProperty where
   toResourceProperties KeyAttributesProperty {..}
     = ResourceProperties

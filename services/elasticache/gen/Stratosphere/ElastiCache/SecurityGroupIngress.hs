@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityGroupIngress
-  = SecurityGroupIngress {cacheSecurityGroupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html>
+    SecurityGroupIngress {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-cachesecuritygroupname>
+                          cacheSecurityGroupName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupname>
                           eC2SecurityGroupName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html#cfn-elasticache-securitygroupingress-ec2securitygroupownerid>
                           eC2SecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroupIngress ::
   Value Prelude.Text -> Value Prelude.Text -> SecurityGroupIngress
 mkSecurityGroupIngress cacheSecurityGroupName eC2SecurityGroupName
   = SecurityGroupIngress
-      {cacheSecurityGroupName = cacheSecurityGroupName,
+      {haddock_workaround_ = (),
+       cacheSecurityGroupName = cacheSecurityGroupName,
        eC2SecurityGroupName = eC2SecurityGroupName,
        eC2SecurityGroupOwnerId = Prelude.Nothing}
 instance ToResourceProperties SecurityGroupIngress where

@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetModelHierarchyProperty
-  = AssetModelHierarchyProperty {childAssetModelId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html>
+    AssetModelHierarchyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid>
+                                 childAssetModelId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-externalid>
                                  externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-id>
                                  id :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid>
                                  logicalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name>
                                  name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelHierarchyProperty ::
@@ -18,8 +25,8 @@ mkAssetModelHierarchyProperty ::
   -> Value Prelude.Text -> AssetModelHierarchyProperty
 mkAssetModelHierarchyProperty childAssetModelId name
   = AssetModelHierarchyProperty
-      {childAssetModelId = childAssetModelId, name = name,
-       externalId = Prelude.Nothing, id = Prelude.Nothing,
+      {haddock_workaround_ = (), childAssetModelId = childAssetModelId,
+       name = name, externalId = Prelude.Nothing, id = Prelude.Nothing,
        logicalId = Prelude.Nothing}
 instance ToResourceProperties AssetModelHierarchyProperty where
   toResourceProperties AssetModelHierarchyProperty {..}

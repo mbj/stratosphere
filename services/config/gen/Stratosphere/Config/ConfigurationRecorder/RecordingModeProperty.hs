@@ -8,14 +8,18 @@ import {-# SOURCE #-} Stratosphere.Config.ConfigurationRecorder.RecordingModeOve
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordingModeProperty
-  = RecordingModeProperty {recordingFrequency :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html>
+    RecordingModeProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html#cfn-config-configurationrecorder-recordingmode-recordingfrequency>
+                           recordingFrequency :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html#cfn-config-configurationrecorder-recordingmode-recordingmodeoverrides>
                            recordingModeOverrides :: (Prelude.Maybe [RecordingModeOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingModeProperty ::
   Value Prelude.Text -> RecordingModeProperty
 mkRecordingModeProperty recordingFrequency
   = RecordingModeProperty
-      {recordingFrequency = recordingFrequency,
+      {haddock_workaround_ = (), recordingFrequency = recordingFrequency,
        recordingModeOverrides = Prelude.Nothing}
 instance ToResourceProperties RecordingModeProperty where
   toResourceProperties RecordingModeProperty {..}

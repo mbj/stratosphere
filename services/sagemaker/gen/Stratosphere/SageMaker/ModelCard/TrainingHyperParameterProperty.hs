@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingHyperParameterProperty
-  = TrainingHyperParameterProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html>
+    TrainingHyperParameterProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html#cfn-sagemaker-modelcard-traininghyperparameter-name>
+                                    name :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html#cfn-sagemaker-modelcard-traininghyperparameter-value>
                                     value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingHyperParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TrainingHyperParameterProperty
 mkTrainingHyperParameterProperty name value
-  = TrainingHyperParameterProperty {name = name, value = value}
+  = TrainingHyperParameterProperty
+      {haddock_workaround_ = (), name = name, value = value}
 instance ToResourceProperties TrainingHyperParameterProperty where
   toResourceProperties TrainingHyperParameterProperty {..}
     = ResourceProperties

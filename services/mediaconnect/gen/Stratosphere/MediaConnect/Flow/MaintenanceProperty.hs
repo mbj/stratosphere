@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceProperty
-  = MaintenanceProperty {maintenanceDay :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html>
+    MaintenanceProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html#cfn-mediaconnect-flow-maintenance-maintenanceday>
+                         maintenanceDay :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html#cfn-mediaconnect-flow-maintenance-maintenancestarthour>
                          maintenanceStartHour :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MaintenanceProperty
 mkMaintenanceProperty maintenanceDay maintenanceStartHour
   = MaintenanceProperty
-      {maintenanceDay = maintenanceDay,
+      {haddock_workaround_ = (), maintenanceDay = maintenanceDay,
        maintenanceStartHour = maintenanceStartHour}
 instance ToResourceProperties MaintenanceProperty where
   toResourceProperties MaintenanceProperty {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PresignedUrlConfigProperty
-  = PresignedUrlConfigProperty {expiresInSec :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html>
+    PresignedUrlConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html#cfn-iot-jobtemplate-presignedurlconfig-expiresinsec>
+                                expiresInSec :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html#cfn-iot-jobtemplate-presignedurlconfig-rolearn>
                                 roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPresignedUrlConfigProperty ::
   Value Prelude.Text -> PresignedUrlConfigProperty
 mkPresignedUrlConfigProperty roleArn
   = PresignedUrlConfigProperty
-      {roleArn = roleArn, expiresInSec = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       expiresInSec = Prelude.Nothing}
 instance ToResourceProperties PresignedUrlConfigProperty where
   toResourceProperties PresignedUrlConfigProperty {..}
     = ResourceProperties

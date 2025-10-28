@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonthlyScheduleProperty
-  = MonthlyScheduleProperty {day :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-monthlyschedule.html>
+    MonthlyScheduleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-monthlyschedule.html#cfn-inspectorv2-cisscanconfiguration-monthlyschedule-day>
+                             day :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-monthlyschedule.html#cfn-inspectorv2-cisscanconfiguration-monthlyschedule-starttime>
                              startTime :: TimeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonthlyScheduleProperty ::
   Value Prelude.Text -> TimeProperty -> MonthlyScheduleProperty
 mkMonthlyScheduleProperty day startTime
-  = MonthlyScheduleProperty {day = day, startTime = startTime}
+  = MonthlyScheduleProperty
+      {haddock_workaround_ = (), day = day, startTime = startTime}
 instance ToResourceProperties MonthlyScheduleProperty where
   toResourceProperties MonthlyScheduleProperty {..}
     = ResourceProperties

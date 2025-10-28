@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrequencyProperty
-  = FrequencyProperty {unit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-frequency.html>
+    FrequencyProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-frequency.html#cfn-cloudtrail-dashboard-frequency-unit>
+                       unit :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-frequency.html#cfn-cloudtrail-dashboard-frequency-value>
                        value :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrequencyProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> FrequencyProperty
 mkFrequencyProperty unit value
-  = FrequencyProperty {unit = unit, value = value}
+  = FrequencyProperty
+      {haddock_workaround_ = (), unit = unit, value = value}
 instance ToResourceProperties FrequencyProperty where
   toResourceProperties FrequencyProperty {..}
     = ResourceProperties

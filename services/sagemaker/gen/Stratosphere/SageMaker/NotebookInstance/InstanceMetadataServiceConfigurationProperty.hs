@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceMetadataServiceConfigurationProperty
-  = InstanceMetadataServiceConfigurationProperty {minimumInstanceMetadataServiceVersion :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>
+    InstanceMetadataServiceConfigurationProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html#cfn-sagemaker-notebookinstance-instancemetadataserviceconfiguration-minimuminstancemetadataserviceversion>
+                                                  minimumInstanceMetadataServiceVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMetadataServiceConfigurationProperty ::
   Value Prelude.Text -> InstanceMetadataServiceConfigurationProperty
 mkInstanceMetadataServiceConfigurationProperty
   minimumInstanceMetadataServiceVersion
   = InstanceMetadataServiceConfigurationProperty
-      {minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion}
+      {haddock_workaround_ = (),
+       minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion}
 instance ToResourceProperties InstanceMetadataServiceConfigurationProperty where
   toResourceProperties
     InstanceMetadataServiceConfigurationProperty {..}
@@ -31,6 +35,6 @@ instance JSON.ToJSON InstanceMetadataServiceConfigurationProperty where
            JSON..= minimumInstanceMetadataServiceVersion]
 instance Property "MinimumInstanceMetadataServiceVersion" InstanceMetadataServiceConfigurationProperty where
   type PropertyType "MinimumInstanceMetadataServiceVersion" InstanceMetadataServiceConfigurationProperty = Value Prelude.Text
-  set newValue InstanceMetadataServiceConfigurationProperty {}
+  set newValue InstanceMetadataServiceConfigurationProperty {..}
     = InstanceMetadataServiceConfigurationProperty
         {minimumInstanceMetadataServiceVersion = newValue, ..}

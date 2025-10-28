@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenSearchServiceConfigProperty
-  = OpenSearchServiceConfigProperty {awsRegion :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html>
+    OpenSearchServiceConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html#cfn-appsync-datasource-opensearchserviceconfig-awsregion>
+                                     awsRegion :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html#cfn-appsync-datasource-opensearchserviceconfig-endpoint>
                                      endpoint :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchServiceConfigProperty ::
@@ -16,7 +20,8 @@ mkOpenSearchServiceConfigProperty ::
   -> Value Prelude.Text -> OpenSearchServiceConfigProperty
 mkOpenSearchServiceConfigProperty awsRegion endpoint
   = OpenSearchServiceConfigProperty
-      {awsRegion = awsRegion, endpoint = endpoint}
+      {haddock_workaround_ = (), awsRegion = awsRegion,
+       endpoint = endpoint}
 instance ToResourceProperties OpenSearchServiceConfigProperty where
   toResourceProperties OpenSearchServiceConfigProperty {..}
     = ResourceProperties

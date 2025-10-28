@@ -9,15 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IPAMResourceDiscovery
-  = IPAMResourceDiscovery {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html>
+    IPAMResourceDiscovery {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-description>
+                           description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-operatingregions>
                            operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-tags>
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMResourceDiscovery :: IPAMResourceDiscovery
 mkIPAMResourceDiscovery
   = IPAMResourceDiscovery
-      {description = Prelude.Nothing, operatingRegions = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       operatingRegions = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties IPAMResourceDiscovery where
   toResourceProperties IPAMResourceDiscovery {..}
     = ResourceProperties

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScaleOutPolicyProperty
-  = ScaleOutPolicyProperty {cpuUtilizationPercentage :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html>
+    ScaleOutPolicyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html#cfn-kafkaconnect-connector-scaleoutpolicy-cpuutilizationpercentage>
+                            cpuUtilizationPercentage :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScaleOutPolicyProperty ::
   Value Prelude.Integer -> ScaleOutPolicyProperty
 mkScaleOutPolicyProperty cpuUtilizationPercentage
   = ScaleOutPolicyProperty
-      {cpuUtilizationPercentage = cpuUtilizationPercentage}
+      {haddock_workaround_ = (),
+       cpuUtilizationPercentage = cpuUtilizationPercentage}
 instance ToResourceProperties ScaleOutPolicyProperty where
   toResourceProperties ScaleOutPolicyProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON ScaleOutPolicyProperty where
         ["CpuUtilizationPercentage" JSON..= cpuUtilizationPercentage]
 instance Property "CpuUtilizationPercentage" ScaleOutPolicyProperty where
   type PropertyType "CpuUtilizationPercentage" ScaleOutPolicyProperty = Value Prelude.Integer
-  set newValue ScaleOutPolicyProperty {}
+  set newValue ScaleOutPolicyProperty {..}
     = ScaleOutPolicyProperty {cpuUtilizationPercentage = newValue, ..}

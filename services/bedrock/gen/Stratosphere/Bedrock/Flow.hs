@@ -9,22 +9,34 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Flow
-  = Flow {customerEncryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html>
+    Flow {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-customerencryptionkeyarn>
+          customerEncryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-definition>
           definition :: (Prelude.Maybe FlowDefinitionProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-definitions3location>
           definitionS3Location :: (Prelude.Maybe S3LocationProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-definitionstring>
           definitionString :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-definitionsubstitutions>
           definitionSubstitutions :: (Prelude.Maybe (Prelude.Map Prelude.Text JSON.Object)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-description>
           description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-executionrolearn>
           executionRoleArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-tags>
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html#cfn-bedrock-flow-testaliastags>
           testAliasTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlow :: Value Prelude.Text -> Value Prelude.Text -> Flow
 mkFlow executionRoleArn name
   = Flow
-      {executionRoleArn = executionRoleArn, name = name,
-       customerEncryptionKeyArn = Prelude.Nothing,
+      {haddock_workaround_ = (), executionRoleArn = executionRoleArn,
+       name = name, customerEncryptionKeyArn = Prelude.Nothing,
        definition = Prelude.Nothing,
        definitionS3Location = Prelude.Nothing,
        definitionString = Prelude.Nothing,

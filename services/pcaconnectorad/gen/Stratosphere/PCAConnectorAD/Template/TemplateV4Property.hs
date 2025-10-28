@@ -14,14 +14,25 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.SubjectNameFlagsV4Pro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateV4Property
-  = TemplateV4Property {certificateValidity :: CertificateValidityProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html>
+    TemplateV4Property {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-certificatevalidity>
+                        certificateValidity :: CertificateValidityProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-enrollmentflags>
                         enrollmentFlags :: EnrollmentFlagsV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-extensions>
                         extensions :: ExtensionsV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-generalflags>
                         generalFlags :: GeneralFlagsV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-hashalgorithm>
                         hashAlgorithm :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-privatekeyattributes>
                         privateKeyAttributes :: PrivateKeyAttributesV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-privatekeyflags>
                         privateKeyFlags :: PrivateKeyFlagsV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-subjectnameflags>
                         subjectNameFlags :: SubjectNameFlagsV4Property,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html#cfn-pcaconnectorad-template-templatev4-supersededtemplates>
                         supersededTemplates :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateV4Property ::
@@ -41,7 +52,8 @@ mkTemplateV4Property
   privateKeyFlags
   subjectNameFlags
   = TemplateV4Property
-      {certificateValidity = certificateValidity,
+      {haddock_workaround_ = (),
+       certificateValidity = certificateValidity,
        enrollmentFlags = enrollmentFlags, extensions = extensions,
        generalFlags = generalFlags,
        privateKeyAttributes = privateKeyAttributes,

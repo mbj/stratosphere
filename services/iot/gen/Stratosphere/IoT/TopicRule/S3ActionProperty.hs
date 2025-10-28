@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ActionProperty
-  = S3ActionProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html>
+    S3ActionProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname>
+                      bucketName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl>
                       cannedAcl :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key>
                       key :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn>
                       roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ActionProperty ::
@@ -17,8 +23,8 @@ mkS3ActionProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> S3ActionProperty
 mkS3ActionProperty bucketName key roleArn
   = S3ActionProperty
-      {bucketName = bucketName, key = key, roleArn = roleArn,
-       cannedAcl = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = bucketName, key = key,
+       roleArn = roleArn, cannedAcl = Prelude.Nothing}
 instance ToResourceProperties S3ActionProperty where
   toResourceProperties S3ActionProperty {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.OnDemandResizingSpecificationProp
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.SpotResizingSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceFleetResizingSpecificationsProperty
-  = InstanceFleetResizingSpecificationsProperty {onDemandResizeSpecification :: (Prelude.Maybe OnDemandResizingSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetresizingspecifications.html>
+    InstanceFleetResizingSpecificationsProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetresizingspecifications.html#cfn-elasticmapreduce-cluster-instancefleetresizingspecifications-ondemandresizespecification>
+                                                 onDemandResizeSpecification :: (Prelude.Maybe OnDemandResizingSpecificationProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetresizingspecifications.html#cfn-elasticmapreduce-cluster-instancefleetresizingspecifications-spotresizespecification>
                                                  spotResizeSpecification :: (Prelude.Maybe SpotResizingSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetResizingSpecificationsProperty ::
   InstanceFleetResizingSpecificationsProperty
 mkInstanceFleetResizingSpecificationsProperty
   = InstanceFleetResizingSpecificationsProperty
-      {onDemandResizeSpecification = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       onDemandResizeSpecification = Prelude.Nothing,
        spotResizeSpecification = Prelude.Nothing}
 instance ToResourceProperties InstanceFleetResizingSpecificationsProperty where
   toResourceProperties

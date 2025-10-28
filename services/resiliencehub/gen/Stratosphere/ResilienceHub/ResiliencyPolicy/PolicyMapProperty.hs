@@ -7,9 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ResilienceHub.ResiliencyPolicy.FailurePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyMapProperty
-  = PolicyMapProperty {aZ :: FailurePolicyProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html>
+    PolicyMapProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-az>
+                       aZ :: FailurePolicyProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-hardware>
                        hardware :: FailurePolicyProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-region>
                        region :: (Prelude.Maybe FailurePolicyProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-software>
                        software :: FailurePolicyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyMapProperty ::
@@ -18,8 +24,8 @@ mkPolicyMapProperty ::
      -> FailurePolicyProperty -> PolicyMapProperty
 mkPolicyMapProperty aZ hardware software
   = PolicyMapProperty
-      {aZ = aZ, hardware = hardware, software = software,
-       region = Prelude.Nothing}
+      {haddock_workaround_ = (), aZ = aZ, hardware = hardware,
+       software = software, region = Prelude.Nothing}
 instance ToResourceProperties PolicyMapProperty where
   toResourceProperties PolicyMapProperty {..}
     = ResourceProperties

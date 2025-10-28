@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AbortIncompleteMultipartUploadProperty
-  = AbortIncompleteMultipartUploadProperty {daysAfterInitiation :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html>
+    AbortIncompleteMultipartUploadProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html#cfn-s3express-directorybucket-abortincompletemultipartupload-daysafterinitiation>
+                                            daysAfterInitiation :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortIncompleteMultipartUploadProperty ::
   Value Prelude.Integer -> AbortIncompleteMultipartUploadProperty
 mkAbortIncompleteMultipartUploadProperty daysAfterInitiation
   = AbortIncompleteMultipartUploadProperty
-      {daysAfterInitiation = daysAfterInitiation}
+      {haddock_workaround_ = (),
+       daysAfterInitiation = daysAfterInitiation}
 instance ToResourceProperties AbortIncompleteMultipartUploadProperty where
   toResourceProperties AbortIncompleteMultipartUploadProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON AbortIncompleteMultipartUploadProperty where
     = JSON.object ["DaysAfterInitiation" JSON..= daysAfterInitiation]
 instance Property "DaysAfterInitiation" AbortIncompleteMultipartUploadProperty where
   type PropertyType "DaysAfterInitiation" AbortIncompleteMultipartUploadProperty = Value Prelude.Integer
-  set newValue AbortIncompleteMultipartUploadProperty {}
+  set newValue AbortIncompleteMultipartUploadProperty {..}
     = AbortIncompleteMultipartUploadProperty
         {daysAfterInitiation = newValue, ..}

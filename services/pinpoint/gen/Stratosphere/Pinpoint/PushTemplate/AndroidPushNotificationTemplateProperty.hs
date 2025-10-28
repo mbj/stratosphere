@@ -8,23 +8,34 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AndroidPushNotificationTemplateProperty
-  = AndroidPushNotificationTemplateProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html>
+    AndroidPushNotificationTemplateProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-action>
+                                             action :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-body>
                                              body :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-imageiconurl>
                                              imageIconUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-imageurl>
                                              imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-smallimageiconurl>
                                              smallImageIconUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-sound>
                                              sound :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-title>
                                              title :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html#cfn-pinpoint-pushtemplate-androidpushnotificationtemplate-url>
                                              url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAndroidPushNotificationTemplateProperty ::
   AndroidPushNotificationTemplateProperty
 mkAndroidPushNotificationTemplateProperty
   = AndroidPushNotificationTemplateProperty
-      {action = Prelude.Nothing, body = Prelude.Nothing,
-       imageIconUrl = Prelude.Nothing, imageUrl = Prelude.Nothing,
-       smallImageIconUrl = Prelude.Nothing, sound = Prelude.Nothing,
-       title = Prelude.Nothing, url = Prelude.Nothing}
+      {haddock_workaround_ = (), action = Prelude.Nothing,
+       body = Prelude.Nothing, imageIconUrl = Prelude.Nothing,
+       imageUrl = Prelude.Nothing, smallImageIconUrl = Prelude.Nothing,
+       sound = Prelude.Nothing, title = Prelude.Nothing,
+       url = Prelude.Nothing}
 instance ToResourceProperties AndroidPushNotificationTemplateProperty where
   toResourceProperties AndroidPushNotificationTemplateProperty {..}
     = ResourceProperties

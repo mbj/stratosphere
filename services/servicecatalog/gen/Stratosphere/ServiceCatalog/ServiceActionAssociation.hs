@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceActionAssociation
-  = ServiceActionAssociation {productId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html>
+    ServiceActionAssociation {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid>
+                              productId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid>
                               provisioningArtifactId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid>
                               serviceActionId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceActionAssociation ::
@@ -20,7 +25,7 @@ mkServiceActionAssociation
   provisioningArtifactId
   serviceActionId
   = ServiceActionAssociation
-      {productId = productId,
+      {haddock_workaround_ = (), productId = productId,
        provisioningArtifactId = provisioningArtifactId,
        serviceActionId = serviceActionId}
 instance ToResourceProperties ServiceActionAssociation where

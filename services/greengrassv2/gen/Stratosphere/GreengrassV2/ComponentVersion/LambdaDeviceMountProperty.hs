@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaDeviceMountProperty
-  = LambdaDeviceMountProperty {addGroupOwner :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html>
+    LambdaDeviceMountProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner>
+                               addGroupOwner :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path>
                                path :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission>
                                permission :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaDeviceMountProperty :: LambdaDeviceMountProperty
 mkLambdaDeviceMountProperty
   = LambdaDeviceMountProperty
-      {addGroupOwner = Prelude.Nothing, path = Prelude.Nothing,
-       permission = Prelude.Nothing}
+      {haddock_workaround_ = (), addGroupOwner = Prelude.Nothing,
+       path = Prelude.Nothing, permission = Prelude.Nothing}
 instance ToResourceProperties LambdaDeviceMountProperty where
   toResourceProperties LambdaDeviceMountProperty {..}
     = ResourceProperties

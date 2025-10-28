@@ -8,19 +8,28 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.InAppTemplate.InAppMessageContentPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InAppTemplate
-  = InAppTemplate {content :: (Prelude.Maybe [InAppMessageContentProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html>
+    InAppTemplate {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-content>
+                   content :: (Prelude.Maybe [InAppMessageContentProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-customconfig>
                    customConfig :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-layout>
                    layout :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-tags>
                    tags :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-templatedescription>
                    templateDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html#cfn-pinpoint-inapptemplate-templatename>
                    templateName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppTemplate :: Value Prelude.Text -> InAppTemplate
 mkInAppTemplate templateName
   = InAppTemplate
-      {templateName = templateName, content = Prelude.Nothing,
-       customConfig = Prelude.Nothing, layout = Prelude.Nothing,
-       tags = Prelude.Nothing, templateDescription = Prelude.Nothing}
+      {haddock_workaround_ = (), templateName = templateName,
+       content = Prelude.Nothing, customConfig = Prelude.Nothing,
+       layout = Prelude.Nothing, tags = Prelude.Nothing,
+       templateDescription = Prelude.Nothing}
 instance ToResourceProperties InAppTemplate where
   toResourceProperties InAppTemplate {..}
     = ResourceProperties

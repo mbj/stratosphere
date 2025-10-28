@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MapConfigurationProperty
-  = MapConfigurationProperty {customLayers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html>
+    MapConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-customlayers>
+                              customLayers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-politicalview>
                               politicalView :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style>
                               style :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMapConfigurationProperty ::
   Value Prelude.Text -> MapConfigurationProperty
 mkMapConfigurationProperty style
   = MapConfigurationProperty
-      {style = style, customLayers = Prelude.Nothing,
-       politicalView = Prelude.Nothing}
+      {haddock_workaround_ = (), style = style,
+       customLayers = Prelude.Nothing, politicalView = Prelude.Nothing}
 instance ToResourceProperties MapConfigurationProperty where
   toResourceProperties MapConfigurationProperty {..}
     = ResourceProperties

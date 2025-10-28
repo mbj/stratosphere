@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiKeyRestrictionsProperty
-  = ApiKeyRestrictionsProperty {allowActions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html>
+    ApiKeyRestrictionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowactions>
+                                allowActions :: (ValueList Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowreferers>
                                 allowReferers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowresources>
                                 allowResources :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKeyRestrictionsProperty ::
@@ -16,8 +21,8 @@ mkApiKeyRestrictionsProperty ::
   -> ValueList Prelude.Text -> ApiKeyRestrictionsProperty
 mkApiKeyRestrictionsProperty allowActions allowResources
   = ApiKeyRestrictionsProperty
-      {allowActions = allowActions, allowResources = allowResources,
-       allowReferers = Prelude.Nothing}
+      {haddock_workaround_ = (), allowActions = allowActions,
+       allowResources = allowResources, allowReferers = Prelude.Nothing}
 instance ToResourceProperties ApiKeyRestrictionsProperty where
   toResourceProperties ApiKeyRestrictionsProperty {..}
     = ResourceProperties

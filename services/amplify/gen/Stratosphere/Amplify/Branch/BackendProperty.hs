@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackendProperty
-  = BackendProperty {stackArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html>
+    BackendProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html#cfn-amplify-branch-backend-stackarn>
+                     stackArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendProperty :: BackendProperty
-mkBackendProperty = BackendProperty {stackArn = Prelude.Nothing}
+mkBackendProperty
+  = BackendProperty
+      {haddock_workaround_ = (), stackArn = Prelude.Nothing}
 instance ToResourceProperties BackendProperty where
   toResourceProperties BackendProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON BackendProperty where
            (Prelude.catMaybes [(JSON..=) "StackArn" Prelude.<$> stackArn]))
 instance Property "StackArn" BackendProperty where
   type PropertyType "StackArn" BackendProperty = Value Prelude.Text
-  set newValue BackendProperty {}
+  set newValue BackendProperty {..}
     = BackendProperty {stackArn = Prelude.pure newValue, ..}

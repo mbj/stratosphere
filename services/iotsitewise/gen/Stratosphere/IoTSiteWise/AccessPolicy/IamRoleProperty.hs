@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamRoleProperty
-  = IamRoleProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html>
+    IamRoleProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn>
+                     arn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIamRoleProperty :: IamRoleProperty
-mkIamRoleProperty = IamRoleProperty {arn = Prelude.Nothing}
+mkIamRoleProperty
+  = IamRoleProperty {haddock_workaround_ = (), arn = Prelude.Nothing}
 instance ToResourceProperties IamRoleProperty where
   toResourceProperties IamRoleProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IamRoleProperty where
            (Prelude.catMaybes [(JSON..=) "arn" Prelude.<$> arn]))
 instance Property "arn" IamRoleProperty where
   type PropertyType "arn" IamRoleProperty = Value Prelude.Text
-  set newValue IamRoleProperty {}
+  set newValue IamRoleProperty {..}
     = IamRoleProperty {arn = Prelude.pure newValue, ..}

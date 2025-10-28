@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCEndpointServicePermissions
-  = VPCEndpointServicePermissions {allowedPrincipals :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html>
+    VPCEndpointServicePermissions {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals>
+                                   allowedPrincipals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid>
                                    serviceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpointServicePermissions ::
   Value Prelude.Text -> VPCEndpointServicePermissions
 mkVPCEndpointServicePermissions serviceId
   = VPCEndpointServicePermissions
-      {serviceId = serviceId, allowedPrincipals = Prelude.Nothing}
+      {haddock_workaround_ = (), serviceId = serviceId,
+       allowedPrincipals = Prelude.Nothing}
 instance ToResourceProperties VPCEndpointServicePermissions where
   toResourceProperties VPCEndpointServicePermissions {..}
     = ResourceProperties

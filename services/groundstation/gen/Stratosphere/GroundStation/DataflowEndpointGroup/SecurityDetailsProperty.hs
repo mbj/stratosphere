@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityDetailsProperty
-  = SecurityDetailsProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html>
+    SecurityDetailsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-rolearn>
+                             roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-securitygroupids>
                              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-subnetids>
                              subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityDetailsProperty :: SecurityDetailsProperty
 mkSecurityDetailsProperty
   = SecurityDetailsProperty
-      {roleArn = Prelude.Nothing, securityGroupIds = Prelude.Nothing,
-       subnetIds = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = Prelude.Nothing,
+       securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
 instance ToResourceProperties SecurityDetailsProperty where
   toResourceProperties SecurityDetailsProperty {..}
     = ResourceProperties

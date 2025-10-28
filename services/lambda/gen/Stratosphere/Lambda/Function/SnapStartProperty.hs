@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnapStartProperty
-  = SnapStartProperty {applyOn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html>
+    SnapStartProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html#cfn-lambda-function-snapstart-applyon>
+                       applyOn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapStartProperty :: Value Prelude.Text -> SnapStartProperty
-mkSnapStartProperty applyOn = SnapStartProperty {applyOn = applyOn}
+mkSnapStartProperty applyOn
+  = SnapStartProperty {haddock_workaround_ = (), applyOn = applyOn}
 instance ToResourceProperties SnapStartProperty where
   toResourceProperties SnapStartProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON SnapStartProperty where
     = JSON.object ["ApplyOn" JSON..= applyOn]
 instance Property "ApplyOn" SnapStartProperty where
   type PropertyType "ApplyOn" SnapStartProperty = Value Prelude.Text
-  set newValue SnapStartProperty {}
+  set newValue SnapStartProperty {..}
     = SnapStartProperty {applyOn = newValue, ..}

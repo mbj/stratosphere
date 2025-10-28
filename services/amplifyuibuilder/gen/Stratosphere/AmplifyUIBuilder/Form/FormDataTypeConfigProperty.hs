@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormDataTypeConfigProperty
-  = FormDataTypeConfigProperty {dataSourceType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html>
+    FormDataTypeConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html#cfn-amplifyuibuilder-form-formdatatypeconfig-datasourcetype>
+                                dataSourceType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formdatatypeconfig.html#cfn-amplifyuibuilder-form-formdatatypeconfig-datatypename>
                                 dataTypeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormDataTypeConfigProperty ::
@@ -15,7 +19,8 @@ mkFormDataTypeConfigProperty ::
   -> Value Prelude.Text -> FormDataTypeConfigProperty
 mkFormDataTypeConfigProperty dataSourceType dataTypeName
   = FormDataTypeConfigProperty
-      {dataSourceType = dataSourceType, dataTypeName = dataTypeName}
+      {haddock_workaround_ = (), dataSourceType = dataSourceType,
+       dataTypeName = dataTypeName}
 instance ToResourceProperties FormDataTypeConfigProperty where
   toResourceProperties FormDataTypeConfigProperty {..}
     = ResourceProperties

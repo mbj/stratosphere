@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.TypographyProperty as Export
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.UIColorPaletteProperty as Exports
 import Stratosphere.ResourceProperties
 data ThemeConfigurationProperty
-  = ThemeConfigurationProperty {dataColorPalette :: (Prelude.Maybe DataColorPaletteProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html>
+    ThemeConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette>
+                                dataColorPalette :: (Prelude.Maybe DataColorPaletteProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet>
                                 sheet :: (Prelude.Maybe SheetStyleProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography>
                                 typography :: (Prelude.Maybe TypographyProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette>
                                 uIColorPalette :: (Prelude.Maybe UIColorPaletteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeConfigurationProperty :: ThemeConfigurationProperty
 mkThemeConfigurationProperty
   = ThemeConfigurationProperty
-      {dataColorPalette = Prelude.Nothing, sheet = Prelude.Nothing,
-       typography = Prelude.Nothing, uIColorPalette = Prelude.Nothing}
+      {haddock_workaround_ = (), dataColorPalette = Prelude.Nothing,
+       sheet = Prelude.Nothing, typography = Prelude.Nothing,
+       uIColorPalette = Prelude.Nothing}
 instance ToResourceProperties ThemeConfigurationProperty where
   toResourceProperties ThemeConfigurationProperty {..}
     = ResourceProperties

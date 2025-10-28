@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.Project.BatchRestrictionsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectBuildBatchConfigProperty
-  = ProjectBuildBatchConfigProperty {batchReportMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html>
+    ProjectBuildBatchConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-batchreportmode>
+                                     batchReportMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts>
                                      combineArtifacts :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions>
                                      restrictions :: (Prelude.Maybe BatchRestrictionsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole>
                                      serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins>
                                      timeoutInMins :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectBuildBatchConfigProperty ::
   ProjectBuildBatchConfigProperty
 mkProjectBuildBatchConfigProperty
   = ProjectBuildBatchConfigProperty
-      {batchReportMode = Prelude.Nothing,
+      {haddock_workaround_ = (), batchReportMode = Prelude.Nothing,
        combineArtifacts = Prelude.Nothing, restrictions = Prelude.Nothing,
        serviceRole = Prelude.Nothing, timeoutInMins = Prelude.Nothing}
 instance ToResourceProperties ProjectBuildBatchConfigProperty where

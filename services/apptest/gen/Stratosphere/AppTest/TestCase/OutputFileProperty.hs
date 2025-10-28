@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputFileProperty
-  = OutputFileProperty {fileLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-outputfile.html>
+    OutputFileProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-outputfile.html#cfn-apptest-testcase-outputfile-filelocation>
+                        fileLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFileProperty :: OutputFileProperty
 mkOutputFileProperty
-  = OutputFileProperty {fileLocation = Prelude.Nothing}
+  = OutputFileProperty
+      {haddock_workaround_ = (), fileLocation = Prelude.Nothing}
 instance ToResourceProperties OutputFileProperty where
   toResourceProperties OutputFileProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON OutputFileProperty where
               [(JSON..=) "FileLocation" Prelude.<$> fileLocation]))
 instance Property "FileLocation" OutputFileProperty where
   type PropertyType "FileLocation" OutputFileProperty = Value Prelude.Text
-  set newValue OutputFileProperty {}
+  set newValue OutputFileProperty {..}
     = OutputFileProperty {fileLocation = Prelude.pure newValue, ..}

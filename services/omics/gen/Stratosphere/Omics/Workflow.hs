@@ -8,23 +8,34 @@ import {-# SOURCE #-} Stratosphere.Omics.Workflow.WorkflowParameterProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Workflow
-  = Workflow {accelerators :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html>
+    Workflow {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-accelerators>
+              accelerators :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-definitionuri>
               definitionUri :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-engine>
               engine :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-main>
               main :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-parametertemplate>
               parameterTemplate :: (Prelude.Maybe (Prelude.Map Prelude.Text WorkflowParameterProperty)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-storagecapacity>
               storageCapacity :: (Prelude.Maybe (Value Prelude.Double)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-tags>
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: Workflow
 mkWorkflow
   = Workflow
-      {accelerators = Prelude.Nothing, definitionUri = Prelude.Nothing,
-       description = Prelude.Nothing, engine = Prelude.Nothing,
-       main = Prelude.Nothing, name = Prelude.Nothing,
-       parameterTemplate = Prelude.Nothing,
+      {haddock_workaround_ = (), accelerators = Prelude.Nothing,
+       definitionUri = Prelude.Nothing, description = Prelude.Nothing,
+       engine = Prelude.Nothing, main = Prelude.Nothing,
+       name = Prelude.Nothing, parameterTemplate = Prelude.Nothing,
        storageCapacity = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}

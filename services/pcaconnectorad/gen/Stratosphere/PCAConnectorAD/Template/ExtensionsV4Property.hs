@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.ApplicationPoliciesPr
 import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.KeyUsageProperty as Exports
 import Stratosphere.ResourceProperties
 data ExtensionsV4Property
-  = ExtensionsV4Property {applicationPolicies :: (Prelude.Maybe ApplicationPoliciesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv4.html>
+    ExtensionsV4Property {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv4.html#cfn-pcaconnectorad-template-extensionsv4-applicationpolicies>
+                          applicationPolicies :: (Prelude.Maybe ApplicationPoliciesProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv4.html#cfn-pcaconnectorad-template-extensionsv4-keyusage>
                           keyUsage :: KeyUsageProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExtensionsV4Property :: KeyUsageProperty -> ExtensionsV4Property
 mkExtensionsV4Property keyUsage
   = ExtensionsV4Property
-      {keyUsage = keyUsage, applicationPolicies = Prelude.Nothing}
+      {haddock_workaround_ = (), keyUsage = keyUsage,
+       applicationPolicies = Prelude.Nothing}
 instance ToResourceProperties ExtensionsV4Property where
   toResourceProperties ExtensionsV4Property {..}
     = ResourceProperties

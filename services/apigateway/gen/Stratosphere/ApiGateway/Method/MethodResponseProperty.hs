@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MethodResponseProperty
-  = MethodResponseProperty {responseModels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html>
+    MethodResponseProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels>
+                            responseModels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters>
                             responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode>
                             statusCode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMethodResponseProperty ::
   Value Prelude.Text -> MethodResponseProperty
 mkMethodResponseProperty statusCode
   = MethodResponseProperty
-      {statusCode = statusCode, responseModels = Prelude.Nothing,
+      {haddock_workaround_ = (), statusCode = statusCode,
+       responseModels = Prelude.Nothing,
        responseParameters = Prelude.Nothing}
 instance ToResourceProperties MethodResponseProperty where
   toResourceProperties MethodResponseProperty {..}

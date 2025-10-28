@@ -11,9 +11,15 @@ import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RelationalFilterConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftRunConfigurationInputProperty
-  = RedshiftRunConfigurationInputProperty {dataAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html>
+    RedshiftRunConfigurationInputProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-dataaccessrole>
+                                           dataAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftcredentialconfiguration>
                                            redshiftCredentialConfiguration :: RedshiftCredentialConfigurationProperty,
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftstorage>
                                            redshiftStorage :: RedshiftStorageProperty,
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-relationalfilterconfigurations>
                                            relationalFilterConfigurations :: [RelationalFilterConfigurationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftRunConfigurationInputProperty ::
@@ -26,7 +32,8 @@ mkRedshiftRunConfigurationInputProperty
   redshiftStorage
   relationalFilterConfigurations
   = RedshiftRunConfigurationInputProperty
-      {redshiftCredentialConfiguration = redshiftCredentialConfiguration,
+      {haddock_workaround_ = (),
+       redshiftCredentialConfiguration = redshiftCredentialConfiguration,
        redshiftStorage = redshiftStorage,
        relationalFilterConfigurations = relationalFilterConfigurations,
        dataAccessRole = Prelude.Nothing}

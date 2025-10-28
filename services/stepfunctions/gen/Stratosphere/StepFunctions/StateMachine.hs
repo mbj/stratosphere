@@ -12,22 +12,36 @@ import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.TracingConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StateMachine
-  = StateMachine {definition :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html>
+    StateMachine {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition>
+                  definition :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location>
                   definitionS3Location :: (Prelude.Maybe S3LocationProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring>
                   definitionString :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions>
                   definitionSubstitutions :: (Prelude.Maybe (Prelude.Map Prelude.Text JSON.Object)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-encryptionconfiguration>
                   encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration>
                   loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn>
                   roleArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename>
                   stateMachineName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype>
                   stateMachineType :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags>
                   tags :: (Prelude.Maybe [TagsEntryProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration>
                   tracingConfiguration :: (Prelude.Maybe TracingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStateMachine :: Value Prelude.Text -> StateMachine
 mkStateMachine roleArn
   = StateMachine
-      {roleArn = roleArn, definition = Prelude.Nothing,
+      {haddock_workaround_ = (), roleArn = roleArn,
+       definition = Prelude.Nothing,
        definitionS3Location = Prelude.Nothing,
        definitionString = Prelude.Nothing,
        definitionSubstitutions = Prelude.Nothing,

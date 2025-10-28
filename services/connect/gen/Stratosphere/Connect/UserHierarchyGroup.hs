@@ -8,16 +8,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data UserHierarchyGroup
-  = UserHierarchyGroup {instanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html>
+    UserHierarchyGroup {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-instancearn>
+                        instanceArn :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-parentgrouparn>
                         parentGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserHierarchyGroup ::
   Value Prelude.Text -> Value Prelude.Text -> UserHierarchyGroup
 mkUserHierarchyGroup instanceArn name
   = UserHierarchyGroup
-      {instanceArn = instanceArn, name = name,
+      {haddock_workaround_ = (), instanceArn = instanceArn, name = name,
        parentGroupArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties UserHierarchyGroup where
   toResourceProperties UserHierarchyGroup {..}

@@ -9,23 +9,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationSMB
-  = LocationSMB {agentArns :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html>
+    LocationSMB {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns>
+                 agentArns :: (ValueList Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain>
                  domain :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions>
                  mountOptions :: (Prelude.Maybe MountOptionsProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password>
                  password :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname>
                  serverHostname :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory>
                  subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user>
                  user :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationSMB ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationSMB
 mkLocationSMB agentArns user
   = LocationSMB
-      {agentArns = agentArns, user = user, domain = Prelude.Nothing,
-       mountOptions = Prelude.Nothing, password = Prelude.Nothing,
-       serverHostname = Prelude.Nothing, subdirectory = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), agentArns = agentArns, user = user,
+       domain = Prelude.Nothing, mountOptions = Prelude.Nothing,
+       password = Prelude.Nothing, serverHostname = Prelude.Nothing,
+       subdirectory = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LocationSMB where
   toResourceProperties LocationSMB {..}
     = ResourceProperties

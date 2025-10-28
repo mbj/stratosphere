@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuccessfulMonitorDeploymentProperty
-  = SuccessfulMonitorDeploymentProperty {detailsUri :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html>
+    SuccessfulMonitorDeploymentProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html#cfn-medialive-signalmap-successfulmonitordeployment-detailsuri>
+                                         detailsUri :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html#cfn-medialive-signalmap-successfulmonitordeployment-status>
                                          status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuccessfulMonitorDeploymentProperty ::
@@ -16,7 +20,8 @@ mkSuccessfulMonitorDeploymentProperty ::
   -> Value Prelude.Text -> SuccessfulMonitorDeploymentProperty
 mkSuccessfulMonitorDeploymentProperty detailsUri status
   = SuccessfulMonitorDeploymentProperty
-      {detailsUri = detailsUri, status = status}
+      {haddock_workaround_ = (), detailsUri = detailsUri,
+       status = status}
 instance ToResourceProperties SuccessfulMonitorDeploymentProperty where
   toResourceProperties SuccessfulMonitorDeploymentProperty {..}
     = ResourceProperties

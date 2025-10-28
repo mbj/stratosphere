@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AppStream.DirectoryConfig.ServiceAccountCrede
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DirectoryConfig
-  = DirectoryConfig {certificateBasedAuthProperties :: (Prelude.Maybe CertificateBasedAuthPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html>
+    DirectoryConfig {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-certificatebasedauthproperties>
+                     certificateBasedAuthProperties :: (Prelude.Maybe CertificateBasedAuthPropertiesProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname>
                      directoryName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames>
                      organizationalUnitDistinguishedNames :: (ValueList Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials>
                      serviceAccountCredentials :: ServiceAccountCredentialsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryConfig ::
@@ -23,7 +29,7 @@ mkDirectoryConfig
   organizationalUnitDistinguishedNames
   serviceAccountCredentials
   = DirectoryConfig
-      {directoryName = directoryName,
+      {haddock_workaround_ = (), directoryName = directoryName,
        organizationalUnitDistinguishedNames = organizationalUnitDistinguishedNames,
        serviceAccountCredentials = serviceAccountCredentials,
        certificateBasedAuthProperties = Prelude.Nothing}

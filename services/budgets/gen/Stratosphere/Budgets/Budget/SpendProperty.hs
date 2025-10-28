@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpendProperty
-  = SpendProperty {amount :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html>
+    SpendProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount>
+                   amount :: (Value Prelude.Double),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit>
                    unit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpendProperty ::
   Value Prelude.Double -> Value Prelude.Text -> SpendProperty
 mkSpendProperty amount unit
-  = SpendProperty {amount = amount, unit = unit}
+  = SpendProperty
+      {haddock_workaround_ = (), amount = amount, unit = unit}
 instance ToResourceProperties SpendProperty where
   toResourceProperties SpendProperty {..}
     = ResourceProperties

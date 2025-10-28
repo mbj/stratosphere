@@ -11,17 +11,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VerifiedAccessInstance
-  = VerifiedAccessInstance {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html>
+    VerifiedAccessInstance {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-description>
+                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-fipsenabled>
                             fipsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-loggingconfigurations>
                             loggingConfigurations :: (Prelude.Maybe VerifiedAccessLogsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-tags>
                             tags :: (Prelude.Maybe [Tag]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustproviderids>
                             verifiedAccessTrustProviderIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustproviders>
                             verifiedAccessTrustProviders :: (Prelude.Maybe [VerifiedAccessTrustProviderProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessInstance :: VerifiedAccessInstance
 mkVerifiedAccessInstance
   = VerifiedAccessInstance
-      {description = Prelude.Nothing, fipsEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       fipsEnabled = Prelude.Nothing,
        loggingConfigurations = Prelude.Nothing, tags = Prelude.Nothing,
        verifiedAccessTrustProviderIds = Prelude.Nothing,
        verifiedAccessTrustProviders = Prelude.Nothing}

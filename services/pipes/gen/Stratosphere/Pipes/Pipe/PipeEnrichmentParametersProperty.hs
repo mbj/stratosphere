@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeEnrichmentHttpParametersProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeEnrichmentParametersProperty
-  = PipeEnrichmentParametersProperty {httpParameters :: (Prelude.Maybe PipeEnrichmentHttpParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html>
+    PipeEnrichmentParametersProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html#cfn-pipes-pipe-pipeenrichmentparameters-httpparameters>
+                                      httpParameters :: (Prelude.Maybe PipeEnrichmentHttpParametersProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html#cfn-pipes-pipe-pipeenrichmentparameters-inputtemplate>
                                       inputTemplate :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeEnrichmentParametersProperty ::
   PipeEnrichmentParametersProperty
 mkPipeEnrichmentParametersProperty
   = PipeEnrichmentParametersProperty
-      {httpParameters = Prelude.Nothing, inputTemplate = Prelude.Nothing}
+      {haddock_workaround_ = (), httpParameters = Prelude.Nothing,
+       inputTemplate = Prelude.Nothing}
 instance ToResourceProperties PipeEnrichmentParametersProperty where
   toResourceProperties PipeEnrichmentParametersProperty {..}
     = ResourceProperties

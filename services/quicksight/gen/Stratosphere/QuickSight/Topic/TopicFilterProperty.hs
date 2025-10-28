@@ -12,23 +12,37 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicRelativeDateFilterPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicFilterProperty
-  = TopicFilterProperty {categoryFilter :: (Prelude.Maybe TopicCategoryFilterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html>
+    TopicFilterProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-categoryfilter>
+                         categoryFilter :: (Prelude.Maybe TopicCategoryFilterProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-daterangefilter>
                          dateRangeFilter :: (Prelude.Maybe TopicDateRangeFilterProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-filterclass>
                          filterClass :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-filterdescription>
                          filterDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-filtername>
                          filterName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-filtersynonyms>
                          filterSynonyms :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-filtertype>
                          filterType :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-numericequalityfilter>
                          numericEqualityFilter :: (Prelude.Maybe TopicNumericEqualityFilterProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-numericrangefilter>
                          numericRangeFilter :: (Prelude.Maybe TopicNumericRangeFilterProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-operandfieldname>
                          operandFieldName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html#cfn-quicksight-topic-topicfilter-relativedatefilter>
                          relativeDateFilter :: (Prelude.Maybe TopicRelativeDateFilterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TopicFilterProperty
 mkTopicFilterProperty filterName operandFieldName
   = TopicFilterProperty
-      {filterName = filterName, operandFieldName = operandFieldName,
+      {haddock_workaround_ = (), filterName = filterName,
+       operandFieldName = operandFieldName,
        categoryFilter = Prelude.Nothing,
        dateRangeFilter = Prelude.Nothing, filterClass = Prelude.Nothing,
        filterDescription = Prelude.Nothing,

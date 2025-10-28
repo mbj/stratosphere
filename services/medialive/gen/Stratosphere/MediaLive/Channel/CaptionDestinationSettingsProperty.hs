@@ -20,25 +20,41 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TtmlDestinationSettingsProp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.WebvttDestinationSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptionDestinationSettingsProperty
-  = CaptionDestinationSettingsProperty {aribDestinationSettings :: (Prelude.Maybe AribDestinationSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html>
+    CaptionDestinationSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-aribdestinationsettings>
+                                        aribDestinationSettings :: (Prelude.Maybe AribDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-burnindestinationsettings>
                                         burnInDestinationSettings :: (Prelude.Maybe BurnInDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-dvbsubdestinationsettings>
                                         dvbSubDestinationSettings :: (Prelude.Maybe DvbSubDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-ebuttddestinationsettings>
                                         ebuTtDDestinationSettings :: (Prelude.Maybe EbuTtDDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-embeddeddestinationsettings>
                                         embeddedDestinationSettings :: (Prelude.Maybe EmbeddedDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-embeddedplusscte20destinationsettings>
                                         embeddedPlusScte20DestinationSettings :: (Prelude.Maybe EmbeddedPlusScte20DestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-rtmpcaptioninfodestinationsettings>
                                         rtmpCaptionInfoDestinationSettings :: (Prelude.Maybe RtmpCaptionInfoDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-scte20plusembeddeddestinationsettings>
                                         scte20PlusEmbeddedDestinationSettings :: (Prelude.Maybe Scte20PlusEmbeddedDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-scte27destinationsettings>
                                         scte27DestinationSettings :: (Prelude.Maybe Scte27DestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-smptettdestinationsettings>
                                         smpteTtDestinationSettings :: (Prelude.Maybe SmpteTtDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-teletextdestinationsettings>
                                         teletextDestinationSettings :: (Prelude.Maybe TeletextDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-ttmldestinationsettings>
                                         ttmlDestinationSettings :: (Prelude.Maybe TtmlDestinationSettingsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html#cfn-medialive-channel-captiondestinationsettings-webvttdestinationsettings>
                                         webvttDestinationSettings :: (Prelude.Maybe WebvttDestinationSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionDestinationSettingsProperty ::
   CaptionDestinationSettingsProperty
 mkCaptionDestinationSettingsProperty
   = CaptionDestinationSettingsProperty
-      {aribDestinationSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       aribDestinationSettings = Prelude.Nothing,
        burnInDestinationSettings = Prelude.Nothing,
        dvbSubDestinationSettings = Prelude.Nothing,
        ebuTtDDestinationSettings = Prelude.Nothing,

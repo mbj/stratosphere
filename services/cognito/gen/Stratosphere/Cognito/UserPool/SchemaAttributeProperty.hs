@@ -10,18 +10,27 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.StringAttributeConstraintsPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaAttributeProperty
-  = SchemaAttributeProperty {attributeDataType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html>
+    SchemaAttributeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-attributedatatype>
+                             attributeDataType :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-developeronlyattribute>
                              developerOnlyAttribute :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-mutable>
                              mutable :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-numberattributeconstraints>
                              numberAttributeConstraints :: (Prelude.Maybe NumberAttributeConstraintsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-required>
                              required :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-stringattributeconstraints>
                              stringAttributeConstraints :: (Prelude.Maybe StringAttributeConstraintsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaAttributeProperty :: SchemaAttributeProperty
 mkSchemaAttributeProperty
   = SchemaAttributeProperty
-      {attributeDataType = Prelude.Nothing,
+      {haddock_workaround_ = (), attributeDataType = Prelude.Nothing,
        developerOnlyAttribute = Prelude.Nothing,
        mutable = Prelude.Nothing, name = Prelude.Nothing,
        numberAttributeConstraints = Prelude.Nothing,

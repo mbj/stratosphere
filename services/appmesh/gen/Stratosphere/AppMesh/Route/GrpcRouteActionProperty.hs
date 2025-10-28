@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcRouteActionProperty
-  = GrpcRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html>
+    GrpcRouteActionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html#cfn-appmesh-route-grpcrouteaction-weightedtargets>
+                             weightedTargets :: [WeightedTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteActionProperty ::
   [WeightedTargetProperty] -> GrpcRouteActionProperty
 mkGrpcRouteActionProperty weightedTargets
-  = GrpcRouteActionProperty {weightedTargets = weightedTargets}
+  = GrpcRouteActionProperty
+      {haddock_workaround_ = (), weightedTargets = weightedTargets}
 instance ToResourceProperties GrpcRouteActionProperty where
   toResourceProperties GrpcRouteActionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON GrpcRouteActionProperty where
     = JSON.object ["WeightedTargets" JSON..= weightedTargets]
 instance Property "WeightedTargets" GrpcRouteActionProperty where
   type PropertyType "WeightedTargets" GrpcRouteActionProperty = [WeightedTargetProperty]
-  set newValue GrpcRouteActionProperty {}
+  set newValue GrpcRouteActionProperty {..}
     = GrpcRouteActionProperty {weightedTargets = newValue, ..}

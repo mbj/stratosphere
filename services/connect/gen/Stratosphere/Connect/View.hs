@@ -8,11 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data View
-  = View {actions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html>
+    View {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-actions>
+          actions :: (ValueList Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-description>
           description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-instancearn>
           instanceArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html#cfn-connect-view-template>
           template :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkView ::
@@ -20,9 +28,9 @@ mkView ::
   -> Value Prelude.Text -> Value Prelude.Text -> JSON.Object -> View
 mkView actions instanceArn name template
   = View
-      {actions = actions, instanceArn = instanceArn, name = name,
-       template = template, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions,
+       instanceArn = instanceArn, name = name, template = template,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties View where
   toResourceProperties View {..}
     = ResourceProperties

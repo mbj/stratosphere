@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BedrockEmbeddingModelConfigurationProperty
-  = BedrockEmbeddingModelConfigurationProperty {dimensions :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>
+    BedrockEmbeddingModelConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-dimensions>
+                                                dimensions :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBedrockEmbeddingModelConfigurationProperty ::
   BedrockEmbeddingModelConfigurationProperty
 mkBedrockEmbeddingModelConfigurationProperty
   = BedrockEmbeddingModelConfigurationProperty
-      {dimensions = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing}
 instance ToResourceProperties BedrockEmbeddingModelConfigurationProperty where
   toResourceProperties
     BedrockEmbeddingModelConfigurationProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON BedrockEmbeddingModelConfigurationProperty where
               [(JSON..=) "Dimensions" Prelude.<$> dimensions]))
 instance Property "Dimensions" BedrockEmbeddingModelConfigurationProperty where
   type PropertyType "Dimensions" BedrockEmbeddingModelConfigurationProperty = Value Prelude.Integer
-  set newValue BedrockEmbeddingModelConfigurationProperty {}
+  set newValue BedrockEmbeddingModelConfigurationProperty {..}
     = BedrockEmbeddingModelConfigurationProperty
         {dimensions = Prelude.pure newValue, ..}

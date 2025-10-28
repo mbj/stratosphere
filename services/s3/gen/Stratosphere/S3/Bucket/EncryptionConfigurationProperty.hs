@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {replicaKmsKeyID :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid>
+                                     replicaKmsKeyID :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   Value Prelude.Text -> EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty replicaKmsKeyID
   = EncryptionConfigurationProperty
-      {replicaKmsKeyID = replicaKmsKeyID}
+      {haddock_workaround_ = (), replicaKmsKeyID = replicaKmsKeyID}
 instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON EncryptionConfigurationProperty where
     = JSON.object ["ReplicaKmsKeyID" JSON..= replicaKmsKeyID]
 instance Property "ReplicaKmsKeyID" EncryptionConfigurationProperty where
   type PropertyType "ReplicaKmsKeyID" EncryptionConfigurationProperty = Value Prelude.Text
-  set newValue EncryptionConfigurationProperty {}
+  set newValue EncryptionConfigurationProperty {..}
     = EncryptionConfigurationProperty {replicaKmsKeyID = newValue, ..}

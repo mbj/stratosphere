@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.ClusterLoggingProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
-  = LoggingProperty {clusterLogging :: (Prelude.Maybe ClusterLoggingProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html>
+    LoggingProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html#cfn-eks-cluster-logging-clusterlogging>
+                     clusterLogging :: (Prelude.Maybe ClusterLoggingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty
-  = LoggingProperty {clusterLogging = Prelude.Nothing}
+  = LoggingProperty
+      {haddock_workaround_ = (), clusterLogging = Prelude.Nothing}
 instance ToResourceProperties LoggingProperty where
   toResourceProperties LoggingProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON LoggingProperty where
               [(JSON..=) "ClusterLogging" Prelude.<$> clusterLogging]))
 instance Property "ClusterLogging" LoggingProperty where
   type PropertyType "ClusterLogging" LoggingProperty = ClusterLoggingProperty
-  set newValue LoggingProperty {}
+  set newValue LoggingProperty {..}
     = LoggingProperty {clusterLogging = Prelude.pure newValue, ..}

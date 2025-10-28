@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.CoreDefinition.CoreProperty as Exports
 import Stratosphere.ResourceProperties
 data CoreDefinitionVersionProperty
-  = CoreDefinitionVersionProperty {cores :: [CoreProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html>
+    CoreDefinitionVersionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html#cfn-greengrass-coredefinition-coredefinitionversion-cores>
+                                   cores :: [CoreProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinitionVersionProperty ::
   [CoreProperty] -> CoreDefinitionVersionProperty
 mkCoreDefinitionVersionProperty cores
-  = CoreDefinitionVersionProperty {cores = cores}
+  = CoreDefinitionVersionProperty
+      {haddock_workaround_ = (), cores = cores}
 instance ToResourceProperties CoreDefinitionVersionProperty where
   toResourceProperties CoreDefinitionVersionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CoreDefinitionVersionProperty where
     = JSON.object ["Cores" JSON..= cores]
 instance Property "Cores" CoreDefinitionVersionProperty where
   type PropertyType "Cores" CoreDefinitionVersionProperty = [CoreProperty]
-  set newValue CoreDefinitionVersionProperty {}
+  set newValue CoreDefinitionVersionProperty {..}
     = CoreDefinitionVersionProperty {cores = newValue, ..}

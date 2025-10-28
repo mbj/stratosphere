@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskConnectorProfilePropertiesProperty
-  = ZendeskConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html>
+    ZendeskConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl>
+                                               instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> ZendeskConnectorProfilePropertiesProperty
 mkZendeskConnectorProfilePropertiesProperty instanceUrl
   = ZendeskConnectorProfilePropertiesProperty
-      {instanceUrl = instanceUrl}
+      {haddock_workaround_ = (), instanceUrl = instanceUrl}
 instance ToResourceProperties ZendeskConnectorProfilePropertiesProperty where
   toResourceProperties ZendeskConnectorProfilePropertiesProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON ZendeskConnectorProfilePropertiesProperty where
     = JSON.object ["InstanceUrl" JSON..= instanceUrl]
 instance Property "InstanceUrl" ZendeskConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" ZendeskConnectorProfilePropertiesProperty = Value Prelude.Text
-  set newValue ZendeskConnectorProfilePropertiesProperty {}
+  set newValue ZendeskConnectorProfilePropertiesProperty {..}
     = ZendeskConnectorProfilePropertiesProperty
         {instanceUrl = newValue, ..}

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpConfigurationProperty
-  = HttpConfigurationProperty {baseUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html>
+    HttpConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html#cfn-mediatailor-sourcelocation-httpconfiguration-baseurl>
+                               baseUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpConfigurationProperty ::
   Value Prelude.Text -> HttpConfigurationProperty
 mkHttpConfigurationProperty baseUrl
-  = HttpConfigurationProperty {baseUrl = baseUrl}
+  = HttpConfigurationProperty
+      {haddock_workaround_ = (), baseUrl = baseUrl}
 instance ToResourceProperties HttpConfigurationProperty where
   toResourceProperties HttpConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON HttpConfigurationProperty where
     = JSON.object ["BaseUrl" JSON..= baseUrl]
 instance Property "BaseUrl" HttpConfigurationProperty where
   type PropertyType "BaseUrl" HttpConfigurationProperty = Value Prelude.Text
-  set newValue HttpConfigurationProperty {}
+  set newValue HttpConfigurationProperty {..}
     = HttpConfigurationProperty {baseUrl = newValue, ..}

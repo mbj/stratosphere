@@ -7,17 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBSecurityGroupIngress
-  = DBSecurityGroupIngress {cIDRIP :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html>
+    DBSecurityGroupIngress {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-cidrip>
+                            cIDRIP :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-dbsecuritygroupname>
                             dBSecurityGroupName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupid>
                             eC2SecurityGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupname>
                             eC2SecurityGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupownerid>
                             eC2SecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBSecurityGroupIngress ::
   Value Prelude.Text -> DBSecurityGroupIngress
 mkDBSecurityGroupIngress dBSecurityGroupName
   = DBSecurityGroupIngress
-      {dBSecurityGroupName = dBSecurityGroupName,
+      {haddock_workaround_ = (),
+       dBSecurityGroupName = dBSecurityGroupName,
        cIDRIP = Prelude.Nothing, eC2SecurityGroupId = Prelude.Nothing,
        eC2SecurityGroupName = Prelude.Nothing,
        eC2SecurityGroupOwnerId = Prelude.Nothing}

@@ -10,7 +10,11 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.MembershipProtectedQuer
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MembershipProtectedQueryResultConfigurationProperty
-  = MembershipProtectedQueryResultConfigurationProperty {outputConfiguration :: MembershipProtectedQueryOutputConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html>
+    MembershipProtectedQueryResultConfigurationProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html#cfn-cleanrooms-membership-membershipprotectedqueryresultconfiguration-outputconfiguration>
+                                                         outputConfiguration :: MembershipProtectedQueryOutputConfigurationProperty,
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html#cfn-cleanrooms-membership-membershipprotectedqueryresultconfiguration-rolearn>
                                                          roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipProtectedQueryResultConfigurationProperty ::
@@ -19,7 +23,8 @@ mkMembershipProtectedQueryResultConfigurationProperty ::
 mkMembershipProtectedQueryResultConfigurationProperty
   outputConfiguration
   = MembershipProtectedQueryResultConfigurationProperty
-      {outputConfiguration = outputConfiguration,
+      {haddock_workaround_ = (),
+       outputConfiguration = outputConfiguration,
        roleArn = Prelude.Nothing}
 instance ToResourceProperties MembershipProtectedQueryResultConfigurationProperty where
   toResourceProperties

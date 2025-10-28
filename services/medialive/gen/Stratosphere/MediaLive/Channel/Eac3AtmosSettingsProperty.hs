@@ -7,21 +7,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Eac3AtmosSettingsProperty
-  = Eac3AtmosSettingsProperty {bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html>
+    Eac3AtmosSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-bitrate>
+                               bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-codingmode>
                                codingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-dialnorm>
                                dialnorm :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-drcline>
                                drcLine :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-drcrf>
                                drcRf :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-heighttrim>
                                heightTrim :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html#cfn-medialive-channel-eac3atmossettings-surroundtrim>
                                surroundTrim :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEac3AtmosSettingsProperty :: Eac3AtmosSettingsProperty
 mkEac3AtmosSettingsProperty
   = Eac3AtmosSettingsProperty
-      {bitrate = Prelude.Nothing, codingMode = Prelude.Nothing,
-       dialnorm = Prelude.Nothing, drcLine = Prelude.Nothing,
-       drcRf = Prelude.Nothing, heightTrim = Prelude.Nothing,
-       surroundTrim = Prelude.Nothing}
+      {haddock_workaround_ = (), bitrate = Prelude.Nothing,
+       codingMode = Prelude.Nothing, dialnorm = Prelude.Nothing,
+       drcLine = Prelude.Nothing, drcRf = Prelude.Nothing,
+       heightTrim = Prelude.Nothing, surroundTrim = Prelude.Nothing}
 instance ToResourceProperties Eac3AtmosSettingsProperty where
   toResourceProperties Eac3AtmosSettingsProperty {..}
     = ResourceProperties

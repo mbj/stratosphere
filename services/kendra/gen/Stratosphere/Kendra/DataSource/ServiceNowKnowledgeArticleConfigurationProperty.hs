@@ -10,12 +10,21 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowKnowledgeArticleConfigurationProperty
-  = ServiceNowKnowledgeArticleConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html>
+    ServiceNowKnowledgeArticleConfigurationProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments>
+                                                     crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documentdatafieldname>
                                                      documentDataFieldName :: (Value Prelude.Text),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname>
                                                      documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns>
                                                      excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings>
                                                      fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-filterquery>
                                                      filterQuery :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns>
                                                      includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowKnowledgeArticleConfigurationProperty ::
@@ -24,7 +33,8 @@ mkServiceNowKnowledgeArticleConfigurationProperty ::
 mkServiceNowKnowledgeArticleConfigurationProperty
   documentDataFieldName
   = ServiceNowKnowledgeArticleConfigurationProperty
-      {documentDataFieldName = documentDataFieldName,
+      {haddock_workaround_ = (),
+       documentDataFieldName = documentDataFieldName,
        crawlAttachments = Prelude.Nothing,
        documentTitleFieldName = Prelude.Nothing,
        excludeAttachmentFilePatterns = Prelude.Nothing,

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceRequirementProperty
-  = ResourceRequirementProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html>
+    ResourceRequirementProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-type>
+                                 type' :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html#cfn-batch-jobdefinition-resourcerequirement-value>
                                  value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceRequirementProperty :: ResourceRequirementProperty
 mkResourceRequirementProperty
   = ResourceRequirementProperty
-      {type' = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties ResourceRequirementProperty where
   toResourceProperties ResourceRequirementProperty {..}
     = ResourceProperties

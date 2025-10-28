@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisDataFirehoseProperty
-  = KinesisDataFirehoseProperty {deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html>
+    KinesisDataFirehoseProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html#cfn-ec2-verifiedaccessinstance-kinesisdatafirehose-deliverystream>
+                                 deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html#cfn-ec2-verifiedaccessinstance-kinesisdatafirehose-enabled>
                                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisDataFirehoseProperty :: KinesisDataFirehoseProperty
 mkKinesisDataFirehoseProperty
   = KinesisDataFirehoseProperty
-      {deliveryStream = Prelude.Nothing, enabled = Prelude.Nothing}
+      {haddock_workaround_ = (), deliveryStream = Prelude.Nothing,
+       enabled = Prelude.Nothing}
 instance ToResourceProperties KinesisDataFirehoseProperty where
   toResourceProperties KinesisDataFirehoseProperty {..}
     = ResourceProperties

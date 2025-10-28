@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.Channel.IngestEndpointProperty as Exports
 import Stratosphere.ResourceProperties
 data HlsIngestProperty
-  = HlsIngestProperty {ingestEndpoints :: (Prelude.Maybe [IngestEndpointProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>
+    HlsIngestProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints>
+                       ingestEndpoints :: (Prelude.Maybe [IngestEndpointProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsIngestProperty :: HlsIngestProperty
 mkHlsIngestProperty
-  = HlsIngestProperty {ingestEndpoints = Prelude.Nothing}
+  = HlsIngestProperty
+      {haddock_workaround_ = (), ingestEndpoints = Prelude.Nothing}
 instance ToResourceProperties HlsIngestProperty where
   toResourceProperties HlsIngestProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON HlsIngestProperty where
               [(JSON..=) "ingestEndpoints" Prelude.<$> ingestEndpoints]))
 instance Property "ingestEndpoints" HlsIngestProperty where
   type PropertyType "ingestEndpoints" HlsIngestProperty = [IngestEndpointProperty]
-  set newValue HlsIngestProperty {}
+  set newValue HlsIngestProperty {..}
     = HlsIngestProperty {ingestEndpoints = Prelude.pure newValue, ..}

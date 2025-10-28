@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.S3ConfigProperty as Exp
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.TimestreamConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data DataDestinationConfigProperty
-  = DataDestinationConfigProperty {mqttTopicConfig :: (Prelude.Maybe MqttTopicConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html>
+    DataDestinationConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-mqtttopicconfig>
+                                   mqttTopicConfig :: (Prelude.Maybe MqttTopicConfigProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-s3config>
                                    s3Config :: (Prelude.Maybe S3ConfigProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-timestreamconfig>
                                    timestreamConfig :: (Prelude.Maybe TimestreamConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataDestinationConfigProperty :: DataDestinationConfigProperty
 mkDataDestinationConfigProperty
   = DataDestinationConfigProperty
-      {mqttTopicConfig = Prelude.Nothing, s3Config = Prelude.Nothing,
-       timestreamConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), mqttTopicConfig = Prelude.Nothing,
+       s3Config = Prelude.Nothing, timestreamConfig = Prelude.Nothing}
 instance ToResourceProperties DataDestinationConfigProperty where
   toResourceProperties DataDestinationConfigProperty {..}
     = ResourceProperties

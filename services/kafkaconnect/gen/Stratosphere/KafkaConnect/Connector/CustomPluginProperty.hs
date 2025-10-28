@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPluginProperty
-  = CustomPluginProperty {customPluginArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html>
+    CustomPluginProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-custompluginarn>
+                          customPluginArn :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html#cfn-kafkaconnect-connector-customplugin-revision>
                           revision :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> CustomPluginProperty
 mkCustomPluginProperty customPluginArn revision
   = CustomPluginProperty
-      {customPluginArn = customPluginArn, revision = revision}
+      {haddock_workaround_ = (), customPluginArn = customPluginArn,
+       revision = revision}
 instance ToResourceProperties CustomPluginProperty where
   toResourceProperties CustomPluginProperty {..}
     = ResourceProperties

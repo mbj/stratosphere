@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Agent.FunctionProperty as Exports
 import Stratosphere.ResourceProperties
 data FunctionSchemaProperty
-  = FunctionSchemaProperty {functions :: [FunctionProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html>
+    FunctionSchemaProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html#cfn-bedrock-agent-functionschema-functions>
+                            functions :: [FunctionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionSchemaProperty ::
   [FunctionProperty] -> FunctionSchemaProperty
 mkFunctionSchemaProperty functions
-  = FunctionSchemaProperty {functions = functions}
+  = FunctionSchemaProperty
+      {haddock_workaround_ = (), functions = functions}
 instance ToResourceProperties FunctionSchemaProperty where
   toResourceProperties FunctionSchemaProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON FunctionSchemaProperty where
     = JSON.object ["Functions" JSON..= functions]
 instance Property "Functions" FunctionSchemaProperty where
   type PropertyType "Functions" FunctionSchemaProperty = [FunctionProperty]
-  set newValue FunctionSchemaProperty {}
+  set newValue FunctionSchemaProperty {..}
     = FunctionSchemaProperty {functions = newValue, ..}

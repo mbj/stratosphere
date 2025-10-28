@@ -8,16 +8,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Schedule
-  = Schedule {cronExpression :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html>
+    Schedule {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression>
+              cronExpression :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames>
               jobNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchedule :: Value Prelude.Text -> Value Prelude.Text -> Schedule
 mkSchedule cronExpression name
   = Schedule
-      {cronExpression = cronExpression, name = name,
-       jobNames = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), cronExpression = cronExpression,
+       name = name, jobNames = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Schedule where
   toResourceProperties Schedule {..}
     = ResourceProperties

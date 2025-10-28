@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.FilterProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveRuleProperty
-  = ArchiveRuleProperty {filter :: [FilterProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>
+    ArchiveRuleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter>
+                         filter :: [FilterProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename>
                          ruleName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRuleProperty ::
   [FilterProperty] -> Value Prelude.Text -> ArchiveRuleProperty
 mkArchiveRuleProperty filter ruleName
-  = ArchiveRuleProperty {filter = filter, ruleName = ruleName}
+  = ArchiveRuleProperty
+      {haddock_workaround_ = (), filter = filter, ruleName = ruleName}
 instance ToResourceProperties ArchiveRuleProperty where
   toResourceProperties ArchiveRuleProperty {..}
     = ResourceProperties

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinition.LoggerProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggerDefinitionVersionProperty
-  = LoggerDefinitionVersionProperty {loggers :: [LoggerProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html>
+    LoggerDefinitionVersionProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html#cfn-greengrass-loggerdefinition-loggerdefinitionversion-loggers>
+                                     loggers :: [LoggerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinitionVersionProperty ::
   [LoggerProperty] -> LoggerDefinitionVersionProperty
 mkLoggerDefinitionVersionProperty loggers
-  = LoggerDefinitionVersionProperty {loggers = loggers}
+  = LoggerDefinitionVersionProperty
+      {haddock_workaround_ = (), loggers = loggers}
 instance ToResourceProperties LoggerDefinitionVersionProperty where
   toResourceProperties LoggerDefinitionVersionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON LoggerDefinitionVersionProperty where
     = JSON.object ["Loggers" JSON..= loggers]
 instance Property "Loggers" LoggerDefinitionVersionProperty where
   type PropertyType "Loggers" LoggerDefinitionVersionProperty = [LoggerProperty]
-  set newValue LoggerDefinitionVersionProperty {}
+  set newValue LoggerDefinitionVersionProperty {..}
     = LoggerDefinitionVersionProperty {loggers = newValue, ..}

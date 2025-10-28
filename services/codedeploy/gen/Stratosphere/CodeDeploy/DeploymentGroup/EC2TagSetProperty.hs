@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.EC2TagSetListObjectProperty as Exports
 import Stratosphere.ResourceProperties
 data EC2TagSetProperty
-  = EC2TagSetProperty {ec2TagSetList :: (Prelude.Maybe [EC2TagSetListObjectProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html>
+    EC2TagSetProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html#cfn-codedeploy-deploymentgroup-ec2tagset-ec2tagsetlist>
+                       ec2TagSetList :: (Prelude.Maybe [EC2TagSetListObjectProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEC2TagSetProperty :: EC2TagSetProperty
 mkEC2TagSetProperty
-  = EC2TagSetProperty {ec2TagSetList = Prelude.Nothing}
+  = EC2TagSetProperty
+      {haddock_workaround_ = (), ec2TagSetList = Prelude.Nothing}
 instance ToResourceProperties EC2TagSetProperty where
   toResourceProperties EC2TagSetProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON EC2TagSetProperty where
               [(JSON..=) "Ec2TagSetList" Prelude.<$> ec2TagSetList]))
 instance Property "Ec2TagSetList" EC2TagSetProperty where
   type PropertyType "Ec2TagSetList" EC2TagSetProperty = [EC2TagSetListObjectProperty]
-  set newValue EC2TagSetProperty {}
+  set newValue EC2TagSetProperty {..}
     = EC2TagSetProperty {ec2TagSetList = Prelude.pure newValue, ..}

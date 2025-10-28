@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimestampColumnProperty
-  = TimestampColumnProperty {columnFormat :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html>
+    TimestampColumnProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat>
+                             columnFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname>
                              columnName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestampColumnProperty :: TimestampColumnProperty
 mkTimestampColumnProperty
   = TimestampColumnProperty
-      {columnFormat = Prelude.Nothing, columnName = Prelude.Nothing}
+      {haddock_workaround_ = (), columnFormat = Prelude.Nothing,
+       columnName = Prelude.Nothing}
 instance ToResourceProperties TimestampColumnProperty where
   toResourceProperties TimestampColumnProperty {..}
     = ResourceProperties

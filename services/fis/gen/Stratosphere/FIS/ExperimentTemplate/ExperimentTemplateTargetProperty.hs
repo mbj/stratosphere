@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateTarg
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateTargetProperty
-  = ExperimentTemplateTargetProperty {filters :: (Prelude.Maybe [ExperimentTemplateTargetFilterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html>
+    ExperimentTemplateTargetProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters>
+                                      filters :: (Prelude.Maybe [ExperimentTemplateTargetFilterProperty]),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-parameters>
                                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns>
                                       resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags>
                                       resourceTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype>
                                       resourceType :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode>
                                       selectionMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateTargetProperty ::
@@ -21,9 +29,10 @@ mkExperimentTemplateTargetProperty ::
   -> Value Prelude.Text -> ExperimentTemplateTargetProperty
 mkExperimentTemplateTargetProperty resourceType selectionMode
   = ExperimentTemplateTargetProperty
-      {resourceType = resourceType, selectionMode = selectionMode,
-       filters = Prelude.Nothing, parameters = Prelude.Nothing,
-       resourceArns = Prelude.Nothing, resourceTags = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceType = resourceType,
+       selectionMode = selectionMode, filters = Prelude.Nothing,
+       parameters = Prelude.Nothing, resourceArns = Prelude.Nothing,
+       resourceTags = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplateTargetProperty where
   toResourceProperties ExperimentTemplateTargetProperty {..}
     = ResourceProperties

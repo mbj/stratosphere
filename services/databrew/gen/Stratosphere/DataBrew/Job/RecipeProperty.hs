@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecipeProperty
-  = RecipeProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html>
+    RecipeProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name>
+                    name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version>
                     version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipeProperty :: Value Prelude.Text -> RecipeProperty
 mkRecipeProperty name
-  = RecipeProperty {name = name, version = Prelude.Nothing}
+  = RecipeProperty
+      {haddock_workaround_ = (), name = name, version = Prelude.Nothing}
 instance ToResourceProperties RecipeProperty where
   toResourceProperties RecipeProperty {..}
     = ResourceProperties

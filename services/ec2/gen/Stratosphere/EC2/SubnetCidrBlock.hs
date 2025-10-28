@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubnetCidrBlock
-  = SubnetCidrBlock {ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html>
+    SubnetCidrBlock {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock>
+                     ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6ipampoolid>
                      ipv6IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6netmasklength>
                      ipv6NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-subnetid>
                      subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetCidrBlock :: Value Prelude.Text -> SubnetCidrBlock
 mkSubnetCidrBlock subnetId
   = SubnetCidrBlock
-      {subnetId = subnetId, ipv6CidrBlock = Prelude.Nothing,
-       ipv6IpamPoolId = Prelude.Nothing,
+      {haddock_workaround_ = (), subnetId = subnetId,
+       ipv6CidrBlock = Prelude.Nothing, ipv6IpamPoolId = Prelude.Nothing,
        ipv6NetmaskLength = Prelude.Nothing}
 instance ToResourceProperties SubnetCidrBlock where
   toResourceProperties SubnetCidrBlock {..}

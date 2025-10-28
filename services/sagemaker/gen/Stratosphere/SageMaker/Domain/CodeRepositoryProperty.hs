@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeRepositoryProperty
-  = CodeRepositoryProperty {repositoryUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-coderepository.html>
+    CodeRepositoryProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-coderepository.html#cfn-sagemaker-domain-coderepository-repositoryurl>
+                            repositoryUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepositoryProperty ::
   Value Prelude.Text -> CodeRepositoryProperty
 mkCodeRepositoryProperty repositoryUrl
-  = CodeRepositoryProperty {repositoryUrl = repositoryUrl}
+  = CodeRepositoryProperty
+      {haddock_workaround_ = (), repositoryUrl = repositoryUrl}
 instance ToResourceProperties CodeRepositoryProperty where
   toResourceProperties CodeRepositoryProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CodeRepositoryProperty where
     = JSON.object ["RepositoryUrl" JSON..= repositoryUrl]
 instance Property "RepositoryUrl" CodeRepositoryProperty where
   type PropertyType "RepositoryUrl" CodeRepositoryProperty = Value Prelude.Text
-  set newValue CodeRepositoryProperty {}
+  set newValue CodeRepositoryProperty {..}
     = CodeRepositoryProperty {repositoryUrl = newValue, ..}

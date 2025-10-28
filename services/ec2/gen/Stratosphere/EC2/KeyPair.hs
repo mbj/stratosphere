@@ -8,18 +8,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data KeyPair
-  = KeyPair {keyFormat :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html>
+    KeyPair {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keyformat>
+             keyFormat :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keyname>
              keyName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-keytype>
              keyType :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-publickeymaterial>
              publicKeyMaterial :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html#cfn-ec2-keypair-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyPair :: Value Prelude.Text -> KeyPair
 mkKeyPair keyName
   = KeyPair
-      {keyName = keyName, keyFormat = Prelude.Nothing,
-       keyType = Prelude.Nothing, publicKeyMaterial = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), keyName = keyName,
+       keyFormat = Prelude.Nothing, keyType = Prelude.Nothing,
+       publicKeyMaterial = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties KeyPair where
   toResourceProperties KeyPair {..}
     = ResourceProperties

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.EKS.FargateProfile.LabelProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelectorProperty
-  = SelectorProperty {labels :: (Prelude.Maybe [LabelProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html>
+    SelectorProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels>
+                      labels :: (Prelude.Maybe [LabelProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace>
                       namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectorProperty :: Value Prelude.Text -> SelectorProperty
 mkSelectorProperty namespace
   = SelectorProperty
-      {namespace = namespace, labels = Prelude.Nothing}
+      {haddock_workaround_ = (), namespace = namespace,
+       labels = Prelude.Nothing}
 instance ToResourceProperties SelectorProperty where
   toResourceProperties SelectorProperty {..}
     = ResourceProperties

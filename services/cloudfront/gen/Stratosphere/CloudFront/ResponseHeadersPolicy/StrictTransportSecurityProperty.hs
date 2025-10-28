@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StrictTransportSecurityProperty
-  = StrictTransportSecurityProperty {accessControlMaxAgeSec :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html>
+    StrictTransportSecurityProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-accesscontrolmaxagesec>
+                                     accessControlMaxAgeSec :: (Value Prelude.Integer),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-includesubdomains>
                                      includeSubdomains :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-override>
                                      override :: (Value Prelude.Bool),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html#cfn-cloudfront-responseheaderspolicy-stricttransportsecurity-preload>
                                      preload :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStrictTransportSecurityProperty ::
@@ -18,7 +24,8 @@ mkStrictTransportSecurityProperty ::
   -> Value Prelude.Bool -> StrictTransportSecurityProperty
 mkStrictTransportSecurityProperty accessControlMaxAgeSec override
   = StrictTransportSecurityProperty
-      {accessControlMaxAgeSec = accessControlMaxAgeSec,
+      {haddock_workaround_ = (),
+       accessControlMaxAgeSec = accessControlMaxAgeSec,
        override = override, includeSubdomains = Prelude.Nothing,
        preload = Prelude.Nothing}
 instance ToResourceProperties StrictTransportSecurityProperty where

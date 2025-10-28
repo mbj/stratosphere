@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.AwsCloudMapServiceDiscove
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.DnsServiceDiscoveryProperty as Exports
 import Stratosphere.ResourceProperties
 data ServiceDiscoveryProperty
-  = ServiceDiscoveryProperty {aWSCloudMap :: (Prelude.Maybe AwsCloudMapServiceDiscoveryProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html>
+    ServiceDiscoveryProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-awscloudmap>
+                              aWSCloudMap :: (Prelude.Maybe AwsCloudMapServiceDiscoveryProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns>
                               dNS :: (Prelude.Maybe DnsServiceDiscoveryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceDiscoveryProperty :: ServiceDiscoveryProperty
 mkServiceDiscoveryProperty
   = ServiceDiscoveryProperty
-      {aWSCloudMap = Prelude.Nothing, dNS = Prelude.Nothing}
+      {haddock_workaround_ = (), aWSCloudMap = Prelude.Nothing,
+       dNS = Prelude.Nothing}
 instance ToResourceProperties ServiceDiscoveryProperty where
   toResourceProperties ServiceDiscoveryProperty {..}
     = ResourceProperties

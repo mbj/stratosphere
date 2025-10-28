@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryDefinition
-  = QueryDefinition {logGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html>
+    QueryDefinition {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames>
+                     logGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring>
                      queryString :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryDefinition ::
   Value Prelude.Text -> Value Prelude.Text -> QueryDefinition
 mkQueryDefinition name queryString
   = QueryDefinition
-      {name = name, queryString = queryString,
+      {haddock_workaround_ = (), name = name, queryString = queryString,
        logGroupNames = Prelude.Nothing}
 instance ToResourceProperties QueryDefinition where
   toResourceProperties QueryDefinition {..}

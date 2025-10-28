@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonopensearchserviceBufferingHintsProperty
-  = AmazonopensearchserviceBufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html>
+    AmazonopensearchserviceBufferingHintsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints-intervalinseconds>
+                                                   intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints-sizeinmbs>
                                                    sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonopensearchserviceBufferingHintsProperty ::
   AmazonopensearchserviceBufferingHintsProperty
 mkAmazonopensearchserviceBufferingHintsProperty
   = AmazonopensearchserviceBufferingHintsProperty
-      {intervalInSeconds = Prelude.Nothing, sizeInMBs = Prelude.Nothing}
+      {haddock_workaround_ = (), intervalInSeconds = Prelude.Nothing,
+       sizeInMBs = Prelude.Nothing}
 instance ToResourceProperties AmazonopensearchserviceBufferingHintsProperty where
   toResourceProperties
     AmazonopensearchserviceBufferingHintsProperty {..}

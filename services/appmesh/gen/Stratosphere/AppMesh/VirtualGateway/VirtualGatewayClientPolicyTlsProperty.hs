@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValid
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayClientPolicyTlsProperty
-  = VirtualGatewayClientPolicyTlsProperty {certificate :: (Prelude.Maybe VirtualGatewayClientTlsCertificateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html>
+    VirtualGatewayClientPolicyTlsProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-certificate>
+                                           certificate :: (Prelude.Maybe VirtualGatewayClientTlsCertificateProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce>
                                            enforce :: (Prelude.Maybe (Value Prelude.Bool)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports>
                                            ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation>
                                            validation :: VirtualGatewayTlsValidationContextProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientPolicyTlsProperty ::
@@ -20,8 +26,9 @@ mkVirtualGatewayClientPolicyTlsProperty ::
   -> VirtualGatewayClientPolicyTlsProperty
 mkVirtualGatewayClientPolicyTlsProperty validation
   = VirtualGatewayClientPolicyTlsProperty
-      {validation = validation, certificate = Prelude.Nothing,
-       enforce = Prelude.Nothing, ports = Prelude.Nothing}
+      {haddock_workaround_ = (), validation = validation,
+       certificate = Prelude.Nothing, enforce = Prelude.Nothing,
+       ports = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayClientPolicyTlsProperty where
   toResourceProperties VirtualGatewayClientPolicyTlsProperty {..}
     = ResourceProperties

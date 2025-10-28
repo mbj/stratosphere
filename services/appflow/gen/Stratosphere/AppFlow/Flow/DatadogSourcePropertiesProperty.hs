@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatadogSourcePropertiesProperty
-  = DatadogSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html>
+    DatadogSourcePropertiesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object>
+                                     object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatadogSourcePropertiesProperty ::
   Value Prelude.Text -> DatadogSourcePropertiesProperty
 mkDatadogSourcePropertiesProperty object
-  = DatadogSourcePropertiesProperty {object = object}
+  = DatadogSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties DatadogSourcePropertiesProperty where
   toResourceProperties DatadogSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON DatadogSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" DatadogSourcePropertiesProperty where
   type PropertyType "Object" DatadogSourcePropertiesProperty = Value Prelude.Text
-  set newValue DatadogSourcePropertiesProperty {}
+  set newValue DatadogSourcePropertiesProperty {..}
     = DatadogSourcePropertiesProperty {object = newValue, ..}

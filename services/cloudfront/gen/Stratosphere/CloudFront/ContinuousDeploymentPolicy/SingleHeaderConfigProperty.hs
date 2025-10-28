@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleHeaderConfigProperty
-  = SingleHeaderConfigProperty {header :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>
+    SingleHeaderConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleheaderconfig-header>
+                                header :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleheaderconfig-value>
                                 value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleHeaderConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SingleHeaderConfigProperty
 mkSingleHeaderConfigProperty header value
-  = SingleHeaderConfigProperty {header = header, value = value}
+  = SingleHeaderConfigProperty
+      {haddock_workaround_ = (), header = header, value = value}
 instance ToResourceProperties SingleHeaderConfigProperty where
   toResourceProperties SingleHeaderConfigProperty {..}
     = ResourceProperties

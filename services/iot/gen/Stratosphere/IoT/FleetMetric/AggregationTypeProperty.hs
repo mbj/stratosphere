@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AggregationTypeProperty
-  = AggregationTypeProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html>
+    AggregationTypeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values>
                              values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationTypeProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> AggregationTypeProperty
 mkAggregationTypeProperty name values
-  = AggregationTypeProperty {name = name, values = values}
+  = AggregationTypeProperty
+      {haddock_workaround_ = (), name = name, values = values}
 instance ToResourceProperties AggregationTypeProperty where
   toResourceProperties AggregationTypeProperty {..}
     = ResourceProperties

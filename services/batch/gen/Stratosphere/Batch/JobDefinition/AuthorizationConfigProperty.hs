@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthorizationConfigProperty
-  = AuthorizationConfigProperty {accessPointId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html>
+    AuthorizationConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html#cfn-batch-jobdefinition-authorizationconfig-accesspointid>
+                                 accessPointId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html#cfn-batch-jobdefinition-authorizationconfig-iam>
                                  iam :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationConfigProperty :: AuthorizationConfigProperty
 mkAuthorizationConfigProperty
   = AuthorizationConfigProperty
-      {accessPointId = Prelude.Nothing, iam = Prelude.Nothing}
+      {haddock_workaround_ = (), accessPointId = Prelude.Nothing,
+       iam = Prelude.Nothing}
 instance ToResourceProperties AuthorizationConfigProperty where
   toResourceProperties AuthorizationConfigProperty {..}
     = ResourceProperties

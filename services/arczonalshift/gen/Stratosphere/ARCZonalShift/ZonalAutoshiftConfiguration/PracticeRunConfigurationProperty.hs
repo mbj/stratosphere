@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.Con
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PracticeRunConfigurationProperty
-  = PracticeRunConfigurationProperty {blockedDates :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html>
+    PracticeRunConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration-blockeddates>
+                                      blockedDates :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration-blockedwindows>
                                       blockedWindows :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration-blockingalarms>
                                       blockingAlarms :: (Prelude.Maybe [ControlConditionProperty]),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration-outcomealarms>
                                       outcomeAlarms :: [ControlConditionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPracticeRunConfigurationProperty ::
   [ControlConditionProperty] -> PracticeRunConfigurationProperty
 mkPracticeRunConfigurationProperty outcomeAlarms
   = PracticeRunConfigurationProperty
-      {outcomeAlarms = outcomeAlarms, blockedDates = Prelude.Nothing,
-       blockedWindows = Prelude.Nothing, blockingAlarms = Prelude.Nothing}
+      {haddock_workaround_ = (), outcomeAlarms = outcomeAlarms,
+       blockedDates = Prelude.Nothing, blockedWindows = Prelude.Nothing,
+       blockingAlarms = Prelude.Nothing}
 instance ToResourceProperties PracticeRunConfigurationProperty where
   toResourceProperties PracticeRunConfigurationProperty {..}
     = ResourceProperties

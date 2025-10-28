@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.HadoopJarStepConfigProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StepConfigProperty
-  = StepConfigProperty {actionOnFailure :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html>
+    StepConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure>
+                        actionOnFailure :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep>
                         hadoopJarStep :: HadoopJarStepConfigProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-name>
                         name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStepConfigProperty ::
@@ -17,8 +22,8 @@ mkStepConfigProperty ::
   -> Value Prelude.Text -> StepConfigProperty
 mkStepConfigProperty hadoopJarStep name
   = StepConfigProperty
-      {hadoopJarStep = hadoopJarStep, name = name,
-       actionOnFailure = Prelude.Nothing}
+      {haddock_workaround_ = (), hadoopJarStep = hadoopJarStep,
+       name = name, actionOnFailure = Prelude.Nothing}
 instance ToResourceProperties StepConfigProperty where
   toResourceProperties StepConfigProperty {..}
     = ResourceProperties

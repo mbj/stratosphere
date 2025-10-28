@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributePayloadProperty
-  = AttributePayloadProperty {attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html>
+    AttributePayloadProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes>
+                              attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributePayloadProperty :: AttributePayloadProperty
 mkAttributePayloadProperty
-  = AttributePayloadProperty {attributes = Prelude.Nothing}
+  = AttributePayloadProperty
+      {haddock_workaround_ = (), attributes = Prelude.Nothing}
 instance ToResourceProperties AttributePayloadProperty where
   toResourceProperties AttributePayloadProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON AttributePayloadProperty where
               [(JSON..=) "Attributes" Prelude.<$> attributes]))
 instance Property "Attributes" AttributePayloadProperty where
   type PropertyType "Attributes" AttributePayloadProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
-  set newValue AttributePayloadProperty {}
+  set newValue AttributePayloadProperty {..}
     = AttributePayloadProperty {attributes = Prelude.pure newValue, ..}

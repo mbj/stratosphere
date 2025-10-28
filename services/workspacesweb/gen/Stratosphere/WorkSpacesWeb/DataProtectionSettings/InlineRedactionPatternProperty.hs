@@ -10,18 +10,27 @@ import {-# SOURCE #-} Stratosphere.WorkSpacesWeb.DataProtectionSettings.Redactio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InlineRedactionPatternProperty
-  = InlineRedactionPatternProperty {builtInPatternId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html>
+    InlineRedactionPatternProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-builtinpatternid>
+                                    builtInPatternId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-confidencelevel>
                                     confidenceLevel :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-custompattern>
                                     customPattern :: (Prelude.Maybe CustomPatternProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-enforcedurls>
                                     enforcedUrls :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-exempturls>
                                     exemptUrls :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionpattern-redactionplaceholder>
                                     redactionPlaceHolder :: RedactionPlaceHolderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInlineRedactionPatternProperty ::
   RedactionPlaceHolderProperty -> InlineRedactionPatternProperty
 mkInlineRedactionPatternProperty redactionPlaceHolder
   = InlineRedactionPatternProperty
-      {redactionPlaceHolder = redactionPlaceHolder,
+      {haddock_workaround_ = (),
+       redactionPlaceHolder = redactionPlaceHolder,
        builtInPatternId = Prelude.Nothing,
        confidenceLevel = Prelude.Nothing, customPattern = Prelude.Nothing,
        enforcedUrls = Prelude.Nothing, exemptUrls = Prelude.Nothing}

@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AsyncInferenceNotificationConfigProperty
-  = AsyncInferenceNotificationConfigProperty {errorTopic :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html>
+    AsyncInferenceNotificationConfigProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-errortopic>
+                                              errorTopic :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-includeinferenceresponsein>
                                               includeInferenceResponseIn :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html#cfn-sagemaker-endpointconfig-asyncinferencenotificationconfig-successtopic>
                                               successTopic :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceNotificationConfigProperty ::
   AsyncInferenceNotificationConfigProperty
 mkAsyncInferenceNotificationConfigProperty
   = AsyncInferenceNotificationConfigProperty
-      {errorTopic = Prelude.Nothing,
+      {haddock_workaround_ = (), errorTopic = Prelude.Nothing,
        includeInferenceResponseIn = Prelude.Nothing,
        successTopic = Prelude.Nothing}
 instance ToResourceProperties AsyncInferenceNotificationConfigProperty where

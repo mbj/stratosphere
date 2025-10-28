@@ -9,18 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VirtualRouter
-  = VirtualRouter {meshName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html>
+    VirtualRouter {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshname>
+                   meshName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshowner>
                    meshOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-spec>
                    spec :: VirtualRouterSpecProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags>
                    tags :: (Prelude.Maybe [Tag]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-virtualroutername>
                    virtualRouterName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouter ::
   Value Prelude.Text -> VirtualRouterSpecProperty -> VirtualRouter
 mkVirtualRouter meshName spec
   = VirtualRouter
-      {meshName = meshName, spec = spec, meshOwner = Prelude.Nothing,
-       tags = Prelude.Nothing, virtualRouterName = Prelude.Nothing}
+      {haddock_workaround_ = (), meshName = meshName, spec = spec,
+       meshOwner = Prelude.Nothing, tags = Prelude.Nothing,
+       virtualRouterName = Prelude.Nothing}
 instance ToResourceProperties VirtualRouter where
   toResourceProperties VirtualRouter {..}
     = ResourceProperties

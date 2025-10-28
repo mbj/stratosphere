@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.BasicAuthCredentials
 import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.OAuthCredentialsProperty as Exports
 import Stratosphere.ResourceProperties
 data SAPODataConnectorProfileCredentialsProperty
-  = SAPODataConnectorProfileCredentialsProperty {basicAuthCredentials :: (Prelude.Maybe BasicAuthCredentialsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html>
+    SAPODataConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html#cfn-appflow-connectorprofile-sapodataconnectorprofilecredentials-basicauthcredentials>
+                                                 basicAuthCredentials :: (Prelude.Maybe BasicAuthCredentialsProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html#cfn-appflow-connectorprofile-sapodataconnectorprofilecredentials-oauthcredentials>
                                                  oAuthCredentials :: (Prelude.Maybe OAuthCredentialsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataConnectorProfileCredentialsProperty ::
   SAPODataConnectorProfileCredentialsProperty
 mkSAPODataConnectorProfileCredentialsProperty
   = SAPODataConnectorProfileCredentialsProperty
-      {basicAuthCredentials = Prelude.Nothing,
+      {haddock_workaround_ = (), basicAuthCredentials = Prelude.Nothing,
        oAuthCredentials = Prelude.Nothing}
 instance ToResourceProperties SAPODataConnectorProfileCredentialsProperty where
   toResourceProperties

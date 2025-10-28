@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.PinpointEmail.DedicatedIpPool.TagsProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DedicatedIpPool
-  = DedicatedIpPool {poolName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html>
+    DedicatedIpPool {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html#cfn-pinpointemail-dedicatedippool-poolname>
+                     poolName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html#cfn-pinpointemail-dedicatedippool-tags>
                      tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDedicatedIpPool :: DedicatedIpPool
 mkDedicatedIpPool
   = DedicatedIpPool
-      {poolName = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), poolName = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties DedicatedIpPool where
   toResourceProperties DedicatedIpPool {..}
     = ResourceProperties

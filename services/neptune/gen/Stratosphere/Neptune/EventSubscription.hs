@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventSubscription
-  = EventSubscription {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html>
+    EventSubscription {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-enabled>
+                       enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-eventcategories>
                        eventCategories :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-snstopicarn>
                        snsTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-sourceids>
                        sourceIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-sourcetype>
                        sourceType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSubscription :: EventSubscription
 mkEventSubscription
   = EventSubscription
-      {enabled = Prelude.Nothing, eventCategories = Prelude.Nothing,
-       snsTopicArn = Prelude.Nothing, sourceIds = Prelude.Nothing,
-       sourceType = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       eventCategories = Prelude.Nothing, snsTopicArn = Prelude.Nothing,
+       sourceIds = Prelude.Nothing, sourceType = Prelude.Nothing}
 instance ToResourceProperties EventSubscription where
   toResourceProperties EventSubscription {..}
     = ResourceProperties

@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ConditionO
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CalculatedAttributeDimensionProperty
-  = CalculatedAttributeDimensionProperty {conditionOverrides :: (Prelude.Maybe ConditionOverridesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html>
+    CalculatedAttributeDimensionProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-conditionoverrides>
+                                          conditionOverrides :: (Prelude.Maybe ConditionOverridesProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-dimensiontype>
                                           dimensionType :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-values>
                                           values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedAttributeDimensionProperty ::
@@ -18,8 +23,8 @@ mkCalculatedAttributeDimensionProperty ::
   -> ValueList Prelude.Text -> CalculatedAttributeDimensionProperty
 mkCalculatedAttributeDimensionProperty dimensionType values
   = CalculatedAttributeDimensionProperty
-      {dimensionType = dimensionType, values = values,
-       conditionOverrides = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensionType = dimensionType,
+       values = values, conditionOverrides = Prelude.Nothing}
 instance ToResourceProperties CalculatedAttributeDimensionProperty where
   toResourceProperties CalculatedAttributeDimensionProperty {..}
     = ResourceProperties

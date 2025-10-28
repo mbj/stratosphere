@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data InferenceComponent
-  = InferenceComponent {endpointArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html>
+    InferenceComponent {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointarn>
+                        endpointArn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointname>
                         endpointName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-inferencecomponentname>
                         inferenceComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-runtimeconfig>
                         runtimeConfig :: (Prelude.Maybe InferenceComponentRuntimeConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-specification>
                         specification :: InferenceComponentSpecificationProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-tags>
                         tags :: (Prelude.Maybe [Tag]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-variantname>
                         variantName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponent ::
@@ -23,8 +32,8 @@ mkInferenceComponent ::
   -> InferenceComponentSpecificationProperty -> InferenceComponent
 mkInferenceComponent endpointName specification
   = InferenceComponent
-      {endpointName = endpointName, specification = specification,
-       endpointArn = Prelude.Nothing,
+      {haddock_workaround_ = (), endpointName = endpointName,
+       specification = specification, endpointArn = Prelude.Nothing,
        inferenceComponentName = Prelude.Nothing,
        runtimeConfig = Prelude.Nothing, tags = Prelude.Nothing,
        variantName = Prelude.Nothing}

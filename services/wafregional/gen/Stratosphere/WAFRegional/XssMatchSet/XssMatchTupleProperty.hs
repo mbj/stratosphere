@@ -8,14 +8,18 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.XssMatchSet.FieldToMatchProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data XssMatchTupleProperty
-  = XssMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html>
+    XssMatchTupleProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-fieldtomatch>
+                           fieldToMatch :: FieldToMatchProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html#cfn-wafregional-xssmatchset-xssmatchtuple-texttransformation>
                            textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchTupleProperty ::
   FieldToMatchProperty -> Value Prelude.Text -> XssMatchTupleProperty
 mkXssMatchTupleProperty fieldToMatch textTransformation
   = XssMatchTupleProperty
-      {fieldToMatch = fieldToMatch,
+      {haddock_workaround_ = (), fieldToMatch = fieldToMatch,
        textTransformation = textTransformation}
 instance ToResourceProperties XssMatchTupleProperty where
   toResourceProperties XssMatchTupleProperty {..}

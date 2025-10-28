@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReadEndpointProperty
-  = ReadEndpointProperty {address :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html>
+    ReadEndpointProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html#cfn-rds-dbcluster-readendpoint-address>
+                          address :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadEndpointProperty :: ReadEndpointProperty
 mkReadEndpointProperty
-  = ReadEndpointProperty {address = Prelude.Nothing}
+  = ReadEndpointProperty
+      {haddock_workaround_ = (), address = Prelude.Nothing}
 instance ToResourceProperties ReadEndpointProperty where
   toResourceProperties ReadEndpointProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ReadEndpointProperty where
            (Prelude.catMaybes [(JSON..=) "Address" Prelude.<$> address]))
 instance Property "Address" ReadEndpointProperty where
   type PropertyType "Address" ReadEndpointProperty = Value Prelude.Text
-  set newValue ReadEndpointProperty {}
+  set newValue ReadEndpointProperty {..}
     = ReadEndpointProperty {address = Prelude.pure newValue, ..}

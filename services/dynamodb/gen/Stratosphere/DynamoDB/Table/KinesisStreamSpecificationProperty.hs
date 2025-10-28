@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisStreamSpecificationProperty
-  = KinesisStreamSpecificationProperty {approximateCreationDateTimePrecision :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html>
+    KinesisStreamSpecificationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html#cfn-dynamodb-table-kinesisstreamspecification-approximatecreationdatetimeprecision>
+                                        approximateCreationDateTimePrecision :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html#cfn-dynamodb-table-kinesisstreamspecification-streamarn>
                                         streamArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisStreamSpecificationProperty ::
   Value Prelude.Text -> KinesisStreamSpecificationProperty
 mkKinesisStreamSpecificationProperty streamArn
   = KinesisStreamSpecificationProperty
-      {streamArn = streamArn,
+      {haddock_workaround_ = (), streamArn = streamArn,
        approximateCreationDateTimePrecision = Prelude.Nothing}
 instance ToResourceProperties KinesisStreamSpecificationProperty where
   toResourceProperties KinesisStreamSpecificationProperty {..}

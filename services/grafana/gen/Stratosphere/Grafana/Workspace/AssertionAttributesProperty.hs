@@ -7,19 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssertionAttributesProperty
-  = AssertionAttributesProperty {email :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html>
+    AssertionAttributesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-email>
+                                 email :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-groups>
                                  groups :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-login>
                                  login :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-name>
                                  name :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-org>
                                  org :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html#cfn-grafana-workspace-assertionattributes-role>
                                  role :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssertionAttributesProperty :: AssertionAttributesProperty
 mkAssertionAttributesProperty
   = AssertionAttributesProperty
-      {email = Prelude.Nothing, groups = Prelude.Nothing,
-       login = Prelude.Nothing, name = Prelude.Nothing,
-       org = Prelude.Nothing, role = Prelude.Nothing}
+      {haddock_workaround_ = (), email = Prelude.Nothing,
+       groups = Prelude.Nothing, login = Prelude.Nothing,
+       name = Prelude.Nothing, org = Prelude.Nothing,
+       role = Prelude.Nothing}
 instance ToResourceProperties AssertionAttributesProperty where
   toResourceProperties AssertionAttributesProperty {..}
     = ResourceProperties

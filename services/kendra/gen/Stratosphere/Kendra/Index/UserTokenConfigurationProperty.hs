@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Kendra.Index.JsonTokenTypeConfigurationProper
 import {-# SOURCE #-} Stratosphere.Kendra.Index.JwtTokenTypeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data UserTokenConfigurationProperty
-  = UserTokenConfigurationProperty {jsonTokenTypeConfiguration :: (Prelude.Maybe JsonTokenTypeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html>
+    UserTokenConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration>
+                                    jsonTokenTypeConfiguration :: (Prelude.Maybe JsonTokenTypeConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration>
                                     jwtTokenTypeConfiguration :: (Prelude.Maybe JwtTokenTypeConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserTokenConfigurationProperty :: UserTokenConfigurationProperty
 mkUserTokenConfigurationProperty
   = UserTokenConfigurationProperty
-      {jsonTokenTypeConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       jsonTokenTypeConfiguration = Prelude.Nothing,
        jwtTokenTypeConfiguration = Prelude.Nothing}
 instance ToResourceProperties UserTokenConfigurationProperty where
   toResourceProperties UserTokenConfigurationProperty {..}

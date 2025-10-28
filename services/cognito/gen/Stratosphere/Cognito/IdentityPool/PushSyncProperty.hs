@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PushSyncProperty
-  = PushSyncProperty {applicationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html>
+    PushSyncProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-applicationarns>
+                      applicationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-rolearn>
                       roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPushSyncProperty :: PushSyncProperty
 mkPushSyncProperty
   = PushSyncProperty
-      {applicationArns = Prelude.Nothing, roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationArns = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties PushSyncProperty where
   toResourceProperties PushSyncProperty {..}
     = ResourceProperties

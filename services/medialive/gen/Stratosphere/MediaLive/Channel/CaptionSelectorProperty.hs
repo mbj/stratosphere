@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptionSelectorProperty
-  = CaptionSelectorProperty {languageCode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html>
+    CaptionSelectorProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-languagecode>
+                             languageCode :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html#cfn-medialive-channel-captionselector-selectorsettings>
                              selectorSettings :: (Prelude.Maybe CaptionSelectorSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionSelectorProperty :: CaptionSelectorProperty
 mkCaptionSelectorProperty
   = CaptionSelectorProperty
-      {languageCode = Prelude.Nothing, name = Prelude.Nothing,
-       selectorSettings = Prelude.Nothing}
+      {haddock_workaround_ = (), languageCode = Prelude.Nothing,
+       name = Prelude.Nothing, selectorSettings = Prelude.Nothing}
 instance ToResourceProperties CaptionSelectorProperty where
   toResourceProperties CaptionSelectorProperty {..}
     = ResourceProperties

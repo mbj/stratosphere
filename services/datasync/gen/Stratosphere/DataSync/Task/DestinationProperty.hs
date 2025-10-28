@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.Task.TaskReportConfigDestinationS3Property as Exports
 import Stratosphere.ResourceProperties
 data DestinationProperty
-  = DestinationProperty {s3 :: (Prelude.Maybe TaskReportConfigDestinationS3Property)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-destination.html>
+    DestinationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-destination.html#cfn-datasync-task-destination-s3>
+                         s3 :: (Prelude.Maybe TaskReportConfigDestinationS3Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty :: DestinationProperty
-mkDestinationProperty = DestinationProperty {s3 = Prelude.Nothing}
+mkDestinationProperty
+  = DestinationProperty
+      {haddock_workaround_ = (), s3 = Prelude.Nothing}
 instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON DestinationProperty where
            (Prelude.catMaybes [(JSON..=) "S3" Prelude.<$> s3]))
 instance Property "S3" DestinationProperty where
   type PropertyType "S3" DestinationProperty = TaskReportConfigDestinationS3Property
-  set newValue DestinationProperty {}
+  set newValue DestinationProperty {..}
     = DestinationProperty {s3 = Prelude.pure newValue, ..}

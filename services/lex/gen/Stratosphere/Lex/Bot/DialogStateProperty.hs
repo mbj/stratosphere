@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.IntentOverrideProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SessionAttributeProperty as Exports
 import Stratosphere.ResourceProperties
 data DialogStateProperty
-  = DialogStateProperty {dialogAction :: (Prelude.Maybe DialogActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html>
+    DialogStateProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-dialogaction>
+                         dialogAction :: (Prelude.Maybe DialogActionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-intent>
                          intent :: (Prelude.Maybe IntentOverrideProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html#cfn-lex-bot-dialogstate-sessionattributes>
                          sessionAttributes :: (Prelude.Maybe [SessionAttributeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogStateProperty :: DialogStateProperty
 mkDialogStateProperty
   = DialogStateProperty
-      {dialogAction = Prelude.Nothing, intent = Prelude.Nothing,
-       sessionAttributes = Prelude.Nothing}
+      {haddock_workaround_ = (), dialogAction = Prelude.Nothing,
+       intent = Prelude.Nothing, sessionAttributes = Prelude.Nothing}
 instance ToResourceProperties DialogStateProperty where
   toResourceProperties DialogStateProperty {..}
     = ResourceProperties

@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmProperty
-  = AlarmProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html>
+    AlarmProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html#cfn-codedeploy-deploymentgroup-alarm-name>
+                   name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: AlarmProperty
-mkAlarmProperty = AlarmProperty {name = Prelude.Nothing}
+mkAlarmProperty
+  = AlarmProperty {haddock_workaround_ = (), name = Prelude.Nothing}
 instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON AlarmProperty where
            (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))
 instance Property "Name" AlarmProperty where
   type PropertyType "Name" AlarmProperty = Value Prelude.Text
-  set newValue AlarmProperty {}
+  set newValue AlarmProperty {..}
     = AlarmProperty {name = Prelude.pure newValue, ..}

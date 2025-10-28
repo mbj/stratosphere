@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProfilePermission
-  = ProfilePermission {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html>
+    ProfilePermission {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action>
+                       action :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal>
                        principal :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename>
                        profileName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion>
                        profileVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid>
                        statementId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProfilePermission ::
@@ -19,8 +26,9 @@ mkProfilePermission ::
      -> Value Prelude.Text -> Value Prelude.Text -> ProfilePermission
 mkProfilePermission action principal profileName statementId
   = ProfilePermission
-      {action = action, principal = principal, profileName = profileName,
-       statementId = statementId, profileVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action, principal = principal,
+       profileName = profileName, statementId = statementId,
+       profileVersion = Prelude.Nothing}
 instance ToResourceProperties ProfilePermission where
   toResourceProperties ProfilePermission {..}
     = ResourceProperties

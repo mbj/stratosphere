@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterValueProperty
-  = FilterValueProperty {value :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html>
+    FilterValueProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value>
+                         value :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference>
                          valueReference :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterValueProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FilterValueProperty
 mkFilterValueProperty value valueReference
   = FilterValueProperty
-      {value = value, valueReference = valueReference}
+      {haddock_workaround_ = (), value = value,
+       valueReference = valueReference}
 instance ToResourceProperties FilterValueProperty where
   toResourceProperties FilterValueProperty {..}
     = ResourceProperties

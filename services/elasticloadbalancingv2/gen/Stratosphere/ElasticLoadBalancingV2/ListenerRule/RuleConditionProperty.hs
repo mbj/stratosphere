@@ -13,19 +13,30 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.SourceIpC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleConditionProperty
-  = RuleConditionProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html>
+    RuleConditionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-field>
+                           field :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig>
                            hostHeaderConfig :: (Prelude.Maybe HostHeaderConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig>
                            httpHeaderConfig :: (Prelude.Maybe HttpHeaderConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig>
                            httpRequestMethodConfig :: (Prelude.Maybe HttpRequestMethodConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig>
                            pathPatternConfig :: (Prelude.Maybe PathPatternConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig>
                            queryStringConfig :: (Prelude.Maybe QueryStringConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig>
                            sourceIpConfig :: (Prelude.Maybe SourceIpConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values>
                            values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleConditionProperty :: RuleConditionProperty
 mkRuleConditionProperty
   = RuleConditionProperty
-      {field = Prelude.Nothing, hostHeaderConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), field = Prelude.Nothing,
+       hostHeaderConfig = Prelude.Nothing,
        httpHeaderConfig = Prelude.Nothing,
        httpRequestMethodConfig = Prelude.Nothing,
        pathPatternConfig = Prelude.Nothing,

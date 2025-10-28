@@ -8,17 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldValidationConfigurationProperty
-  = FieldValidationConfigurationProperty {numValues :: (Prelude.Maybe (ValueList Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html>
+    FieldValidationConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html#cfn-amplifyuibuilder-form-fieldvalidationconfiguration-numvalues>
+                                          numValues :: (Prelude.Maybe (ValueList Prelude.Double)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html#cfn-amplifyuibuilder-form-fieldvalidationconfiguration-strvalues>
                                           strValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html#cfn-amplifyuibuilder-form-fieldvalidationconfiguration-type>
                                           type' :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html#cfn-amplifyuibuilder-form-fieldvalidationconfiguration-validationmessage>
                                           validationMessage :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldValidationConfigurationProperty ::
   Value Prelude.Text -> FieldValidationConfigurationProperty
 mkFieldValidationConfigurationProperty type'
   = FieldValidationConfigurationProperty
-      {type' = type', numValues = Prelude.Nothing,
-       strValues = Prelude.Nothing, validationMessage = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       numValues = Prelude.Nothing, strValues = Prelude.Nothing,
+       validationMessage = Prelude.Nothing}
 instance ToResourceProperties FieldValidationConfigurationProperty where
   toResourceProperties FieldValidationConfigurationProperty {..}
     = ResourceProperties

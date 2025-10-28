@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SidewalkAccountInfoProperty
-  = SidewalkAccountInfoProperty {appServerPrivateKey :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html>
+    SidewalkAccountInfoProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html#cfn-iotwireless-partneraccount-sidewalkaccountinfo-appserverprivatekey>
+                                 appServerPrivateKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSidewalkAccountInfoProperty ::
   Value Prelude.Text -> SidewalkAccountInfoProperty
 mkSidewalkAccountInfoProperty appServerPrivateKey
   = SidewalkAccountInfoProperty
-      {appServerPrivateKey = appServerPrivateKey}
+      {haddock_workaround_ = (),
+       appServerPrivateKey = appServerPrivateKey}
 instance ToResourceProperties SidewalkAccountInfoProperty where
   toResourceProperties SidewalkAccountInfoProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON SidewalkAccountInfoProperty where
     = JSON.object ["AppServerPrivateKey" JSON..= appServerPrivateKey]
 instance Property "AppServerPrivateKey" SidewalkAccountInfoProperty where
   type PropertyType "AppServerPrivateKey" SidewalkAccountInfoProperty = Value Prelude.Text
-  set newValue SidewalkAccountInfoProperty {}
+  set newValue SidewalkAccountInfoProperty {..}
     = SidewalkAccountInfoProperty {appServerPrivateKey = newValue, ..}

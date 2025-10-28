@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolUICustomizationAttachment
-  = UserPoolUICustomizationAttachment {cSS :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html>
+    UserPoolUICustomizationAttachment {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-css>
+                                       cSS :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-clientid>
                                        clientId :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-userpoolid>
                                        userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUICustomizationAttachment ::
@@ -17,8 +22,8 @@ mkUserPoolUICustomizationAttachment ::
   -> Value Prelude.Text -> UserPoolUICustomizationAttachment
 mkUserPoolUICustomizationAttachment clientId userPoolId
   = UserPoolUICustomizationAttachment
-      {clientId = clientId, userPoolId = userPoolId,
-       cSS = Prelude.Nothing}
+      {haddock_workaround_ = (), clientId = clientId,
+       userPoolId = userPoolId, cSS = Prelude.Nothing}
 instance ToResourceProperties UserPoolUICustomizationAttachment where
   toResourceProperties UserPoolUICustomizationAttachment {..}
     = ResourceProperties

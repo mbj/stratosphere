@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WafActionProperty
-  = WafActionProperty {type' :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html>
+    WafActionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html#cfn-waf-webacl-action-type>
+                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWafActionProperty :: Value Prelude.Text -> WafActionProperty
-mkWafActionProperty type' = WafActionProperty {type' = type'}
+mkWafActionProperty type'
+  = WafActionProperty {haddock_workaround_ = (), type' = type'}
 instance ToResourceProperties WafActionProperty where
   toResourceProperties WafActionProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON WafActionProperty where
   toJSON WafActionProperty {..} = JSON.object ["Type" JSON..= type']
 instance Property "Type" WafActionProperty where
   type PropertyType "Type" WafActionProperty = Value Prelude.Text
-  set newValue WafActionProperty {}
+  set newValue WafActionProperty {..}
     = WafActionProperty {type' = newValue, ..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RobotApplicationVersion
-  = RobotApplicationVersion {application :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html>
+    RobotApplicationVersion {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application>
+                             application :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid>
                              currentRevisionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotApplicationVersion ::
   Value Prelude.Text -> RobotApplicationVersion
 mkRobotApplicationVersion application
   = RobotApplicationVersion
-      {application = application, currentRevisionId = Prelude.Nothing}
+      {haddock_workaround_ = (), application = application,
+       currentRevisionId = Prelude.Nothing}
 instance ToResourceProperties RobotApplicationVersion where
   toResourceProperties RobotApplicationVersion {..}
     = ResourceProperties

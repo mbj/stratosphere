@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlServerParametersProperty
-  = SqlServerParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html>
+    SqlServerParametersProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database>
+                                 database :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host>
                                  host :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port>
                                  port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlServerParametersProperty ::
@@ -17,7 +22,8 @@ mkSqlServerParametersProperty ::
      -> Value Prelude.Double -> SqlServerParametersProperty
 mkSqlServerParametersProperty database host port
   = SqlServerParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties SqlServerParametersProperty where
   toResourceProperties SqlServerParametersProperty {..}
     = ResourceProperties

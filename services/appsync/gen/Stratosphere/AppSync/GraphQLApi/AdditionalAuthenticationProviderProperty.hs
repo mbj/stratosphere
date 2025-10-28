@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.OpenIDConnectConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdditionalAuthenticationProviderProperty
-  = AdditionalAuthenticationProviderProperty {authenticationType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html>
+    AdditionalAuthenticationProviderProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-authenticationtype>
+                                              authenticationType :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-lambdaauthorizerconfig>
                                               lambdaAuthorizerConfig :: (Prelude.Maybe LambdaAuthorizerConfigProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-openidconnectconfig>
                                               openIDConnectConfig :: (Prelude.Maybe OpenIDConnectConfigProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html#cfn-appsync-graphqlapi-additionalauthenticationprovider-userpoolconfig>
                                               userPoolConfig :: (Prelude.Maybe CognitoUserPoolConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalAuthenticationProviderProperty ::
   Value Prelude.Text -> AdditionalAuthenticationProviderProperty
 mkAdditionalAuthenticationProviderProperty authenticationType
   = AdditionalAuthenticationProviderProperty
-      {authenticationType = authenticationType,
+      {haddock_workaround_ = (), authenticationType = authenticationType,
        lambdaAuthorizerConfig = Prelude.Nothing,
        openIDConnectConfig = Prelude.Nothing,
        userPoolConfig = Prelude.Nothing}

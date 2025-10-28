@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.ColumnProperty as Exports
 import Stratosphere.ResourceProperties
 data SchemaDefinitionProperty
-  = SchemaDefinitionProperty {columns :: (Prelude.Maybe [ColumnProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html>
+    SchemaDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html#cfn-iotanalytics-datastore-schemadefinition-columns>
+                              columns :: (Prelude.Maybe [ColumnProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaDefinitionProperty :: SchemaDefinitionProperty
 mkSchemaDefinitionProperty
-  = SchemaDefinitionProperty {columns = Prelude.Nothing}
+  = SchemaDefinitionProperty
+      {haddock_workaround_ = (), columns = Prelude.Nothing}
 instance ToResourceProperties SchemaDefinitionProperty where
   toResourceProperties SchemaDefinitionProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON SchemaDefinitionProperty where
            (Prelude.catMaybes [(JSON..=) "Columns" Prelude.<$> columns]))
 instance Property "Columns" SchemaDefinitionProperty where
   type PropertyType "Columns" SchemaDefinitionProperty = [ColumnProperty]
-  set newValue SchemaDefinitionProperty {}
+  set newValue SchemaDefinitionProperty {..}
     = SchemaDefinitionProperty {columns = Prelude.pure newValue, ..}

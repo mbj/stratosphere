@@ -12,19 +12,28 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.SnsDesti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventDestinationProperty
-  = EventDestinationProperty {cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html>
+    EventDestinationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-cloudwatchdestination>
+                              cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled>
                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-eventbridgedestination>
                               eventBridgeDestination :: (Prelude.Maybe EventBridgeDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination>
                               kinesisFirehoseDestination :: (Prelude.Maybe KinesisFirehoseDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-matchingeventtypes>
                               matchingEventTypes :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name>
                               name :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-snsdestination>
                               snsDestination :: (Prelude.Maybe SnsDestinationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDestinationProperty ::
   ValueList Prelude.Text -> EventDestinationProperty
 mkEventDestinationProperty matchingEventTypes
   = EventDestinationProperty
-      {matchingEventTypes = matchingEventTypes,
+      {haddock_workaround_ = (), matchingEventTypes = matchingEventTypes,
        cloudWatchDestination = Prelude.Nothing, enabled = Prelude.Nothing,
        eventBridgeDestination = Prelude.Nothing,
        kinesisFirehoseDestination = Prelude.Nothing,

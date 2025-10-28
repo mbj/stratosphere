@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoT1Click.Project.PlacementTemplateProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Project
-  = Project {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html>
+    Project {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-description>
+             description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-placementtemplate>
              placementTemplate :: PlacementTemplateProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-projectname>
              projectName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: PlacementTemplateProperty -> Project
 mkProject placementTemplate
   = Project
-      {placementTemplate = placementTemplate,
+      {haddock_workaround_ = (), placementTemplate = placementTemplate,
        description = Prelude.Nothing, projectName = Prelude.Nothing}
 instance ToResourceProperties Project where
   toResourceProperties Project {..}

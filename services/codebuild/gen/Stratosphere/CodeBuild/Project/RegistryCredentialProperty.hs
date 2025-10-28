@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegistryCredentialProperty
-  = RegistryCredentialProperty {credential :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-registrycredential.html>
+    RegistryCredentialProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-registrycredential.html#cfn-codebuild-project-registrycredential-credential>
+                                credential :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-registrycredential.html#cfn-codebuild-project-registrycredential-credentialprovider>
                                 credentialProvider :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryCredentialProperty ::
@@ -15,7 +19,8 @@ mkRegistryCredentialProperty ::
   -> Value Prelude.Text -> RegistryCredentialProperty
 mkRegistryCredentialProperty credential credentialProvider
   = RegistryCredentialProperty
-      {credential = credential, credentialProvider = credentialProvider}
+      {haddock_workaround_ = (), credential = credential,
+       credentialProvider = credentialProvider}
 instance ToResourceProperties RegistryCredentialProperty where
   toResourceProperties RegistryCredentialProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessEndpointProperty
-  = AccessEndpointProperty {endpointType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-accessendpoint.html>
+    AccessEndpointProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-accessendpoint.html#cfn-appstream-imagebuilder-accessendpoint-endpointtype>
+                            endpointType :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-accessendpoint.html#cfn-appstream-imagebuilder-accessendpoint-vpceid>
                             vpceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessEndpointProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AccessEndpointProperty
 mkAccessEndpointProperty endpointType vpceId
   = AccessEndpointProperty
-      {endpointType = endpointType, vpceId = vpceId}
+      {haddock_workaround_ = (), endpointType = endpointType,
+       vpceId = vpceId}
 instance ToResourceProperties AccessEndpointProperty where
   toResourceProperties AccessEndpointProperty {..}
     = ResourceProperties

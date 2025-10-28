@@ -13,25 +13,36 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitQueryStringProperty as 
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitUriPathProperty as Exports
 import Stratosphere.ResourceProperties
 data RateBasedStatementCustomKeyProperty
-  = RateBasedStatementCustomKeyProperty {cookie :: (Prelude.Maybe RateLimitCookieProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html>
+    RateBasedStatementCustomKeyProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-cookie>
+                                         cookie :: (Prelude.Maybe RateLimitCookieProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-forwardedip>
                                          forwardedIP :: (Prelude.Maybe JSON.Object),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-httpmethod>
                                          hTTPMethod :: (Prelude.Maybe JSON.Object),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-header>
                                          header :: (Prelude.Maybe RateLimitHeaderProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ip>
                                          iP :: (Prelude.Maybe JSON.Object),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-labelnamespace>
                                          labelNamespace :: (Prelude.Maybe RateLimitLabelNamespaceProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-queryargument>
                                          queryArgument :: (Prelude.Maybe RateLimitQueryArgumentProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-querystring>
                                          queryString :: (Prelude.Maybe RateLimitQueryStringProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-uripath>
                                          uriPath :: (Prelude.Maybe RateLimitUriPathProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedStatementCustomKeyProperty ::
   RateBasedStatementCustomKeyProperty
 mkRateBasedStatementCustomKeyProperty
   = RateBasedStatementCustomKeyProperty
-      {cookie = Prelude.Nothing, forwardedIP = Prelude.Nothing,
-       hTTPMethod = Prelude.Nothing, header = Prelude.Nothing,
-       iP = Prelude.Nothing, labelNamespace = Prelude.Nothing,
-       queryArgument = Prelude.Nothing, queryString = Prelude.Nothing,
-       uriPath = Prelude.Nothing}
+      {haddock_workaround_ = (), cookie = Prelude.Nothing,
+       forwardedIP = Prelude.Nothing, hTTPMethod = Prelude.Nothing,
+       header = Prelude.Nothing, iP = Prelude.Nothing,
+       labelNamespace = Prelude.Nothing, queryArgument = Prelude.Nothing,
+       queryString = Prelude.Nothing, uriPath = Prelude.Nothing}
 instance ToResourceProperties RateBasedStatementCustomKeyProperty where
   toResourceProperties RateBasedStatementCustomKeyProperty {..}
     = ResourceProperties

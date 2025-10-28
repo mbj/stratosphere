@@ -9,22 +9,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Folder
-  = Folder {awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html>
+    Folder {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-awsaccountid>
+            awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-folderid>
             folderId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-foldertype>
             folderType :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-parentfolderarn>
             parentFolderArn :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-permissions>
             permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-sharingmodel>
             sharingModel :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-tags>
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFolder :: Folder
 mkFolder
   = Folder
-      {awsAccountId = Prelude.Nothing, folderId = Prelude.Nothing,
-       folderType = Prelude.Nothing, name = Prelude.Nothing,
-       parentFolderArn = Prelude.Nothing, permissions = Prelude.Nothing,
-       sharingModel = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), awsAccountId = Prelude.Nothing,
+       folderId = Prelude.Nothing, folderType = Prelude.Nothing,
+       name = Prelude.Nothing, parentFolderArn = Prelude.Nothing,
+       permissions = Prelude.Nothing, sharingModel = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Folder where
   toResourceProperties Folder {..}
     = ResourceProperties

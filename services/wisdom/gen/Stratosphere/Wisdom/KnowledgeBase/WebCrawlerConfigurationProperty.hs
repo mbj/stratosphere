@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.UrlConfigurationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerConfigurationProperty
-  = WebCrawlerConfigurationProperty {crawlerLimits :: (Prelude.Maybe CrawlerLimitsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html>
+    WebCrawlerConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html#cfn-wisdom-knowledgebase-webcrawlerconfiguration-crawlerlimits>
+                                     crawlerLimits :: (Prelude.Maybe CrawlerLimitsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html#cfn-wisdom-knowledgebase-webcrawlerconfiguration-exclusionfilters>
                                      exclusionFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html#cfn-wisdom-knowledgebase-webcrawlerconfiguration-inclusionfilters>
                                      inclusionFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html#cfn-wisdom-knowledgebase-webcrawlerconfiguration-scope>
                                      scope :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html#cfn-wisdom-knowledgebase-webcrawlerconfiguration-urlconfiguration>
                                      urlConfiguration :: UrlConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerConfigurationProperty ::
   UrlConfigurationProperty -> WebCrawlerConfigurationProperty
 mkWebCrawlerConfigurationProperty urlConfiguration
   = WebCrawlerConfigurationProperty
-      {urlConfiguration = urlConfiguration,
+      {haddock_workaround_ = (), urlConfiguration = urlConfiguration,
        crawlerLimits = Prelude.Nothing,
        exclusionFilters = Prelude.Nothing,
        inclusionFilters = Prelude.Nothing, scope = Prelude.Nothing}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitorProperty
-  = MonitorProperty {alarmArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html>
+    MonitorProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmarn>
+                     alarmArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmrolearn>
                      alarmRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitorProperty :: Value Prelude.Text -> MonitorProperty
 mkMonitorProperty alarmArn
   = MonitorProperty
-      {alarmArn = alarmArn, alarmRoleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), alarmArn = alarmArn,
+       alarmRoleArn = Prelude.Nothing}
 instance ToResourceProperties MonitorProperty where
   toResourceProperties MonitorProperty {..}
     = ResourceProperties

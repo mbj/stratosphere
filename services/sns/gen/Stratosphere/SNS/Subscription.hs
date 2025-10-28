@@ -7,25 +7,38 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Subscription
-  = Subscription {deliveryPolicy :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html>
+    Subscription {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy>
+                  deliveryPolicy :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-endpoint>
                   endpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy>
                   filterPolicy :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicyscope>
                   filterPolicyScope :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-protocol>
                   protocol :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery>
                   rawMessageDelivery :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-redrivepolicy>
                   redrivePolicy :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region>
                   region :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-replaypolicy>
                   replayPolicy :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn>
                   subscriptionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-topicarn>
                   topicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscription ::
   Value Prelude.Text -> Value Prelude.Text -> Subscription
 mkSubscription protocol topicArn
   = Subscription
-      {protocol = protocol, topicArn = topicArn,
-       deliveryPolicy = Prelude.Nothing, endpoint = Prelude.Nothing,
-       filterPolicy = Prelude.Nothing,
+      {haddock_workaround_ = (), protocol = protocol,
+       topicArn = topicArn, deliveryPolicy = Prelude.Nothing,
+       endpoint = Prelude.Nothing, filterPolicy = Prelude.Nothing,
        filterPolicyScope = Prelude.Nothing,
        rawMessageDelivery = Prelude.Nothing,
        redrivePolicy = Prelude.Nothing, region = Prelude.Nothing,

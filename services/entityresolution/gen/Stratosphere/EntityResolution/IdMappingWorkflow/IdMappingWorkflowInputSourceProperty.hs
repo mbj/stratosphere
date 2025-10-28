@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingWorkflowInputSourceProperty
-  = IdMappingWorkflowInputSourceProperty {inputSourceARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html>
+    IdMappingWorkflowInputSourceProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-inputsourcearn>
+                                          inputSourceARN :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-schemaarn>
                                           schemaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-type>
                                           type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingWorkflowInputSourceProperty ::
   Value Prelude.Text -> IdMappingWorkflowInputSourceProperty
 mkIdMappingWorkflowInputSourceProperty inputSourceARN
   = IdMappingWorkflowInputSourceProperty
-      {inputSourceARN = inputSourceARN, schemaArn = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), inputSourceARN = inputSourceARN,
+       schemaArn = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties IdMappingWorkflowInputSourceProperty where
   toResourceProperties IdMappingWorkflowInputSourceProperty {..}
     = ResourceProperties

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.InfluxDBInstance.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LogDeliveryConfigurationProperty
-  = LogDeliveryConfigurationProperty {s3Configuration :: S3ConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html>
+    LogDeliveryConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html#cfn-timestream-influxdbinstance-logdeliveryconfiguration-s3configuration>
+                                      s3Configuration :: S3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfigurationProperty ::
   S3ConfigurationProperty -> LogDeliveryConfigurationProperty
 mkLogDeliveryConfigurationProperty s3Configuration
   = LogDeliveryConfigurationProperty
-      {s3Configuration = s3Configuration}
+      {haddock_workaround_ = (), s3Configuration = s3Configuration}
 instance ToResourceProperties LogDeliveryConfigurationProperty where
   toResourceProperties LogDeliveryConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON LogDeliveryConfigurationProperty where
     = JSON.object ["S3Configuration" JSON..= s3Configuration]
 instance Property "S3Configuration" LogDeliveryConfigurationProperty where
   type PropertyType "S3Configuration" LogDeliveryConfigurationProperty = S3ConfigurationProperty
-  set newValue LogDeliveryConfigurationProperty {}
+  set newValue LogDeliveryConfigurationProperty {..}
     = LogDeliveryConfigurationProperty {s3Configuration = newValue, ..}

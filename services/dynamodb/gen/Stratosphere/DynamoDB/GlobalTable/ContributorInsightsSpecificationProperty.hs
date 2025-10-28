@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContributorInsightsSpecificationProperty
-  = ContributorInsightsSpecificationProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html>
+    ContributorInsightsSpecificationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled>
+                                              enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContributorInsightsSpecificationProperty ::
   Value Prelude.Bool -> ContributorInsightsSpecificationProperty
 mkContributorInsightsSpecificationProperty enabled
-  = ContributorInsightsSpecificationProperty {enabled = enabled}
+  = ContributorInsightsSpecificationProperty
+      {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties ContributorInsightsSpecificationProperty where
   toResourceProperties ContributorInsightsSpecificationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ContributorInsightsSpecificationProperty where
     = JSON.object ["Enabled" JSON..= enabled]
 instance Property "Enabled" ContributorInsightsSpecificationProperty where
   type PropertyType "Enabled" ContributorInsightsSpecificationProperty = Value Prelude.Bool
-  set newValue ContributorInsightsSpecificationProperty {}
+  set newValue ContributorInsightsSpecificationProperty {..}
     = ContributorInsightsSpecificationProperty {enabled = newValue, ..}

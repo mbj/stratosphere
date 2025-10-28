@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleConfigurationProperty
-  = ScheduleConfigurationProperty {scheduleExpression :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html>
+    ScheduleConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html#cfn-timestream-scheduledquery-scheduleconfiguration-scheduleexpression>
+                                   scheduleExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigurationProperty ::
   Value Prelude.Text -> ScheduleConfigurationProperty
 mkScheduleConfigurationProperty scheduleExpression
   = ScheduleConfigurationProperty
-      {scheduleExpression = scheduleExpression}
+      {haddock_workaround_ = (), scheduleExpression = scheduleExpression}
 instance ToResourceProperties ScheduleConfigurationProperty where
   toResourceProperties ScheduleConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON ScheduleConfigurationProperty where
     = JSON.object ["ScheduleExpression" JSON..= scheduleExpression]
 instance Property "ScheduleExpression" ScheduleConfigurationProperty where
   type PropertyType "ScheduleExpression" ScheduleConfigurationProperty = Value Prelude.Text
-  set newValue ScheduleConfigurationProperty {}
+  set newValue ScheduleConfigurationProperty {..}
     = ScheduleConfigurationProperty {scheduleExpression = newValue, ..}

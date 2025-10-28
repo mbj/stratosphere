@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3EncryptionProperty
-  = S3EncryptionProperty {kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html>
+    S3EncryptionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-kmskeyarn>
+                          kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-s3encryptionmode>
                           s3EncryptionMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3EncryptionProperty :: S3EncryptionProperty
 mkS3EncryptionProperty
   = S3EncryptionProperty
-      {kmsKeyArn = Prelude.Nothing, s3EncryptionMode = Prelude.Nothing}
+      {haddock_workaround_ = (), kmsKeyArn = Prelude.Nothing,
+       s3EncryptionMode = Prelude.Nothing}
 instance ToResourceProperties S3EncryptionProperty where
   toResourceProperties S3EncryptionProperty {..}
     = ResourceProperties

@@ -9,15 +9,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Group
-  = Group {filterExpression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html>
+    Group {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression>
+           filterExpression :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname>
            groupName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration>
            insightsConfiguration :: (Prelude.Maybe InsightsConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Group
 mkGroup groupName
   = Group
-      {groupName = groupName, filterExpression = Prelude.Nothing,
+      {haddock_workaround_ = (), groupName = groupName,
+       filterExpression = Prelude.Nothing,
        insightsConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Group where
   toResourceProperties Group {..}

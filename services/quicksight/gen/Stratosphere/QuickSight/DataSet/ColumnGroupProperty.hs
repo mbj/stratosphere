@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.GeoSpatialColumnGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data ColumnGroupProperty
-  = ColumnGroupProperty {geoSpatialColumnGroup :: (Prelude.Maybe GeoSpatialColumnGroupProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html>
+    ColumnGroupProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup>
+                         geoSpatialColumnGroup :: (Prelude.Maybe GeoSpatialColumnGroupProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnGroupProperty :: ColumnGroupProperty
 mkColumnGroupProperty
-  = ColumnGroupProperty {geoSpatialColumnGroup = Prelude.Nothing}
+  = ColumnGroupProperty
+      {haddock_workaround_ = (), geoSpatialColumnGroup = Prelude.Nothing}
 instance ToResourceProperties ColumnGroupProperty where
   toResourceProperties ColumnGroupProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON ColumnGroupProperty where
                  Prelude.<$> geoSpatialColumnGroup]))
 instance Property "GeoSpatialColumnGroup" ColumnGroupProperty where
   type PropertyType "GeoSpatialColumnGroup" ColumnGroupProperty = GeoSpatialColumnGroupProperty
-  set newValue ColumnGroupProperty {}
+  set newValue ColumnGroupProperty {..}
     = ColumnGroupProperty
         {geoSpatialColumnGroup = Prelude.pure newValue, ..}

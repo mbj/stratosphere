@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.GameLift.Fleet.ServerProcessProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuntimeConfigurationProperty
-  = RuntimeConfigurationProperty {gameSessionActivationTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html>
+    RuntimeConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds>
+                                  gameSessionActivationTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations>
                                   maxConcurrentGameSessionActivations :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses>
                                   serverProcesses :: (Prelude.Maybe [ServerProcessProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimeConfigurationProperty :: RuntimeConfigurationProperty
 mkRuntimeConfigurationProperty
   = RuntimeConfigurationProperty
-      {gameSessionActivationTimeoutSeconds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       gameSessionActivationTimeoutSeconds = Prelude.Nothing,
        maxConcurrentGameSessionActivations = Prelude.Nothing,
        serverProcesses = Prelude.Nothing}
 instance ToResourceProperties RuntimeConfigurationProperty where

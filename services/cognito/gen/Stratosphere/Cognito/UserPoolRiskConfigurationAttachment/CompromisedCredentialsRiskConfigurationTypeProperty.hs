@@ -10,7 +10,11 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.C
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompromisedCredentialsRiskConfigurationTypeProperty
-  = CompromisedCredentialsRiskConfigurationTypeProperty {actions :: CompromisedCredentialsActionsTypeProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html>
+    CompromisedCredentialsRiskConfigurationTypeProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-actions>
+                                                         actions :: CompromisedCredentialsActionsTypeProperty,
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-eventfilter>
                                                          eventFilter :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompromisedCredentialsRiskConfigurationTypeProperty ::
@@ -18,7 +22,8 @@ mkCompromisedCredentialsRiskConfigurationTypeProperty ::
   -> CompromisedCredentialsRiskConfigurationTypeProperty
 mkCompromisedCredentialsRiskConfigurationTypeProperty actions
   = CompromisedCredentialsRiskConfigurationTypeProperty
-      {actions = actions, eventFilter = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions,
+       eventFilter = Prelude.Nothing}
 instance ToResourceProperties CompromisedCredentialsRiskConfigurationTypeProperty where
   toResourceProperties
     CompromisedCredentialsRiskConfigurationTypeProperty {..}

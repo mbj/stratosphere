@@ -19,24 +19,39 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.SqliMatchStatementProperty as
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.XssMatchStatementProperty as Exports
 import Stratosphere.ResourceProperties
 data StatementProperty
-  = StatementProperty {andStatement :: (Prelude.Maybe AndStatementProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html>
+    StatementProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement>
+                       andStatement :: (Prelude.Maybe AndStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement>
                        byteMatchStatement :: (Prelude.Maybe ByteMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement>
                        geoMatchStatement :: (Prelude.Maybe GeoMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement>
                        iPSetReferenceStatement :: (Prelude.Maybe IPSetReferenceStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement>
                        labelMatchStatement :: (Prelude.Maybe LabelMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement>
                        notStatement :: (Prelude.Maybe NotStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement>
                        orStatement :: (Prelude.Maybe OrStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement>
                        rateBasedStatement :: (Prelude.Maybe RateBasedStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexmatchstatement>
                        regexMatchStatement :: (Prelude.Maybe RegexMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement>
                        regexPatternSetReferenceStatement :: (Prelude.Maybe RegexPatternSetReferenceStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement>
                        sizeConstraintStatement :: (Prelude.Maybe SizeConstraintStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement>
                        sqliMatchStatement :: (Prelude.Maybe SqliMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement>
                        xssMatchStatement :: (Prelude.Maybe XssMatchStatementProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatementProperty :: StatementProperty
 mkStatementProperty
   = StatementProperty
-      {andStatement = Prelude.Nothing,
+      {haddock_workaround_ = (), andStatement = Prelude.Nothing,
        byteMatchStatement = Prelude.Nothing,
        geoMatchStatement = Prelude.Nothing,
        iPSetReferenceStatement = Prelude.Nothing,

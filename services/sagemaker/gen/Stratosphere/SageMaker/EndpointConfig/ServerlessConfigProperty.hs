@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerlessConfigProperty
-  = ServerlessConfigProperty {maxConcurrency :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>
+    ServerlessConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig-maxconcurrency>
+                              maxConcurrency :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig-memorysizeinmb>
                               memorySizeInMB :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig-provisionedconcurrency>
                               provisionedConcurrency :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessConfigProperty ::
@@ -16,7 +21,8 @@ mkServerlessConfigProperty ::
   -> Value Prelude.Integer -> ServerlessConfigProperty
 mkServerlessConfigProperty maxConcurrency memorySizeInMB
   = ServerlessConfigProperty
-      {maxConcurrency = maxConcurrency, memorySizeInMB = memorySizeInMB,
+      {haddock_workaround_ = (), maxConcurrency = maxConcurrency,
+       memorySizeInMB = memorySizeInMB,
        provisionedConcurrency = Prelude.Nothing}
 instance ToResourceProperties ServerlessConfigProperty where
   toResourceProperties ServerlessConfigProperty {..}

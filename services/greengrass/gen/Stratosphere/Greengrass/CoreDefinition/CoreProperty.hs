@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreProperty
-  = CoreProperty {certificateArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html>
+    CoreProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-certificatearn>
+                  certificateArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-id>
                   id :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-syncshadow>
                   syncShadow :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html#cfn-greengrass-coredefinition-core-thingarn>
                   thingArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreProperty ::
@@ -17,8 +23,8 @@ mkCoreProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> CoreProperty
 mkCoreProperty certificateArn id thingArn
   = CoreProperty
-      {certificateArn = certificateArn, id = id, thingArn = thingArn,
-       syncShadow = Prelude.Nothing}
+      {haddock_workaround_ = (), certificateArn = certificateArn,
+       id = id, thingArn = thingArn, syncShadow = Prelude.Nothing}
 instance ToResourceProperties CoreProperty where
   toResourceProperties CoreProperty {..}
     = ResourceProperties

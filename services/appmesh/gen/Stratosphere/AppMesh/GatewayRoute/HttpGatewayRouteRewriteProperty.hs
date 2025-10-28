@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePathRewr
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewriteProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpGatewayRouteRewriteProperty
-  = HttpGatewayRouteRewriteProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html>
+    HttpGatewayRouteRewriteProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-hostname>
+                                     hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-path>
                                      path :: (Prelude.Maybe HttpGatewayRoutePathRewriteProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-prefix>
                                      prefix :: (Prelude.Maybe HttpGatewayRoutePrefixRewriteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteRewriteProperty ::
   HttpGatewayRouteRewriteProperty
 mkHttpGatewayRouteRewriteProperty
   = HttpGatewayRouteRewriteProperty
-      {hostname = Prelude.Nothing, path = Prelude.Nothing,
-       prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), hostname = Prelude.Nothing,
+       path = Prelude.Nothing, prefix = Prelude.Nothing}
 instance ToResourceProperties HttpGatewayRouteRewriteProperty where
   toResourceProperties HttpGatewayRouteRewriteProperty {..}
     = ResourceProperties

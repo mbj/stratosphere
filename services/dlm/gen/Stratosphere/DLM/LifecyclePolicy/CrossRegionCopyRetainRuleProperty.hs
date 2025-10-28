@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrossRegionCopyRetainRuleProperty
-  = CrossRegionCopyRetainRuleProperty {interval :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html>
+    CrossRegionCopyRetainRuleProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-interval>
+                                       interval :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-intervalunit>
                                        intervalUnit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyRetainRuleProperty ::
@@ -16,7 +20,8 @@ mkCrossRegionCopyRetainRuleProperty ::
   -> Value Prelude.Text -> CrossRegionCopyRetainRuleProperty
 mkCrossRegionCopyRetainRuleProperty interval intervalUnit
   = CrossRegionCopyRetainRuleProperty
-      {interval = interval, intervalUnit = intervalUnit}
+      {haddock_workaround_ = (), interval = interval,
+       intervalUnit = intervalUnit}
 instance ToResourceProperties CrossRegionCopyRetainRuleProperty where
   toResourceProperties CrossRegionCopyRetainRuleProperty {..}
     = ResourceProperties

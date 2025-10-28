@@ -14,18 +14,33 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.RelationalDatabaseConfigPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSource
-  = DataSource {apiId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html>
+    DataSource {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-apiid>
+                apiId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-dynamodbconfig>
                 dynamoDBConfig :: (Prelude.Maybe DynamoDBConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig>
                 elasticsearchConfig :: (Prelude.Maybe ElasticsearchConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-eventbridgeconfig>
                 eventBridgeConfig :: (Prelude.Maybe EventBridgeConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig>
                 httpConfig :: (Prelude.Maybe HttpConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig>
                 lambdaConfig :: (Prelude.Maybe LambdaConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-metricsconfig>
                 metricsConfig :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-opensearchserviceconfig>
                 openSearchServiceConfig :: (Prelude.Maybe OpenSearchServiceConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-relationaldatabaseconfig>
                 relationalDatabaseConfig :: (Prelude.Maybe RelationalDatabaseConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn>
                 serviceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-type>
                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
@@ -33,8 +48,9 @@ mkDataSource ::
   -> Value Prelude.Text -> Value Prelude.Text -> DataSource
 mkDataSource apiId name type'
   = DataSource
-      {apiId = apiId, name = name, type' = type',
-       description = Prelude.Nothing, dynamoDBConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), apiId = apiId, name = name,
+       type' = type', description = Prelude.Nothing,
+       dynamoDBConfig = Prelude.Nothing,
        elasticsearchConfig = Prelude.Nothing,
        eventBridgeConfig = Prelude.Nothing, httpConfig = Prelude.Nothing,
        lambdaConfig = Prelude.Nothing, metricsConfig = Prelude.Nothing,

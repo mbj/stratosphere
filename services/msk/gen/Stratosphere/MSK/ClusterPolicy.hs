@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterPolicy
-  = ClusterPolicy {clusterArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html>
+    ClusterPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html#cfn-msk-clusterpolicy-clusterarn>
+                   clusterArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html#cfn-msk-clusterpolicy-policy>
                    policy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterPolicy ::
   Value Prelude.Text -> JSON.Object -> ClusterPolicy
 mkClusterPolicy clusterArn policy
-  = ClusterPolicy {clusterArn = clusterArn, policy = policy}
+  = ClusterPolicy
+      {haddock_workaround_ = (), clusterArn = clusterArn,
+       policy = policy}
 instance ToResourceProperties ClusterPolicy where
   toResourceProperties ClusterPolicy {..}
     = ResourceProperties

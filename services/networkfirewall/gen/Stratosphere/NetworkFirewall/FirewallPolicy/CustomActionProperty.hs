@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.ActionDefiniti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomActionProperty
-  = CustomActionProperty {actionDefinition :: ActionDefinitionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html>
+    CustomActionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition>
+                          actionDefinition :: ActionDefinitionProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actionname>
                           actionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionProperty ::
@@ -16,7 +20,8 @@ mkCustomActionProperty ::
   -> Value Prelude.Text -> CustomActionProperty
 mkCustomActionProperty actionDefinition actionName
   = CustomActionProperty
-      {actionDefinition = actionDefinition, actionName = actionName}
+      {haddock_workaround_ = (), actionDefinition = actionDefinition,
+       actionName = actionName}
 instance ToResourceProperties CustomActionProperty where
   toResourceProperties CustomActionProperty {..}
     = ResourceProperties

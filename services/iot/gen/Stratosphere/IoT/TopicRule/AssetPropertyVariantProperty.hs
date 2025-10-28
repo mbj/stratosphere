@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyVariantProperty
-  = AssetPropertyVariantProperty {booleanValue :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html>
+    AssetPropertyVariantProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue>
+                                  booleanValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue>
                                   doubleValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue>
                                   integerValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue>
                                   stringValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyVariantProperty :: AssetPropertyVariantProperty
 mkAssetPropertyVariantProperty
   = AssetPropertyVariantProperty
-      {booleanValue = Prelude.Nothing, doubleValue = Prelude.Nothing,
-       integerValue = Prelude.Nothing, stringValue = Prelude.Nothing}
+      {haddock_workaround_ = (), booleanValue = Prelude.Nothing,
+       doubleValue = Prelude.Nothing, integerValue = Prelude.Nothing,
+       stringValue = Prelude.Nothing}
 instance ToResourceProperties AssetPropertyVariantProperty where
   toResourceProperties AssetPropertyVariantProperty {..}
     = ResourceProperties

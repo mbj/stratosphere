@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageConnectorProperty
-  = StorageConnectorProperty {connectorType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html>
+    StorageConnectorProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-connectortype>
+                              connectorType :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-domains>
                               domains :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-resourceidentifier>
                               resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConnectorProperty ::
   Value Prelude.Text -> StorageConnectorProperty
 mkStorageConnectorProperty connectorType
   = StorageConnectorProperty
-      {connectorType = connectorType, domains = Prelude.Nothing,
-       resourceIdentifier = Prelude.Nothing}
+      {haddock_workaround_ = (), connectorType = connectorType,
+       domains = Prelude.Nothing, resourceIdentifier = Prelude.Nothing}
 instance ToResourceProperties StorageConnectorProperty where
   toResourceProperties StorageConnectorProperty {..}
     = ResourceProperties

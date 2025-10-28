@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginSnapshotProperty
-  = OriginSnapshotProperty {copyStrategy :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html>
+    OriginSnapshotProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html#cfn-fsx-volume-openzfsconfiguration-originsnapshot-copystrategy>
+                            copyStrategy :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html#cfn-fsx-volume-openzfsconfiguration-originsnapshot-snapshotarn>
                             snapshotARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginSnapshotProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OriginSnapshotProperty
 mkOriginSnapshotProperty copyStrategy snapshotARN
   = OriginSnapshotProperty
-      {copyStrategy = copyStrategy, snapshotARN = snapshotARN}
+      {haddock_workaround_ = (), copyStrategy = copyStrategy,
+       snapshotARN = snapshotARN}
 instance ToResourceProperties OriginSnapshotProperty where
   toResourceProperties OriginSnapshotProperty {..}
     = ResourceProperties

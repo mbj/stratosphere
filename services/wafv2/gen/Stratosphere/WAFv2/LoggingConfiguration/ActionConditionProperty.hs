@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionConditionProperty
-  = ActionConditionProperty {action :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-actioncondition.html>
+    ActionConditionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-actioncondition.html#cfn-wafv2-loggingconfiguration-actioncondition-action>
+                             action :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionConditionProperty ::
   Value Prelude.Text -> ActionConditionProperty
 mkActionConditionProperty action
-  = ActionConditionProperty {action = action}
+  = ActionConditionProperty
+      {haddock_workaround_ = (), action = action}
 instance ToResourceProperties ActionConditionProperty where
   toResourceProperties ActionConditionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ActionConditionProperty where
     = JSON.object ["Action" JSON..= action]
 instance Property "Action" ActionConditionProperty where
   type PropertyType "Action" ActionConditionProperty = Value Prelude.Text
-  set newValue ActionConditionProperty {}
+  set newValue ActionConditionProperty {..}
     = ActionConditionProperty {action = newValue, ..}

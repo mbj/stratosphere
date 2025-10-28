@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.DateTimeDatasetParameterDe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateTimeDatasetParameterProperty
-  = DateTimeDatasetParameterProperty {defaultValues :: (Prelude.Maybe DateTimeDatasetParameterDefaultValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html>
+    DateTimeDatasetParameterProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-defaultvalues>
+                                      defaultValues :: (Prelude.Maybe DateTimeDatasetParameterDefaultValuesProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-id>
                                       id :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-name>
                                       name :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-timegranularity>
                                       timeGranularity :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html#cfn-quicksight-dataset-datetimedatasetparameter-valuetype>
                                       valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeDatasetParameterProperty ::
@@ -21,8 +28,9 @@ mkDateTimeDatasetParameterProperty ::
      -> Value Prelude.Text -> DateTimeDatasetParameterProperty
 mkDateTimeDatasetParameterProperty id name valueType
   = DateTimeDatasetParameterProperty
-      {id = id, name = name, valueType = valueType,
-       defaultValues = Prelude.Nothing, timeGranularity = Prelude.Nothing}
+      {haddock_workaround_ = (), id = id, name = name,
+       valueType = valueType, defaultValues = Prelude.Nothing,
+       timeGranularity = Prelude.Nothing}
 instance ToResourceProperties DateTimeDatasetParameterProperty where
   toResourceProperties DateTimeDatasetParameterProperty {..}
     = ResourceProperties

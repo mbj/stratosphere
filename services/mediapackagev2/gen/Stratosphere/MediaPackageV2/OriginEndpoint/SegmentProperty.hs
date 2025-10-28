@@ -9,18 +9,27 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ScteProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SegmentProperty
-  = SegmentProperty {encryption :: (Prelude.Maybe EncryptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html>
+    SegmentProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-encryption>
+                     encryption :: (Prelude.Maybe EncryptionProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-includeiframeonlystreams>
                      includeIframeOnlyStreams :: (Prelude.Maybe (Value Prelude.Bool)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-scte>
                      scte :: (Prelude.Maybe ScteProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-segmentdurationseconds>
                      segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-segmentname>
                      segmentName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-tsincludedvbsubtitles>
                      tsIncludeDvbSubtitles :: (Prelude.Maybe (Value Prelude.Bool)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-tsuseaudiorenditiongroup>
                      tsUseAudioRenditionGroup :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentProperty :: SegmentProperty
 mkSegmentProperty
   = SegmentProperty
-      {encryption = Prelude.Nothing,
+      {haddock_workaround_ = (), encryption = Prelude.Nothing,
        includeIframeOnlyStreams = Prelude.Nothing, scte = Prelude.Nothing,
        segmentDurationSeconds = Prelude.Nothing,
        segmentName = Prelude.Nothing,

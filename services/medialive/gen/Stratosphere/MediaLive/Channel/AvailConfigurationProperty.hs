@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AvailSettingsProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AvailConfigurationProperty
-  = AvailConfigurationProperty {availSettings :: (Prelude.Maybe AvailSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html>
+    AvailConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-availsettings>
+                                availSettings :: (Prelude.Maybe AvailSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-scte35segmentationscope>
                                 scte35SegmentationScope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailConfigurationProperty :: AvailConfigurationProperty
 mkAvailConfigurationProperty
   = AvailConfigurationProperty
-      {availSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), availSettings = Prelude.Nothing,
        scte35SegmentationScope = Prelude.Nothing}
 instance ToResourceProperties AvailConfigurationProperty where
   toResourceProperties AvailConfigurationProperty {..}

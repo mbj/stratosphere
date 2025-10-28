@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateProperty
-  = TemplateProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-template.html>
+    TemplateProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-template.html#cfn-pinpoint-campaign-template-name>
+                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-template.html#cfn-pinpoint-campaign-template-version>
                       version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateProperty :: TemplateProperty
 mkTemplateProperty
   = TemplateProperty
-      {name = Prelude.Nothing, version = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       version = Prelude.Nothing}
 instance ToResourceProperties TemplateProperty where
   toResourceProperties TemplateProperty {..}
     = ResourceProperties

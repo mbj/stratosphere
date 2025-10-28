@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealTimeInferenceConfigProperty
-  = RealTimeInferenceConfigProperty {instanceCount :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html>
+    RealTimeInferenceConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html#cfn-sagemaker-inferenceexperiment-realtimeinferenceconfig-instancecount>
+                                     instanceCount :: (Value Prelude.Integer),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html#cfn-sagemaker-inferenceexperiment-realtimeinferenceconfig-instancetype>
                                      instanceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRealTimeInferenceConfigProperty ::
@@ -16,7 +20,8 @@ mkRealTimeInferenceConfigProperty ::
   -> Value Prelude.Text -> RealTimeInferenceConfigProperty
 mkRealTimeInferenceConfigProperty instanceCount instanceType
   = RealTimeInferenceConfigProperty
-      {instanceCount = instanceCount, instanceType = instanceType}
+      {haddock_workaround_ = (), instanceCount = instanceCount,
+       instanceType = instanceType}
 instance ToResourceProperties RealTimeInferenceConfigProperty where
   toResourceProperties RealTimeInferenceConfigProperty {..}
     = ResourceProperties

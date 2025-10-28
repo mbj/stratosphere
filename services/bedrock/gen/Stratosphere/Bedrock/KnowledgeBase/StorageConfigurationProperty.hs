@@ -12,17 +12,25 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.RdsConfigurationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageConfigurationProperty
-  = StorageConfigurationProperty {mongoDbAtlasConfiguration :: (Prelude.Maybe MongoDbAtlasConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html>
+    StorageConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-mongodbatlasconfiguration>
+                                  mongoDbAtlasConfiguration :: (Prelude.Maybe MongoDbAtlasConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-opensearchserverlessconfiguration>
                                   opensearchServerlessConfiguration :: (Prelude.Maybe OpenSearchServerlessConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-pineconeconfiguration>
                                   pineconeConfiguration :: (Prelude.Maybe PineconeConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-rdsconfiguration>
                                   rdsConfiguration :: (Prelude.Maybe RdsConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-type>
                                   type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConfigurationProperty ::
   Value Prelude.Text -> StorageConfigurationProperty
 mkStorageConfigurationProperty type'
   = StorageConfigurationProperty
-      {type' = type', mongoDbAtlasConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       mongoDbAtlasConfiguration = Prelude.Nothing,
        opensearchServerlessConfiguration = Prelude.Nothing,
        pineconeConfiguration = Prelude.Nothing,
        rdsConfiguration = Prelude.Nothing}

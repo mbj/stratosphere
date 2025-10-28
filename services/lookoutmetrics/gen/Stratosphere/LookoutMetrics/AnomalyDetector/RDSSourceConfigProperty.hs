@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.VpcConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RDSSourceConfigProperty
-  = RDSSourceConfigProperty {dBInstanceIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html>
+    RDSSourceConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier>
+                             dBInstanceIdentifier :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost>
                              databaseHost :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename>
                              databaseName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport>
                              databasePort :: (Value Prelude.Integer),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn>
                              roleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn>
                              secretManagerArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename>
                              tableName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration>
                              vpcConfiguration :: VpcConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRDSSourceConfigProperty ::
@@ -37,7 +47,8 @@ mkRDSSourceConfigProperty
   tableName
   vpcConfiguration
   = RDSSourceConfigProperty
-      {dBInstanceIdentifier = dBInstanceIdentifier,
+      {haddock_workaround_ = (),
+       dBInstanceIdentifier = dBInstanceIdentifier,
        databaseHost = databaseHost, databaseName = databaseName,
        databasePort = databasePort, roleArn = roleArn,
        secretManagerArn = secretManagerArn, tableName = tableName,

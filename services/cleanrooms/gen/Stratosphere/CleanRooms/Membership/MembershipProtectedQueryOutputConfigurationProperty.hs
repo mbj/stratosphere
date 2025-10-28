@@ -9,13 +9,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.ProtectedQueryS3OutputConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MembershipProtectedQueryOutputConfigurationProperty
-  = MembershipProtectedQueryOutputConfigurationProperty {s3 :: ProtectedQueryS3OutputConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html>
+    MembershipProtectedQueryOutputConfigurationProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html#cfn-cleanrooms-membership-membershipprotectedqueryoutputconfiguration-s3>
+                                                         s3 :: ProtectedQueryS3OutputConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipProtectedQueryOutputConfigurationProperty ::
   ProtectedQueryS3OutputConfigurationProperty
   -> MembershipProtectedQueryOutputConfigurationProperty
 mkMembershipProtectedQueryOutputConfigurationProperty s3
-  = MembershipProtectedQueryOutputConfigurationProperty {s3 = s3}
+  = MembershipProtectedQueryOutputConfigurationProperty
+      {haddock_workaround_ = (), s3 = s3}
 instance ToResourceProperties MembershipProtectedQueryOutputConfigurationProperty where
   toResourceProperties
     MembershipProtectedQueryOutputConfigurationProperty {..}
@@ -27,6 +31,8 @@ instance JSON.ToJSON MembershipProtectedQueryOutputConfigurationProperty where
     = JSON.object ["S3" JSON..= s3]
 instance Property "S3" MembershipProtectedQueryOutputConfigurationProperty where
   type PropertyType "S3" MembershipProtectedQueryOutputConfigurationProperty = ProtectedQueryS3OutputConfigurationProperty
-  set newValue MembershipProtectedQueryOutputConfigurationProperty {}
+  set
+    newValue
+    MembershipProtectedQueryOutputConfigurationProperty {..}
     = MembershipProtectedQueryOutputConfigurationProperty
         {s3 = newValue, ..}

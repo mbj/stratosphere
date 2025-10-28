@@ -14,12 +14,21 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.WarmThroughputProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlobalSecondaryIndexProperty
-  = GlobalSecondaryIndexProperty {contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html>
+    GlobalSecondaryIndexProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification>
+                                  contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-indexname>
                                   indexName :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-keyschema>
                                   keySchema :: [KeySchemaProperty],
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-ondemandthroughput>
                                   onDemandThroughput :: (Prelude.Maybe OnDemandThroughputProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-projection>
                                   projection :: ProjectionProperty,
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-provisionedthroughput>
                                   provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-warmthroughput>
                                   warmThroughput :: (Prelude.Maybe WarmThroughputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalSecondaryIndexProperty ::
@@ -28,8 +37,8 @@ mkGlobalSecondaryIndexProperty ::
      -> ProjectionProperty -> GlobalSecondaryIndexProperty
 mkGlobalSecondaryIndexProperty indexName keySchema projection
   = GlobalSecondaryIndexProperty
-      {indexName = indexName, keySchema = keySchema,
-       projection = projection,
+      {haddock_workaround_ = (), indexName = indexName,
+       keySchema = keySchema, projection = projection,
        contributorInsightsSpecification = Prelude.Nothing,
        onDemandThroughput = Prelude.Nothing,
        provisionedThroughput = Prelude.Nothing,

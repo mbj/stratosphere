@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.OpenHoursProperty
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodsProperty as Exports
 import Stratosphere.ResourceProperties
 data TimeWindowProperty
-  = TimeWindowProperty {openHours :: OpenHoursProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html>
+    TimeWindowProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html#cfn-connectcampaignsv2-campaign-timewindow-openhours>
+                        openHours :: OpenHoursProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html#cfn-connectcampaignsv2-campaign-timewindow-restrictedperiods>
                         restrictedPeriods :: (Prelude.Maybe RestrictedPeriodsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeWindowProperty :: OpenHoursProperty -> TimeWindowProperty
 mkTimeWindowProperty openHours
   = TimeWindowProperty
-      {openHours = openHours, restrictedPeriods = Prelude.Nothing}
+      {haddock_workaround_ = (), openHours = openHours,
+       restrictedPeriods = Prelude.Nothing}
 instance ToResourceProperties TimeWindowProperty where
   toResourceProperties TimeWindowProperty {..}
     = ResourceProperties

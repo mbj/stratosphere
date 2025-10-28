@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TCPFlagFieldProperty
-  = TCPFlagFieldProperty {flags :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html>
+    TCPFlagFieldProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags>
+                          flags :: (ValueList Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks>
                           masks :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTCPFlagFieldProperty ::
   ValueList Prelude.Text -> TCPFlagFieldProperty
 mkTCPFlagFieldProperty flags
-  = TCPFlagFieldProperty {flags = flags, masks = Prelude.Nothing}
+  = TCPFlagFieldProperty
+      {haddock_workaround_ = (), flags = flags, masks = Prelude.Nothing}
 instance ToResourceProperties TCPFlagFieldProperty where
   toResourceProperties TCPFlagFieldProperty {..}
     = ResourceProperties

@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.TlsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.UnauthenticatedProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientAuthenticationProperty
-  = ClientAuthenticationProperty {sasl :: (Prelude.Maybe SaslProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html>
+    ClientAuthenticationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl>
+                                  sasl :: (Prelude.Maybe SaslProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls>
                                   tls :: (Prelude.Maybe TlsProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-unauthenticated>
                                   unauthenticated :: (Prelude.Maybe UnauthenticatedProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationProperty :: ClientAuthenticationProperty
 mkClientAuthenticationProperty
   = ClientAuthenticationProperty
-      {sasl = Prelude.Nothing, tls = Prelude.Nothing,
-       unauthenticated = Prelude.Nothing}
+      {haddock_workaround_ = (), sasl = Prelude.Nothing,
+       tls = Prelude.Nothing, unauthenticated = Prelude.Nothing}
 instance ToResourceProperties ClientAuthenticationProperty where
   toResourceProperties ClientAuthenticationProperty {..}
     = ResourceProperties

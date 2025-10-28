@@ -6,11 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data EmailOutboundModeProperty
-  = EmailOutboundModeProperty {agentlessConfig :: (Prelude.Maybe JSON.Object)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html>
+    EmailOutboundModeProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html#cfn-connectcampaignsv2-campaign-emailoutboundmode-agentlessconfig>
+                               agentlessConfig :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailOutboundModeProperty :: EmailOutboundModeProperty
 mkEmailOutboundModeProperty
-  = EmailOutboundModeProperty {agentlessConfig = Prelude.Nothing}
+  = EmailOutboundModeProperty
+      {haddock_workaround_ = (), agentlessConfig = Prelude.Nothing}
 instance ToResourceProperties EmailOutboundModeProperty where
   toResourceProperties EmailOutboundModeProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON EmailOutboundModeProperty where
               [(JSON..=) "AgentlessConfig" Prelude.<$> agentlessConfig]))
 instance Property "AgentlessConfig" EmailOutboundModeProperty where
   type PropertyType "AgentlessConfig" EmailOutboundModeProperty = JSON.Object
-  set newValue EmailOutboundModeProperty {}
+  set newValue EmailOutboundModeProperty {..}
     = EmailOutboundModeProperty
         {agentlessConfig = Prelude.pure newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceInstanceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceDefinitionVersionProperty
-  = ResourceDefinitionVersionProperty {resources :: [ResourceInstanceProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html>
+    ResourceDefinitionVersionProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html#cfn-greengrass-resourcedefinition-resourcedefinitionversion-resources>
+                                       resources :: [ResourceInstanceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinitionVersionProperty ::
   [ResourceInstanceProperty] -> ResourceDefinitionVersionProperty
 mkResourceDefinitionVersionProperty resources
-  = ResourceDefinitionVersionProperty {resources = resources}
+  = ResourceDefinitionVersionProperty
+      {haddock_workaround_ = (), resources = resources}
 instance ToResourceProperties ResourceDefinitionVersionProperty where
   toResourceProperties ResourceDefinitionVersionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ResourceDefinitionVersionProperty where
     = JSON.object ["Resources" JSON..= resources]
 instance Property "Resources" ResourceDefinitionVersionProperty where
   type PropertyType "Resources" ResourceDefinitionVersionProperty = [ResourceInstanceProperty]
-  set newValue ResourceDefinitionVersionProperty {}
+  set newValue ResourceDefinitionVersionProperty {..}
     = ResourceDefinitionVersionProperty {resources = newValue, ..}

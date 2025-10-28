@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaConfigProperty
-  = LambdaConfigProperty {lambdaFunctionArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html>
+    LambdaConfigProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn>
+                          lambdaFunctionArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConfigProperty ::
   Value Prelude.Text -> LambdaConfigProperty
 mkLambdaConfigProperty lambdaFunctionArn
-  = LambdaConfigProperty {lambdaFunctionArn = lambdaFunctionArn}
+  = LambdaConfigProperty
+      {haddock_workaround_ = (), lambdaFunctionArn = lambdaFunctionArn}
 instance ToResourceProperties LambdaConfigProperty where
   toResourceProperties LambdaConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON LambdaConfigProperty where
     = JSON.object ["LambdaFunctionArn" JSON..= lambdaFunctionArn]
 instance Property "LambdaFunctionArn" LambdaConfigProperty where
   type PropertyType "LambdaFunctionArn" LambdaConfigProperty = Value Prelude.Text
-  set newValue LambdaConfigProperty {}
+  set newValue LambdaConfigProperty {..}
     = LambdaConfigProperty {lambdaFunctionArn = newValue, ..}

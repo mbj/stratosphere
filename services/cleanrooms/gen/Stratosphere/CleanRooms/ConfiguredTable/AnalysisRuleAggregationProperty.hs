@@ -10,13 +10,23 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AggregationConstra
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleAggregationProperty
-  = AnalysisRuleAggregationProperty {additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html>
+    AnalysisRuleAggregationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-additionalanalyses>
+                                     additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-aggregatecolumns>
                                      aggregateColumns :: [AggregateColumnProperty],
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-allowedjoinoperators>
                                      allowedJoinOperators :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-dimensioncolumns>
                                      dimensionColumns :: (ValueList Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-joincolumns>
                                      joinColumns :: (ValueList Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-joinrequired>
                                      joinRequired :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-outputconstraints>
                                      outputConstraints :: [AggregationConstraintProperty],
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html#cfn-cleanrooms-configuredtable-analysisruleaggregation-scalarfunctions>
                                      scalarFunctions :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRuleAggregationProperty ::
@@ -32,7 +42,7 @@ mkAnalysisRuleAggregationProperty
   outputConstraints
   scalarFunctions
   = AnalysisRuleAggregationProperty
-      {aggregateColumns = aggregateColumns,
+      {haddock_workaround_ = (), aggregateColumns = aggregateColumns,
        dimensionColumns = dimensionColumns, joinColumns = joinColumns,
        outputConstraints = outputConstraints,
        scalarFunctions = scalarFunctions,

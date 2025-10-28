@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BorderStyleProperty
-  = BorderStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html>
+    BorderStyleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show>
+                         show :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBorderStyleProperty :: BorderStyleProperty
 mkBorderStyleProperty
-  = BorderStyleProperty {show = Prelude.Nothing}
+  = BorderStyleProperty
+      {haddock_workaround_ = (), show = Prelude.Nothing}
 instance ToResourceProperties BorderStyleProperty where
   toResourceProperties BorderStyleProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON BorderStyleProperty where
            (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show]))
 instance Property "Show" BorderStyleProperty where
   type PropertyType "Show" BorderStyleProperty = Value Prelude.Bool
-  set newValue BorderStyleProperty {}
+  set newValue BorderStyleProperty {..}
     = BorderStyleProperty {show = Prelude.pure newValue, ..}

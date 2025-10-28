@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.Route53.HostedZone.VPCProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostedZone
-  = HostedZone {hostedZoneConfig :: (Prelude.Maybe HostedZoneConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html>
+    HostedZone {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig>
+                hostedZoneConfig :: (Prelude.Maybe HostedZoneConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags>
                 hostedZoneTags :: (Prelude.Maybe [HostedZoneTagProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name>
                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig>
                 queryLoggingConfig :: (Prelude.Maybe QueryLoggingConfigProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs>
                 vPCs :: (Prelude.Maybe [VPCProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedZone :: HostedZone
 mkHostedZone
   = HostedZone
-      {hostedZoneConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), hostedZoneConfig = Prelude.Nothing,
        hostedZoneTags = Prelude.Nothing, name = Prelude.Nothing,
        queryLoggingConfig = Prelude.Nothing, vPCs = Prelude.Nothing}
 instance ToResourceProperties HostedZone where

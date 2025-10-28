@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.StorageInfoProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BrokerNodeGroupInfoProperty
-  = BrokerNodeGroupInfoProperty {brokerAZDistribution :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html>
+    BrokerNodeGroupInfoProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-brokerazdistribution>
+                                 brokerAZDistribution :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-clientsubnets>
                                  clientSubnets :: (ValueList Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-connectivityinfo>
                                  connectivityInfo :: (Prelude.Maybe ConnectivityInfoProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-instancetype>
                                  instanceType :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-securitygroups>
                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-storageinfo>
                                  storageInfo :: (Prelude.Maybe StorageInfoProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBrokerNodeGroupInfoProperty ::
@@ -22,7 +30,8 @@ mkBrokerNodeGroupInfoProperty ::
   -> Value Prelude.Text -> BrokerNodeGroupInfoProperty
 mkBrokerNodeGroupInfoProperty clientSubnets instanceType
   = BrokerNodeGroupInfoProperty
-      {clientSubnets = clientSubnets, instanceType = instanceType,
+      {haddock_workaround_ = (), clientSubnets = clientSubnets,
+       instanceType = instanceType,
        brokerAZDistribution = Prelude.Nothing,
        connectivityInfo = Prelude.Nothing,
        securityGroups = Prelude.Nothing, storageInfo = Prelude.Nothing}

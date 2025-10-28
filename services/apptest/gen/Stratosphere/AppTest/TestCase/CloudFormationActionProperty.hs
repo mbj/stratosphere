@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFormationActionProperty
-  = CloudFormationActionProperty {actionType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-cloudformationaction.html>
+    CloudFormationActionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-cloudformationaction.html#cfn-apptest-testcase-cloudformationaction-actiontype>
+                                  actionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-cloudformationaction.html#cfn-apptest-testcase-cloudformationaction-resource>
                                   resource :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFormationActionProperty ::
   Value Prelude.Text -> CloudFormationActionProperty
 mkCloudFormationActionProperty resource
   = CloudFormationActionProperty
-      {resource = resource, actionType = Prelude.Nothing}
+      {haddock_workaround_ = (), resource = resource,
+       actionType = Prelude.Nothing}
 instance ToResourceProperties CloudFormationActionProperty where
   toResourceProperties CloudFormationActionProperty {..}
     = ResourceProperties

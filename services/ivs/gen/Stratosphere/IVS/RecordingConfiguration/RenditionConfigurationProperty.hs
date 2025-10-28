@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenditionConfigurationProperty
-  = RenditionConfigurationProperty {renditionSelection :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html>
+    RenditionConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html#cfn-ivs-recordingconfiguration-renditionconfiguration-renditionselection>
+                                    renditionSelection :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html#cfn-ivs-recordingconfiguration-renditionconfiguration-renditions>
                                     renditions :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRenditionConfigurationProperty :: RenditionConfigurationProperty
 mkRenditionConfigurationProperty
   = RenditionConfigurationProperty
-      {renditionSelection = Prelude.Nothing,
+      {haddock_workaround_ = (), renditionSelection = Prelude.Nothing,
        renditions = Prelude.Nothing}
 instance ToResourceProperties RenditionConfigurationProperty where
   toResourceProperties RenditionConfigurationProperty {..}

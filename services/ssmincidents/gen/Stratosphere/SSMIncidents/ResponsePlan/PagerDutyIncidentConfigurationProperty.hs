@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PagerDutyIncidentConfigurationProperty
-  = PagerDutyIncidentConfigurationProperty {serviceId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html>
+    PagerDutyIncidentConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html#cfn-ssmincidents-responseplan-pagerdutyincidentconfiguration-serviceid>
+                                            serviceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPagerDutyIncidentConfigurationProperty ::
   Value Prelude.Text -> PagerDutyIncidentConfigurationProperty
 mkPagerDutyIncidentConfigurationProperty serviceId
-  = PagerDutyIncidentConfigurationProperty {serviceId = serviceId}
+  = PagerDutyIncidentConfigurationProperty
+      {haddock_workaround_ = (), serviceId = serviceId}
 instance ToResourceProperties PagerDutyIncidentConfigurationProperty where
   toResourceProperties PagerDutyIncidentConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON PagerDutyIncidentConfigurationProperty where
     = JSON.object ["ServiceId" JSON..= serviceId]
 instance Property "ServiceId" PagerDutyIncidentConfigurationProperty where
   type PropertyType "ServiceId" PagerDutyIncidentConfigurationProperty = Value Prelude.Text
-  set newValue PagerDutyIncidentConfigurationProperty {}
+  set newValue PagerDutyIncidentConfigurationProperty {..}
     = PagerDutyIncidentConfigurationProperty {serviceId = newValue, ..}

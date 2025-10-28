@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.PromptModelInferenceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PromptInferenceConfigurationProperty
-  = PromptInferenceConfigurationProperty {text :: PromptModelInferenceConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptinferenceconfiguration.html>
+    PromptInferenceConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptinferenceconfiguration.html#cfn-bedrock-flowversion-promptinferenceconfiguration-text>
+                                          text :: PromptModelInferenceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptInferenceConfigurationProperty ::
   PromptModelInferenceConfigurationProperty
   -> PromptInferenceConfigurationProperty
 mkPromptInferenceConfigurationProperty text
-  = PromptInferenceConfigurationProperty {text = text}
+  = PromptInferenceConfigurationProperty
+      {haddock_workaround_ = (), text = text}
 instance ToResourceProperties PromptInferenceConfigurationProperty where
   toResourceProperties PromptInferenceConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON PromptInferenceConfigurationProperty where
     = JSON.object ["Text" JSON..= text]
 instance Property "Text" PromptInferenceConfigurationProperty where
   type PropertyType "Text" PromptInferenceConfigurationProperty = PromptModelInferenceConfigurationProperty
-  set newValue PromptInferenceConfigurationProperty {}
+  set newValue PromptInferenceConfigurationProperty {..}
     = PromptInferenceConfigurationProperty {text = newValue, ..}

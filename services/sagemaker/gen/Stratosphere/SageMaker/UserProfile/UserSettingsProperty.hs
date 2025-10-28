@@ -17,25 +17,41 @@ import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.StudioWebPortalSettings
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserSettingsProperty
-  = UserSettingsProperty {codeEditorAppSettings :: (Prelude.Maybe CodeEditorAppSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>
+    UserSettingsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-codeeditorappsettings>
+                          codeEditorAppSettings :: (Prelude.Maybe CodeEditorAppSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customfilesystemconfigs>
                           customFileSystemConfigs :: (Prelude.Maybe [CustomFileSystemConfigProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customposixuserconfig>
                           customPosixUserConfig :: (Prelude.Maybe CustomPosixUserConfigProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-defaultlandinguri>
                           defaultLandingUri :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole>
                           executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterlabappsettings>
                           jupyterLabAppSettings :: (Prelude.Maybe JupyterLabAppSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings>
                           jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings>
                           kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-rstudioserverproappsettings>
                           rStudioServerProAppSettings :: (Prelude.Maybe RStudioServerProAppSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups>
                           securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings>
                           sharingSettings :: (Prelude.Maybe SharingSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-spacestoragesettings>
                           spaceStorageSettings :: (Prelude.Maybe DefaultSpaceStorageSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-studiowebportal>
                           studioWebPortal :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-studiowebportalsettings>
                           studioWebPortalSettings :: (Prelude.Maybe StudioWebPortalSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserSettingsProperty :: UserSettingsProperty
 mkUserSettingsProperty
   = UserSettingsProperty
-      {codeEditorAppSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), codeEditorAppSettings = Prelude.Nothing,
        customFileSystemConfigs = Prelude.Nothing,
        customPosixUserConfig = Prelude.Nothing,
        defaultLandingUri = Prelude.Nothing,

@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FastRestoreRuleProperty
-  = FastRestoreRuleProperty {availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html>
+    FastRestoreRuleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones>
+                             availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-count>
                              count :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-interval>
                              interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-intervalunit>
                              intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFastRestoreRuleProperty :: FastRestoreRuleProperty
 mkFastRestoreRuleProperty
   = FastRestoreRuleProperty
-      {availabilityZones = Prelude.Nothing, count = Prelude.Nothing,
-       interval = Prelude.Nothing, intervalUnit = Prelude.Nothing}
+      {haddock_workaround_ = (), availabilityZones = Prelude.Nothing,
+       count = Prelude.Nothing, interval = Prelude.Nothing,
+       intervalUnit = Prelude.Nothing}
 instance ToResourceProperties FastRestoreRuleProperty where
   toResourceProperties FastRestoreRuleProperty {..}
     = ResourceProperties

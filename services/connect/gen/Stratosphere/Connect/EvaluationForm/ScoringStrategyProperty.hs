@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScoringStrategyProperty
-  = ScoringStrategyProperty {mode :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html>
+    ScoringStrategyProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html#cfn-connect-evaluationform-scoringstrategy-mode>
+                             mode :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html#cfn-connect-evaluationform-scoringstrategy-status>
                              status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScoringStrategyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ScoringStrategyProperty
 mkScoringStrategyProperty mode status
-  = ScoringStrategyProperty {mode = mode, status = status}
+  = ScoringStrategyProperty
+      {haddock_workaround_ = (), mode = mode, status = status}
 instance ToResourceProperties ScoringStrategyProperty where
   toResourceProperties ScoringStrategyProperty {..}
     = ResourceProperties

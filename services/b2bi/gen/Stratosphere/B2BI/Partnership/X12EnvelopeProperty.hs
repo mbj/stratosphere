@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.X12OutboundEdiHeadersProperty as Exports
 import Stratosphere.ResourceProperties
 data X12EnvelopeProperty
-  = X12EnvelopeProperty {common :: (Prelude.Maybe X12OutboundEdiHeadersProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html>
+    X12EnvelopeProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html#cfn-b2bi-partnership-x12envelope-common>
+                         common :: (Prelude.Maybe X12OutboundEdiHeadersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkX12EnvelopeProperty :: X12EnvelopeProperty
 mkX12EnvelopeProperty
-  = X12EnvelopeProperty {common = Prelude.Nothing}
+  = X12EnvelopeProperty
+      {haddock_workaround_ = (), common = Prelude.Nothing}
 instance ToResourceProperties X12EnvelopeProperty where
   toResourceProperties X12EnvelopeProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON X12EnvelopeProperty where
            (Prelude.catMaybes [(JSON..=) "Common" Prelude.<$> common]))
 instance Property "Common" X12EnvelopeProperty where
   type PropertyType "Common" X12EnvelopeProperty = X12OutboundEdiHeadersProperty
-  set newValue X12EnvelopeProperty {}
+  set newValue X12EnvelopeProperty {..}
     = X12EnvelopeProperty {common = Prelude.pure newValue, ..}

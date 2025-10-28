@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ExecutionPlan
-  = ExecutionPlan {capacityUnits :: (Prelude.Maybe CapacityUnitsConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html>
+    ExecutionPlan {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html#cfn-kendraranking-executionplan-capacityunits>
+                   capacityUnits :: (Prelude.Maybe CapacityUnitsConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html#cfn-kendraranking-executionplan-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html#cfn-kendraranking-executionplan-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html#cfn-kendraranking-executionplan-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionPlan :: Value Prelude.Text -> ExecutionPlan
 mkExecutionPlan name
   = ExecutionPlan
-      {name = name, capacityUnits = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       capacityUnits = Prelude.Nothing, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ExecutionPlan where
   toResourceProperties ExecutionPlan {..}
     = ResourceProperties

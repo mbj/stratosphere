@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShareAttributesProperty
-  = ShareAttributesProperty {shareIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-shareattributes.html>
+    ShareAttributesProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-shareattributes.html#cfn-batch-schedulingpolicy-shareattributes-shareidentifier>
+                             shareIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-shareattributes.html#cfn-batch-schedulingpolicy-shareattributes-weightfactor>
                              weightFactor :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkShareAttributesProperty :: ShareAttributesProperty
 mkShareAttributesProperty
   = ShareAttributesProperty
-      {shareIdentifier = Prelude.Nothing, weightFactor = Prelude.Nothing}
+      {haddock_workaround_ = (), shareIdentifier = Prelude.Nothing,
+       weightFactor = Prelude.Nothing}
 instance ToResourceProperties ShareAttributesProperty where
   toResourceProperties ShareAttributesProperty {..}
     = ResourceProperties

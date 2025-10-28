@@ -7,22 +7,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowProperty
-  = MaintenanceWindowProperty {applyTimeOf :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html>
+    MaintenanceWindowProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-applytimeof>
+                               applyTimeOf :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-daysoftheweek>
                                daysOfTheWeek :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-endtimehour>
                                endTimeHour :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-endtimeminute>
                                endTimeMinute :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-starttimehour>
                                startTimeHour :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-starttimeminute>
                                startTimeMinute :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html#cfn-workspacesthinclient-environment-maintenancewindow-type>
                                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowProperty ::
   Value Prelude.Text -> MaintenanceWindowProperty
 mkMaintenanceWindowProperty type'
   = MaintenanceWindowProperty
-      {type' = type', applyTimeOf = Prelude.Nothing,
-       daysOfTheWeek = Prelude.Nothing, endTimeHour = Prelude.Nothing,
-       endTimeMinute = Prelude.Nothing, startTimeHour = Prelude.Nothing,
-       startTimeMinute = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       applyTimeOf = Prelude.Nothing, daysOfTheWeek = Prelude.Nothing,
+       endTimeHour = Prelude.Nothing, endTimeMinute = Prelude.Nothing,
+       startTimeHour = Prelude.Nothing, startTimeMinute = Prelude.Nothing}
 instance ToResourceProperties MaintenanceWindowProperty where
   toResourceProperties MaintenanceWindowProperty {..}
     = ResourceProperties

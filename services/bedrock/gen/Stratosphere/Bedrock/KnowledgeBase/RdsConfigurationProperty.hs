@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.RdsFieldMappingProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RdsConfigurationProperty
-  = RdsConfigurationProperty {credentialsSecretArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html>
+    RdsConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html#cfn-bedrock-knowledgebase-rdsconfiguration-credentialssecretarn>
+                              credentialsSecretArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html#cfn-bedrock-knowledgebase-rdsconfiguration-databasename>
                               databaseName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html#cfn-bedrock-knowledgebase-rdsconfiguration-fieldmapping>
                               fieldMapping :: RdsFieldMappingProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html#cfn-bedrock-knowledgebase-rdsconfiguration-resourcearn>
                               resourceArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html#cfn-bedrock-knowledgebase-rdsconfiguration-tablename>
                               tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsConfigurationProperty ::
@@ -28,7 +35,8 @@ mkRdsConfigurationProperty
   resourceArn
   tableName
   = RdsConfigurationProperty
-      {credentialsSecretArn = credentialsSecretArn,
+      {haddock_workaround_ = (),
+       credentialsSecretArn = credentialsSecretArn,
        databaseName = databaseName, fieldMapping = fieldMapping,
        resourceArn = resourceArn, tableName = tableName}
 instance ToResourceProperties RdsConfigurationProperty where

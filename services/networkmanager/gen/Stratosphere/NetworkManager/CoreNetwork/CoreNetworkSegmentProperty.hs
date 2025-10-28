@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreNetworkSegmentProperty
-  = CoreNetworkSegmentProperty {edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html>
+    CoreNetworkSegmentProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html#cfn-networkmanager-corenetwork-corenetworksegment-edgelocations>
+                                edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html#cfn-networkmanager-corenetwork-corenetworksegment-name>
                                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html#cfn-networkmanager-corenetwork-corenetworksegment-sharedsegments>
                                 sharedSegments :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetworkSegmentProperty :: CoreNetworkSegmentProperty
 mkCoreNetworkSegmentProperty
   = CoreNetworkSegmentProperty
-      {edgeLocations = Prelude.Nothing, name = Prelude.Nothing,
-       sharedSegments = Prelude.Nothing}
+      {haddock_workaround_ = (), edgeLocations = Prelude.Nothing,
+       name = Prelude.Nothing, sharedSegments = Prelude.Nothing}
 instance ToResourceProperties CoreNetworkSegmentProperty where
   toResourceProperties CoreNetworkSegmentProperty {..}
     = ResourceProperties

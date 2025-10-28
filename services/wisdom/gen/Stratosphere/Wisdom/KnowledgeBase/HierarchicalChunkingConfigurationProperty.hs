@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.HierarchicalChunkingLeve
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HierarchicalChunkingConfigurationProperty
-  = HierarchicalChunkingConfigurationProperty {levelConfigurations :: [HierarchicalChunkingLevelConfigurationProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html>
+    HierarchicalChunkingConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html#cfn-wisdom-knowledgebase-hierarchicalchunkingconfiguration-levelconfigurations>
+                                               levelConfigurations :: [HierarchicalChunkingLevelConfigurationProperty],
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html#cfn-wisdom-knowledgebase-hierarchicalchunkingconfiguration-overlaptokens>
                                                overlapTokens :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHierarchicalChunkingConfigurationProperty ::
@@ -20,7 +24,8 @@ mkHierarchicalChunkingConfigurationProperty
   levelConfigurations
   overlapTokens
   = HierarchicalChunkingConfigurationProperty
-      {levelConfigurations = levelConfigurations,
+      {haddock_workaround_ = (),
+       levelConfigurations = levelConfigurations,
        overlapTokens = overlapTokens}
 instance ToResourceProperties HierarchicalChunkingConfigurationProperty where
   toResourceProperties HierarchicalChunkingConfigurationProperty {..}

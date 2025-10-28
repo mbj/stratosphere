@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.BatchRetryStrategyProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchParametersProperty
-  = BatchParametersProperty {arrayProperties :: (Prelude.Maybe BatchArrayPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html>
+    BatchParametersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-arrayproperties>
+                             arrayProperties :: (Prelude.Maybe BatchArrayPropertiesProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-jobdefinition>
                              jobDefinition :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-jobname>
                              jobName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html#cfn-events-rule-batchparameters-retrystrategy>
                              retryStrategy :: (Prelude.Maybe BatchRetryStrategyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchParametersProperty ::
   Value Prelude.Text -> Value Prelude.Text -> BatchParametersProperty
 mkBatchParametersProperty jobDefinition jobName
   = BatchParametersProperty
-      {jobDefinition = jobDefinition, jobName = jobName,
-       arrayProperties = Prelude.Nothing, retryStrategy = Prelude.Nothing}
+      {haddock_workaround_ = (), jobDefinition = jobDefinition,
+       jobName = jobName, arrayProperties = Prelude.Nothing,
+       retryStrategy = Prelude.Nothing}
 instance ToResourceProperties BatchParametersProperty where
   toResourceProperties BatchParametersProperty {..}
     = ResourceProperties

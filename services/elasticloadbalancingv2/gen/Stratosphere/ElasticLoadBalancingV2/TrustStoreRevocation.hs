@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation.R
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrustStoreRevocation
-  = TrustStoreRevocation {revocationContents :: (Prelude.Maybe [RevocationContentProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html>
+    TrustStoreRevocation {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html#cfn-elasticloadbalancingv2-truststorerevocation-revocationcontents>
+                          revocationContents :: (Prelude.Maybe [RevocationContentProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html#cfn-elasticloadbalancingv2-truststorerevocation-truststorearn>
                           trustStoreArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrustStoreRevocation :: TrustStoreRevocation
 mkTrustStoreRevocation
   = TrustStoreRevocation
-      {revocationContents = Prelude.Nothing,
+      {haddock_workaround_ = (), revocationContents = Prelude.Nothing,
        trustStoreArn = Prelude.Nothing}
 instance ToResourceProperties TrustStoreRevocation where
   toResourceProperties TrustStoreRevocation {..}

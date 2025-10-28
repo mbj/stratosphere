@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityRebalanceProperty
-  = CapacityRebalanceProperty {replacementStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html>
+    CapacityRebalanceProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html#cfn-ec2-ec2fleet-capacityrebalance-replacementstrategy>
+                               replacementStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html#cfn-ec2-ec2fleet-capacityrebalance-terminationdelay>
                                terminationDelay :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityRebalanceProperty :: CapacityRebalanceProperty
 mkCapacityRebalanceProperty
   = CapacityRebalanceProperty
-      {replacementStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), replacementStrategy = Prelude.Nothing,
        terminationDelay = Prelude.Nothing}
 instance ToResourceProperties CapacityRebalanceProperty where
   toResourceProperties CapacityRebalanceProperty {..}

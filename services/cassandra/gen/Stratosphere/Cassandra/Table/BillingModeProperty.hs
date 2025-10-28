@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Cassandra.Table.ProvisionedThroughputProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BillingModeProperty
-  = BillingModeProperty {mode :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html>
+    BillingModeProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode>
+                         mode :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput>
                          provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingModeProperty :: Value Prelude.Text -> BillingModeProperty
 mkBillingModeProperty mode
   = BillingModeProperty
-      {mode = mode, provisionedThroughput = Prelude.Nothing}
+      {haddock_workaround_ = (), mode = mode,
+       provisionedThroughput = Prelude.Nothing}
 instance ToResourceProperties BillingModeProperty where
   toResourceProperties BillingModeProperty {..}
     = ResourceProperties

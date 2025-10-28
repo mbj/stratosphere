@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSour
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationReferenceDataSource
-  = ApplicationReferenceDataSource {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html>
+    ApplicationReferenceDataSource {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname>
+                                    applicationName :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource>
                                     referenceDataSource :: ReferenceDataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationReferenceDataSource ::
@@ -19,7 +23,7 @@ mkApplicationReferenceDataSource
   applicationName
   referenceDataSource
   = ApplicationReferenceDataSource
-      {applicationName = applicationName,
+      {haddock_workaround_ = (), applicationName = applicationName,
        referenceDataSource = referenceDataSource}
 instance ToResourceProperties ApplicationReferenceDataSource where
   toResourceProperties ApplicationReferenceDataSource {..}

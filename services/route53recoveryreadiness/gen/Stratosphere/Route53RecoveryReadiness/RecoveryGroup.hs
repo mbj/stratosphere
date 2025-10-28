@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data RecoveryGroup
-  = RecoveryGroup {cells :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html>
+    RecoveryGroup {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells>
+                   cells :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname>
                    recoveryGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecoveryGroup :: RecoveryGroup
 mkRecoveryGroup
   = RecoveryGroup
-      {cells = Prelude.Nothing, recoveryGroupName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), cells = Prelude.Nothing,
+       recoveryGroupName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties RecoveryGroup where
   toResourceProperties RecoveryGroup {..}
     = ResourceProperties

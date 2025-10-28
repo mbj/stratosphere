@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LinkFilterProperty
-  = LinkFilterProperty {filter :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkfilter.html>
+    LinkFilterProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkfilter.html#cfn-oam-link-linkfilter-filter>
+                        filter :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLinkFilterProperty :: Value Prelude.Text -> LinkFilterProperty
-mkLinkFilterProperty filter = LinkFilterProperty {filter = filter}
+mkLinkFilterProperty filter
+  = LinkFilterProperty {haddock_workaround_ = (), filter = filter}
 instance ToResourceProperties LinkFilterProperty where
   toResourceProperties LinkFilterProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON LinkFilterProperty where
     = JSON.object ["Filter" JSON..= filter]
 instance Property "Filter" LinkFilterProperty where
   type PropertyType "Filter" LinkFilterProperty = Value Prelude.Text
-  set newValue LinkFilterProperty {}
+  set newValue LinkFilterProperty {..}
     = LinkFilterProperty {filter = newValue, ..}

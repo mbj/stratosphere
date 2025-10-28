@@ -8,21 +8,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CustomerGateway
-  = CustomerGateway {bgpAsn :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html>
+    CustomerGateway {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn>
+                     bgpAsn :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasnextended>
                      bgpAsnExtended :: (Prelude.Maybe (Value Prelude.Double)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-certificatearn>
                      certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-devicename>
                      deviceName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress>
                      ipAddress :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-tags>
                      tags :: (Prelude.Maybe [Tag]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type>
                      type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerGateway ::
   Value Prelude.Text -> Value Prelude.Text -> CustomerGateway
 mkCustomerGateway ipAddress type'
   = CustomerGateway
-      {ipAddress = ipAddress, type' = type', bgpAsn = Prelude.Nothing,
-       bgpAsnExtended = Prelude.Nothing, certificateArn = Prelude.Nothing,
-       deviceName = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), ipAddress = ipAddress, type' = type',
+       bgpAsn = Prelude.Nothing, bgpAsnExtended = Prelude.Nothing,
+       certificateArn = Prelude.Nothing, deviceName = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties CustomerGateway where
   toResourceProperties CustomerGateway {..}
     = ResourceProperties

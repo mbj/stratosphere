@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextFileTrustProperty
-  = VirtualGatewayTlsValidationContextFileTrustProperty {certificateChain :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html>
+    VirtualGatewayTlsValidationContextFileTrustProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain>
+                                                         certificateChain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextFileTrustProperty ::
   Value Prelude.Text
@@ -16,7 +19,7 @@ mkVirtualGatewayTlsValidationContextFileTrustProperty ::
 mkVirtualGatewayTlsValidationContextFileTrustProperty
   certificateChain
   = VirtualGatewayTlsValidationContextFileTrustProperty
-      {certificateChain = certificateChain}
+      {haddock_workaround_ = (), certificateChain = certificateChain}
 instance ToResourceProperties VirtualGatewayTlsValidationContextFileTrustProperty where
   toResourceProperties
     VirtualGatewayTlsValidationContextFileTrustProperty {..}
@@ -29,6 +32,8 @@ instance JSON.ToJSON VirtualGatewayTlsValidationContextFileTrustProperty where
     = JSON.object ["CertificateChain" JSON..= certificateChain]
 instance Property "CertificateChain" VirtualGatewayTlsValidationContextFileTrustProperty where
   type PropertyType "CertificateChain" VirtualGatewayTlsValidationContextFileTrustProperty = Value Prelude.Text
-  set newValue VirtualGatewayTlsValidationContextFileTrustProperty {}
+  set
+    newValue
+    VirtualGatewayTlsValidationContextFileTrustProperty {..}
     = VirtualGatewayTlsValidationContextFileTrustProperty
         {certificateChain = newValue, ..}

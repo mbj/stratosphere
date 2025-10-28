@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GameLift.ContainerGroupDefinition.ContainerPortRangeProperty as Exports
 import Stratosphere.ResourceProperties
 data PortConfigurationProperty
-  = PortConfigurationProperty {containerPortRanges :: [ContainerPortRangeProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>
+    PortConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html#cfn-gamelift-containergroupdefinition-portconfiguration-containerportranges>
+                               containerPortRanges :: [ContainerPortRangeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortConfigurationProperty ::
   [ContainerPortRangeProperty] -> PortConfigurationProperty
 mkPortConfigurationProperty containerPortRanges
   = PortConfigurationProperty
-      {containerPortRanges = containerPortRanges}
+      {haddock_workaround_ = (),
+       containerPortRanges = containerPortRanges}
 instance ToResourceProperties PortConfigurationProperty where
   toResourceProperties PortConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON PortConfigurationProperty where
     = JSON.object ["ContainerPortRanges" JSON..= containerPortRanges]
 instance Property "ContainerPortRanges" PortConfigurationProperty where
   type PropertyType "ContainerPortRanges" PortConfigurationProperty = [ContainerPortRangeProperty]
-  set newValue PortConfigurationProperty {}
+  set newValue PortConfigurationProperty {..}
     = PortConfigurationProperty {containerPortRanges = newValue, ..}

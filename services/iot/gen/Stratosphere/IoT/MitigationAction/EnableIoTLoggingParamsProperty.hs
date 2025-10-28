@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnableIoTLoggingParamsProperty
-  = EnableIoTLoggingParamsProperty {logLevel :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html>
+    EnableIoTLoggingParamsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel>
+                                    logLevel :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging>
                                     roleArnForLogging :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnableIoTLoggingParamsProperty ::
@@ -16,7 +20,8 @@ mkEnableIoTLoggingParamsProperty ::
   -> Value Prelude.Text -> EnableIoTLoggingParamsProperty
 mkEnableIoTLoggingParamsProperty logLevel roleArnForLogging
   = EnableIoTLoggingParamsProperty
-      {logLevel = logLevel, roleArnForLogging = roleArnForLogging}
+      {haddock_workaround_ = (), logLevel = logLevel,
+       roleArnForLogging = roleArnForLogging}
 instance ToResourceProperties EnableIoTLoggingParamsProperty where
   toResourceProperties EnableIoTLoggingParamsProperty {..}
     = ResourceProperties

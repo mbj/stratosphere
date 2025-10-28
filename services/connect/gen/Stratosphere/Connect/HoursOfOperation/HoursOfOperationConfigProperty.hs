@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Connect.HoursOfOperation.HoursOfOperationTime
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HoursOfOperationConfigProperty
-  = HoursOfOperationConfigProperty {day :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>
+    HoursOfOperationConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-day>
+                                    day :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-endtime>
                                     endTime :: HoursOfOperationTimeSliceProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html#cfn-connect-hoursofoperation-hoursofoperationconfig-starttime>
                                     startTime :: HoursOfOperationTimeSliceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationConfigProperty ::
@@ -20,7 +25,8 @@ mkHoursOfOperationConfigProperty ::
         -> HoursOfOperationConfigProperty
 mkHoursOfOperationConfigProperty day endTime startTime
   = HoursOfOperationConfigProperty
-      {day = day, endTime = endTime, startTime = startTime}
+      {haddock_workaround_ = (), day = day, endTime = endTime,
+       startTime = startTime}
 instance ToResourceProperties HoursOfOperationConfigProperty where
   toResourceProperties HoursOfOperationConfigProperty {..}
     = ResourceProperties

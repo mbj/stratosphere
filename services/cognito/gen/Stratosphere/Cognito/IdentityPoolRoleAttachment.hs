@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.RoleMappin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityPoolRoleAttachment
-  = IdentityPoolRoleAttachment {identityPoolId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html>
+    IdentityPoolRoleAttachment {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid>
+                                identityPoolId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings>
                                 roleMappings :: (Prelude.Maybe (Prelude.Map Prelude.Text RoleMappingProperty)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles>
                                 roles :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolRoleAttachment ::
   Value Prelude.Text -> IdentityPoolRoleAttachment
 mkIdentityPoolRoleAttachment identityPoolId
   = IdentityPoolRoleAttachment
-      {identityPoolId = identityPoolId, roleMappings = Prelude.Nothing,
-       roles = Prelude.Nothing}
+      {haddock_workaround_ = (), identityPoolId = identityPoolId,
+       roleMappings = Prelude.Nothing, roles = Prelude.Nothing}
 instance ToResourceProperties IdentityPoolRoleAttachment where
   toResourceProperties IdentityPoolRoleAttachment {..}
     = ResourceProperties

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LexFlowNodeConfigurationProperty
-  = LexFlowNodeConfigurationProperty {botAliasArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lexflownodeconfiguration.html>
+    LexFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lexflownodeconfiguration.html#cfn-bedrock-flowversion-lexflownodeconfiguration-botaliasarn>
+                                      botAliasArn :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lexflownodeconfiguration.html#cfn-bedrock-flowversion-lexflownodeconfiguration-localeid>
                                       localeId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLexFlowNodeConfigurationProperty ::
@@ -16,7 +20,8 @@ mkLexFlowNodeConfigurationProperty ::
   -> Value Prelude.Text -> LexFlowNodeConfigurationProperty
 mkLexFlowNodeConfigurationProperty botAliasArn localeId
   = LexFlowNodeConfigurationProperty
-      {botAliasArn = botAliasArn, localeId = localeId}
+      {haddock_workaround_ = (), botAliasArn = botAliasArn,
+       localeId = localeId}
 instance ToResourceProperties LexFlowNodeConfigurationProperty where
   toResourceProperties LexFlowNodeConfigurationProperty {..}
     = ResourceProperties

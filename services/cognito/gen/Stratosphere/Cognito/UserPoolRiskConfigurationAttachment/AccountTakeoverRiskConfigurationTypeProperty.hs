@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.A
 import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountTakeoverRiskConfigurationTypeProperty
-  = AccountTakeoverRiskConfigurationTypeProperty {actions :: AccountTakeoverActionsTypeProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html>
+    AccountTakeoverRiskConfigurationTypeProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions>
+                                                  actions :: AccountTakeoverActionsTypeProperty,
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-notifyconfiguration>
                                                   notifyConfiguration :: (Prelude.Maybe NotifyConfigurationTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverRiskConfigurationTypeProperty ::
@@ -17,7 +21,8 @@ mkAccountTakeoverRiskConfigurationTypeProperty ::
   -> AccountTakeoverRiskConfigurationTypeProperty
 mkAccountTakeoverRiskConfigurationTypeProperty actions
   = AccountTakeoverRiskConfigurationTypeProperty
-      {actions = actions, notifyConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions,
+       notifyConfiguration = Prelude.Nothing}
 instance ToResourceProperties AccountTakeoverRiskConfigurationTypeProperty where
   toResourceProperties
     AccountTakeoverRiskConfigurationTypeProperty {..}

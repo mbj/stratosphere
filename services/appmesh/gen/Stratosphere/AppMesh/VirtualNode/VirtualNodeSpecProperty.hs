@@ -12,18 +12,25 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.LoggingProperty as Export
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ServiceDiscoveryProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualNodeSpecProperty
-  = VirtualNodeSpecProperty {backendDefaults :: (Prelude.Maybe BackendDefaultsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html>
+    VirtualNodeSpecProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backenddefaults>
+                             backendDefaults :: (Prelude.Maybe BackendDefaultsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends>
                              backends :: (Prelude.Maybe [BackendProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-listeners>
                              listeners :: (Prelude.Maybe [ListenerProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-logging>
                              logging :: (Prelude.Maybe LoggingProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-servicediscovery>
                              serviceDiscovery :: (Prelude.Maybe ServiceDiscoveryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeSpecProperty :: VirtualNodeSpecProperty
 mkVirtualNodeSpecProperty
   = VirtualNodeSpecProperty
-      {backendDefaults = Prelude.Nothing, backends = Prelude.Nothing,
-       listeners = Prelude.Nothing, logging = Prelude.Nothing,
-       serviceDiscovery = Prelude.Nothing}
+      {haddock_workaround_ = (), backendDefaults = Prelude.Nothing,
+       backends = Prelude.Nothing, listeners = Prelude.Nothing,
+       logging = Prelude.Nothing, serviceDiscovery = Prelude.Nothing}
 instance ToResourceProperties VirtualNodeSpecProperty where
   toResourceProperties VirtualNodeSpecProperty {..}
     = ResourceProperties

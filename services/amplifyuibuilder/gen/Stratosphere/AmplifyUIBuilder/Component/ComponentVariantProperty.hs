@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentVariantProperty
-  = ComponentVariantProperty {overrides :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html>
+    ComponentVariantProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-overrides>
+                              overrides :: (Prelude.Maybe JSON.Object),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentvariant.html#cfn-amplifyuibuilder-component-componentvariant-variantvalues>
                               variantValues :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentVariantProperty :: ComponentVariantProperty
 mkComponentVariantProperty
   = ComponentVariantProperty
-      {overrides = Prelude.Nothing, variantValues = Prelude.Nothing}
+      {haddock_workaround_ = (), overrides = Prelude.Nothing,
+       variantValues = Prelude.Nothing}
 instance ToResourceProperties ComponentVariantProperty where
   toResourceProperties ComponentVariantProperty {..}
     = ResourceProperties

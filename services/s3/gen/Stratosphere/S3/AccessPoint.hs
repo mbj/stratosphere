@@ -9,18 +9,27 @@ import {-# SOURCE #-} Stratosphere.S3.AccessPoint.VpcConfigurationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPoint
-  = AccessPoint {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html>
+    AccessPoint {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket>
+                 bucket :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucketaccountid>
                  bucketAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name>
                  name :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy>
                  policy :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration>
                  publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration>
                  vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: Value Prelude.Text -> AccessPoint
 mkAccessPoint bucket
   = AccessPoint
-      {bucket = bucket, bucketAccountId = Prelude.Nothing,
-       name = Prelude.Nothing, policy = Prelude.Nothing,
+      {haddock_workaround_ = (), bucket = bucket,
+       bucketAccountId = Prelude.Nothing, name = Prelude.Nothing,
+       policy = Prelude.Nothing,
        publicAccessBlockConfiguration = Prelude.Nothing,
        vpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties AccessPoint where

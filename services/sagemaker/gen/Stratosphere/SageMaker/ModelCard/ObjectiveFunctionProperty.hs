@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.FunctionProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectiveFunctionProperty
-  = ObjectiveFunctionProperty {function :: (Prelude.Maybe FunctionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html>
+    ObjectiveFunctionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-function>
+                               function :: (Prelude.Maybe FunctionProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-notes>
                                notes :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectiveFunctionProperty :: ObjectiveFunctionProperty
 mkObjectiveFunctionProperty
   = ObjectiveFunctionProperty
-      {function = Prelude.Nothing, notes = Prelude.Nothing}
+      {haddock_workaround_ = (), function = Prelude.Nothing,
+       notes = Prelude.Nothing}
 instance ToResourceProperties ObjectiveFunctionProperty where
   toResourceProperties ObjectiveFunctionProperty {..}
     = ResourceProperties

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceExperiment.ShadowModelVari
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShadowModeConfigProperty
-  = ShadowModeConfigProperty {shadowModelVariants :: [ShadowModelVariantConfigProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html>
+    ShadowModeConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodeconfig-shadowmodelvariants>
+                              shadowModelVariants :: [ShadowModelVariantConfigProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodeconfig-sourcemodelvariantname>
                               sourceModelVariantName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkShadowModeConfigProperty ::
@@ -19,7 +23,8 @@ mkShadowModeConfigProperty
   shadowModelVariants
   sourceModelVariantName
   = ShadowModeConfigProperty
-      {shadowModelVariants = shadowModelVariants,
+      {haddock_workaround_ = (),
+       shadowModelVariants = shadowModelVariants,
        sourceModelVariantName = sourceModelVariantName}
 instance ToResourceProperties ShadowModeConfigProperty where
   toResourceProperties ShadowModeConfigProperty {..}

@@ -8,20 +8,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduledTriggerPropertiesProperty
-  = ScheduledTriggerPropertiesProperty {dataPullMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html>
+    ScheduledTriggerPropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode>
+                                        dataPullMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-firstexecutionfrom>
                                         firstExecutionFrom :: (Prelude.Maybe (Value Prelude.Double)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-flowerrordeactivationthreshold>
                                         flowErrorDeactivationThreshold :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime>
                                         scheduleEndTime :: (Prelude.Maybe (Value Prelude.Double)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression>
                                         scheduleExpression :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset>
                                         scheduleOffset :: (Prelude.Maybe (Value Prelude.Double)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime>
                                         scheduleStartTime :: (Prelude.Maybe (Value Prelude.Double)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone>
                                         timeZone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledTriggerPropertiesProperty ::
   Value Prelude.Text -> ScheduledTriggerPropertiesProperty
 mkScheduledTriggerPropertiesProperty scheduleExpression
   = ScheduledTriggerPropertiesProperty
-      {scheduleExpression = scheduleExpression,
+      {haddock_workaround_ = (), scheduleExpression = scheduleExpression,
        dataPullMode = Prelude.Nothing,
        firstExecutionFrom = Prelude.Nothing,
        flowErrorDeactivationThreshold = Prelude.Nothing,

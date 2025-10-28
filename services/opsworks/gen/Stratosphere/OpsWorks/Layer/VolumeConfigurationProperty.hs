@@ -7,21 +7,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeConfigurationProperty
-  = VolumeConfigurationProperty {encrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html>
+    VolumeConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volumeconfiguration-encrypted>
+                                 encrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-iops>
                                  iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-mountpoint>
                                  mountPoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-numberofdisks>
                                  numberOfDisks :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-raidlevel>
                                  raidLevel :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-size>
                                  size :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-volumetype>
                                  volumeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeConfigurationProperty :: VolumeConfigurationProperty
 mkVolumeConfigurationProperty
   = VolumeConfigurationProperty
-      {encrypted = Prelude.Nothing, iops = Prelude.Nothing,
-       mountPoint = Prelude.Nothing, numberOfDisks = Prelude.Nothing,
-       raidLevel = Prelude.Nothing, size = Prelude.Nothing,
-       volumeType = Prelude.Nothing}
+      {haddock_workaround_ = (), encrypted = Prelude.Nothing,
+       iops = Prelude.Nothing, mountPoint = Prelude.Nothing,
+       numberOfDisks = Prelude.Nothing, raidLevel = Prelude.Nothing,
+       size = Prelude.Nothing, volumeType = Prelude.Nothing}
 instance ToResourceProperties VolumeConfigurationProperty where
   toResourceProperties VolumeConfigurationProperty {..}
     = ResourceProperties

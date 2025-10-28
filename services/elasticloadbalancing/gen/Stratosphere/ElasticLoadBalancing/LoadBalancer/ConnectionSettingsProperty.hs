@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionSettingsProperty
-  = ConnectionSettingsProperty {idleTimeout :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html>
+    ConnectionSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html#cfn-elb-connectionsettings-idletimeout>
+                                idleTimeout :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionSettingsProperty ::
   Value Prelude.Integer -> ConnectionSettingsProperty
 mkConnectionSettingsProperty idleTimeout
-  = ConnectionSettingsProperty {idleTimeout = idleTimeout}
+  = ConnectionSettingsProperty
+      {haddock_workaround_ = (), idleTimeout = idleTimeout}
 instance ToResourceProperties ConnectionSettingsProperty where
   toResourceProperties ConnectionSettingsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ConnectionSettingsProperty where
     = JSON.object ["IdleTimeout" JSON..= idleTimeout]
 instance Property "IdleTimeout" ConnectionSettingsProperty where
   type PropertyType "IdleTimeout" ConnectionSettingsProperty = Value Prelude.Integer
-  set newValue ConnectionSettingsProperty {}
+  set newValue ConnectionSettingsProperty {..}
     = ConnectionSettingsProperty {idleTimeout = newValue, ..}

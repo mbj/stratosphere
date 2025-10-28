@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SemanticChunkingConfigurationProperty
-  = SemanticChunkingConfigurationProperty {breakpointPercentileThreshold :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html>
+    SemanticChunkingConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html#cfn-wisdom-knowledgebase-semanticchunkingconfiguration-breakpointpercentilethreshold>
+                                           breakpointPercentileThreshold :: (Value Prelude.Double),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html#cfn-wisdom-knowledgebase-semanticchunkingconfiguration-buffersize>
                                            bufferSize :: (Value Prelude.Double),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html#cfn-wisdom-knowledgebase-semanticchunkingconfiguration-maxtokens>
                                            maxTokens :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSemanticChunkingConfigurationProperty ::
@@ -21,7 +26,8 @@ mkSemanticChunkingConfigurationProperty
   bufferSize
   maxTokens
   = SemanticChunkingConfigurationProperty
-      {breakpointPercentileThreshold = breakpointPercentileThreshold,
+      {haddock_workaround_ = (),
+       breakpointPercentileThreshold = breakpointPercentileThreshold,
        bufferSize = bufferSize, maxTokens = maxTokens}
 instance ToResourceProperties SemanticChunkingConfigurationProperty where
   toResourceProperties SemanticChunkingConfigurationProperty {..}

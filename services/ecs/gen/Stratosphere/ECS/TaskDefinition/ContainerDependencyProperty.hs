@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerDependencyProperty
-  = ContainerDependencyProperty {condition :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html>
+    ContainerDependencyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition>
+                                 condition :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername>
                                  containerName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDependencyProperty :: ContainerDependencyProperty
 mkContainerDependencyProperty
   = ContainerDependencyProperty
-      {condition = Prelude.Nothing, containerName = Prelude.Nothing}
+      {haddock_workaround_ = (), condition = Prelude.Nothing,
+       containerName = Prelude.Nothing}
 instance ToResourceProperties ContainerDependencyProperty where
   toResourceProperties ContainerDependencyProperty {..}
     = ResourceProperties

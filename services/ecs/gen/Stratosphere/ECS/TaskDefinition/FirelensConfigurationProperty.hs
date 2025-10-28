@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirelensConfigurationProperty
-  = FirelensConfigurationProperty {options :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html>
+    FirelensConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options>
+                                   options :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type>
                                    type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirelensConfigurationProperty :: FirelensConfigurationProperty
 mkFirelensConfigurationProperty
   = FirelensConfigurationProperty
-      {options = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), options = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties FirelensConfigurationProperty where
   toResourceProperties FirelensConfigurationProperty {..}
     = ResourceProperties

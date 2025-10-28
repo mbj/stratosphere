@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.DataSync.Task.SourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManifestConfigProperty
-  = ManifestConfigProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html>
+    ManifestConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html#cfn-datasync-task-manifestconfig-action>
+                            action :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html#cfn-datasync-task-manifestconfig-format>
                             format :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html#cfn-datasync-task-manifestconfig-source>
                             source :: SourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestConfigProperty ::
   SourceProperty -> ManifestConfigProperty
 mkManifestConfigProperty source
   = ManifestConfigProperty
-      {source = source, action = Prelude.Nothing,
-       format = Prelude.Nothing}
+      {haddock_workaround_ = (), source = source,
+       action = Prelude.Nothing, format = Prelude.Nothing}
 instance ToResourceProperties ManifestConfigProperty where
   toResourceProperties ManifestConfigProperty {..}
     = ResourceProperties

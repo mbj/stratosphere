@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionContractConfigurationProperty
-  = EncryptionContractConfigurationProperty {presetSpeke20Audio :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html>
+    EncryptionContractConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html#cfn-mediapackage-packagingconfiguration-encryptioncontractconfiguration-presetspeke20audio>
+                                             presetSpeke20Audio :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html#cfn-mediapackage-packagingconfiguration-encryptioncontractconfiguration-presetspeke20video>
                                              presetSpeke20Video :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionContractConfigurationProperty ::
@@ -18,7 +22,7 @@ mkEncryptionContractConfigurationProperty
   presetSpeke20Audio
   presetSpeke20Video
   = EncryptionContractConfigurationProperty
-      {presetSpeke20Audio = presetSpeke20Audio,
+      {haddock_workaround_ = (), presetSpeke20Audio = presetSpeke20Audio,
        presetSpeke20Video = presetSpeke20Video}
 instance ToResourceProperties EncryptionContractConfigurationProperty where
   toResourceProperties EncryptionContractConfigurationProperty {..}

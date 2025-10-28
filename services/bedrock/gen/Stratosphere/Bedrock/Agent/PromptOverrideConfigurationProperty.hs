@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Agent.PromptConfigurationProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptOverrideConfigurationProperty
-  = PromptOverrideConfigurationProperty {overrideLambda :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptoverrideconfiguration.html>
+    PromptOverrideConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptoverrideconfiguration.html#cfn-bedrock-agent-promptoverrideconfiguration-overridelambda>
+                                         overrideLambda :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptoverrideconfiguration.html#cfn-bedrock-agent-promptoverrideconfiguration-promptconfigurations>
                                          promptConfigurations :: [PromptConfigurationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptOverrideConfigurationProperty ::
@@ -17,7 +21,8 @@ mkPromptOverrideConfigurationProperty ::
   -> PromptOverrideConfigurationProperty
 mkPromptOverrideConfigurationProperty promptConfigurations
   = PromptOverrideConfigurationProperty
-      {promptConfigurations = promptConfigurations,
+      {haddock_workaround_ = (),
+       promptConfigurations = promptConfigurations,
        overrideLambda = Prelude.Nothing}
 instance ToResourceProperties PromptOverrideConfigurationProperty where
   toResourceProperties PromptOverrideConfigurationProperty {..}

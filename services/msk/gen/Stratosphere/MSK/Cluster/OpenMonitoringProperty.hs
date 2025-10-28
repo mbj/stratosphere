@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.PrometheusProperty as Exports
 import Stratosphere.ResourceProperties
 data OpenMonitoringProperty
-  = OpenMonitoringProperty {prometheus :: PrometheusProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html>
+    OpenMonitoringProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html#cfn-msk-cluster-openmonitoring-prometheus>
+                            prometheus :: PrometheusProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenMonitoringProperty ::
   PrometheusProperty -> OpenMonitoringProperty
 mkOpenMonitoringProperty prometheus
-  = OpenMonitoringProperty {prometheus = prometheus}
+  = OpenMonitoringProperty
+      {haddock_workaround_ = (), prometheus = prometheus}
 instance ToResourceProperties OpenMonitoringProperty where
   toResourceProperties OpenMonitoringProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON OpenMonitoringProperty where
     = JSON.object ["Prometheus" JSON..= prometheus]
 instance Property "Prometheus" OpenMonitoringProperty where
   type PropertyType "Prometheus" OpenMonitoringProperty = PrometheusProperty
-  set newValue OpenMonitoringProperty {}
+  set newValue OpenMonitoringProperty {..}
     = OpenMonitoringProperty {prometheus = newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputLocationRefProperty
-  = OutputLocationRefProperty {destinationRefId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html>
+    OutputLocationRefProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html#cfn-medialive-channel-outputlocationref-destinationrefid>
+                               destinationRefId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputLocationRefProperty :: OutputLocationRefProperty
 mkOutputLocationRefProperty
-  = OutputLocationRefProperty {destinationRefId = Prelude.Nothing}
+  = OutputLocationRefProperty
+      {haddock_workaround_ = (), destinationRefId = Prelude.Nothing}
 instance ToResourceProperties OutputLocationRefProperty where
   toResourceProperties OutputLocationRefProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON OutputLocationRefProperty where
               [(JSON..=) "DestinationRefId" Prelude.<$> destinationRefId]))
 instance Property "DestinationRefId" OutputLocationRefProperty where
   type PropertyType "DestinationRefId" OutputLocationRefProperty = Value Prelude.Text
-  set newValue OutputLocationRefProperty {}
+  set newValue OutputLocationRefProperty {..}
     = OutputLocationRefProperty
         {destinationRefId = Prelude.pure newValue, ..}

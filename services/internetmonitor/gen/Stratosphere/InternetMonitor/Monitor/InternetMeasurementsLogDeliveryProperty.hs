@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.S3ConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data InternetMeasurementsLogDeliveryProperty
-  = InternetMeasurementsLogDeliveryProperty {s3Config :: (Prelude.Maybe S3ConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html>
+    InternetMeasurementsLogDeliveryProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery-s3config>
+                                             s3Config :: (Prelude.Maybe S3ConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInternetMeasurementsLogDeliveryProperty ::
   InternetMeasurementsLogDeliveryProperty
 mkInternetMeasurementsLogDeliveryProperty
   = InternetMeasurementsLogDeliveryProperty
-      {s3Config = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Config = Prelude.Nothing}
 instance ToResourceProperties InternetMeasurementsLogDeliveryProperty where
   toResourceProperties InternetMeasurementsLogDeliveryProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON InternetMeasurementsLogDeliveryProperty where
            (Prelude.catMaybes [(JSON..=) "S3Config" Prelude.<$> s3Config]))
 instance Property "S3Config" InternetMeasurementsLogDeliveryProperty where
   type PropertyType "S3Config" InternetMeasurementsLogDeliveryProperty = S3ConfigProperty
-  set newValue InternetMeasurementsLogDeliveryProperty {}
+  set newValue InternetMeasurementsLogDeliveryProperty {..}
     = InternetMeasurementsLogDeliveryProperty
         {s3Config = Prelude.pure newValue, ..}

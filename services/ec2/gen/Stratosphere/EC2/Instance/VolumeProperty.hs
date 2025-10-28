@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeProperty
-  = VolumeProperty {device :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html>
+    VolumeProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html#cfn-ec2-instance-volume-device>
+                    device :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html#cfn-ec2-instance-volume-volumeid>
                     volumeId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> VolumeProperty
 mkVolumeProperty device volumeId
-  = VolumeProperty {device = device, volumeId = volumeId}
+  = VolumeProperty
+      {haddock_workaround_ = (), device = device, volumeId = volumeId}
 instance ToResourceProperties VolumeProperty where
   toResourceProperties VolumeProperty {..}
     = ResourceProperties

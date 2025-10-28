@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowAliasRoutingConfigurationListItemProperty
-  = FlowAliasRoutingConfigurationListItemProperty {flowVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasroutingconfigurationlistitem.html>
+    FlowAliasRoutingConfigurationListItemProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasroutingconfigurationlistitem.html#cfn-bedrock-flowalias-flowaliasroutingconfigurationlistitem-flowversion>
+                                                   flowVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowAliasRoutingConfigurationListItemProperty ::
   FlowAliasRoutingConfigurationListItemProperty
 mkFlowAliasRoutingConfigurationListItemProperty
   = FlowAliasRoutingConfigurationListItemProperty
-      {flowVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), flowVersion = Prelude.Nothing}
 instance ToResourceProperties FlowAliasRoutingConfigurationListItemProperty where
   toResourceProperties
     FlowAliasRoutingConfigurationListItemProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON FlowAliasRoutingConfigurationListItemProperty where
               [(JSON..=) "FlowVersion" Prelude.<$> flowVersion]))
 instance Property "FlowVersion" FlowAliasRoutingConfigurationListItemProperty where
   type PropertyType "FlowVersion" FlowAliasRoutingConfigurationListItemProperty = Value Prelude.Text
-  set newValue FlowAliasRoutingConfigurationListItemProperty {}
+  set newValue FlowAliasRoutingConfigurationListItemProperty {..}
     = FlowAliasRoutingConfigurationListItemProperty
         {flowVersion = Prelude.pure newValue, ..}

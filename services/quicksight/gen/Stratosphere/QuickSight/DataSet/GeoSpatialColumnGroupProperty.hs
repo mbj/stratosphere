@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoSpatialColumnGroupProperty
-  = GeoSpatialColumnGroupProperty {columns :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html>
+    GeoSpatialColumnGroupProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns>
+                                   columns :: (ValueList Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode>
                                    countryCode :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name>
                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoSpatialColumnGroupProperty ::
@@ -16,7 +21,8 @@ mkGeoSpatialColumnGroupProperty ::
   -> Value Prelude.Text -> GeoSpatialColumnGroupProperty
 mkGeoSpatialColumnGroupProperty columns name
   = GeoSpatialColumnGroupProperty
-      {columns = columns, name = name, countryCode = Prelude.Nothing}
+      {haddock_workaround_ = (), columns = columns, name = name,
+       countryCode = Prelude.Nothing}
 instance ToResourceProperties GeoSpatialColumnGroupProperty where
   toResourceProperties GeoSpatialColumnGroupProperty {..}
     = ResourceProperties

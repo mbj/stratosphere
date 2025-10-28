@@ -11,10 +11,17 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.ObdInterfaceProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInterfacesItemsProperty
-  = NetworkInterfacesItemsProperty {canInterface :: (Prelude.Maybe CanInterfaceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html>
+    NetworkInterfacesItemsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-caninterface>
+                                    canInterface :: (Prelude.Maybe CanInterfaceProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-customdecodinginterface>
                                     customDecodingInterface :: (Prelude.Maybe CustomDecodingInterfaceProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-interfaceid>
                                     interfaceId :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-obdinterface>
                                     obdInterface :: (Prelude.Maybe ObdInterfaceProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-type>
                                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfacesItemsProperty ::
@@ -22,8 +29,8 @@ mkNetworkInterfacesItemsProperty ::
   -> Value Prelude.Text -> NetworkInterfacesItemsProperty
 mkNetworkInterfacesItemsProperty interfaceId type'
   = NetworkInterfacesItemsProperty
-      {interfaceId = interfaceId, type' = type',
-       canInterface = Prelude.Nothing,
+      {haddock_workaround_ = (), interfaceId = interfaceId,
+       type' = type', canInterface = Prelude.Nothing,
        customDecodingInterface = Prelude.Nothing,
        obdInterface = Prelude.Nothing}
 instance ToResourceProperties NetworkInterfacesItemsProperty where

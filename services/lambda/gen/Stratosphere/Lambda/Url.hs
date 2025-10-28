@@ -8,18 +8,25 @@ import {-# SOURCE #-} Stratosphere.Lambda.Url.CorsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Url
-  = Url {authType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html>
+    Url {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-authtype>
+         authType :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-cors>
          cors :: (Prelude.Maybe CorsProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-invokemode>
          invokeMode :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-qualifier>
          qualifier :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-targetfunctionarn>
          targetFunctionArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUrl :: Value Prelude.Text -> Value Prelude.Text -> Url
 mkUrl authType targetFunctionArn
   = Url
-      {authType = authType, targetFunctionArn = targetFunctionArn,
-       cors = Prelude.Nothing, invokeMode = Prelude.Nothing,
-       qualifier = Prelude.Nothing}
+      {haddock_workaround_ = (), authType = authType,
+       targetFunctionArn = targetFunctionArn, cors = Prelude.Nothing,
+       invokeMode = Prelude.Nothing, qualifier = Prelude.Nothing}
 instance ToResourceProperties Url where
   toResourceProperties Url {..}
     = ResourceProperties

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.LoggingFormatProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayFileAccessLogProperty
-  = VirtualGatewayFileAccessLogProperty {format :: (Prelude.Maybe LoggingFormatProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html>
+    VirtualGatewayFileAccessLogProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-format>
+                                         format :: (Prelude.Maybe LoggingFormatProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-path>
                                          path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayFileAccessLogProperty ::
   Value Prelude.Text -> VirtualGatewayFileAccessLogProperty
 mkVirtualGatewayFileAccessLogProperty path
   = VirtualGatewayFileAccessLogProperty
-      {path = path, format = Prelude.Nothing}
+      {haddock_workaround_ = (), path = path, format = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayFileAccessLogProperty where
   toResourceProperties VirtualGatewayFileAccessLogProperty {..}
     = ResourceProperties

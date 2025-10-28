@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyValueStoreAssociationProperty
-  = KeyValueStoreAssociationProperty {keyValueStoreARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html>
+    KeyValueStoreAssociationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html#cfn-cloudfront-function-keyvaluestoreassociation-keyvaluestorearn>
+                                      keyValueStoreARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValueStoreAssociationProperty ::
   Value Prelude.Text -> KeyValueStoreAssociationProperty
 mkKeyValueStoreAssociationProperty keyValueStoreARN
   = KeyValueStoreAssociationProperty
-      {keyValueStoreARN = keyValueStoreARN}
+      {haddock_workaround_ = (), keyValueStoreARN = keyValueStoreARN}
 instance ToResourceProperties KeyValueStoreAssociationProperty where
   toResourceProperties KeyValueStoreAssociationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON KeyValueStoreAssociationProperty where
     = JSON.object ["KeyValueStoreARN" JSON..= keyValueStoreARN]
 instance Property "KeyValueStoreARN" KeyValueStoreAssociationProperty where
   type PropertyType "KeyValueStoreARN" KeyValueStoreAssociationProperty = Value Prelude.Text
-  set newValue KeyValueStoreAssociationProperty {}
+  set newValue KeyValueStoreAssociationProperty {..}
     = KeyValueStoreAssociationProperty
         {keyValueStoreARN = newValue, ..}

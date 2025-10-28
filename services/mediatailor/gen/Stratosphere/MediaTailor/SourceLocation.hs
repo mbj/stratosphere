@@ -12,18 +12,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SourceLocation
-  = SourceLocation {accessConfiguration :: (Prelude.Maybe AccessConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html>
+    SourceLocation {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-accessconfiguration>
+                    accessConfiguration :: (Prelude.Maybe AccessConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-defaultsegmentdeliveryconfiguration>
                     defaultSegmentDeliveryConfiguration :: (Prelude.Maybe DefaultSegmentDeliveryConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-httpconfiguration>
                     httpConfiguration :: HttpConfigurationProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-segmentdeliveryconfigurations>
                     segmentDeliveryConfigurations :: (Prelude.Maybe [SegmentDeliveryConfigurationProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-sourcelocationname>
                     sourceLocationName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html#cfn-mediatailor-sourcelocation-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceLocation ::
   HttpConfigurationProperty -> Value Prelude.Text -> SourceLocation
 mkSourceLocation httpConfiguration sourceLocationName
   = SourceLocation
-      {httpConfiguration = httpConfiguration,
+      {haddock_workaround_ = (), httpConfiguration = httpConfiguration,
        sourceLocationName = sourceLocationName,
        accessConfiguration = Prelude.Nothing,
        defaultSegmentDeliveryConfiguration = Prelude.Nothing,

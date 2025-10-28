@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangeProperty
-  = RangeProperty {endTime :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html>
+    RangeProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html#cfn-cloudwatch-anomalydetector-range-endtime>
+                   endTime :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html#cfn-cloudwatch-anomalydetector-range-starttime>
                    startTime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RangeProperty
 mkRangeProperty endTime startTime
-  = RangeProperty {endTime = endTime, startTime = startTime}
+  = RangeProperty
+      {haddock_workaround_ = (), endTime = endTime,
+       startTime = startTime}
 instance ToResourceProperties RangeProperty where
   toResourceProperties RangeProperty {..}
     = ResourceProperties

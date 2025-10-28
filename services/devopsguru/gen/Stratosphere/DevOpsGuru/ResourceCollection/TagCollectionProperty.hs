@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagCollectionProperty
-  = TagCollectionProperty {appBoundaryKey :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html>
+    TagCollectionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html#cfn-devopsguru-resourcecollection-tagcollection-appboundarykey>
+                           appBoundaryKey :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html#cfn-devopsguru-resourcecollection-tagcollection-tagvalues>
                            tagValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagCollectionProperty :: TagCollectionProperty
 mkTagCollectionProperty
   = TagCollectionProperty
-      {appBoundaryKey = Prelude.Nothing, tagValues = Prelude.Nothing}
+      {haddock_workaround_ = (), appBoundaryKey = Prelude.Nothing,
+       tagValues = Prelude.Nothing}
 instance ToResourceProperties TagCollectionProperty where
   toResourceProperties TagCollectionProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagPropertyProperty
-  = TagPropertyProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html>
+    TagPropertyProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-key>
+                         key :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-propagateatlaunch>
                          propagateAtLaunch :: (Value Prelude.Bool),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-tagproperty.html#cfn-autoscaling-autoscalinggroup-tagproperty-value>
                          value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagPropertyProperty ::
@@ -16,7 +21,8 @@ mkTagPropertyProperty ::
   -> Value Prelude.Bool -> Value Prelude.Text -> TagPropertyProperty
 mkTagPropertyProperty key propagateAtLaunch value
   = TagPropertyProperty
-      {key = key, propagateAtLaunch = propagateAtLaunch, value = value}
+      {haddock_workaround_ = (), key = key,
+       propagateAtLaunch = propagateAtLaunch, value = value}
 instance ToResourceProperties TagPropertyProperty where
   toResourceProperties TagPropertyProperty {..}
     = ResourceProperties

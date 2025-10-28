@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenersProperty
-  = ListenersProperty {instancePort :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html>
+    ListenersProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceport>
+                       instancePort :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceprotocol>
                        instanceProtocol :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-loadbalancerport>
                        loadBalancerPort :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames>
                        policyNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-protocol>
                        protocol :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-sslcertificateid>
                        sSLCertificateId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenersProperty ::
@@ -19,9 +27,10 @@ mkListenersProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> ListenersProperty
 mkListenersProperty instancePort loadBalancerPort protocol
   = ListenersProperty
-      {instancePort = instancePort, loadBalancerPort = loadBalancerPort,
-       protocol = protocol, instanceProtocol = Prelude.Nothing,
-       policyNames = Prelude.Nothing, sSLCertificateId = Prelude.Nothing}
+      {haddock_workaround_ = (), instancePort = instancePort,
+       loadBalancerPort = loadBalancerPort, protocol = protocol,
+       instanceProtocol = Prelude.Nothing, policyNames = Prelude.Nothing,
+       sSLCertificateId = Prelude.Nothing}
 instance ToResourceProperties ListenersProperty where
   toResourceProperties ListenersProperty {..}
     = ResourceProperties

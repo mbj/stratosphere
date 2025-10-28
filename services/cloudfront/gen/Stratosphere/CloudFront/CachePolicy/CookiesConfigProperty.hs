@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookiesConfigProperty
-  = CookiesConfigProperty {cookieBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html>
+    CookiesConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior>
+                           cookieBehavior :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies>
                            cookies :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCookiesConfigProperty ::
   Value Prelude.Text -> CookiesConfigProperty
 mkCookiesConfigProperty cookieBehavior
   = CookiesConfigProperty
-      {cookieBehavior = cookieBehavior, cookies = Prelude.Nothing}
+      {haddock_workaround_ = (), cookieBehavior = cookieBehavior,
+       cookies = Prelude.Nothing}
 instance ToResourceProperties CookiesConfigProperty where
   toResourceProperties CookiesConfigProperty {..}
     = ResourceProperties

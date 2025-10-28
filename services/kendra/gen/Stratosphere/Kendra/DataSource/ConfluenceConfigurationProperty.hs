@@ -13,15 +13,27 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceVpcConfigurationP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceConfigurationProperty
-  = ConfluenceConfigurationProperty {attachmentConfiguration :: (Prelude.Maybe ConfluenceAttachmentConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html>
+    ConfluenceConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration>
+                                     attachmentConfiguration :: (Prelude.Maybe ConfluenceAttachmentConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration>
                                      blogConfiguration :: (Prelude.Maybe ConfluenceBlogConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns>
                                      exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns>
                                      inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration>
                                      pageConfiguration :: (Prelude.Maybe ConfluencePageConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn>
                                      secretArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-serverurl>
                                      serverUrl :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration>
                                      spaceConfiguration :: (Prelude.Maybe ConfluenceSpaceConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version>
                                      version :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration>
                                      vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceConfigurationProperty ::
@@ -30,7 +42,8 @@ mkConfluenceConfigurationProperty ::
      -> Value Prelude.Text -> ConfluenceConfigurationProperty
 mkConfluenceConfigurationProperty secretArn serverUrl version
   = ConfluenceConfigurationProperty
-      {secretArn = secretArn, serverUrl = serverUrl, version = version,
+      {haddock_workaround_ = (), secretArn = secretArn,
+       serverUrl = serverUrl, version = version,
        attachmentConfiguration = Prelude.Nothing,
        blogConfiguration = Prelude.Nothing,
        exclusionPatterns = Prelude.Nothing,

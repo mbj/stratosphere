@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceAuthProperty
-  = SourceAuthProperty {resource :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html>
+    SourceAuthProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-resource>
+                        resource :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-type>
                         type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAuthProperty :: Value Prelude.Text -> SourceAuthProperty
 mkSourceAuthProperty type'
-  = SourceAuthProperty {type' = type', resource = Prelude.Nothing}
+  = SourceAuthProperty
+      {haddock_workaround_ = (), type' = type',
+       resource = Prelude.Nothing}
 instance ToResourceProperties SourceAuthProperty where
   toResourceProperties SourceAuthProperty {..}
     = ResourceProperties

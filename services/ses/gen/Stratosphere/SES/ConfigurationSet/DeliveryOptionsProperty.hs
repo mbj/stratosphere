@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryOptionsProperty
-  = DeliveryOptionsProperty {maxDeliverySeconds :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html>
+    DeliveryOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-maxdeliveryseconds>
+                             maxDeliverySeconds :: (Prelude.Maybe (Value Prelude.Double)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-sendingpoolname>
                              sendingPoolName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-tlspolicy>
                              tlsPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryOptionsProperty :: DeliveryOptionsProperty
 mkDeliveryOptionsProperty
   = DeliveryOptionsProperty
-      {maxDeliverySeconds = Prelude.Nothing,
+      {haddock_workaround_ = (), maxDeliverySeconds = Prelude.Nothing,
        sendingPoolName = Prelude.Nothing, tlsPolicy = Prelude.Nothing}
 instance ToResourceProperties DeliveryOptionsProperty where
   toResourceProperties DeliveryOptionsProperty {..}

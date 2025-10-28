@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.SignalFetchConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignalFetchInformationProperty
-  = SignalFetchInformationProperty {actions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html>
+    SignalFetchInformationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-actions>
+                                    actions :: (ValueList Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-conditionlanguageversion>
                                     conditionLanguageVersion :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-fullyqualifiedname>
                                     fullyQualifiedName :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-signalfetchconfig>
                                     signalFetchConfig :: SignalFetchConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalFetchInformationProperty ::
@@ -23,7 +29,8 @@ mkSignalFetchInformationProperty
   fullyQualifiedName
   signalFetchConfig
   = SignalFetchInformationProperty
-      {actions = actions, fullyQualifiedName = fullyQualifiedName,
+      {haddock_workaround_ = (), actions = actions,
+       fullyQualifiedName = fullyQualifiedName,
        signalFetchConfig = signalFetchConfig,
        conditionLanguageVersion = Prelude.Nothing}
 instance ToResourceProperties SignalFetchInformationProperty where

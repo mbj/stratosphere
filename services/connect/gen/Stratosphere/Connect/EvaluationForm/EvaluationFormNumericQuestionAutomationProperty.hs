@@ -9,14 +9,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormNumericQuestionAutomationProperty
-  = EvaluationFormNumericQuestionAutomationProperty {propertyValue :: NumericQuestionPropertyValueAutomationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html>
+    EvaluationFormNumericQuestionAutomationProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-propertyvalue>
+                                                     propertyValue :: NumericQuestionPropertyValueAutomationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionAutomationProperty ::
   NumericQuestionPropertyValueAutomationProperty
   -> EvaluationFormNumericQuestionAutomationProperty
 mkEvaluationFormNumericQuestionAutomationProperty propertyValue
   = EvaluationFormNumericQuestionAutomationProperty
-      {propertyValue = propertyValue}
+      {haddock_workaround_ = (), propertyValue = propertyValue}
 instance ToResourceProperties EvaluationFormNumericQuestionAutomationProperty where
   toResourceProperties
     EvaluationFormNumericQuestionAutomationProperty {..}
@@ -29,6 +32,6 @@ instance JSON.ToJSON EvaluationFormNumericQuestionAutomationProperty where
     = JSON.object ["PropertyValue" JSON..= propertyValue]
 instance Property "PropertyValue" EvaluationFormNumericQuestionAutomationProperty where
   type PropertyType "PropertyValue" EvaluationFormNumericQuestionAutomationProperty = NumericQuestionPropertyValueAutomationProperty
-  set newValue EvaluationFormNumericQuestionAutomationProperty {}
+  set newValue EvaluationFormNumericQuestionAutomationProperty {..}
     = EvaluationFormNumericQuestionAutomationProperty
         {propertyValue = newValue, ..}

@@ -8,16 +8,21 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.EncryptionConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigProperty
-  = S3ConfigProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html>
+    S3ConfigProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketname>
+                      bucketName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketprefix>
                       bucketPrefix :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-encryptionconfig>
                       encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3ConfigProperty
 mkS3ConfigProperty bucketName bucketPrefix
   = S3ConfigProperty
-      {bucketName = bucketName, bucketPrefix = bucketPrefix,
-       encryptionConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = bucketName,
+       bucketPrefix = bucketPrefix, encryptionConfig = Prelude.Nothing}
 instance ToResourceProperties S3ConfigProperty where
   toResourceProperties S3ConfigProperty {..}
     = ResourceProperties

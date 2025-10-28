@@ -14,22 +14,35 @@ import {-# SOURCE #-} Stratosphere.Scheduler.Schedule.SqsParametersProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetProperty
-  = TargetProperty {arn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html>
+    TargetProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-arn>
+                    arn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-deadletterconfig>
                     deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-ecsparameters>
                     ecsParameters :: (Prelude.Maybe EcsParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-eventbridgeparameters>
                     eventBridgeParameters :: (Prelude.Maybe EventBridgeParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-input>
                     input :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-kinesisparameters>
                     kinesisParameters :: (Prelude.Maybe KinesisParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-retrypolicy>
                     retryPolicy :: (Prelude.Maybe RetryPolicyProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-rolearn>
                     roleArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-sagemakerpipelineparameters>
                     sageMakerPipelineParameters :: (Prelude.Maybe SageMakerPipelineParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-sqsparameters>
                     sqsParameters :: (Prelude.Maybe SqsParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty arn roleArn
   = TargetProperty
-      {arn = arn, roleArn = roleArn, deadLetterConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), arn = arn, roleArn = roleArn,
+       deadLetterConfig = Prelude.Nothing,
        ecsParameters = Prelude.Nothing,
        eventBridgeParameters = Prelude.Nothing, input = Prelude.Nothing,
        kinesisParameters = Prelude.Nothing, retryPolicy = Prelude.Nothing,

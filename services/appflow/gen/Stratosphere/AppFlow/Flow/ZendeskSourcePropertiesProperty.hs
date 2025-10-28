@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskSourcePropertiesProperty
-  = ZendeskSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html>
+    ZendeskSourcePropertiesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object>
+                                     object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskSourcePropertiesProperty ::
   Value Prelude.Text -> ZendeskSourcePropertiesProperty
 mkZendeskSourcePropertiesProperty object
-  = ZendeskSourcePropertiesProperty {object = object}
+  = ZendeskSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties ZendeskSourcePropertiesProperty where
   toResourceProperties ZendeskSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ZendeskSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" ZendeskSourcePropertiesProperty where
   type PropertyType "Object" ZendeskSourcePropertiesProperty = Value Prelude.Text
-  set newValue ZendeskSourcePropertiesProperty {}
+  set newValue ZendeskSourcePropertiesProperty {..}
     = ZendeskSourcePropertiesProperty {object = newValue, ..}

@@ -8,19 +8,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DBShardGroup
-  = DBShardGroup {computeRedundancy :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html>
+    DBShardGroup {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-computeredundancy>
+                  computeRedundancy :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-dbclusteridentifier>
                   dBClusterIdentifier :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-dbshardgroupidentifier>
                   dBShardGroupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-maxacu>
                   maxACU :: (Value Prelude.Double),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-minacu>
                   minACU :: (Prelude.Maybe (Value Prelude.Double)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-publiclyaccessible>
                   publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html#cfn-rds-dbshardgroup-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBShardGroup ::
   Value Prelude.Text -> Value Prelude.Double -> DBShardGroup
 mkDBShardGroup dBClusterIdentifier maxACU
   = DBShardGroup
-      {dBClusterIdentifier = dBClusterIdentifier, maxACU = maxACU,
+      {haddock_workaround_ = (),
+       dBClusterIdentifier = dBClusterIdentifier, maxACU = maxACU,
        computeRedundancy = Prelude.Nothing,
        dBShardGroupIdentifier = Prelude.Nothing, minACU = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing, tags = Prelude.Nothing}

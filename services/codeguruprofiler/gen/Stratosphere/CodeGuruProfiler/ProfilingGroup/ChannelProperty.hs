@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChannelProperty
-  = ChannelProperty {channelId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html>
+    ChannelProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid>
+                     channelId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri>
                      channelUri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelProperty :: Value Prelude.Text -> ChannelProperty
 mkChannelProperty channelUri
   = ChannelProperty
-      {channelUri = channelUri, channelId = Prelude.Nothing}
+      {haddock_workaround_ = (), channelUri = channelUri,
+       channelId = Prelude.Nothing}
 instance ToResourceProperties ChannelProperty where
   toResourceProperties ChannelProperty {..}
     = ResourceProperties

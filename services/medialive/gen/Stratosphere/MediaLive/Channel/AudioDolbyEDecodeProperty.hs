@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioDolbyEDecodeProperty
-  = AudioDolbyEDecodeProperty {programSelection :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html>
+    AudioDolbyEDecodeProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html#cfn-medialive-channel-audiodolbyedecode-programselection>
+                               programSelection :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioDolbyEDecodeProperty :: AudioDolbyEDecodeProperty
 mkAudioDolbyEDecodeProperty
-  = AudioDolbyEDecodeProperty {programSelection = Prelude.Nothing}
+  = AudioDolbyEDecodeProperty
+      {haddock_workaround_ = (), programSelection = Prelude.Nothing}
 instance ToResourceProperties AudioDolbyEDecodeProperty where
   toResourceProperties AudioDolbyEDecodeProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AudioDolbyEDecodeProperty where
               [(JSON..=) "ProgramSelection" Prelude.<$> programSelection]))
 instance Property "ProgramSelection" AudioDolbyEDecodeProperty where
   type PropertyType "ProgramSelection" AudioDolbyEDecodeProperty = Value Prelude.Text
-  set newValue AudioDolbyEDecodeProperty {}
+  set newValue AudioDolbyEDecodeProperty {..}
     = AudioDolbyEDecodeProperty
         {programSelection = Prelude.pure newValue, ..}

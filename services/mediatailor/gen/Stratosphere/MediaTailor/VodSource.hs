@@ -9,9 +9,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VodSource
-  = VodSource {httpPackageConfigurations :: [HttpPackageConfigurationProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html>
+    VodSource {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html#cfn-mediatailor-vodsource-httppackageconfigurations>
+               httpPackageConfigurations :: [HttpPackageConfigurationProperty],
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html#cfn-mediatailor-vodsource-sourcelocationname>
                sourceLocationName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html#cfn-mediatailor-vodsource-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html#cfn-mediatailor-vodsource-vodsourcename>
                vodSourceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVodSource ::
@@ -22,7 +28,8 @@ mkVodSource
   sourceLocationName
   vodSourceName
   = VodSource
-      {httpPackageConfigurations = httpPackageConfigurations,
+      {haddock_workaround_ = (),
+       httpPackageConfigurations = httpPackageConfigurations,
        sourceLocationName = sourceLocationName,
        vodSourceName = vodSourceName, tags = Prelude.Nothing}
 instance ToResourceProperties VodSource where

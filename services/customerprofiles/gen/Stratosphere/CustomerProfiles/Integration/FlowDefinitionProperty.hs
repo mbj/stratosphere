@@ -11,11 +11,19 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.TriggerConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowDefinitionProperty
-  = FlowDefinitionProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html>
+    FlowDefinitionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description>
+                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname>
                             flowName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn>
                             kmsArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig>
                             sourceFlowConfig :: SourceFlowConfigProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks>
                             tasks :: [TaskProperty],
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig>
                             triggerConfig :: TriggerConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowDefinitionProperty ::
@@ -31,7 +39,7 @@ mkFlowDefinitionProperty
   tasks
   triggerConfig
   = FlowDefinitionProperty
-      {flowName = flowName, kmsArn = kmsArn,
+      {haddock_workaround_ = (), flowName = flowName, kmsArn = kmsArn,
        sourceFlowConfig = sourceFlowConfig, tasks = tasks,
        triggerConfig = triggerConfig, description = Prelude.Nothing}
 instance ToResourceProperties FlowDefinitionProperty where

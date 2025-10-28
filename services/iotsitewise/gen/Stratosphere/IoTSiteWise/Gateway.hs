@@ -10,16 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Gateway
-  = Gateway {gatewayCapabilitySummaries :: (Prelude.Maybe [GatewayCapabilitySummaryProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html>
+    Gateway {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries>
+             gatewayCapabilitySummaries :: (Prelude.Maybe [GatewayCapabilitySummaryProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname>
              gatewayName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform>
              gatewayPlatform :: GatewayPlatformProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGateway ::
   Value Prelude.Text -> GatewayPlatformProperty -> Gateway
 mkGateway gatewayName gatewayPlatform
   = Gateway
-      {gatewayName = gatewayName, gatewayPlatform = gatewayPlatform,
+      {haddock_workaround_ = (), gatewayName = gatewayName,
+       gatewayPlatform = gatewayPlatform,
        gatewayCapabilitySummaries = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Gateway where

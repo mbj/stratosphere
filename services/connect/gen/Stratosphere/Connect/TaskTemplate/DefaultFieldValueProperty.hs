@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultFieldValueProperty
-  = DefaultFieldValueProperty {defaultValue :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html>
+    DefaultFieldValueProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-defaultvalue>
+                               defaultValue :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-id>
                                id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFieldValueProperty ::
   Value Prelude.Text
   -> FieldIdentifierProperty -> DefaultFieldValueProperty
 mkDefaultFieldValueProperty defaultValue id
-  = DefaultFieldValueProperty {defaultValue = defaultValue, id = id}
+  = DefaultFieldValueProperty
+      {haddock_workaround_ = (), defaultValue = defaultValue, id = id}
 instance ToResourceProperties DefaultFieldValueProperty where
   toResourceProperties DefaultFieldValueProperty {..}
     = ResourceProperties

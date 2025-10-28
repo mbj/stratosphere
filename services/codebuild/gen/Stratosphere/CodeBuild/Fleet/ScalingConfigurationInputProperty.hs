@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.Fleet.TargetTrackingScalingConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingConfigurationInputProperty
-  = ScalingConfigurationInputProperty {maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html>
+    ScalingConfigurationInputProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html#cfn-codebuild-fleet-scalingconfigurationinput-maxcapacity>
+                                       maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html#cfn-codebuild-fleet-scalingconfigurationinput-scalingtype>
                                        scalingType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html#cfn-codebuild-fleet-scalingconfigurationinput-targettrackingscalingconfigs>
                                        targetTrackingScalingConfigs :: (Prelude.Maybe [TargetTrackingScalingConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConfigurationInputProperty ::
   ScalingConfigurationInputProperty
 mkScalingConfigurationInputProperty
   = ScalingConfigurationInputProperty
-      {maxCapacity = Prelude.Nothing, scalingType = Prelude.Nothing,
+      {haddock_workaround_ = (), maxCapacity = Prelude.Nothing,
+       scalingType = Prelude.Nothing,
        targetTrackingScalingConfigs = Prelude.Nothing}
 instance ToResourceProperties ScalingConfigurationInputProperty where
   toResourceProperties ScalingConfigurationInputProperty {..}

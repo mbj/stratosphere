@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageContainerD
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceSpecificationProperty
-  = InferenceSpecificationProperty {containers :: [ModelPackageContainerDefinitionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html>
+    InferenceSpecificationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-containers>
+                                    containers :: [ModelPackageContainerDefinitionProperty],
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedcontenttypes>
                                     supportedContentTypes :: (ValueList Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedrealtimeinferenceinstancetypes>
                                     supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedresponsemimetypes>
                                     supportedResponseMIMETypes :: (ValueList Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html#cfn-sagemaker-modelpackage-inferencespecification-supportedtransforminstancetypes>
                                     supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceSpecificationProperty ::
@@ -24,7 +31,7 @@ mkInferenceSpecificationProperty
   supportedContentTypes
   supportedResponseMIMETypes
   = InferenceSpecificationProperty
-      {containers = containers,
+      {haddock_workaround_ = (), containers = containers,
        supportedContentTypes = supportedContentTypes,
        supportedResponseMIMETypes = supportedResponseMIMETypes,
        supportedRealtimeInferenceInstanceTypes = Prelude.Nothing,

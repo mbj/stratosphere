@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZonalShiftConfigProperty
-  = ZonalShiftConfigProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html>
+    ZonalShiftConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html#cfn-eks-cluster-zonalshiftconfig-enabled>
+                              enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZonalShiftConfigProperty :: ZonalShiftConfigProperty
 mkZonalShiftConfigProperty
-  = ZonalShiftConfigProperty {enabled = Prelude.Nothing}
+  = ZonalShiftConfigProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties ZonalShiftConfigProperty where
   toResourceProperties ZonalShiftConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ZonalShiftConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" ZonalShiftConfigProperty where
   type PropertyType "Enabled" ZonalShiftConfigProperty = Value Prelude.Bool
-  set newValue ZonalShiftConfigProperty {}
+  set newValue ZonalShiftConfigProperty {..}
     = ZonalShiftConfigProperty {enabled = Prelude.pure newValue, ..}

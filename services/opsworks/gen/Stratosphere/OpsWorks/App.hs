@@ -11,17 +11,31 @@ import {-# SOURCE #-} Stratosphere.OpsWorks.App.SslConfigurationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data App
-  = App {appSource :: (Prelude.Maybe SourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html>
+    App {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-appsource>
+         appSource :: (Prelude.Maybe SourceProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-attributes>
          attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-datasources>
          dataSources :: (Prelude.Maybe [DataSourceProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains>
          domains :: (Prelude.Maybe (ValueList Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl>
          enableSsl :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-environment>
          environment :: (Prelude.Maybe [EnvironmentVariableProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-shortname>
          shortname :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-sslconfiguration>
          sslConfiguration :: (Prelude.Maybe SslConfigurationProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-stackid>
          stackId :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-type>
          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApp ::
@@ -29,12 +43,12 @@ mkApp ::
   -> Value Prelude.Text -> Value Prelude.Text -> App
 mkApp name stackId type'
   = App
-      {name = name, stackId = stackId, type' = type',
-       appSource = Prelude.Nothing, attributes = Prelude.Nothing,
-       dataSources = Prelude.Nothing, description = Prelude.Nothing,
-       domains = Prelude.Nothing, enableSsl = Prelude.Nothing,
-       environment = Prelude.Nothing, shortname = Prelude.Nothing,
-       sslConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, stackId = stackId,
+       type' = type', appSource = Prelude.Nothing,
+       attributes = Prelude.Nothing, dataSources = Prelude.Nothing,
+       description = Prelude.Nothing, domains = Prelude.Nothing,
+       enableSsl = Prelude.Nothing, environment = Prelude.Nothing,
+       shortname = Prelude.Nothing, sslConfiguration = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties

@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OptionSettingProperty
-  = OptionSettingProperty {namespace :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html>
+    OptionSettingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-namespace>
+                           namespace :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-optionname>
                            optionName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-resourcename>
                            resourceName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html#cfn-elasticbeanstalk-environment-optionsetting-value>
                            value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionSettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OptionSettingProperty
 mkOptionSettingProperty namespace optionName
   = OptionSettingProperty
-      {namespace = namespace, optionName = optionName,
-       resourceName = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), namespace = namespace,
+       optionName = optionName, resourceName = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties OptionSettingProperty where
   toResourceProperties OptionSettingProperty {..}
     = ResourceProperties

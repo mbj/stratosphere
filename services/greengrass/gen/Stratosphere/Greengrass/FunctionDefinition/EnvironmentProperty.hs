@@ -9,15 +9,22 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.ResourceAccessP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentProperty
-  = EnvironmentProperty {accessSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html>
+    EnvironmentProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-accesssysfs>
+                         accessSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-execution>
                          execution :: (Prelude.Maybe ExecutionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-resourceaccesspolicies>
                          resourceAccessPolicies :: (Prelude.Maybe [ResourceAccessPolicyProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html#cfn-greengrass-functiondefinition-environment-variables>
                          variables :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProperty :: EnvironmentProperty
 mkEnvironmentProperty
   = EnvironmentProperty
-      {accessSysfs = Prelude.Nothing, execution = Prelude.Nothing,
+      {haddock_workaround_ = (), accessSysfs = Prelude.Nothing,
+       execution = Prelude.Nothing,
        resourceAccessPolicies = Prelude.Nothing,
        variables = Prelude.Nothing}
 instance ToResourceProperties EnvironmentProperty where

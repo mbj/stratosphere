@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PreparedStatement
-  = PreparedStatement {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html>
+    PreparedStatement {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description>
+                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement>
                        queryStatement :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname>
                        statementName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup>
                        workGroup :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPreparedStatement ::
@@ -17,8 +23,9 @@ mkPreparedStatement ::
   -> Value Prelude.Text -> Value Prelude.Text -> PreparedStatement
 mkPreparedStatement queryStatement statementName workGroup
   = PreparedStatement
-      {queryStatement = queryStatement, statementName = statementName,
-       workGroup = workGroup, description = Prelude.Nothing}
+      {haddock_workaround_ = (), queryStatement = queryStatement,
+       statementName = statementName, workGroup = workGroup,
+       description = Prelude.Nothing}
 instance ToResourceProperties PreparedStatement where
   toResourceProperties PreparedStatement {..}
     = ResourceProperties

@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.Cassandra.Table.AutoScalingSettingProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaSpecificationProperty
-  = ReplicaSpecificationProperty {readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html>
+    ReplicaSpecificationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html#cfn-cassandra-table-replicaspecification-readcapacityautoscaling>
+                                  readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html#cfn-cassandra-table-replicaspecification-readcapacityunits>
                                   readCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html#cfn-cassandra-table-replicaspecification-region>
                                   region :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaSpecificationProperty ::
   Value Prelude.Text -> ReplicaSpecificationProperty
 mkReplicaSpecificationProperty region
   = ReplicaSpecificationProperty
-      {region = region, readCapacityAutoScaling = Prelude.Nothing,
+      {haddock_workaround_ = (), region = region,
+       readCapacityAutoScaling = Prelude.Nothing,
        readCapacityUnits = Prelude.Nothing}
 instance ToResourceProperties ReplicaSpecificationProperty where
   toResourceProperties ReplicaSpecificationProperty {..}

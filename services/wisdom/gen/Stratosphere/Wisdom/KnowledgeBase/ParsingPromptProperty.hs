@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParsingPromptProperty
-  = ParsingPromptProperty {parsingPromptText :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingprompt.html>
+    ParsingPromptProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingprompt.html#cfn-wisdom-knowledgebase-parsingprompt-parsingprompttext>
+                           parsingPromptText :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParsingPromptProperty ::
   Value Prelude.Text -> ParsingPromptProperty
 mkParsingPromptProperty parsingPromptText
-  = ParsingPromptProperty {parsingPromptText = parsingPromptText}
+  = ParsingPromptProperty
+      {haddock_workaround_ = (), parsingPromptText = parsingPromptText}
 instance ToResourceProperties ParsingPromptProperty where
   toResourceProperties ParsingPromptProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ParsingPromptProperty where
     = JSON.object ["ParsingPromptText" JSON..= parsingPromptText]
 instance Property "ParsingPromptText" ParsingPromptProperty where
   type PropertyType "ParsingPromptText" ParsingPromptProperty = Value Prelude.Text
-  set newValue ParsingPromptProperty {}
+  set newValue ParsingPromptProperty {..}
     = ParsingPromptProperty {parsingPromptText = newValue, ..}

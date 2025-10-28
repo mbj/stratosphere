@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EFSFileSystemProperty
-  = EFSFileSystemProperty {fileSystemId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-efsfilesystem.html>
+    EFSFileSystemProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-efsfilesystem.html#cfn-sagemaker-space-efsfilesystem-filesystemid>
+                           fileSystemId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEFSFileSystemProperty ::
   Value Prelude.Text -> EFSFileSystemProperty
 mkEFSFileSystemProperty fileSystemId
-  = EFSFileSystemProperty {fileSystemId = fileSystemId}
+  = EFSFileSystemProperty
+      {haddock_workaround_ = (), fileSystemId = fileSystemId}
 instance ToResourceProperties EFSFileSystemProperty where
   toResourceProperties EFSFileSystemProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON EFSFileSystemProperty where
     = JSON.object ["FileSystemId" JSON..= fileSystemId]
 instance Property "FileSystemId" EFSFileSystemProperty where
   type PropertyType "FileSystemId" EFSFileSystemProperty = Value Prelude.Text
-  set newValue EFSFileSystemProperty {}
+  set newValue EFSFileSystemProperty {..}
     = EFSFileSystemProperty {fileSystemId = newValue, ..}

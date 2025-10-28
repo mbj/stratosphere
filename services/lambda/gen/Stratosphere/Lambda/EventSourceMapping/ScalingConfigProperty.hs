@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingConfigProperty
-  = ScalingConfigProperty {maximumConcurrency :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>
+    ScalingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html#cfn-lambda-eventsourcemapping-scalingconfig-maximumconcurrency>
+                           maximumConcurrency :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConfigProperty :: ScalingConfigProperty
 mkScalingConfigProperty
-  = ScalingConfigProperty {maximumConcurrency = Prelude.Nothing}
+  = ScalingConfigProperty
+      {haddock_workaround_ = (), maximumConcurrency = Prelude.Nothing}
 instance ToResourceProperties ScalingConfigProperty where
   toResourceProperties ScalingConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ScalingConfigProperty where
               [(JSON..=) "MaximumConcurrency" Prelude.<$> maximumConcurrency]))
 instance Property "MaximumConcurrency" ScalingConfigProperty where
   type PropertyType "MaximumConcurrency" ScalingConfigProperty = Value Prelude.Integer
-  set newValue ScalingConfigProperty {}
+  set newValue ScalingConfigProperty {..}
     = ScalingConfigProperty
         {maximumConcurrency = Prelude.pure newValue, ..}

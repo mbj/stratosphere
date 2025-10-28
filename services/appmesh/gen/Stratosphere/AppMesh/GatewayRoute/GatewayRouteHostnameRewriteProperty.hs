@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteHostnameRewriteProperty
-  = GatewayRouteHostnameRewriteProperty {defaultTargetHostname :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html>
+    GatewayRouteHostnameRewriteProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html#cfn-appmesh-gatewayroute-gatewayroutehostnamerewrite-defaulttargethostname>
+                                         defaultTargetHostname :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteHostnameRewriteProperty ::
   GatewayRouteHostnameRewriteProperty
 mkGatewayRouteHostnameRewriteProperty
   = GatewayRouteHostnameRewriteProperty
-      {defaultTargetHostname = Prelude.Nothing}
+      {haddock_workaround_ = (), defaultTargetHostname = Prelude.Nothing}
 instance ToResourceProperties GatewayRouteHostnameRewriteProperty where
   toResourceProperties GatewayRouteHostnameRewriteProperty {..}
     = ResourceProperties
@@ -33,6 +36,6 @@ instance JSON.ToJSON GatewayRouteHostnameRewriteProperty where
                  Prelude.<$> defaultTargetHostname]))
 instance Property "DefaultTargetHostname" GatewayRouteHostnameRewriteProperty where
   type PropertyType "DefaultTargetHostname" GatewayRouteHostnameRewriteProperty = Value Prelude.Text
-  set newValue GatewayRouteHostnameRewriteProperty {}
+  set newValue GatewayRouteHostnameRewriteProperty {..}
     = GatewayRouteHostnameRewriteProperty
         {defaultTargetHostname = Prelude.pure newValue, ..}

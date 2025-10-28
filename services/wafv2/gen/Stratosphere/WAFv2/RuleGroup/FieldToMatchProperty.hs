@@ -13,26 +13,39 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.SingleHeaderProperty as Expor
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.SingleQueryArgumentProperty as Exports
 import Stratosphere.ResourceProperties
 data FieldToMatchProperty
-  = FieldToMatchProperty {allQueryArguments :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html>
+    FieldToMatchProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments>
+                          allQueryArguments :: (Prelude.Maybe JSON.Object),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body>
                           body :: (Prelude.Maybe BodyProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-cookies>
                           cookies :: (Prelude.Maybe CookiesProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-headers>
                           headers :: (Prelude.Maybe HeadersProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-ja3fingerprint>
                           jA3Fingerprint :: (Prelude.Maybe JA3FingerprintProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody>
                           jsonBody :: (Prelude.Maybe JsonBodyProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method>
                           method :: (Prelude.Maybe JSON.Object),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring>
                           queryString :: (Prelude.Maybe JSON.Object),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader>
                           singleHeader :: (Prelude.Maybe SingleHeaderProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument>
                           singleQueryArgument :: (Prelude.Maybe SingleQueryArgumentProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath>
                           uriPath :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldToMatchProperty :: FieldToMatchProperty
 mkFieldToMatchProperty
   = FieldToMatchProperty
-      {allQueryArguments = Prelude.Nothing, body = Prelude.Nothing,
-       cookies = Prelude.Nothing, headers = Prelude.Nothing,
-       jA3Fingerprint = Prelude.Nothing, jsonBody = Prelude.Nothing,
-       method = Prelude.Nothing, queryString = Prelude.Nothing,
-       singleHeader = Prelude.Nothing,
+      {haddock_workaround_ = (), allQueryArguments = Prelude.Nothing,
+       body = Prelude.Nothing, cookies = Prelude.Nothing,
+       headers = Prelude.Nothing, jA3Fingerprint = Prelude.Nothing,
+       jsonBody = Prelude.Nothing, method = Prelude.Nothing,
+       queryString = Prelude.Nothing, singleHeader = Prelude.Nothing,
        singleQueryArgument = Prelude.Nothing, uriPath = Prelude.Nothing}
 instance ToResourceProperties FieldToMatchProperty where
   toResourceProperties FieldToMatchProperty {..}

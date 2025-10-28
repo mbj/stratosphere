@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.XRay.SamplingRule.SamplingRuleProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data SamplingRule
-  = SamplingRule {samplingRule :: (Prelude.Maybe SamplingRuleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html>
+    SamplingRule {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule>
+                  samplingRule :: (Prelude.Maybe SamplingRuleProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSamplingRule :: SamplingRule
 mkSamplingRule
   = SamplingRule
-      {samplingRule = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), samplingRule = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SamplingRule where
   toResourceProperties SamplingRule {..}
     = ResourceProperties

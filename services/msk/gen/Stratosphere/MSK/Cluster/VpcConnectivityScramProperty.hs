@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConnectivityScramProperty
-  = VpcConnectivityScramProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html>
+    VpcConnectivityScramProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html#cfn-msk-cluster-vpcconnectivityscram-enabled>
+                                  enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivityScramProperty ::
   Value Prelude.Bool -> VpcConnectivityScramProperty
 mkVpcConnectivityScramProperty enabled
-  = VpcConnectivityScramProperty {enabled = enabled}
+  = VpcConnectivityScramProperty
+      {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties VpcConnectivityScramProperty where
   toResourceProperties VpcConnectivityScramProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON VpcConnectivityScramProperty where
     = JSON.object ["Enabled" JSON..= enabled]
 instance Property "Enabled" VpcConnectivityScramProperty where
   type PropertyType "Enabled" VpcConnectivityScramProperty = Value Prelude.Bool
-  set newValue VpcConnectivityScramProperty {}
+  set newValue VpcConnectivityScramProperty {..}
     = VpcConnectivityScramProperty {enabled = newValue, ..}

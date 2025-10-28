@@ -11,18 +11,27 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.Launch
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DistributionProperty
-  = DistributionProperty {amiDistributionConfiguration :: (Prelude.Maybe AmiDistributionConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html>
+    DistributionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration>
+                          amiDistributionConfiguration :: (Prelude.Maybe AmiDistributionConfigurationProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration>
                           containerDistributionConfiguration :: (Prelude.Maybe ContainerDistributionConfigurationProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-fastlaunchconfigurations>
                           fastLaunchConfigurations :: (Prelude.Maybe [FastLaunchConfigurationProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations>
                           launchTemplateConfigurations :: (Prelude.Maybe [LaunchTemplateConfigurationProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns>
                           licenseConfigurationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region>
                           region :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDistributionProperty ::
   Value Prelude.Text -> DistributionProperty
 mkDistributionProperty region
   = DistributionProperty
-      {region = region, amiDistributionConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), region = region,
+       amiDistributionConfiguration = Prelude.Nothing,
        containerDistributionConfiguration = Prelude.Nothing,
        fastLaunchConfigurations = Prelude.Nothing,
        launchTemplateConfigurations = Prelude.Nothing,

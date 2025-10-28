@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.DatastorePartitionProperty as Exports
 import Stratosphere.ResourceProperties
 data DatastorePartitionsProperty
-  = DatastorePartitionsProperty {partitions :: (Prelude.Maybe [DatastorePartitionProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html>
+    DatastorePartitionsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html#cfn-iotanalytics-datastore-datastorepartitions-partitions>
+                                 partitions :: (Prelude.Maybe [DatastorePartitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastorePartitionsProperty :: DatastorePartitionsProperty
 mkDatastorePartitionsProperty
-  = DatastorePartitionsProperty {partitions = Prelude.Nothing}
+  = DatastorePartitionsProperty
+      {haddock_workaround_ = (), partitions = Prelude.Nothing}
 instance ToResourceProperties DatastorePartitionsProperty where
   toResourceProperties DatastorePartitionsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON DatastorePartitionsProperty where
               [(JSON..=) "Partitions" Prelude.<$> partitions]))
 instance Property "Partitions" DatastorePartitionsProperty where
   type PropertyType "Partitions" DatastorePartitionsProperty = [DatastorePartitionProperty]
-  set newValue DatastorePartitionsProperty {}
+  set newValue DatastorePartitionsProperty {..}
     = DatastorePartitionsProperty
         {partitions = Prelude.pure newValue, ..}

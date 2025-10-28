@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.PolicyQualifierInfoPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyInformationProperty
-  = PolicyInformationProperty {certPolicyId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html>
+    PolicyInformationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid>
+                               certPolicyId :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers>
                                policyQualifiers :: (Prelude.Maybe [PolicyQualifierInfoProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyInformationProperty ::
   Value Prelude.Text -> PolicyInformationProperty
 mkPolicyInformationProperty certPolicyId
   = PolicyInformationProperty
-      {certPolicyId = certPolicyId, policyQualifiers = Prelude.Nothing}
+      {haddock_workaround_ = (), certPolicyId = certPolicyId,
+       policyQualifiers = Prelude.Nothing}
 instance ToResourceProperties PolicyInformationProperty where
   toResourceProperties PolicyInformationProperty {..}
     = ResourceProperties

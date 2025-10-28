@@ -8,9 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LicenseEndpoint
-  = LicenseEndpoint {securityGroupIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html>
+    LicenseEndpoint {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-securitygroupids>
+                     securityGroupIds :: (ValueList Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-subnetids>
                      subnetIds :: (ValueList Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-tags>
                      tags :: (Prelude.Maybe [Tag]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-vpcid>
                      vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLicenseEndpoint ::
@@ -18,8 +24,8 @@ mkLicenseEndpoint ::
   -> ValueList Prelude.Text -> Value Prelude.Text -> LicenseEndpoint
 mkLicenseEndpoint securityGroupIds subnetIds vpcId
   = LicenseEndpoint
-      {securityGroupIds = securityGroupIds, subnetIds = subnetIds,
-       vpcId = vpcId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds,
+       subnetIds = subnetIds, vpcId = vpcId, tags = Prelude.Nothing}
 instance ToResourceProperties LicenseEndpoint where
   toResourceProperties LicenseEndpoint {..}
     = ResourceProperties

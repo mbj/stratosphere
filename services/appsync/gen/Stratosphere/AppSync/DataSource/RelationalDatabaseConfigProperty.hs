@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.RdsHttpEndpointConfigPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelationalDatabaseConfigProperty
-  = RelationalDatabaseConfigProperty {rdsHttpEndpointConfig :: (Prelude.Maybe RdsHttpEndpointConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html>
+    RelationalDatabaseConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-rdshttpendpointconfig>
+                                      rdsHttpEndpointConfig :: (Prelude.Maybe RdsHttpEndpointConfigProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype>
                                       relationalDatabaseSourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalDatabaseConfigProperty ::
   Value Prelude.Text -> RelationalDatabaseConfigProperty
 mkRelationalDatabaseConfigProperty relationalDatabaseSourceType
   = RelationalDatabaseConfigProperty
-      {relationalDatabaseSourceType = relationalDatabaseSourceType,
+      {haddock_workaround_ = (),
+       relationalDatabaseSourceType = relationalDatabaseSourceType,
        rdsHttpEndpointConfig = Prelude.Nothing}
 instance ToResourceProperties RelationalDatabaseConfigProperty where
   toResourceProperties RelationalDatabaseConfigProperty {..}

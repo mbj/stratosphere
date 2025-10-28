@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoMLConfigProperty
-  = AutoMLConfigProperty {metricName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html>
+    AutoMLConfigProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html#cfn-personalize-solution-automlconfig-metricname>
+                          metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html#cfn-personalize-solution-automlconfig-recipelist>
                           recipeList :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoMLConfigProperty :: AutoMLConfigProperty
 mkAutoMLConfigProperty
   = AutoMLConfigProperty
-      {metricName = Prelude.Nothing, recipeList = Prelude.Nothing}
+      {haddock_workaround_ = (), metricName = Prelude.Nothing,
+       recipeList = Prelude.Nothing}
 instance ToResourceProperties AutoMLConfigProperty where
   toResourceProperties AutoMLConfigProperty {..}
     = ResourceProperties

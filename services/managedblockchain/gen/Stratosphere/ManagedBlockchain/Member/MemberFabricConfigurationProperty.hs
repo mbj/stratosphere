@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberFabricConfigurationProperty
-  = MemberFabricConfigurationProperty {adminPassword :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html>
+    MemberFabricConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminpassword>
+                                       adminPassword :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminusername>
                                        adminUsername :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberFabricConfigurationProperty ::
@@ -16,7 +20,8 @@ mkMemberFabricConfigurationProperty ::
   -> Value Prelude.Text -> MemberFabricConfigurationProperty
 mkMemberFabricConfigurationProperty adminPassword adminUsername
   = MemberFabricConfigurationProperty
-      {adminPassword = adminPassword, adminUsername = adminUsername}
+      {haddock_workaround_ = (), adminPassword = adminPassword,
+       adminUsername = adminUsername}
 instance ToResourceProperties MemberFabricConfigurationProperty where
   toResourceProperties MemberFabricConfigurationProperty {..}
     = ResourceProperties

@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.TcpRouteMatchProperty as Export
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.TcpTimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpRouteProperty
-  = TcpRouteProperty {action :: TcpRouteActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html>
+    TcpRouteProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-action>
+                      action :: TcpRouteActionProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-match>
                       match :: (Prelude.Maybe TcpRouteMatchProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html#cfn-appmesh-route-tcproute-timeout>
                       timeout :: (Prelude.Maybe TcpTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteProperty :: TcpRouteActionProperty -> TcpRouteProperty
 mkTcpRouteProperty action
   = TcpRouteProperty
-      {action = action, match = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action,
+       match = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties TcpRouteProperty where
   toResourceProperties TcpRouteProperty {..}
     = ResourceProperties

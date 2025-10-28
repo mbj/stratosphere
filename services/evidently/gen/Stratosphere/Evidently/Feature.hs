@@ -10,13 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Feature
-  = Feature {defaultVariation :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html>
+    Feature {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-defaultvariation>
+             defaultVariation :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-description>
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-entityoverrides>
              entityOverrides :: (Prelude.Maybe [EntityOverrideProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-evaluationstrategy>
              evaluationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-project>
              project :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-variations>
              variations :: [VariationObjectProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFeature ::
@@ -24,9 +34,9 @@ mkFeature ::
   -> Value Prelude.Text -> [VariationObjectProperty] -> Feature
 mkFeature name project variations
   = Feature
-      {name = name, project = project, variations = variations,
-       defaultVariation = Prelude.Nothing, description = Prelude.Nothing,
-       entityOverrides = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, project = project,
+       variations = variations, defaultVariation = Prelude.Nothing,
+       description = Prelude.Nothing, entityOverrides = Prelude.Nothing,
        evaluationStrategy = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Feature where
   toResourceProperties Feature {..}

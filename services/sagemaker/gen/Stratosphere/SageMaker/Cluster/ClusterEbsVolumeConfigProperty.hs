@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterEbsVolumeConfigProperty
-  = ClusterEbsVolumeConfigProperty {volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>
+    ClusterEbsVolumeConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html#cfn-sagemaker-cluster-clusterebsvolumeconfig-volumesizeingb>
+                                    volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterEbsVolumeConfigProperty :: ClusterEbsVolumeConfigProperty
 mkClusterEbsVolumeConfigProperty
-  = ClusterEbsVolumeConfigProperty {volumeSizeInGB = Prelude.Nothing}
+  = ClusterEbsVolumeConfigProperty
+      {haddock_workaround_ = (), volumeSizeInGB = Prelude.Nothing}
 instance ToResourceProperties ClusterEbsVolumeConfigProperty where
   toResourceProperties ClusterEbsVolumeConfigProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON ClusterEbsVolumeConfigProperty where
               [(JSON..=) "VolumeSizeInGB" Prelude.<$> volumeSizeInGB]))
 instance Property "VolumeSizeInGB" ClusterEbsVolumeConfigProperty where
   type PropertyType "VolumeSizeInGB" ClusterEbsVolumeConfigProperty = Value Prelude.Integer
-  set newValue ClusterEbsVolumeConfigProperty {}
+  set newValue ClusterEbsVolumeConfigProperty {..}
     = ClusterEbsVolumeConfigProperty
         {volumeSizeInGB = Prelude.pure newValue, ..}

@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.JsonPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetFormatProperty
-  = DatasetFormatProperty {csv :: (Prelude.Maybe CsvProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-datasetformat.html>
+    DatasetFormatProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-datasetformat.html#cfn-sagemaker-modelqualityjobdefinition-datasetformat-csv>
+                           csv :: (Prelude.Maybe CsvProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-datasetformat.html#cfn-sagemaker-modelqualityjobdefinition-datasetformat-json>
                            json :: (Prelude.Maybe JsonProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-datasetformat.html#cfn-sagemaker-modelqualityjobdefinition-datasetformat-parquet>
                            parquet :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetFormatProperty :: DatasetFormatProperty
 mkDatasetFormatProperty
   = DatasetFormatProperty
-      {csv = Prelude.Nothing, json = Prelude.Nothing,
-       parquet = Prelude.Nothing}
+      {haddock_workaround_ = (), csv = Prelude.Nothing,
+       json = Prelude.Nothing, parquet = Prelude.Nothing}
 instance ToResourceProperties DatasetFormatProperty where
   toResourceProperties DatasetFormatProperty {..}
     = ResourceProperties

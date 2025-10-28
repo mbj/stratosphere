@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.Personalize.Solution.ContinuousHyperParameter
 import {-# SOURCE #-} Stratosphere.Personalize.Solution.IntegerHyperParameterRangeProperty as Exports
 import Stratosphere.ResourceProperties
 data AlgorithmHyperParameterRangesProperty
-  = AlgorithmHyperParameterRangesProperty {categoricalHyperParameterRanges :: (Prelude.Maybe [CategoricalHyperParameterRangeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html>
+    AlgorithmHyperParameterRangesProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-categoricalhyperparameterranges>
+                                           categoricalHyperParameterRanges :: (Prelude.Maybe [CategoricalHyperParameterRangeProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-continuoushyperparameterranges>
                                            continuousHyperParameterRanges :: (Prelude.Maybe [ContinuousHyperParameterRangeProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-integerhyperparameterranges>
                                            integerHyperParameterRanges :: (Prelude.Maybe [IntegerHyperParameterRangeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlgorithmHyperParameterRangesProperty ::
   AlgorithmHyperParameterRangesProperty
 mkAlgorithmHyperParameterRangesProperty
   = AlgorithmHyperParameterRangesProperty
-      {categoricalHyperParameterRanges = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       categoricalHyperParameterRanges = Prelude.Nothing,
        continuousHyperParameterRanges = Prelude.Nothing,
        integerHyperParameterRanges = Prelude.Nothing}
 instance ToResourceProperties AlgorithmHyperParameterRangesProperty where

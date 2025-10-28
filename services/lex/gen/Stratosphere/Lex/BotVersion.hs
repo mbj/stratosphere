@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.Lex.BotVersion.BotVersionLocaleSpecificationP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotVersion
-  = BotVersion {botId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html>
+    BotVersion {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html#cfn-lex-botversion-botid>
+                botId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html#cfn-lex-botversion-botversionlocalespecification>
                 botVersionLocaleSpecification :: [BotVersionLocaleSpecificationProperty],
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html#cfn-lex-botversion-description>
                 description :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersion ::
@@ -17,7 +22,7 @@ mkBotVersion ::
   -> [BotVersionLocaleSpecificationProperty] -> BotVersion
 mkBotVersion botId botVersionLocaleSpecification
   = BotVersion
-      {botId = botId,
+      {haddock_workaround_ = (), botId = botId,
        botVersionLocaleSpecification = botVersionLocaleSpecification,
        description = Prelude.Nothing}
 instance ToResourceProperties BotVersion where

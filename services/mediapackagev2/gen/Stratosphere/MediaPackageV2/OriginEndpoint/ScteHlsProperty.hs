@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScteHlsProperty
-  = ScteHlsProperty {adMarkerHls :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html>
+    ScteHlsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html#cfn-mediapackagev2-originendpoint-sctehls-admarkerhls>
+                     adMarkerHls :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScteHlsProperty :: ScteHlsProperty
-mkScteHlsProperty = ScteHlsProperty {adMarkerHls = Prelude.Nothing}
+mkScteHlsProperty
+  = ScteHlsProperty
+      {haddock_workaround_ = (), adMarkerHls = Prelude.Nothing}
 instance ToResourceProperties ScteHlsProperty where
   toResourceProperties ScteHlsProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON ScteHlsProperty where
               [(JSON..=) "AdMarkerHls" Prelude.<$> adMarkerHls]))
 instance Property "AdMarkerHls" ScteHlsProperty where
   type PropertyType "AdMarkerHls" ScteHlsProperty = Value Prelude.Text
-  set newValue ScteHlsProperty {}
+  set newValue ScteHlsProperty {..}
     = ScteHlsProperty {adMarkerHls = Prelude.pure newValue, ..}

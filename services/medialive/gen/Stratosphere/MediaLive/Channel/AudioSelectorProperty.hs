@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioSelectorSettingsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioSelectorProperty
-  = AudioSelectorProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html>
+    AudioSelectorProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html#cfn-medialive-channel-audioselector-name>
+                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html#cfn-medialive-channel-audioselector-selectorsettings>
                            selectorSettings :: (Prelude.Maybe AudioSelectorSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSelectorProperty :: AudioSelectorProperty
 mkAudioSelectorProperty
   = AudioSelectorProperty
-      {name = Prelude.Nothing, selectorSettings = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       selectorSettings = Prelude.Nothing}
 instance ToResourceProperties AudioSelectorProperty where
   toResourceProperties AudioSelectorProperty {..}
     = ResourceProperties

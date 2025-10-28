@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.ECS.CapacityProvider.ManagedScalingProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingGroupProviderProperty
-  = AutoScalingGroupProviderProperty {autoScalingGroupArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html>
+    AutoScalingGroupProviderProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn>
+                                      autoScalingGroupArn :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-manageddraining>
                                       managedDraining :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling>
                                       managedScaling :: (Prelude.Maybe ManagedScalingProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection>
                                       managedTerminationProtection :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingGroupProviderProperty ::
   Value Prelude.Text -> AutoScalingGroupProviderProperty
 mkAutoScalingGroupProviderProperty autoScalingGroupArn
   = AutoScalingGroupProviderProperty
-      {autoScalingGroupArn = autoScalingGroupArn,
+      {haddock_workaround_ = (),
+       autoScalingGroupArn = autoScalingGroupArn,
        managedDraining = Prelude.Nothing,
        managedScaling = Prelude.Nothing,
        managedTerminationProtection = Prelude.Nothing}

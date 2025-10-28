@@ -9,10 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EventIntegration
-  = EventIntegration {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html>
+    EventIntegration {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description>
+                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus>
                       eventBridgeBus :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter>
                       eventFilter :: EventFilterProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventIntegration ::
@@ -20,8 +27,9 @@ mkEventIntegration ::
   -> EventFilterProperty -> Value Prelude.Text -> EventIntegration
 mkEventIntegration eventBridgeBus eventFilter name
   = EventIntegration
-      {eventBridgeBus = eventBridgeBus, eventFilter = eventFilter,
-       name = name, description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), eventBridgeBus = eventBridgeBus,
+       eventFilter = eventFilter, name = name,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties EventIntegration where
   toResourceProperties EventIntegration {..}
     = ResourceProperties

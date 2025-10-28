@@ -10,18 +10,27 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLockingSettingsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlobalConfigurationProperty
-  = GlobalConfigurationProperty {initialAudioGain :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html>
+    GlobalConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-initialaudiogain>
+                                 initialAudioGain :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-inputendaction>
                                  inputEndAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-inputlossbehavior>
                                  inputLossBehavior :: (Prelude.Maybe InputLossBehaviorProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingmode>
                                  outputLockingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingsettings>
                                  outputLockingSettings :: (Prelude.Maybe OutputLockingSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputtimingsource>
                                  outputTimingSource :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-supportlowframerateinputs>
                                  supportLowFramerateInputs :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalConfigurationProperty :: GlobalConfigurationProperty
 mkGlobalConfigurationProperty
   = GlobalConfigurationProperty
-      {initialAudioGain = Prelude.Nothing,
+      {haddock_workaround_ = (), initialAudioGain = Prelude.Nothing,
        inputEndAction = Prelude.Nothing,
        inputLossBehavior = Prelude.Nothing,
        outputLockingMode = Prelude.Nothing,

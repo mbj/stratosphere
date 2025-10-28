@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrackingOptionsProperty
-  = TrackingOptionsProperty {customRedirectDomain :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html>
+    TrackingOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-customredirectdomain>
+                             customRedirectDomain :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackingOptionsProperty :: TrackingOptionsProperty
 mkTrackingOptionsProperty
-  = TrackingOptionsProperty {customRedirectDomain = Prelude.Nothing}
+  = TrackingOptionsProperty
+      {haddock_workaround_ = (), customRedirectDomain = Prelude.Nothing}
 instance ToResourceProperties TrackingOptionsProperty where
   toResourceProperties TrackingOptionsProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON TrackingOptionsProperty where
                  Prelude.<$> customRedirectDomain]))
 instance Property "CustomRedirectDomain" TrackingOptionsProperty where
   type PropertyType "CustomRedirectDomain" TrackingOptionsProperty = Value Prelude.Text
-  set newValue TrackingOptionsProperty {}
+  set newValue TrackingOptionsProperty {..}
     = TrackingOptionsProperty
         {customRedirectDomain = Prelude.pure newValue, ..}

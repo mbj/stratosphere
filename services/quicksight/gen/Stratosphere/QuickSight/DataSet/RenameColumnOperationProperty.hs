@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenameColumnOperationProperty
-  = RenameColumnOperationProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html>
+    RenameColumnOperationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname>
+                                   columnName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname>
                                    newColumnName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRenameColumnOperationProperty ::
@@ -15,7 +19,8 @@ mkRenameColumnOperationProperty ::
   -> Value Prelude.Text -> RenameColumnOperationProperty
 mkRenameColumnOperationProperty columnName newColumnName
   = RenameColumnOperationProperty
-      {columnName = columnName, newColumnName = newColumnName}
+      {haddock_workaround_ = (), columnName = columnName,
+       newColumnName = newColumnName}
 instance ToResourceProperties RenameColumnOperationProperty where
   toResourceProperties RenameColumnOperationProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigParameterProperty
-  = ConfigParameterProperty {parameterKey :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html>
+    ConfigParameterProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html#cfn-redshiftserverless-workgroup-configparameter-parameterkey>
+                             parameterKey :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html#cfn-redshiftserverless-workgroup-configparameter-parametervalue>
                              parameterValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigParameterProperty :: ConfigParameterProperty
 mkConfigParameterProperty
   = ConfigParameterProperty
-      {parameterKey = Prelude.Nothing, parameterValue = Prelude.Nothing}
+      {haddock_workaround_ = (), parameterKey = Prelude.Nothing,
+       parameterValue = Prelude.Nothing}
 instance ToResourceProperties ConfigParameterProperty where
   toResourceProperties ConfigParameterProperty {..}
     = ResourceProperties

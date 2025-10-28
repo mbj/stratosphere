@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Pipeline
-  = Pipeline {pipelineActivities :: [ActivityProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html>
+    Pipeline {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities>
+              pipelineActivities :: [ActivityProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename>
               pipelineName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline :: [ActivityProperty] -> Pipeline
 mkPipeline pipelineActivities
   = Pipeline
-      {pipelineActivities = pipelineActivities,
+      {haddock_workaround_ = (), pipelineActivities = pipelineActivities,
        pipelineName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Pipeline where
   toResourceProperties Pipeline {..}

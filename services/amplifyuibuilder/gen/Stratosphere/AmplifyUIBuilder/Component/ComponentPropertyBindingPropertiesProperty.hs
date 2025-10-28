@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentPropertyBindingPropertiesProperty
-  = ComponentPropertyBindingPropertiesProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentpropertybindingproperties.html>
+    ComponentPropertyBindingPropertiesProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentpropertybindingproperties.html#cfn-amplifyuibuilder-component-componentpropertybindingproperties-field>
+                                                field :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentpropertybindingproperties.html#cfn-amplifyuibuilder-component-componentpropertybindingproperties-property>
                                                 property :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentPropertyBindingPropertiesProperty ::
   Value Prelude.Text -> ComponentPropertyBindingPropertiesProperty
 mkComponentPropertyBindingPropertiesProperty property
   = ComponentPropertyBindingPropertiesProperty
-      {property = property, field = Prelude.Nothing}
+      {haddock_workaround_ = (), property = property,
+       field = Prelude.Nothing}
 instance ToResourceProperties ComponentPropertyBindingPropertiesProperty where
   toResourceProperties
     ComponentPropertyBindingPropertiesProperty {..}

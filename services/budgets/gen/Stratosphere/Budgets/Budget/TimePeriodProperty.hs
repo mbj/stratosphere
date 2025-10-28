@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimePeriodProperty
-  = TimePeriodProperty {end :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html>
+    TimePeriodProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end>
+                        end :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start>
                         start :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimePeriodProperty :: TimePeriodProperty
 mkTimePeriodProperty
   = TimePeriodProperty
-      {end = Prelude.Nothing, start = Prelude.Nothing}
+      {haddock_workaround_ = (), end = Prelude.Nothing,
+       start = Prelude.Nothing}
 instance ToResourceProperties TimePeriodProperty where
   toResourceProperties TimePeriodProperty {..}
     = ResourceProperties

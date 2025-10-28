@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CampaignHookProperty
-  = CampaignHookProperty {lambdaFunctionName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html>
+    CampaignHookProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-lambdafunctionname>
+                          lambdaFunctionName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-mode>
                           mode :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-campaignhook.html#cfn-pinpoint-applicationsettings-campaignhook-weburl>
                           webUrl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignHookProperty :: CampaignHookProperty
 mkCampaignHookProperty
   = CampaignHookProperty
-      {lambdaFunctionName = Prelude.Nothing, mode = Prelude.Nothing,
-       webUrl = Prelude.Nothing}
+      {haddock_workaround_ = (), lambdaFunctionName = Prelude.Nothing,
+       mode = Prelude.Nothing, webUrl = Prelude.Nothing}
 instance ToResourceProperties CampaignHookProperty where
   toResourceProperties CampaignHookProperty {..}
     = ResourceProperties

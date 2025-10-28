@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KmsEncryptionConfigProperty
-  = KmsEncryptionConfigProperty {cmkType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html>
+    KmsEncryptionConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html#cfn-healthlake-fhirdatastore-kmsencryptionconfig-cmktype>
+                                 cmkType :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html#cfn-healthlake-fhirdatastore-kmsencryptionconfig-kmskeyid>
                                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKmsEncryptionConfigProperty ::
   Value Prelude.Text -> KmsEncryptionConfigProperty
 mkKmsEncryptionConfigProperty cmkType
   = KmsEncryptionConfigProperty
-      {cmkType = cmkType, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), cmkType = cmkType,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties KmsEncryptionConfigProperty where
   toResourceProperties KmsEncryptionConfigProperty {..}
     = ResourceProperties

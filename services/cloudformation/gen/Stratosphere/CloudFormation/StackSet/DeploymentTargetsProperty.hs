@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentTargetsProperty
-  = DeploymentTargetsProperty {accountFilterType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html>
+    DeploymentTargetsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype>
+                               accountFilterType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts>
                                accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountsurl>
                                accountsUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids>
                                organizationalUnitIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentTargetsProperty :: DeploymentTargetsProperty
 mkDeploymentTargetsProperty
   = DeploymentTargetsProperty
-      {accountFilterType = Prelude.Nothing, accounts = Prelude.Nothing,
-       accountsUrl = Prelude.Nothing,
+      {haddock_workaround_ = (), accountFilterType = Prelude.Nothing,
+       accounts = Prelude.Nothing, accountsUrl = Prelude.Nothing,
        organizationalUnitIds = Prelude.Nothing}
 instance ToResourceProperties DeploymentTargetsProperty where
   toResourceProperties DeploymentTargetsProperty {..}

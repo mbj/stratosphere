@@ -8,16 +8,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceSourcePropertiesProperty
-  = SalesforceSourcePropertiesProperty {dataTransferApi :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html>
+    SalesforceSourcePropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-datatransferapi>
+                                        dataTransferApi :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate>
                                         enableDynamicFieldUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords>
                                         includeDeletedRecords :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object>
                                         object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceSourcePropertiesProperty ::
   Value Prelude.Text -> SalesforceSourcePropertiesProperty
 mkSalesforceSourcePropertiesProperty object
   = SalesforceSourcePropertiesProperty
-      {object = object, dataTransferApi = Prelude.Nothing,
+      {haddock_workaround_ = (), object = object,
+       dataTransferApi = Prelude.Nothing,
        enableDynamicFieldUpdate = Prelude.Nothing,
        includeDeletedRecords = Prelude.Nothing}
 instance ToResourceProperties SalesforceSourcePropertiesProperty where

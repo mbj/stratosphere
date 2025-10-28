@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayMulticastGroupSource
-  = TransitGatewayMulticastGroupSource {groupIpAddress :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html>
+    TransitGatewayMulticastGroupSource {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress>
+                                        groupIpAddress :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid>
                                         networkInterfaceId :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid>
                                         transitGatewayMulticastDomainId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastGroupSource ::
@@ -21,7 +26,7 @@ mkTransitGatewayMulticastGroupSource
   networkInterfaceId
   transitGatewayMulticastDomainId
   = TransitGatewayMulticastGroupSource
-      {groupIpAddress = groupIpAddress,
+      {haddock_workaround_ = (), groupIpAddress = groupIpAddress,
        networkInterfaceId = networkInterfaceId,
        transitGatewayMulticastDomainId = transitGatewayMulticastDomainId}
 instance ToResourceProperties TransitGatewayMulticastGroupSource where

@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.ByteMatchSet.FieldToMatchProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ByteMatchTupleProperty
-  = ByteMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html>
+    ByteMatchTupleProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-fieldtomatch>
+                            fieldToMatch :: FieldToMatchProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-positionalconstraint>
                             positionalConstraint :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstring>
                             targetString :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-targetstringbase64>
                             targetStringBase64 :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html#cfn-wafregional-bytematchset-bytematchtuple-texttransformation>
                             textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchTupleProperty ::
@@ -24,7 +31,7 @@ mkByteMatchTupleProperty
   positionalConstraint
   textTransformation
   = ByteMatchTupleProperty
-      {fieldToMatch = fieldToMatch,
+      {haddock_workaround_ = (), fieldToMatch = fieldToMatch,
        positionalConstraint = positionalConstraint,
        textTransformation = textTransformation,
        targetString = Prelude.Nothing,

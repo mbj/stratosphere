@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetGroupTupleProperty
-  = TargetGroupTupleProperty {targetGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html>
+    TargetGroupTupleProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn>
+                              targetGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight>
                               weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupTupleProperty :: TargetGroupTupleProperty
 mkTargetGroupTupleProperty
   = TargetGroupTupleProperty
-      {targetGroupArn = Prelude.Nothing, weight = Prelude.Nothing}
+      {haddock_workaround_ = (), targetGroupArn = Prelude.Nothing,
+       weight = Prelude.Nothing}
 instance ToResourceProperties TargetGroupTupleProperty where
   toResourceProperties TargetGroupTupleProperty {..}
     = ResourceProperties

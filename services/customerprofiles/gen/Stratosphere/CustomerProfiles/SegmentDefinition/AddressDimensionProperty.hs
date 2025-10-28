@@ -8,19 +8,28 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ProfileDimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data AddressDimensionProperty
-  = AddressDimensionProperty {city :: (Prelude.Maybe ProfileDimensionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html>
+    AddressDimensionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-city>
+                              city :: (Prelude.Maybe ProfileDimensionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-country>
                               country :: (Prelude.Maybe ProfileDimensionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-county>
                               county :: (Prelude.Maybe ProfileDimensionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-postalcode>
                               postalCode :: (Prelude.Maybe ProfileDimensionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-province>
                               province :: (Prelude.Maybe ProfileDimensionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html#cfn-customerprofiles-segmentdefinition-addressdimension-state>
                               state :: (Prelude.Maybe ProfileDimensionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAddressDimensionProperty :: AddressDimensionProperty
 mkAddressDimensionProperty
   = AddressDimensionProperty
-      {city = Prelude.Nothing, country = Prelude.Nothing,
-       county = Prelude.Nothing, postalCode = Prelude.Nothing,
-       province = Prelude.Nothing, state = Prelude.Nothing}
+      {haddock_workaround_ = (), city = Prelude.Nothing,
+       country = Prelude.Nothing, county = Prelude.Nothing,
+       postalCode = Prelude.Nothing, province = Prelude.Nothing,
+       state = Prelude.Nothing}
 instance ToResourceProperties AddressDimensionProperty where
   toResourceProperties AddressDimensionProperty {..}
     = ResourceProperties

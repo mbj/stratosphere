@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptionRectangleProperty
-  = CaptionRectangleProperty {height :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html>
+    CaptionRectangleProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-height>
+                              height :: (Prelude.Maybe (Value Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-leftoffset>
                               leftOffset :: (Prelude.Maybe (Value Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-topoffset>
                               topOffset :: (Prelude.Maybe (Value Prelude.Double)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html#cfn-medialive-channel-captionrectangle-width>
                               width :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionRectangleProperty :: CaptionRectangleProperty
 mkCaptionRectangleProperty
   = CaptionRectangleProperty
-      {height = Prelude.Nothing, leftOffset = Prelude.Nothing,
-       topOffset = Prelude.Nothing, width = Prelude.Nothing}
+      {haddock_workaround_ = (), height = Prelude.Nothing,
+       leftOffset = Prelude.Nothing, topOffset = Prelude.Nothing,
+       width = Prelude.Nothing}
 instance ToResourceProperties CaptionRectangleProperty where
   toResourceProperties CaptionRectangleProperty {..}
     = ResourceProperties

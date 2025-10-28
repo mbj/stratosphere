@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerSideEncryptionConfigurationProperty
-  = ServerSideEncryptionConfigurationProperty {kmsKeyId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-voiceid-domain-serversideencryptionconfiguration.html>
+    ServerSideEncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-voiceid-domain-serversideencryptionconfiguration.html#cfn-voiceid-domain-serversideencryptionconfiguration-kmskeyid>
+                                               kmsKeyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionConfigurationProperty ::
   Value Prelude.Text -> ServerSideEncryptionConfigurationProperty
 mkServerSideEncryptionConfigurationProperty kmsKeyId
-  = ServerSideEncryptionConfigurationProperty {kmsKeyId = kmsKeyId}
+  = ServerSideEncryptionConfigurationProperty
+      {haddock_workaround_ = (), kmsKeyId = kmsKeyId}
 instance ToResourceProperties ServerSideEncryptionConfigurationProperty where
   toResourceProperties ServerSideEncryptionConfigurationProperty {..}
     = ResourceProperties
@@ -25,6 +29,6 @@ instance JSON.ToJSON ServerSideEncryptionConfigurationProperty where
     = JSON.object ["KmsKeyId" JSON..= kmsKeyId]
 instance Property "KmsKeyId" ServerSideEncryptionConfigurationProperty where
   type PropertyType "KmsKeyId" ServerSideEncryptionConfigurationProperty = Value Prelude.Text
-  set newValue ServerSideEncryptionConfigurationProperty {}
+  set newValue ServerSideEncryptionConfigurationProperty {..}
     = ServerSideEncryptionConfigurationProperty
         {kmsKeyId = newValue, ..}

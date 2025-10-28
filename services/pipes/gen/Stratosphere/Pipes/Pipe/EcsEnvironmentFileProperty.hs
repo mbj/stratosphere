@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsEnvironmentFileProperty
-  = EcsEnvironmentFileProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html>
+    EcsEnvironmentFileProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html#cfn-pipes-pipe-ecsenvironmentfile-type>
+                                type' :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html#cfn-pipes-pipe-ecsenvironmentfile-value>
                                 value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsEnvironmentFileProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EcsEnvironmentFileProperty
 mkEcsEnvironmentFileProperty type' value
-  = EcsEnvironmentFileProperty {type' = type', value = value}
+  = EcsEnvironmentFileProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties EcsEnvironmentFileProperty where
   toResourceProperties EcsEnvironmentFileProperty {..}
     = ResourceProperties

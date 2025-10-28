@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeRuleTemplateTargetProperty
-  = EventBridgeRuleTemplateTargetProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget.html>
+    EventBridgeRuleTemplateTargetProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget.html#cfn-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget-arn>
+                                           arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeRuleTemplateTargetProperty ::
   Value Prelude.Text -> EventBridgeRuleTemplateTargetProperty
 mkEventBridgeRuleTemplateTargetProperty arn
-  = EventBridgeRuleTemplateTargetProperty {arn = arn}
+  = EventBridgeRuleTemplateTargetProperty
+      {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties EventBridgeRuleTemplateTargetProperty where
   toResourceProperties EventBridgeRuleTemplateTargetProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON EventBridgeRuleTemplateTargetProperty where
     = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" EventBridgeRuleTemplateTargetProperty where
   type PropertyType "Arn" EventBridgeRuleTemplateTargetProperty = Value Prelude.Text
-  set newValue EventBridgeRuleTemplateTargetProperty {}
+  set newValue EventBridgeRuleTemplateTargetProperty {..}
     = EventBridgeRuleTemplateTargetProperty {arn = newValue, ..}

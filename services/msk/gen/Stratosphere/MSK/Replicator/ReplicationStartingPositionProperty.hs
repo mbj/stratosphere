@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationStartingPositionProperty
-  = ReplicationStartingPositionProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingposition.html>
+    ReplicationStartingPositionProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingposition.html#cfn-msk-replicator-replicationstartingposition-type>
+                                         type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationStartingPositionProperty ::
   ReplicationStartingPositionProperty
 mkReplicationStartingPositionProperty
-  = ReplicationStartingPositionProperty {type' = Prelude.Nothing}
+  = ReplicationStartingPositionProperty
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties ReplicationStartingPositionProperty where
   toResourceProperties ReplicationStartingPositionProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ReplicationStartingPositionProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" ReplicationStartingPositionProperty where
   type PropertyType "Type" ReplicationStartingPositionProperty = Value Prelude.Text
-  set newValue ReplicationStartingPositionProperty {}
+  set newValue ReplicationStartingPositionProperty {..}
     = ReplicationStartingPositionProperty
         {type' = Prelude.pure newValue, ..}

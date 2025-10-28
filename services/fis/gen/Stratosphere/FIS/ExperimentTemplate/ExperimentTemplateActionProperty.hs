@@ -8,19 +8,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateActionProperty
-  = ExperimentTemplateActionProperty {actionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html>
+    ExperimentTemplateActionProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid>
+                                      actionId :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description>
                                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters>
                                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter>
                                       startAfter :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets>
                                       targets :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateActionProperty ::
   Value Prelude.Text -> ExperimentTemplateActionProperty
 mkExperimentTemplateActionProperty actionId
   = ExperimentTemplateActionProperty
-      {actionId = actionId, description = Prelude.Nothing,
-       parameters = Prelude.Nothing, startAfter = Prelude.Nothing,
-       targets = Prelude.Nothing}
+      {haddock_workaround_ = (), actionId = actionId,
+       description = Prelude.Nothing, parameters = Prelude.Nothing,
+       startAfter = Prelude.Nothing, targets = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplateActionProperty where
   toResourceProperties ExperimentTemplateActionProperty {..}
     = ResourceProperties

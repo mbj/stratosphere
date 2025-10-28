@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvOutputOptionsProperty
-  = CsvOutputOptionsProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html>
+    CsvOutputOptionsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter>
+                              delimiter :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvOutputOptionsProperty :: CsvOutputOptionsProperty
 mkCsvOutputOptionsProperty
-  = CsvOutputOptionsProperty {delimiter = Prelude.Nothing}
+  = CsvOutputOptionsProperty
+      {haddock_workaround_ = (), delimiter = Prelude.Nothing}
 instance ToResourceProperties CsvOutputOptionsProperty where
   toResourceProperties CsvOutputOptionsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON CsvOutputOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Delimiter" Prelude.<$> delimiter]))
 instance Property "Delimiter" CsvOutputOptionsProperty where
   type PropertyType "Delimiter" CsvOutputOptionsProperty = Value Prelude.Text
-  set newValue CsvOutputOptionsProperty {}
+  set newValue CsvOutputOptionsProperty {..}
     = CsvOutputOptionsProperty {delimiter = Prelude.pure newValue, ..}

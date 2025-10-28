@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatusCodesProperty
-  = StatusCodesProperty {items :: (ValueList Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html>
+    StatusCodesProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items>
+                         items :: (ValueList Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity>
                          quantity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatusCodesProperty ::
   ValueList Prelude.Integer
   -> Value Prelude.Integer -> StatusCodesProperty
 mkStatusCodesProperty items quantity
-  = StatusCodesProperty {items = items, quantity = quantity}
+  = StatusCodesProperty
+      {haddock_workaround_ = (), items = items, quantity = quantity}
 instance ToResourceProperties StatusCodesProperty where
   toResourceProperties StatusCodesProperty {..}
     = ResourceProperties

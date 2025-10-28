@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpdateConfigProperty
-  = UpdateConfigProperty {maxUnavailable :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html>
+    UpdateConfigProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable>
+                          maxUnavailable :: (Prelude.Maybe (Value Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage>
                           maxUnavailablePercentage :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateConfigProperty :: UpdateConfigProperty
 mkUpdateConfigProperty
   = UpdateConfigProperty
-      {maxUnavailable = Prelude.Nothing,
+      {haddock_workaround_ = (), maxUnavailable = Prelude.Nothing,
        maxUnavailablePercentage = Prelude.Nothing}
 instance ToResourceProperties UpdateConfigProperty where
   toResourceProperties UpdateConfigProperty {..}

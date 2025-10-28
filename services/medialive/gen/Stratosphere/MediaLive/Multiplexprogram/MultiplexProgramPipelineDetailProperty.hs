@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexProgramPipelineDetailProperty
-  = MultiplexProgramPipelineDetailProperty {activeChannelPipeline :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampipelinedetail.html>
+    MultiplexProgramPipelineDetailProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampipelinedetail.html#cfn-medialive-multiplexprogram-multiplexprogrampipelinedetail-activechannelpipeline>
+                                            activeChannelPipeline :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampipelinedetail.html#cfn-medialive-multiplexprogram-multiplexprogrampipelinedetail-pipelineid>
                                             pipelineId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexProgramPipelineDetailProperty ::
   MultiplexProgramPipelineDetailProperty
 mkMultiplexProgramPipelineDetailProperty
   = MultiplexProgramPipelineDetailProperty
-      {activeChannelPipeline = Prelude.Nothing,
+      {haddock_workaround_ = (), activeChannelPipeline = Prelude.Nothing,
        pipelineId = Prelude.Nothing}
 instance ToResourceProperties MultiplexProgramPipelineDetailProperty where
   toResourceProperties MultiplexProgramPipelineDetailProperty {..}

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.ArtifactStoreProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArtifactStoreMapProperty
-  = ArtifactStoreMapProperty {artifactStore :: ArtifactStoreProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html>
+    ArtifactStoreMapProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-artifactstore>
+                              artifactStore :: ArtifactStoreProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-region>
                               region :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactStoreMapProperty ::
@@ -17,7 +21,8 @@ mkArtifactStoreMapProperty ::
   -> Value Prelude.Text -> ArtifactStoreMapProperty
 mkArtifactStoreMapProperty artifactStore region
   = ArtifactStoreMapProperty
-      {artifactStore = artifactStore, region = region}
+      {haddock_workaround_ = (), artifactStore = artifactStore,
+       region = region}
 instance ToResourceProperties ArtifactStoreMapProperty where
   toResourceProperties ArtifactStoreMapProperty {..}
     = ResourceProperties

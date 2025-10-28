@@ -9,18 +9,25 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.NamedEntityDefinitionMetricP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamedEntityDefinitionProperty
-  = NamedEntityDefinitionProperty {fieldName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html>
+    NamedEntityDefinitionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html#cfn-quicksight-topic-namedentitydefinition-fieldname>
+                                   fieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html#cfn-quicksight-topic-namedentitydefinition-metric>
                                    metric :: (Prelude.Maybe NamedEntityDefinitionMetricProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html#cfn-quicksight-topic-namedentitydefinition-propertyname>
                                    propertyName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html#cfn-quicksight-topic-namedentitydefinition-propertyrole>
                                    propertyRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html#cfn-quicksight-topic-namedentitydefinition-propertyusage>
                                    propertyUsage :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedEntityDefinitionProperty :: NamedEntityDefinitionProperty
 mkNamedEntityDefinitionProperty
   = NamedEntityDefinitionProperty
-      {fieldName = Prelude.Nothing, metric = Prelude.Nothing,
-       propertyName = Prelude.Nothing, propertyRole = Prelude.Nothing,
-       propertyUsage = Prelude.Nothing}
+      {haddock_workaround_ = (), fieldName = Prelude.Nothing,
+       metric = Prelude.Nothing, propertyName = Prelude.Nothing,
+       propertyRole = Prelude.Nothing, propertyUsage = Prelude.Nothing}
 instance ToResourceProperties NamedEntityDefinitionProperty where
   toResourceProperties NamedEntityDefinitionProperty {..}
     = ResourceProperties

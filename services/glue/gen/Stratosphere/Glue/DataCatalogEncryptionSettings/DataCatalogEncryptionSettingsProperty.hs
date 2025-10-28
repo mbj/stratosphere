@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Glue.DataCatalogEncryptionSettings.Connection
 import {-# SOURCE #-} Stratosphere.Glue.DataCatalogEncryptionSettings.EncryptionAtRestProperty as Exports
 import Stratosphere.ResourceProperties
 data DataCatalogEncryptionSettingsProperty
-  = DataCatalogEncryptionSettingsProperty {connectionPasswordEncryption :: (Prelude.Maybe ConnectionPasswordEncryptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html>
+    DataCatalogEncryptionSettingsProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption>
+                                           connectionPasswordEncryption :: (Prelude.Maybe ConnectionPasswordEncryptionProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest>
                                            encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogEncryptionSettingsProperty ::
   DataCatalogEncryptionSettingsProperty
 mkDataCatalogEncryptionSettingsProperty
   = DataCatalogEncryptionSettingsProperty
-      {connectionPasswordEncryption = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       connectionPasswordEncryption = Prelude.Nothing,
        encryptionAtRest = Prelude.Nothing}
 instance ToResourceProperties DataCatalogEncryptionSettingsProperty where
   toResourceProperties DataCatalogEncryptionSettingsProperty {..}

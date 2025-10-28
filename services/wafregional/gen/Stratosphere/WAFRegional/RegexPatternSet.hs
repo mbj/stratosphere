@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegexPatternSet
-  = RegexPatternSet {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html>
+    RegexPatternSet {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html#cfn-wafregional-regexpatternset-name>
+                     name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html#cfn-wafregional-regexpatternset-regexpatternstrings>
                      regexPatternStrings :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexPatternSet ::
   Value Prelude.Text -> ValueList Prelude.Text -> RegexPatternSet
 mkRegexPatternSet name regexPatternStrings
   = RegexPatternSet
-      {name = name, regexPatternStrings = regexPatternStrings}
+      {haddock_workaround_ = (), name = name,
+       regexPatternStrings = regexPatternStrings}
 instance ToResourceProperties RegexPatternSet where
   toResourceProperties RegexPatternSet {..}
     = ResourceProperties

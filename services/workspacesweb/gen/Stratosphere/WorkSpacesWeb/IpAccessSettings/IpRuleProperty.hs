@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpRuleProperty
-  = IpRuleProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-ipaccesssettings-iprule.html>
+    IpRuleProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-ipaccesssettings-iprule.html#cfn-workspacesweb-ipaccesssettings-iprule-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-ipaccesssettings-iprule.html#cfn-workspacesweb-ipaccesssettings-iprule-iprange>
                     ipRange :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpRuleProperty :: Value Prelude.Text -> IpRuleProperty
 mkIpRuleProperty ipRange
-  = IpRuleProperty {ipRange = ipRange, description = Prelude.Nothing}
+  = IpRuleProperty
+      {haddock_workaround_ = (), ipRange = ipRange,
+       description = Prelude.Nothing}
 instance ToResourceProperties IpRuleProperty where
   toResourceProperties IpRuleProperty {..}
     = ResourceProperties

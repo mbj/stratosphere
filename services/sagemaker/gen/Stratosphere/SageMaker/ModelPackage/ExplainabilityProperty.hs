@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ExplainabilityProperty
-  = ExplainabilityProperty {report :: (Prelude.Maybe MetricsSourceProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html>
+    ExplainabilityProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html#cfn-sagemaker-modelpackage-explainability-report>
+                            report :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExplainabilityProperty :: ExplainabilityProperty
 mkExplainabilityProperty
-  = ExplainabilityProperty {report = Prelude.Nothing}
+  = ExplainabilityProperty
+      {haddock_workaround_ = (), report = Prelude.Nothing}
 instance ToResourceProperties ExplainabilityProperty where
   toResourceProperties ExplainabilityProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON ExplainabilityProperty where
            (Prelude.catMaybes [(JSON..=) "Report" Prelude.<$> report]))
 instance Property "Report" ExplainabilityProperty where
   type PropertyType "Report" ExplainabilityProperty = MetricsSourceProperty
-  set newValue ExplainabilityProperty {}
+  set newValue ExplainabilityProperty {..}
     = ExplainabilityProperty {report = Prelude.pure newValue, ..}

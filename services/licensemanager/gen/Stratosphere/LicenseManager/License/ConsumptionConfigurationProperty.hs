@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.LicenseManager.License.ProvisionalConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConsumptionConfigurationProperty
-  = ConsumptionConfigurationProperty {borrowConfiguration :: (Prelude.Maybe BorrowConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html>
+    ConsumptionConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration>
+                                      borrowConfiguration :: (Prelude.Maybe BorrowConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration>
                                       provisionalConfiguration :: (Prelude.Maybe ProvisionalConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype>
                                       renewType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConsumptionConfigurationProperty ::
   ConsumptionConfigurationProperty
 mkConsumptionConfigurationProperty
   = ConsumptionConfigurationProperty
-      {borrowConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), borrowConfiguration = Prelude.Nothing,
        provisionalConfiguration = Prelude.Nothing,
        renewType = Prelude.Nothing}
 instance ToResourceProperties ConsumptionConfigurationProperty where

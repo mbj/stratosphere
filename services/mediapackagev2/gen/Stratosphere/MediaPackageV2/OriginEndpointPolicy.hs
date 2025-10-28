@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginEndpointPolicy
-  = OriginEndpointPolicy {channelGroupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html>
+    OriginEndpointPolicy {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-channelgroupname>
+                          channelGroupName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-channelname>
                           channelName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-originendpointname>
                           originEndpointName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-policy>
                           policy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginEndpointPolicy ::
@@ -22,8 +28,9 @@ mkOriginEndpointPolicy
   originEndpointName
   policy
   = OriginEndpointPolicy
-      {channelGroupName = channelGroupName, channelName = channelName,
-       originEndpointName = originEndpointName, policy = policy}
+      {haddock_workaround_ = (), channelGroupName = channelGroupName,
+       channelName = channelName, originEndpointName = originEndpointName,
+       policy = policy}
 instance ToResourceProperties OriginEndpointPolicy where
   toResourceProperties OriginEndpointPolicy {..}
     = ResourceProperties

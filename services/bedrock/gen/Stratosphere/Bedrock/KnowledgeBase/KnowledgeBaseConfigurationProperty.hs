@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.VectorKnowledgeBaseConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KnowledgeBaseConfigurationProperty
-  = KnowledgeBaseConfigurationProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html>
+    KnowledgeBaseConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-type>
+                                        type' :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-vectorknowledgebaseconfiguration>
                                         vectorKnowledgeBaseConfiguration :: VectorKnowledgeBaseConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBaseConfigurationProperty ::
@@ -20,7 +24,7 @@ mkKnowledgeBaseConfigurationProperty
   type'
   vectorKnowledgeBaseConfiguration
   = KnowledgeBaseConfigurationProperty
-      {type' = type',
+      {haddock_workaround_ = (), type' = type',
        vectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration}
 instance ToResourceProperties KnowledgeBaseConfigurationProperty where
   toResourceProperties KnowledgeBaseConfigurationProperty {..}

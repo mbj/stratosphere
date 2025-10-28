@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MappingRuleProperty
-  = MappingRuleProperty {specifier :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html>
+    MappingRuleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html#cfn-rolesanywhere-profile-mappingrule-specifier>
+                         specifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingRuleProperty :: Value Prelude.Text -> MappingRuleProperty
 mkMappingRuleProperty specifier
-  = MappingRuleProperty {specifier = specifier}
+  = MappingRuleProperty
+      {haddock_workaround_ = (), specifier = specifier}
 instance ToResourceProperties MappingRuleProperty where
   toResourceProperties MappingRuleProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON MappingRuleProperty where
     = JSON.object ["Specifier" JSON..= specifier]
 instance Property "Specifier" MappingRuleProperty where
   type PropertyType "Specifier" MappingRuleProperty = Value Prelude.Text
-  set newValue MappingRuleProperty {}
+  set newValue MappingRuleProperty {..}
     = MappingRuleProperty {specifier = newValue, ..}

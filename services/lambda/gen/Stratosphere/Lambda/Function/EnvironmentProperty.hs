@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentProperty
-  = EnvironmentProperty {variables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html>
+    EnvironmentProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables>
+                         variables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProperty :: EnvironmentProperty
 mkEnvironmentProperty
-  = EnvironmentProperty {variables = Prelude.Nothing}
+  = EnvironmentProperty
+      {haddock_workaround_ = (), variables = Prelude.Nothing}
 instance ToResourceProperties EnvironmentProperty where
   toResourceProperties EnvironmentProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON EnvironmentProperty where
            (Prelude.catMaybes [(JSON..=) "Variables" Prelude.<$> variables]))
 instance Property "Variables" EnvironmentProperty where
   type PropertyType "Variables" EnvironmentProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
-  set newValue EnvironmentProperty {}
+  set newValue EnvironmentProperty {..}
     = EnvironmentProperty {variables = Prelude.pure newValue, ..}

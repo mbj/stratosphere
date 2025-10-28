@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FormButtonProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormCTAProperty
-  = FormCTAProperty {cancel :: (Prelude.Maybe FormButtonProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html>
+    FormCTAProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-cancel>
+                     cancel :: (Prelude.Maybe FormButtonProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-clear>
                      clear :: (Prelude.Maybe FormButtonProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-position>
                      position :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formcta.html#cfn-amplifyuibuilder-form-formcta-submit>
                      submit :: (Prelude.Maybe FormButtonProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormCTAProperty :: FormCTAProperty
 mkFormCTAProperty
   = FormCTAProperty
-      {cancel = Prelude.Nothing, clear = Prelude.Nothing,
-       position = Prelude.Nothing, submit = Prelude.Nothing}
+      {haddock_workaround_ = (), cancel = Prelude.Nothing,
+       clear = Prelude.Nothing, position = Prelude.Nothing,
+       submit = Prelude.Nothing}
 instance ToResourceProperties FormCTAProperty where
   toResourceProperties FormCTAProperty {..}
     = ResourceProperties

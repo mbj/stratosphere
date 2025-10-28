@@ -10,15 +10,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
-  = Channel {channelName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html>
+    Channel {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelname>
+             channelName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-channelstorage>
              channelStorage :: (Prelude.Maybe ChannelStorageProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-retentionperiod>
              retentionPeriod :: (Prelude.Maybe RetentionPeriodProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html#cfn-iotanalytics-channel-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel
-      {channelName = Prelude.Nothing, channelStorage = Prelude.Nothing,
+      {haddock_workaround_ = (), channelName = Prelude.Nothing,
+       channelStorage = Prelude.Nothing,
        retentionPeriod = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}

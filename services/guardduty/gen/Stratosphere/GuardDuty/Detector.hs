@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.TagItemProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Detector
-  = Detector {dataSources :: (Prelude.Maybe CFNDataSourceConfigurationsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html>
+    Detector {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources>
+              dataSources :: (Prelude.Maybe CFNDataSourceConfigurationsProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable>
               enable :: (Value Prelude.Bool),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features>
               features :: (Prelude.Maybe [CFNFeatureConfigurationProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency>
               findingPublishingFrequency :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-tags>
               tags :: (Prelude.Maybe [TagItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDetector :: Value Prelude.Bool -> Detector
 mkDetector enable
   = Detector
-      {enable = enable, dataSources = Prelude.Nothing,
-       features = Prelude.Nothing,
+      {haddock_workaround_ = (), enable = enable,
+       dataSources = Prelude.Nothing, features = Prelude.Nothing,
        findingPublishingFrequency = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Detector where

@@ -9,14 +9,25 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.MetricDimensionProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchAlarmDefinitionProperty
-  = CloudWatchAlarmDefinitionProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html>
+    CloudWatchAlarmDefinitionProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-comparisonoperator>
+                                       comparisonOperator :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-dimensions>
                                        dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-evaluationperiods>
                                        evaluationPeriods :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-metricname>
                                        metricName :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-namespace>
                                        namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-period>
                                        period :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-statistic>
                                        statistic :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-threshold>
                                        threshold :: (Value Prelude.Double),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-unit>
                                        unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchAlarmDefinitionProperty ::
@@ -30,8 +41,8 @@ mkCloudWatchAlarmDefinitionProperty
   period
   threshold
   = CloudWatchAlarmDefinitionProperty
-      {comparisonOperator = comparisonOperator, metricName = metricName,
-       period = period, threshold = threshold,
+      {haddock_workaround_ = (), comparisonOperator = comparisonOperator,
+       metricName = metricName, period = period, threshold = threshold,
        dimensions = Prelude.Nothing, evaluationPeriods = Prelude.Nothing,
        namespace = Prelude.Nothing, statistic = Prelude.Nothing,
        unit = Prelude.Nothing}

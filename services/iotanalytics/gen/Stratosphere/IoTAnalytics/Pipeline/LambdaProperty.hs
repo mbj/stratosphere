@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaProperty
-  = LambdaProperty {batchSize :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html>
+    LambdaProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-batchsize>
+                    batchSize :: (Value Prelude.Integer),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-lambdaname>
                     lambdaName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-next>
                     next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaProperty ::
@@ -17,8 +23,8 @@ mkLambdaProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> LambdaProperty
 mkLambdaProperty batchSize lambdaName name
   = LambdaProperty
-      {batchSize = batchSize, lambdaName = lambdaName, name = name,
-       next = Prelude.Nothing}
+      {haddock_workaround_ = (), batchSize = batchSize,
+       lambdaName = lambdaName, name = name, next = Prelude.Nothing}
 instance ToResourceProperties LambdaProperty where
   toResourceProperties LambdaProperty {..}
     = ResourceProperties

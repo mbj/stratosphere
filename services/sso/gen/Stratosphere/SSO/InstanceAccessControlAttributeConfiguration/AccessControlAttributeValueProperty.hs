@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAttributeValueProperty
-  = AccessControlAttributeValueProperty {source :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html>
+    AccessControlAttributeValueProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source>
+                                         source :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAttributeValueProperty ::
   ValueList Prelude.Text -> AccessControlAttributeValueProperty
 mkAccessControlAttributeValueProperty source
-  = AccessControlAttributeValueProperty {source = source}
+  = AccessControlAttributeValueProperty
+      {haddock_workaround_ = (), source = source}
 instance ToResourceProperties AccessControlAttributeValueProperty where
   toResourceProperties AccessControlAttributeValueProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON AccessControlAttributeValueProperty where
     = JSON.object ["Source" JSON..= source]
 instance Property "Source" AccessControlAttributeValueProperty where
   type PropertyType "Source" AccessControlAttributeValueProperty = ValueList Prelude.Text
-  set newValue AccessControlAttributeValueProperty {}
+  set newValue AccessControlAttributeValueProperty {..}
     = AccessControlAttributeValueProperty {source = newValue, ..}

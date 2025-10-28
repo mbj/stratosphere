@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataPaginationConfigProperty
-  = SAPODataPaginationConfigProperty {maxPageSize :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatapaginationconfig.html>
+    SAPODataPaginationConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatapaginationconfig.html#cfn-appflow-flow-sapodatapaginationconfig-maxpagesize>
+                                      maxPageSize :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataPaginationConfigProperty ::
   Value Prelude.Integer -> SAPODataPaginationConfigProperty
 mkSAPODataPaginationConfigProperty maxPageSize
-  = SAPODataPaginationConfigProperty {maxPageSize = maxPageSize}
+  = SAPODataPaginationConfigProperty
+      {haddock_workaround_ = (), maxPageSize = maxPageSize}
 instance ToResourceProperties SAPODataPaginationConfigProperty where
   toResourceProperties SAPODataPaginationConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON SAPODataPaginationConfigProperty where
     = JSON.object ["maxPageSize" JSON..= maxPageSize]
 instance Property "maxPageSize" SAPODataPaginationConfigProperty where
   type PropertyType "maxPageSize" SAPODataPaginationConfigProperty = Value Prelude.Integer
-  set newValue SAPODataPaginationConfigProperty {}
+  set newValue SAPODataPaginationConfigProperty {..}
     = SAPODataPaginationConfigProperty {maxPageSize = newValue, ..}

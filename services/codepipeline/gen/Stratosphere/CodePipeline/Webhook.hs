@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Webhook.WebhookFilterRulePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Webhook
-  = Webhook {authentication :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html>
+    Webhook {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authentication>
+             authentication :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authenticationconfiguration>
              authenticationConfiguration :: WebhookAuthConfigurationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-filters>
              filters :: [WebhookFilterRuleProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-registerwiththirdparty>
              registerWithThirdParty :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetaction>
              targetAction :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipeline>
              targetPipeline :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipelineversion>
              targetPipelineVersion :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhook ::
@@ -32,7 +42,7 @@ mkWebhook
   targetPipeline
   targetPipelineVersion
   = Webhook
-      {authentication = authentication,
+      {haddock_workaround_ = (), authentication = authentication,
        authenticationConfiguration = authenticationConfiguration,
        filters = filters, targetAction = targetAction,
        targetPipeline = targetPipeline,

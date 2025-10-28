@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AclConfigurationProperty
-  = AclConfigurationProperty {allowedGroupsColumnName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html>
+    AclConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname>
+                              allowedGroupsColumnName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAclConfigurationProperty ::
   Value Prelude.Text -> AclConfigurationProperty
 mkAclConfigurationProperty allowedGroupsColumnName
   = AclConfigurationProperty
-      {allowedGroupsColumnName = allowedGroupsColumnName}
+      {haddock_workaround_ = (),
+       allowedGroupsColumnName = allowedGroupsColumnName}
 instance ToResourceProperties AclConfigurationProperty where
   toResourceProperties AclConfigurationProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON AclConfigurationProperty where
         ["AllowedGroupsColumnName" JSON..= allowedGroupsColumnName]
 instance Property "AllowedGroupsColumnName" AclConfigurationProperty where
   type PropertyType "AllowedGroupsColumnName" AclConfigurationProperty = Value Prelude.Text
-  set newValue AclConfigurationProperty {}
+  set newValue AclConfigurationProperty {..}
     = AclConfigurationProperty {allowedGroupsColumnName = newValue, ..}

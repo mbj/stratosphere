@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data ChallengeConfigProperty
-  = ChallengeConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeconfig.html>
+    ChallengeConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeconfig.html#cfn-wafv2-webacl-challengeconfig-immunitytimeproperty>
+                             immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChallengeConfigProperty :: ChallengeConfigProperty
 mkChallengeConfigProperty
-  = ChallengeConfigProperty {immunityTimeProperty = Prelude.Nothing}
+  = ChallengeConfigProperty
+      {haddock_workaround_ = (), immunityTimeProperty = Prelude.Nothing}
 instance ToResourceProperties ChallengeConfigProperty where
   toResourceProperties ChallengeConfigProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON ChallengeConfigProperty where
                  Prelude.<$> immunityTimeProperty]))
 instance Property "ImmunityTimeProperty" ChallengeConfigProperty where
   type PropertyType "ImmunityTimeProperty" ChallengeConfigProperty = ImmunityTimePropertyProperty
-  set newValue ChallengeConfigProperty {}
+  set newValue ChallengeConfigProperty {..}
     = ChallengeConfigProperty
         {immunityTimeProperty = Prelude.pure newValue, ..}

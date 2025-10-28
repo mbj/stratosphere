@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpAddressRequestProperty
-  = IpAddressRequestProperty {ip :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html>
+    IpAddressRequestProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ip>
+                              ip :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ipv6>
                               ipv6 :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-subnetid>
                               subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpAddressRequestProperty ::
   Value Prelude.Text -> IpAddressRequestProperty
 mkIpAddressRequestProperty subnetId
   = IpAddressRequestProperty
-      {subnetId = subnetId, ip = Prelude.Nothing, ipv6 = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetId = subnetId,
+       ip = Prelude.Nothing, ipv6 = Prelude.Nothing}
 instance ToResourceProperties IpAddressRequestProperty where
   toResourceProperties IpAddressRequestProperty {..}
     = ResourceProperties

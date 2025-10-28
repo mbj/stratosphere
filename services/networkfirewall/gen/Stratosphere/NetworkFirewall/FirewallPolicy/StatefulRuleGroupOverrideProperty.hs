@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatefulRuleGroupOverrideProperty
-  = StatefulRuleGroupOverrideProperty {action :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html>
+    StatefulRuleGroupOverrideProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupoverride-action>
+                                       action :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulRuleGroupOverrideProperty ::
   StatefulRuleGroupOverrideProperty
 mkStatefulRuleGroupOverrideProperty
-  = StatefulRuleGroupOverrideProperty {action = Prelude.Nothing}
+  = StatefulRuleGroupOverrideProperty
+      {haddock_workaround_ = (), action = Prelude.Nothing}
 instance ToResourceProperties StatefulRuleGroupOverrideProperty where
   toResourceProperties StatefulRuleGroupOverrideProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON StatefulRuleGroupOverrideProperty where
            (Prelude.catMaybes [(JSON..=) "Action" Prelude.<$> action]))
 instance Property "Action" StatefulRuleGroupOverrideProperty where
   type PropertyType "Action" StatefulRuleGroupOverrideProperty = Value Prelude.Text
-  set newValue StatefulRuleGroupOverrideProperty {}
+  set newValue StatefulRuleGroupOverrideProperty {..}
     = StatefulRuleGroupOverrideProperty
         {action = Prelude.pure newValue, ..}

@@ -9,21 +9,30 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.EnvironmentProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionConfigurationProperty
-  = FunctionConfigurationProperty {encodingType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html>
+    FunctionConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-encodingtype>
+                                   encodingType :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-environment>
                                    environment :: (Prelude.Maybe EnvironmentProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-execargs>
                                    execArgs :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-executable>
                                    executable :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-memorysize>
                                    memorySize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-pinned>
                                    pinned :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-timeout>
                                    timeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfigurationProperty :: FunctionConfigurationProperty
 mkFunctionConfigurationProperty
   = FunctionConfigurationProperty
-      {encodingType = Prelude.Nothing, environment = Prelude.Nothing,
-       execArgs = Prelude.Nothing, executable = Prelude.Nothing,
-       memorySize = Prelude.Nothing, pinned = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), encodingType = Prelude.Nothing,
+       environment = Prelude.Nothing, execArgs = Prelude.Nothing,
+       executable = Prelude.Nothing, memorySize = Prelude.Nothing,
+       pinned = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties FunctionConfigurationProperty where
   toResourceProperties FunctionConfigurationProperty {..}
     = ResourceProperties

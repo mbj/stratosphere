@@ -8,18 +8,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalyticsConfigurationProperty
-  = AnalyticsConfigurationProperty {applicationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html>
+    AnalyticsConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-applicationarn>
+                                    applicationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-applicationid>
                                     applicationId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-externalid>
                                     externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-rolearn>
                                     roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-userdatashared>
                                     userDataShared :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyticsConfigurationProperty :: AnalyticsConfigurationProperty
 mkAnalyticsConfigurationProperty
   = AnalyticsConfigurationProperty
-      {applicationArn = Prelude.Nothing, applicationId = Prelude.Nothing,
-       externalId = Prelude.Nothing, roleArn = Prelude.Nothing,
-       userDataShared = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationArn = Prelude.Nothing,
+       applicationId = Prelude.Nothing, externalId = Prelude.Nothing,
+       roleArn = Prelude.Nothing, userDataShared = Prelude.Nothing}
 instance ToResourceProperties AnalyticsConfigurationProperty where
   toResourceProperties AnalyticsConfigurationProperty {..}
     = ResourceProperties

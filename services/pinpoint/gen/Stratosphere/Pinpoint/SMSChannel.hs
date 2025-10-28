@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SMSChannel
-  = SMSChannel {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html>
+    SMSChannel {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-applicationid>
+                applicationId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-enabled>
                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-senderid>
                 senderId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html#cfn-pinpoint-smschannel-shortcode>
                 shortCode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSMSChannel :: Value Prelude.Text -> SMSChannel
 mkSMSChannel applicationId
   = SMSChannel
-      {applicationId = applicationId, enabled = Prelude.Nothing,
-       senderId = Prelude.Nothing, shortCode = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationId = applicationId,
+       enabled = Prelude.Nothing, senderId = Prelude.Nothing,
+       shortCode = Prelude.Nothing}
 instance ToResourceProperties SMSChannel where
   toResourceProperties SMSChannel {..}
     = ResourceProperties

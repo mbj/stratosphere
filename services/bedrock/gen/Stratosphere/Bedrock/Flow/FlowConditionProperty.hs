@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowConditionProperty
-  = FlowConditionProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowcondition.html>
+    FlowConditionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowcondition.html#cfn-bedrock-flow-flowcondition-expression>
+                           expression :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowcondition.html#cfn-bedrock-flow-flowcondition-name>
                            name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowConditionProperty ::
   Value Prelude.Text -> FlowConditionProperty
 mkFlowConditionProperty name
-  = FlowConditionProperty {name = name, expression = Prelude.Nothing}
+  = FlowConditionProperty
+      {haddock_workaround_ = (), name = name,
+       expression = Prelude.Nothing}
 instance ToResourceProperties FlowConditionProperty where
   toResourceProperties FlowConditionProperty {..}
     = ResourceProperties

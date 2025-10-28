@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PineconeFieldMappingProperty
-  = PineconeFieldMappingProperty {metadataField :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconefieldmapping.html>
+    PineconeFieldMappingProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconefieldmapping.html#cfn-bedrock-knowledgebase-pineconefieldmapping-metadatafield>
+                                  metadataField :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconefieldmapping.html#cfn-bedrock-knowledgebase-pineconefieldmapping-textfield>
                                   textField :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPineconeFieldMappingProperty ::
@@ -15,7 +19,8 @@ mkPineconeFieldMappingProperty ::
   -> Value Prelude.Text -> PineconeFieldMappingProperty
 mkPineconeFieldMappingProperty metadataField textField
   = PineconeFieldMappingProperty
-      {metadataField = metadataField, textField = textField}
+      {haddock_workaround_ = (), metadataField = metadataField,
+       textField = textField}
 instance ToResourceProperties PineconeFieldMappingProperty where
   toResourceProperties PineconeFieldMappingProperty {..}
     = ResourceProperties

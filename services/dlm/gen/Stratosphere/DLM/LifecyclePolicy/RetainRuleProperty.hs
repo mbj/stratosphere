@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetainRuleProperty
-  = RetainRuleProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html>
+    RetainRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-count>
+                        count :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-interval>
                         interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-intervalunit>
                         intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetainRuleProperty :: RetainRuleProperty
 mkRetainRuleProperty
   = RetainRuleProperty
-      {count = Prelude.Nothing, interval = Prelude.Nothing,
-       intervalUnit = Prelude.Nothing}
+      {haddock_workaround_ = (), count = Prelude.Nothing,
+       interval = Prelude.Nothing, intervalUnit = Prelude.Nothing}
 instance ToResourceProperties RetainRuleProperty where
   toResourceProperties RetainRuleProperty {..}
     = ResourceProperties

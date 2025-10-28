@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrackingConfigProperty
-  = TrackingConfigProperty {autotrack :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html>
+    TrackingConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack>
+                            autotrack :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackingConfigProperty :: TrackingConfigProperty
 mkTrackingConfigProperty
-  = TrackingConfigProperty {autotrack = Prelude.Nothing}
+  = TrackingConfigProperty
+      {haddock_workaround_ = (), autotrack = Prelude.Nothing}
 instance ToResourceProperties TrackingConfigProperty where
   toResourceProperties TrackingConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON TrackingConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Autotrack" Prelude.<$> autotrack]))
 instance Property "Autotrack" TrackingConfigProperty where
   type PropertyType "Autotrack" TrackingConfigProperty = Value Prelude.Text
-  set newValue TrackingConfigProperty {}
+  set newValue TrackingConfigProperty {..}
     = TrackingConfigProperty {autotrack = Prelude.pure newValue, ..}

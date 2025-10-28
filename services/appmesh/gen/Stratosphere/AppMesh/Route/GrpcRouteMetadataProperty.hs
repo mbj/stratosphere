@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcRouteMetadataMatchMethodPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcRouteMetadataProperty
-  = GrpcRouteMetadataProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html>
+    GrpcRouteMetadataProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-invert>
+                               invert :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-match>
                                match :: (Prelude.Maybe GrpcRouteMetadataMatchMethodProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html#cfn-appmesh-route-grpcroutemetadata-name>
                                name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMetadataProperty ::
   Value Prelude.Text -> GrpcRouteMetadataProperty
 mkGrpcRouteMetadataProperty name
   = GrpcRouteMetadataProperty
-      {name = name, invert = Prelude.Nothing, match = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, invert = Prelude.Nothing,
+       match = Prelude.Nothing}
 instance ToResourceProperties GrpcRouteMetadataProperty where
   toResourceProperties GrpcRouteMetadataProperty {..}
     = ResourceProperties

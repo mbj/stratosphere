@@ -8,11 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FirewallRuleGroupAssociation
-  = FirewallRuleGroupAssociation {firewallRuleGroupId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html>
+    FirewallRuleGroupAssociation {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid>
+                                  firewallRuleGroupId :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection>
                                   mutationProtection :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name>
                                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority>
                                   priority :: (Value Prelude.Integer),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags>
                                   tags :: (Prelude.Maybe [Tag]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid>
                                   vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallRuleGroupAssociation ::
@@ -21,7 +29,8 @@ mkFirewallRuleGroupAssociation ::
      -> Value Prelude.Text -> FirewallRuleGroupAssociation
 mkFirewallRuleGroupAssociation firewallRuleGroupId priority vpcId
   = FirewallRuleGroupAssociation
-      {firewallRuleGroupId = firewallRuleGroupId, priority = priority,
+      {haddock_workaround_ = (),
+       firewallRuleGroupId = firewallRuleGroupId, priority = priority,
        vpcId = vpcId, mutationProtection = Prelude.Nothing,
        name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FirewallRuleGroupAssociation where

@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterConfigProperty
-  = ClusterConfigProperty {instanceCount :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html>
+    ClusterConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount>
+                           instanceCount :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype>
                            instanceType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid>
                            volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb>
                            volumeSizeInGB :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterConfigProperty ::
@@ -18,8 +24,9 @@ mkClusterConfigProperty ::
      -> Value Prelude.Integer -> ClusterConfigProperty
 mkClusterConfigProperty instanceCount instanceType volumeSizeInGB
   = ClusterConfigProperty
-      {instanceCount = instanceCount, instanceType = instanceType,
-       volumeSizeInGB = volumeSizeInGB, volumeKmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceCount = instanceCount,
+       instanceType = instanceType, volumeSizeInGB = volumeSizeInGB,
+       volumeKmsKeyId = Prelude.Nothing}
 instance ToResourceProperties ClusterConfigProperty where
   toResourceProperties ClusterConfigProperty {..}
     = ResourceProperties

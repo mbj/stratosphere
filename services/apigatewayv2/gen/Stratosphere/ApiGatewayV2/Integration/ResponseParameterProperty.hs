@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseParameterProperty
-  = ResponseParameterProperty {destination :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html>
+    ResponseParameterProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-destination>
+                               destination :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-source>
                                source :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseParameterProperty :: ResponseParameterProperty
 mkResponseParameterProperty
   = ResponseParameterProperty
-      {destination = Prelude.Nothing, source = Prelude.Nothing}
+      {haddock_workaround_ = (), destination = Prelude.Nothing,
+       source = Prelude.Nothing}
 instance ToResourceProperties ResponseParameterProperty where
   toResourceProperties ResponseParameterProperty {..}
     = ResourceProperties

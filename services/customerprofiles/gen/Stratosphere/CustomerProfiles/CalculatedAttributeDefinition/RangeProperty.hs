@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangeProperty
-  = RangeProperty {unit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html>
+    RangeProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-unit>
+                   unit :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-value>
                    value :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> RangeProperty
 mkRangeProperty unit value
-  = RangeProperty {unit = unit, value = value}
+  = RangeProperty
+      {haddock_workaround_ = (), unit = unit, value = value}
 instance ToResourceProperties RangeProperty where
   toResourceProperties RangeProperty {..}
     = ResourceProperties

@@ -12,15 +12,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Index
-  = Index {capacityUnits :: (Prelude.Maybe CapacityUnitsConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html>
+    Index {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits>
+           capacityUnits :: (Prelude.Maybe CapacityUnitsConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations>
            documentMetadataConfigurations :: (Prelude.Maybe [DocumentMetadataConfigurationProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition>
            edition :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name>
            name :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn>
            roleArn :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration>
            serverSideEncryptionConfiguration :: (Prelude.Maybe ServerSideEncryptionConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags>
            tags :: (Prelude.Maybe [Tag]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy>
            userContextPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations>
            userTokenConfigurations :: (Prelude.Maybe [UserTokenConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIndex ::
@@ -28,8 +40,9 @@ mkIndex ::
   -> Value Prelude.Text -> Value Prelude.Text -> Index
 mkIndex edition name roleArn
   = Index
-      {edition = edition, name = name, roleArn = roleArn,
-       capacityUnits = Prelude.Nothing, description = Prelude.Nothing,
+      {haddock_workaround_ = (), edition = edition, name = name,
+       roleArn = roleArn, capacityUnits = Prelude.Nothing,
+       description = Prelude.Nothing,
        documentMetadataConfigurations = Prelude.Nothing,
        serverSideEncryptionConfiguration = Prelude.Nothing,
        tags = Prelude.Nothing, userContextPolicy = Prelude.Nothing,

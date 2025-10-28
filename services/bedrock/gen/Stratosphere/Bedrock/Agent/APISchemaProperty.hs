@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Agent.S3IdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data APISchemaProperty
-  = APISchemaProperty {payload :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html>
+    APISchemaProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html#cfn-bedrock-agent-apischema-payload>
+                       payload :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html#cfn-bedrock-agent-apischema-s3>
                        s3 :: (Prelude.Maybe S3IdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAPISchemaProperty :: APISchemaProperty
 mkAPISchemaProperty
   = APISchemaProperty
-      {payload = Prelude.Nothing, s3 = Prelude.Nothing}
+      {haddock_workaround_ = (), payload = Prelude.Nothing,
+       s3 = Prelude.Nothing}
 instance ToResourceProperties APISchemaProperty where
   toResourceProperties APISchemaProperty {..}
     = ResourceProperties

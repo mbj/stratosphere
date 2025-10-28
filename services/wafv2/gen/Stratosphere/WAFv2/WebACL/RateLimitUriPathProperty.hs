@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data RateLimitUriPathProperty
-  = RateLimitUriPathProperty {textTransformations :: [TextTransformationProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimituripath.html>
+    RateLimitUriPathProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimituripath.html#cfn-wafv2-webacl-ratelimituripath-texttransformations>
+                              textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitUriPathProperty ::
   [TextTransformationProperty] -> RateLimitUriPathProperty
 mkRateLimitUriPathProperty textTransformations
   = RateLimitUriPathProperty
-      {textTransformations = textTransformations}
+      {haddock_workaround_ = (),
+       textTransformations = textTransformations}
 instance ToResourceProperties RateLimitUriPathProperty where
   toResourceProperties RateLimitUriPathProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON RateLimitUriPathProperty where
     = JSON.object ["TextTransformations" JSON..= textTransformations]
 instance Property "TextTransformations" RateLimitUriPathProperty where
   type PropertyType "TextTransformations" RateLimitUriPathProperty = [TextTransformationProperty]
-  set newValue RateLimitUriPathProperty {}
+  set newValue RateLimitUriPathProperty {..}
     = RateLimitUriPathProperty {textTransformations = newValue, ..}

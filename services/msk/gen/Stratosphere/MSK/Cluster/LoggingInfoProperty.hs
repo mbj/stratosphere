@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.BrokerLogsProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingInfoProperty
-  = LoggingInfoProperty {brokerLogs :: BrokerLogsProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html>
+    LoggingInfoProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs>
+                         brokerLogs :: BrokerLogsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingInfoProperty :: BrokerLogsProperty -> LoggingInfoProperty
 mkLoggingInfoProperty brokerLogs
-  = LoggingInfoProperty {brokerLogs = brokerLogs}
+  = LoggingInfoProperty
+      {haddock_workaround_ = (), brokerLogs = brokerLogs}
 instance ToResourceProperties LoggingInfoProperty where
   toResourceProperties LoggingInfoProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON LoggingInfoProperty where
     = JSON.object ["BrokerLogs" JSON..= brokerLogs]
 instance Property "BrokerLogs" LoggingInfoProperty where
   type PropertyType "BrokerLogs" LoggingInfoProperty = BrokerLogsProperty
-  set newValue LoggingInfoProperty {}
+  set newValue LoggingInfoProperty {..}
     = LoggingInfoProperty {brokerLogs = newValue, ..}

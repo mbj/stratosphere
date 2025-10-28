@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCProperty
-  = VPCProperty {vPCId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html>
+    VPCProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid>
+                 vPCId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion>
                  vPCRegion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCProperty ::
   Value Prelude.Text -> Value Prelude.Text -> VPCProperty
 mkVPCProperty vPCId vPCRegion
-  = VPCProperty {vPCId = vPCId, vPCRegion = vPCRegion}
+  = VPCProperty
+      {haddock_workaround_ = (), vPCId = vPCId, vPCRegion = vPCRegion}
 instance ToResourceProperties VPCProperty where
   toResourceProperties VPCProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CisTargetsProperty
-  = CisTargetsProperty {accountIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html>
+    CisTargetsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html#cfn-inspectorv2-cisscanconfiguration-cistargets-accountids>
+                        accountIds :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html#cfn-inspectorv2-cisscanconfiguration-cistargets-targetresourcetags>
                         targetResourceTags :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCisTargetsProperty ::
   ValueList Prelude.Text -> JSON.Object -> CisTargetsProperty
 mkCisTargetsProperty accountIds targetResourceTags
   = CisTargetsProperty
-      {accountIds = accountIds, targetResourceTags = targetResourceTags}
+      {haddock_workaround_ = (), accountIds = accountIds,
+       targetResourceTags = targetResourceTags}
 instance ToResourceProperties CisTargetsProperty where
   toResourceProperties CisTargetsProperty {..}
     = ResourceProperties

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleQueryArgumentProperty
-  = SingleQueryArgumentProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html>
+    SingleQueryArgumentProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html#cfn-wafv2-webacl-singlequeryargument-name>
+                                 name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleQueryArgumentProperty ::
   Value Prelude.Text -> SingleQueryArgumentProperty
 mkSingleQueryArgumentProperty name
-  = SingleQueryArgumentProperty {name = name}
+  = SingleQueryArgumentProperty
+      {haddock_workaround_ = (), name = name}
 instance ToResourceProperties SingleQueryArgumentProperty where
   toResourceProperties SingleQueryArgumentProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON SingleQueryArgumentProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" SingleQueryArgumentProperty where
   type PropertyType "Name" SingleQueryArgumentProperty = Value Prelude.Text
-  set newValue SingleQueryArgumentProperty {}
+  set newValue SingleQueryArgumentProperty {..}
     = SingleQueryArgumentProperty {name = newValue, ..}

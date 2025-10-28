@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VeevaConnectorProfilePropertiesProperty
-  = VeevaConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html>
+    VeevaConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl>
+                                             instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVeevaConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> VeevaConnectorProfilePropertiesProperty
 mkVeevaConnectorProfilePropertiesProperty instanceUrl
   = VeevaConnectorProfilePropertiesProperty
-      {instanceUrl = instanceUrl}
+      {haddock_workaround_ = (), instanceUrl = instanceUrl}
 instance ToResourceProperties VeevaConnectorProfilePropertiesProperty where
   toResourceProperties VeevaConnectorProfilePropertiesProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON VeevaConnectorProfilePropertiesProperty where
     = JSON.object ["InstanceUrl" JSON..= instanceUrl]
 instance Property "InstanceUrl" VeevaConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" VeevaConnectorProfilePropertiesProperty = Value Prelude.Text
-  set newValue VeevaConnectorProfilePropertiesProperty {}
+  set newValue VeevaConnectorProfilePropertiesProperty {..}
     = VeevaConnectorProfilePropertiesProperty
         {instanceUrl = newValue, ..}

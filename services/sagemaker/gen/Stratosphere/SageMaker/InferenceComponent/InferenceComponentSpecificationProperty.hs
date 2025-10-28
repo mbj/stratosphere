@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.InferenceCompone
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceComponentSpecificationProperty
-  = InferenceComponentSpecificationProperty {baseInferenceComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html>
+    InferenceComponentSpecificationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-baseinferencecomponentname>
+                                             baseInferenceComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-computeresourcerequirements>
                                              computeResourceRequirements :: (Prelude.Maybe InferenceComponentComputeResourceRequirementsProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-container>
                                              container :: (Prelude.Maybe InferenceComponentContainerSpecificationProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-modelname>
                                              modelName :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-startupparameters>
                                              startupParameters :: (Prelude.Maybe InferenceComponentStartupParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponentSpecificationProperty ::
   InferenceComponentSpecificationProperty
 mkInferenceComponentSpecificationProperty
   = InferenceComponentSpecificationProperty
-      {baseInferenceComponentName = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       baseInferenceComponentName = Prelude.Nothing,
        computeResourceRequirements = Prelude.Nothing,
        container = Prelude.Nothing, modelName = Prelude.Nothing,
        startupParameters = Prelude.Nothing}

@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.TextS3LocationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextPromptTemplateConfigurationProperty
-  = TextPromptTemplateConfigurationProperty {inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html>
+    TextPromptTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-inputvariables>
+                                             inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-text>
                                              text :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-texts3location>
                                              textS3Location :: (Prelude.Maybe TextS3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextPromptTemplateConfigurationProperty ::
   TextPromptTemplateConfigurationProperty
 mkTextPromptTemplateConfigurationProperty
   = TextPromptTemplateConfigurationProperty
-      {inputVariables = Prelude.Nothing, text = Prelude.Nothing,
-       textS3Location = Prelude.Nothing}
+      {haddock_workaround_ = (), inputVariables = Prelude.Nothing,
+       text = Prelude.Nothing, textS3Location = Prelude.Nothing}
 instance ToResourceProperties TextPromptTemplateConfigurationProperty where
   toResourceProperties TextPromptTemplateConfigurationProperty {..}
     = ResourceProperties

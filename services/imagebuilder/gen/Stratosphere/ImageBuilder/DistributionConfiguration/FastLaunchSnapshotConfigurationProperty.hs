@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FastLaunchSnapshotConfigurationProperty
-  = FastLaunchSnapshotConfigurationProperty {targetResourceCount :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html>
+    FastLaunchSnapshotConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration-targetresourcecount>
+                                             targetResourceCount :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFastLaunchSnapshotConfigurationProperty ::
   FastLaunchSnapshotConfigurationProperty
 mkFastLaunchSnapshotConfigurationProperty
   = FastLaunchSnapshotConfigurationProperty
-      {targetResourceCount = Prelude.Nothing}
+      {haddock_workaround_ = (), targetResourceCount = Prelude.Nothing}
 instance ToResourceProperties FastLaunchSnapshotConfigurationProperty where
   toResourceProperties FastLaunchSnapshotConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON FastLaunchSnapshotConfigurationProperty where
               [(JSON..=) "TargetResourceCount" Prelude.<$> targetResourceCount]))
 instance Property "TargetResourceCount" FastLaunchSnapshotConfigurationProperty where
   type PropertyType "TargetResourceCount" FastLaunchSnapshotConfigurationProperty = Value Prelude.Integer
-  set newValue FastLaunchSnapshotConfigurationProperty {}
+  set newValue FastLaunchSnapshotConfigurationProperty {..}
     = FastLaunchSnapshotConfigurationProperty
         {targetResourceCount = Prelude.pure newValue, ..}

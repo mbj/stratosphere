@@ -10,16 +10,24 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.ApplicationSettings.QuietTimePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationSettings
-  = ApplicationSettings {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html>
+    ApplicationSettings {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-applicationid>
+                         applicationId :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-campaignhook>
                          campaignHook :: (Prelude.Maybe CampaignHookProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-cloudwatchmetricsenabled>
                          cloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-limits>
                          limits :: (Prelude.Maybe LimitsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-quiettime>
                          quietTime :: (Prelude.Maybe QuietTimeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSettings :: Value Prelude.Text -> ApplicationSettings
 mkApplicationSettings applicationId
   = ApplicationSettings
-      {applicationId = applicationId, campaignHook = Prelude.Nothing,
+      {haddock_workaround_ = (), applicationId = applicationId,
+       campaignHook = Prelude.Nothing,
        cloudWatchMetricsEnabled = Prelude.Nothing,
        limits = Prelude.Nothing, quietTime = Prelude.Nothing}
 instance ToResourceProperties ApplicationSettings where

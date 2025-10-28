@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProgressiveDialerConfigProperty
-  = ProgressiveDialerConfigProperty {bandwidthAllocation :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-progressivedialerconfig.html>
+    ProgressiveDialerConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-progressivedialerconfig.html#cfn-connectcampaigns-campaign-progressivedialerconfig-bandwidthallocation>
+                                     bandwidthAllocation :: (Value Prelude.Double),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-progressivedialerconfig.html#cfn-connectcampaigns-campaign-progressivedialerconfig-dialingcapacity>
                                      dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProgressiveDialerConfigProperty ::
   Value Prelude.Double -> ProgressiveDialerConfigProperty
 mkProgressiveDialerConfigProperty bandwidthAllocation
   = ProgressiveDialerConfigProperty
-      {bandwidthAllocation = bandwidthAllocation,
+      {haddock_workaround_ = (),
+       bandwidthAllocation = bandwidthAllocation,
        dialingCapacity = Prelude.Nothing}
 instance ToResourceProperties ProgressiveDialerConfigProperty where
   toResourceProperties ProgressiveDialerConfigProperty {..}

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalTimeZoneConfigProperty
-  = LocalTimeZoneConfigProperty {defaultTimeZone :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html>
+    LocalTimeZoneConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html#cfn-connectcampaignsv2-campaign-localtimezoneconfig-defaulttimezone>
+                                 defaultTimeZone :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html#cfn-connectcampaignsv2-campaign-localtimezoneconfig-localtimezonedetection>
                                  localTimeZoneDetection :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalTimeZoneConfigProperty :: LocalTimeZoneConfigProperty
 mkLocalTimeZoneConfigProperty
   = LocalTimeZoneConfigProperty
-      {defaultTimeZone = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultTimeZone = Prelude.Nothing,
        localTimeZoneDetection = Prelude.Nothing}
 instance ToResourceProperties LocalTimeZoneConfigProperty where
   toResourceProperties LocalTimeZoneConfigProperty {..}

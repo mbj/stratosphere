@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AsyncInferenceClientConfigProperty
-  = AsyncInferenceClientConfigProperty {maxConcurrentInvocationsPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html>
+    AsyncInferenceClientConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceclientconfig-maxconcurrentinvocationsperinstance>
+                                        maxConcurrentInvocationsPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceClientConfigProperty ::
   AsyncInferenceClientConfigProperty
 mkAsyncInferenceClientConfigProperty
   = AsyncInferenceClientConfigProperty
-      {maxConcurrentInvocationsPerInstance = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       maxConcurrentInvocationsPerInstance = Prelude.Nothing}
 instance ToResourceProperties AsyncInferenceClientConfigProperty where
   toResourceProperties AsyncInferenceClientConfigProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON AsyncInferenceClientConfigProperty where
                  Prelude.<$> maxConcurrentInvocationsPerInstance]))
 instance Property "MaxConcurrentInvocationsPerInstance" AsyncInferenceClientConfigProperty where
   type PropertyType "MaxConcurrentInvocationsPerInstance" AsyncInferenceClientConfigProperty = Value Prelude.Integer
-  set newValue AsyncInferenceClientConfigProperty {}
+  set newValue AsyncInferenceClientConfigProperty {..}
     = AsyncInferenceClientConfigProperty
         {maxConcurrentInvocationsPerInstance = Prelude.pure newValue, ..}

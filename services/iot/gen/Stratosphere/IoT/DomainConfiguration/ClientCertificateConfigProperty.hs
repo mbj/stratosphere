@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientCertificateConfigProperty
-  = ClientCertificateConfigProperty {clientCertificateCallbackArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html>
+    ClientCertificateConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html#cfn-iot-domainconfiguration-clientcertificateconfig-clientcertificatecallbackarn>
+                                     clientCertificateCallbackArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientCertificateConfigProperty ::
   ClientCertificateConfigProperty
 mkClientCertificateConfigProperty
   = ClientCertificateConfigProperty
-      {clientCertificateCallbackArn = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       clientCertificateCallbackArn = Prelude.Nothing}
 instance ToResourceProperties ClientCertificateConfigProperty where
   toResourceProperties ClientCertificateConfigProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON ClientCertificateConfigProperty where
                  Prelude.<$> clientCertificateCallbackArn]))
 instance Property "ClientCertificateCallbackArn" ClientCertificateConfigProperty where
   type PropertyType "ClientCertificateCallbackArn" ClientCertificateConfigProperty = Value Prelude.Text
-  set newValue ClientCertificateConfigProperty {}
+  set newValue ClientCertificateConfigProperty {..}
     = ClientCertificateConfigProperty
         {clientCertificateCallbackArn = Prelude.pure newValue, ..}

@@ -8,12 +8,18 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StreamKey
-  = StreamKey {channelArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html>
+    StreamKey {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn>
+               channelArn :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamKey :: Value Prelude.Text -> StreamKey
 mkStreamKey channelArn
-  = StreamKey {channelArn = channelArn, tags = Prelude.Nothing}
+  = StreamKey
+      {haddock_workaround_ = (), channelArn = channelArn,
+       tags = Prelude.Nothing}
 instance ToResourceProperties StreamKey where
   toResourceProperties StreamKey {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty as Exports
 import Stratosphere.ResourceProperties
 data MetricWindowProperty
-  = MetricWindowProperty {tumbling :: (Prelude.Maybe TumblingWindowProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html>
+    MetricWindowProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling>
+                          tumbling :: (Prelude.Maybe TumblingWindowProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricWindowProperty :: MetricWindowProperty
 mkMetricWindowProperty
-  = MetricWindowProperty {tumbling = Prelude.Nothing}
+  = MetricWindowProperty
+      {haddock_workaround_ = (), tumbling = Prelude.Nothing}
 instance ToResourceProperties MetricWindowProperty where
   toResourceProperties MetricWindowProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON MetricWindowProperty where
            (Prelude.catMaybes [(JSON..=) "Tumbling" Prelude.<$> tumbling]))
 instance Property "Tumbling" MetricWindowProperty where
   type PropertyType "Tumbling" MetricWindowProperty = TumblingWindowProperty
-  set newValue MetricWindowProperty {}
+  set newValue MetricWindowProperty {..}
     = MetricWindowProperty {tumbling = Prelude.pure newValue, ..}

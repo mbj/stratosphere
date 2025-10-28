@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetryOptionsProperty
-  = RetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html>
+    RetryOptionsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds>
+                          durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryOptionsProperty :: RetryOptionsProperty
 mkRetryOptionsProperty
-  = RetryOptionsProperty {durationInSeconds = Prelude.Nothing}
+  = RetryOptionsProperty
+      {haddock_workaround_ = (), durationInSeconds = Prelude.Nothing}
 instance ToResourceProperties RetryOptionsProperty where
   toResourceProperties RetryOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON RetryOptionsProperty where
               [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
 instance Property "DurationInSeconds" RetryOptionsProperty where
   type PropertyType "DurationInSeconds" RetryOptionsProperty = Value Prelude.Integer
-  set newValue RetryOptionsProperty {}
+  set newValue RetryOptionsProperty {..}
     = RetryOptionsProperty
         {durationInSeconds = Prelude.pure newValue, ..}

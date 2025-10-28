@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortRangeFilterProperty
-  = PortRangeFilterProperty {beginInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html>
+    PortRangeFilterProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-begininclusive>
+                             beginInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html#cfn-inspectorv2-filter-portrangefilter-endinclusive>
                              endInclusive :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortRangeFilterProperty :: PortRangeFilterProperty
 mkPortRangeFilterProperty
   = PortRangeFilterProperty
-      {beginInclusive = Prelude.Nothing, endInclusive = Prelude.Nothing}
+      {haddock_workaround_ = (), beginInclusive = Prelude.Nothing,
+       endInclusive = Prelude.Nothing}
 instance ToResourceProperties PortRangeFilterProperty where
   toResourceProperties PortRangeFilterProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptchaActionProperty
-  = CaptchaActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html>
+    CaptchaActionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html#cfn-wafv2-webacl-captchaaction-customrequesthandling>
+                           customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaActionProperty :: CaptchaActionProperty
 mkCaptchaActionProperty
-  = CaptchaActionProperty {customRequestHandling = Prelude.Nothing}
+  = CaptchaActionProperty
+      {haddock_workaround_ = (), customRequestHandling = Prelude.Nothing}
 instance ToResourceProperties CaptchaActionProperty where
   toResourceProperties CaptchaActionProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON CaptchaActionProperty where
                  Prelude.<$> customRequestHandling]))
 instance Property "CustomRequestHandling" CaptchaActionProperty where
   type PropertyType "CustomRequestHandling" CaptchaActionProperty = CustomRequestHandlingProperty
-  set newValue CaptchaActionProperty {}
+  set newValue CaptchaActionProperty {..}
     = CaptchaActionProperty
         {customRequestHandling = Prelude.pure newValue, ..}

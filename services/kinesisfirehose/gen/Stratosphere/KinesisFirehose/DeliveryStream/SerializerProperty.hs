@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.OrcSerDeProper
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ParquetSerDeProperty as Exports
 import Stratosphere.ResourceProperties
 data SerializerProperty
-  = SerializerProperty {orcSerDe :: (Prelude.Maybe OrcSerDeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html>
+    SerializerProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde>
+                        orcSerDe :: (Prelude.Maybe OrcSerDeProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde>
                         parquetSerDe :: (Prelude.Maybe ParquetSerDeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSerializerProperty :: SerializerProperty
 mkSerializerProperty
   = SerializerProperty
-      {orcSerDe = Prelude.Nothing, parquetSerDe = Prelude.Nothing}
+      {haddock_workaround_ = (), orcSerDe = Prelude.Nothing,
+       parquetSerDe = Prelude.Nothing}
 instance ToResourceProperties SerializerProperty where
   toResourceProperties SerializerProperty {..}
     = ResourceProperties

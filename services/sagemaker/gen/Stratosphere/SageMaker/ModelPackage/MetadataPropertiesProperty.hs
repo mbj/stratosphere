@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetadataPropertiesProperty
-  = MetadataPropertiesProperty {commitId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html>
+    MetadataPropertiesProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html#cfn-sagemaker-modelpackage-metadataproperties-commitid>
+                                commitId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html#cfn-sagemaker-modelpackage-metadataproperties-generatedby>
                                 generatedBy :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html#cfn-sagemaker-modelpackage-metadataproperties-projectid>
                                 projectId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html#cfn-sagemaker-modelpackage-metadataproperties-repository>
                                 repository :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataPropertiesProperty :: MetadataPropertiesProperty
 mkMetadataPropertiesProperty
   = MetadataPropertiesProperty
-      {commitId = Prelude.Nothing, generatedBy = Prelude.Nothing,
-       projectId = Prelude.Nothing, repository = Prelude.Nothing}
+      {haddock_workaround_ = (), commitId = Prelude.Nothing,
+       generatedBy = Prelude.Nothing, projectId = Prelude.Nothing,
+       repository = Prelude.Nothing}
 instance ToResourceProperties MetadataPropertiesProperty where
   toResourceProperties MetadataPropertiesProperty {..}
     = ResourceProperties

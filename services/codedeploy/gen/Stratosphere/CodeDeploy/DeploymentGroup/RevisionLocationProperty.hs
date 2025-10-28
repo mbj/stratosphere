@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.S3LocationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RevisionLocationProperty
-  = RevisionLocationProperty {gitHubLocation :: (Prelude.Maybe GitHubLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>
+    RevisionLocationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision-githublocation>
+                              gitHubLocation :: (Prelude.Maybe GitHubLocationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision-revisiontype>
                               revisionType :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision-s3location>
                               s3Location :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRevisionLocationProperty :: RevisionLocationProperty
 mkRevisionLocationProperty
   = RevisionLocationProperty
-      {gitHubLocation = Prelude.Nothing, revisionType = Prelude.Nothing,
-       s3Location = Prelude.Nothing}
+      {haddock_workaround_ = (), gitHubLocation = Prelude.Nothing,
+       revisionType = Prelude.Nothing, s3Location = Prelude.Nothing}
 instance ToResourceProperties RevisionLocationProperty where
   toResourceProperties RevisionLocationProperty {..}
     = ResourceProperties

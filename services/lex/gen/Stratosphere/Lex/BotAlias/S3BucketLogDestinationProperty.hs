@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3BucketLogDestinationProperty
-  = S3BucketLogDestinationProperty {kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html>
+    S3BucketLogDestinationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-kmskeyarn>
+                                    kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-logprefix>
                                     logPrefix :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-s3bucketarn>
                                     s3BucketArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3BucketLogDestinationProperty ::
@@ -17,8 +22,8 @@ mkS3BucketLogDestinationProperty ::
   -> Value Prelude.Text -> S3BucketLogDestinationProperty
 mkS3BucketLogDestinationProperty logPrefix s3BucketArn
   = S3BucketLogDestinationProperty
-      {logPrefix = logPrefix, s3BucketArn = s3BucketArn,
-       kmsKeyArn = Prelude.Nothing}
+      {haddock_workaround_ = (), logPrefix = logPrefix,
+       s3BucketArn = s3BucketArn, kmsKeyArn = Prelude.Nothing}
 instance ToResourceProperties S3BucketLogDestinationProperty where
   toResourceProperties S3BucketLogDestinationProperty {..}
     = ResourceProperties

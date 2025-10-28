@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProtectedQueryS3OutputConfigurationProperty
-  = ProtectedQueryS3OutputConfigurationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html>
+    ProtectedQueryS3OutputConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-bucket>
+                                                 bucket :: (Value Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-keyprefix>
                                                  keyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-resultformat>
                                                  resultFormat :: (Value Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-singlefileoutput>
                                                  singleFileOutput :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtectedQueryS3OutputConfigurationProperty ::
@@ -19,8 +25,9 @@ mkProtectedQueryS3OutputConfigurationProperty ::
      -> ProtectedQueryS3OutputConfigurationProperty
 mkProtectedQueryS3OutputConfigurationProperty bucket resultFormat
   = ProtectedQueryS3OutputConfigurationProperty
-      {bucket = bucket, resultFormat = resultFormat,
-       keyPrefix = Prelude.Nothing, singleFileOutput = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket,
+       resultFormat = resultFormat, keyPrefix = Prelude.Nothing,
+       singleFileOutput = Prelude.Nothing}
 instance ToResourceProperties ProtectedQueryS3OutputConfigurationProperty where
   toResourceProperties
     ProtectedQueryS3OutputConfigurationProperty {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrossRegionCopyTargetProperty
-  = CrossRegionCopyTargetProperty {targetRegion :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>
+    CrossRegionCopyTargetProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html#cfn-dlm-lifecyclepolicy-crossregioncopytarget-targetregion>
+                                   targetRegion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyTargetProperty :: CrossRegionCopyTargetProperty
 mkCrossRegionCopyTargetProperty
-  = CrossRegionCopyTargetProperty {targetRegion = Prelude.Nothing}
+  = CrossRegionCopyTargetProperty
+      {haddock_workaround_ = (), targetRegion = Prelude.Nothing}
 instance ToResourceProperties CrossRegionCopyTargetProperty where
   toResourceProperties CrossRegionCopyTargetProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON CrossRegionCopyTargetProperty where
               [(JSON..=) "TargetRegion" Prelude.<$> targetRegion]))
 instance Property "TargetRegion" CrossRegionCopyTargetProperty where
   type PropertyType "TargetRegion" CrossRegionCopyTargetProperty = Value Prelude.Text
-  set newValue CrossRegionCopyTargetProperty {}
+  set newValue CrossRegionCopyTargetProperty {..}
     = CrossRegionCopyTargetProperty
         {targetRegion = Prelude.pure newValue, ..}

@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.KeyUsagePropertyPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateKeyAttributesV3Property
-  = PrivateKeyAttributesV3Property {algorithm :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html>
+    PrivateKeyAttributesV3Property {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html#cfn-pcaconnectorad-template-privatekeyattributesv3-algorithm>
+                                    algorithm :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html#cfn-pcaconnectorad-template-privatekeyattributesv3-cryptoproviders>
                                     cryptoProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html#cfn-pcaconnectorad-template-privatekeyattributesv3-keyspec>
                                     keySpec :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html#cfn-pcaconnectorad-template-privatekeyattributesv3-keyusageproperty>
                                     keyUsageProperty :: KeyUsagePropertyProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html#cfn-pcaconnectorad-template-privatekeyattributesv3-minimalkeylength>
                                     minimalKeyLength :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateKeyAttributesV3Property ::
@@ -26,8 +33,8 @@ mkPrivateKeyAttributesV3Property
   keyUsageProperty
   minimalKeyLength
   = PrivateKeyAttributesV3Property
-      {algorithm = algorithm, keySpec = keySpec,
-       keyUsageProperty = keyUsageProperty,
+      {haddock_workaround_ = (), algorithm = algorithm,
+       keySpec = keySpec, keyUsageProperty = keyUsageProperty,
        minimalKeyLength = minimalKeyLength,
        cryptoProviders = Prelude.Nothing}
 instance ToResourceProperties PrivateKeyAttributesV3Property where

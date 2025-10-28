@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationProperty
-  = DestinationProperty {location :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html>
+    DestinationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html#cfn-cloudtrail-channel-destination-location>
+                         location :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html#cfn-cloudtrail-channel-destination-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DestinationProperty
 mkDestinationProperty location type'
-  = DestinationProperty {location = location, type' = type'}
+  = DestinationProperty
+      {haddock_workaround_ = (), location = location, type' = type'}
 instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties

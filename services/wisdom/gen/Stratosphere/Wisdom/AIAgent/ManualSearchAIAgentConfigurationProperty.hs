@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.AssociationConfigurationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManualSearchAIAgentConfigurationProperty
-  = ManualSearchAIAgentConfigurationProperty {answerGenerationAIPromptId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html>
+    ManualSearchAIAgentConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-answergenerationaipromptid>
+                                              answerGenerationAIPromptId :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-associationconfigurations>
                                               associationConfigurations :: (Prelude.Maybe [AssociationConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManualSearchAIAgentConfigurationProperty ::
   ManualSearchAIAgentConfigurationProperty
 mkManualSearchAIAgentConfigurationProperty
   = ManualSearchAIAgentConfigurationProperty
-      {answerGenerationAIPromptId = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       answerGenerationAIPromptId = Prelude.Nothing,
        associationConfigurations = Prelude.Nothing}
 instance ToResourceProperties ManualSearchAIAgentConfigurationProperty where
   toResourceProperties ManualSearchAIAgentConfigurationProperty {..}

@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.InAppMessageContentProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CampaignInAppMessageProperty
-  = CampaignInAppMessageProperty {content :: (Prelude.Maybe [InAppMessageContentProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html>
+    CampaignInAppMessageProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-content>
+                                  content :: (Prelude.Maybe [InAppMessageContentProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-customconfig>
                                   customConfig :: (Prelude.Maybe JSON.Object),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html#cfn-pinpoint-campaign-campaigninappmessage-layout>
                                   layout :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignInAppMessageProperty :: CampaignInAppMessageProperty
 mkCampaignInAppMessageProperty
   = CampaignInAppMessageProperty
-      {content = Prelude.Nothing, customConfig = Prelude.Nothing,
-       layout = Prelude.Nothing}
+      {haddock_workaround_ = (), content = Prelude.Nothing,
+       customConfig = Prelude.Nothing, layout = Prelude.Nothing}
 instance ToResourceProperties CampaignInAppMessageProperty where
   toResourceProperties CampaignInAppMessageProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionExpressionProperty
-  = ConditionExpressionProperty {condition :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html>
+    ConditionExpressionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition>
+                                 condition :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn>
                                  targetColumn :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value>
                                  value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionExpressionProperty ::
@@ -16,8 +21,8 @@ mkConditionExpressionProperty ::
   -> Value Prelude.Text -> ConditionExpressionProperty
 mkConditionExpressionProperty condition targetColumn
   = ConditionExpressionProperty
-      {condition = condition, targetColumn = targetColumn,
-       value = Prelude.Nothing}
+      {haddock_workaround_ = (), condition = condition,
+       targetColumn = targetColumn, value = Prelude.Nothing}
 instance ToResourceProperties ConditionExpressionProperty where
   toResourceProperties ConditionExpressionProperty {..}
     = ResourceProperties

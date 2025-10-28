@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrlDistributionPointExtensionConfigurationProperty
-  = CrlDistributionPointExtensionConfigurationProperty {omitExtension :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html>
+    CrlDistributionPointExtensionConfigurationProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html#cfn-acmpca-certificateauthority-crldistributionpointextensionconfiguration-omitextension>
+                                                        omitExtension :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrlDistributionPointExtensionConfigurationProperty ::
   Value Prelude.Bool
   -> CrlDistributionPointExtensionConfigurationProperty
 mkCrlDistributionPointExtensionConfigurationProperty omitExtension
   = CrlDistributionPointExtensionConfigurationProperty
-      {omitExtension = omitExtension}
+      {haddock_workaround_ = (), omitExtension = omitExtension}
 instance ToResourceProperties CrlDistributionPointExtensionConfigurationProperty where
   toResourceProperties
     CrlDistributionPointExtensionConfigurationProperty {..}
@@ -28,6 +31,8 @@ instance JSON.ToJSON CrlDistributionPointExtensionConfigurationProperty where
     = JSON.object ["OmitExtension" JSON..= omitExtension]
 instance Property "OmitExtension" CrlDistributionPointExtensionConfigurationProperty where
   type PropertyType "OmitExtension" CrlDistributionPointExtensionConfigurationProperty = Value Prelude.Bool
-  set newValue CrlDistributionPointExtensionConfigurationProperty {}
+  set
+    newValue
+    CrlDistributionPointExtensionConfigurationProperty {..}
     = CrlDistributionPointExtensionConfigurationProperty
         {omitExtension = newValue, ..}

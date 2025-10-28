@@ -9,17 +9,23 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.CapacitySizeProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficRoutingConfigProperty
-  = TrafficRoutingConfigProperty {canarySize :: (Prelude.Maybe CapacitySizeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>
+    TrafficRoutingConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-canarysize>
+                                  canarySize :: (Prelude.Maybe CapacitySizeProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-linearstepsize>
                                   linearStepSize :: (Prelude.Maybe CapacitySizeProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-type>
                                   type' :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-waitintervalinseconds>
                                   waitIntervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRoutingConfigProperty ::
   Value Prelude.Text -> TrafficRoutingConfigProperty
 mkTrafficRoutingConfigProperty type'
   = TrafficRoutingConfigProperty
-      {type' = type', canarySize = Prelude.Nothing,
-       linearStepSize = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       canarySize = Prelude.Nothing, linearStepSize = Prelude.Nothing,
        waitIntervalInSeconds = Prelude.Nothing}
 instance ToResourceProperties TrafficRoutingConfigProperty where
   toResourceProperties TrafficRoutingConfigProperty {..}

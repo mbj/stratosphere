@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.Table.PartitionKeyProperty as Exports
 import Stratosphere.ResourceProperties
 data SchemaProperty
-  = SchemaProperty {compositePartitionKey :: (Prelude.Maybe [PartitionKeyProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-schema.html>
+    SchemaProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-schema.html#cfn-timestream-table-schema-compositepartitionkey>
+                    compositePartitionKey :: (Prelude.Maybe [PartitionKeyProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaProperty :: SchemaProperty
 mkSchemaProperty
-  = SchemaProperty {compositePartitionKey = Prelude.Nothing}
+  = SchemaProperty
+      {haddock_workaround_ = (), compositePartitionKey = Prelude.Nothing}
 instance ToResourceProperties SchemaProperty where
   toResourceProperties SchemaProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON SchemaProperty where
                  Prelude.<$> compositePartitionKey]))
 instance Property "CompositePartitionKey" SchemaProperty where
   type PropertyType "CompositePartitionKey" SchemaProperty = [PartitionKeyProperty]
-  set newValue SchemaProperty {}
+  set newValue SchemaProperty {..}
     = SchemaProperty
         {compositePartitionKey = Prelude.pure newValue, ..}

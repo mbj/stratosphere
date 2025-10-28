@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputSettingsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputProperty
-  = OutputProperty {audioDescriptionNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html>
+    OutputProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-audiodescriptionnames>
+                    audioDescriptionNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-captiondescriptionnames>
                     captionDescriptionNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-outputname>
                     outputName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-outputsettings>
                     outputSettings :: (Prelude.Maybe OutputSettingsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html#cfn-medialive-channel-output-videodescriptionname>
                     videoDescriptionName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: OutputProperty
 mkOutputProperty
   = OutputProperty
-      {audioDescriptionNames = Prelude.Nothing,
+      {haddock_workaround_ = (), audioDescriptionNames = Prelude.Nothing,
        captionDescriptionNames = Prelude.Nothing,
        outputName = Prelude.Nothing, outputSettings = Prelude.Nothing,
        videoDescriptionName = Prelude.Nothing}

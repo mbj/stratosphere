@@ -8,15 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data OrganizationalUnit
-  = OrganizationalUnit {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html>
+    OrganizationalUnit {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html#cfn-organizations-organizationalunit-name>
+                        name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html#cfn-organizations-organizationalunit-parentid>
                         parentId :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html#cfn-organizations-organizationalunit-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationalUnit ::
   Value Prelude.Text -> Value Prelude.Text -> OrganizationalUnit
 mkOrganizationalUnit name parentId
   = OrganizationalUnit
-      {name = name, parentId = parentId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, parentId = parentId,
+       tags = Prelude.Nothing}
 instance ToResourceProperties OrganizationalUnit where
   toResourceProperties OrganizationalUnit {..}
     = ResourceProperties

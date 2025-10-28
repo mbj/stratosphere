@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordingModeOverrideProperty
-  = RecordingModeOverrideProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html>
+    RecordingModeOverrideProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html#cfn-config-configurationrecorder-recordingmodeoverride-description>
+                                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html#cfn-config-configurationrecorder-recordingmodeoverride-recordingfrequency>
                                    recordingFrequency :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html#cfn-config-configurationrecorder-recordingmodeoverride-resourcetypes>
                                    resourceTypes :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingModeOverrideProperty ::
@@ -16,7 +21,7 @@ mkRecordingModeOverrideProperty ::
   -> ValueList Prelude.Text -> RecordingModeOverrideProperty
 mkRecordingModeOverrideProperty recordingFrequency resourceTypes
   = RecordingModeOverrideProperty
-      {recordingFrequency = recordingFrequency,
+      {haddock_workaround_ = (), recordingFrequency = recordingFrequency,
        resourceTypes = resourceTypes, description = Prelude.Nothing}
 instance ToResourceProperties RecordingModeOverrideProperty where
   toResourceProperties RecordingModeOverrideProperty {..}

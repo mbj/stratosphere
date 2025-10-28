@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerHyperParameterRangeProperty
-  = IntegerHyperParameterRangeProperty {maxValue :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html>
+    IntegerHyperParameterRangeProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-maxvalue>
+                                        maxValue :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-minvalue>
                                         minValue :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html#cfn-personalize-solution-integerhyperparameterrange-name>
                                         name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerHyperParameterRangeProperty ::
   IntegerHyperParameterRangeProperty
 mkIntegerHyperParameterRangeProperty
   = IntegerHyperParameterRangeProperty
-      {maxValue = Prelude.Nothing, minValue = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), maxValue = Prelude.Nothing,
+       minValue = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties IntegerHyperParameterRangeProperty where
   toResourceProperties IntegerHyperParameterRangeProperty {..}
     = ResourceProperties

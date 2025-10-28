@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.FirehoseProperty as Exports
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.S3Property as Exports
 import Stratosphere.ResourceProperties
 data BrokerLogsProperty
-  = BrokerLogsProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html>
+    BrokerLogsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-cloudwatchlogs>
+                        cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose>
                         firehose :: (Prelude.Maybe FirehoseProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-s3>
                         s3 :: (Prelude.Maybe S3Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBrokerLogsProperty :: BrokerLogsProperty
 mkBrokerLogsProperty
   = BrokerLogsProperty
-      {cloudWatchLogs = Prelude.Nothing, firehose = Prelude.Nothing,
-       s3 = Prelude.Nothing}
+      {haddock_workaround_ = (), cloudWatchLogs = Prelude.Nothing,
+       firehose = Prelude.Nothing, s3 = Prelude.Nothing}
 instance ToResourceProperties BrokerLogsProperty where
   toResourceProperties BrokerLogsProperty {..}
     = ResourceProperties

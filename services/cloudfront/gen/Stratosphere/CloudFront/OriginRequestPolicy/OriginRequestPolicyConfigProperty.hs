@@ -11,10 +11,17 @@ import {-# SOURCE #-} Stratosphere.CloudFront.OriginRequestPolicy.QueryStringsCo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginRequestPolicyConfigProperty
-  = OriginRequestPolicyConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html>
+    OriginRequestPolicyConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment>
+                                       comment :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig>
                                        cookiesConfig :: CookiesConfigProperty,
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig>
                                        headersConfig :: HeadersConfigProperty,
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name>
                                        name :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig>
                                        queryStringsConfig :: QueryStringsConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginRequestPolicyConfigProperty ::
@@ -28,9 +35,9 @@ mkOriginRequestPolicyConfigProperty
   name
   queryStringsConfig
   = OriginRequestPolicyConfigProperty
-      {cookiesConfig = cookiesConfig, headersConfig = headersConfig,
-       name = name, queryStringsConfig = queryStringsConfig,
-       comment = Prelude.Nothing}
+      {haddock_workaround_ = (), cookiesConfig = cookiesConfig,
+       headersConfig = headersConfig, name = name,
+       queryStringsConfig = queryStringsConfig, comment = Prelude.Nothing}
 instance ToResourceProperties OriginRequestPolicyConfigProperty where
   toResourceProperties OriginRequestPolicyConfigProperty {..}
     = ResourceProperties

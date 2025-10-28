@@ -7,11 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksInfoProperty
-  = EksInfoProperty {namespace :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html>
+    EksInfoProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html#cfn-emrcontainers-virtualcluster-eksinfo-namespace>
+                     namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksInfoProperty :: Value Prelude.Text -> EksInfoProperty
 mkEksInfoProperty namespace
-  = EksInfoProperty {namespace = namespace}
+  = EksInfoProperty {haddock_workaround_ = (), namespace = namespace}
 instance ToResourceProperties EksInfoProperty where
   toResourceProperties EksInfoProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON EksInfoProperty where
     = JSON.object ["Namespace" JSON..= namespace]
 instance Property "Namespace" EksInfoProperty where
   type PropertyType "Namespace" EksInfoProperty = Value Prelude.Text
-  set newValue EksInfoProperty {}
+  set newValue EksInfoProperty {..}
     = EksInfoProperty {namespace = newValue, ..}

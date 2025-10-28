@@ -10,18 +10,25 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FieldValidationConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldConfigProperty
-  = FieldConfigProperty {excluded :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html>
+    FieldConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-excluded>
+                         excluded :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-inputtype>
                          inputType :: (Prelude.Maybe FieldInputConfigProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-label>
                          label :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-position>
                          position :: (Prelude.Maybe FieldPositionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldconfig.html#cfn-amplifyuibuilder-form-fieldconfig-validations>
                          validations :: (Prelude.Maybe [FieldValidationConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldConfigProperty :: FieldConfigProperty
 mkFieldConfigProperty
   = FieldConfigProperty
-      {excluded = Prelude.Nothing, inputType = Prelude.Nothing,
-       label = Prelude.Nothing, position = Prelude.Nothing,
-       validations = Prelude.Nothing}
+      {haddock_workaround_ = (), excluded = Prelude.Nothing,
+       inputType = Prelude.Nothing, label = Prelude.Nothing,
+       position = Prelude.Nothing, validations = Prelude.Nothing}
 instance ToResourceProperties FieldConfigProperty where
   toResourceProperties FieldConfigProperty {..}
     = ResourceProperties

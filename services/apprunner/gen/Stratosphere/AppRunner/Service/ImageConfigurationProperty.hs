@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.KeyValuePairProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageConfigurationProperty
-  = ImageConfigurationProperty {port :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html>
+    ImageConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port>
+                                port :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentsecrets>
                                 runtimeEnvironmentSecrets :: (Prelude.Maybe [KeyValuePairProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables>
                                 runtimeEnvironmentVariables :: (Prelude.Maybe [KeyValuePairProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand>
                                 startCommand :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigurationProperty :: ImageConfigurationProperty
 mkImageConfigurationProperty
   = ImageConfigurationProperty
-      {port = Prelude.Nothing,
+      {haddock_workaround_ = (), port = Prelude.Nothing,
        runtimeEnvironmentSecrets = Prelude.Nothing,
        runtimeEnvironmentVariables = Prelude.Nothing,
        startCommand = Prelude.Nothing}

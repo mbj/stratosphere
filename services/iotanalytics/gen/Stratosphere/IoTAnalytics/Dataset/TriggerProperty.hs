@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.ScheduleProperty as Expo
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.TriggeringDatasetProperty as Exports
 import Stratosphere.ResourceProperties
 data TriggerProperty
-  = TriggerProperty {schedule :: (Prelude.Maybe ScheduleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html>
+    TriggerProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-schedule>
+                     schedule :: (Prelude.Maybe ScheduleProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html#cfn-iotanalytics-dataset-trigger-triggeringdataset>
                      triggeringDataset :: (Prelude.Maybe TriggeringDatasetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerProperty :: TriggerProperty
 mkTriggerProperty
   = TriggerProperty
-      {schedule = Prelude.Nothing, triggeringDataset = Prelude.Nothing}
+      {haddock_workaround_ = (), schedule = Prelude.Nothing,
+       triggeringDataset = Prelude.Nothing}
 instance ToResourceProperties TriggerProperty where
   toResourceProperties TriggerProperty {..}
     = ResourceProperties

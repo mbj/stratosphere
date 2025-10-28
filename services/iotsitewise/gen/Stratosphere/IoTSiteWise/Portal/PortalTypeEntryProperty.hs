@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortalTypeEntryProperty
-  = PortalTypeEntryProperty {portalTools :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeentry.html>
+    PortalTypeEntryProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeentry.html#cfn-iotsitewise-portal-portaltypeentry-portaltools>
+                             portalTools :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortalTypeEntryProperty ::
   ValueList Prelude.Text -> PortalTypeEntryProperty
 mkPortalTypeEntryProperty portalTools
-  = PortalTypeEntryProperty {portalTools = portalTools}
+  = PortalTypeEntryProperty
+      {haddock_workaround_ = (), portalTools = portalTools}
 instance ToResourceProperties PortalTypeEntryProperty where
   toResourceProperties PortalTypeEntryProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON PortalTypeEntryProperty where
     = JSON.object ["PortalTools" JSON..= portalTools]
 instance Property "PortalTools" PortalTypeEntryProperty where
   type PropertyType "PortalTools" PortalTypeEntryProperty = ValueList Prelude.Text
-  set newValue PortalTypeEntryProperty {}
+  set newValue PortalTypeEntryProperty {..}
     = PortalTypeEntryProperty {portalTools = newValue, ..}

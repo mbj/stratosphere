@@ -7,13 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageProperty as Exports
 import Stratosphere.ResourceProperties
 data MessageGroupProperty
-  = MessageGroupProperty {message :: MessageProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html>
+    MessageGroupProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-message>
+                          message :: MessageProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-variations>
                           variations :: (Prelude.Maybe [MessageProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageGroupProperty :: MessageProperty -> MessageGroupProperty
 mkMessageGroupProperty message
   = MessageGroupProperty
-      {message = message, variations = Prelude.Nothing}
+      {haddock_workaround_ = (), message = message,
+       variations = Prelude.Nothing}
 instance ToResourceProperties MessageGroupProperty where
   toResourceProperties MessageGroupProperty {..}
     = ResourceProperties

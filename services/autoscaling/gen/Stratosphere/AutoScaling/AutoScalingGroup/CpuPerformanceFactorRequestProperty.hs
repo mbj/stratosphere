@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.PerformanceFactorReferenceRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data CpuPerformanceFactorRequestProperty
-  = CpuPerformanceFactorRequestProperty {references :: (Prelude.Maybe [PerformanceFactorReferenceRequestProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html>
+    CpuPerformanceFactorRequestProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html#cfn-autoscaling-autoscalinggroup-cpuperformancefactorrequest-references>
+                                         references :: (Prelude.Maybe [PerformanceFactorReferenceRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCpuPerformanceFactorRequestProperty ::
   CpuPerformanceFactorRequestProperty
 mkCpuPerformanceFactorRequestProperty
   = CpuPerformanceFactorRequestProperty
-      {references = Prelude.Nothing}
+      {haddock_workaround_ = (), references = Prelude.Nothing}
 instance ToResourceProperties CpuPerformanceFactorRequestProperty where
   toResourceProperties CpuPerformanceFactorRequestProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON CpuPerformanceFactorRequestProperty where
               [(JSON..=) "References" Prelude.<$> references]))
 instance Property "References" CpuPerformanceFactorRequestProperty where
   type PropertyType "References" CpuPerformanceFactorRequestProperty = [PerformanceFactorReferenceRequestProperty]
-  set newValue CpuPerformanceFactorRequestProperty {}
+  set newValue CpuPerformanceFactorRequestProperty {..}
     = CpuPerformanceFactorRequestProperty
         {references = Prelude.pure newValue, ..}

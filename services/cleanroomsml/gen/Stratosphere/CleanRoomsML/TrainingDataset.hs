@@ -9,10 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TrainingDataset
-  = TrainingDataset {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html>
+    TrainingDataset {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html#cfn-cleanroomsml-trainingdataset-description>
+                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html#cfn-cleanroomsml-trainingdataset-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html#cfn-cleanroomsml-trainingdataset-rolearn>
                      roleArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html#cfn-cleanroomsml-trainingdataset-tags>
                      tags :: (Prelude.Maybe [Tag]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html#cfn-cleanroomsml-trainingdataset-trainingdata>
                      trainingData :: [DatasetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingDataset ::
@@ -20,8 +27,9 @@ mkTrainingDataset ::
   -> Value Prelude.Text -> [DatasetProperty] -> TrainingDataset
 mkTrainingDataset name roleArn trainingData
   = TrainingDataset
-      {name = name, roleArn = roleArn, trainingData = trainingData,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, roleArn = roleArn,
+       trainingData = trainingData, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties TrainingDataset where
   toResourceProperties TrainingDataset {..}
     = ResourceProperties

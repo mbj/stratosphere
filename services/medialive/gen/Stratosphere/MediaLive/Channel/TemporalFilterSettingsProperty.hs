@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemporalFilterSettingsProperty
-  = TemporalFilterSettingsProperty {postFilterSharpening :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html>
+    TemporalFilterSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-postfiltersharpening>
+                                    postFilterSharpening :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html#cfn-medialive-channel-temporalfiltersettings-strength>
                                     strength :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemporalFilterSettingsProperty :: TemporalFilterSettingsProperty
 mkTemporalFilterSettingsProperty
   = TemporalFilterSettingsProperty
-      {postFilterSharpening = Prelude.Nothing,
+      {haddock_workaround_ = (), postFilterSharpening = Prelude.Nothing,
        strength = Prelude.Nothing}
 instance ToResourceProperties TemporalFilterSettingsProperty where
   toResourceProperties TemporalFilterSettingsProperty {..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.UrlConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebSourceConfigurationProperty
-  = WebSourceConfigurationProperty {urlConfiguration :: UrlConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html>
+    WebSourceConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html#cfn-bedrock-datasource-websourceconfiguration-urlconfiguration>
+                                    urlConfiguration :: UrlConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebSourceConfigurationProperty ::
   UrlConfigurationProperty -> WebSourceConfigurationProperty
 mkWebSourceConfigurationProperty urlConfiguration
   = WebSourceConfigurationProperty
-      {urlConfiguration = urlConfiguration}
+      {haddock_workaround_ = (), urlConfiguration = urlConfiguration}
 instance ToResourceProperties WebSourceConfigurationProperty where
   toResourceProperties WebSourceConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON WebSourceConfigurationProperty where
     = JSON.object ["UrlConfiguration" JSON..= urlConfiguration]
 instance Property "UrlConfiguration" WebSourceConfigurationProperty where
   type PropertyType "UrlConfiguration" WebSourceConfigurationProperty = UrlConfigurationProperty
-  set newValue WebSourceConfigurationProperty {}
+  set newValue WebSourceConfigurationProperty {..}
     = WebSourceConfigurationProperty {urlConfiguration = newValue, ..}

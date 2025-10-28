@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WeightedTargetProperty
-  = WeightedTargetProperty {port :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html>
+    WeightedTargetProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-port>
+                            port :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-virtualnode>
                             virtualNode :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html#cfn-appmesh-route-weightedtarget-weight>
                             weight :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWeightedTargetProperty ::
@@ -16,8 +21,8 @@ mkWeightedTargetProperty ::
   -> Value Prelude.Integer -> WeightedTargetProperty
 mkWeightedTargetProperty virtualNode weight
   = WeightedTargetProperty
-      {virtualNode = virtualNode, weight = weight,
-       port = Prelude.Nothing}
+      {haddock_workaround_ = (), virtualNode = virtualNode,
+       weight = weight, port = Prelude.Nothing}
 instance ToResourceProperties WeightedTargetProperty where
   toResourceProperties WeightedTargetProperty {..}
     = ResourceProperties

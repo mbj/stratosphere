@@ -9,16 +9,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DataflowEndpointGroup
-  = DataflowEndpointGroup {contactPostPassDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html>
+    DataflowEndpointGroup {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-contactpostpassdurationseconds>
+                           contactPostPassDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-contactprepassdurationseconds>
                            contactPrePassDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails>
                            endpointDetails :: [EndpointDetailsProperty],
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags>
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEndpointGroup ::
   [EndpointDetailsProperty] -> DataflowEndpointGroup
 mkDataflowEndpointGroup endpointDetails
   = DataflowEndpointGroup
-      {endpointDetails = endpointDetails,
+      {haddock_workaround_ = (), endpointDetails = endpointDetails,
        contactPostPassDurationSeconds = Prelude.Nothing,
        contactPrePassDurationSeconds = Prelude.Nothing,
        tags = Prelude.Nothing}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateConfigurationProperty
-  = CertificateConfigurationProperty {certificateType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>
+    CertificateConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype>
+                                      certificateType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateConfigurationProperty ::
   Value Prelude.Text -> CertificateConfigurationProperty
 mkCertificateConfigurationProperty certificateType
   = CertificateConfigurationProperty
-      {certificateType = certificateType}
+      {haddock_workaround_ = (), certificateType = certificateType}
 instance ToResourceProperties CertificateConfigurationProperty where
   toResourceProperties CertificateConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON CertificateConfigurationProperty where
     = JSON.object ["CertificateType" JSON..= certificateType]
 instance Property "CertificateType" CertificateConfigurationProperty where
   type PropertyType "CertificateType" CertificateConfigurationProperty = Value Prelude.Text
-  set newValue CertificateConfigurationProperty {}
+  set newValue CertificateConfigurationProperty {..}
     = CertificateConfigurationProperty {certificateType = newValue, ..}

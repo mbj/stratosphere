@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionProperty
-  = PartitionProperty {attributeName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html>
+    PartitionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html#cfn-iotanalytics-datastore-partition-attributename>
+                       attributeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionProperty :: Value Prelude.Text -> PartitionProperty
 mkPartitionProperty attributeName
-  = PartitionProperty {attributeName = attributeName}
+  = PartitionProperty
+      {haddock_workaround_ = (), attributeName = attributeName}
 instance ToResourceProperties PartitionProperty where
   toResourceProperties PartitionProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON PartitionProperty where
     = JSON.object ["AttributeName" JSON..= attributeName]
 instance Property "AttributeName" PartitionProperty where
   type PropertyType "AttributeName" PartitionProperty = Value Prelude.Text
-  set newValue PartitionProperty {}
+  set newValue PartitionProperty {..}
     = PartitionProperty {attributeName = newValue, ..}

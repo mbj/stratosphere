@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.PayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaProperty
-  = LambdaProperty {functionArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html>
+    LambdaProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn>
+                    functionArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload>
                     payload :: (Prelude.Maybe PayloadProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaProperty :: Value Prelude.Text -> LambdaProperty
 mkLambdaProperty functionArn
   = LambdaProperty
-      {functionArn = functionArn, payload = Prelude.Nothing}
+      {haddock_workaround_ = (), functionArn = functionArn,
+       payload = Prelude.Nothing}
 instance ToResourceProperties LambdaProperty where
   toResourceProperties LambdaProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangeConstantProperty
-  = RangeConstantProperty {maximum :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html>
+    RangeConstantProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html#cfn-quicksight-topic-rangeconstant-maximum>
+                           maximum :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html#cfn-quicksight-topic-rangeconstant-minimum>
                            minimum :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeConstantProperty :: RangeConstantProperty
 mkRangeConstantProperty
   = RangeConstantProperty
-      {maximum = Prelude.Nothing, minimum = Prelude.Nothing}
+      {haddock_workaround_ = (), maximum = Prelude.Nothing,
+       minimum = Prelude.Nothing}
 instance ToResourceProperties RangeConstantProperty where
   toResourceProperties RangeConstantProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.TriggerPropertie
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggerConfigProperty
-  = TriggerConfigProperty {triggerProperties :: (Prelude.Maybe TriggerPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html>
+    TriggerConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties>
+                           triggerProperties :: (Prelude.Maybe TriggerPropertiesProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype>
                            triggerType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerConfigProperty ::
   Value Prelude.Text -> TriggerConfigProperty
 mkTriggerConfigProperty triggerType
   = TriggerConfigProperty
-      {triggerType = triggerType, triggerProperties = Prelude.Nothing}
+      {haddock_workaround_ = (), triggerType = triggerType,
+       triggerProperties = Prelude.Nothing}
 instance ToResourceProperties TriggerConfigProperty where
   toResourceProperties TriggerConfigProperty {..}
     = ResourceProperties

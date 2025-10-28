@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.Configu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfiguredTableAssociationAnalysisRuleProperty
-  = ConfiguredTableAssociationAnalysisRuleProperty {policy :: ConfiguredTableAssociationAnalysisRulePolicyProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html>
+    ConfiguredTableAssociationAnalysisRuleProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule-policy>
+                                                    policy :: ConfiguredTableAssociationAnalysisRulePolicyProperty,
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule-type>
                                                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRuleProperty ::
@@ -18,7 +22,7 @@ mkConfiguredTableAssociationAnalysisRuleProperty ::
      -> ConfiguredTableAssociationAnalysisRuleProperty
 mkConfiguredTableAssociationAnalysisRuleProperty policy type'
   = ConfiguredTableAssociationAnalysisRuleProperty
-      {policy = policy, type' = type'}
+      {haddock_workaround_ = (), policy = policy, type' = type'}
 instance ToResourceProperties ConfiguredTableAssociationAnalysisRuleProperty where
   toResourceProperties
     ConfiguredTableAssociationAnalysisRuleProperty {..}

@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.NetworkManager.CoreNetwork.SegmentsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreNetworkNetworkFunctionGroupProperty
-  = CoreNetworkNetworkFunctionGroupProperty {edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html>
+    CoreNetworkNetworkFunctionGroupProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-edgelocations>
+                                             edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-name>
                                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-segments>
                                              segments :: (Prelude.Maybe SegmentsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetworkNetworkFunctionGroupProperty ::
   CoreNetworkNetworkFunctionGroupProperty
 mkCoreNetworkNetworkFunctionGroupProperty
   = CoreNetworkNetworkFunctionGroupProperty
-      {edgeLocations = Prelude.Nothing, name = Prelude.Nothing,
-       segments = Prelude.Nothing}
+      {haddock_workaround_ = (), edgeLocations = Prelude.Nothing,
+       name = Prelude.Nothing, segments = Prelude.Nothing}
 instance ToResourceProperties CoreNetworkNetworkFunctionGroupProperty where
   toResourceProperties CoreNetworkNetworkFunctionGroupProperty {..}
     = ResourceProperties

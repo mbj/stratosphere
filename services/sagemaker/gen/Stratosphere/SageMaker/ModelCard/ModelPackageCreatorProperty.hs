@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelPackageCreatorProperty
-  = ModelPackageCreatorProperty {userProfileName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html>
+    ModelPackageCreatorProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html#cfn-sagemaker-modelcard-modelpackagecreator-userprofilename>
+                                 userProfileName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageCreatorProperty :: ModelPackageCreatorProperty
 mkModelPackageCreatorProperty
-  = ModelPackageCreatorProperty {userProfileName = Prelude.Nothing}
+  = ModelPackageCreatorProperty
+      {haddock_workaround_ = (), userProfileName = Prelude.Nothing}
 instance ToResourceProperties ModelPackageCreatorProperty where
   toResourceProperties ModelPackageCreatorProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ModelPackageCreatorProperty where
               [(JSON..=) "UserProfileName" Prelude.<$> userProfileName]))
 instance Property "UserProfileName" ModelPackageCreatorProperty where
   type PropertyType "UserProfileName" ModelPackageCreatorProperty = Value Prelude.Text
-  set newValue ModelPackageCreatorProperty {}
+  set newValue ModelPackageCreatorProperty {..}
     = ModelPackageCreatorProperty
         {userProfileName = Prelude.pure newValue, ..}

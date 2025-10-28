@@ -20,24 +20,39 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetTimestreamParametersProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetParametersProperty
-  = PipeTargetParametersProperty {batchJobParameters :: (Prelude.Maybe PipeTargetBatchJobParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html>
+    PipeTargetParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-batchjobparameters>
+                                  batchJobParameters :: (Prelude.Maybe PipeTargetBatchJobParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-cloudwatchlogsparameters>
                                   cloudWatchLogsParameters :: (Prelude.Maybe PipeTargetCloudWatchLogsParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-ecstaskparameters>
                                   ecsTaskParameters :: (Prelude.Maybe PipeTargetEcsTaskParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-eventbridgeeventbusparameters>
                                   eventBridgeEventBusParameters :: (Prelude.Maybe PipeTargetEventBridgeEventBusParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-httpparameters>
                                   httpParameters :: (Prelude.Maybe PipeTargetHttpParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-inputtemplate>
                                   inputTemplate :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-kinesisstreamparameters>
                                   kinesisStreamParameters :: (Prelude.Maybe PipeTargetKinesisStreamParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-lambdafunctionparameters>
                                   lambdaFunctionParameters :: (Prelude.Maybe PipeTargetLambdaFunctionParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-redshiftdataparameters>
                                   redshiftDataParameters :: (Prelude.Maybe PipeTargetRedshiftDataParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-sagemakerpipelineparameters>
                                   sageMakerPipelineParameters :: (Prelude.Maybe PipeTargetSageMakerPipelineParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-sqsqueueparameters>
                                   sqsQueueParameters :: (Prelude.Maybe PipeTargetSqsQueueParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-stepfunctionstatemachineparameters>
                                   stepFunctionStateMachineParameters :: (Prelude.Maybe PipeTargetStateMachineParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-timestreamparameters>
                                   timestreamParameters :: (Prelude.Maybe PipeTargetTimestreamParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetParametersProperty :: PipeTargetParametersProperty
 mkPipeTargetParametersProperty
   = PipeTargetParametersProperty
-      {batchJobParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), batchJobParameters = Prelude.Nothing,
        cloudWatchLogsParameters = Prelude.Nothing,
        ecsTaskParameters = Prelude.Nothing,
        eventBridgeEventBusParameters = Prelude.Nothing,

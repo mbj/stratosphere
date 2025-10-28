@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.GlueDataSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceProperty
-  = DataSourceProperty {glueDataSource :: GlueDataSourceProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasource.html>
+    DataSourceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasource.html#cfn-cleanroomsml-trainingdataset-datasource-gluedatasource>
+                        glueDataSource :: GlueDataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty ::
   GlueDataSourceProperty -> DataSourceProperty
 mkDataSourceProperty glueDataSource
-  = DataSourceProperty {glueDataSource = glueDataSource}
+  = DataSourceProperty
+      {haddock_workaround_ = (), glueDataSource = glueDataSource}
 instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON DataSourceProperty where
     = JSON.object ["GlueDataSource" JSON..= glueDataSource]
 instance Property "GlueDataSource" DataSourceProperty where
   type PropertyType "GlueDataSource" DataSourceProperty = GlueDataSourceProperty
-  set newValue DataSourceProperty {}
+  set newValue DataSourceProperty {..}
     = DataSourceProperty {glueDataSource = newValue, ..}

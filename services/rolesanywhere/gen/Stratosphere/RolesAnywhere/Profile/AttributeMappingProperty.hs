@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.RolesAnywhere.Profile.MappingRuleProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeMappingProperty
-  = AttributeMappingProperty {certificateField :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html>
+    AttributeMappingProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html#cfn-rolesanywhere-profile-attributemapping-certificatefield>
+                              certificateField :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html#cfn-rolesanywhere-profile-attributemapping-mappingrules>
                               mappingRules :: [MappingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeMappingProperty ::
@@ -17,7 +21,8 @@ mkAttributeMappingProperty ::
   -> [MappingRuleProperty] -> AttributeMappingProperty
 mkAttributeMappingProperty certificateField mappingRules
   = AttributeMappingProperty
-      {certificateField = certificateField, mappingRules = mappingRules}
+      {haddock_workaround_ = (), certificateField = certificateField,
+       mappingRules = mappingRules}
 instance ToResourceProperties AttributeMappingProperty where
   toResourceProperties AttributeMappingProperty {..}
     = ResourceProperties

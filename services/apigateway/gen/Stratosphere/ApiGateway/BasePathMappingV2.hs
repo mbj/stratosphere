@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BasePathMappingV2
-  = BasePathMappingV2 {basePath :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html>
+    BasePathMappingV2 {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-basepath>
+                       basePath :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-domainnamearn>
                        domainNameArn :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-restapiid>
                        restApiId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-stage>
                        stage :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBasePathMappingV2 ::
   Value Prelude.Text -> Value Prelude.Text -> BasePathMappingV2
 mkBasePathMappingV2 domainNameArn restApiId
   = BasePathMappingV2
-      {domainNameArn = domainNameArn, restApiId = restApiId,
-       basePath = Prelude.Nothing, stage = Prelude.Nothing}
+      {haddock_workaround_ = (), domainNameArn = domainNameArn,
+       restApiId = restApiId, basePath = Prelude.Nothing,
+       stage = Prelude.Nothing}
 instance ToResourceProperties BasePathMappingV2 where
   toResourceProperties BasePathMappingV2 {..}
     = ResourceProperties

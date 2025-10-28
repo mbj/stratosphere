@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftClusterStorageProperty
-  = RedshiftClusterStorageProperty {clusterName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftclusterstorage.html>
+    RedshiftClusterStorageProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftclusterstorage.html#cfn-datazone-datasource-redshiftclusterstorage-clustername>
+                                    clusterName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftClusterStorageProperty ::
   Value Prelude.Text -> RedshiftClusterStorageProperty
 mkRedshiftClusterStorageProperty clusterName
-  = RedshiftClusterStorageProperty {clusterName = clusterName}
+  = RedshiftClusterStorageProperty
+      {haddock_workaround_ = (), clusterName = clusterName}
 instance ToResourceProperties RedshiftClusterStorageProperty where
   toResourceProperties RedshiftClusterStorageProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON RedshiftClusterStorageProperty where
     = JSON.object ["ClusterName" JSON..= clusterName]
 instance Property "ClusterName" RedshiftClusterStorageProperty where
   type PropertyType "ClusterName" RedshiftClusterStorageProperty = Value Prelude.Text
-  set newValue RedshiftClusterStorageProperty {}
+  set newValue RedshiftClusterStorageProperty {..}
     = RedshiftClusterStorageProperty {clusterName = newValue, ..}

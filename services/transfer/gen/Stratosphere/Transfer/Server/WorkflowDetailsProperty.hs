@@ -8,13 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Transfer.Server.WorkflowDetailProperty as Exports
 import Stratosphere.ResourceProperties
 data WorkflowDetailsProperty
-  = WorkflowDetailsProperty {onPartialUpload :: (Prelude.Maybe [WorkflowDetailProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html>
+    WorkflowDetailsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onpartialupload>
+                             onPartialUpload :: (Prelude.Maybe [WorkflowDetailProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onupload>
                              onUpload :: (Prelude.Maybe [WorkflowDetailProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowDetailsProperty :: WorkflowDetailsProperty
 mkWorkflowDetailsProperty
   = WorkflowDetailsProperty
-      {onPartialUpload = Prelude.Nothing, onUpload = Prelude.Nothing}
+      {haddock_workaround_ = (), onPartialUpload = Prelude.Nothing,
+       onUpload = Prelude.Nothing}
 instance ToResourceProperties WorkflowDetailsProperty where
   toResourceProperties WorkflowDetailsProperty {..}
     = ResourceProperties

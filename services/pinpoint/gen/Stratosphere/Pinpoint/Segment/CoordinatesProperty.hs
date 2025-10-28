@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoordinatesProperty
-  = CoordinatesProperty {latitude :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates.html>
+    CoordinatesProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates-latitude>
+                         latitude :: (Value Prelude.Double),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates-longitude>
                          longitude :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoordinatesProperty ::
   Value Prelude.Double -> Value Prelude.Double -> CoordinatesProperty
 mkCoordinatesProperty latitude longitude
-  = CoordinatesProperty {latitude = latitude, longitude = longitude}
+  = CoordinatesProperty
+      {haddock_workaround_ = (), latitude = latitude,
+       longitude = longitude}
 instance ToResourceProperties CoordinatesProperty where
   toResourceProperties CoordinatesProperty {..}
     = ResourceProperties

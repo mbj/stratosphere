@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceProperty
-  = DataSourceProperty {dataLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasource.html>
+    DataSourceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasource.html#cfn-personalize-dataset-datasource-datalocation>
+                        dataLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty :: DataSourceProperty
 mkDataSourceProperty
-  = DataSourceProperty {dataLocation = Prelude.Nothing}
+  = DataSourceProperty
+      {haddock_workaround_ = (), dataLocation = Prelude.Nothing}
 instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON DataSourceProperty where
               [(JSON..=) "DataLocation" Prelude.<$> dataLocation]))
 instance Property "DataLocation" DataSourceProperty where
   type PropertyType "DataLocation" DataSourceProperty = Value Prelude.Text
-  set newValue DataSourceProperty {}
+  set newValue DataSourceProperty {..}
     = DataSourceProperty {dataLocation = Prelude.pure newValue, ..}

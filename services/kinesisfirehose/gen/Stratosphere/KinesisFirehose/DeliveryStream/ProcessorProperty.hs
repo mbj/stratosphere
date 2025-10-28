@@ -8,12 +8,18 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessorParam
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProcessorProperty
-  = ProcessorProperty {parameters :: (Prelude.Maybe [ProcessorParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html>
+    ProcessorProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters>
+                       parameters :: (Prelude.Maybe [ProcessorParameterProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type>
                        type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessorProperty :: Value Prelude.Text -> ProcessorProperty
 mkProcessorProperty type'
-  = ProcessorProperty {type' = type', parameters = Prelude.Nothing}
+  = ProcessorProperty
+      {haddock_workaround_ = (), type' = type',
+       parameters = Prelude.Nothing}
 instance ToResourceProperties ProcessorProperty where
   toResourceProperties ProcessorProperty {..}
     = ResourceProperties

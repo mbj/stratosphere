@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualNodeHttpConnectionPoolProperty
-  = VirtualNodeHttpConnectionPoolProperty {maxConnections :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html>
+    VirtualNodeHttpConnectionPoolProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections>
+                                           maxConnections :: (Value Prelude.Integer),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests>
                                            maxPendingRequests :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeHttpConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualNodeHttpConnectionPoolProperty
 mkVirtualNodeHttpConnectionPoolProperty maxConnections
   = VirtualNodeHttpConnectionPoolProperty
-      {maxConnections = maxConnections,
+      {haddock_workaround_ = (), maxConnections = maxConnections,
        maxPendingRequests = Prelude.Nothing}
 instance ToResourceProperties VirtualNodeHttpConnectionPoolProperty where
   toResourceProperties VirtualNodeHttpConnectionPoolProperty {..}

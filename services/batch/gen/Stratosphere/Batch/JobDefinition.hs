@@ -13,24 +13,40 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.TimeoutProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobDefinition
-  = JobDefinition {containerProperties :: (Prelude.Maybe ContainerPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html>
+    JobDefinition {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties>
+                   containerProperties :: (Prelude.Maybe ContainerPropertiesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-ecsproperties>
                    ecsProperties :: (Prelude.Maybe EcsPropertiesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-eksproperties>
                    eksProperties :: (Prelude.Maybe EksPropertiesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname>
                    jobDefinitionName :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties>
                    nodeProperties :: (Prelude.Maybe NodePropertiesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters>
                    parameters :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities>
                    platformCapabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags>
                    propagateTags :: (Prelude.Maybe (Value Prelude.Bool)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy>
                    retryStrategy :: (Prelude.Maybe RetryStrategyProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-schedulingpriority>
                    schedulingPriority :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags>
                    tags :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout>
                    timeout :: (Prelude.Maybe TimeoutProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type>
                    type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobDefinition :: Value Prelude.Text -> JobDefinition
 mkJobDefinition type'
   = JobDefinition
-      {type' = type', containerProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       containerProperties = Prelude.Nothing,
        ecsProperties = Prelude.Nothing, eksProperties = Prelude.Nothing,
        jobDefinitionName = Prelude.Nothing,
        nodeProperties = Prelude.Nothing, parameters = Prelude.Nothing,

@@ -8,16 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ClusterSubnetGroup
-  = ClusterSubnetGroup {description :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html>
+    ClusterSubnetGroup {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-description>
+                        description :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids>
                         subnetIds :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterSubnetGroup ::
   Value Prelude.Text -> ValueList Prelude.Text -> ClusterSubnetGroup
 mkClusterSubnetGroup description subnetIds
   = ClusterSubnetGroup
-      {description = description, subnetIds = subnetIds,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = description,
+       subnetIds = subnetIds, tags = Prelude.Nothing}
 instance ToResourceProperties ClusterSubnetGroup where
   toResourceProperties ClusterSubnetGroup {..}
     = ResourceProperties

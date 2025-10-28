@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpdateCACertificateParamsProperty
-  = UpdateCACertificateParamsProperty {action :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html>
+    UpdateCACertificateParamsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action>
+                                       action :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateCACertificateParamsProperty ::
   Value Prelude.Text -> UpdateCACertificateParamsProperty
 mkUpdateCACertificateParamsProperty action
-  = UpdateCACertificateParamsProperty {action = action}
+  = UpdateCACertificateParamsProperty
+      {haddock_workaround_ = (), action = action}
 instance ToResourceProperties UpdateCACertificateParamsProperty where
   toResourceProperties UpdateCACertificateParamsProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON UpdateCACertificateParamsProperty where
     = JSON.object ["Action" JSON..= action]
 instance Property "Action" UpdateCACertificateParamsProperty where
   type PropertyType "Action" UpdateCACertificateParamsProperty = Value Prelude.Text
-  set newValue UpdateCACertificateParamsProperty {}
+  set newValue UpdateCACertificateParamsProperty {..}
     = UpdateCACertificateParamsProperty {action = newValue, ..}

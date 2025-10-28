@@ -9,17 +9,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Key
-  = Key {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html>
+    Key {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-enabled>
+         enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-exportable>
          exportable :: (Value Prelude.Bool),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-keyattributes>
          keyAttributes :: KeyAttributesProperty,
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-keycheckvaluealgorithm>
          keyCheckValueAlgorithm :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-tags>
          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKey :: Value Prelude.Bool -> KeyAttributesProperty -> Key
 mkKey exportable keyAttributes
   = Key
-      {exportable = exportable, keyAttributes = keyAttributes,
-       enabled = Prelude.Nothing,
+      {haddock_workaround_ = (), exportable = exportable,
+       keyAttributes = keyAttributes, enabled = Prelude.Nothing,
        keyCheckValueAlgorithm = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Key where
   toResourceProperties Key {..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MQBrokerAccessCredentialsProperty
-  = MQBrokerAccessCredentialsProperty {basicAuth :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html>
+    MQBrokerAccessCredentialsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html#cfn-pipes-pipe-mqbrokeraccesscredentials-basicauth>
+                                       basicAuth :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMQBrokerAccessCredentialsProperty ::
   Value Prelude.Text -> MQBrokerAccessCredentialsProperty
 mkMQBrokerAccessCredentialsProperty basicAuth
-  = MQBrokerAccessCredentialsProperty {basicAuth = basicAuth}
+  = MQBrokerAccessCredentialsProperty
+      {haddock_workaround_ = (), basicAuth = basicAuth}
 instance ToResourceProperties MQBrokerAccessCredentialsProperty where
   toResourceProperties MQBrokerAccessCredentialsProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON MQBrokerAccessCredentialsProperty where
     = JSON.object ["BasicAuth" JSON..= basicAuth]
 instance Property "BasicAuth" MQBrokerAccessCredentialsProperty where
   type PropertyType "BasicAuth" MQBrokerAccessCredentialsProperty = Value Prelude.Text
-  set newValue MQBrokerAccessCredentialsProperty {}
+  set newValue MQBrokerAccessCredentialsProperty {..}
     = MQBrokerAccessCredentialsProperty {basicAuth = newValue, ..}

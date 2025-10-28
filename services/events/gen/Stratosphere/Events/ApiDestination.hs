@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiDestination
-  = ApiDestination {connectionArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html>
+    ApiDestination {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn>
+                    connectionArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod>
                     httpMethod :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint>
                     invocationEndpoint :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond>
                     invocationRateLimitPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name>
                     name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiDestination ::
@@ -19,8 +27,8 @@ mkApiDestination ::
   -> Value Prelude.Text -> Value Prelude.Text -> ApiDestination
 mkApiDestination connectionArn httpMethod invocationEndpoint
   = ApiDestination
-      {connectionArn = connectionArn, httpMethod = httpMethod,
-       invocationEndpoint = invocationEndpoint,
+      {haddock_workaround_ = (), connectionArn = connectionArn,
+       httpMethod = httpMethod, invocationEndpoint = invocationEndpoint,
        description = Prelude.Nothing,
        invocationRateLimitPerSecond = Prelude.Nothing,
        name = Prelude.Nothing}

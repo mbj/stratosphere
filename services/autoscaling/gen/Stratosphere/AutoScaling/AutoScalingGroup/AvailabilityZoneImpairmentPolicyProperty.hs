@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AvailabilityZoneImpairmentPolicyProperty
-  = AvailabilityZoneImpairmentPolicyProperty {impairedZoneHealthCheckBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html>
+    AvailabilityZoneImpairmentPolicyProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy-impairedzonehealthcheckbehavior>
+                                              impairedZoneHealthCheckBehavior :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy-zonalshiftenabled>
                                               zonalShiftEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailabilityZoneImpairmentPolicyProperty ::
@@ -18,7 +22,8 @@ mkAvailabilityZoneImpairmentPolicyProperty
   impairedZoneHealthCheckBehavior
   zonalShiftEnabled
   = AvailabilityZoneImpairmentPolicyProperty
-      {impairedZoneHealthCheckBehavior = impairedZoneHealthCheckBehavior,
+      {haddock_workaround_ = (),
+       impairedZoneHealthCheckBehavior = impairedZoneHealthCheckBehavior,
        zonalShiftEnabled = zonalShiftEnabled}
 instance ToResourceProperties AvailabilityZoneImpairmentPolicyProperty where
   toResourceProperties AvailabilityZoneImpairmentPolicyProperty {..}

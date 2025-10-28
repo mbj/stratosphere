@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.ScriptProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TN3270Property
-  = TN3270Property {exportDataSetNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-tn3270.html>
+    TN3270Property {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-tn3270.html#cfn-apptest-testcase-tn3270-exportdatasetnames>
+                    exportDataSetNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-tn3270.html#cfn-apptest-testcase-tn3270-script>
                     script :: ScriptProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTN3270Property :: ScriptProperty -> TN3270Property
 mkTN3270Property script
   = TN3270Property
-      {script = script, exportDataSetNames = Prelude.Nothing}
+      {haddock_workaround_ = (), script = script,
+       exportDataSetNames = Prelude.Nothing}
 instance ToResourceProperties TN3270Property where
   toResourceProperties TN3270Property {..}
     = ResourceProperties

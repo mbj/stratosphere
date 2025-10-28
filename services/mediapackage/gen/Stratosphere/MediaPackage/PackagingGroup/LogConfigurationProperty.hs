@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
-  = LogConfigurationProperty {logGroupName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html>
+    LogConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname>
+                              logGroupName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty :: LogConfigurationProperty
 mkLogConfigurationProperty
-  = LogConfigurationProperty {logGroupName = Prelude.Nothing}
+  = LogConfigurationProperty
+      {haddock_workaround_ = (), logGroupName = Prelude.Nothing}
 instance ToResourceProperties LogConfigurationProperty where
   toResourceProperties LogConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON LogConfigurationProperty where
               [(JSON..=) "LogGroupName" Prelude.<$> logGroupName]))
 instance Property "LogGroupName" LogConfigurationProperty where
   type PropertyType "LogGroupName" LogConfigurationProperty = Value Prelude.Text
-  set newValue LogConfigurationProperty {}
+  set newValue LogConfigurationProperty {..}
     = LogConfigurationProperty
         {logGroupName = Prelude.pure newValue, ..}

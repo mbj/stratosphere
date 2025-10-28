@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data MailManagerAddonInstance
-  = MailManagerAddonInstance {addonSubscriptionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddoninstance.html>
+    MailManagerAddonInstance {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddoninstance.html#cfn-ses-mailmanageraddoninstance-addonsubscriptionid>
+                              addonSubscriptionId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddoninstance.html#cfn-ses-mailmanageraddoninstance-tags>
                               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMailManagerAddonInstance ::
   Value Prelude.Text -> MailManagerAddonInstance
 mkMailManagerAddonInstance addonSubscriptionId
   = MailManagerAddonInstance
-      {addonSubscriptionId = addonSubscriptionId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       addonSubscriptionId = addonSubscriptionId, tags = Prelude.Nothing}
 instance ToResourceProperties MailManagerAddonInstance where
   toResourceProperties MailManagerAddonInstance {..}
     = ResourceProperties

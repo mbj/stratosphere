@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentReadyOptionProperty
-  = DeploymentReadyOptionProperty {actionOnTimeout :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html>
+    DeploymentReadyOptionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption-actionontimeout>
+                                   actionOnTimeout :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption-waittimeinminutes>
                                    waitTimeInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentReadyOptionProperty :: DeploymentReadyOptionProperty
 mkDeploymentReadyOptionProperty
   = DeploymentReadyOptionProperty
-      {actionOnTimeout = Prelude.Nothing,
+      {haddock_workaround_ = (), actionOnTimeout = Prelude.Nothing,
        waitTimeInMinutes = Prelude.Nothing}
 instance ToResourceProperties DeploymentReadyOptionProperty where
   toResourceProperties DeploymentReadyOptionProperty {..}

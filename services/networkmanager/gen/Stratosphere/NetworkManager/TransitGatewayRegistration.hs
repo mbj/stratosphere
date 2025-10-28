@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayRegistration
-  = TransitGatewayRegistration {globalNetworkId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html>
+    TransitGatewayRegistration {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid>
+                                globalNetworkId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn>
                                 transitGatewayArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRegistration ::
@@ -15,7 +19,7 @@ mkTransitGatewayRegistration ::
   -> Value Prelude.Text -> TransitGatewayRegistration
 mkTransitGatewayRegistration globalNetworkId transitGatewayArn
   = TransitGatewayRegistration
-      {globalNetworkId = globalNetworkId,
+      {haddock_workaround_ = (), globalNetworkId = globalNetworkId,
        transitGatewayArn = transitGatewayArn}
 instance ToResourceProperties TransitGatewayRegistration where
   toResourceProperties TransitGatewayRegistration {..}

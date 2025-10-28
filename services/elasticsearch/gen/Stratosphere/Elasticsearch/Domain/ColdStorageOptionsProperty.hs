@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColdStorageOptionsProperty
-  = ColdStorageOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-coldstorageoptions.html>
+    ColdStorageOptionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-coldstorageoptions.html#cfn-elasticsearch-domain-coldstorageoptions-enabled>
+                                enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColdStorageOptionsProperty :: ColdStorageOptionsProperty
 mkColdStorageOptionsProperty
-  = ColdStorageOptionsProperty {enabled = Prelude.Nothing}
+  = ColdStorageOptionsProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties ColdStorageOptionsProperty where
   toResourceProperties ColdStorageOptionsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ColdStorageOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" ColdStorageOptionsProperty where
   type PropertyType "Enabled" ColdStorageOptionsProperty = Value Prelude.Bool
-  set newValue ColdStorageOptionsProperty {}
+  set newValue ColdStorageOptionsProperty {..}
     = ColdStorageOptionsProperty {enabled = Prelude.pure newValue, ..}

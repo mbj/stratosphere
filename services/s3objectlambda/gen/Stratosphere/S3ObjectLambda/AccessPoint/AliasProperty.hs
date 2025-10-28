@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AliasProperty
-  = AliasProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html>
+    AliasProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html#cfn-s3objectlambda-accesspoint-alias-status>
+                   status :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html#cfn-s3objectlambda-accesspoint-alias-value>
                    value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAliasProperty :: Value Prelude.Text -> AliasProperty
 mkAliasProperty value
-  = AliasProperty {value = value, status = Prelude.Nothing}
+  = AliasProperty
+      {haddock_workaround_ = (), value = value, status = Prelude.Nothing}
 instance ToResourceProperties AliasProperty where
   toResourceProperties AliasProperty {..}
     = ResourceProperties

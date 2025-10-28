@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.NetworkFabricConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkFrameworkConfigurationProperty
-  = NetworkFrameworkConfigurationProperty {networkFabricConfiguration :: (Prelude.Maybe NetworkFabricConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html>
+    NetworkFrameworkConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html#cfn-managedblockchain-member-networkframeworkconfiguration-networkfabricconfiguration>
+                                           networkFabricConfiguration :: (Prelude.Maybe NetworkFabricConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFrameworkConfigurationProperty ::
   NetworkFrameworkConfigurationProperty
 mkNetworkFrameworkConfigurationProperty
   = NetworkFrameworkConfigurationProperty
-      {networkFabricConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       networkFabricConfiguration = Prelude.Nothing}
 instance ToResourceProperties NetworkFrameworkConfigurationProperty where
   toResourceProperties NetworkFrameworkConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON NetworkFrameworkConfigurationProperty where
                  Prelude.<$> networkFabricConfiguration]))
 instance Property "NetworkFabricConfiguration" NetworkFrameworkConfigurationProperty where
   type PropertyType "NetworkFabricConfiguration" NetworkFrameworkConfigurationProperty = NetworkFabricConfigurationProperty
-  set newValue NetworkFrameworkConfigurationProperty {}
+  set newValue NetworkFrameworkConfigurationProperty {..}
     = NetworkFrameworkConfigurationProperty
         {networkFabricConfiguration = Prelude.pure newValue, ..}

@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionOptionProperty
-  = EvaluationFormSingleSelectQuestionOptionProperty {automaticFail :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html>
+    EvaluationFormSingleSelectQuestionOptionProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfail>
+                                                      automaticFail :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-refid>
                                                       refId :: (Value Prelude.Text),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-score>
                                                       score :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-text>
                                                       text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionOptionProperty ::
@@ -19,8 +25,8 @@ mkEvaluationFormSingleSelectQuestionOptionProperty ::
      -> EvaluationFormSingleSelectQuestionOptionProperty
 mkEvaluationFormSingleSelectQuestionOptionProperty refId text
   = EvaluationFormSingleSelectQuestionOptionProperty
-      {refId = refId, text = text, automaticFail = Prelude.Nothing,
-       score = Prelude.Nothing}
+      {haddock_workaround_ = (), refId = refId, text = text,
+       automaticFail = Prelude.Nothing, score = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionOptionProperty where
   toResourceProperties
     EvaluationFormSingleSelectQuestionOptionProperty {..}

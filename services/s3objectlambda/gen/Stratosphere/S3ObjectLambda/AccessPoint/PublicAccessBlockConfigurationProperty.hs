@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublicAccessBlockConfigurationProperty
-  = PublicAccessBlockConfigurationProperty {blockPublicAcls :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html>
+    PublicAccessBlockConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-blockpublicacls>
+                                            blockPublicAcls :: (Prelude.Maybe (Value Prelude.Bool)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-blockpublicpolicy>
                                             blockPublicPolicy :: (Prelude.Maybe (Value Prelude.Bool)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-ignorepublicacls>
                                             ignorePublicAcls :: (Prelude.Maybe (Value Prelude.Bool)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html#cfn-s3objectlambda-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets>
                                             restrictPublicBuckets :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicAccessBlockConfigurationProperty ::
   PublicAccessBlockConfigurationProperty
 mkPublicAccessBlockConfigurationProperty
   = PublicAccessBlockConfigurationProperty
-      {blockPublicAcls = Prelude.Nothing,
+      {haddock_workaround_ = (), blockPublicAcls = Prelude.Nothing,
        blockPublicPolicy = Prelude.Nothing,
        ignorePublicAcls = Prelude.Nothing,
        restrictPublicBuckets = Prelude.Nothing}

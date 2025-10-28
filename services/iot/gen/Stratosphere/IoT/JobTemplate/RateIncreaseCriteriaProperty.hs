@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateIncreaseCriteriaProperty
-  = RateIncreaseCriteriaProperty {numberOfNotifiedThings :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html>
+    RateIncreaseCriteriaProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html#cfn-iot-jobtemplate-rateincreasecriteria-numberofnotifiedthings>
+                                  numberOfNotifiedThings :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html#cfn-iot-jobtemplate-rateincreasecriteria-numberofsucceededthings>
                                   numberOfSucceededThings :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateIncreaseCriteriaProperty :: RateIncreaseCriteriaProperty
 mkRateIncreaseCriteriaProperty
   = RateIncreaseCriteriaProperty
-      {numberOfNotifiedThings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       numberOfNotifiedThings = Prelude.Nothing,
        numberOfSucceededThings = Prelude.Nothing}
 instance ToResourceProperties RateIncreaseCriteriaProperty where
   toResourceProperties RateIncreaseCriteriaProperty {..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleConfigurationProperty
-  = ScheduleConfigurationProperty {schedule :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html>
+    ScheduleConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html#cfn-datazone-datasource-scheduleconfiguration-schedule>
+                                   schedule :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html#cfn-datazone-datasource-scheduleconfiguration-timezone>
                                    timezone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigurationProperty :: ScheduleConfigurationProperty
 mkScheduleConfigurationProperty
   = ScheduleConfigurationProperty
-      {schedule = Prelude.Nothing, timezone = Prelude.Nothing}
+      {haddock_workaround_ = (), schedule = Prelude.Nothing,
+       timezone = Prelude.Nothing}
 instance ToResourceProperties ScheduleConfigurationProperty where
   toResourceProperties ScheduleConfigurationProperty {..}
     = ResourceProperties

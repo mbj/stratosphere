@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.Table.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MagneticStoreRejectedDataLocationProperty
-  = MagneticStoreRejectedDataLocationProperty {s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html>
+    MagneticStoreRejectedDataLocationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html#cfn-timestream-table-magneticstorerejecteddatalocation-s3configuration>
+                                               s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreRejectedDataLocationProperty ::
   MagneticStoreRejectedDataLocationProperty
 mkMagneticStoreRejectedDataLocationProperty
   = MagneticStoreRejectedDataLocationProperty
-      {s3Configuration = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Configuration = Prelude.Nothing}
 instance ToResourceProperties MagneticStoreRejectedDataLocationProperty where
   toResourceProperties MagneticStoreRejectedDataLocationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON MagneticStoreRejectedDataLocationProperty where
               [(JSON..=) "S3Configuration" Prelude.<$> s3Configuration]))
 instance Property "S3Configuration" MagneticStoreRejectedDataLocationProperty where
   type PropertyType "S3Configuration" MagneticStoreRejectedDataLocationProperty = S3ConfigurationProperty
-  set newValue MagneticStoreRejectedDataLocationProperty {}
+  set newValue MagneticStoreRejectedDataLocationProperty {..}
     = MagneticStoreRejectedDataLocationProperty
         {s3Configuration = Prelude.pure newValue, ..}

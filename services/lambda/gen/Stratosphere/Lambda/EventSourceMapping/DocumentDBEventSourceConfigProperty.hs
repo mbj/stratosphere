@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentDBEventSourceConfigProperty
-  = DocumentDBEventSourceConfigProperty {collectionName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html>
+    DocumentDBEventSourceConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html#cfn-lambda-eventsourcemapping-documentdbeventsourceconfig-collectionname>
+                                         collectionName :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html#cfn-lambda-eventsourcemapping-documentdbeventsourceconfig-databasename>
                                          databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html#cfn-lambda-eventsourcemapping-documentdbeventsourceconfig-fulldocument>
                                          fullDocument :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentDBEventSourceConfigProperty ::
   DocumentDBEventSourceConfigProperty
 mkDocumentDBEventSourceConfigProperty
   = DocumentDBEventSourceConfigProperty
-      {collectionName = Prelude.Nothing, databaseName = Prelude.Nothing,
-       fullDocument = Prelude.Nothing}
+      {haddock_workaround_ = (), collectionName = Prelude.Nothing,
+       databaseName = Prelude.Nothing, fullDocument = Prelude.Nothing}
 instance ToResourceProperties DocumentDBEventSourceConfigProperty where
   toResourceProperties DocumentDBEventSourceConfigProperty {..}
     = ResourceProperties

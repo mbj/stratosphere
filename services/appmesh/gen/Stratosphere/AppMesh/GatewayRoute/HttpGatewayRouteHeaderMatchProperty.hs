@@ -9,19 +9,26 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteRangeMatchPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpGatewayRouteHeaderMatchProperty
-  = HttpGatewayRouteHeaderMatchProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html>
+    HttpGatewayRouteHeaderMatchProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-exact>
+                                         exact :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-prefix>
                                          prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-range>
                                          range :: (Prelude.Maybe GatewayRouteRangeMatchProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-regex>
                                          regex :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html#cfn-appmesh-gatewayroute-httpgatewayrouteheadermatch-suffix>
                                          suffix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteHeaderMatchProperty ::
   HttpGatewayRouteHeaderMatchProperty
 mkHttpGatewayRouteHeaderMatchProperty
   = HttpGatewayRouteHeaderMatchProperty
-      {exact = Prelude.Nothing, prefix = Prelude.Nothing,
-       range = Prelude.Nothing, regex = Prelude.Nothing,
-       suffix = Prelude.Nothing}
+      {haddock_workaround_ = (), exact = Prelude.Nothing,
+       prefix = Prelude.Nothing, range = Prelude.Nothing,
+       regex = Prelude.Nothing, suffix = Prelude.Nothing}
 instance ToResourceProperties HttpGatewayRouteHeaderMatchProperty where
   toResourceProperties HttpGatewayRouteHeaderMatchProperty {..}
     = ResourceProperties

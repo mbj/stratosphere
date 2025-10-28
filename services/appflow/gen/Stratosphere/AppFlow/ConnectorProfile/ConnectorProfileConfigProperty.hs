@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorProfileCred
 import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorProfilePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorProfileConfigProperty
-  = ConnectorProfileConfigProperty {connectorProfileCredentials :: (Prelude.Maybe ConnectorProfileCredentialsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html>
+    ConnectorProfileConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials>
+                                    connectorProfileCredentials :: (Prelude.Maybe ConnectorProfileCredentialsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties>
                                     connectorProfileProperties :: (Prelude.Maybe ConnectorProfilePropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfileConfigProperty :: ConnectorProfileConfigProperty
 mkConnectorProfileConfigProperty
   = ConnectorProfileConfigProperty
-      {connectorProfileCredentials = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       connectorProfileCredentials = Prelude.Nothing,
        connectorProfileProperties = Prelude.Nothing}
 instance ToResourceProperties ConnectorProfileConfigProperty where
   toResourceProperties ConnectorProfileConfigProperty {..}

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigProperty
-  = EncryptionConfigProperty {encryptionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-encryptionconfig.html>
+    EncryptionConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-encryptionconfig.html#cfn-connect-instancestorageconfig-encryptionconfig-encryptiontype>
+                              encryptionType :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-encryptionconfig.html#cfn-connect-instancestorageconfig-encryptionconfig-keyid>
                               keyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigProperty ::
@@ -15,7 +19,8 @@ mkEncryptionConfigProperty ::
   -> Value Prelude.Text -> EncryptionConfigProperty
 mkEncryptionConfigProperty encryptionType keyId
   = EncryptionConfigProperty
-      {encryptionType = encryptionType, keyId = keyId}
+      {haddock_workaround_ = (), encryptionType = encryptionType,
+       keyId = keyId}
 instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties

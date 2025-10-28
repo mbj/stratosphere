@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordColumnProperty
-  = RecordColumnProperty {mapping :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordcolumn.html>
+    RecordColumnProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordcolumn.html#cfn-kinesisanalytics-application-recordcolumn-mapping>
+                          mapping :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordcolumn.html#cfn-kinesisanalytics-application-recordcolumn-name>
                           name :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-recordcolumn.html#cfn-kinesisanalytics-application-recordcolumn-sqltype>
                           sqlType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordColumnProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RecordColumnProperty
 mkRecordColumnProperty name sqlType
   = RecordColumnProperty
-      {name = name, sqlType = sqlType, mapping = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, sqlType = sqlType,
+       mapping = Prelude.Nothing}
 instance ToResourceProperties RecordColumnProperty where
   toResourceProperties RecordColumnProperty {..}
     = ResourceProperties

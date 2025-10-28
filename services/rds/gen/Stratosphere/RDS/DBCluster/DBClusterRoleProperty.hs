@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBClusterRoleProperty
-  = DBClusterRoleProperty {featureName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html>
+    DBClusterRoleProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename>
+                           featureName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn>
                            roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBClusterRoleProperty ::
   Value Prelude.Text -> DBClusterRoleProperty
 mkDBClusterRoleProperty roleArn
   = DBClusterRoleProperty
-      {roleArn = roleArn, featureName = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       featureName = Prelude.Nothing}
 instance ToResourceProperties DBClusterRoleProperty where
   toResourceProperties DBClusterRoleProperty {..}
     = ResourceProperties

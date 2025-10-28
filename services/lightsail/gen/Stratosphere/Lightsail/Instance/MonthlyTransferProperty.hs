@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonthlyTransferProperty
-  = MonthlyTransferProperty {gbPerMonthAllocated :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html>
+    MonthlyTransferProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html#cfn-lightsail-instance-monthlytransfer-gbpermonthallocated>
+                             gbPerMonthAllocated :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonthlyTransferProperty :: MonthlyTransferProperty
 mkMonthlyTransferProperty
-  = MonthlyTransferProperty {gbPerMonthAllocated = Prelude.Nothing}
+  = MonthlyTransferProperty
+      {haddock_workaround_ = (), gbPerMonthAllocated = Prelude.Nothing}
 instance ToResourceProperties MonthlyTransferProperty where
   toResourceProperties MonthlyTransferProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON MonthlyTransferProperty where
               [(JSON..=) "GbPerMonthAllocated" Prelude.<$> gbPerMonthAllocated]))
 instance Property "GbPerMonthAllocated" MonthlyTransferProperty where
   type PropertyType "GbPerMonthAllocated" MonthlyTransferProperty = Value Prelude.Text
-  set newValue MonthlyTransferProperty {}
+  set newValue MonthlyTransferProperty {..}
     = MonthlyTransferProperty
         {gbPerMonthAllocated = Prelude.pure newValue, ..}

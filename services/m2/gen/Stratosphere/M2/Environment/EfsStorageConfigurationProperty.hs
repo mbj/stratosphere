@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EfsStorageConfigurationProperty
-  = EfsStorageConfigurationProperty {fileSystemId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html>
+    EfsStorageConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html#cfn-m2-environment-efsstorageconfiguration-filesystemid>
+                                     fileSystemId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html#cfn-m2-environment-efsstorageconfiguration-mountpoint>
                                      mountPoint :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEfsStorageConfigurationProperty ::
@@ -16,7 +20,8 @@ mkEfsStorageConfigurationProperty ::
   -> Value Prelude.Text -> EfsStorageConfigurationProperty
 mkEfsStorageConfigurationProperty fileSystemId mountPoint
   = EfsStorageConfigurationProperty
-      {fileSystemId = fileSystemId, mountPoint = mountPoint}
+      {haddock_workaround_ = (), fileSystemId = fileSystemId,
+       mountPoint = mountPoint}
 instance ToResourceProperties EfsStorageConfigurationProperty where
   toResourceProperties EfsStorageConfigurationProperty {..}
     = ResourceProperties

@@ -9,17 +9,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationFSxOpenZFS
-  = LocationFSxOpenZFS {fsxFilesystemArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html>
+    LocationFSxOpenZFS {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-fsxfilesystemarn>
+                        fsxFilesystemArn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-protocol>
                         protocol :: ProtocolProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-securitygrouparns>
                         securityGroupArns :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-subdirectory>
                         subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxOpenZFS ::
   ProtocolProperty -> ValueList Prelude.Text -> LocationFSxOpenZFS
 mkLocationFSxOpenZFS protocol securityGroupArns
   = LocationFSxOpenZFS
-      {protocol = protocol, securityGroupArns = securityGroupArns,
+      {haddock_workaround_ = (), protocol = protocol,
+       securityGroupArns = securityGroupArns,
        fsxFilesystemArn = Prelude.Nothing, subdirectory = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties LocationFSxOpenZFS where

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3LogsProperty
-  = S3LogsProperty {s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html>
+    S3LogsProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname>
+                    s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix>
                     s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LogsProperty :: S3LogsProperty
 mkS3LogsProperty
   = S3LogsProperty
-      {s3BucketName = Prelude.Nothing, s3KeyPrefix = Prelude.Nothing}
+      {haddock_workaround_ = (), s3BucketName = Prelude.Nothing,
+       s3KeyPrefix = Prelude.Nothing}
 instance ToResourceProperties S3LogsProperty where
   toResourceProperties S3LogsProperty {..}
     = ResourceProperties

@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceSourceConfigurationProperty
-  = ConfluenceSourceConfigurationProperty {authType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html>
+    ConfluenceSourceConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html#cfn-bedrock-datasource-confluencesourceconfiguration-authtype>
+                                           authType :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html#cfn-bedrock-datasource-confluencesourceconfiguration-credentialssecretarn>
                                            credentialsSecretArn :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html#cfn-bedrock-datasource-confluencesourceconfiguration-hosttype>
                                            hostType :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html#cfn-bedrock-datasource-confluencesourceconfiguration-hosturl>
                                            hostUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceSourceConfigurationProperty ::
@@ -24,8 +30,9 @@ mkConfluenceSourceConfigurationProperty
   hostType
   hostUrl
   = ConfluenceSourceConfigurationProperty
-      {authType = authType, credentialsSecretArn = credentialsSecretArn,
-       hostType = hostType, hostUrl = hostUrl}
+      {haddock_workaround_ = (), authType = authType,
+       credentialsSecretArn = credentialsSecretArn, hostType = hostType,
+       hostUrl = hostUrl}
 instance ToResourceProperties ConfluenceSourceConfigurationProperty where
   toResourceProperties ConfluenceSourceConfigurationProperty {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.Application.MaxAgeRuleProper
 import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.Application.MaxCountRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data ApplicationVersionLifecycleConfigProperty
-  = ApplicationVersionLifecycleConfigProperty {maxAgeRule :: (Prelude.Maybe MaxAgeRuleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html>
+    ApplicationVersionLifecycleConfigProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxagerule>
+                                               maxAgeRule :: (Prelude.Maybe MaxAgeRuleProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxcountrule>
                                                maxCountRule :: (Prelude.Maybe MaxCountRuleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersionLifecycleConfigProperty ::
   ApplicationVersionLifecycleConfigProperty
 mkApplicationVersionLifecycleConfigProperty
   = ApplicationVersionLifecycleConfigProperty
-      {maxAgeRule = Prelude.Nothing, maxCountRule = Prelude.Nothing}
+      {haddock_workaround_ = (), maxAgeRule = Prelude.Nothing,
+       maxCountRule = Prelude.Nothing}
 instance ToResourceProperties ApplicationVersionLifecycleConfigProperty where
   toResourceProperties ApplicationVersionLifecycleConfigProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsMapProperty
-  = DnsMapProperty {http :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html>
+    DnsMapProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html#cfn-appsync-api-dnsmap-http>
+                    http :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html#cfn-appsync-api-dnsmap-realtime>
                     realtime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsMapProperty :: DnsMapProperty
 mkDnsMapProperty
   = DnsMapProperty
-      {http = Prelude.Nothing, realtime = Prelude.Nothing}
+      {haddock_workaround_ = (), http = Prelude.Nothing,
+       realtime = Prelude.Nothing}
 instance ToResourceProperties DnsMapProperty where
   toResourceProperties DnsMapProperty {..}
     = ResourceProperties

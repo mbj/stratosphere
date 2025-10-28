@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.TextInputSpecificationProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptAttemptSpecificationProperty
-  = PromptAttemptSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html>
+    PromptAttemptSpecificationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html#cfn-lex-bot-promptattemptspecification-allowinterrupt>
+                                        allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html#cfn-lex-bot-promptattemptspecification-allowedinputtypes>
                                         allowedInputTypes :: AllowedInputTypesProperty,
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html#cfn-lex-bot-promptattemptspecification-audioanddtmfinputspecification>
                                         audioAndDTMFInputSpecification :: (Prelude.Maybe AudioAndDTMFInputSpecificationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html#cfn-lex-bot-promptattemptspecification-textinputspecification>
                                         textInputSpecification :: (Prelude.Maybe TextInputSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptAttemptSpecificationProperty ::
   AllowedInputTypesProperty -> PromptAttemptSpecificationProperty
 mkPromptAttemptSpecificationProperty allowedInputTypes
   = PromptAttemptSpecificationProperty
-      {allowedInputTypes = allowedInputTypes,
+      {haddock_workaround_ = (), allowedInputTypes = allowedInputTypes,
        allowInterrupt = Prelude.Nothing,
        audioAndDTMFInputSpecification = Prelude.Nothing,
        textInputSpecification = Prelude.Nothing}

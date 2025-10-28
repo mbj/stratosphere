@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.RoboMaker.RobotApplication.SourceConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RobotApplication
-  = RobotApplication {currentRevisionId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html>
+    RobotApplication {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-currentrevisionid>
+                      currentRevisionId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-environment>
                       environment :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-robotsoftwaresuite>
                       robotSoftwareSuite :: RobotSoftwareSuiteProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-sources>
                       sources :: (Prelude.Maybe [SourceConfigProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html#cfn-robomaker-robotapplication-tags>
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotApplication ::
   RobotSoftwareSuiteProperty -> RobotApplication
 mkRobotApplication robotSoftwareSuite
   = RobotApplication
-      {robotSoftwareSuite = robotSoftwareSuite,
+      {haddock_workaround_ = (), robotSoftwareSuite = robotSoftwareSuite,
        currentRevisionId = Prelude.Nothing, environment = Prelude.Nothing,
        name = Prelude.Nothing, sources = Prelude.Nothing,
        tags = Prelude.Nothing}

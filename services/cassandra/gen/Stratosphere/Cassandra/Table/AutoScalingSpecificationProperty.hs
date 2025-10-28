@@ -8,14 +8,19 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.AutoScalingSettingProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoScalingSpecificationProperty
-  = AutoScalingSpecificationProperty {readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html>
+    AutoScalingSpecificationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html#cfn-cassandra-table-autoscalingspecification-readcapacityautoscaling>
+                                      readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html#cfn-cassandra-table-autoscalingspecification-writecapacityautoscaling>
                                       writeCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingSpecificationProperty ::
   AutoScalingSpecificationProperty
 mkAutoScalingSpecificationProperty
   = AutoScalingSpecificationProperty
-      {readCapacityAutoScaling = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       readCapacityAutoScaling = Prelude.Nothing,
        writeCapacityAutoScaling = Prelude.Nothing}
 instance ToResourceProperties AutoScalingSpecificationProperty where
   toResourceProperties AutoScalingSpecificationProperty {..}

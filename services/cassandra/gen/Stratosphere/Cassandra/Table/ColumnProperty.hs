@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnProperty
-  = ColumnProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html>
+    ColumnProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname>
+                    columnName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype>
                     columnType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ColumnProperty
 mkColumnProperty columnName columnType
-  = ColumnProperty {columnName = columnName, columnType = columnType}
+  = ColumnProperty
+      {haddock_workaround_ = (), columnName = columnName,
+       columnType = columnType}
 instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties

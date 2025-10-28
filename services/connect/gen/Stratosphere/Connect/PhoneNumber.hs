@@ -8,21 +8,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PhoneNumber
-  = PhoneNumber {countryCode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html>
+    PhoneNumber {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-countrycode>
+                 countryCode :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-prefix>
                  prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-sourcephonenumberarn>
                  sourcePhoneNumberArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-targetarn>
                  targetArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-type>
                  type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPhoneNumber :: Value Prelude.Text -> PhoneNumber
 mkPhoneNumber targetArn
   = PhoneNumber
-      {targetArn = targetArn, countryCode = Prelude.Nothing,
-       description = Prelude.Nothing, prefix = Prelude.Nothing,
-       sourcePhoneNumberArn = Prelude.Nothing, tags = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), targetArn = targetArn,
+       countryCode = Prelude.Nothing, description = Prelude.Nothing,
+       prefix = Prelude.Nothing, sourcePhoneNumberArn = Prelude.Nothing,
+       tags = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties PhoneNumber where
   toResourceProperties PhoneNumber {..}
     = ResourceProperties

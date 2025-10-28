@@ -13,18 +13,27 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.ModelPackageDetailsProper
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.TrainingDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentProperty
-  = ContentProperty {additionalInformation :: (Prelude.Maybe AdditionalInformationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html>
+    ContentProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-additionalinformation>
+                     additionalInformation :: (Prelude.Maybe AdditionalInformationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-businessdetails>
                      businessDetails :: (Prelude.Maybe BusinessDetailsProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-evaluationdetails>
                      evaluationDetails :: (Prelude.Maybe [EvaluationDetailProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-intendeduses>
                      intendedUses :: (Prelude.Maybe IntendedUsesProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modeloverview>
                      modelOverview :: (Prelude.Maybe ModelOverviewProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-modelpackagedetails>
                      modelPackageDetails :: (Prelude.Maybe ModelPackageDetailsProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html#cfn-sagemaker-modelcard-content-trainingdetails>
                      trainingDetails :: (Prelude.Maybe TrainingDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentProperty :: ContentProperty
 mkContentProperty
   = ContentProperty
-      {additionalInformation = Prelude.Nothing,
+      {haddock_workaround_ = (), additionalInformation = Prelude.Nothing,
        businessDetails = Prelude.Nothing,
        evaluationDetails = Prelude.Nothing,
        intendedUses = Prelude.Nothing, modelOverview = Prelude.Nothing,

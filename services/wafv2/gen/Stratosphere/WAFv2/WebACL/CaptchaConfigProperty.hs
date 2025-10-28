@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptchaConfigProperty
-  = CaptchaConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html>
+    CaptchaConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html#cfn-wafv2-webacl-captchaconfig-immunitytimeproperty>
+                           immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaConfigProperty :: CaptchaConfigProperty
 mkCaptchaConfigProperty
-  = CaptchaConfigProperty {immunityTimeProperty = Prelude.Nothing}
+  = CaptchaConfigProperty
+      {haddock_workaround_ = (), immunityTimeProperty = Prelude.Nothing}
 instance ToResourceProperties CaptchaConfigProperty where
   toResourceProperties CaptchaConfigProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON CaptchaConfigProperty where
                  Prelude.<$> immunityTimeProperty]))
 instance Property "ImmunityTimeProperty" CaptchaConfigProperty where
   type PropertyType "ImmunityTimeProperty" CaptchaConfigProperty = ImmunityTimePropertyProperty
-  set newValue CaptchaConfigProperty {}
+  set newValue CaptchaConfigProperty {..}
     = CaptchaConfigProperty
         {immunityTimeProperty = Prelude.pure newValue, ..}

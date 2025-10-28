@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonElasticsearchParametersProperty
-  = AmazonElasticsearchParametersProperty {domain :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html>
+    AmazonElasticsearchParametersProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain>
+                                           domain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonElasticsearchParametersProperty ::
   Value Prelude.Text -> AmazonElasticsearchParametersProperty
 mkAmazonElasticsearchParametersProperty domain
-  = AmazonElasticsearchParametersProperty {domain = domain}
+  = AmazonElasticsearchParametersProperty
+      {haddock_workaround_ = (), domain = domain}
 instance ToResourceProperties AmazonElasticsearchParametersProperty where
   toResourceProperties AmazonElasticsearchParametersProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON AmazonElasticsearchParametersProperty where
     = JSON.object ["Domain" JSON..= domain]
 instance Property "Domain" AmazonElasticsearchParametersProperty where
   type PropertyType "Domain" AmazonElasticsearchParametersProperty = Value Prelude.Text
-  set newValue AmazonElasticsearchParametersProperty {}
+  set newValue AmazonElasticsearchParametersProperty {..}
     = AmazonElasticsearchParametersProperty {domain = newValue, ..}

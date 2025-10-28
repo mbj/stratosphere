@@ -10,14 +10,25 @@ import {-# SOURCE #-} Stratosphere.ResilienceHub.App.ResourceMappingProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data App
-  = App {appAssessmentSchedule :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html>
+    App {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-appassessmentschedule>
+         appAssessmentSchedule :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-apptemplatebody>
          appTemplateBody :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-eventsubscriptions>
          eventSubscriptions :: (Prelude.Maybe [EventSubscriptionProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel>
          permissionModel :: (Prelude.Maybe PermissionModelProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn>
          resiliencyPolicyArn :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resourcemappings>
          resourceMappings :: [ResourceMappingProperty],
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags>
          tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApp ::
@@ -25,8 +36,8 @@ mkApp ::
   -> Value Prelude.Text -> [ResourceMappingProperty] -> App
 mkApp appTemplateBody name resourceMappings
   = App
-      {appTemplateBody = appTemplateBody, name = name,
-       resourceMappings = resourceMappings,
+      {haddock_workaround_ = (), appTemplateBody = appTemplateBody,
+       name = name, resourceMappings = resourceMappings,
        appAssessmentSchedule = Prelude.Nothing,
        description = Prelude.Nothing,
        eventSubscriptions = Prelude.Nothing,

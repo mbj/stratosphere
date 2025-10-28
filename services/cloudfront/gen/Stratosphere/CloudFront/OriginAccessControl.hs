@@ -7,13 +7,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.OriginAccessControl.OriginAccessControlConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginAccessControl
-  = OriginAccessControl {originAccessControlConfig :: OriginAccessControlConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html>
+    OriginAccessControl {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig>
+                         originAccessControlConfig :: OriginAccessControlConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginAccessControl ::
   OriginAccessControlConfigProperty -> OriginAccessControl
 mkOriginAccessControl originAccessControlConfig
   = OriginAccessControl
-      {originAccessControlConfig = originAccessControlConfig}
+      {haddock_workaround_ = (),
+       originAccessControlConfig = originAccessControlConfig}
 instance ToResourceProperties OriginAccessControl where
   toResourceProperties OriginAccessControl {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON OriginAccessControl where
         ["OriginAccessControlConfig" JSON..= originAccessControlConfig]
 instance Property "OriginAccessControlConfig" OriginAccessControl where
   type PropertyType "OriginAccessControlConfig" OriginAccessControl = OriginAccessControlConfigProperty
-  set newValue OriginAccessControl {}
+  set newValue OriginAccessControl {..}
     = OriginAccessControl {originAccessControlConfig = newValue, ..}

@@ -10,13 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Flywheel
-  = Flywheel {activeModelArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html>
+    Flywheel {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-activemodelarn>
+              activeModelArn :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-dataaccessrolearn>
               dataAccessRoleArn :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-datalakes3uri>
               dataLakeS3Uri :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-datasecurityconfig>
               dataSecurityConfig :: (Prelude.Maybe DataSecurityConfigProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-flywheelname>
               flywheelName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-modeltype>
               modelType :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-tags>
               tags :: (Prelude.Maybe [Tag]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html#cfn-comprehend-flywheel-taskconfig>
               taskConfig :: (Prelude.Maybe TaskConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlywheel ::
@@ -24,7 +34,7 @@ mkFlywheel ::
   -> Value Prelude.Text -> Value Prelude.Text -> Flywheel
 mkFlywheel dataAccessRoleArn dataLakeS3Uri flywheelName
   = Flywheel
-      {dataAccessRoleArn = dataAccessRoleArn,
+      {haddock_workaround_ = (), dataAccessRoleArn = dataAccessRoleArn,
        dataLakeS3Uri = dataLakeS3Uri, flywheelName = flywheelName,
        activeModelArn = Prelude.Nothing,
        dataSecurityConfig = Prelude.Nothing, modelType = Prelude.Nothing,

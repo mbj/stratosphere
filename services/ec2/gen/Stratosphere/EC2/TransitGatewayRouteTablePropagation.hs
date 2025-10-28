@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayRouteTablePropagation
-  = TransitGatewayRouteTablePropagation {transitGatewayAttachmentId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html>
+    TransitGatewayRouteTablePropagation {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayattachmentid>
+                                         transitGatewayAttachmentId :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayroutetableid>
                                          transitGatewayRouteTableId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTablePropagation ::
@@ -18,7 +22,8 @@ mkTransitGatewayRouteTablePropagation
   transitGatewayAttachmentId
   transitGatewayRouteTableId
   = TransitGatewayRouteTablePropagation
-      {transitGatewayAttachmentId = transitGatewayAttachmentId,
+      {haddock_workaround_ = (),
+       transitGatewayAttachmentId = transitGatewayAttachmentId,
        transitGatewayRouteTableId = transitGatewayRouteTableId}
 instance ToResourceProperties TransitGatewayRouteTablePropagation where
   toResourceProperties TransitGatewayRouteTablePropagation {..}

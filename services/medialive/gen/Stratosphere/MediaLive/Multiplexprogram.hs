@@ -10,17 +10,25 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramSe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Multiplexprogram
-  = Multiplexprogram {multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html>
+    Multiplexprogram {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-multiplexid>
+                      multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-multiplexprogramsettings>
                       multiplexProgramSettings :: (Prelude.Maybe MultiplexProgramSettingsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-packetidentifiersmap>
                       packetIdentifiersMap :: (Prelude.Maybe MultiplexProgramPacketIdentifiersMapProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-pipelinedetails>
                       pipelineDetails :: (Prelude.Maybe [MultiplexProgramPipelineDetailProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-preferredchannelpipeline>
                       preferredChannelPipeline :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-programname>
                       programName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexprogram :: Multiplexprogram
 mkMultiplexprogram
   = Multiplexprogram
-      {multiplexId = Prelude.Nothing,
+      {haddock_workaround_ = (), multiplexId = Prelude.Nothing,
        multiplexProgramSettings = Prelude.Nothing,
        packetIdentifiersMap = Prelude.Nothing,
        pipelineDetails = Prelude.Nothing,

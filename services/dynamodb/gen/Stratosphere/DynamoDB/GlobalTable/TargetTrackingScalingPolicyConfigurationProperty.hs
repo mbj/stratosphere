@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingScalingPolicyConfigurationProperty
-  = TargetTrackingScalingPolicyConfigurationProperty {disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html>
+    TargetTrackingScalingPolicyConfigurationProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein>
+                                                      disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown>
                                                       scaleInCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown>
                                                       scaleOutCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue>
                                                       targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingScalingPolicyConfigurationProperty ::
@@ -18,7 +24,8 @@ mkTargetTrackingScalingPolicyConfigurationProperty ::
   -> TargetTrackingScalingPolicyConfigurationProperty
 mkTargetTrackingScalingPolicyConfigurationProperty targetValue
   = TargetTrackingScalingPolicyConfigurationProperty
-      {targetValue = targetValue, disableScaleIn = Prelude.Nothing,
+      {haddock_workaround_ = (), targetValue = targetValue,
+       disableScaleIn = Prelude.Nothing,
        scaleInCooldown = Prelude.Nothing,
        scaleOutCooldown = Prelude.Nothing}
 instance ToResourceProperties TargetTrackingScalingPolicyConfigurationProperty where

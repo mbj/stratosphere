@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Node.NodeConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Node
-  = Node {memberId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html>
+    Node {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid>
+          memberId :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid>
           networkId :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-nodeconfiguration>
           nodeConfiguration :: NodeConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNode :: Value Prelude.Text -> NodeConfigurationProperty -> Node
 mkNode networkId nodeConfiguration
   = Node
-      {networkId = networkId, nodeConfiguration = nodeConfiguration,
-       memberId = Prelude.Nothing}
+      {haddock_workaround_ = (), networkId = networkId,
+       nodeConfiguration = nodeConfiguration, memberId = Prelude.Nothing}
 instance ToResourceProperties Node where
   toResourceProperties Node {..}
     = ResourceProperties

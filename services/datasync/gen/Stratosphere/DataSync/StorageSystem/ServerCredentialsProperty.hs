@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerCredentialsProperty
-  = ServerCredentialsProperty {password :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html>
+    ServerCredentialsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html#cfn-datasync-storagesystem-servercredentials-password>
+                               password :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html#cfn-datasync-storagesystem-servercredentials-username>
                                username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCredentialsProperty ::
@@ -15,7 +19,8 @@ mkServerCredentialsProperty ::
   -> Value Prelude.Text -> ServerCredentialsProperty
 mkServerCredentialsProperty password username
   = ServerCredentialsProperty
-      {password = password, username = username}
+      {haddock_workaround_ = (), password = password,
+       username = username}
 instance ToResourceProperties ServerCredentialsProperty where
   toResourceProperties ServerCredentialsProperty {..}
     = ResourceProperties

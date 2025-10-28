@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ECPUPerSecondProperty
-  = ECPUPerSecondProperty {maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-ecpupersecond.html>
+    ECPUPerSecondProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-ecpupersecond.html#cfn-elasticache-serverlesscache-ecpupersecond-maximum>
+                           maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-ecpupersecond.html#cfn-elasticache-serverlesscache-ecpupersecond-minimum>
                            minimum :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkECPUPerSecondProperty :: ECPUPerSecondProperty
 mkECPUPerSecondProperty
   = ECPUPerSecondProperty
-      {maximum = Prelude.Nothing, minimum = Prelude.Nothing}
+      {haddock_workaround_ = (), maximum = Prelude.Nothing,
+       minimum = Prelude.Nothing}
 instance ToResourceProperties ECPUPerSecondProperty where
   toResourceProperties ECPUPerSecondProperty {..}
     = ResourceProperties

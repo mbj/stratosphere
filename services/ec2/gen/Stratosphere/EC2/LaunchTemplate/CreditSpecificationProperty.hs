@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreditSpecificationProperty
-  = CreditSpecificationProperty {cpuCredits :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html>
+    CreditSpecificationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html#cfn-ec2-launchtemplate-creditspecification-cpucredits>
+                                 cpuCredits :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreditSpecificationProperty :: CreditSpecificationProperty
 mkCreditSpecificationProperty
-  = CreditSpecificationProperty {cpuCredits = Prelude.Nothing}
+  = CreditSpecificationProperty
+      {haddock_workaround_ = (), cpuCredits = Prelude.Nothing}
 instance ToResourceProperties CreditSpecificationProperty where
   toResourceProperties CreditSpecificationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON CreditSpecificationProperty where
               [(JSON..=) "CpuCredits" Prelude.<$> cpuCredits]))
 instance Property "CpuCredits" CreditSpecificationProperty where
   type PropertyType "CpuCredits" CreditSpecificationProperty = Value Prelude.Text
-  set newValue CreditSpecificationProperty {}
+  set newValue CreditSpecificationProperty {..}
     = CreditSpecificationProperty
         {cpuCredits = Prelude.pure newValue, ..}

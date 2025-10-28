@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {pattern :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html>
+    FilterProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html#cfn-pipes-pipe-filter-pattern>
+                    pattern :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
-mkFilterProperty = FilterProperty {pattern = Prelude.Nothing}
+mkFilterProperty
+  = FilterProperty
+      {haddock_workaround_ = (), pattern = Prelude.Nothing}
 instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
@@ -24,5 +29,5 @@ instance JSON.ToJSON FilterProperty where
            (Prelude.catMaybes [(JSON..=) "Pattern" Prelude.<$> pattern]))
 instance Property "Pattern" FilterProperty where
   type PropertyType "Pattern" FilterProperty = Value Prelude.Text
-  set newValue FilterProperty {}
+  set newValue FilterProperty {..}
     = FilterProperty {pattern = Prelude.pure newValue, ..}

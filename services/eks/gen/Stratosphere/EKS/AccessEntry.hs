@@ -9,20 +9,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AccessEntry
-  = AccessEntry {accessPolicies :: (Prelude.Maybe [AccessPolicyProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html>
+    AccessEntry {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-accesspolicies>
+                 accessPolicies :: (Prelude.Maybe [AccessPolicyProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-clustername>
                  clusterName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-kubernetesgroups>
                  kubernetesGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-principalarn>
                  principalArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-type>
                  type' :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html#cfn-eks-accessentry-username>
                  username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessEntry ::
   Value Prelude.Text -> Value Prelude.Text -> AccessEntry
 mkAccessEntry clusterName principalArn
   = AccessEntry
-      {clusterName = clusterName, principalArn = principalArn,
-       accessPolicies = Prelude.Nothing,
+      {haddock_workaround_ = (), clusterName = clusterName,
+       principalArn = principalArn, accessPolicies = Prelude.Nothing,
        kubernetesGroups = Prelude.Nothing, tags = Prelude.Nothing,
        type' = Prelude.Nothing, username = Prelude.Nothing}
 instance ToResourceProperties AccessEntry where

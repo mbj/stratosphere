@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchMetricsProperty
-  = CloudWatchMetricsProperty {isEnabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html>
+    CloudWatchMetricsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html#cfn-s3-storagelens-cloudwatchmetrics-isenabled>
+                               isEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchMetricsProperty ::
   Value Prelude.Bool -> CloudWatchMetricsProperty
 mkCloudWatchMetricsProperty isEnabled
-  = CloudWatchMetricsProperty {isEnabled = isEnabled}
+  = CloudWatchMetricsProperty
+      {haddock_workaround_ = (), isEnabled = isEnabled}
 instance ToResourceProperties CloudWatchMetricsProperty where
   toResourceProperties CloudWatchMetricsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CloudWatchMetricsProperty where
     = JSON.object ["IsEnabled" JSON..= isEnabled]
 instance Property "IsEnabled" CloudWatchMetricsProperty where
   type PropertyType "IsEnabled" CloudWatchMetricsProperty = Value Prelude.Bool
-  set newValue CloudWatchMetricsProperty {}
+  set newValue CloudWatchMetricsProperty {..}
     = CloudWatchMetricsProperty {isEnabled = newValue, ..}

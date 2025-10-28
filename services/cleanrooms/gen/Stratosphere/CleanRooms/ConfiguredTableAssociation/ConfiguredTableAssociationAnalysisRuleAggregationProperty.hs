@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfiguredTableAssociationAnalysisRuleAggregationProperty
-  = ConfiguredTableAssociationAnalysisRuleAggregationProperty {allowedAdditionalAnalyses :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html>
+    ConfiguredTableAssociationAnalysisRuleAggregationProperty {haddock_workaround_ :: (),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation-allowedadditionalanalyses>
+                                                               allowedAdditionalAnalyses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation-allowedresultreceivers>
                                                                allowedResultReceivers :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRuleAggregationProperty ::
   ConfiguredTableAssociationAnalysisRuleAggregationProperty
 mkConfiguredTableAssociationAnalysisRuleAggregationProperty
   = ConfiguredTableAssociationAnalysisRuleAggregationProperty
-      {allowedAdditionalAnalyses = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       allowedAdditionalAnalyses = Prelude.Nothing,
        allowedResultReceivers = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTableAssociationAnalysisRuleAggregationProperty where
   toResourceProperties

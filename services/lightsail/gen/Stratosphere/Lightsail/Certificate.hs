@@ -8,17 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Certificate
-  = Certificate {certificateName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html>
+    Certificate {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-certificatename>
+                 certificateName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-domainname>
                  domainName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-subjectalternativenames>
                  subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html#cfn-lightsail-certificate-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate ::
   Value Prelude.Text -> Value Prelude.Text -> Certificate
 mkCertificate certificateName domainName
   = Certificate
-      {certificateName = certificateName, domainName = domainName,
-       subjectAlternativeNames = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), certificateName = certificateName,
+       domainName = domainName, subjectAlternativeNames = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties

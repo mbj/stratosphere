@@ -6,12 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SmpteTtDestinationSettingsProperty
-  = SmpteTtDestinationSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smptettdestinationsettings.html>
+    SmpteTtDestinationSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmpteTtDestinationSettingsProperty ::
   SmpteTtDestinationSettingsProperty
 mkSmpteTtDestinationSettingsProperty
-  = SmpteTtDestinationSettingsProperty {}
+  = SmpteTtDestinationSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties SmpteTtDestinationSettingsProperty where
   toResourceProperties SmpteTtDestinationSettingsProperty {}
     = ResourceProperties

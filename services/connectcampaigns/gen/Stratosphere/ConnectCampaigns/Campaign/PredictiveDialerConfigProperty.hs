@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveDialerConfigProperty
-  = PredictiveDialerConfigProperty {bandwidthAllocation :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html>
+    PredictiveDialerConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html#cfn-connectcampaigns-campaign-predictivedialerconfig-bandwidthallocation>
+                                    bandwidthAllocation :: (Value Prelude.Double),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html#cfn-connectcampaigns-campaign-predictivedialerconfig-dialingcapacity>
                                     dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveDialerConfigProperty ::
   Value Prelude.Double -> PredictiveDialerConfigProperty
 mkPredictiveDialerConfigProperty bandwidthAllocation
   = PredictiveDialerConfigProperty
-      {bandwidthAllocation = bandwidthAllocation,
+      {haddock_workaround_ = (),
+       bandwidthAllocation = bandwidthAllocation,
        dialingCapacity = Prelude.Nothing}
 instance ToResourceProperties PredictiveDialerConfigProperty where
   toResourceProperties PredictiveDialerConfigProperty {..}

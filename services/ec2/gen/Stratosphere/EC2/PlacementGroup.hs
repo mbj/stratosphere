@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PlacementGroup
-  = PlacementGroup {partitionCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html>
+    PlacementGroup {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-partitioncount>
+                    partitionCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-spreadlevel>
                     spreadLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy>
                     strategy :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementGroup :: PlacementGroup
 mkPlacementGroup
   = PlacementGroup
-      {partitionCount = Prelude.Nothing, spreadLevel = Prelude.Nothing,
-       strategy = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), partitionCount = Prelude.Nothing,
+       spreadLevel = Prelude.Nothing, strategy = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties PlacementGroup where
   toResourceProperties PlacementGroup {..}
     = ResourceProperties

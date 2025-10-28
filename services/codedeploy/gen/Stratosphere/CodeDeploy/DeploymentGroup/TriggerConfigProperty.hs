@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggerConfigProperty
-  = TriggerConfigProperty {triggerEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html>
+    TriggerConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggerevents>
+                           triggerEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggername>
                            triggerName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggertargetarn>
                            triggerTargetArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerConfigProperty :: TriggerConfigProperty
 mkTriggerConfigProperty
   = TriggerConfigProperty
-      {triggerEvents = Prelude.Nothing, triggerName = Prelude.Nothing,
-       triggerTargetArn = Prelude.Nothing}
+      {haddock_workaround_ = (), triggerEvents = Prelude.Nothing,
+       triggerName = Prelude.Nothing, triggerTargetArn = Prelude.Nothing}
 instance ToResourceProperties TriggerConfigProperty where
   toResourceProperties TriggerConfigProperty {..}
     = ResourceProperties

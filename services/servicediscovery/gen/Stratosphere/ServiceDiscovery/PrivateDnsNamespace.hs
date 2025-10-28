@@ -9,18 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PrivateDnsNamespace
-  = PrivateDnsNamespace {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html>
+    PrivateDnsNamespace {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description>
+                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-properties>
                          properties :: (Prelude.Maybe PropertiesProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-tags>
                          tags :: (Prelude.Maybe [Tag]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc>
                          vpc :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateDnsNamespace ::
   Value Prelude.Text -> Value Prelude.Text -> PrivateDnsNamespace
 mkPrivateDnsNamespace name vpc
   = PrivateDnsNamespace
-      {name = name, vpc = vpc, description = Prelude.Nothing,
-       properties = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, vpc = vpc,
+       description = Prelude.Nothing, properties = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties PrivateDnsNamespace where
   toResourceProperties PrivateDnsNamespace {..}
     = ResourceProperties

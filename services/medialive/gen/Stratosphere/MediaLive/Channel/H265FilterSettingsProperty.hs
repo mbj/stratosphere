@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.BandwidthReductionFilterSet
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TemporalFilterSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data H265FilterSettingsProperty
-  = H265FilterSettingsProperty {bandwidthReductionFilterSettings :: (Prelude.Maybe BandwidthReductionFilterSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html>
+    H265FilterSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html#cfn-medialive-channel-h265filtersettings-bandwidthreductionfiltersettings>
+                                bandwidthReductionFilterSettings :: (Prelude.Maybe BandwidthReductionFilterSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html#cfn-medialive-channel-h265filtersettings-temporalfiltersettings>
                                 temporalFilterSettings :: (Prelude.Maybe TemporalFilterSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkH265FilterSettingsProperty :: H265FilterSettingsProperty
 mkH265FilterSettingsProperty
   = H265FilterSettingsProperty
-      {bandwidthReductionFilterSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       bandwidthReductionFilterSettings = Prelude.Nothing,
        temporalFilterSettings = Prelude.Nothing}
 instance ToResourceProperties H265FilterSettingsProperty where
   toResourceProperties H265FilterSettingsProperty {..}

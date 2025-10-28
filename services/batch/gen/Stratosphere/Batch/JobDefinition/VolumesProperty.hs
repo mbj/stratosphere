@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesHostProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumesProperty
-  = VolumesProperty {efsVolumeConfiguration :: (Prelude.Maybe EfsVolumeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html>
+    VolumesProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-efsvolumeconfiguration>
+                     efsVolumeConfiguration :: (Prelude.Maybe EfsVolumeConfigurationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-host>
                      host :: (Prelude.Maybe VolumesHostProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-name>
                      name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumesProperty :: VolumesProperty
 mkVolumesProperty
   = VolumesProperty
-      {efsVolumeConfiguration = Prelude.Nothing, host = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       efsVolumeConfiguration = Prelude.Nothing, host = Prelude.Nothing,
        name = Prelude.Nothing}
 instance ToResourceProperties VolumesProperty where
   toResourceProperties VolumesProperty {..}

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityCenterConfigurationProperty
-  = IdentityCenterConfigurationProperty {enableIdentityPropagation :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-identitycenterconfiguration.html>
+    IdentityCenterConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-identitycenterconfiguration.html#cfn-quicksight-datasource-identitycenterconfiguration-enableidentitypropagation>
+                                         enableIdentityPropagation :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityCenterConfigurationProperty ::
   IdentityCenterConfigurationProperty
 mkIdentityCenterConfigurationProperty
   = IdentityCenterConfigurationProperty
-      {enableIdentityPropagation = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       enableIdentityPropagation = Prelude.Nothing}
 instance ToResourceProperties IdentityCenterConfigurationProperty where
   toResourceProperties IdentityCenterConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON IdentityCenterConfigurationProperty where
                  Prelude.<$> enableIdentityPropagation]))
 instance Property "EnableIdentityPropagation" IdentityCenterConfigurationProperty where
   type PropertyType "EnableIdentityPropagation" IdentityCenterConfigurationProperty = Value Prelude.Bool
-  set newValue IdentityCenterConfigurationProperty {}
+  set newValue IdentityCenterConfigurationProperty {..}
     = IdentityCenterConfigurationProperty
         {enableIdentityPropagation = Prelude.pure newValue, ..}

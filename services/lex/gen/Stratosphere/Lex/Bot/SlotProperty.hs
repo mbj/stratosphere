@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueElicitationSettingProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotProperty
-  = SlotProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html>
+    SlotProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-description>
+                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-multiplevaluessetting>
                   multipleValuesSetting :: (Prelude.Maybe MultipleValuesSettingProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-obfuscationsetting>
                   obfuscationSetting :: (Prelude.Maybe ObfuscationSettingProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-slottypename>
                   slotTypeName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-valueelicitationsetting>
                   valueElicitationSetting :: SlotValueElicitationSettingProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotProperty ::
@@ -23,7 +31,8 @@ mkSlotProperty ::
      -> SlotValueElicitationSettingProperty -> SlotProperty
 mkSlotProperty name slotTypeName valueElicitationSetting
   = SlotProperty
-      {name = name, slotTypeName = slotTypeName,
+      {haddock_workaround_ = (), name = name,
+       slotTypeName = slotTypeName,
        valueElicitationSetting = valueElicitationSetting,
        description = Prelude.Nothing,
        multipleValuesSetting = Prelude.Nothing,

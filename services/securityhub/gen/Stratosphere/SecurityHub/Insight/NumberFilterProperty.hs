@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NumberFilterProperty
-  = NumberFilterProperty {eq :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-numberfilter.html>
+    NumberFilterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-numberfilter.html#cfn-securityhub-insight-numberfilter-eq>
+                          eq :: (Prelude.Maybe (Value Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-numberfilter.html#cfn-securityhub-insight-numberfilter-gte>
                           gte :: (Prelude.Maybe (Value Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-numberfilter.html#cfn-securityhub-insight-numberfilter-lte>
                           lte :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberFilterProperty :: NumberFilterProperty
 mkNumberFilterProperty
   = NumberFilterProperty
-      {eq = Prelude.Nothing, gte = Prelude.Nothing,
-       lte = Prelude.Nothing}
+      {haddock_workaround_ = (), eq = Prelude.Nothing,
+       gte = Prelude.Nothing, lte = Prelude.Nothing}
 instance ToResourceProperties NumberFilterProperty where
   toResourceProperties NumberFilterProperty {..}
     = ResourceProperties

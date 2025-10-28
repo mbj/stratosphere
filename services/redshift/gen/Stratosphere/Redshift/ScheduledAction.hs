@@ -8,19 +8,30 @@ import {-# SOURCE #-} Stratosphere.Redshift.ScheduledAction.ScheduledActionTypeP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduledAction
-  = ScheduledAction {enable :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html>
+    ScheduledAction {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-enable>
+                     enable :: (Prelude.Maybe (Value Prelude.Bool)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-endtime>
                      endTime :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-iamrole>
                      iamRole :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-schedule>
                      schedule :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactiondescription>
                      scheduledActionDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-scheduledactionname>
                      scheduledActionName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-starttime>
                      startTime :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-targetaction>
                      targetAction :: (Prelude.Maybe ScheduledActionTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledAction :: Value Prelude.Text -> ScheduledAction
 mkScheduledAction scheduledActionName
   = ScheduledAction
-      {scheduledActionName = scheduledActionName,
+      {haddock_workaround_ = (),
+       scheduledActionName = scheduledActionName,
        enable = Prelude.Nothing, endTime = Prelude.Nothing,
        iamRole = Prelude.Nothing, schedule = Prelude.Nothing,
        scheduledActionDescription = Prelude.Nothing,

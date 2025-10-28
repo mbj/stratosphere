@@ -8,11 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Profile
-  = Profile {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html>
+    Profile {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html#cfn-route53profiles-profile-name>
+             name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html#cfn-route53profiles-profile-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProfile :: Value Prelude.Text -> Profile
-mkProfile name = Profile {name = name, tags = Prelude.Nothing}
+mkProfile name
+  = Profile
+      {haddock_workaround_ = (), name = name, tags = Prelude.Nothing}
 instance ToResourceProperties Profile where
   toResourceProperties Profile {..}
     = ResourceProperties

@@ -8,12 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ContactFlow
-  = ContactFlow {content :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html>
+    ContactFlow {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-content>
+                 content :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-instancearn>
                  instanceArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-state>
                  state :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-type>
                  type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContactFlow ::
@@ -22,9 +31,10 @@ mkContactFlow ::
      -> Value Prelude.Text -> Value Prelude.Text -> ContactFlow
 mkContactFlow content instanceArn name type'
   = ContactFlow
-      {content = content, instanceArn = instanceArn, name = name,
-       type' = type', description = Prelude.Nothing,
-       state = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), content = content,
+       instanceArn = instanceArn, name = name, type' = type',
+       description = Prelude.Nothing, state = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ContactFlow where
   toResourceProperties ContactFlow {..}
     = ResourceProperties

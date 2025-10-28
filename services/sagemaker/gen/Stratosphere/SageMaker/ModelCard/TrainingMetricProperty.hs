@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingMetricProperty
-  = TrainingMetricProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html>
+    TrainingMetricProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html#cfn-sagemaker-modelcard-trainingmetric-name>
+                            name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html#cfn-sagemaker-modelcard-trainingmetric-notes>
                             notes :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html#cfn-sagemaker-modelcard-trainingmetric-value>
                             value :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingMetricProperty ::
@@ -16,7 +21,8 @@ mkTrainingMetricProperty ::
   -> Value Prelude.Double -> TrainingMetricProperty
 mkTrainingMetricProperty name value
   = TrainingMetricProperty
-      {name = name, value = value, notes = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, value = value,
+       notes = Prelude.Nothing}
 instance ToResourceProperties TrainingMetricProperty where
   toResourceProperties TrainingMetricProperty {..}
     = ResourceProperties

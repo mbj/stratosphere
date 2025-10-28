@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDimensionProperty
-  = AttributeDimensionProperty {dimensionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-attributedimension.html>
+    AttributeDimensionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-attributedimension.html#cfn-customerprofiles-segmentdefinition-attributedimension-dimensiontype>
+                                dimensionType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-attributedimension.html#cfn-customerprofiles-segmentdefinition-attributedimension-values>
                                 values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDimensionProperty ::
@@ -15,7 +19,8 @@ mkAttributeDimensionProperty ::
   -> ValueList Prelude.Text -> AttributeDimensionProperty
 mkAttributeDimensionProperty dimensionType values
   = AttributeDimensionProperty
-      {dimensionType = dimensionType, values = values}
+      {haddock_workaround_ = (), dimensionType = dimensionType,
+       values = values}
 instance ToResourceProperties AttributeDimensionProperty where
   toResourceProperties AttributeDimensionProperty {..}
     = ResourceProperties

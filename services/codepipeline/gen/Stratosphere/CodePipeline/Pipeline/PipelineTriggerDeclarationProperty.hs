@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitConfigurationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineTriggerDeclarationProperty
-  = PipelineTriggerDeclarationProperty {gitConfiguration :: (Prelude.Maybe GitConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html>
+    PipelineTriggerDeclarationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html#cfn-codepipeline-pipeline-pipelinetriggerdeclaration-gitconfiguration>
+                                        gitConfiguration :: (Prelude.Maybe GitConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html#cfn-codepipeline-pipeline-pipelinetriggerdeclaration-providertype>
                                         providerType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineTriggerDeclarationProperty ::
   Value Prelude.Text -> PipelineTriggerDeclarationProperty
 mkPipelineTriggerDeclarationProperty providerType
   = PipelineTriggerDeclarationProperty
-      {providerType = providerType, gitConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), providerType = providerType,
+       gitConfiguration = Prelude.Nothing}
 instance ToResourceProperties PipelineTriggerDeclarationProperty where
   toResourceProperties PipelineTriggerDeclarationProperty {..}
     = ResourceProperties

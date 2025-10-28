@@ -9,14 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Stage
-  = Stage {autoParticipantRecordingConfiguration :: (Prelude.Maybe AutoParticipantRecordingConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html>
+    Stage {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-autoparticipantrecordingconfiguration>
+           autoParticipantRecordingConfiguration :: (Prelude.Maybe AutoParticipantRecordingConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-name>
            name :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStage :: Stage
 mkStage
   = Stage
-      {autoParticipantRecordingConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       autoParticipantRecordingConfiguration = Prelude.Nothing,
        name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Stage where
   toResourceProperties Stage {..}

@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelProperty
-  = ModelProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html>
+    ModelProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn>
+                   arn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelProperty :: ModelProperty
-mkModelProperty = ModelProperty {arn = Prelude.Nothing}
+mkModelProperty
+  = ModelProperty {haddock_workaround_ = (), arn = Prelude.Nothing}
 instance ToResourceProperties ModelProperty where
   toResourceProperties ModelProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ModelProperty where
            (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn]))
 instance Property "Arn" ModelProperty where
   type PropertyType "Arn" ModelProperty = Value Prelude.Text
-  set newValue ModelProperty {}
+  set newValue ModelProperty {..}
     = ModelProperty {arn = Prelude.pure newValue, ..}

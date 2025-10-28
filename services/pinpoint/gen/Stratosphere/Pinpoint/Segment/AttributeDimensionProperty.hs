@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDimensionProperty
-  = AttributeDimensionProperty {attributeType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-attributedimension.html>
+    AttributeDimensionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-attributedimension.html#cfn-pinpoint-segment-attributedimension-attributetype>
+                                attributeType :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-attributedimension.html#cfn-pinpoint-segment-attributedimension-values>
                                 values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDimensionProperty :: AttributeDimensionProperty
 mkAttributeDimensionProperty
   = AttributeDimensionProperty
-      {attributeType = Prelude.Nothing, values = Prelude.Nothing}
+      {haddock_workaround_ = (), attributeType = Prelude.Nothing,
+       values = Prelude.Nothing}
 instance ToResourceProperties AttributeDimensionProperty where
   toResourceProperties AttributeDimensionProperty {..}
     = ResourceProperties

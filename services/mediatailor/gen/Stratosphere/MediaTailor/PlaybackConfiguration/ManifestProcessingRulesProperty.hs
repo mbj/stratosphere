@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty as Exports
 import Stratosphere.ResourceProperties
 data ManifestProcessingRulesProperty
-  = ManifestProcessingRulesProperty {adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html>
+    ManifestProcessingRulesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html#cfn-mediatailor-playbackconfiguration-manifestprocessingrules-admarkerpassthrough>
+                                     adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestProcessingRulesProperty ::
   ManifestProcessingRulesProperty
 mkManifestProcessingRulesProperty
   = ManifestProcessingRulesProperty
-      {adMarkerPassthrough = Prelude.Nothing}
+      {haddock_workaround_ = (), adMarkerPassthrough = Prelude.Nothing}
 instance ToResourceProperties ManifestProcessingRulesProperty where
   toResourceProperties ManifestProcessingRulesProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ManifestProcessingRulesProperty where
               [(JSON..=) "AdMarkerPassthrough" Prelude.<$> adMarkerPassthrough]))
 instance Property "AdMarkerPassthrough" ManifestProcessingRulesProperty where
   type PropertyType "AdMarkerPassthrough" ManifestProcessingRulesProperty = AdMarkerPassthroughProperty
-  set newValue ManifestProcessingRulesProperty {}
+  set newValue ManifestProcessingRulesProperty {..}
     = ManifestProcessingRulesProperty
         {adMarkerPassthrough = Prelude.pure newValue, ..}

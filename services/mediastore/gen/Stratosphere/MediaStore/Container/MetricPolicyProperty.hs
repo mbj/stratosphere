@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.MediaStore.Container.MetricPolicyRuleProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricPolicyProperty
-  = MetricPolicyProperty {containerLevelMetrics :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html>
+    MetricPolicyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-containerlevelmetrics>
+                          containerLevelMetrics :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-metricpolicyrules>
                           metricPolicyRules :: (Prelude.Maybe [MetricPolicyRuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricPolicyProperty ::
   Value Prelude.Text -> MetricPolicyProperty
 mkMetricPolicyProperty containerLevelMetrics
   = MetricPolicyProperty
-      {containerLevelMetrics = containerLevelMetrics,
+      {haddock_workaround_ = (),
+       containerLevelMetrics = containerLevelMetrics,
        metricPolicyRules = Prelude.Nothing}
 instance ToResourceProperties MetricPolicyProperty where
   toResourceProperties MetricPolicyProperty {..}

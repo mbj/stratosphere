@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptProperty
-  = ScriptProperty {scriptLocation :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-script.html>
+    ScriptProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-script.html#cfn-apptest-testcase-script-scriptlocation>
+                    scriptLocation :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-script.html#cfn-apptest-testcase-script-type>
                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ScriptProperty
 mkScriptProperty scriptLocation type'
-  = ScriptProperty {scriptLocation = scriptLocation, type' = type'}
+  = ScriptProperty
+      {haddock_workaround_ = (), scriptLocation = scriptLocation,
+       type' = type'}
 instance ToResourceProperties ScriptProperty where
   toResourceProperties ScriptProperty {..}
     = ResourceProperties

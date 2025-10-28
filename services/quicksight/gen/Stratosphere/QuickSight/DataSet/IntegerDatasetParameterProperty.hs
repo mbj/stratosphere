@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.IntegerDatasetParameterDef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerDatasetParameterProperty
-  = IntegerDatasetParameterProperty {defaultValues :: (Prelude.Maybe IntegerDatasetParameterDefaultValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html>
+    IntegerDatasetParameterProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-defaultvalues>
+                                     defaultValues :: (Prelude.Maybe IntegerDatasetParameterDefaultValuesProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-id>
                                      id :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-name>
                                      name :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-valuetype>
                                      valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerDatasetParameterProperty ::
@@ -20,8 +26,8 @@ mkIntegerDatasetParameterProperty ::
      -> Value Prelude.Text -> IntegerDatasetParameterProperty
 mkIntegerDatasetParameterProperty id name valueType
   = IntegerDatasetParameterProperty
-      {id = id, name = name, valueType = valueType,
-       defaultValues = Prelude.Nothing}
+      {haddock_workaround_ = (), id = id, name = name,
+       valueType = valueType, defaultValues = Prelude.Nothing}
 instance ToResourceProperties IntegerDatasetParameterProperty where
   toResourceProperties IntegerDatasetParameterProperty {..}
     = ResourceProperties

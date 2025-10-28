@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedPersistenceMonitoringConfigurationProperty
-  = ManagedPersistenceMonitoringConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html>
+    ManagedPersistenceMonitoringConfigurationProperty {haddock_workaround_ :: (),
+                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html#cfn-emrserverless-application-managedpersistencemonitoringconfiguration-enabled>
+                                                       enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html#cfn-emrserverless-application-managedpersistencemonitoringconfiguration-encryptionkeyarn>
                                                        encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedPersistenceMonitoringConfigurationProperty ::
   ManagedPersistenceMonitoringConfigurationProperty
 mkManagedPersistenceMonitoringConfigurationProperty
   = ManagedPersistenceMonitoringConfigurationProperty
-      {enabled = Prelude.Nothing, encryptionKeyArn = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       encryptionKeyArn = Prelude.Nothing}
 instance ToResourceProperties ManagedPersistenceMonitoringConfigurationProperty where
   toResourceProperties
     ManagedPersistenceMonitoringConfigurationProperty {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MLUserDataEncryptionProperty
-  = MLUserDataEncryptionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html>
+    MLUserDataEncryptionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid>
+                                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode>
                                   mLUserDataEncryptionMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMLUserDataEncryptionProperty ::
   Value Prelude.Text -> MLUserDataEncryptionProperty
 mkMLUserDataEncryptionProperty mLUserDataEncryptionMode
   = MLUserDataEncryptionProperty
-      {mLUserDataEncryptionMode = mLUserDataEncryptionMode,
+      {haddock_workaround_ = (),
+       mLUserDataEncryptionMode = mLUserDataEncryptionMode,
        kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties MLUserDataEncryptionProperty where
   toResourceProperties MLUserDataEncryptionProperty {..}

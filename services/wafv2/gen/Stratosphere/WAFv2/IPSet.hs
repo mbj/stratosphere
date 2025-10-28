@@ -8,11 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IPSet
-  = IPSet {addresses :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html>
+    IPSet {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses>
+           addresses :: (ValueList Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion>
            iPAddressVersion :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name>
            name :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope>
            scope :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSet ::
@@ -20,9 +28,10 @@ mkIPSet ::
   -> Value Prelude.Text -> Value Prelude.Text -> IPSet
 mkIPSet addresses iPAddressVersion scope
   = IPSet
-      {addresses = addresses, iPAddressVersion = iPAddressVersion,
-       scope = scope, description = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), addresses = addresses,
+       iPAddressVersion = iPAddressVersion, scope = scope,
+       description = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties

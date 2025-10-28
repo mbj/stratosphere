@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.WAF.WebACL.WafActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebACL
-  = WebACL {defaultAction :: WafActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html>
+    WebACL {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-defaultaction>
+            defaultAction :: WafActionProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-metricname>
             metricName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-name>
             name :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html#cfn-waf-webacl-rules>
             rules :: (Prelude.Maybe [ActivatedRuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACL ::
@@ -19,8 +25,8 @@ mkWebACL ::
   -> Value Prelude.Text -> Value Prelude.Text -> WebACL
 mkWebACL defaultAction metricName name
   = WebACL
-      {defaultAction = defaultAction, metricName = metricName,
-       name = name, rules = Prelude.Nothing}
+      {haddock_workaround_ = (), defaultAction = defaultAction,
+       metricName = metricName, name = name, rules = Prelude.Nothing}
 instance ToResourceProperties WebACL where
   toResourceProperties WebACL {..}
     = ResourceProperties

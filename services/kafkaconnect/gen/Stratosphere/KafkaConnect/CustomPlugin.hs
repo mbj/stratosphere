@@ -9,10 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CustomPlugin
-  = CustomPlugin {contentType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html>
+    CustomPlugin {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-contenttype>
+                  contentType :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-location>
                   location :: CustomPluginLocationProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPlugin ::
@@ -21,8 +28,9 @@ mkCustomPlugin ::
      -> Value Prelude.Text -> CustomPlugin
 mkCustomPlugin contentType location name
   = CustomPlugin
-      {contentType = contentType, location = location, name = name,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), contentType = contentType,
+       location = location, name = name, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties CustomPlugin where
   toResourceProperties CustomPlugin {..}
     = ResourceProperties

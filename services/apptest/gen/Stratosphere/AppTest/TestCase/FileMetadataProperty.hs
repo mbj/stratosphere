@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.DataSetProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.DatabaseCDCProperty as Exports
 import Stratosphere.ResourceProperties
 data FileMetadataProperty
-  = FileMetadataProperty {dataSets :: (Prelude.Maybe [DataSetProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html>
+    FileMetadataProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html#cfn-apptest-testcase-filemetadata-datasets>
+                          dataSets :: (Prelude.Maybe [DataSetProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html#cfn-apptest-testcase-filemetadata-databasecdc>
                           databaseCDC :: (Prelude.Maybe DatabaseCDCProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileMetadataProperty :: FileMetadataProperty
 mkFileMetadataProperty
   = FileMetadataProperty
-      {dataSets = Prelude.Nothing, databaseCDC = Prelude.Nothing}
+      {haddock_workaround_ = (), dataSets = Prelude.Nothing,
+       databaseCDC = Prelude.Nothing}
 instance ToResourceProperties FileMetadataProperty where
   toResourceProperties FileMetadataProperty {..}
     = ResourceProperties

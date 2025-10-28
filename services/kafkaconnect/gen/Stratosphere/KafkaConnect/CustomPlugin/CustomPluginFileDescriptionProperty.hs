@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPluginFileDescriptionProperty
-  = CustomPluginFileDescriptionProperty {fileMd5 :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html>
+    CustomPluginFileDescriptionProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html#cfn-kafkaconnect-customplugin-custompluginfiledescription-filemd5>
+                                         fileMd5 :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html#cfn-kafkaconnect-customplugin-custompluginfiledescription-filesize>
                                          fileSize :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginFileDescriptionProperty ::
   CustomPluginFileDescriptionProperty
 mkCustomPluginFileDescriptionProperty
   = CustomPluginFileDescriptionProperty
-      {fileMd5 = Prelude.Nothing, fileSize = Prelude.Nothing}
+      {haddock_workaround_ = (), fileMd5 = Prelude.Nothing,
+       fileSize = Prelude.Nothing}
 instance ToResourceProperties CustomPluginFileDescriptionProperty where
   toResourceProperties CustomPluginFileDescriptionProperty {..}
     = ResourceProperties

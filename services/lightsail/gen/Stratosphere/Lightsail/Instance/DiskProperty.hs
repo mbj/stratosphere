@@ -7,21 +7,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DiskProperty
-  = DiskProperty {attachedTo :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html>
+    DiskProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-attachedto>
+                  attachedTo :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-attachmentstate>
                   attachmentState :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-diskname>
                   diskName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-iops>
                   iOPS :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-issystemdisk>
                   isSystemDisk :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-path>
                   path :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html#cfn-lightsail-instance-disk-sizeingb>
                   sizeInGb :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDiskProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DiskProperty
 mkDiskProperty diskName path
   = DiskProperty
-      {diskName = diskName, path = path, attachedTo = Prelude.Nothing,
-       attachmentState = Prelude.Nothing, iOPS = Prelude.Nothing,
-       isSystemDisk = Prelude.Nothing, sizeInGb = Prelude.Nothing}
+      {haddock_workaround_ = (), diskName = diskName, path = path,
+       attachedTo = Prelude.Nothing, attachmentState = Prelude.Nothing,
+       iOPS = Prelude.Nothing, isSystemDisk = Prelude.Nothing,
+       sizeInGb = Prelude.Nothing}
 instance ToResourceProperties DiskProperty where
   toResourceProperties DiskProperty {..}
     = ResourceProperties

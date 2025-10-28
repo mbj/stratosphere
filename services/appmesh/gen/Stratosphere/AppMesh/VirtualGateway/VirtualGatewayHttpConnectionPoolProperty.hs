@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayHttpConnectionPoolProperty
-  = VirtualGatewayHttpConnectionPoolProperty {maxConnections :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html>
+    VirtualGatewayHttpConnectionPoolProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections>
+                                              maxConnections :: (Value Prelude.Integer),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests>
                                               maxPendingRequests :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayHttpConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualGatewayHttpConnectionPoolProperty
 mkVirtualGatewayHttpConnectionPoolProperty maxConnections
   = VirtualGatewayHttpConnectionPoolProperty
-      {maxConnections = maxConnections,
+      {haddock_workaround_ = (), maxConnections = maxConnections,
        maxPendingRequests = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayHttpConnectionPoolProperty where
   toResourceProperties VirtualGatewayHttpConnectionPoolProperty {..}

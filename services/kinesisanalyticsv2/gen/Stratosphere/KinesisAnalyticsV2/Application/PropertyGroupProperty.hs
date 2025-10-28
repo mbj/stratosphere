@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyGroupProperty
-  = PropertyGroupProperty {propertyGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html>
+    PropertyGroupProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertygroupid>
+                           propertyGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html#cfn-kinesisanalyticsv2-application-propertygroup-propertymap>
                            propertyMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyGroupProperty :: PropertyGroupProperty
 mkPropertyGroupProperty
   = PropertyGroupProperty
-      {propertyGroupId = Prelude.Nothing, propertyMap = Prelude.Nothing}
+      {haddock_workaround_ = (), propertyGroupId = Prelude.Nothing,
+       propertyMap = Prelude.Nothing}
 instance ToResourceProperties PropertyGroupProperty where
   toResourceProperties PropertyGroupProperty {..}
     = ResourceProperties

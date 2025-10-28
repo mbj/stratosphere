@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.EC2.Instance.EbsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockDeviceMappingProperty
-  = BlockDeviceMappingProperty {deviceName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html>
+    BlockDeviceMappingProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-devicename>
+                                deviceName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-ebs>
                                 ebs :: (Prelude.Maybe EbsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-nodevice>
                                 noDevice :: (Prelude.Maybe JSON.Object),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-virtualname>
                                 virtualName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockDeviceMappingProperty ::
   Value Prelude.Text -> BlockDeviceMappingProperty
 mkBlockDeviceMappingProperty deviceName
   = BlockDeviceMappingProperty
-      {deviceName = deviceName, ebs = Prelude.Nothing,
-       noDevice = Prelude.Nothing, virtualName = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceName = deviceName,
+       ebs = Prelude.Nothing, noDevice = Prelude.Nothing,
+       virtualName = Prelude.Nothing}
 instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties

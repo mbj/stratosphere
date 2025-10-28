@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryStringsConfigProperty
-  = QueryStringsConfigProperty {queryStringBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html>
+    QueryStringsConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior>
+                                queryStringBehavior :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings>
                                 queryStrings :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryStringsConfigProperty ::
   Value Prelude.Text -> QueryStringsConfigProperty
 mkQueryStringsConfigProperty queryStringBehavior
   = QueryStringsConfigProperty
-      {queryStringBehavior = queryStringBehavior,
+      {haddock_workaround_ = (),
+       queryStringBehavior = queryStringBehavior,
        queryStrings = Prelude.Nothing}
 instance ToResourceProperties QueryStringsConfigProperty where
   toResourceProperties QueryStringsConfigProperty {..}

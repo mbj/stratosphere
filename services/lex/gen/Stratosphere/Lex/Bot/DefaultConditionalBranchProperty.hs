@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DialogStateProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultConditionalBranchProperty
-  = DefaultConditionalBranchProperty {nextStep :: (Prelude.Maybe DialogStateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html>
+    DefaultConditionalBranchProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-nextstep>
+                                      nextStep :: (Prelude.Maybe DialogStateProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-response>
                                       response :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultConditionalBranchProperty ::
   DefaultConditionalBranchProperty
 mkDefaultConditionalBranchProperty
   = DefaultConditionalBranchProperty
-      {nextStep = Prelude.Nothing, response = Prelude.Nothing}
+      {haddock_workaround_ = (), nextStep = Prelude.Nothing,
+       response = Prelude.Nothing}
 instance ToResourceProperties DefaultConditionalBranchProperty where
   toResourceProperties DefaultConditionalBranchProperty {..}
     = ResourceProperties

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpEndpointCommonAttributeProperty
-  = HttpEndpointCommonAttributeProperty {attributeName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html>
+    HttpEndpointCommonAttributeProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename>
+                                         attributeName :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue>
                                          attributeValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointCommonAttributeProperty ::
@@ -16,7 +20,8 @@ mkHttpEndpointCommonAttributeProperty ::
   -> Value Prelude.Text -> HttpEndpointCommonAttributeProperty
 mkHttpEndpointCommonAttributeProperty attributeName attributeValue
   = HttpEndpointCommonAttributeProperty
-      {attributeName = attributeName, attributeValue = attributeValue}
+      {haddock_workaround_ = (), attributeName = attributeName,
+       attributeValue = attributeValue}
 instance ToResourceProperties HttpEndpointCommonAttributeProperty where
   toResourceProperties HttpEndpointCommonAttributeProperty {..}
     = ResourceProperties

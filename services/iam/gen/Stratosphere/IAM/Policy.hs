@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Policy
-  = Policy {groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>
+    Policy {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups>
+            groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument>
             policyDocument :: JSON.Object,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policyname>
             policyName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles>
             roles :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users>
             users :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy :: JSON.Object -> Value Prelude.Text -> Policy
 mkPolicy policyDocument policyName
   = Policy
-      {policyDocument = policyDocument, policyName = policyName,
-       groups = Prelude.Nothing, roles = Prelude.Nothing,
-       users = Prelude.Nothing}
+      {haddock_workaround_ = (), policyDocument = policyDocument,
+       policyName = policyName, groups = Prelude.Nothing,
+       roles = Prelude.Nothing, users = Prelude.Nothing}
 instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
     = ResourceProperties

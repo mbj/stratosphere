@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemPercentageChargeDetailsProperty
-  = CustomLineItemPercentageChargeDetailsProperty {childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html>
+    CustomLineItemPercentageChargeDetailsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-childassociatedresources>
+                                                   childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-percentagevalue>
                                                    percentageValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemPercentageChargeDetailsProperty ::
@@ -16,7 +20,7 @@ mkCustomLineItemPercentageChargeDetailsProperty ::
   -> CustomLineItemPercentageChargeDetailsProperty
 mkCustomLineItemPercentageChargeDetailsProperty percentageValue
   = CustomLineItemPercentageChargeDetailsProperty
-      {percentageValue = percentageValue,
+      {haddock_workaround_ = (), percentageValue = percentageValue,
        childAssociatedResources = Prelude.Nothing}
 instance ToResourceProperties CustomLineItemPercentageChargeDetailsProperty where
   toResourceProperties

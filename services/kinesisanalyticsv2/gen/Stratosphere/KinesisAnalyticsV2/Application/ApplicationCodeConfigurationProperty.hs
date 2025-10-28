@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.CodeContentPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationCodeConfigurationProperty
-  = ApplicationCodeConfigurationProperty {codeContent :: CodeContentProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html>
+    ApplicationCodeConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent>
+                                          codeContent :: CodeContentProperty,
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype>
                                           codeContentType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationCodeConfigurationProperty ::
@@ -17,7 +21,8 @@ mkApplicationCodeConfigurationProperty ::
   -> Value Prelude.Text -> ApplicationCodeConfigurationProperty
 mkApplicationCodeConfigurationProperty codeContent codeContentType
   = ApplicationCodeConfigurationProperty
-      {codeContent = codeContent, codeContentType = codeContentType}
+      {haddock_workaround_ = (), codeContent = codeContent,
+       codeContentType = codeContentType}
 instance ToResourceProperties ApplicationCodeConfigurationProperty where
   toResourceProperties ApplicationCodeConfigurationProperty {..}
     = ResourceProperties

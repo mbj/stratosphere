@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceChatterFeedConfigurationProperty
-  = SalesforceChatterFeedConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html>
+    SalesforceChatterFeedConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname>
+                                                documentDataFieldName :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname>
                                                 documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings>
                                                 fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes>
                                                 includeFilterTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceChatterFeedConfigurationProperty ::
   Value Prelude.Text -> SalesforceChatterFeedConfigurationProperty
 mkSalesforceChatterFeedConfigurationProperty documentDataFieldName
   = SalesforceChatterFeedConfigurationProperty
-      {documentDataFieldName = documentDataFieldName,
+      {haddock_workaround_ = (),
+       documentDataFieldName = documentDataFieldName,
        documentTitleFieldName = Prelude.Nothing,
        fieldMappings = Prelude.Nothing,
        includeFilterTypes = Prelude.Nothing}

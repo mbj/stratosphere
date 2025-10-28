@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Volume
-  = Volume {ec2VolumeId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html>
+    Volume {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-ec2volumeid>
+            ec2VolumeId :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-mountpoint>
             mountPoint :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html#cfn-opsworks-volume-stackid>
             stackId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolume :: Value Prelude.Text -> Value Prelude.Text -> Volume
 mkVolume ec2VolumeId stackId
   = Volume
-      {ec2VolumeId = ec2VolumeId, stackId = stackId,
-       mountPoint = Prelude.Nothing, name = Prelude.Nothing}
+      {haddock_workaround_ = (), ec2VolumeId = ec2VolumeId,
+       stackId = stackId, mountPoint = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties Volume where
   toResourceProperties Volume {..}
     = ResourceProperties

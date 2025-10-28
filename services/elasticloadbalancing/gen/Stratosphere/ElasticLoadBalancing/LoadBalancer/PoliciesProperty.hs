@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PoliciesProperty
-  = PoliciesProperty {attributes :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html>
+    PoliciesProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-attributes>
+                      attributes :: JSON.Object,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-instanceports>
                       instancePorts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-loadbalancerports>
                       loadBalancerPorts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policyname>
                       policyName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policytype>
                       policyType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty ::
@@ -18,8 +25,9 @@ mkPoliciesProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> PoliciesProperty
 mkPoliciesProperty attributes policyName policyType
   = PoliciesProperty
-      {attributes = attributes, policyName = policyName,
-       policyType = policyType, instancePorts = Prelude.Nothing,
+      {haddock_workaround_ = (), attributes = attributes,
+       policyName = policyName, policyType = policyType,
+       instancePorts = Prelude.Nothing,
        loadBalancerPorts = Prelude.Nothing}
 instance ToResourceProperties PoliciesProperty where
   toResourceProperties PoliciesProperty {..}

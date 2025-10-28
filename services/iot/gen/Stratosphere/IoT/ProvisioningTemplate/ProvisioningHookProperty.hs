@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisioningHookProperty
-  = ProvisioningHookProperty {payloadVersion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html>
+    ProvisioningHookProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion>
+                              payloadVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn>
                               targetArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningHookProperty :: ProvisioningHookProperty
 mkProvisioningHookProperty
   = ProvisioningHookProperty
-      {payloadVersion = Prelude.Nothing, targetArn = Prelude.Nothing}
+      {haddock_workaround_ = (), payloadVersion = Prelude.Nothing,
+       targetArn = Prelude.Nothing}
 instance ToResourceProperties ProvisioningHookProperty where
   toResourceProperties ProvisioningHookProperty {..}
     = ResourceProperties

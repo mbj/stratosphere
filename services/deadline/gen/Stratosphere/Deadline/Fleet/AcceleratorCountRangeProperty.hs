@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceleratorCountRangeProperty
-  = AcceleratorCountRangeProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html>
+    AcceleratorCountRangeProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html#cfn-deadline-fleet-acceleratorcountrange-max>
+                                   max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html#cfn-deadline-fleet-acceleratorcountrange-min>
                                    min :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorCountRangeProperty ::
   Value Prelude.Integer -> AcceleratorCountRangeProperty
 mkAcceleratorCountRangeProperty min
-  = AcceleratorCountRangeProperty {min = min, max = Prelude.Nothing}
+  = AcceleratorCountRangeProperty
+      {haddock_workaround_ = (), min = min, max = Prelude.Nothing}
 instance ToResourceProperties AcceleratorCountRangeProperty where
   toResourceProperties AcceleratorCountRangeProperty {..}
     = ResourceProperties

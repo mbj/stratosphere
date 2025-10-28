@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CpuProperty as Exports
 import Stratosphere.ResourceProperties
 data BaselinePerformanceFactorsProperty
-  = BaselinePerformanceFactorsProperty {cpu :: (Prelude.Maybe CpuProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html>
+    BaselinePerformanceFactorsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html#cfn-ec2-launchtemplate-baselineperformancefactors-cpu>
+                                        cpu :: (Prelude.Maybe CpuProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselinePerformanceFactorsProperty ::
   BaselinePerformanceFactorsProperty
 mkBaselinePerformanceFactorsProperty
-  = BaselinePerformanceFactorsProperty {cpu = Prelude.Nothing}
+  = BaselinePerformanceFactorsProperty
+      {haddock_workaround_ = (), cpu = Prelude.Nothing}
 instance ToResourceProperties BaselinePerformanceFactorsProperty where
   toResourceProperties BaselinePerformanceFactorsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON BaselinePerformanceFactorsProperty where
            (Prelude.catMaybes [(JSON..=) "Cpu" Prelude.<$> cpu]))
 instance Property "Cpu" BaselinePerformanceFactorsProperty where
   type PropertyType "Cpu" BaselinePerformanceFactorsProperty = CpuProperty
-  set newValue BaselinePerformanceFactorsProperty {}
+  set newValue BaselinePerformanceFactorsProperty {..}
     = BaselinePerformanceFactorsProperty
         {cpu = Prelude.pure newValue, ..}

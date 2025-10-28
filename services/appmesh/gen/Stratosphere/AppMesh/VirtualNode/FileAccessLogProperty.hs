@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.LoggingFormatProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileAccessLogProperty
-  = FileAccessLogProperty {format :: (Prelude.Maybe LoggingFormatProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html>
+    FileAccessLogProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-format>
+                           format :: (Prelude.Maybe LoggingFormatProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-path>
                            path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileAccessLogProperty ::
   Value Prelude.Text -> FileAccessLogProperty
 mkFileAccessLogProperty path
-  = FileAccessLogProperty {path = path, format = Prelude.Nothing}
+  = FileAccessLogProperty
+      {haddock_workaround_ = (), path = path, format = Prelude.Nothing}
 instance ToResourceProperties FileAccessLogProperty where
   toResourceProperties FileAccessLogProperty {..}
     = ResourceProperties

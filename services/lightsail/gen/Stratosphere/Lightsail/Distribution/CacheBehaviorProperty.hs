@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CacheBehaviorProperty
-  = CacheBehaviorProperty {behavior :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehavior.html>
+    CacheBehaviorProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehavior.html#cfn-lightsail-distribution-cachebehavior-behavior>
+                           behavior :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheBehaviorProperty :: CacheBehaviorProperty
 mkCacheBehaviorProperty
-  = CacheBehaviorProperty {behavior = Prelude.Nothing}
+  = CacheBehaviorProperty
+      {haddock_workaround_ = (), behavior = Prelude.Nothing}
 instance ToResourceProperties CacheBehaviorProperty where
   toResourceProperties CacheBehaviorProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON CacheBehaviorProperty where
            (Prelude.catMaybes [(JSON..=) "Behavior" Prelude.<$> behavior]))
 instance Property "Behavior" CacheBehaviorProperty where
   type PropertyType "Behavior" CacheBehaviorProperty = Value Prelude.Text
-  set newValue CacheBehaviorProperty {}
+  set newValue CacheBehaviorProperty {..}
     = CacheBehaviorProperty {behavior = Prelude.pure newValue, ..}

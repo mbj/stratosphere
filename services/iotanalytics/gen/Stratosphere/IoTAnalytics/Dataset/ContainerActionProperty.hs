@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.VariableProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerActionProperty
-  = ContainerActionProperty {executionRoleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html>
+    ContainerActionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-executionrolearn>
+                             executionRoleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-image>
                              image :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-resourceconfiguration>
                              resourceConfiguration :: ResourceConfigurationProperty,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-variables>
                              variables :: (Prelude.Maybe [VariableProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerActionProperty ::
@@ -24,8 +30,8 @@ mkContainerActionProperty
   image
   resourceConfiguration
   = ContainerActionProperty
-      {executionRoleArn = executionRoleArn, image = image,
-       resourceConfiguration = resourceConfiguration,
+      {haddock_workaround_ = (), executionRoleArn = executionRoleArn,
+       image = image, resourceConfiguration = resourceConfiguration,
        variables = Prelude.Nothing}
 instance ToResourceProperties ContainerActionProperty where
   toResourceProperties ContainerActionProperty {..}

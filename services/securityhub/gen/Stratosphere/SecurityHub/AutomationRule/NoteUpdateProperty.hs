@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NoteUpdateProperty
-  = NoteUpdateProperty {text :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html>
+    NoteUpdateProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html#cfn-securityhub-automationrule-noteupdate-text>
+                        text :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html#cfn-securityhub-automationrule-noteupdate-updatedby>
                         updatedBy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNoteUpdateProperty ::
   Value Prelude.Text -> JSON.Object -> NoteUpdateProperty
 mkNoteUpdateProperty text updatedBy
-  = NoteUpdateProperty {text = text, updatedBy = updatedBy}
+  = NoteUpdateProperty
+      {haddock_workaround_ = (), text = text, updatedBy = updatedBy}
 instance ToResourceProperties NoteUpdateProperty where
   toResourceProperties NoteUpdateProperty {..}
     = ResourceProperties

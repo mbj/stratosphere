@@ -9,7 +9,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormSingleSelectQuestionAutomationOptionProperty
-  = EvaluationFormSingleSelectQuestionAutomationOptionProperty {ruleCategory :: SingleSelectQuestionRuleCategoryAutomationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomationoption.html>
+    EvaluationFormSingleSelectQuestionAutomationOptionProperty {haddock_workaround_ :: (),
+                                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomationoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomationoption-rulecategory>
+                                                                ruleCategory :: SingleSelectQuestionRuleCategoryAutomationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionAutomationOptionProperty ::
   SingleSelectQuestionRuleCategoryAutomationProperty
@@ -17,7 +20,7 @@ mkEvaluationFormSingleSelectQuestionAutomationOptionProperty ::
 mkEvaluationFormSingleSelectQuestionAutomationOptionProperty
   ruleCategory
   = EvaluationFormSingleSelectQuestionAutomationOptionProperty
-      {ruleCategory = ruleCategory}
+      {haddock_workaround_ = (), ruleCategory = ruleCategory}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionAutomationOptionProperty where
   toResourceProperties
     EvaluationFormSingleSelectQuestionAutomationOptionProperty {..}
@@ -33,6 +36,6 @@ instance Property "RuleCategory" EvaluationFormSingleSelectQuestionAutomationOpt
   type PropertyType "RuleCategory" EvaluationFormSingleSelectQuestionAutomationOptionProperty = SingleSelectQuestionRuleCategoryAutomationProperty
   set
     newValue
-    EvaluationFormSingleSelectQuestionAutomationOptionProperty {}
+    EvaluationFormSingleSelectQuestionAutomationOptionProperty {..}
     = EvaluationFormSingleSelectQuestionAutomationOptionProperty
         {ruleCategory = newValue, ..}

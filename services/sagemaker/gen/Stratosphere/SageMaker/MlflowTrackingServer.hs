@@ -8,13 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data MlflowTrackingServer
-  = MlflowTrackingServer {artifactStoreUri :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html>
+    MlflowTrackingServer {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-artifactstoreuri>
+                          artifactStoreUri :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-automaticmodelregistration>
                           automaticModelRegistration :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-mlflowversion>
                           mlflowVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-rolearn>
                           roleArn :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-tags>
                           tags :: (Prelude.Maybe [Tag]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-trackingservername>
                           trackingServerName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-trackingserversize>
                           trackingServerSize :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html#cfn-sagemaker-mlflowtrackingserver-weeklymaintenancewindowstart>
                           weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMlflowTrackingServer ::
@@ -22,8 +32,8 @@ mkMlflowTrackingServer ::
   -> Value Prelude.Text -> Value Prelude.Text -> MlflowTrackingServer
 mkMlflowTrackingServer artifactStoreUri roleArn trackingServerName
   = MlflowTrackingServer
-      {artifactStoreUri = artifactStoreUri, roleArn = roleArn,
-       trackingServerName = trackingServerName,
+      {haddock_workaround_ = (), artifactStoreUri = artifactStoreUri,
+       roleArn = roleArn, trackingServerName = trackingServerName,
        automaticModelRegistration = Prelude.Nothing,
        mlflowVersion = Prelude.Nothing, tags = Prelude.Nothing,
        trackingServerSize = Prelude.Nothing,

@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoveHeaderProperty
-  = RemoveHeaderProperty {header :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html>
+    RemoveHeaderProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html#cfn-cloudfront-responseheaderspolicy-removeheader-header>
+                          header :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeaderProperty ::
   Value Prelude.Text -> RemoveHeaderProperty
 mkRemoveHeaderProperty header
-  = RemoveHeaderProperty {header = header}
+  = RemoveHeaderProperty {haddock_workaround_ = (), header = header}
 instance ToResourceProperties RemoveHeaderProperty where
   toResourceProperties RemoveHeaderProperty {..}
     = ResourceProperties
@@ -24,5 +27,5 @@ instance JSON.ToJSON RemoveHeaderProperty where
     = JSON.object ["Header" JSON..= header]
 instance Property "Header" RemoveHeaderProperty where
   type PropertyType "Header" RemoveHeaderProperty = Value Prelude.Text
-  set newValue RemoveHeaderProperty {}
+  set newValue RemoveHeaderProperty {..}
     = RemoveHeaderProperty {header = newValue, ..}

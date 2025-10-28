@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VoiceSettingsProperty
-  = VoiceSettingsProperty {engine :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html>
+    VoiceSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-engine>
+                           engine :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html#cfn-lex-bot-voicesettings-voiceid>
                            voiceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVoiceSettingsProperty ::
   Value Prelude.Text -> VoiceSettingsProperty
 mkVoiceSettingsProperty voiceId
   = VoiceSettingsProperty
-      {voiceId = voiceId, engine = Prelude.Nothing}
+      {haddock_workaround_ = (), voiceId = voiceId,
+       engine = Prelude.Nothing}
 instance ToResourceProperties VoiceSettingsProperty where
   toResourceProperties VoiceSettingsProperty {..}
     = ResourceProperties

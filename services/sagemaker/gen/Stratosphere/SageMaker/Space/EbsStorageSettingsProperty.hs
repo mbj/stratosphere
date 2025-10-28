@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsStorageSettingsProperty
-  = EbsStorageSettingsProperty {ebsVolumeSizeInGb :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html>
+    EbsStorageSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html#cfn-sagemaker-space-ebsstoragesettings-ebsvolumesizeingb>
+                                ebsVolumeSizeInGb :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsStorageSettingsProperty ::
   Value Prelude.Integer -> EbsStorageSettingsProperty
 mkEbsStorageSettingsProperty ebsVolumeSizeInGb
   = EbsStorageSettingsProperty
-      {ebsVolumeSizeInGb = ebsVolumeSizeInGb}
+      {haddock_workaround_ = (), ebsVolumeSizeInGb = ebsVolumeSizeInGb}
 instance ToResourceProperties EbsStorageSettingsProperty where
   toResourceProperties EbsStorageSettingsProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON EbsStorageSettingsProperty where
     = JSON.object ["EbsVolumeSizeInGb" JSON..= ebsVolumeSizeInGb]
 instance Property "EbsVolumeSizeInGb" EbsStorageSettingsProperty where
   type PropertyType "EbsVolumeSizeInGb" EbsStorageSettingsProperty = Value Prelude.Integer
-  set newValue EbsStorageSettingsProperty {}
+  set newValue EbsStorageSettingsProperty {..}
     = EbsStorageSettingsProperty {ebsVolumeSizeInGb = newValue, ..}

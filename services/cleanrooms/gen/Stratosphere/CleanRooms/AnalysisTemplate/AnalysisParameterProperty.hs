@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisParameterProperty
-  = AnalysisParameterProperty {defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html>
+    AnalysisParameterProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html#cfn-cleanrooms-analysistemplate-analysisparameter-defaultvalue>
+                               defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html#cfn-cleanrooms-analysistemplate-analysisparameter-name>
                                name :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html#cfn-cleanrooms-analysistemplate-analysisparameter-type>
                                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisParameterProperty ::
@@ -16,7 +21,8 @@ mkAnalysisParameterProperty ::
   -> Value Prelude.Text -> AnalysisParameterProperty
 mkAnalysisParameterProperty name type'
   = AnalysisParameterProperty
-      {name = name, type' = type', defaultValue = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, type' = type',
+       defaultValue = Prelude.Nothing}
 instance ToResourceProperties AnalysisParameterProperty where
   toResourceProperties AnalysisParameterProperty {..}
     = ResourceProperties

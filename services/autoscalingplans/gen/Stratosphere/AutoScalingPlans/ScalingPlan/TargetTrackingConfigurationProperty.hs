@@ -10,19 +10,28 @@ import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.PredefinedScalin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingConfigurationProperty
-  = TargetTrackingConfigurationProperty {customizedScalingMetricSpecification :: (Prelude.Maybe CustomizedScalingMetricSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html>
+    TargetTrackingConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-customizedscalingmetricspecification>
+                                         customizedScalingMetricSpecification :: (Prelude.Maybe CustomizedScalingMetricSpecificationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-disablescalein>
                                          disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-estimatedinstancewarmup>
                                          estimatedInstanceWarmup :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-predefinedscalingmetricspecification>
                                          predefinedScalingMetricSpecification :: (Prelude.Maybe PredefinedScalingMetricSpecificationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleincooldown>
                                          scaleInCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleoutcooldown>
                                          scaleOutCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-targetvalue>
                                          targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingConfigurationProperty ::
   Value Prelude.Double -> TargetTrackingConfigurationProperty
 mkTargetTrackingConfigurationProperty targetValue
   = TargetTrackingConfigurationProperty
-      {targetValue = targetValue,
+      {haddock_workaround_ = (), targetValue = targetValue,
        customizedScalingMetricSpecification = Prelude.Nothing,
        disableScaleIn = Prelude.Nothing,
        estimatedInstanceWarmup = Prelude.Nothing,

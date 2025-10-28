@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GroundStation.Config.SpectrumConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data AntennaDownlinkConfigProperty
-  = AntennaDownlinkConfigProperty {spectrumConfig :: (Prelude.Maybe SpectrumConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html>
+    AntennaDownlinkConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig>
+                                   spectrumConfig :: (Prelude.Maybe SpectrumConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaDownlinkConfigProperty :: AntennaDownlinkConfigProperty
 mkAntennaDownlinkConfigProperty
-  = AntennaDownlinkConfigProperty {spectrumConfig = Prelude.Nothing}
+  = AntennaDownlinkConfigProperty
+      {haddock_workaround_ = (), spectrumConfig = Prelude.Nothing}
 instance ToResourceProperties AntennaDownlinkConfigProperty where
   toResourceProperties AntennaDownlinkConfigProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON AntennaDownlinkConfigProperty where
               [(JSON..=) "SpectrumConfig" Prelude.<$> spectrumConfig]))
 instance Property "SpectrumConfig" AntennaDownlinkConfigProperty where
   type PropertyType "SpectrumConfig" AntennaDownlinkConfigProperty = SpectrumConfigProperty
-  set newValue AntennaDownlinkConfigProperty {}
+  set newValue AntennaDownlinkConfigProperty {..}
     = AntennaDownlinkConfigProperty
         {spectrumConfig = Prelude.pure newValue, ..}

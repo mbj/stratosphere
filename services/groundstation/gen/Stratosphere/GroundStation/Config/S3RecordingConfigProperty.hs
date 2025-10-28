@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3RecordingConfigProperty
-  = S3RecordingConfigProperty {bucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html>
+    S3RecordingConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn>
+                               bucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix>
                                prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn>
                                roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3RecordingConfigProperty :: S3RecordingConfigProperty
 mkS3RecordingConfigProperty
   = S3RecordingConfigProperty
-      {bucketArn = Prelude.Nothing, prefix = Prelude.Nothing,
-       roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketArn = Prelude.Nothing,
+       prefix = Prelude.Nothing, roleArn = Prelude.Nothing}
 instance ToResourceProperties S3RecordingConfigProperty where
   toResourceProperties S3RecordingConfigProperty {..}
     = ResourceProperties

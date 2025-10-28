@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetHierarchyProperty
-  = AssetHierarchyProperty {childAssetId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html>
+    AssetHierarchyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid>
+                            childAssetId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-externalid>
                             externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-id>
                             id :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid>
                             logicalId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetHierarchyProperty ::
   Value Prelude.Text -> AssetHierarchyProperty
 mkAssetHierarchyProperty childAssetId
   = AssetHierarchyProperty
-      {childAssetId = childAssetId, externalId = Prelude.Nothing,
-       id = Prelude.Nothing, logicalId = Prelude.Nothing}
+      {haddock_workaround_ = (), childAssetId = childAssetId,
+       externalId = Prelude.Nothing, id = Prelude.Nothing,
+       logicalId = Prelude.Nothing}
 instance ToResourceProperties AssetHierarchyProperty where
   toResourceProperties AssetHierarchyProperty {..}
     = ResourceProperties

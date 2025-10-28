@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TreatmentObjectProperty
-  = TreatmentObjectProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html>
+    TreatmentObjectProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-description>
+                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-feature>
                              feature :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-treatmentname>
                              treatmentName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html#cfn-evidently-experiment-treatmentobject-variation>
                              variation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTreatmentObjectProperty ::
@@ -18,8 +24,9 @@ mkTreatmentObjectProperty ::
      -> Value Prelude.Text -> TreatmentObjectProperty
 mkTreatmentObjectProperty feature treatmentName variation
   = TreatmentObjectProperty
-      {feature = feature, treatmentName = treatmentName,
-       variation = variation, description = Prelude.Nothing}
+      {haddock_workaround_ = (), feature = feature,
+       treatmentName = treatmentName, variation = variation,
+       description = Prelude.Nothing}
 instance ToResourceProperties TreatmentObjectProperty where
   toResourceProperties TreatmentObjectProperty {..}
     = ResourceProperties

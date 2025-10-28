@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmsConfigurationProperty
-  = SmsConfigurationProperty {externalId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html>
+    SmsConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-externalid>
+                              externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-snscallerarn>
                               snsCallerArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-snsregion>
                               snsRegion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsConfigurationProperty :: SmsConfigurationProperty
 mkSmsConfigurationProperty
   = SmsConfigurationProperty
-      {externalId = Prelude.Nothing, snsCallerArn = Prelude.Nothing,
-       snsRegion = Prelude.Nothing}
+      {haddock_workaround_ = (), externalId = Prelude.Nothing,
+       snsCallerArn = Prelude.Nothing, snsRegion = Prelude.Nothing}
 instance ToResourceProperties SmsConfigurationProperty where
   toResourceProperties SmsConfigurationProperty {..}
     = ResourceProperties

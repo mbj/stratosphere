@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LBCookieStickinessPolicyProperty
-  = LBCookieStickinessPolicyProperty {cookieExpirationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html>
+    LBCookieStickinessPolicyProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html#cfn-elb-lbcookiestickinesspolicy-cookieexpirationperiod>
+                                      cookieExpirationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html#cfn-elb-lbcookiestickinesspolicy-policyname>
                                       policyName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLBCookieStickinessPolicyProperty ::
   LBCookieStickinessPolicyProperty
 mkLBCookieStickinessPolicyProperty
   = LBCookieStickinessPolicyProperty
-      {cookieExpirationPeriod = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cookieExpirationPeriod = Prelude.Nothing,
        policyName = Prelude.Nothing}
 instance ToResourceProperties LBCookieStickinessPolicyProperty where
   toResourceProperties LBCookieStickinessPolicyProperty {..}

@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.OAuthParametersProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StarburstParametersProperty
-  = StarburstParametersProperty {authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html>
+    StarburstParametersProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-authenticationtype>
+                                 authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-catalog>
                                  catalog :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-databaseaccesscontrolrole>
                                  databaseAccessControlRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-host>
                                  host :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-oauthparameters>
                                  oAuthParameters :: (Prelude.Maybe OAuthParametersProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-port>
                                  port :: (Value Prelude.Double),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-producttype>
                                  productType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStarburstParametersProperty ::
@@ -23,8 +32,8 @@ mkStarburstParametersProperty ::
      -> Value Prelude.Double -> StarburstParametersProperty
 mkStarburstParametersProperty catalog host port
   = StarburstParametersProperty
-      {catalog = catalog, host = host, port = port,
-       authenticationType = Prelude.Nothing,
+      {haddock_workaround_ = (), catalog = catalog, host = host,
+       port = port, authenticationType = Prelude.Nothing,
        databaseAccessControlRole = Prelude.Nothing,
        oAuthParameters = Prelude.Nothing, productType = Prelude.Nothing}
 instance ToResourceProperties StarburstParametersProperty where

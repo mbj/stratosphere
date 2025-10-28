@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DevOpsGuru.NotificationChannel.NotificationFi
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.NotificationChannel.SnsChannelConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationChannelConfigProperty
-  = NotificationChannelConfigProperty {filters :: (Prelude.Maybe NotificationFilterConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html>
+    NotificationChannelConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-filters>
+                                       filters :: (Prelude.Maybe NotificationFilterConfigProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns>
                                        sns :: (Prelude.Maybe SnsChannelConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannelConfigProperty ::
   NotificationChannelConfigProperty
 mkNotificationChannelConfigProperty
   = NotificationChannelConfigProperty
-      {filters = Prelude.Nothing, sns = Prelude.Nothing}
+      {haddock_workaround_ = (), filters = Prelude.Nothing,
+       sns = Prelude.Nothing}
 instance ToResourceProperties NotificationChannelConfigProperty where
   toResourceProperties NotificationChannelConfigProperty {..}
     = ResourceProperties

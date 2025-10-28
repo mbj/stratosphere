@@ -11,17 +11,31 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.S3PathProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SharePointConfigurationProperty
-  = SharePointConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html>
+    SharePointConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-crawlattachments>
+                                     crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-disablelocalgroups>
                                      disableLocalGroups :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname>
                                      documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns>
                                      exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings>
                                      fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns>
                                      inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn>
                                      secretArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sharepointversion>
                                      sharePointVersion :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sslcertificates3path>
                                      sslCertificateS3Path :: (Prelude.Maybe S3PathProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-urls>
                                      urls :: (ValueList Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-usechangelog>
                                      useChangeLog :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration>
                                      vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointConfigurationProperty ::
@@ -30,8 +44,9 @@ mkSharePointConfigurationProperty ::
      -> ValueList Prelude.Text -> SharePointConfigurationProperty
 mkSharePointConfigurationProperty secretArn sharePointVersion urls
   = SharePointConfigurationProperty
-      {secretArn = secretArn, sharePointVersion = sharePointVersion,
-       urls = urls, crawlAttachments = Prelude.Nothing,
+      {haddock_workaround_ = (), secretArn = secretArn,
+       sharePointVersion = sharePointVersion, urls = urls,
+       crawlAttachments = Prelude.Nothing,
        disableLocalGroups = Prelude.Nothing,
        documentTitleFieldName = Prelude.Nothing,
        exclusionPatterns = Prelude.Nothing,

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.DefaultEbsStorageSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultSpaceStorageSettingsProperty
-  = DefaultSpaceStorageSettingsProperty {defaultEbsStorageSettings :: (Prelude.Maybe DefaultEbsStorageSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html>
+    DefaultSpaceStorageSettingsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html#cfn-sagemaker-userprofile-defaultspacestoragesettings-defaultebsstoragesettings>
+                                         defaultEbsStorageSettings :: (Prelude.Maybe DefaultEbsStorageSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultSpaceStorageSettingsProperty ::
   DefaultSpaceStorageSettingsProperty
 mkDefaultSpaceStorageSettingsProperty
   = DefaultSpaceStorageSettingsProperty
-      {defaultEbsStorageSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       defaultEbsStorageSettings = Prelude.Nothing}
 instance ToResourceProperties DefaultSpaceStorageSettingsProperty where
   toResourceProperties DefaultSpaceStorageSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON DefaultSpaceStorageSettingsProperty where
                  Prelude.<$> defaultEbsStorageSettings]))
 instance Property "DefaultEbsStorageSettings" DefaultSpaceStorageSettingsProperty where
   type PropertyType "DefaultEbsStorageSettings" DefaultSpaceStorageSettingsProperty = DefaultEbsStorageSettingsProperty
-  set newValue DefaultSpaceStorageSettingsProperty {}
+  set newValue DefaultSpaceStorageSettingsProperty {..}
     = DefaultSpaceStorageSettingsProperty
         {defaultEbsStorageSettings = Prelude.pure newValue, ..}

@@ -7,11 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeProperty
-  = AttributeProperty {jsonPath :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html>
+    AttributeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath>
+                       jsonPath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeProperty :: Value Prelude.Text -> AttributeProperty
 mkAttributeProperty jsonPath
-  = AttributeProperty {jsonPath = jsonPath}
+  = AttributeProperty {haddock_workaround_ = (), jsonPath = jsonPath}
 instance ToResourceProperties AttributeProperty where
   toResourceProperties AttributeProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON AttributeProperty where
     = JSON.object ["JsonPath" JSON..= jsonPath]
 instance Property "JsonPath" AttributeProperty where
   type PropertyType "JsonPath" AttributeProperty = Value Prelude.Text
-  set newValue AttributeProperty {}
+  set newValue AttributeProperty {..}
     = AttributeProperty {jsonPath = newValue, ..}

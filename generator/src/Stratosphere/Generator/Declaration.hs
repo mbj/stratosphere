@@ -25,6 +25,7 @@ import qualified Data.Map.Strict                   as Map
 import qualified Data.Set                          as Set
 import qualified Data.Text                         as Text
 import qualified Data.Text.Manipulate              as Text
+import qualified GHC.Hs.Doc                        as GHC
 import qualified GHC.Hs.Extension                  as GHC
 import qualified GHC.Hs.Pat                        as GHC
 import qualified GHC.Hs.Type                       as GHC
@@ -32,7 +33,7 @@ import qualified GHC.Parser.Annotation             as GHC
 import qualified GHC.SourceGen                     as GHC
 import qualified GHC.Types.Basic                   as GHC
 import qualified GHC.Types.Fixity                  as GHC
-import qualified GHC.Types.Name.Occurrence         as GHC
+import qualified GHC.Types.Name                    as GHC
 import qualified GHC.Types.Name.Reader             as GHC
 import qualified GHC.Types.SrcLoc                  as GHC
 import qualified Language.Haskell.Syntax.Decls     as GHC
@@ -41,10 +42,11 @@ import qualified Language.Haskell.Syntax.Extension as GHC
 import qualified Stratosphere.Generator.Raw        as Raw
 
 data Record = Record
-  { awsType     :: Text
-  , builderName :: Text
-  , name        :: Text
-  , properties  :: Map Raw.PropertyName Raw.Property
+  { awsType       :: Text
+  , builderName   :: Text
+  , name          :: Text
+  , properties    :: Map Raw.PropertyName Raw.Property
+  , documentation :: Text
   }
 
 data Import
@@ -75,6 +77,63 @@ instance Monoid State where
     }
 
 type Generator a = Writer State a
+
+-- | Field name for the workaround to avoid GHC AST pretty-printer {-- syntax error.
+-- When the first field has Haddock documentation, GHC outputs {-- which is invalid.
+-- This dummy field is always first, has no documentation, and is ignored in serialization.
+haddockWorkaroundFieldName :: IsString a => a
+haddockWorkaroundFieldName = "haddock_workaround_"
+
+-- | Create documentation from Text (returns Nothing for empty strings)
+-- Formats URLs according to Haddock syntax for external documentation links
+mkDoc :: Text -> Maybe (GHC.LHsDoc GHC.GhcPs)
+mkDoc txt
+  | Text.null txt = Nothing
+  | otherwise = Just $ GHC.L GHC.noSrcSpan $ GHC.WithHsDocIdentifiers
+      { GHC.hsDocString = GHC.mkGeneratedHsDocString . Text.unpack $ formatDocUrl txt
+      , GHC.hsDocIdentifiers = []
+      }
+  where
+    -- Format URL according to Haddock syntax with leading space
+    formatDocUrl :: Text -> Text
+    formatDocUrl url = " See: <" <> url <> ">"
+
+-- | Attach documentation to a constructor declaration
+attachConDoc :: GHC.ConDecl GHC.GhcPs -> Maybe (GHC.LHsDoc GHC.GhcPs) -> GHC.ConDecl GHC.GhcPs
+attachConDoc con@GHC.ConDeclH98{} mbDoc = con { GHC.con_doc = mbDoc }
+attachConDoc con@GHC.ConDeclGADT{} mbDoc = con { GHC.con_doc = mbDoc }
+
+-- | Attach documentation to a data declaration's constructor and fields
+attachDataDoc :: GHC.HsDecl' -> Maybe (GHC.LHsDoc GHC.GhcPs) -> Map String Text -> GHC.HsDecl'
+attachDataDoc (GHC.TyClD ext tycl@(GHC.DataDecl { tcdDataDefn = defn@(GHC.HsDataDefn {..})})) mbDoc fieldDocs =
+  GHC.TyClD ext $ tycl { GHC.tcdDataDefn = updatedDataDefn }
+  where
+    updatedDataDefn = case dd_cons of
+      GHC.DataTypeCons isTypeData cons ->
+        let updatedCons = map (fmap (attachDocsToConDecl mbDoc fieldDocs)) cons
+        in defn { GHC.dd_cons = GHC.DataTypeCons isTypeData updatedCons }
+      _ -> defn
+attachDataDoc decl _ _ = decl
+
+-- | Attach constructor and field documentation to a ConDecl
+-- First field is dummy (no doc in fieldDocs), real fields get documentation
+attachDocsToConDecl :: Maybe (GHC.LHsDoc GHC.GhcPs) -> Map String Text -> GHC.ConDecl GHC.GhcPs -> GHC.ConDecl GHC.GhcPs
+attachDocsToConDecl mbConDoc fieldDocs con@(GHC.ConDeclH98 { GHC.con_args = GHC.RecCon fields }) =
+  con { GHC.con_doc = mbConDoc
+      , GHC.con_args = GHC.RecCon (fmap (map (attachFieldDoc fieldDocs)) fields)
+      }
+attachDocsToConDecl mbConDoc _ con = attachConDoc con mbConDoc
+
+-- | Attach documentation to a record field
+attachFieldDoc :: Map String Text -> GHC.LConDeclField GHC.GhcPs -> GHC.LConDeclField GHC.GhcPs
+attachFieldDoc fieldDocs (GHC.L loc field@(GHC.ConDeclField {..})) =
+  GHC.L loc $ field { GHC.cd_fld_doc = lookupFieldDoc cd_fld_names }
+  where
+    lookupFieldDoc :: [GHC.LFieldOcc GHC.GhcPs] -> Maybe (GHC.LHsDoc GHC.GhcPs)
+    lookupFieldDoc [] = Nothing
+    lookupFieldDoc (GHC.L _ (GHC.FieldOcc _ (GHC.L _ rdrName)) : _) =
+      let fieldName = GHC.occNameString (GHC.rdrNameOcc rdrName)
+      in mkDoc =<< Map.lookup fieldName fieldDocs
 
 genTypeAlias
   :: HasCallStack
@@ -123,13 +182,26 @@ genRecord Record{..} = runGen $ do
 
     genRecordDeclaration :: Generator GHC.HsDecl'
     genRecordDeclaration = do
-      fields <- traverse (uncurry genField) $ Map.toList properties
+      realFields <- traverse (uncurry genField) $ Map.toList properties
 
-      addExport (GHC.thingAll recordName) $ GHC.data'
-        recordName
-        []
-        [GHC.recordCon recordName fields]
-        [GHC.derivingStock [GHC.var "Prelude.Eq", GHC.var "Prelude.Show"]]
+      -- Add dummy first field (see haddockWorkaroundFieldName for explanation)
+      let dummyField :: (GHC.OccNameStr, GHC.Field)
+          dummyField = (haddockWorkaroundFieldName, GHC.field $ GHC.unit)
+          allFields = dummyField : realFields
+
+      let baseDecl = GHC.data'
+            recordName
+            []
+            [GHC.recordCon recordName allFields]
+            [GHC.derivingStock [GHC.var "Prelude.Eq", GHC.var "Prelude.Show"]]
+          -- Build map of field names to documentation (only real fields)
+          fieldDocs = Map.fromList
+            [ (propertyFieldName propName, propDoc)
+            | (propName, Raw.Property{propertyDocumentation = propDoc}) <- Map.toList properties
+            ]
+          declWithDoc = attachDataDoc baseDecl (mkDoc documentation) fieldDocs
+
+      addExport (GHC.thingAll recordName) declWithDoc
       where
         genField :: Raw.PropertyName -> Raw.Property -> Generator (GHC.OccNameStr, GHC.Field)
         genField propertyName Raw.Property{..} =
@@ -248,7 +320,7 @@ genRecord Record{..} = runGen $ do
         fieldName = propertyFieldName propertyName
 
         function :: GHC.RawInstDecl
-        function = GHC.funBinds "set" [GHC.match [GHC.bvar "newValue", recordPattern $ List.length properties == 1] recordConstructor]
+        function = GHC.funBinds "set" [GHC.match [GHC.bvar "newValue", recordPattern False] recordConstructor]
 
         recordConstructor :: GHC.HsExpr'
         recordConstructor = GHC.RecordCon
@@ -283,8 +355,11 @@ genRecord Record{..} = runGen $ do
     builderBind
       = GHC.funBind builderNameStr
       . GHC.match (GHC.bvar . fromString <$> requiredFieldNames)
-      $ GHC.recordConE recordName (requiredFields <> optionalFields)
+      $ GHC.recordConE recordName (dummyField : requiredFields <> optionalFields)
       where
+        -- Dummy first field (see haddockWorkaroundFieldName for explanation)
+        dummyField = buildField (const $ GHC.unit) haddockWorkaroundFieldName
+
         optionalFields = (buildField $ const $ GHC.var "Prelude.Nothing") . propertyFieldName . fst <$> optionalProperties
         requiredFields = (buildField $ GHC.var . fromString) <$> requiredFieldNames
 
@@ -305,9 +380,11 @@ genRecord Record{..} = runGen $ do
           { GHC.rec_ext = GHC.NoExtField
           , GHC.rec_flds = []
           , GHC.rec_dotdot =
+              -- Always emit wildcard starting at index 1 (skipping haddockWorkaroundFieldName)
+              -- unless there are no real properties to bind
               if forceNull || List.null properties
                 then Nothing
-                else Just (GHC.L (GHC.EpaSpan (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated)) (GHC.RecFieldsDotDot 0))
+                else Just (GHC.L (GHC.EpaSpan (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated)) (GHC.RecFieldsDotDot 1))
           }
       where
         constructorName :: GHC.LocatedN GHC.RdrName

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StringFilterProperty
-  = StringFilterProperty {comparison :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html>
+    StringFilterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html#cfn-securityhub-automationrule-stringfilter-comparison>
+                          comparison :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html#cfn-securityhub-automationrule-stringfilter-value>
                           value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStringFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> StringFilterProperty
 mkStringFilterProperty comparison value
-  = StringFilterProperty {comparison = comparison, value = value}
+  = StringFilterProperty
+      {haddock_workaround_ = (), comparison = comparison, value = value}
 instance ToResourceProperties StringFilterProperty where
   toResourceProperties StringFilterProperty {..}
     = ResourceProperties

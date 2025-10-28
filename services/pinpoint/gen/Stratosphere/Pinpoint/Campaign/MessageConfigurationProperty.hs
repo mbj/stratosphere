@@ -12,24 +12,35 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.CampaignSmsMessageProperty 
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.MessageProperty as Exports
 import Stratosphere.ResourceProperties
 data MessageConfigurationProperty
-  = MessageConfigurationProperty {aDMMessage :: (Prelude.Maybe MessageProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html>
+    MessageConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-admmessage>
+                                  aDMMessage :: (Prelude.Maybe MessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-apnsmessage>
                                   aPNSMessage :: (Prelude.Maybe MessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-baidumessage>
                                   baiduMessage :: (Prelude.Maybe MessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-custommessage>
                                   customMessage :: (Prelude.Maybe CampaignCustomMessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-defaultmessage>
                                   defaultMessage :: (Prelude.Maybe MessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-emailmessage>
                                   emailMessage :: (Prelude.Maybe CampaignEmailMessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-gcmmessage>
                                   gCMMessage :: (Prelude.Maybe MessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-inappmessage>
                                   inAppMessage :: (Prelude.Maybe CampaignInAppMessageProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-smsmessage>
                                   sMSMessage :: (Prelude.Maybe CampaignSmsMessageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageConfigurationProperty :: MessageConfigurationProperty
 mkMessageConfigurationProperty
   = MessageConfigurationProperty
-      {aDMMessage = Prelude.Nothing, aPNSMessage = Prelude.Nothing,
-       baiduMessage = Prelude.Nothing, customMessage = Prelude.Nothing,
-       defaultMessage = Prelude.Nothing, emailMessage = Prelude.Nothing,
-       gCMMessage = Prelude.Nothing, inAppMessage = Prelude.Nothing,
-       sMSMessage = Prelude.Nothing}
+      {haddock_workaround_ = (), aDMMessage = Prelude.Nothing,
+       aPNSMessage = Prelude.Nothing, baiduMessage = Prelude.Nothing,
+       customMessage = Prelude.Nothing, defaultMessage = Prelude.Nothing,
+       emailMessage = Prelude.Nothing, gCMMessage = Prelude.Nothing,
+       inAppMessage = Prelude.Nothing, sMSMessage = Prelude.Nothing}
 instance ToResourceProperties MessageConfigurationProperty where
   toResourceProperties MessageConfigurationProperty {..}
     = ResourceProperties

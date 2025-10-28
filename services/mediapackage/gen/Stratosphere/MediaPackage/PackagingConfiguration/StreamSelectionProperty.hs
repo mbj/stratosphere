@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamSelectionProperty
-  = StreamSelectionProperty {maxVideoBitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html>
+    StreamSelectionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond>
+                             maxVideoBitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond>
                              minVideoBitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder>
                              streamOrder :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSelectionProperty :: StreamSelectionProperty
 mkStreamSelectionProperty
   = StreamSelectionProperty
-      {maxVideoBitsPerSecond = Prelude.Nothing,
+      {haddock_workaround_ = (), maxVideoBitsPerSecond = Prelude.Nothing,
        minVideoBitsPerSecond = Prelude.Nothing,
        streamOrder = Prelude.Nothing}
 instance ToResourceProperties StreamSelectionProperty where

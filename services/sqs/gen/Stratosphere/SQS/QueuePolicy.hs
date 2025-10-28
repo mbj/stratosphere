@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueuePolicy
-  = QueuePolicy {policyDocument :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html>
+    QueuePolicy {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html#cfn-sqs-queuepolicy-policydocument>
+                 policyDocument :: JSON.Object,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html#cfn-sqs-queuepolicy-queues>
                  queues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueuePolicy ::
   JSON.Object -> ValueList Prelude.Text -> QueuePolicy
 mkQueuePolicy policyDocument queues
-  = QueuePolicy {policyDocument = policyDocument, queues = queues}
+  = QueuePolicy
+      {haddock_workaround_ = (), policyDocument = policyDocument,
+       queues = queues}
 instance ToResourceProperties QueuePolicy where
   toResourceProperties QueuePolicy {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FleetAmountCapabilityProperty
-  = FleetAmountCapabilityProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html>
+    FleetAmountCapabilityProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html#cfn-deadline-fleet-fleetamountcapability-max>
+                                   max :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html#cfn-deadline-fleet-fleetamountcapability-min>
                                    min :: (Value Prelude.Double),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html#cfn-deadline-fleet-fleetamountcapability-name>
                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetAmountCapabilityProperty ::
@@ -16,7 +21,8 @@ mkFleetAmountCapabilityProperty ::
   -> Value Prelude.Text -> FleetAmountCapabilityProperty
 mkFleetAmountCapabilityProperty min name
   = FleetAmountCapabilityProperty
-      {min = min, name = name, max = Prelude.Nothing}
+      {haddock_workaround_ = (), min = min, name = name,
+       max = Prelude.Nothing}
 instance ToResourceProperties FleetAmountCapabilityProperty where
   toResourceProperties FleetAmountCapabilityProperty {..}
     = ResourceProperties

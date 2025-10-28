@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelCardProperty
-  = ModelCardProperty {modelCardContent :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html>
+    ModelCardProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html#cfn-sagemaker-modelpackage-modelcard-modelcardcontent>
+                       modelCardContent :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html#cfn-sagemaker-modelpackage-modelcard-modelcardstatus>
                        modelCardStatus :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelCardProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ModelCardProperty
 mkModelCardProperty modelCardContent modelCardStatus
   = ModelCardProperty
-      {modelCardContent = modelCardContent,
+      {haddock_workaround_ = (), modelCardContent = modelCardContent,
        modelCardStatus = modelCardStatus}
 instance ToResourceProperties ModelCardProperty where
   toResourceProperties ModelCardProperty {..}

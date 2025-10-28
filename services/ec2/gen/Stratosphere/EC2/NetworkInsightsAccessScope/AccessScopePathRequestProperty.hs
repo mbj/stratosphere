@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.PathStatementR
 import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.ThroughResourcesStatementRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessScopePathRequestProperty
-  = AccessScopePathRequestProperty {destination :: (Prelude.Maybe PathStatementRequestProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html>
+    AccessScopePathRequestProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-destination>
+                                    destination :: (Prelude.Maybe PathStatementRequestProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-source>
                                     source :: (Prelude.Maybe PathStatementRequestProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-throughresources>
                                     throughResources :: (Prelude.Maybe [ThroughResourcesStatementRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessScopePathRequestProperty :: AccessScopePathRequestProperty
 mkAccessScopePathRequestProperty
   = AccessScopePathRequestProperty
-      {destination = Prelude.Nothing, source = Prelude.Nothing,
-       throughResources = Prelude.Nothing}
+      {haddock_workaround_ = (), destination = Prelude.Nothing,
+       source = Prelude.Nothing, throughResources = Prelude.Nothing}
 instance ToResourceProperties AccessScopePathRequestProperty where
   toResourceProperties AccessScopePathRequestProperty {..}
     = ResourceProperties

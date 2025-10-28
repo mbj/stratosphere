@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventSubscriptionProperty
-  = EventSubscriptionProperty {eventType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html>
+    EventSubscriptionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-eventtype>
+                               eventType :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-name>
                                name :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html#cfn-resiliencehub-app-eventsubscription-snstopicarn>
                                snsTopicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSubscriptionProperty ::
@@ -16,7 +21,8 @@ mkEventSubscriptionProperty ::
   -> Value Prelude.Text -> EventSubscriptionProperty
 mkEventSubscriptionProperty eventType name
   = EventSubscriptionProperty
-      {eventType = eventType, name = name, snsTopicArn = Prelude.Nothing}
+      {haddock_workaround_ = (), eventType = eventType, name = name,
+       snsTopicArn = Prelude.Nothing}
 instance ToResourceProperties EventSubscriptionProperty where
   toResourceProperties EventSubscriptionProperty {..}
     = ResourceProperties

@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamActionDefinitionProperty
-  = IamActionDefinitionProperty {groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html>
+    IamActionDefinitionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups>
+                                 groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn>
                                  policyArn :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles>
                                  roles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users>
                                  users :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIamActionDefinitionProperty ::
   Value Prelude.Text -> IamActionDefinitionProperty
 mkIamActionDefinitionProperty policyArn
   = IamActionDefinitionProperty
-      {policyArn = policyArn, groups = Prelude.Nothing,
-       roles = Prelude.Nothing, users = Prelude.Nothing}
+      {haddock_workaround_ = (), policyArn = policyArn,
+       groups = Prelude.Nothing, roles = Prelude.Nothing,
+       users = Prelude.Nothing}
 instance ToResourceProperties IamActionDefinitionProperty where
   toResourceProperties IamActionDefinitionProperty {..}
     = ResourceProperties

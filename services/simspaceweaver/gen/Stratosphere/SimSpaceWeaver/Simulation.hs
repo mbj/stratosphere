@@ -8,17 +8,25 @@ import {-# SOURCE #-} Stratosphere.SimSpaceWeaver.Simulation.S3LocationProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Simulation
-  = Simulation {maximumDuration :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html>
+    Simulation {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-maximumduration>
+                maximumDuration :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-rolearn>
                 roleArn :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-schemas3location>
                 schemaS3Location :: (Prelude.Maybe S3LocationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html#cfn-simspaceweaver-simulation-snapshots3location>
                 snapshotS3Location :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulation ::
   Value Prelude.Text -> Value Prelude.Text -> Simulation
 mkSimulation name roleArn
   = Simulation
-      {name = name, roleArn = roleArn, maximumDuration = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, roleArn = roleArn,
+       maximumDuration = Prelude.Nothing,
        schemaS3Location = Prelude.Nothing,
        snapshotS3Location = Prelude.Nothing}
 instance ToResourceProperties Simulation where

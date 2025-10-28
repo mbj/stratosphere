@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.ChannelPlacementGroup.TagsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChannelPlacementGroup
-  = ChannelPlacementGroup {clusterId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html>
+    ChannelPlacementGroup {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html#cfn-medialive-channelplacementgroup-clusterid>
+                           clusterId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html#cfn-medialive-channelplacementgroup-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html#cfn-medialive-channelplacementgroup-nodes>
                            nodes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html#cfn-medialive-channelplacementgroup-tags>
                            tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelPlacementGroup :: ChannelPlacementGroup
 mkChannelPlacementGroup
   = ChannelPlacementGroup
-      {clusterId = Prelude.Nothing, name = Prelude.Nothing,
-       nodes = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), clusterId = Prelude.Nothing,
+       name = Prelude.Nothing, nodes = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ChannelPlacementGroup where
   toResourceProperties ChannelPlacementGroup {..}
     = ResourceProperties

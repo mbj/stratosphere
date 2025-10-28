@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.BedrockFoundationModelConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParsingConfigurationProperty
-  = ParsingConfigurationProperty {bedrockFoundationModelConfiguration :: (Prelude.Maybe BedrockFoundationModelConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html>
+    ParsingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockfoundationmodelconfiguration>
+                                  bedrockFoundationModelConfiguration :: (Prelude.Maybe BedrockFoundationModelConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-parsingstrategy>
                                   parsingStrategy :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParsingConfigurationProperty ::
   Value Prelude.Text -> ParsingConfigurationProperty
 mkParsingConfigurationProperty parsingStrategy
   = ParsingConfigurationProperty
-      {parsingStrategy = parsingStrategy,
+      {haddock_workaround_ = (), parsingStrategy = parsingStrategy,
        bedrockFoundationModelConfiguration = Prelude.Nothing}
 instance ToResourceProperties ParsingConfigurationProperty where
   toResourceProperties ParsingConfigurationProperty {..}

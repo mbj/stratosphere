@@ -9,21 +9,31 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.ConfigurationTemplate.Source
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationTemplate
-  = ConfigurationTemplate {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html>
+    ConfigurationTemplate {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-applicationname>
+                           applicationName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-environmentid>
                            environmentId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings>
                            optionSettings :: (Prelude.Maybe [ConfigurationOptionSettingProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-platformarn>
                            platformArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-solutionstackname>
                            solutionStackName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration>
                            sourceConfiguration :: (Prelude.Maybe SourceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationTemplate ::
   Value Prelude.Text -> ConfigurationTemplate
 mkConfigurationTemplate applicationName
   = ConfigurationTemplate
-      {applicationName = applicationName, description = Prelude.Nothing,
-       environmentId = Prelude.Nothing, optionSettings = Prelude.Nothing,
-       platformArn = Prelude.Nothing, solutionStackName = Prelude.Nothing,
+      {haddock_workaround_ = (), applicationName = applicationName,
+       description = Prelude.Nothing, environmentId = Prelude.Nothing,
+       optionSettings = Prelude.Nothing, platformArn = Prelude.Nothing,
+       solutionStackName = Prelude.Nothing,
        sourceConfiguration = Prelude.Nothing}
 instance ToResourceProperties ConfigurationTemplate where
   toResourceProperties ConfigurationTemplate {..}

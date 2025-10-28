@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetKinesisStreamParametersProperty
-  = PipeTargetKinesisStreamParametersProperty {partitionKey :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html>
+    PipeTargetKinesisStreamParametersProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html#cfn-pipes-pipe-pipetargetkinesisstreamparameters-partitionkey>
+                                               partitionKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetKinesisStreamParametersProperty ::
   Value Prelude.Text -> PipeTargetKinesisStreamParametersProperty
 mkPipeTargetKinesisStreamParametersProperty partitionKey
   = PipeTargetKinesisStreamParametersProperty
-      {partitionKey = partitionKey}
+      {haddock_workaround_ = (), partitionKey = partitionKey}
 instance ToResourceProperties PipeTargetKinesisStreamParametersProperty where
   toResourceProperties PipeTargetKinesisStreamParametersProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON PipeTargetKinesisStreamParametersProperty where
     = JSON.object ["PartitionKey" JSON..= partitionKey]
 instance Property "PartitionKey" PipeTargetKinesisStreamParametersProperty where
   type PropertyType "PartitionKey" PipeTargetKinesisStreamParametersProperty = Value Prelude.Text
-  set newValue PipeTargetKinesisStreamParametersProperty {}
+  set newValue PipeTargetKinesisStreamParametersProperty {..}
     = PipeTargetKinesisStreamParametersProperty
         {partitionKey = newValue, ..}

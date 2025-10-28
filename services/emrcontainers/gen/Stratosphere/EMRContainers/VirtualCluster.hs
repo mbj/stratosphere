@@ -9,16 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VirtualCluster
-  = VirtualCluster {containerProvider :: ContainerProviderProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html>
+    VirtualCluster {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider>
+                    containerProvider :: ContainerProviderProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualCluster ::
   ContainerProviderProperty -> Value Prelude.Text -> VirtualCluster
 mkVirtualCluster containerProvider name
   = VirtualCluster
-      {containerProvider = containerProvider, name = name,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), containerProvider = containerProvider,
+       name = name, tags = Prelude.Nothing}
 instance ToResourceProperties VirtualCluster where
   toResourceProperties VirtualCluster {..}
     = ResourceProperties

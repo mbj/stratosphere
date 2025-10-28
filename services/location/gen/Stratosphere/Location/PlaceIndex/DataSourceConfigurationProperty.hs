@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceConfigurationProperty
-  = DataSourceConfigurationProperty {intendedUse :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html>
+    DataSourceConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse>
+                                     intendedUse :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationProperty ::
   DataSourceConfigurationProperty
 mkDataSourceConfigurationProperty
-  = DataSourceConfigurationProperty {intendedUse = Prelude.Nothing}
+  = DataSourceConfigurationProperty
+      {haddock_workaround_ = (), intendedUse = Prelude.Nothing}
 instance ToResourceProperties DataSourceConfigurationProperty where
   toResourceProperties DataSourceConfigurationProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON DataSourceConfigurationProperty where
               [(JSON..=) "IntendedUse" Prelude.<$> intendedUse]))
 instance Property "IntendedUse" DataSourceConfigurationProperty where
   type PropertyType "IntendedUse" DataSourceConfigurationProperty = Value Prelude.Text
-  set newValue DataSourceConfigurationProperty {}
+  set newValue DataSourceConfigurationProperty {..}
     = DataSourceConfigurationProperty
         {intendedUse = Prelude.pure newValue, ..}

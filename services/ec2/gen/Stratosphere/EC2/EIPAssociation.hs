@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EIPAssociation
-  = EIPAssociation {allocationId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html>
+    EIPAssociation {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-allocationid>
+                    allocationId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-instanceid>
                     instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-networkinterfaceid>
                     networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html#cfn-ec2-eipassociation-privateipaddress>
                     privateIpAddress :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEIPAssociation :: EIPAssociation
 mkEIPAssociation
   = EIPAssociation
-      {allocationId = Prelude.Nothing, instanceId = Prelude.Nothing,
-       networkInterfaceId = Prelude.Nothing,
+      {haddock_workaround_ = (), allocationId = Prelude.Nothing,
+       instanceId = Prelude.Nothing, networkInterfaceId = Prelude.Nothing,
        privateIpAddress = Prelude.Nothing}
 instance ToResourceProperties EIPAssociation where
   toResourceProperties EIPAssociation {..}

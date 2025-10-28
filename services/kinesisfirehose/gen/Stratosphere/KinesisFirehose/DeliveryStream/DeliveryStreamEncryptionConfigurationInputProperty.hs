@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryStreamEncryptionConfigurationInputProperty
-  = DeliveryStreamEncryptionConfigurationInputProperty {keyARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html>
+    DeliveryStreamEncryptionConfigurationInputProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn>
+                                                        keyARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype>
                                                         keyType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryStreamEncryptionConfigurationInputProperty ::
@@ -16,7 +20,8 @@ mkDeliveryStreamEncryptionConfigurationInputProperty ::
   -> DeliveryStreamEncryptionConfigurationInputProperty
 mkDeliveryStreamEncryptionConfigurationInputProperty keyType
   = DeliveryStreamEncryptionConfigurationInputProperty
-      {keyType = keyType, keyARN = Prelude.Nothing}
+      {haddock_workaround_ = (), keyType = keyType,
+       keyARN = Prelude.Nothing}
 instance ToResourceProperties DeliveryStreamEncryptionConfigurationInputProperty where
   toResourceProperties
     DeliveryStreamEncryptionConfigurationInputProperty {..}

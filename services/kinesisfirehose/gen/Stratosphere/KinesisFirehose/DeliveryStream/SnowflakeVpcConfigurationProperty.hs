@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeVpcConfigurationProperty
-  = SnowflakeVpcConfigurationProperty {privateLinkVpceId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html>
+    SnowflakeVpcConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakevpcconfiguration-privatelinkvpceid>
+                                       privateLinkVpceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeVpcConfigurationProperty ::
   Value Prelude.Text -> SnowflakeVpcConfigurationProperty
 mkSnowflakeVpcConfigurationProperty privateLinkVpceId
   = SnowflakeVpcConfigurationProperty
-      {privateLinkVpceId = privateLinkVpceId}
+      {haddock_workaround_ = (), privateLinkVpceId = privateLinkVpceId}
 instance ToResourceProperties SnowflakeVpcConfigurationProperty where
   toResourceProperties SnowflakeVpcConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SnowflakeVpcConfigurationProperty where
     = JSON.object ["PrivateLinkVpceId" JSON..= privateLinkVpceId]
 instance Property "PrivateLinkVpceId" SnowflakeVpcConfigurationProperty where
   type PropertyType "PrivateLinkVpceId" SnowflakeVpcConfigurationProperty = Value Prelude.Text
-  set newValue SnowflakeVpcConfigurationProperty {}
+  set newValue SnowflakeVpcConfigurationProperty {..}
     = SnowflakeVpcConfigurationProperty
         {privateLinkVpceId = newValue, ..}

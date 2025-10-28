@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecyclePolicy
-  = LifecyclePolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html>
+    LifecyclePolicy {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-description>
+                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-policy>
                      policy :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-type>
                      type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicy ::
@@ -17,8 +23,8 @@ mkLifecyclePolicy ::
   -> Value Prelude.Text -> Value Prelude.Text -> LifecyclePolicy
 mkLifecyclePolicy name policy type'
   = LifecyclePolicy
-      {name = name, policy = policy, type' = type',
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, policy = policy,
+       type' = type', description = Prelude.Nothing}
 instance ToResourceProperties LifecyclePolicy where
   toResourceProperties LifecyclePolicy {..}
     = ResourceProperties

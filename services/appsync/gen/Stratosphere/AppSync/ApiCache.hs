@@ -7,12 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiCache
-  = ApiCache {apiCachingBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html>
+    ApiCache {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apicachingbehavior>
+              apiCachingBehavior :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-apiid>
               apiId :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-atrestencryptionenabled>
               atRestEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-healthmetricsconfig>
               healthMetricsConfig :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-transitencryptionenabled>
               transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-ttl>
               ttl :: (Value Prelude.Double),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-type>
               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiCache ::
@@ -21,8 +30,9 @@ mkApiCache ::
      -> Value Prelude.Double -> Value Prelude.Text -> ApiCache
 mkApiCache apiCachingBehavior apiId ttl type'
   = ApiCache
-      {apiCachingBehavior = apiCachingBehavior, apiId = apiId, ttl = ttl,
-       type' = type', atRestEncryptionEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), apiCachingBehavior = apiCachingBehavior,
+       apiId = apiId, ttl = ttl, type' = type',
+       atRestEncryptionEnabled = Prelude.Nothing,
        healthMetricsConfig = Prelude.Nothing,
        transitEncryptionEnabled = Prelude.Nothing}
 instance ToResourceProperties ApiCache where

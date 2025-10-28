@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SigV4AuthorizationProperty
-  = SigV4AuthorizationProperty {roleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html>
+    SigV4AuthorizationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn>
+                                roleArn :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename>
                                 serviceName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion>
                                 signingRegion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSigV4AuthorizationProperty ::
@@ -17,8 +22,8 @@ mkSigV4AuthorizationProperty ::
      -> Value Prelude.Text -> SigV4AuthorizationProperty
 mkSigV4AuthorizationProperty roleArn serviceName signingRegion
   = SigV4AuthorizationProperty
-      {roleArn = roleArn, serviceName = serviceName,
-       signingRegion = signingRegion}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       serviceName = serviceName, signingRegion = signingRegion}
 instance ToResourceProperties SigV4AuthorizationProperty where
   toResourceProperties SigV4AuthorizationProperty {..}
     = ResourceProperties

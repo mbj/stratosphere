@@ -8,12 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CarrierGateway
-  = CarrierGateway {tags :: (Prelude.Maybe [Tag]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html>
+    CarrierGateway {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags>
+                    tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid>
                     vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCarrierGateway :: Value Prelude.Text -> CarrierGateway
 mkCarrierGateway vpcId
-  = CarrierGateway {vpcId = vpcId, tags = Prelude.Nothing}
+  = CarrierGateway
+      {haddock_workaround_ = (), vpcId = vpcId, tags = Prelude.Nothing}
 instance ToResourceProperties CarrierGateway where
   toResourceProperties CarrierGateway {..}
     = ResourceProperties

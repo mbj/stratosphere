@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.PatternObjectFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PatternObjectFilterConfigurationProperty
-  = PatternObjectFilterConfigurationProperty {filters :: [PatternObjectFilterProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html>
+    PatternObjectFilterConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html#cfn-bedrock-datasource-patternobjectfilterconfiguration-filters>
+                                              filters :: [PatternObjectFilterProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPatternObjectFilterConfigurationProperty ::
   [PatternObjectFilterProperty]
   -> PatternObjectFilterConfigurationProperty
 mkPatternObjectFilterConfigurationProperty filters
-  = PatternObjectFilterConfigurationProperty {filters = filters}
+  = PatternObjectFilterConfigurationProperty
+      {haddock_workaround_ = (), filters = filters}
 instance ToResourceProperties PatternObjectFilterConfigurationProperty where
   toResourceProperties PatternObjectFilterConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON PatternObjectFilterConfigurationProperty where
     = JSON.object ["Filters" JSON..= filters]
 instance Property "Filters" PatternObjectFilterConfigurationProperty where
   type PropertyType "Filters" PatternObjectFilterConfigurationProperty = [PatternObjectFilterProperty]
-  set newValue PatternObjectFilterConfigurationProperty {}
+  set newValue PatternObjectFilterConfigurationProperty {..}
     = PatternObjectFilterConfigurationProperty {filters = newValue, ..}

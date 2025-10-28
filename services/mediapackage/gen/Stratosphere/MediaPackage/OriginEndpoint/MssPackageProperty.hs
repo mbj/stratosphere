@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.StreamSelectionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MssPackageProperty
-  = MssPackageProperty {encryption :: (Prelude.Maybe MssEncryptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html>
+    MssPackageProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption>
+                        encryption :: (Prelude.Maybe MssEncryptionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds>
                         manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds>
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection>
                         streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMssPackageProperty :: MssPackageProperty
 mkMssPackageProperty
   = MssPackageProperty
-      {encryption = Prelude.Nothing,
+      {haddock_workaround_ = (), encryption = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        segmentDurationSeconds = Prelude.Nothing,
        streamSelection = Prelude.Nothing}

@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.Comprehend.Flywheel.VpcConfigProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSecurityConfigProperty
-  = DataSecurityConfigProperty {dataLakeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>
+    DataSecurityConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-datalakekmskeyid>
+                                dataLakeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-modelkmskeyid>
                                 modelKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-volumekmskeyid>
                                 volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-vpcconfig>
                                 vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSecurityConfigProperty :: DataSecurityConfigProperty
 mkDataSecurityConfigProperty
   = DataSecurityConfigProperty
-      {dataLakeKmsKeyId = Prelude.Nothing,
+      {haddock_workaround_ = (), dataLakeKmsKeyId = Prelude.Nothing,
        modelKmsKeyId = Prelude.Nothing, volumeKmsKeyId = Prelude.Nothing,
        vpcConfig = Prelude.Nothing}
 instance ToResourceProperties DataSecurityConfigProperty where

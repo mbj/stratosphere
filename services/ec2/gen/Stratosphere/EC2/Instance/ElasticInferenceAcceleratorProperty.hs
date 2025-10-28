@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ElasticInferenceAcceleratorProperty
-  = ElasticInferenceAcceleratorProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html>
+    ElasticInferenceAcceleratorProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count>
+                                         count :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type>
                                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticInferenceAcceleratorProperty ::
   Value Prelude.Text -> ElasticInferenceAcceleratorProperty
 mkElasticInferenceAcceleratorProperty type'
   = ElasticInferenceAcceleratorProperty
-      {type' = type', count = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type', count = Prelude.Nothing}
 instance ToResourceProperties ElasticInferenceAcceleratorProperty where
   toResourceProperties ElasticInferenceAcceleratorProperty {..}
     = ResourceProperties

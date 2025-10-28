@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.PodPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data EksPropertiesProperty
-  = EksPropertiesProperty {podProperties :: (Prelude.Maybe PodPropertiesProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html>
+    EksPropertiesProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html#cfn-batch-jobdefinition-eksproperties-podproperties>
+                           podProperties :: (Prelude.Maybe PodPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksPropertiesProperty :: EksPropertiesProperty
 mkEksPropertiesProperty
-  = EksPropertiesProperty {podProperties = Prelude.Nothing}
+  = EksPropertiesProperty
+      {haddock_workaround_ = (), podProperties = Prelude.Nothing}
 instance ToResourceProperties EksPropertiesProperty where
   toResourceProperties EksPropertiesProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON EksPropertiesProperty where
               [(JSON..=) "PodProperties" Prelude.<$> podProperties]))
 instance Property "PodProperties" EksPropertiesProperty where
   type PropertyType "PodProperties" EksPropertiesProperty = PodPropertiesProperty
-  set newValue EksPropertiesProperty {}
+  set newValue EksPropertiesProperty {..}
     = EksPropertiesProperty {podProperties = Prelude.pure newValue, ..}

@@ -7,19 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Grant
-  = Grant {allowedOperations :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html>
+    Grant {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations>
+           allowedOperations :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname>
            grantName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion>
            homeRegion :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn>
            licenseArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals>
            principals :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status>
            status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrant :: Grant
 mkGrant
   = Grant
-      {allowedOperations = Prelude.Nothing, grantName = Prelude.Nothing,
-       homeRegion = Prelude.Nothing, licenseArn = Prelude.Nothing,
-       principals = Prelude.Nothing, status = Prelude.Nothing}
+      {haddock_workaround_ = (), allowedOperations = Prelude.Nothing,
+       grantName = Prelude.Nothing, homeRegion = Prelude.Nothing,
+       licenseArn = Prelude.Nothing, principals = Prelude.Nothing,
+       status = Prelude.Nothing}
 instance ToResourceProperties Grant where
   toResourceProperties Grant {..}
     = ResourceProperties

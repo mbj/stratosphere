@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrossRegionCopyDeprecateRuleProperty
-  = CrossRegionCopyDeprecateRuleProperty {interval :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html>
+    CrossRegionCopyDeprecateRuleProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-interval>
+                                          interval :: (Value Prelude.Integer),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html#cfn-dlm-lifecyclepolicy-crossregioncopydeprecaterule-intervalunit>
                                           intervalUnit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyDeprecateRuleProperty ::
@@ -16,7 +20,8 @@ mkCrossRegionCopyDeprecateRuleProperty ::
   -> Value Prelude.Text -> CrossRegionCopyDeprecateRuleProperty
 mkCrossRegionCopyDeprecateRuleProperty interval intervalUnit
   = CrossRegionCopyDeprecateRuleProperty
-      {interval = interval, intervalUnit = intervalUnit}
+      {haddock_workaround_ = (), interval = interval,
+       intervalUnit = intervalUnit}
 instance ToResourceProperties CrossRegionCopyDeprecateRuleProperty where
   toResourceProperties CrossRegionCopyDeprecateRuleProperty {..}
     = ResourceProperties

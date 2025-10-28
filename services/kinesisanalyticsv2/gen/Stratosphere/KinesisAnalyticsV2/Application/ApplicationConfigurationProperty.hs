@@ -15,20 +15,31 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.VpcConfigurati
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ZeppelinApplicationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ApplicationConfigurationProperty
-  = ApplicationConfigurationProperty {applicationCodeConfiguration :: (Prelude.Maybe ApplicationCodeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html>
+    ApplicationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration>
+                                      applicationCodeConfiguration :: (Prelude.Maybe ApplicationCodeConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration>
                                       applicationSnapshotConfiguration :: (Prelude.Maybe ApplicationSnapshotConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsystemrollbackconfiguration>
                                       applicationSystemRollbackConfiguration :: (Prelude.Maybe ApplicationSystemRollbackConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties>
                                       environmentProperties :: (Prelude.Maybe EnvironmentPropertiesProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-flinkapplicationconfiguration>
                                       flinkApplicationConfiguration :: (Prelude.Maybe FlinkApplicationConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-sqlapplicationconfiguration>
                                       sqlApplicationConfiguration :: (Prelude.Maybe SqlApplicationConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-vpcconfigurations>
                                       vpcConfigurations :: (Prelude.Maybe [VpcConfigurationProperty]),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-zeppelinapplicationconfiguration>
                                       zeppelinApplicationConfiguration :: (Prelude.Maybe ZeppelinApplicationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationConfigurationProperty ::
   ApplicationConfigurationProperty
 mkApplicationConfigurationProperty
   = ApplicationConfigurationProperty
-      {applicationCodeConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       applicationCodeConfiguration = Prelude.Nothing,
        applicationSnapshotConfiguration = Prelude.Nothing,
        applicationSystemRollbackConfiguration = Prelude.Nothing,
        environmentProperties = Prelude.Nothing,

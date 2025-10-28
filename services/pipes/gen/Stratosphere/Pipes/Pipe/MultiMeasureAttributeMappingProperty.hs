@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiMeasureAttributeMappingProperty
-  = MultiMeasureAttributeMappingProperty {measureValue :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html>
+    MultiMeasureAttributeMappingProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html#cfn-pipes-pipe-multimeasureattributemapping-measurevalue>
+                                          measureValue :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html#cfn-pipes-pipe-multimeasureattributemapping-measurevaluetype>
                                           measureValueType :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html#cfn-pipes-pipe-multimeasureattributemapping-multimeasureattributename>
                                           multiMeasureAttributeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureAttributeMappingProperty ::
@@ -21,7 +26,8 @@ mkMultiMeasureAttributeMappingProperty
   measureValueType
   multiMeasureAttributeName
   = MultiMeasureAttributeMappingProperty
-      {measureValue = measureValue, measureValueType = measureValueType,
+      {haddock_workaround_ = (), measureValue = measureValue,
+       measureValueType = measureValueType,
        multiMeasureAttributeName = multiMeasureAttributeName}
 instance ToResourceProperties MultiMeasureAttributeMappingProperty where
   toResourceProperties MultiMeasureAttributeMappingProperty {..}

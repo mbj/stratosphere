@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostEntryProperty
-  = HostEntryProperty {hostname :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html>
+    HostEntryProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-hostname>
+                       hostname :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html#cfn-ecs-taskdefinition-hostentry-ipaddress>
                        ipAddress :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHostEntryProperty :: HostEntryProperty
 mkHostEntryProperty
   = HostEntryProperty
-      {hostname = Prelude.Nothing, ipAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), hostname = Prelude.Nothing,
+       ipAddress = Prelude.Nothing}
 instance ToResourceProperties HostEntryProperty where
   toResourceProperties HostEntryProperty {..}
     = ResourceProperties

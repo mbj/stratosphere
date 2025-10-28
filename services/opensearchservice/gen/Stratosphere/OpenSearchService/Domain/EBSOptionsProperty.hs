@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EBSOptionsProperty
-  = EBSOptionsProperty {eBSEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html>
+    EBSOptionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html#cfn-opensearchservice-domain-ebsoptions-ebsenabled>
+                        eBSEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html#cfn-opensearchservice-domain-ebsoptions-iops>
                         iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html#cfn-opensearchservice-domain-ebsoptions-throughput>
                         throughput :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html#cfn-opensearchservice-domain-ebsoptions-volumesize>
                         volumeSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html#cfn-opensearchservice-domain-ebsoptions-volumetype>
                         volumeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEBSOptionsProperty :: EBSOptionsProperty
 mkEBSOptionsProperty
   = EBSOptionsProperty
-      {eBSEnabled = Prelude.Nothing, iops = Prelude.Nothing,
-       throughput = Prelude.Nothing, volumeSize = Prelude.Nothing,
-       volumeType = Prelude.Nothing}
+      {haddock_workaround_ = (), eBSEnabled = Prelude.Nothing,
+       iops = Prelude.Nothing, throughput = Prelude.Nothing,
+       volumeSize = Prelude.Nothing, volumeType = Prelude.Nothing}
 instance ToResourceProperties EBSOptionsProperty where
   toResourceProperties EBSOptionsProperty {..}
     = ResourceProperties

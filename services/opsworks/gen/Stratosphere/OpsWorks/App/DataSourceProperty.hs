@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceProperty
-  = DataSourceProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html>
+    DataSourceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html#cfn-opsworks-app-datasource-arn>
+                        arn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html#cfn-opsworks-app-datasource-databasename>
                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html#cfn-opsworks-app-datasource-type>
                         type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty :: DataSourceProperty
 mkDataSourceProperty
   = DataSourceProperty
-      {arn = Prelude.Nothing, databaseName = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = Prelude.Nothing,
+       databaseName = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties

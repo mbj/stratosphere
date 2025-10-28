@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateOv
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data LaunchTemplateProperty
-  = LaunchTemplateProperty {launchTemplateSpecification :: LaunchTemplateSpecificationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html>
+    LaunchTemplateProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-launchtemplatespecification>
+                            launchTemplateSpecification :: LaunchTemplateSpecificationProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html#cfn-autoscaling-autoscalinggroup-launchtemplate-overrides>
                             overrides :: (Prelude.Maybe [LaunchTemplateOverridesProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateProperty ::
   LaunchTemplateSpecificationProperty -> LaunchTemplateProperty
 mkLaunchTemplateProperty launchTemplateSpecification
   = LaunchTemplateProperty
-      {launchTemplateSpecification = launchTemplateSpecification,
+      {haddock_workaround_ = (),
+       launchTemplateSpecification = launchTemplateSpecification,
        overrides = Prelude.Nothing}
 instance ToResourceProperties LaunchTemplateProperty where
   toResourceProperties LaunchTemplateProperty {..}

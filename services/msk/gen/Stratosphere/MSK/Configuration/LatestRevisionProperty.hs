@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LatestRevisionProperty
-  = LatestRevisionProperty {creationTime :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html>
+    LatestRevisionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-creationtime>
+                            creationTime :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-description>
                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html#cfn-msk-configuration-latestrevision-revision>
                             revision :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLatestRevisionProperty :: LatestRevisionProperty
 mkLatestRevisionProperty
   = LatestRevisionProperty
-      {creationTime = Prelude.Nothing, description = Prelude.Nothing,
-       revision = Prelude.Nothing}
+      {haddock_workaround_ = (), creationTime = Prelude.Nothing,
+       description = Prelude.Nothing, revision = Prelude.Nothing}
 instance ToResourceProperties LatestRevisionProperty where
   toResourceProperties LatestRevisionProperty {..}
     = ResourceProperties

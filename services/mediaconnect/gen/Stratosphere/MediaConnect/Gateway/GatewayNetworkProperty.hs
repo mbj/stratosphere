@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayNetworkProperty
-  = GatewayNetworkProperty {cidrBlock :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html>
+    GatewayNetworkProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html#cfn-mediaconnect-gateway-gatewaynetwork-cidrblock>
+                            cidrBlock :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html#cfn-mediaconnect-gateway-gatewaynetwork-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayNetworkProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GatewayNetworkProperty
 mkGatewayNetworkProperty cidrBlock name
-  = GatewayNetworkProperty {cidrBlock = cidrBlock, name = name}
+  = GatewayNetworkProperty
+      {haddock_workaround_ = (), cidrBlock = cidrBlock, name = name}
 instance ToResourceProperties GatewayNetworkProperty where
   toResourceProperties GatewayNetworkProperty {..}
     = ResourceProperties

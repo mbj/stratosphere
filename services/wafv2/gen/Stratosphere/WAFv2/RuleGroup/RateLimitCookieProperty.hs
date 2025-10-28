@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.TextTransformationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateLimitCookieProperty
-  = RateLimitCookieProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitcookie.html>
+    RateLimitCookieProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitcookie.html#cfn-wafv2-rulegroup-ratelimitcookie-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitcookie.html#cfn-wafv2-rulegroup-ratelimitcookie-texttransformations>
                              textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitCookieProperty ::
@@ -17,7 +21,8 @@ mkRateLimitCookieProperty ::
   -> [TextTransformationProperty] -> RateLimitCookieProperty
 mkRateLimitCookieProperty name textTransformations
   = RateLimitCookieProperty
-      {name = name, textTransformations = textTransformations}
+      {haddock_workaround_ = (), name = name,
+       textTransformations = textTransformations}
 instance ToResourceProperties RateLimitCookieProperty where
   toResourceProperties RateLimitCookieProperty {..}
     = ResourceProperties

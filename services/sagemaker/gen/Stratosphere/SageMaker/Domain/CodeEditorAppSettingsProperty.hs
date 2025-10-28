@@ -11,15 +11,22 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.ResourceSpecProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeEditorAppSettingsProperty
-  = CodeEditorAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html>
+    CodeEditorAppSettingsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-applifecyclemanagement>
+                                   appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-customimages>
                                    customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-defaultresourcespec>
                                    defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-lifecycleconfigarns>
                                    lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeEditorAppSettingsProperty :: CodeEditorAppSettingsProperty
 mkCodeEditorAppSettingsProperty
   = CodeEditorAppSettingsProperty
-      {appLifecycleManagement = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       appLifecycleManagement = Prelude.Nothing,
        customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}

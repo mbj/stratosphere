@@ -11,19 +11,29 @@ import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.SAMLOptionsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedSecurityOptionsInputProperty
-  = AdvancedSecurityOptionsInputProperty {anonymousAuthDisableDate :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html>
+    AdvancedSecurityOptionsInputProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthdisabledate>
+                                          anonymousAuthDisableDate :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthenabled>
                                           anonymousAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-enabled>
                                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled>
                                           internalUserDatabaseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-jwtoptions>
                                           jWTOptions :: (Prelude.Maybe JWTOptionsProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-masteruseroptions>
                                           masterUserOptions :: (Prelude.Maybe MasterUserOptionsProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-samloptions>
                                           sAMLOptions :: (Prelude.Maybe SAMLOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedSecurityOptionsInputProperty ::
   AdvancedSecurityOptionsInputProperty
 mkAdvancedSecurityOptionsInputProperty
   = AdvancedSecurityOptionsInputProperty
-      {anonymousAuthDisableDate = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       anonymousAuthDisableDate = Prelude.Nothing,
        anonymousAuthEnabled = Prelude.Nothing, enabled = Prelude.Nothing,
        internalUserDatabaseEnabled = Prelude.Nothing,
        jWTOptions = Prelude.Nothing, masterUserOptions = Prelude.Nothing,

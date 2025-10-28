@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaOutputProperty
-  = LambdaOutputProperty {resourceARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html>
+    LambdaOutputProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html#cfn-kinesisanalyticsv2-applicationoutput-lambdaoutput-resourcearn>
+                          resourceARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaOutputProperty ::
   Value Prelude.Text -> LambdaOutputProperty
 mkLambdaOutputProperty resourceARN
-  = LambdaOutputProperty {resourceARN = resourceARN}
+  = LambdaOutputProperty
+      {haddock_workaround_ = (), resourceARN = resourceARN}
 instance ToResourceProperties LambdaOutputProperty where
   toResourceProperties LambdaOutputProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON LambdaOutputProperty where
     = JSON.object ["ResourceARN" JSON..= resourceARN]
 instance Property "ResourceARN" LambdaOutputProperty where
   type PropertyType "ResourceARN" LambdaOutputProperty = Value Prelude.Text
-  set newValue LambdaOutputProperty {}
+  set newValue LambdaOutputProperty {..}
     = LambdaOutputProperty {resourceARN = newValue, ..}

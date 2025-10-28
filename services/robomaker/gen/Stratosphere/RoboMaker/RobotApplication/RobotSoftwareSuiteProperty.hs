@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RobotSoftwareSuiteProperty
-  = RobotSoftwareSuiteProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html>
+    RobotSoftwareSuiteProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-name>
+                                name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-version>
                                 version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotSoftwareSuiteProperty ::
   Value Prelude.Text -> RobotSoftwareSuiteProperty
 mkRobotSoftwareSuiteProperty name
   = RobotSoftwareSuiteProperty
-      {name = name, version = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, version = Prelude.Nothing}
 instance ToResourceProperties RobotSoftwareSuiteProperty where
   toResourceProperties RobotSoftwareSuiteProperty {..}
     = ResourceProperties

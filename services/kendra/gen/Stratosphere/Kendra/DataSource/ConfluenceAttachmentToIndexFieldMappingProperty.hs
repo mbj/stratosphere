@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceAttachmentToIndexFieldMappingProperty
-  = ConfluenceAttachmentToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html>
+    ConfluenceAttachmentToIndexFieldMappingProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datasourcefieldname>
+                                                     dataSourceFieldName :: (Value Prelude.Text),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datefieldformat>
                                                      dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-indexfieldname>
                                                      indexFieldName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceAttachmentToIndexFieldMappingProperty ::
@@ -20,7 +25,8 @@ mkConfluenceAttachmentToIndexFieldMappingProperty
   dataSourceFieldName
   indexFieldName
   = ConfluenceAttachmentToIndexFieldMappingProperty
-      {dataSourceFieldName = dataSourceFieldName,
+      {haddock_workaround_ = (),
+       dataSourceFieldName = dataSourceFieldName,
        indexFieldName = indexFieldName, dateFieldFormat = Prelude.Nothing}
 instance ToResourceProperties ConfluenceAttachmentToIndexFieldMappingProperty where
   toResourceProperties

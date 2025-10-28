@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnDescriptionProperty
-  = ColumnDescriptionProperty {text :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html>
+    ColumnDescriptionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text>
+                               text :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnDescriptionProperty :: ColumnDescriptionProperty
 mkColumnDescriptionProperty
-  = ColumnDescriptionProperty {text = Prelude.Nothing}
+  = ColumnDescriptionProperty
+      {haddock_workaround_ = (), text = Prelude.Nothing}
 instance ToResourceProperties ColumnDescriptionProperty where
   toResourceProperties ColumnDescriptionProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ColumnDescriptionProperty where
            (Prelude.catMaybes [(JSON..=) "Text" Prelude.<$> text]))
 instance Property "Text" ColumnDescriptionProperty where
   type PropertyType "Text" ColumnDescriptionProperty = Value Prelude.Text
-  set newValue ColumnDescriptionProperty {}
+  set newValue ColumnDescriptionProperty {..}
     = ColumnDescriptionProperty {text = Prelude.pure newValue, ..}

@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3LogDestinationProperty
-  = S3LogDestinationProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html>
+    S3LogDestinationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-bucketname>
+                              bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-bucketowner>
                               bucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-outputformat>
                               outputFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-prefix>
                               prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LogDestinationProperty :: S3LogDestinationProperty
 mkS3LogDestinationProperty
   = S3LogDestinationProperty
-      {bucketName = Prelude.Nothing, bucketOwner = Prelude.Nothing,
-       outputFormat = Prelude.Nothing, prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = Prelude.Nothing,
+       bucketOwner = Prelude.Nothing, outputFormat = Prelude.Nothing,
+       prefix = Prelude.Nothing}
 instance ToResourceProperties S3LogDestinationProperty where
   toResourceProperties S3LogDestinationProperty {..}
     = ResourceProperties

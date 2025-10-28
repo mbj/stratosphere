@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationOutput.LambdaOu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputProperty
-  = OutputProperty {destinationSchema :: DestinationSchemaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html>
+    OutputProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-destinationschema>
+                    destinationSchema :: DestinationSchemaProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisfirehoseoutput>
                     kinesisFirehoseOutput :: (Prelude.Maybe KinesisFirehoseOutputProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-kinesisstreamsoutput>
                     kinesisStreamsOutput :: (Prelude.Maybe KinesisStreamsOutputProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-lambdaoutput>
                     lambdaOutput :: (Prelude.Maybe LambdaOutputProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html#cfn-kinesisanalyticsv2-applicationoutput-output-name>
                     name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: DestinationSchemaProperty -> OutputProperty
 mkOutputProperty destinationSchema
   = OutputProperty
-      {destinationSchema = destinationSchema,
+      {haddock_workaround_ = (), destinationSchema = destinationSchema,
        kinesisFirehoseOutput = Prelude.Nothing,
        kinesisStreamsOutput = Prelude.Nothing,
        lambdaOutput = Prelude.Nothing, name = Prelude.Nothing}

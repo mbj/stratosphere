@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PublicDnsNamespace.PublicDnsPropertiesMutableProperty as Exports
 import Stratosphere.ResourceProperties
 data PropertiesProperty
-  = PropertiesProperty {dnsProperties :: (Prelude.Maybe PublicDnsPropertiesMutableProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html>
+    PropertiesProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html#cfn-servicediscovery-publicdnsnamespace-properties-dnsproperties>
+                        dnsProperties :: (Prelude.Maybe PublicDnsPropertiesMutableProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertiesProperty :: PropertiesProperty
 mkPropertiesProperty
-  = PropertiesProperty {dnsProperties = Prelude.Nothing}
+  = PropertiesProperty
+      {haddock_workaround_ = (), dnsProperties = Prelude.Nothing}
 instance ToResourceProperties PropertiesProperty where
   toResourceProperties PropertiesProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON PropertiesProperty where
               [(JSON..=) "DnsProperties" Prelude.<$> dnsProperties]))
 instance Property "DnsProperties" PropertiesProperty where
   type PropertyType "DnsProperties" PropertiesProperty = PublicDnsPropertiesMutableProperty
-  set newValue PropertiesProperty {}
+  set newValue PropertiesProperty {..}
     = PropertiesProperty {dnsProperties = Prelude.pure newValue, ..}

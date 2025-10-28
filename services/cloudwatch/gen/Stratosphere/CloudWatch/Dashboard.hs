@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Dashboard
-  = Dashboard {dashboardBody :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html>
+    Dashboard {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-dashboardbody>
+               dashboardBody :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-dashboardname>
                dashboardName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboard :: Value Prelude.Text -> Dashboard
 mkDashboard dashboardBody
   = Dashboard
-      {dashboardBody = dashboardBody, dashboardName = Prelude.Nothing}
+      {haddock_workaround_ = (), dashboardBody = dashboardBody,
+       dashboardName = Prelude.Nothing}
 instance ToResourceProperties Dashboard where
   toResourceProperties Dashboard {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentDetailsProperty
-  = DeploymentDetailsProperty {latestDeploymentId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html>
+    DeploymentDetailsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html#cfn-gamelift-containerfleet-deploymentdetails-latestdeploymentid>
+                               latestDeploymentId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentDetailsProperty :: DeploymentDetailsProperty
 mkDeploymentDetailsProperty
-  = DeploymentDetailsProperty {latestDeploymentId = Prelude.Nothing}
+  = DeploymentDetailsProperty
+      {haddock_workaround_ = (), latestDeploymentId = Prelude.Nothing}
 instance ToResourceProperties DeploymentDetailsProperty where
   toResourceProperties DeploymentDetailsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DeploymentDetailsProperty where
               [(JSON..=) "LatestDeploymentId" Prelude.<$> latestDeploymentId]))
 instance Property "LatestDeploymentId" DeploymentDetailsProperty where
   type PropertyType "LatestDeploymentId" DeploymentDetailsProperty = Value Prelude.Text
-  set newValue DeploymentDetailsProperty {}
+  set newValue DeploymentDetailsProperty {..}
     = DeploymentDetailsProperty
         {latestDeploymentId = Prelude.pure newValue, ..}

@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.CognitoGro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoUserPoolConfigurationProperty
-  = CognitoUserPoolConfigurationProperty {clientIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html>
+    CognitoUserPoolConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-clientids>
+                                          clientIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-groupconfiguration>
                                           groupConfiguration :: (Prelude.Maybe CognitoGroupConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-userpoolarn>
                                           userPoolArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoUserPoolConfigurationProperty ::
   Value Prelude.Text -> CognitoUserPoolConfigurationProperty
 mkCognitoUserPoolConfigurationProperty userPoolArn
   = CognitoUserPoolConfigurationProperty
-      {userPoolArn = userPoolArn, clientIds = Prelude.Nothing,
-       groupConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), userPoolArn = userPoolArn,
+       clientIds = Prelude.Nothing, groupConfiguration = Prelude.Nothing}
 instance ToResourceProperties CognitoUserPoolConfigurationProperty where
   toResourceProperties CognitoUserPoolConfigurationProperty {..}
     = ResourceProperties

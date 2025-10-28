@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EmailOutboundConfigProperty
-  = EmailOutboundConfigProperty {connectSourceEmailAddress :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html>
+    EmailOutboundConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-connectsourceemailaddress>
+                                 connectSourceEmailAddress :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-sourceemailaddressdisplayname>
                                  sourceEmailAddressDisplayName :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-wisdomtemplatearn>
                                  wisdomTemplateArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailOutboundConfigProperty ::
@@ -18,7 +23,8 @@ mkEmailOutboundConfigProperty
   connectSourceEmailAddress
   wisdomTemplateArn
   = EmailOutboundConfigProperty
-      {connectSourceEmailAddress = connectSourceEmailAddress,
+      {haddock_workaround_ = (),
+       connectSourceEmailAddress = connectSourceEmailAddress,
        wisdomTemplateArn = wisdomTemplateArn,
        sourceEmailAddressDisplayName = Prelude.Nothing}
 instance ToResourceProperties EmailOutboundConfigProperty where

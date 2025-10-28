@@ -15,24 +15,39 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Channel
-  = Channel {anywhereSettings :: (Prelude.Maybe AnywhereSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html>
+    Channel {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-anywheresettings>
+             anywhereSettings :: (Prelude.Maybe AnywhereSettingsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-cdiinputspecification>
              cdiInputSpecification :: (Prelude.Maybe CdiInputSpecificationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelclass>
              channelClass :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations>
              destinations :: (Prelude.Maybe [OutputDestinationProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings>
              encoderSettings :: (Prelude.Maybe EncoderSettingsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments>
              inputAttachments :: (Prelude.Maybe [InputAttachmentProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputspecification>
              inputSpecification :: (Prelude.Maybe InputSpecificationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-loglevel>
              logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-maintenance>
              maintenance :: (Prelude.Maybe MaintenanceCreateSettingsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-rolearn>
              roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-tags>
              tags :: (Prelude.Maybe JSON.Object),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-vpc>
              vpc :: (Prelude.Maybe VpcOutputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel
-      {anywhereSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), anywhereSettings = Prelude.Nothing,
        cdiInputSpecification = Prelude.Nothing,
        channelClass = Prelude.Nothing, destinations = Prelude.Nothing,
        encoderSettings = Prelude.Nothing,

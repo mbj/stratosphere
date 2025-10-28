@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebhookFilterProperty
-  = WebhookFilterProperty {excludeMatchedPattern :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html>
+    WebhookFilterProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-excludematchedpattern>
+                           excludeMatchedPattern :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-pattern>
                            pattern :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhookFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> WebhookFilterProperty
 mkWebhookFilterProperty pattern type'
   = WebhookFilterProperty
-      {pattern = pattern, type' = type',
+      {haddock_workaround_ = (), pattern = pattern, type' = type',
        excludeMatchedPattern = Prelude.Nothing}
 instance ToResourceProperties WebhookFilterProperty where
   toResourceProperties WebhookFilterProperty {..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressPointConfigurationProperty
-  = IngressPointConfigurationProperty {secretArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html>
+    IngressPointConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html#cfn-ses-mailmanageringresspoint-ingresspointconfiguration-secretarn>
+                                       secretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html#cfn-ses-mailmanageringresspoint-ingresspointconfiguration-smtppassword>
                                        smtpPassword :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressPointConfigurationProperty ::
   IngressPointConfigurationProperty
 mkIngressPointConfigurationProperty
   = IngressPointConfigurationProperty
-      {secretArn = Prelude.Nothing, smtpPassword = Prelude.Nothing}
+      {haddock_workaround_ = (), secretArn = Prelude.Nothing,
+       smtpPassword = Prelude.Nothing}
 instance ToResourceProperties IngressPointConfigurationProperty where
   toResourceProperties IngressPointConfigurationProperty {..}
     = ResourceProperties

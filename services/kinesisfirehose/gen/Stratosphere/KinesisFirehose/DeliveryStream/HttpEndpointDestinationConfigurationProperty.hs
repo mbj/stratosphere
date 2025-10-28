@@ -16,15 +16,27 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManager
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpEndpointDestinationConfigurationProperty
-  = HttpEndpointDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html>
+    HttpEndpointDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints>
+                                                  bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions>
                                                   cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration>
                                                   endpointConfiguration :: HttpEndpointConfigurationProperty,
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration>
                                                   processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration>
                                                   requestConfiguration :: (Prelude.Maybe HttpEndpointRequestConfigurationProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions>
                                                   retryOptions :: (Prelude.Maybe RetryOptionsProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn>
                                                   roleARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode>
                                                   s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration>
                                                   s3Configuration :: S3DestinationConfigurationProperty,
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-secretsmanagerconfiguration>
                                                   secretsManagerConfiguration :: (Prelude.Maybe SecretsManagerConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointDestinationConfigurationProperty ::
@@ -35,7 +47,8 @@ mkHttpEndpointDestinationConfigurationProperty
   endpointConfiguration
   s3Configuration
   = HttpEndpointDestinationConfigurationProperty
-      {endpointConfiguration = endpointConfiguration,
+      {haddock_workaround_ = (),
+       endpointConfiguration = endpointConfiguration,
        s3Configuration = s3Configuration,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,

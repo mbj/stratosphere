@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectDefaultsProperty
-  = ServiceConnectDefaultsProperty {namespace :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html>
+    ServiceConnectDefaultsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html#cfn-ecs-cluster-serviceconnectdefaults-namespace>
+                                    namespace :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectDefaultsProperty :: ServiceConnectDefaultsProperty
 mkServiceConnectDefaultsProperty
-  = ServiceConnectDefaultsProperty {namespace = Prelude.Nothing}
+  = ServiceConnectDefaultsProperty
+      {haddock_workaround_ = (), namespace = Prelude.Nothing}
 instance ToResourceProperties ServiceConnectDefaultsProperty where
   toResourceProperties ServiceConnectDefaultsProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON ServiceConnectDefaultsProperty where
            (Prelude.catMaybes [(JSON..=) "Namespace" Prelude.<$> namespace]))
 instance Property "Namespace" ServiceConnectDefaultsProperty where
   type PropertyType "Namespace" ServiceConnectDefaultsProperty = Value Prelude.Text
-  set newValue ServiceConnectDefaultsProperty {}
+  set newValue ServiceConnectDefaultsProperty {..}
     = ServiceConnectDefaultsProperty
         {namespace = Prelude.pure newValue, ..}

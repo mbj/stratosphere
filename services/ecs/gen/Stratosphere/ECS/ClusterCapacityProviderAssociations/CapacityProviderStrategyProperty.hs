@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityProviderStrategyProperty
-  = CapacityProviderStrategyProperty {base :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html>
+    CapacityProviderStrategyProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base>
+                                      base :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider>
                                       capacityProvider :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight>
                                       weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProviderStrategyProperty ::
   Value Prelude.Text -> CapacityProviderStrategyProperty
 mkCapacityProviderStrategyProperty capacityProvider
   = CapacityProviderStrategyProperty
-      {capacityProvider = capacityProvider, base = Prelude.Nothing,
-       weight = Prelude.Nothing}
+      {haddock_workaround_ = (), capacityProvider = capacityProvider,
+       base = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties CapacityProviderStrategyProperty where
   toResourceProperties CapacityProviderStrategyProperty {..}
     = ResourceProperties

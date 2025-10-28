@@ -19,29 +19,47 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Cluster
-  = Cluster {accessConfig :: (Prelude.Maybe AccessConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html>
+    Cluster {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig>
+             accessConfig :: (Prelude.Maybe AccessConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons>
              bootstrapSelfManagedAddons :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig>
              computeConfig :: (Prelude.Maybe ComputeConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig>
              encryptionConfig :: (Prelude.Maybe [EncryptionConfigProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig>
              kubernetesNetworkConfig :: (Prelude.Maybe KubernetesNetworkConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-logging>
              logging :: (Prelude.Maybe LoggingProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig>
              outpostConfig :: (Prelude.Maybe OutpostConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-remotenetworkconfig>
              remoteNetworkConfig :: (Prelude.Maybe RemoteNetworkConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig>
              resourcesVpcConfig :: ResourcesVpcConfigProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn>
              roleArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-storageconfig>
              storageConfig :: (Prelude.Maybe StorageConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-upgradepolicy>
              upgradePolicy :: (Prelude.Maybe UpgradePolicyProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version>
              version :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-zonalshiftconfig>
              zonalShiftConfig :: (Prelude.Maybe ZonalShiftConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   ResourcesVpcConfigProperty -> Value Prelude.Text -> Cluster
 mkCluster resourcesVpcConfig roleArn
   = Cluster
-      {resourcesVpcConfig = resourcesVpcConfig, roleArn = roleArn,
-       accessConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), resourcesVpcConfig = resourcesVpcConfig,
+       roleArn = roleArn, accessConfig = Prelude.Nothing,
        bootstrapSelfManagedAddons = Prelude.Nothing,
        computeConfig = Prelude.Nothing,
        encryptionConfig = Prelude.Nothing,

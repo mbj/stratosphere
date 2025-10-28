@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Deployment
-  = Deployment {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html>
+    Deployment {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-applicationid>
+                applicationId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-applicationversion>
                 applicationVersion :: (Value Prelude.Integer),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-environmentid>
                 environmentId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment ::
@@ -16,7 +21,7 @@ mkDeployment ::
   -> Value Prelude.Integer -> Value Prelude.Text -> Deployment
 mkDeployment applicationId applicationVersion environmentId
   = Deployment
-      {applicationId = applicationId,
+      {haddock_workaround_ = (), applicationId = applicationId,
        applicationVersion = applicationVersion,
        environmentId = environmentId}
 instance ToResourceProperties Deployment where

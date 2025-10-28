@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.Statistics
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataQualityBaselineConfigProperty
-  = DataQualityBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html>
+    DataQualityBaselineConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname>
+                                       baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource>
                                        constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource>
                                        statisticsResource :: (Prelude.Maybe StatisticsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQualityBaselineConfigProperty ::
   DataQualityBaselineConfigProperty
 mkDataQualityBaselineConfigProperty
   = DataQualityBaselineConfigProperty
-      {baseliningJobName = Prelude.Nothing,
+      {haddock_workaround_ = (), baseliningJobName = Prelude.Nothing,
        constraintsResource = Prelude.Nothing,
        statisticsResource = Prelude.Nothing}
 instance ToResourceProperties DataQualityBaselineConfigProperty where

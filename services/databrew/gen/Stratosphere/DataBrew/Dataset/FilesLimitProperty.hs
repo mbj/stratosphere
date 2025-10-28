@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilesLimitProperty
-  = FilesLimitProperty {maxFiles :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html>
+    FilesLimitProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles>
+                        maxFiles :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order>
                         order :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby>
                         orderedBy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilesLimitProperty :: Value Prelude.Integer -> FilesLimitProperty
 mkFilesLimitProperty maxFiles
   = FilesLimitProperty
-      {maxFiles = maxFiles, order = Prelude.Nothing,
-       orderedBy = Prelude.Nothing}
+      {haddock_workaround_ = (), maxFiles = maxFiles,
+       order = Prelude.Nothing, orderedBy = Prelude.Nothing}
 instance ToResourceProperties FilesLimitProperty where
   toResourceProperties FilesLimitProperty {..}
     = ResourceProperties

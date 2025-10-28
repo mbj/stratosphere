@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayConnectOptionsProperty
-  = TransitGatewayConnectOptionsProperty {protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html>
+    TransitGatewayConnectOptionsProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol>
+                                          protocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayConnectOptionsProperty ::
   TransitGatewayConnectOptionsProperty
 mkTransitGatewayConnectOptionsProperty
-  = TransitGatewayConnectOptionsProperty {protocol = Prelude.Nothing}
+  = TransitGatewayConnectOptionsProperty
+      {haddock_workaround_ = (), protocol = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayConnectOptionsProperty where
   toResourceProperties TransitGatewayConnectOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON TransitGatewayConnectOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Protocol" Prelude.<$> protocol]))
 instance Property "Protocol" TransitGatewayConnectOptionsProperty where
   type PropertyType "Protocol" TransitGatewayConnectOptionsProperty = Value Prelude.Text
-  set newValue TransitGatewayConnectOptionsProperty {}
+  set newValue TransitGatewayConnectOptionsProperty {..}
     = TransitGatewayConnectOptionsProperty
         {protocol = Prelude.pure newValue, ..}

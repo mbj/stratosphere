@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SSO.Application.SignInOptionsProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortalOptionsConfigurationProperty
-  = PortalOptionsConfigurationProperty {signInOptions :: (Prelude.Maybe SignInOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-portaloptionsconfiguration.html>
+    PortalOptionsConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-portaloptionsconfiguration.html#cfn-sso-application-portaloptionsconfiguration-signinoptions>
+                                        signInOptions :: (Prelude.Maybe SignInOptionsProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-portaloptionsconfiguration.html#cfn-sso-application-portaloptionsconfiguration-visibility>
                                         visibility :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortalOptionsConfigurationProperty ::
   PortalOptionsConfigurationProperty
 mkPortalOptionsConfigurationProperty
   = PortalOptionsConfigurationProperty
-      {signInOptions = Prelude.Nothing, visibility = Prelude.Nothing}
+      {haddock_workaround_ = (), signInOptions = Prelude.Nothing,
+       visibility = Prelude.Nothing}
 instance ToResourceProperties PortalOptionsConfigurationProperty where
   toResourceProperties PortalOptionsConfigurationProperty {..}
     = ResourceProperties

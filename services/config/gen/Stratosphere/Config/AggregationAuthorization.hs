@@ -8,8 +8,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AggregationAuthorization
-  = AggregationAuthorization {authorizedAccountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html>
+    AggregationAuthorization {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedaccountid>
+                              authorizedAccountId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-authorizedawsregion>
                               authorizedAwsRegion :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html#cfn-config-aggregationauthorization-tags>
                               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationAuthorization ::
@@ -17,7 +22,8 @@ mkAggregationAuthorization ::
   -> Value Prelude.Text -> AggregationAuthorization
 mkAggregationAuthorization authorizedAccountId authorizedAwsRegion
   = AggregationAuthorization
-      {authorizedAccountId = authorizedAccountId,
+      {haddock_workaround_ = (),
+       authorizedAccountId = authorizedAccountId,
        authorizedAwsRegion = authorizedAwsRegion, tags = Prelude.Nothing}
 instance ToResourceProperties AggregationAuthorization where
   toResourceProperties AggregationAuthorization {..}

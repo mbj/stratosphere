@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ServerSideEncryptionByDefaultProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerSideEncryptionRuleProperty
-  = ServerSideEncryptionRuleProperty {bucketKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html>
+    ServerSideEncryptionRuleProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled>
+                                      bucketKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault>
                                       serverSideEncryptionByDefault :: (Prelude.Maybe ServerSideEncryptionByDefaultProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionRuleProperty ::
   ServerSideEncryptionRuleProperty
 mkServerSideEncryptionRuleProperty
   = ServerSideEncryptionRuleProperty
-      {bucketKeyEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketKeyEnabled = Prelude.Nothing,
        serverSideEncryptionByDefault = Prelude.Nothing}
 instance ToResourceProperties ServerSideEncryptionRuleProperty where
   toResourceProperties ServerSideEncryptionRuleProperty {..}

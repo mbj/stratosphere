@@ -9,15 +9,22 @@ import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.LocalHealthEventsConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthEventsConfigProperty
-  = HealthEventsConfigProperty {availabilityLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html>
+    HealthEventsConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilitylocalhealtheventsconfig>
+                                availabilityLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilityscorethreshold>
                                 availabilityScoreThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-performancelocalhealtheventsconfig>
                                 performanceLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-performancescorethreshold>
                                 performanceScoreThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthEventsConfigProperty :: HealthEventsConfigProperty
 mkHealthEventsConfigProperty
   = HealthEventsConfigProperty
-      {availabilityLocalHealthEventsConfig = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       availabilityLocalHealthEventsConfig = Prelude.Nothing,
        availabilityScoreThreshold = Prelude.Nothing,
        performanceLocalHealthEventsConfig = Prelude.Nothing,
        performanceScoreThreshold = Prelude.Nothing}

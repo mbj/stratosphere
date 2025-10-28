@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PauseClusterMessageProperty
-  = PauseClusterMessageProperty {clusterIdentifier :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html>
+    PauseClusterMessageProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html#cfn-redshift-scheduledaction-pauseclustermessage-clusteridentifier>
+                                 clusterIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPauseClusterMessageProperty ::
   Value Prelude.Text -> PauseClusterMessageProperty
 mkPauseClusterMessageProperty clusterIdentifier
   = PauseClusterMessageProperty
-      {clusterIdentifier = clusterIdentifier}
+      {haddock_workaround_ = (), clusterIdentifier = clusterIdentifier}
 instance ToResourceProperties PauseClusterMessageProperty where
   toResourceProperties PauseClusterMessageProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON PauseClusterMessageProperty where
     = JSON.object ["ClusterIdentifier" JSON..= clusterIdentifier]
 instance Property "ClusterIdentifier" PauseClusterMessageProperty where
   type PropertyType "ClusterIdentifier" PauseClusterMessageProperty = Value Prelude.Text
-  set newValue PauseClusterMessageProperty {}
+  set newValue PauseClusterMessageProperty {..}
     = PauseClusterMessageProperty {clusterIdentifier = newValue, ..}

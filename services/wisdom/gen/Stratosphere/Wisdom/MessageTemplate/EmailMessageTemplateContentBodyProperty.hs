@@ -8,14 +8,19 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.MessageTemplateBodyContentProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data EmailMessageTemplateContentBodyProperty
-  = EmailMessageTemplateContentBodyProperty {html :: (Prelude.Maybe MessageTemplateBodyContentProviderProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html>
+    EmailMessageTemplateContentBodyProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontentbody-html>
+                                             html :: (Prelude.Maybe MessageTemplateBodyContentProviderProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontentbody-plaintext>
                                              plainText :: (Prelude.Maybe MessageTemplateBodyContentProviderProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailMessageTemplateContentBodyProperty ::
   EmailMessageTemplateContentBodyProperty
 mkEmailMessageTemplateContentBodyProperty
   = EmailMessageTemplateContentBodyProperty
-      {html = Prelude.Nothing, plainText = Prelude.Nothing}
+      {haddock_workaround_ = (), html = Prelude.Nothing,
+       plainText = Prelude.Nothing}
 instance ToResourceProperties EmailMessageTemplateContentBodyProperty where
   toResourceProperties EmailMessageTemplateContentBodyProperty {..}
     = ResourceProperties

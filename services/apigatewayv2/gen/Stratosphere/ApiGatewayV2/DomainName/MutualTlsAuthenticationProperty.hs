@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MutualTlsAuthenticationProperty
-  = MutualTlsAuthenticationProperty {truststoreUri :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html>
+    MutualTlsAuthenticationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri>
+                                     truststoreUri :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion>
                                      truststoreVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMutualTlsAuthenticationProperty ::
   MutualTlsAuthenticationProperty
 mkMutualTlsAuthenticationProperty
   = MutualTlsAuthenticationProperty
-      {truststoreUri = Prelude.Nothing,
+      {haddock_workaround_ = (), truststoreUri = Prelude.Nothing,
        truststoreVersion = Prelude.Nothing}
 instance ToResourceProperties MutualTlsAuthenticationProperty where
   toResourceProperties MutualTlsAuthenticationProperty {..}

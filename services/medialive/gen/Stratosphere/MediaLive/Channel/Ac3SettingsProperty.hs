@@ -7,22 +7,33 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ac3SettingsProperty
-  = Ac3SettingsProperty {attenuationControl :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html>
+    Ac3SettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-attenuationcontrol>
+                         attenuationControl :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-bitrate>
                          bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-bitstreammode>
                          bitstreamMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-codingmode>
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-dialnorm>
                          dialnorm :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-drcprofile>
                          drcProfile :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-lfefilter>
                          lfeFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html#cfn-medialive-channel-ac3settings-metadatacontrol>
                          metadataControl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAc3SettingsProperty :: Ac3SettingsProperty
 mkAc3SettingsProperty
   = Ac3SettingsProperty
-      {attenuationControl = Prelude.Nothing, bitrate = Prelude.Nothing,
-       bitstreamMode = Prelude.Nothing, codingMode = Prelude.Nothing,
-       dialnorm = Prelude.Nothing, drcProfile = Prelude.Nothing,
-       lfeFilter = Prelude.Nothing, metadataControl = Prelude.Nothing}
+      {haddock_workaround_ = (), attenuationControl = Prelude.Nothing,
+       bitrate = Prelude.Nothing, bitstreamMode = Prelude.Nothing,
+       codingMode = Prelude.Nothing, dialnorm = Prelude.Nothing,
+       drcProfile = Prelude.Nothing, lfeFilter = Prelude.Nothing,
+       metadataControl = Prelude.Nothing}
 instance ToResourceProperties Ac3SettingsProperty where
   toResourceProperties Ac3SettingsProperty {..}
     = ResourceProperties

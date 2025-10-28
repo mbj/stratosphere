@@ -10,23 +10,37 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.PrivateIpAddressSpecificationPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceNetworkInterfaceSpecificationProperty
-  = InstanceNetworkInterfaceSpecificationProperty {associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html>
+    InstanceNetworkInterfaceSpecificationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress>
+                                                   associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination>
                                                    deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description>
                                                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex>
                                                    deviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups>
                                                    groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount>
                                                    ipv6AddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses>
                                                    ipv6Addresses :: (Prelude.Maybe [InstanceIpv6AddressProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid>
                                                    networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses>
                                                    privateIpAddresses :: (Prelude.Maybe [PrivateIpAddressSpecificationProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount>
                                                    secondaryPrivateIpAddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid>
                                                    subnetId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceNetworkInterfaceSpecificationProperty ::
   InstanceNetworkInterfaceSpecificationProperty
 mkInstanceNetworkInterfaceSpecificationProperty
   = InstanceNetworkInterfaceSpecificationProperty
-      {associatePublicIpAddress = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       associatePublicIpAddress = Prelude.Nothing,
        deleteOnTermination = Prelude.Nothing,
        description = Prelude.Nothing, deviceIndex = Prelude.Nothing,
        groups = Prelude.Nothing, ipv6AddressCount = Prelude.Nothing,

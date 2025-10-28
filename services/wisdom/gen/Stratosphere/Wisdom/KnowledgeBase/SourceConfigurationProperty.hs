@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.AppIntegrationsConfigura
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.ManagedSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceConfigurationProperty
-  = SourceConfigurationProperty {appIntegrations :: (Prelude.Maybe AppIntegrationsConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html>
+    SourceConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-appintegrations>
+                                 appIntegrations :: (Prelude.Maybe AppIntegrationsConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-managedsourceconfiguration>
                                  managedSourceConfiguration :: (Prelude.Maybe ManagedSourceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty :: SourceConfigurationProperty
 mkSourceConfigurationProperty
   = SourceConfigurationProperty
-      {appIntegrations = Prelude.Nothing,
+      {haddock_workaround_ = (), appIntegrations = Prelude.Nothing,
        managedSourceConfiguration = Prelude.Nothing}
 instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}

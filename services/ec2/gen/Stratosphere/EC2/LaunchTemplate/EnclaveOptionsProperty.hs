@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnclaveOptionsProperty
-  = EnclaveOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enclaveoptions.html>
+    EnclaveOptionsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enclaveoptions.html#cfn-ec2-launchtemplate-enclaveoptions-enabled>
+                            enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnclaveOptionsProperty :: EnclaveOptionsProperty
 mkEnclaveOptionsProperty
-  = EnclaveOptionsProperty {enabled = Prelude.Nothing}
+  = EnclaveOptionsProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties EnclaveOptionsProperty where
   toResourceProperties EnclaveOptionsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON EnclaveOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" EnclaveOptionsProperty where
   type PropertyType "Enabled" EnclaveOptionsProperty = Value Prelude.Bool
-  set newValue EnclaveOptionsProperty {}
+  set newValue EnclaveOptionsProperty {..}
     = EnclaveOptionsProperty {enabled = Prelude.pure newValue, ..}

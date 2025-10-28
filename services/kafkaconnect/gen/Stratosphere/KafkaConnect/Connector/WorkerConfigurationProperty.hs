@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkerConfigurationProperty
-  = WorkerConfigurationProperty {revision :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html>
+    WorkerConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-revision>
+                                 revision :: (Value Prelude.Integer),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-workerconfigurationarn>
                                  workerConfigurationArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerConfigurationProperty ::
@@ -15,7 +19,7 @@ mkWorkerConfigurationProperty ::
   -> Value Prelude.Text -> WorkerConfigurationProperty
 mkWorkerConfigurationProperty revision workerConfigurationArn
   = WorkerConfigurationProperty
-      {revision = revision,
+      {haddock_workaround_ = (), revision = revision,
        workerConfigurationArn = workerConfigurationArn}
 instance ToResourceProperties WorkerConfigurationProperty where
   toResourceProperties WorkerConfigurationProperty {..}

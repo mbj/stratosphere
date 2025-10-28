@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptInputVariableProperty
-  = PromptInputVariableProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptinputvariable.html>
+    PromptInputVariableProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptinputvariable.html#cfn-bedrock-promptversion-promptinputvariable-name>
+                                 name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptInputVariableProperty :: PromptInputVariableProperty
 mkPromptInputVariableProperty
-  = PromptInputVariableProperty {name = Prelude.Nothing}
+  = PromptInputVariableProperty
+      {haddock_workaround_ = (), name = Prelude.Nothing}
 instance ToResourceProperties PromptInputVariableProperty where
   toResourceProperties PromptInputVariableProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON PromptInputVariableProperty where
            (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))
 instance Property "Name" PromptInputVariableProperty where
   type PropertyType "Name" PromptInputVariableProperty = Value Prelude.Text
-  set newValue PromptInputVariableProperty {}
+  set newValue PromptInputVariableProperty {..}
     = PromptInputVariableProperty {name = Prelude.pure newValue, ..}

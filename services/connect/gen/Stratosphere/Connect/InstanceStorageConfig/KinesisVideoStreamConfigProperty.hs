@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.EncryptionConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisVideoStreamConfigProperty
-  = KinesisVideoStreamConfigProperty {encryptionConfig :: EncryptionConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html>
+    KinesisVideoStreamConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-encryptionconfig>
+                                      encryptionConfig :: EncryptionConfigProperty,
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-prefix>
                                       prefix :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-retentionperiodhours>
                                       retentionPeriodHours :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisVideoStreamConfigProperty ::
@@ -22,8 +27,8 @@ mkKinesisVideoStreamConfigProperty
   prefix
   retentionPeriodHours
   = KinesisVideoStreamConfigProperty
-      {encryptionConfig = encryptionConfig, prefix = prefix,
-       retentionPeriodHours = retentionPeriodHours}
+      {haddock_workaround_ = (), encryptionConfig = encryptionConfig,
+       prefix = prefix, retentionPeriodHours = retentionPeriodHours}
 instance ToResourceProperties KinesisVideoStreamConfigProperty where
   toResourceProperties KinesisVideoStreamConfigProperty {..}
     = ResourceProperties

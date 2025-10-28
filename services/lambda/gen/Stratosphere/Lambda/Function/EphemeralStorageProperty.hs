@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EphemeralStorageProperty
-  = EphemeralStorageProperty {size :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html>
+    EphemeralStorageProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html#cfn-lambda-function-ephemeralstorage-size>
+                              size :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEphemeralStorageProperty ::
   Value Prelude.Integer -> EphemeralStorageProperty
 mkEphemeralStorageProperty size
-  = EphemeralStorageProperty {size = size}
+  = EphemeralStorageProperty {haddock_workaround_ = (), size = size}
 instance ToResourceProperties EphemeralStorageProperty where
   toResourceProperties EphemeralStorageProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON EphemeralStorageProperty where
     = JSON.object ["Size" JSON..= size]
 instance Property "Size" EphemeralStorageProperty where
   type PropertyType "Size" EphemeralStorageProperty = Value Prelude.Integer
-  set newValue EphemeralStorageProperty {}
+  set newValue EphemeralStorageProperty {..}
     = EphemeralStorageProperty {size = newValue, ..}

@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ClarifyTextConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClarifyShapConfigProperty
-  = ClarifyShapConfigProperty {numberOfSamples :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html>
+    ClarifyShapConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-numberofsamples>
+                               numberOfSamples :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-seed>
                                seed :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-shapbaselineconfig>
                                shapBaselineConfig :: ClarifyShapBaselineConfigProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-textconfig>
                                textConfig :: (Prelude.Maybe ClarifyTextConfigProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html#cfn-sagemaker-endpointconfig-clarifyshapconfig-uselogit>
                                useLogit :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyShapConfigProperty ::
   ClarifyShapBaselineConfigProperty -> ClarifyShapConfigProperty
 mkClarifyShapConfigProperty shapBaselineConfig
   = ClarifyShapConfigProperty
-      {shapBaselineConfig = shapBaselineConfig,
+      {haddock_workaround_ = (), shapBaselineConfig = shapBaselineConfig,
        numberOfSamples = Prelude.Nothing, seed = Prelude.Nothing,
        textConfig = Prelude.Nothing, useLogit = Prelude.Nothing}
 instance ToResourceProperties ClarifyShapConfigProperty where

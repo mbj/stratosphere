@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobCommandProperty
-  = JobCommandProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html>
+    JobCommandProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name>
+                        name :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion>
                         pythonVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-runtime>
                         runtime :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation>
                         scriptLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobCommandProperty :: JobCommandProperty
 mkJobCommandProperty
   = JobCommandProperty
-      {name = Prelude.Nothing, pythonVersion = Prelude.Nothing,
-       runtime = Prelude.Nothing, scriptLocation = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       pythonVersion = Prelude.Nothing, runtime = Prelude.Nothing,
+       scriptLocation = Prelude.Nothing}
 instance ToResourceProperties JobCommandProperty where
   toResourceProperties JobCommandProperty {..}
     = ResourceProperties

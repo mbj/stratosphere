@@ -10,21 +10,33 @@ import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingPolicy
-  = ScalingPolicy {policyName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>
+    ScalingPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname>
+                   policyName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype>
                    policyType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration>
                    predictiveScalingPolicyConfiguration :: (Prelude.Maybe PredictiveScalingPolicyConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid>
                    resourceId :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension>
                    scalableDimension :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid>
                    scalingTargetId :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace>
                    serviceNamespace :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration>
                    stepScalingPolicyConfiguration :: (Prelude.Maybe StepScalingPolicyConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration>
                    targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicy ::
   Value Prelude.Text -> Value Prelude.Text -> ScalingPolicy
 mkScalingPolicy policyName policyType
   = ScalingPolicy
-      {policyName = policyName, policyType = policyType,
+      {haddock_workaround_ = (), policyName = policyName,
+       policyType = policyType,
        predictiveScalingPolicyConfiguration = Prelude.Nothing,
        resourceId = Prelude.Nothing, scalableDimension = Prelude.Nothing,
        scalingTargetId = Prelude.Nothing,

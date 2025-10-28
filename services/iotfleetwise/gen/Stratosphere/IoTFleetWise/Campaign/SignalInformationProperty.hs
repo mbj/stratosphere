@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignalInformationProperty
-  = SignalInformationProperty {dataPartitionId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html>
+    SignalInformationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-datapartitionid>
+                               dataPartitionId :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-maxsamplecount>
                                maxSampleCount :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-minimumsamplingintervalms>
                                minimumSamplingIntervalMs :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-name>
                                name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalInformationProperty ::
   Value Prelude.Text -> SignalInformationProperty
 mkSignalInformationProperty name
   = SignalInformationProperty
-      {name = name, dataPartitionId = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       dataPartitionId = Prelude.Nothing,
        maxSampleCount = Prelude.Nothing,
        minimumSamplingIntervalMs = Prelude.Nothing}
 instance ToResourceProperties SignalInformationProperty where

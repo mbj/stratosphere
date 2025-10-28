@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LFTagKeyResourceProperty
-  = LFTagKeyResourceProperty {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html>
+    LFTagKeyResourceProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html#cfn-lakeformation-principalpermissions-lftagkeyresource-catalogid>
+                              catalogId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html#cfn-lakeformation-principalpermissions-lftagkeyresource-tagkey>
                               tagKey :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html#cfn-lakeformation-principalpermissions-lftagkeyresource-tagvalues>
                               tagValues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagKeyResourceProperty ::
@@ -17,7 +22,8 @@ mkLFTagKeyResourceProperty ::
      -> ValueList Prelude.Text -> LFTagKeyResourceProperty
 mkLFTagKeyResourceProperty catalogId tagKey tagValues
   = LFTagKeyResourceProperty
-      {catalogId = catalogId, tagKey = tagKey, tagValues = tagValues}
+      {haddock_workaround_ = (), catalogId = catalogId, tagKey = tagKey,
+       tagValues = tagValues}
 instance ToResourceProperties LFTagKeyResourceProperty where
   toResourceProperties LFTagKeyResourceProperty {..}
     = ResourceProperties

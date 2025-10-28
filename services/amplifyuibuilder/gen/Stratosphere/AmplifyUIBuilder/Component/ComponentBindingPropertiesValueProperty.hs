@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.ComponentBindingPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentBindingPropertiesValueProperty
-  = ComponentBindingPropertiesValueProperty {bindingProperties :: (Prelude.Maybe ComponentBindingPropertiesValuePropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html>
+    ComponentBindingPropertiesValueProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-bindingproperties>
+                                             bindingProperties :: (Prelude.Maybe ComponentBindingPropertiesValuePropertiesProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-defaultvalue>
                                              defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalue.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalue-type>
                                              type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentBindingPropertiesValueProperty ::
   ComponentBindingPropertiesValueProperty
 mkComponentBindingPropertiesValueProperty
   = ComponentBindingPropertiesValueProperty
-      {bindingProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), bindingProperties = Prelude.Nothing,
        defaultValue = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties ComponentBindingPropertiesValueProperty where
   toResourceProperties ComponentBindingPropertiesValueProperty {..}

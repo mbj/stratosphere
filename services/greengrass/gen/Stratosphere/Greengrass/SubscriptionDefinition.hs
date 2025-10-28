@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.Greengrass.SubscriptionDefinition.Subscriptio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubscriptionDefinition
-  = SubscriptionDefinition {initialVersion :: (Prelude.Maybe SubscriptionDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html>
+    SubscriptionDefinition {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-initialversion>
+                            initialVersion :: (Prelude.Maybe SubscriptionDefinitionVersionProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-name>
                             name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-tags>
                             tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinition ::
   Value Prelude.Text -> SubscriptionDefinition
 mkSubscriptionDefinition name
   = SubscriptionDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties SubscriptionDefinition where
   toResourceProperties SubscriptionDefinition {..}
     = ResourceProperties

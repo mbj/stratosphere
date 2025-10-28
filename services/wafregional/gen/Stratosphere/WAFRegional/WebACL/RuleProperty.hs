@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.WebACL.ActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
-  = RuleProperty {action :: ActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html>
+    RuleProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-action>
+                  action :: ActionProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority>
                   priority :: (Value Prelude.Integer),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid>
                   ruleId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty ::
@@ -17,7 +22,8 @@ mkRuleProperty ::
   -> Value Prelude.Integer -> Value Prelude.Text -> RuleProperty
 mkRuleProperty action priority ruleId
   = RuleProperty
-      {action = action, priority = priority, ruleId = ruleId}
+      {haddock_workaround_ = (), action = action, priority = priority,
+       ruleId = ruleId}
 instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties

@@ -10,18 +10,25 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.TcpRouteProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RouteSpecProperty
-  = RouteSpecProperty {grpcRoute :: (Prelude.Maybe GrpcRouteProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html>
+    RouteSpecProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-grpcroute>
+                       grpcRoute :: (Prelude.Maybe GrpcRouteProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-http2route>
                        http2Route :: (Prelude.Maybe HttpRouteProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute>
                        httpRoute :: (Prelude.Maybe HttpRouteProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-priority>
                        priority :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute>
                        tcpRoute :: (Prelude.Maybe TcpRouteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteSpecProperty :: RouteSpecProperty
 mkRouteSpecProperty
   = RouteSpecProperty
-      {grpcRoute = Prelude.Nothing, http2Route = Prelude.Nothing,
-       httpRoute = Prelude.Nothing, priority = Prelude.Nothing,
-       tcpRoute = Prelude.Nothing}
+      {haddock_workaround_ = (), grpcRoute = Prelude.Nothing,
+       http2Route = Prelude.Nothing, httpRoute = Prelude.Nothing,
+       priority = Prelude.Nothing, tcpRoute = Prelude.Nothing}
 instance ToResourceProperties RouteSpecProperty where
   toResourceProperties RouteSpecProperty {..}
     = ResourceProperties

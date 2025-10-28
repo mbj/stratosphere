@@ -8,16 +8,21 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.ApplicationVersion.SourceBun
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationVersion
-  = ApplicationVersion {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html>
+    ApplicationVersion {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-applicationname>
+                        applicationName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-sourcebundle>
                         sourceBundle :: SourceBundleProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersion ::
   Value Prelude.Text -> SourceBundleProperty -> ApplicationVersion
 mkApplicationVersion applicationName sourceBundle
   = ApplicationVersion
-      {applicationName = applicationName, sourceBundle = sourceBundle,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationName = applicationName,
+       sourceBundle = sourceBundle, description = Prelude.Nothing}
 instance ToResourceProperties ApplicationVersion where
   toResourceProperties ApplicationVersion {..}
     = ResourceProperties

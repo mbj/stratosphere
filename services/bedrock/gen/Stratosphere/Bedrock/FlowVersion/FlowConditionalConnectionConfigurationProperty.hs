@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowConditionalConnectionConfigurationProperty
-  = FlowConditionalConnectionConfigurationProperty {condition :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconditionalconnectionconfiguration.html>
+    FlowConditionalConnectionConfigurationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconditionalconnectionconfiguration.html#cfn-bedrock-flowversion-flowconditionalconnectionconfiguration-condition>
+                                                    condition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowConditionalConnectionConfigurationProperty ::
   Value Prelude.Text
   -> FlowConditionalConnectionConfigurationProperty
 mkFlowConditionalConnectionConfigurationProperty condition
   = FlowConditionalConnectionConfigurationProperty
-      {condition = condition}
+      {haddock_workaround_ = (), condition = condition}
 instance ToResourceProperties FlowConditionalConnectionConfigurationProperty where
   toResourceProperties
     FlowConditionalConnectionConfigurationProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON FlowConditionalConnectionConfigurationProperty where
     = JSON.object ["Condition" JSON..= condition]
 instance Property "Condition" FlowConditionalConnectionConfigurationProperty where
   type PropertyType "Condition" FlowConditionalConnectionConfigurationProperty = Value Prelude.Text
-  set newValue FlowConditionalConnectionConfigurationProperty {}
+  set newValue FlowConditionalConnectionConfigurationProperty {..}
     = FlowConditionalConnectionConfigurationProperty
         {condition = newValue, ..}

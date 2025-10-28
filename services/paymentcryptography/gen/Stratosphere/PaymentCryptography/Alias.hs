@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Alias
-  = Alias {aliasName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html>
+    Alias {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html#cfn-paymentcryptography-alias-aliasname>
+           aliasName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html#cfn-paymentcryptography-alias-keyarn>
            keyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias :: Value Prelude.Text -> Alias
 mkAlias aliasName
-  = Alias {aliasName = aliasName, keyArn = Prelude.Nothing}
+  = Alias
+      {haddock_workaround_ = (), aliasName = aliasName,
+       keyArn = Prelude.Nothing}
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties

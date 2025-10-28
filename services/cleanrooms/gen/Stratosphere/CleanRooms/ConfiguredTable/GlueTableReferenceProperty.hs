@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueTableReferenceProperty
-  = GlueTableReferenceProperty {databaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html>
+    GlueTableReferenceProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html#cfn-cleanrooms-configuredtable-gluetablereference-databasename>
+                                databaseName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html#cfn-cleanrooms-configuredtable-gluetablereference-tablename>
                                 tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueTableReferenceProperty ::
@@ -15,7 +19,8 @@ mkGlueTableReferenceProperty ::
   -> Value Prelude.Text -> GlueTableReferenceProperty
 mkGlueTableReferenceProperty databaseName tableName
   = GlueTableReferenceProperty
-      {databaseName = databaseName, tableName = tableName}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       tableName = tableName}
 instance ToResourceProperties GlueTableReferenceProperty where
   toResourceProperties GlueTableReferenceProperty {..}
     = ResourceProperties

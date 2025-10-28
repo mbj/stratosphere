@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookieObjectProperty
-  = CookieObjectProperty {cookiesAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html>
+    CookieObjectProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-cookiesallowlist>
+                          cookiesAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html#cfn-lightsail-distribution-cookieobject-option>
                           option :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCookieObjectProperty :: CookieObjectProperty
 mkCookieObjectProperty
   = CookieObjectProperty
-      {cookiesAllowList = Prelude.Nothing, option = Prelude.Nothing}
+      {haddock_workaround_ = (), cookiesAllowList = Prelude.Nothing,
+       option = Prelude.Nothing}
 instance ToResourceProperties CookieObjectProperty where
   toResourceProperties CookieObjectProperty {..}
     = ResourceProperties

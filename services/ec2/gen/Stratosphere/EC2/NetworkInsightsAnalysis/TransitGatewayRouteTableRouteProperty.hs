@@ -8,22 +8,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayRouteTableRouteProperty
-  = TransitGatewayRouteTableRouteProperty {attachmentId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html>
+    TransitGatewayRouteTableRouteProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-attachmentid>
+                                           attachmentId :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-destinationcidr>
                                            destinationCidr :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-prefixlistid>
                                            prefixListId :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-resourceid>
                                            resourceId :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-resourcetype>
                                            resourceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-routeorigin>
                                            routeOrigin :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html#cfn-ec2-networkinsightsanalysis-transitgatewayroutetableroute-state>
                                            state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTableRouteProperty ::
   TransitGatewayRouteTableRouteProperty
 mkTransitGatewayRouteTableRouteProperty
   = TransitGatewayRouteTableRouteProperty
-      {attachmentId = Prelude.Nothing, destinationCidr = Prelude.Nothing,
-       prefixListId = Prelude.Nothing, resourceId = Prelude.Nothing,
-       resourceType = Prelude.Nothing, routeOrigin = Prelude.Nothing,
-       state = Prelude.Nothing}
+      {haddock_workaround_ = (), attachmentId = Prelude.Nothing,
+       destinationCidr = Prelude.Nothing, prefixListId = Prelude.Nothing,
+       resourceId = Prelude.Nothing, resourceType = Prelude.Nothing,
+       routeOrigin = Prelude.Nothing, state = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayRouteTableRouteProperty where
   toResourceProperties TransitGatewayRouteTableRouteProperty {..}
     = ResourceProperties

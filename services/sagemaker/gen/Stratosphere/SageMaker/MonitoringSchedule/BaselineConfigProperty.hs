@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.ConstraintsResou
 import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.StatisticsResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data BaselineConfigProperty
-  = BaselineConfigProperty {constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html>
+    BaselineConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource>
+                            constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource>
                             statisticsResource :: (Prelude.Maybe StatisticsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselineConfigProperty :: BaselineConfigProperty
 mkBaselineConfigProperty
   = BaselineConfigProperty
-      {constraintsResource = Prelude.Nothing,
+      {haddock_workaround_ = (), constraintsResource = Prelude.Nothing,
        statisticsResource = Prelude.Nothing}
 instance ToResourceProperties BaselineConfigProperty where
   toResourceProperties BaselineConfigProperty {..}

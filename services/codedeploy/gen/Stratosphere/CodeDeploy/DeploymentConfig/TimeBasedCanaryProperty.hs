@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedCanaryProperty
-  = TimeBasedCanaryProperty {canaryInterval :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html>
+    TimeBasedCanaryProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html#cfn-codedeploy-deploymentconfig-timebasedcanary-canaryinterval>
+                             canaryInterval :: (Value Prelude.Integer),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html#cfn-codedeploy-deploymentconfig-timebasedcanary-canarypercentage>
                              canaryPercentage :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedCanaryProperty ::
@@ -15,7 +19,7 @@ mkTimeBasedCanaryProperty ::
   -> Value Prelude.Integer -> TimeBasedCanaryProperty
 mkTimeBasedCanaryProperty canaryInterval canaryPercentage
   = TimeBasedCanaryProperty
-      {canaryInterval = canaryInterval,
+      {haddock_workaround_ = (), canaryInterval = canaryInterval,
        canaryPercentage = canaryPercentage}
 instance ToResourceProperties TimeBasedCanaryProperty where
   toResourceProperties TimeBasedCanaryProperty {..}

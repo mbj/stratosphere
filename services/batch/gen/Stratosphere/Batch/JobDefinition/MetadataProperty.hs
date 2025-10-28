@@ -6,10 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data MetadataProperty
-  = MetadataProperty {labels :: (Prelude.Maybe JSON.Object)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties-metadata.html>
+    MetadataProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties-metadata.html#cfn-batch-jobdefinition-podproperties-metadata-labels>
+                      labels :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty :: MetadataProperty
-mkMetadataProperty = MetadataProperty {labels = Prelude.Nothing}
+mkMetadataProperty
+  = MetadataProperty
+      {haddock_workaround_ = (), labels = Prelude.Nothing}
 instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties
@@ -24,5 +29,5 @@ instance JSON.ToJSON MetadataProperty where
            (Prelude.catMaybes [(JSON..=) "Labels" Prelude.<$> labels]))
 instance Property "Labels" MetadataProperty where
   type PropertyType "Labels" MetadataProperty = JSON.Object
-  set newValue MetadataProperty {}
+  set newValue MetadataProperty {..}
     = MetadataProperty {labels = Prelude.pure newValue, ..}

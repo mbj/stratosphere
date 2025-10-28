@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TcpRouteMatchProperty
-  = TcpRouteMatchProperty {port :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html>
+    TcpRouteMatchProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html#cfn-appmesh-route-tcproutematch-port>
+                           port :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteMatchProperty :: TcpRouteMatchProperty
 mkTcpRouteMatchProperty
-  = TcpRouteMatchProperty {port = Prelude.Nothing}
+  = TcpRouteMatchProperty
+      {haddock_workaround_ = (), port = Prelude.Nothing}
 instance ToResourceProperties TcpRouteMatchProperty where
   toResourceProperties TcpRouteMatchProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON TcpRouteMatchProperty where
            (Prelude.catMaybes [(JSON..=) "Port" Prelude.<$> port]))
 instance Property "Port" TcpRouteMatchProperty where
   type PropertyType "Port" TcpRouteMatchProperty = Value Prelude.Integer
-  set newValue TcpRouteMatchProperty {}
+  set newValue TcpRouteMatchProperty {..}
     = TcpRouteMatchProperty {port = Prelude.pure newValue, ..}

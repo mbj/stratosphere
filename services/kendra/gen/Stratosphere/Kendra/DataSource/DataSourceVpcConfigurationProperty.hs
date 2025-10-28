@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceVpcConfigurationProperty
-  = DataSourceVpcConfigurationProperty {securityGroupIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html>
+    DataSourceVpcConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-securitygroupids>
+                                        securityGroupIds :: (ValueList Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-subnetids>
                                         subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceVpcConfigurationProperty ::
@@ -16,7 +20,8 @@ mkDataSourceVpcConfigurationProperty ::
   -> ValueList Prelude.Text -> DataSourceVpcConfigurationProperty
 mkDataSourceVpcConfigurationProperty securityGroupIds subnetIds
   = DataSourceVpcConfigurationProperty
-      {securityGroupIds = securityGroupIds, subnetIds = subnetIds}
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds,
+       subnetIds = subnetIds}
 instance ToResourceProperties DataSourceVpcConfigurationProperty where
   toResourceProperties DataSourceVpcConfigurationProperty {..}
     = ResourceProperties

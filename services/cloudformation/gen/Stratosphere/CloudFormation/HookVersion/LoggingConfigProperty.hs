@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfigProperty
-  = LoggingConfigProperty {logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-hookversion-loggingconfig.html>
+    LoggingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-hookversion-loggingconfig.html#cfn-cloudformation-hookversion-loggingconfig-loggroupname>
+                           logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-hookversion-loggingconfig.html#cfn-cloudformation-hookversion-loggingconfig-logrolearn>
                            logRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigProperty :: LoggingConfigProperty
 mkLoggingConfigProperty
   = LoggingConfigProperty
-      {logGroupName = Prelude.Nothing, logRoleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), logGroupName = Prelude.Nothing,
+       logRoleArn = Prelude.Nothing}
 instance ToResourceProperties LoggingConfigProperty where
   toResourceProperties LoggingConfigProperty {..}
     = ResourceProperties

@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceSourcePropertiesProperty
-  = SalesforceSourcePropertiesProperty {enableDynamicFieldUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html>
+    SalesforceSourcePropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate>
+                                        enableDynamicFieldUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords>
                                         includeDeletedRecords :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object>
                                         object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceSourcePropertiesProperty ::
   Value Prelude.Text -> SalesforceSourcePropertiesProperty
 mkSalesforceSourcePropertiesProperty object
   = SalesforceSourcePropertiesProperty
-      {object = object, enableDynamicFieldUpdate = Prelude.Nothing,
+      {haddock_workaround_ = (), object = object,
+       enableDynamicFieldUpdate = Prelude.Nothing,
        includeDeletedRecords = Prelude.Nothing}
 instance ToResourceProperties SalesforceSourcePropertiesProperty where
   toResourceProperties SalesforceSourcePropertiesProperty {..}

@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.SecurityControl.ParameterConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityControl
-  = SecurityControl {lastUpdateReason :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html>
+    SecurityControl {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-lastupdatereason>
+                     lastUpdateReason :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-parameters>
                      parameters :: (Prelude.Map Prelude.Text ParameterConfigurationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolarn>
                      securityControlArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolid>
                      securityControlId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityControl ::
@@ -18,7 +24,8 @@ mkSecurityControl ::
   -> SecurityControl
 mkSecurityControl parameters
   = SecurityControl
-      {parameters = parameters, lastUpdateReason = Prelude.Nothing,
+      {haddock_workaround_ = (), parameters = parameters,
+       lastUpdateReason = Prelude.Nothing,
        securityControlArn = Prelude.Nothing,
        securityControlId = Prelude.Nothing}
 instance ToResourceProperties SecurityControl where

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceIpConfigProperty
-  = SourceIpConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html>
+    SourceIpConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html#cfn-elasticloadbalancingv2-listenerrule-sourceipconfig-values>
+                            values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceIpConfigProperty :: SourceIpConfigProperty
 mkSourceIpConfigProperty
-  = SourceIpConfigProperty {values = Prelude.Nothing}
+  = SourceIpConfigProperty
+      {haddock_workaround_ = (), values = Prelude.Nothing}
 instance ToResourceProperties SourceIpConfigProperty where
   toResourceProperties SourceIpConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SourceIpConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" SourceIpConfigProperty where
   type PropertyType "Values" SourceIpConfigProperty = ValueList Prelude.Text
-  set newValue SourceIpConfigProperty {}
+  set newValue SourceIpConfigProperty {..}
     = SourceIpConfigProperty {values = Prelude.pure newValue, ..}

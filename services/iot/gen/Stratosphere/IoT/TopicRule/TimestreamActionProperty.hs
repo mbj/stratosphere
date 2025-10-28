@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.TimestreamTimestampProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimestreamActionProperty
-  = TimestreamActionProperty {databaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html>
+    TimestreamActionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename>
+                              databaseName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions>
                               dimensions :: [TimestreamDimensionProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename>
                               tableName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp>
                               timestamp :: (Prelude.Maybe TimestreamTimestampProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamActionProperty ::
@@ -27,8 +34,8 @@ mkTimestreamActionProperty
   roleArn
   tableName
   = TimestreamActionProperty
-      {databaseName = databaseName, dimensions = dimensions,
-       roleArn = roleArn, tableName = tableName,
+      {haddock_workaround_ = (), databaseName = databaseName,
+       dimensions = dimensions, roleArn = roleArn, tableName = tableName,
        timestamp = Prelude.Nothing}
 instance ToResourceProperties TimestreamActionProperty where
   toResourceProperties TimestreamActionProperty {..}

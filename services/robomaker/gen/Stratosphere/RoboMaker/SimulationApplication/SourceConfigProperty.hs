@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceConfigProperty
-  = SourceConfigProperty {architecture :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html>
+    SourceConfigProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture>
+                          architecture :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket>
                           s3Bucket :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key>
                           s3Key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigProperty ::
@@ -16,7 +21,8 @@ mkSourceConfigProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> SourceConfigProperty
 mkSourceConfigProperty architecture s3Bucket s3Key
   = SourceConfigProperty
-      {architecture = architecture, s3Bucket = s3Bucket, s3Key = s3Key}
+      {haddock_workaround_ = (), architecture = architecture,
+       s3Bucket = s3Bucket, s3Key = s3Key}
 instance ToResourceProperties SourceConfigProperty where
   toResourceProperties SourceConfigProperty {..}
     = ResourceProperties

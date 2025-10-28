@@ -8,19 +8,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SharedFileSystemConfigurationProperty
-  = SharedFileSystemConfigurationProperty {endpoint :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html>
+    SharedFileSystemConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint>
+                                           endpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid>
                                            fileSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint>
                                            linuxMountPoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename>
                                            shareName :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive>
                                            windowsMountDrive :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharedFileSystemConfigurationProperty ::
   SharedFileSystemConfigurationProperty
 mkSharedFileSystemConfigurationProperty
   = SharedFileSystemConfigurationProperty
-      {endpoint = Prelude.Nothing, fileSystemId = Prelude.Nothing,
-       linuxMountPoint = Prelude.Nothing, shareName = Prelude.Nothing,
-       windowsMountDrive = Prelude.Nothing}
+      {haddock_workaround_ = (), endpoint = Prelude.Nothing,
+       fileSystemId = Prelude.Nothing, linuxMountPoint = Prelude.Nothing,
+       shareName = Prelude.Nothing, windowsMountDrive = Prelude.Nothing}
 instance ToResourceProperties SharedFileSystemConfigurationProperty where
   toResourceProperties SharedFileSystemConfigurationProperty {..}
     = ResourceProperties

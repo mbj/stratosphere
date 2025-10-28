@@ -11,22 +11,35 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoSelectorProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputSettingsProperty
-  = InputSettingsProperty {audioSelectors :: (Prelude.Maybe [AudioSelectorProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html>
+    InputSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-audioselectors>
+                           audioSelectors :: (Prelude.Maybe [AudioSelectorProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-captionselectors>
                            captionSelectors :: (Prelude.Maybe [CaptionSelectorProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-deblockfilter>
                            deblockFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-denoisefilter>
                            denoiseFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-filterstrength>
                            filterStrength :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-inputfilter>
                            inputFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-networkinputsettings>
                            networkInputSettings :: (Prelude.Maybe NetworkInputSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-scte35pid>
                            scte35Pid :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference>
                            smpte2038DataPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior>
                            sourceEndBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-videoselector>
                            videoSelector :: (Prelude.Maybe VideoSelectorProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSettingsProperty :: InputSettingsProperty
 mkInputSettingsProperty
   = InputSettingsProperty
-      {audioSelectors = Prelude.Nothing,
+      {haddock_workaround_ = (), audioSelectors = Prelude.Nothing,
        captionSelectors = Prelude.Nothing,
        deblockFilter = Prelude.Nothing, denoiseFilter = Prelude.Nothing,
        filterStrength = Prelude.Nothing, inputFilter = Prelude.Nothing,

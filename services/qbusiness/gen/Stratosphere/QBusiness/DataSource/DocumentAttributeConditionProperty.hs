@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.DocumentAttributeValuePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentAttributeConditionProperty
-  = DocumentAttributeConditionProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html>
+    DocumentAttributeConditionProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-key>
+                                        key :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-operator>
                                         operator :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-value>
                                         value :: (Prelude.Maybe DocumentAttributeValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeConditionProperty ::
@@ -18,7 +23,8 @@ mkDocumentAttributeConditionProperty ::
   -> Value Prelude.Text -> DocumentAttributeConditionProperty
 mkDocumentAttributeConditionProperty key operator
   = DocumentAttributeConditionProperty
-      {key = key, operator = operator, value = Prelude.Nothing}
+      {haddock_workaround_ = (), key = key, operator = operator,
+       value = Prelude.Nothing}
 instance ToResourceProperties DocumentAttributeConditionProperty where
   toResourceProperties DocumentAttributeConditionProperty {..}
     = ResourceProperties

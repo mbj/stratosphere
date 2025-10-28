@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.InstanceTypeConfigProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceFleetConfigProperty
-  = InstanceFleetConfigProperty {instanceTypeConfigs :: (Prelude.Maybe [InstanceTypeConfigProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html>
+    InstanceFleetConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-instancetypeconfigs>
+                                 instanceTypeConfigs :: (Prelude.Maybe [InstanceTypeConfigProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-launchspecifications>
                                  launchSpecifications :: (Prelude.Maybe InstanceFleetProvisioningSpecificationsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-name>
                                  name :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-resizespecifications>
                                  resizeSpecifications :: (Prelude.Maybe InstanceFleetResizingSpecificationsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetondemandcapacity>
                                  targetOnDemandCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetspotcapacity>
                                  targetSpotCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetConfigProperty :: InstanceFleetConfigProperty
 mkInstanceFleetConfigProperty
   = InstanceFleetConfigProperty
-      {instanceTypeConfigs = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceTypeConfigs = Prelude.Nothing,
        launchSpecifications = Prelude.Nothing, name = Prelude.Nothing,
        resizeSpecifications = Prelude.Nothing,
        targetOnDemandCapacity = Prelude.Nothing,

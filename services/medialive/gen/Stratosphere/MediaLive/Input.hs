@@ -14,24 +14,40 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Input.SrtSettingsRequestProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Input
-  = Input {destinations :: (Prelude.Maybe [InputDestinationRequestProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html>
+    Input {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-destinations>
+           destinations :: (Prelude.Maybe [InputDestinationRequestProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices>
            inputDevices :: (Prelude.Maybe [InputDeviceSettingsProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputnetworklocation>
            inputNetworkLocation :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups>
            inputSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-mediaconnectflows>
            mediaConnectFlows :: (Prelude.Maybe [MediaConnectFlowRequestProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-multicastsettings>
            multicastSettings :: (Prelude.Maybe MulticastSettingsCreateRequestProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-name>
            name :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-rolearn>
            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources>
            sources :: (Prelude.Maybe [InputSourceRequestProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-srtsettings>
            srtSettings :: (Prelude.Maybe SrtSettingsRequestProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-tags>
            tags :: (Prelude.Maybe JSON.Object),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-type>
            type' :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-vpc>
            vpc :: (Prelude.Maybe InputVpcRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInput :: Input
 mkInput
   = Input
-      {destinations = Prelude.Nothing, inputDevices = Prelude.Nothing,
+      {haddock_workaround_ = (), destinations = Prelude.Nothing,
+       inputDevices = Prelude.Nothing,
        inputNetworkLocation = Prelude.Nothing,
        inputSecurityGroups = Prelude.Nothing,
        mediaConnectFlows = Prelude.Nothing,

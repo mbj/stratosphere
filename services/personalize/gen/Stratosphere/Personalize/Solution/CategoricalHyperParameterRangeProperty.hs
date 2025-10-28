@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CategoricalHyperParameterRangeProperty
-  = CategoricalHyperParameterRangeProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-categoricalhyperparameterrange.html>
+    CategoricalHyperParameterRangeProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-categoricalhyperparameterrange.html#cfn-personalize-solution-categoricalhyperparameterrange-name>
+                                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-categoricalhyperparameterrange.html#cfn-personalize-solution-categoricalhyperparameterrange-values>
                                             values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoricalHyperParameterRangeProperty ::
   CategoricalHyperParameterRangeProperty
 mkCategoricalHyperParameterRangeProperty
   = CategoricalHyperParameterRangeProperty
-      {name = Prelude.Nothing, values = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       values = Prelude.Nothing}
 instance ToResourceProperties CategoricalHyperParameterRangeProperty where
   toResourceProperties CategoricalHyperParameterRangeProperty {..}
     = ResourceProperties

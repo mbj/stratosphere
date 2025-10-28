@@ -8,17 +8,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.SdiSource.TagsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SdiSource
-  = SdiSource {mode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html>
+    SdiSource {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html#cfn-medialive-sdisource-mode>
+               mode :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html#cfn-medialive-sdisource-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html#cfn-medialive-sdisource-tags>
                tags :: (Prelude.Maybe [TagsProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html#cfn-medialive-sdisource-type>
                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSdiSource ::
   Value Prelude.Text -> Value Prelude.Text -> SdiSource
 mkSdiSource name type'
   = SdiSource
-      {name = name, type' = type', mode = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, type' = type',
+       mode = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties SdiSource where
   toResourceProperties SdiSource {..}
     = ResourceProperties

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeNameMatchersProperty as Exports
 import Stratosphere.ResourceProperties
 data SubjectAlternativeNamesProperty
-  = SubjectAlternativeNamesProperty {match :: SubjectAlternativeNameMatchersProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html>
+    SubjectAlternativeNamesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenames.html#cfn-appmesh-virtualgateway-subjectalternativenames-match>
+                                     match :: SubjectAlternativeNameMatchersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectAlternativeNamesProperty ::
   SubjectAlternativeNameMatchersProperty
   -> SubjectAlternativeNamesProperty
 mkSubjectAlternativeNamesProperty match
-  = SubjectAlternativeNamesProperty {match = match}
+  = SubjectAlternativeNamesProperty
+      {haddock_workaround_ = (), match = match}
 instance ToResourceProperties SubjectAlternativeNamesProperty where
   toResourceProperties SubjectAlternativeNamesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON SubjectAlternativeNamesProperty where
     = JSON.object ["Match" JSON..= match]
 instance Property "Match" SubjectAlternativeNamesProperty where
   type PropertyType "Match" SubjectAlternativeNamesProperty = SubjectAlternativeNameMatchersProperty
-  set newValue SubjectAlternativeNamesProperty {}
+  set newValue SubjectAlternativeNamesProperty {..}
     = SubjectAlternativeNamesProperty {match = newValue, ..}

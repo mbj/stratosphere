@@ -9,8 +9,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-  = LocalGatewayRouteTableVirtualInterfaceGroupAssociation {localGatewayRouteTableId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html>
+    LocalGatewayRouteTableVirtualInterfaceGroupAssociation {haddock_workaround_ :: (),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html#cfn-ec2-localgatewayroutetablevirtualinterfacegroupassociation-localgatewayroutetableid>
+                                                            localGatewayRouteTableId :: (Value Prelude.Text),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html#cfn-ec2-localgatewayroutetablevirtualinterfacegroupassociation-localgatewayvirtualinterfacegroupid>
                                                             localGatewayVirtualInterfaceGroupId :: (Value Prelude.Text),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html#cfn-ec2-localgatewayroutetablevirtualinterfacegroupassociation-tags>
                                                             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation ::
@@ -21,7 +26,8 @@ mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation
   localGatewayRouteTableId
   localGatewayVirtualInterfaceGroupId
   = LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      {localGatewayRouteTableId = localGatewayRouteTableId,
+      {haddock_workaround_ = (),
+       localGatewayRouteTableId = localGatewayRouteTableId,
        localGatewayVirtualInterfaceGroupId = localGatewayVirtualInterfaceGroupId,
        tags = Prelude.Nothing}
 instance ToResourceProperties LocalGatewayRouteTableVirtualInterfaceGroupAssociation where

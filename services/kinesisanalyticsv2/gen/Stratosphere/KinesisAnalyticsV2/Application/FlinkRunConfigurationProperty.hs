@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlinkRunConfigurationProperty
-  = FlinkRunConfigurationProperty {allowNonRestoredState :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkrunconfiguration.html>
+    FlinkRunConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkrunconfiguration.html#cfn-kinesisanalyticsv2-application-flinkrunconfiguration-allownonrestoredstate>
+                                   allowNonRestoredState :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlinkRunConfigurationProperty :: FlinkRunConfigurationProperty
 mkFlinkRunConfigurationProperty
   = FlinkRunConfigurationProperty
-      {allowNonRestoredState = Prelude.Nothing}
+      {haddock_workaround_ = (), allowNonRestoredState = Prelude.Nothing}
 instance ToResourceProperties FlinkRunConfigurationProperty where
   toResourceProperties FlinkRunConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON FlinkRunConfigurationProperty where
                  Prelude.<$> allowNonRestoredState]))
 instance Property "AllowNonRestoredState" FlinkRunConfigurationProperty where
   type PropertyType "AllowNonRestoredState" FlinkRunConfigurationProperty = Value Prelude.Bool
-  set newValue FlinkRunConfigurationProperty {}
+  set newValue FlinkRunConfigurationProperty {..}
     = FlinkRunConfigurationProperty
         {allowNonRestoredState = Prelude.pure newValue, ..}

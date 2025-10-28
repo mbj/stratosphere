@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceUnderTestProperty
-  = DeviceUnderTestProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html>
+    DeviceUnderTestProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html#cfn-iotcoredeviceadvisor-suitedefinition-deviceundertest-certificatearn>
+                             certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html#cfn-iotcoredeviceadvisor-suitedefinition-deviceundertest-thingarn>
                              thingArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceUnderTestProperty :: DeviceUnderTestProperty
 mkDeviceUnderTestProperty
   = DeviceUnderTestProperty
-      {certificateArn = Prelude.Nothing, thingArn = Prelude.Nothing}
+      {haddock_workaround_ = (), certificateArn = Prelude.Nothing,
+       thingArn = Prelude.Nothing}
 instance ToResourceProperties DeviceUnderTestProperty where
   toResourceProperties DeviceUnderTestProperty {..}
     = ResourceProperties

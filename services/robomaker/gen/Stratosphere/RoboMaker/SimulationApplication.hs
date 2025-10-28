@@ -11,13 +11,23 @@ import {-# SOURCE #-} Stratosphere.RoboMaker.SimulationApplication.SourceConfigP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SimulationApplication
-  = SimulationApplication {currentRevisionId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html>
+    SimulationApplication {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid>
+                           currentRevisionId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-environment>
                            environment :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine>
                            renderingEngine :: (Prelude.Maybe RenderingEngineProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite>
                            robotSoftwareSuite :: RobotSoftwareSuiteProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite>
                            simulationSoftwareSuite :: SimulationSoftwareSuiteProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources>
                            sources :: (Prelude.Maybe [SourceConfigProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags>
                            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulationApplication ::
@@ -25,7 +35,7 @@ mkSimulationApplication ::
   -> SimulationSoftwareSuiteProperty -> SimulationApplication
 mkSimulationApplication robotSoftwareSuite simulationSoftwareSuite
   = SimulationApplication
-      {robotSoftwareSuite = robotSoftwareSuite,
+      {haddock_workaround_ = (), robotSoftwareSuite = robotSoftwareSuite,
        simulationSoftwareSuite = simulationSoftwareSuite,
        currentRevisionId = Prelude.Nothing, environment = Prelude.Nothing,
        name = Prelude.Nothing, renderingEngine = Prelude.Nothing,

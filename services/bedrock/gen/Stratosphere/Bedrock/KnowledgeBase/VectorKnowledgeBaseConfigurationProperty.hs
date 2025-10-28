@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.EmbeddingModelConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VectorKnowledgeBaseConfigurationProperty
-  = VectorKnowledgeBaseConfigurationProperty {embeddingModelArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html>
+    VectorKnowledgeBaseConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelarn>
+                                              embeddingModelArn :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelconfiguration>
                                               embeddingModelConfiguration :: (Prelude.Maybe EmbeddingModelConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorKnowledgeBaseConfigurationProperty ::
   Value Prelude.Text -> VectorKnowledgeBaseConfigurationProperty
 mkVectorKnowledgeBaseConfigurationProperty embeddingModelArn
   = VectorKnowledgeBaseConfigurationProperty
-      {embeddingModelArn = embeddingModelArn,
+      {haddock_workaround_ = (), embeddingModelArn = embeddingModelArn,
        embeddingModelConfiguration = Prelude.Nothing}
 instance ToResourceProperties VectorKnowledgeBaseConfigurationProperty where
   toResourceProperties VectorKnowledgeBaseConfigurationProperty {..}

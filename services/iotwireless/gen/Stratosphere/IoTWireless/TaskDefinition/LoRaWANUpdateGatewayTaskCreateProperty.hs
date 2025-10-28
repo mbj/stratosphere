@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.IoTWireless.TaskDefinition.LoRaWANGatewayVers
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoRaWANUpdateGatewayTaskCreateProperty
-  = LoRaWANUpdateGatewayTaskCreateProperty {currentVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html>
+    LoRaWANUpdateGatewayTaskCreateProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion>
+                                            currentVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc>
                                             sigKeyCrc :: (Prelude.Maybe (Value Prelude.Integer)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature>
                                             updateSignature :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion>
                                             updateVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANUpdateGatewayTaskCreateProperty ::
   LoRaWANUpdateGatewayTaskCreateProperty
 mkLoRaWANUpdateGatewayTaskCreateProperty
   = LoRaWANUpdateGatewayTaskCreateProperty
-      {currentVersion = Prelude.Nothing, sigKeyCrc = Prelude.Nothing,
-       updateSignature = Prelude.Nothing, updateVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), currentVersion = Prelude.Nothing,
+       sigKeyCrc = Prelude.Nothing, updateSignature = Prelude.Nothing,
+       updateVersion = Prelude.Nothing}
 instance ToResourceProperties LoRaWANUpdateGatewayTaskCreateProperty where
   toResourceProperties LoRaWANUpdateGatewayTaskCreateProperty {..}
     = ResourceProperties

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {notificationTopicArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html>
+    NotificationConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html#cfn-sagemaker-workteam-notificationconfiguration-notificationtopicarn>
+                                       notificationTopicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   Value Prelude.Text -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty notificationTopicArn
   = NotificationConfigurationProperty
-      {notificationTopicArn = notificationTopicArn}
+      {haddock_workaround_ = (),
+       notificationTopicArn = notificationTopicArn}
 instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON NotificationConfigurationProperty where
     = JSON.object ["NotificationTopicArn" JSON..= notificationTopicArn]
 instance Property "NotificationTopicArn" NotificationConfigurationProperty where
   type PropertyType "NotificationTopicArn" NotificationConfigurationProperty = Value Prelude.Text
-  set newValue NotificationConfigurationProperty {}
+  set newValue NotificationConfigurationProperty {..}
     = NotificationConfigurationProperty
         {notificationTopicArn = newValue, ..}

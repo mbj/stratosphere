@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.DataExportProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageClassAnalysisProperty
-  = StorageClassAnalysisProperty {dataExport :: (Prelude.Maybe DataExportProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html>
+    StorageClassAnalysisProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport>
+                                  dataExport :: (Prelude.Maybe DataExportProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageClassAnalysisProperty :: StorageClassAnalysisProperty
 mkStorageClassAnalysisProperty
-  = StorageClassAnalysisProperty {dataExport = Prelude.Nothing}
+  = StorageClassAnalysisProperty
+      {haddock_workaround_ = (), dataExport = Prelude.Nothing}
 instance ToResourceProperties StorageClassAnalysisProperty where
   toResourceProperties StorageClassAnalysisProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON StorageClassAnalysisProperty where
               [(JSON..=) "DataExport" Prelude.<$> dataExport]))
 instance Property "DataExport" StorageClassAnalysisProperty where
   type PropertyType "DataExport" StorageClassAnalysisProperty = DataExportProperty
-  set newValue StorageClassAnalysisProperty {}
+  set newValue StorageClassAnalysisProperty {..}
     = StorageClassAnalysisProperty
         {dataExport = Prelude.pure newValue, ..}

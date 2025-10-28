@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.VpcLattice.Listener.WeightedTargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data ForwardProperty
-  = ForwardProperty {targetGroups :: [WeightedTargetGroupProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html>
+    ForwardProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html#cfn-vpclattice-listener-forward-targetgroups>
+                     targetGroups :: [WeightedTargetGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardProperty ::
   [WeightedTargetGroupProperty] -> ForwardProperty
 mkForwardProperty targetGroups
-  = ForwardProperty {targetGroups = targetGroups}
+  = ForwardProperty
+      {haddock_workaround_ = (), targetGroups = targetGroups}
 instance ToResourceProperties ForwardProperty where
   toResourceProperties ForwardProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ForwardProperty where
     = JSON.object ["TargetGroups" JSON..= targetGroups]
 instance Property "TargetGroups" ForwardProperty where
   type PropertyType "TargetGroups" ForwardProperty = [WeightedTargetGroupProperty]
-  set newValue ForwardProperty {}
+  set newValue ForwardProperty {..}
     = ForwardProperty {targetGroups = newValue, ..}

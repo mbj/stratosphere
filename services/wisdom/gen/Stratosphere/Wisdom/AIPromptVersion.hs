@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AIPromptVersion
-  = AIPromptVersion {aIPromptId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aipromptversion.html>
+    AIPromptVersion {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aipromptversion.html#cfn-wisdom-aipromptversion-aipromptid>
+                     aIPromptId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aipromptversion.html#cfn-wisdom-aipromptversion-assistantid>
                      assistantId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aipromptversion.html#cfn-wisdom-aipromptversion-modifiedtimeseconds>
                      modifiedTimeSeconds :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAIPromptVersion ::
   Value Prelude.Text -> Value Prelude.Text -> AIPromptVersion
 mkAIPromptVersion aIPromptId assistantId
   = AIPromptVersion
-      {aIPromptId = aIPromptId, assistantId = assistantId,
-       modifiedTimeSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), aIPromptId = aIPromptId,
+       assistantId = assistantId, modifiedTimeSeconds = Prelude.Nothing}
 instance ToResourceProperties AIPromptVersion where
   toResourceProperties AIPromptVersion {..}
     = ResourceProperties

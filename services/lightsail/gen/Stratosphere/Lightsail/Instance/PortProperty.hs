@@ -7,25 +7,38 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortProperty
-  = PortProperty {accessDirection :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html>
+    PortProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accessdirection>
+                  accessDirection :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accessfrom>
                   accessFrom :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-accesstype>
                   accessType :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrlistaliases>
                   cidrListAliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-cidrs>
                   cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-commonname>
                   commonName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-fromport>
                   fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-ipv6cidrs>
                   ipv6Cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-protocol>
                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html#cfn-lightsail-instance-port-toport>
                   toPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortProperty :: PortProperty
 mkPortProperty
   = PortProperty
-      {accessDirection = Prelude.Nothing, accessFrom = Prelude.Nothing,
-       accessType = Prelude.Nothing, cidrListAliases = Prelude.Nothing,
-       cidrs = Prelude.Nothing, commonName = Prelude.Nothing,
-       fromPort = Prelude.Nothing, ipv6Cidrs = Prelude.Nothing,
-       protocol = Prelude.Nothing, toPort = Prelude.Nothing}
+      {haddock_workaround_ = (), accessDirection = Prelude.Nothing,
+       accessFrom = Prelude.Nothing, accessType = Prelude.Nothing,
+       cidrListAliases = Prelude.Nothing, cidrs = Prelude.Nothing,
+       commonName = Prelude.Nothing, fromPort = Prelude.Nothing,
+       ipv6Cidrs = Prelude.Nothing, protocol = Prelude.Nothing,
+       toPort = Prelude.Nothing}
 instance ToResourceProperties PortProperty where
   toResourceProperties PortProperty {..}
     = ResourceProperties

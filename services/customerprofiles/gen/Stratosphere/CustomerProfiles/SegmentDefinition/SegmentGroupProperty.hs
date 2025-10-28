@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.GroupPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SegmentGroupProperty
-  = SegmentGroupProperty {groups :: (Prelude.Maybe [GroupProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html>
+    SegmentGroupProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html#cfn-customerprofiles-segmentdefinition-segmentgroup-groups>
+                          groups :: (Prelude.Maybe [GroupProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html#cfn-customerprofiles-segmentdefinition-segmentgroup-include>
                           include :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentGroupProperty :: SegmentGroupProperty
 mkSegmentGroupProperty
   = SegmentGroupProperty
-      {groups = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), groups = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties SegmentGroupProperty where
   toResourceProperties SegmentGroupProperty {..}
     = ResourceProperties

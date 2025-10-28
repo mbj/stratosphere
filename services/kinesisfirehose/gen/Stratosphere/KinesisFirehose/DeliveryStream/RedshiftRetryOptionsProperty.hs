@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftRetryOptionsProperty
-  = RedshiftRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html>
+    RedshiftRetryOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds>
+                                  durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftRetryOptionsProperty :: RedshiftRetryOptionsProperty
 mkRedshiftRetryOptionsProperty
   = RedshiftRetryOptionsProperty
-      {durationInSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), durationInSeconds = Prelude.Nothing}
 instance ToResourceProperties RedshiftRetryOptionsProperty where
   toResourceProperties RedshiftRetryOptionsProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON RedshiftRetryOptionsProperty where
               [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
 instance Property "DurationInSeconds" RedshiftRetryOptionsProperty where
   type PropertyType "DurationInSeconds" RedshiftRetryOptionsProperty = Value Prelude.Integer
-  set newValue RedshiftRetryOptionsProperty {}
+  set newValue RedshiftRetryOptionsProperty {..}
     = RedshiftRetryOptionsProperty
         {durationInSeconds = Prelude.pure newValue, ..}

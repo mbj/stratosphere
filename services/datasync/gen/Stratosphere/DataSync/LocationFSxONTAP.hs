@@ -9,17 +9,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationFSxONTAP
-  = LocationFSxONTAP {protocol :: (Prelude.Maybe ProtocolProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html>
+    LocationFSxONTAP {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-protocol>
+                      protocol :: (Prelude.Maybe ProtocolProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-securitygrouparns>
                       securityGroupArns :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-storagevirtualmachinearn>
                       storageVirtualMachineArn :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-subdirectory>
                       subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxONTAP ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationFSxONTAP
 mkLocationFSxONTAP securityGroupArns storageVirtualMachineArn
   = LocationFSxONTAP
-      {securityGroupArns = securityGroupArns,
+      {haddock_workaround_ = (), securityGroupArns = securityGroupArns,
        storageVirtualMachineArn = storageVirtualMachineArn,
        protocol = Prelude.Nothing, subdirectory = Prelude.Nothing,
        tags = Prelude.Nothing}

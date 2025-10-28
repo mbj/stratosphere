@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DNSSEC
-  = DNSSEC {hostedZoneId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html>
+    DNSSEC {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid>
+            hostedZoneId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDNSSEC :: Value Prelude.Text -> DNSSEC
-mkDNSSEC hostedZoneId = DNSSEC {hostedZoneId = hostedZoneId}
+mkDNSSEC hostedZoneId
+  = DNSSEC {haddock_workaround_ = (), hostedZoneId = hostedZoneId}
 instance ToResourceProperties DNSSEC where
   toResourceProperties DNSSEC {..}
     = ResourceProperties
@@ -21,4 +25,4 @@ instance JSON.ToJSON DNSSEC where
     = JSON.object ["HostedZoneId" JSON..= hostedZoneId]
 instance Property "HostedZoneId" DNSSEC where
   type PropertyType "HostedZoneId" DNSSEC = Value Prelude.Text
-  set newValue DNSSEC {} = DNSSEC {hostedZoneId = newValue, ..}
+  set newValue DNSSEC {..} = DNSSEC {hostedZoneId = newValue, ..}

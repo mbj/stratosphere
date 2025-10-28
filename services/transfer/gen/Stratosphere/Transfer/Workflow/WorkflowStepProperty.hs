@@ -12,17 +12,25 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.TagStepDetailsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkflowStepProperty
-  = WorkflowStepProperty {copyStepDetails :: (Prelude.Maybe CopyStepDetailsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html>
+    WorkflowStepProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-copystepdetails>
+                          copyStepDetails :: (Prelude.Maybe CopyStepDetailsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-customstepdetails>
                           customStepDetails :: (Prelude.Maybe CustomStepDetailsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-decryptstepdetails>
                           decryptStepDetails :: (Prelude.Maybe DecryptStepDetailsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-deletestepdetails>
                           deleteStepDetails :: (Prelude.Maybe DeleteStepDetailsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-tagstepdetails>
                           tagStepDetails :: (Prelude.Maybe TagStepDetailsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html#cfn-transfer-workflow-workflowstep-type>
                           type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowStepProperty :: WorkflowStepProperty
 mkWorkflowStepProperty
   = WorkflowStepProperty
-      {copyStepDetails = Prelude.Nothing,
+      {haddock_workaround_ = (), copyStepDetails = Prelude.Nothing,
        customStepDetails = Prelude.Nothing,
        decryptStepDetails = Prelude.Nothing,
        deleteStepDetails = Prelude.Nothing,

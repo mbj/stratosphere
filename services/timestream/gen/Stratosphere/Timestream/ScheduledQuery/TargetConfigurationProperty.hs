@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.TimestreamConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetConfigurationProperty
-  = TargetConfigurationProperty {timestreamConfiguration :: TimestreamConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html>
+    TargetConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html#cfn-timestream-scheduledquery-targetconfiguration-timestreamconfiguration>
+                                 timestreamConfiguration :: TimestreamConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetConfigurationProperty ::
   TimestreamConfigurationProperty -> TargetConfigurationProperty
 mkTargetConfigurationProperty timestreamConfiguration
   = TargetConfigurationProperty
-      {timestreamConfiguration = timestreamConfiguration}
+      {haddock_workaround_ = (),
+       timestreamConfiguration = timestreamConfiguration}
 instance ToResourceProperties TargetConfigurationProperty where
   toResourceProperties TargetConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON TargetConfigurationProperty where
         ["TimestreamConfiguration" JSON..= timestreamConfiguration]
 instance Property "TimestreamConfiguration" TargetConfigurationProperty where
   type PropertyType "TimestreamConfiguration" TargetConfigurationProperty = TimestreamConfigurationProperty
-  set newValue TargetConfigurationProperty {}
+  set newValue TargetConfigurationProperty {..}
     = TargetConfigurationProperty
         {timestreamConfiguration = newValue, ..}

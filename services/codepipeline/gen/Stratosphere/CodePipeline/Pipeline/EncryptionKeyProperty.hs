@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionKeyProperty
-  = EncryptionKeyProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html>
+    EncryptionKeyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html#cfn-codepipeline-pipeline-encryptionkey-id>
+                           id :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html#cfn-codepipeline-pipeline-encryptionkey-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionKeyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EncryptionKeyProperty
 mkEncryptionKeyProperty id type'
-  = EncryptionKeyProperty {id = id, type' = type'}
+  = EncryptionKeyProperty
+      {haddock_workaround_ = (), id = id, type' = type'}
 instance ToResourceProperties EncryptionKeyProperty where
   toResourceProperties EncryptionKeyProperty {..}
     = ResourceProperties

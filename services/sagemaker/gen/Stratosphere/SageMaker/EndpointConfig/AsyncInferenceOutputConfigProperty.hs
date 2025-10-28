@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.AsyncInferenceNotifi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AsyncInferenceOutputConfigProperty
-  = AsyncInferenceOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html>
+    AsyncInferenceOutputConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-kmskeyid>
+                                        kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-notificationconfig>
                                         notificationConfig :: (Prelude.Maybe AsyncInferenceNotificationConfigProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3failurepath>
                                         s3FailurePath :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceoutputconfig-s3outputpath>
                                         s3OutputPath :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceOutputConfigProperty ::
   AsyncInferenceOutputConfigProperty
 mkAsyncInferenceOutputConfigProperty
   = AsyncInferenceOutputConfigProperty
-      {kmsKeyId = Prelude.Nothing, notificationConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), kmsKeyId = Prelude.Nothing,
+       notificationConfig = Prelude.Nothing,
        s3FailurePath = Prelude.Nothing, s3OutputPath = Prelude.Nothing}
 instance ToResourceProperties AsyncInferenceOutputConfigProperty where
   toResourceProperties AsyncInferenceOutputConfigProperty {..}

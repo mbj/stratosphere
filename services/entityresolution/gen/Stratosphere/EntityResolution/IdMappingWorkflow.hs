@@ -11,12 +11,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IdMappingWorkflow
-  = IdMappingWorkflow {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html>
+    IdMappingWorkflow {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-description>
+                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques>
                        idMappingTechniques :: IdMappingTechniquesProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-inputsourceconfig>
                        inputSourceConfig :: [IdMappingWorkflowInputSourceProperty],
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-outputsourceconfig>
                        outputSourceConfig :: (Prelude.Maybe [IdMappingWorkflowOutputSourceProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-rolearn>
                        roleArn :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-tags>
                        tags :: (Prelude.Maybe [Tag]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-workflowname>
                        workflowName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingWorkflow ::
@@ -29,7 +38,8 @@ mkIdMappingWorkflow
   roleArn
   workflowName
   = IdMappingWorkflow
-      {idMappingTechniques = idMappingTechniques,
+      {haddock_workaround_ = (),
+       idMappingTechniques = idMappingTechniques,
        inputSourceConfig = inputSourceConfig, roleArn = roleArn,
        workflowName = workflowName, description = Prelude.Nothing,
        outputSourceConfig = Prelude.Nothing, tags = Prelude.Nothing}

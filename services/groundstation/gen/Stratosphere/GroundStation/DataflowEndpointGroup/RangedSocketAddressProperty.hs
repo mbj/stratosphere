@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.IntegerRa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangedSocketAddressProperty
-  = RangedSocketAddressProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html>
+    RangedSocketAddressProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-name>
+                                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-portrange>
                                  portRange :: (Prelude.Maybe IntegerRangeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRangedSocketAddressProperty :: RangedSocketAddressProperty
 mkRangedSocketAddressProperty
   = RangedSocketAddressProperty
-      {name = Prelude.Nothing, portRange = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       portRange = Prelude.Nothing}
 instance ToResourceProperties RangedSocketAddressProperty where
   toResourceProperties RangedSocketAddressProperty {..}
     = ResourceProperties

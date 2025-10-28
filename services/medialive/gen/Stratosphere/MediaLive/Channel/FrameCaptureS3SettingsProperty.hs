@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameCaptureS3SettingsProperty
-  = FrameCaptureS3SettingsProperty {cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptures3settings.html>
+    FrameCaptureS3SettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptures3settings.html#cfn-medialive-channel-framecaptures3settings-cannedacl>
+                                    cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureS3SettingsProperty :: FrameCaptureS3SettingsProperty
 mkFrameCaptureS3SettingsProperty
-  = FrameCaptureS3SettingsProperty {cannedAcl = Prelude.Nothing}
+  = FrameCaptureS3SettingsProperty
+      {haddock_workaround_ = (), cannedAcl = Prelude.Nothing}
 instance ToResourceProperties FrameCaptureS3SettingsProperty where
   toResourceProperties FrameCaptureS3SettingsProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON FrameCaptureS3SettingsProperty where
            (Prelude.catMaybes [(JSON..=) "CannedAcl" Prelude.<$> cannedAcl]))
 instance Property "CannedAcl" FrameCaptureS3SettingsProperty where
   type PropertyType "CannedAcl" FrameCaptureS3SettingsProperty = Value Prelude.Text
-  set newValue FrameCaptureS3SettingsProperty {}
+  set newValue FrameCaptureS3SettingsProperty {..}
     = FrameCaptureS3SettingsProperty
         {cannedAcl = Prelude.pure newValue, ..}

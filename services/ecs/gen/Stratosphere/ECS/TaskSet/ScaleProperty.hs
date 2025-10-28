@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScaleProperty
-  = ScaleProperty {unit :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html>
+    ScaleProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit>
+                   unit :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value>
                    value :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScaleProperty :: ScaleProperty
 mkScaleProperty
-  = ScaleProperty {unit = Prelude.Nothing, value = Prelude.Nothing}
+  = ScaleProperty
+      {haddock_workaround_ = (), unit = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties ScaleProperty where
   toResourceProperties ScaleProperty {..}
     = ResourceProperties

@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleListProperty
-  = AnalysisRuleListProperty {additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html>
+    AnalysisRuleListProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-additionalanalyses>
+                              additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-allowedjoinoperators>
                               allowedJoinOperators :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-joincolumns>
                               joinColumns :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-listcolumns>
                               listColumns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRuleListProperty ::
@@ -17,8 +23,8 @@ mkAnalysisRuleListProperty ::
   -> ValueList Prelude.Text -> AnalysisRuleListProperty
 mkAnalysisRuleListProperty joinColumns listColumns
   = AnalysisRuleListProperty
-      {joinColumns = joinColumns, listColumns = listColumns,
-       additionalAnalyses = Prelude.Nothing,
+      {haddock_workaround_ = (), joinColumns = joinColumns,
+       listColumns = listColumns, additionalAnalyses = Prelude.Nothing,
        allowedJoinOperators = Prelude.Nothing}
 instance ToResourceProperties AnalysisRuleListProperty where
   toResourceProperties AnalysisRuleListProperty {..}

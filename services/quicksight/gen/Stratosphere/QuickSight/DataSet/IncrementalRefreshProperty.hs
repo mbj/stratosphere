@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.LookbackWindowProperty as Exports
 import Stratosphere.ResourceProperties
 data IncrementalRefreshProperty
-  = IncrementalRefreshProperty {lookbackWindow :: LookbackWindowProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html>
+    IncrementalRefreshProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html#cfn-quicksight-dataset-incrementalrefresh-lookbackwindow>
+                                lookbackWindow :: LookbackWindowProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIncrementalRefreshProperty ::
   LookbackWindowProperty -> IncrementalRefreshProperty
 mkIncrementalRefreshProperty lookbackWindow
-  = IncrementalRefreshProperty {lookbackWindow = lookbackWindow}
+  = IncrementalRefreshProperty
+      {haddock_workaround_ = (), lookbackWindow = lookbackWindow}
 instance ToResourceProperties IncrementalRefreshProperty where
   toResourceProperties IncrementalRefreshProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IncrementalRefreshProperty where
     = JSON.object ["LookbackWindow" JSON..= lookbackWindow]
 instance Property "LookbackWindow" IncrementalRefreshProperty where
   type PropertyType "LookbackWindow" IncrementalRefreshProperty = LookbackWindowProperty
-  set newValue IncrementalRefreshProperty {}
+  set newValue IncrementalRefreshProperty {..}
     = IncrementalRefreshProperty {lookbackWindow = newValue, ..}

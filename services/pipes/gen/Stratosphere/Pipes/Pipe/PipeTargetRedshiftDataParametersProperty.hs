@@ -8,11 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetRedshiftDataParametersProperty
-  = PipeTargetRedshiftDataParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html>
+    PipeTargetRedshiftDataParametersProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-database>
+                                              database :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-dbuser>
                                               dbUser :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-secretmanagerarn>
                                               secretManagerArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-sqls>
                                               sqls :: (ValueList Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-statementname>
                                               statementName :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-withevent>
                                               withEvent :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetRedshiftDataParametersProperty ::
@@ -21,8 +29,8 @@ mkPipeTargetRedshiftDataParametersProperty ::
      -> PipeTargetRedshiftDataParametersProperty
 mkPipeTargetRedshiftDataParametersProperty database sqls
   = PipeTargetRedshiftDataParametersProperty
-      {database = database, sqls = sqls, dbUser = Prelude.Nothing,
-       secretManagerArn = Prelude.Nothing,
+      {haddock_workaround_ = (), database = database, sqls = sqls,
+       dbUser = Prelude.Nothing, secretManagerArn = Prelude.Nothing,
        statementName = Prelude.Nothing, withEvent = Prelude.Nothing}
 instance ToResourceProperties PipeTargetRedshiftDataParametersProperty where
   toResourceProperties PipeTargetRedshiftDataParametersProperty {..}

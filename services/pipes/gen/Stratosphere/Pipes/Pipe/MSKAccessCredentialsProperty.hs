@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MSKAccessCredentialsProperty
-  = MSKAccessCredentialsProperty {clientCertificateTlsAuth :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskaccesscredentials.html>
+    MSKAccessCredentialsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskaccesscredentials.html#cfn-pipes-pipe-mskaccesscredentials-clientcertificatetlsauth>
+                                  clientCertificateTlsAuth :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskaccesscredentials.html#cfn-pipes-pipe-mskaccesscredentials-saslscram512auth>
                                   saslScram512Auth :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMSKAccessCredentialsProperty :: MSKAccessCredentialsProperty
 mkMSKAccessCredentialsProperty
   = MSKAccessCredentialsProperty
-      {clientCertificateTlsAuth = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       clientCertificateTlsAuth = Prelude.Nothing,
        saslScram512Auth = Prelude.Nothing}
 instance ToResourceProperties MSKAccessCredentialsProperty where
   toResourceProperties MSKAccessCredentialsProperty {..}

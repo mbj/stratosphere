@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GuardianOptionsProperty
-  = GuardianOptionsProperty {optimizedSharedDelivery :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html>
+    GuardianOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html#cfn-ses-configurationset-guardianoptions-optimizedshareddelivery>
+                             optimizedSharedDelivery :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGuardianOptionsProperty ::
   Value Prelude.Text -> GuardianOptionsProperty
 mkGuardianOptionsProperty optimizedSharedDelivery
   = GuardianOptionsProperty
-      {optimizedSharedDelivery = optimizedSharedDelivery}
+      {haddock_workaround_ = (),
+       optimizedSharedDelivery = optimizedSharedDelivery}
 instance ToResourceProperties GuardianOptionsProperty where
   toResourceProperties GuardianOptionsProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON GuardianOptionsProperty where
         ["OptimizedSharedDelivery" JSON..= optimizedSharedDelivery]
 instance Property "OptimizedSharedDelivery" GuardianOptionsProperty where
   type PropertyType "OptimizedSharedDelivery" GuardianOptionsProperty = Value Prelude.Text
-  set newValue GuardianOptionsProperty {}
+  set newValue GuardianOptionsProperty {..}
     = GuardianOptionsProperty {optimizedSharedDelivery = newValue, ..}

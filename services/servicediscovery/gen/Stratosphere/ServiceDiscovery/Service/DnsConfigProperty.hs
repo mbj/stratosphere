@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.ServiceDiscovery.Service.DnsRecordProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsConfigProperty
-  = DnsConfigProperty {dnsRecords :: [DnsRecordProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html>
+    DnsConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords>
+                       dnsRecords :: [DnsRecordProperty],
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid>
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy>
                        routingPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsConfigProperty :: [DnsRecordProperty] -> DnsConfigProperty
 mkDnsConfigProperty dnsRecords
   = DnsConfigProperty
-      {dnsRecords = dnsRecords, namespaceId = Prelude.Nothing,
-       routingPolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), dnsRecords = dnsRecords,
+       namespaceId = Prelude.Nothing, routingPolicy = Prelude.Nothing}
 instance ToResourceProperties DnsConfigProperty where
   toResourceProperties DnsConfigProperty {..}
     = ResourceProperties

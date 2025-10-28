@@ -12,17 +12,26 @@ import {-# SOURCE #-} Stratosphere.IoT.MitigationAction.UpdateCACertificateParam
 import {-# SOURCE #-} Stratosphere.IoT.MitigationAction.UpdateDeviceCertificateParamsProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionParamsProperty
-  = ActionParamsProperty {addThingsToThingGroupParams :: (Prelude.Maybe AddThingsToThingGroupParamsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html>
+    ActionParamsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams>
+                          addThingsToThingGroupParams :: (Prelude.Maybe AddThingsToThingGroupParamsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams>
                           enableIoTLoggingParams :: (Prelude.Maybe EnableIoTLoggingParamsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams>
                           publishFindingToSnsParams :: (Prelude.Maybe PublishFindingToSnsParamsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams>
                           replaceDefaultPolicyVersionParams :: (Prelude.Maybe ReplaceDefaultPolicyVersionParamsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams>
                           updateCACertificateParams :: (Prelude.Maybe UpdateCACertificateParamsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams>
                           updateDeviceCertificateParams :: (Prelude.Maybe UpdateDeviceCertificateParamsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionParamsProperty :: ActionParamsProperty
 mkActionParamsProperty
   = ActionParamsProperty
-      {addThingsToThingGroupParams = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       addThingsToThingGroupParams = Prelude.Nothing,
        enableIoTLoggingParams = Prelude.Nothing,
        publishFindingToSnsParams = Prelude.Nothing,
        replaceDefaultPolicyVersionParams = Prelude.Nothing,

@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.MetricWindowProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricProperty
-  = MetricProperty {expression :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html>
+    MetricProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression>
+                    expression :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables>
                     variables :: [ExpressionVariableProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window>
                     window :: MetricWindowProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty ::
@@ -19,7 +24,8 @@ mkMetricProperty ::
      -> MetricWindowProperty -> MetricProperty
 mkMetricProperty expression variables window
   = MetricProperty
-      {expression = expression, variables = variables, window = window}
+      {haddock_workaround_ = (), expression = expression,
+       variables = variables, window = window}
 instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties

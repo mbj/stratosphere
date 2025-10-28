@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContactChannel
-  = ContactChannel {channelAddress :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html>
+    ContactChannel {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress>
+                    channelAddress :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname>
                     channelName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype>
                     channelType :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid>
                     contactId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation>
                     deferActivation :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContactChannel ::
@@ -19,9 +26,9 @@ mkContactChannel ::
      -> Value Prelude.Text -> Value Prelude.Text -> ContactChannel
 mkContactChannel channelAddress channelName channelType contactId
   = ContactChannel
-      {channelAddress = channelAddress, channelName = channelName,
-       channelType = channelType, contactId = contactId,
-       deferActivation = Prelude.Nothing}
+      {haddock_workaround_ = (), channelAddress = channelAddress,
+       channelName = channelName, channelType = channelType,
+       contactId = contactId, deferActivation = Prelude.Nothing}
 instance ToResourceProperties ContactChannel where
   toResourceProperties ContactChannel {..}
     = ResourceProperties

@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeActionProperty
-  = EventBridgeActionProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html>
+    EventBridgeActionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html#cfn-connect-rule-eventbridgeaction-name>
+                               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeActionProperty ::
   Value Prelude.Text -> EventBridgeActionProperty
 mkEventBridgeActionProperty name
-  = EventBridgeActionProperty {name = name}
+  = EventBridgeActionProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties EventBridgeActionProperty where
   toResourceProperties EventBridgeActionProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON EventBridgeActionProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" EventBridgeActionProperty where
   type PropertyType "Name" EventBridgeActionProperty = Value Prelude.Text
-  set newValue EventBridgeActionProperty {}
+  set newValue EventBridgeActionProperty {..}
     = EventBridgeActionProperty {name = newValue, ..}

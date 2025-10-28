@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Lex.BotAlias.CodeHookSpecificationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotAliasLocaleSettingsProperty
-  = BotAliasLocaleSettingsProperty {codeHookSpecification :: (Prelude.Maybe CodeHookSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html>
+    BotAliasLocaleSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html#cfn-lex-botalias-botaliaslocalesettings-codehookspecification>
+                                    codeHookSpecification :: (Prelude.Maybe CodeHookSpecificationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html#cfn-lex-botalias-botaliaslocalesettings-enabled>
                                     enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAliasLocaleSettingsProperty ::
   Value Prelude.Bool -> BotAliasLocaleSettingsProperty
 mkBotAliasLocaleSettingsProperty enabled
   = BotAliasLocaleSettingsProperty
-      {enabled = enabled, codeHookSpecification = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       codeHookSpecification = Prelude.Nothing}
 instance ToResourceProperties BotAliasLocaleSettingsProperty where
   toResourceProperties BotAliasLocaleSettingsProperty {..}
     = ResourceProperties

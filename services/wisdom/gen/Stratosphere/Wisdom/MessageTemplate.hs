@@ -11,14 +11,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data MessageTemplate
-  = MessageTemplate {channelSubtype :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html>
+    MessageTemplate {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-channelsubtype>
+                     channelSubtype :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-content>
                      content :: ContentProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-defaultattributes>
                      defaultAttributes :: (Prelude.Maybe MessageTemplateAttributesProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-description>
                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-groupingconfiguration>
                      groupingConfiguration :: (Prelude.Maybe GroupingConfigurationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-knowledgebasearn>
                      knowledgeBaseArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-language>
                      language :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageTemplate ::
@@ -27,9 +38,10 @@ mkMessageTemplate ::
      -> Value Prelude.Text -> Value Prelude.Text -> MessageTemplate
 mkMessageTemplate channelSubtype content knowledgeBaseArn name
   = MessageTemplate
-      {channelSubtype = channelSubtype, content = content,
-       knowledgeBaseArn = knowledgeBaseArn, name = name,
-       defaultAttributes = Prelude.Nothing, description = Prelude.Nothing,
+      {haddock_workaround_ = (), channelSubtype = channelSubtype,
+       content = content, knowledgeBaseArn = knowledgeBaseArn,
+       name = name, defaultAttributes = Prelude.Nothing,
+       description = Prelude.Nothing,
        groupingConfiguration = Prelude.Nothing,
        language = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties MessageTemplate where

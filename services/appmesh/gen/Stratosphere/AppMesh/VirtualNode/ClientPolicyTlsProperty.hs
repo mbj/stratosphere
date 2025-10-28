@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TlsValidationContextPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientPolicyTlsProperty
-  = ClientPolicyTlsProperty {certificate :: (Prelude.Maybe ClientTlsCertificateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html>
+    ClientPolicyTlsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-certificate>
+                             certificate :: (Prelude.Maybe ClientTlsCertificateProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-enforce>
                              enforce :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-ports>
                              ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html#cfn-appmesh-virtualnode-clientpolicytls-validation>
                              validation :: TlsValidationContextProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientPolicyTlsProperty ::
   TlsValidationContextProperty -> ClientPolicyTlsProperty
 mkClientPolicyTlsProperty validation
   = ClientPolicyTlsProperty
-      {validation = validation, certificate = Prelude.Nothing,
-       enforce = Prelude.Nothing, ports = Prelude.Nothing}
+      {haddock_workaround_ = (), validation = validation,
+       certificate = Prelude.Nothing, enforce = Prelude.Nothing,
+       ports = Prelude.Nothing}
 instance ToResourceProperties ClientPolicyTlsProperty where
   toResourceProperties ClientPolicyTlsProperty {..}
     = ResourceProperties

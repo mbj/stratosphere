@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CmafIngestGroupSettingsProperty
-  = CmafIngestGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html>
+    CmafIngestGroupSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-destination>
+                                     destination :: (Prelude.Maybe OutputLocationRefProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-nielsenid3behavior>
                                      nielsenId3Behavior :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-scte35type>
                                      scte35Type :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-segmentlength>
                                      segmentLength :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-segmentlengthunits>
                                      segmentLengthUnits :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-senddelayms>
                                      sendDelayMs :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafIngestGroupSettingsProperty ::
   CmafIngestGroupSettingsProperty
 mkCmafIngestGroupSettingsProperty
   = CmafIngestGroupSettingsProperty
-      {destination = Prelude.Nothing,
+      {haddock_workaround_ = (), destination = Prelude.Nothing,
        nielsenId3Behavior = Prelude.Nothing, scte35Type = Prelude.Nothing,
        segmentLength = Prelude.Nothing,
        segmentLengthUnits = Prelude.Nothing,

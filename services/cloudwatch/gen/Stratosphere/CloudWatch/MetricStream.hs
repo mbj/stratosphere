@@ -10,14 +10,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data MetricStream
-  = MetricStream {excludeFilters :: (Prelude.Maybe [MetricStreamFilterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html>
+    MetricStream {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters>
+                  excludeFilters :: (Prelude.Maybe [MetricStreamFilterProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn>
                   firehoseArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters>
                   includeFilters :: (Prelude.Maybe [MetricStreamFilterProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includelinkedaccountsmetrics>
                   includeLinkedAccountsMetrics :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name>
                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat>
                   outputFormat :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn>
                   roleArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-statisticsconfigurations>
                   statisticsConfigurations :: (Prelude.Maybe [MetricStreamStatisticsConfigurationProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStream ::
@@ -25,9 +36,9 @@ mkMetricStream ::
   -> Value Prelude.Text -> Value Prelude.Text -> MetricStream
 mkMetricStream firehoseArn outputFormat roleArn
   = MetricStream
-      {firehoseArn = firehoseArn, outputFormat = outputFormat,
-       roleArn = roleArn, excludeFilters = Prelude.Nothing,
-       includeFilters = Prelude.Nothing,
+      {haddock_workaround_ = (), firehoseArn = firehoseArn,
+       outputFormat = outputFormat, roleArn = roleArn,
+       excludeFilters = Prelude.Nothing, includeFilters = Prelude.Nothing,
        includeLinkedAccountsMetrics = Prelude.Nothing,
        name = Prelude.Nothing, statisticsConfigurations = Prelude.Nothing,
        tags = Prelude.Nothing}

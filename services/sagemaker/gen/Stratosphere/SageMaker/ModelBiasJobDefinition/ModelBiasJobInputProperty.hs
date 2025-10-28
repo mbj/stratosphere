@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelBiasJobDefinition.EndpointInpu
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelBiasJobInputProperty
-  = ModelBiasJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html>
+    ModelBiasJobInputProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-batchtransforminput>
+                               batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput>
                                endpointInput :: (Prelude.Maybe EndpointInputProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input>
                                groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelBiasJobInputProperty ::
   MonitoringGroundTruthS3InputProperty -> ModelBiasJobInputProperty
 mkModelBiasJobInputProperty groundTruthS3Input
   = ModelBiasJobInputProperty
-      {groundTruthS3Input = groundTruthS3Input,
+      {haddock_workaround_ = (), groundTruthS3Input = groundTruthS3Input,
        batchTransformInput = Prelude.Nothing,
        endpointInput = Prelude.Nothing}
 instance ToResourceProperties ModelBiasJobInputProperty where

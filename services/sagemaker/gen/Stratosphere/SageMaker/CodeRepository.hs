@@ -9,15 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CodeRepository
-  = CodeRepository {codeRepositoryName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html>
+    CodeRepository {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html#cfn-sagemaker-coderepository-coderepositoryname>
+                    codeRepositoryName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html#cfn-sagemaker-coderepository-gitconfig>
                     gitConfig :: GitConfigProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html#cfn-sagemaker-coderepository-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepository :: GitConfigProperty -> CodeRepository
 mkCodeRepository gitConfig
   = CodeRepository
-      {gitConfig = gitConfig, codeRepositoryName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), gitConfig = gitConfig,
+       codeRepositoryName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CodeRepository where
   toResourceProperties CodeRepository {..}
     = ResourceProperties

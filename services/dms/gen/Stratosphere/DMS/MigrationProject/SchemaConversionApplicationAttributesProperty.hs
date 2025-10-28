@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaConversionApplicationAttributesProperty
-  = SchemaConversionApplicationAttributesProperty {s3BucketPath :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html>
+    SchemaConversionApplicationAttributesProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html#cfn-dms-migrationproject-schemaconversionapplicationattributes-s3bucketpath>
+                                                   s3BucketPath :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html#cfn-dms-migrationproject-schemaconversionapplicationattributes-s3bucketrolearn>
                                                    s3BucketRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaConversionApplicationAttributesProperty ::
   SchemaConversionApplicationAttributesProperty
 mkSchemaConversionApplicationAttributesProperty
   = SchemaConversionApplicationAttributesProperty
-      {s3BucketPath = Prelude.Nothing, s3BucketRoleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), s3BucketPath = Prelude.Nothing,
+       s3BucketRoleArn = Prelude.Nothing}
 instance ToResourceProperties SchemaConversionApplicationAttributesProperty where
   toResourceProperties
     SchemaConversionApplicationAttributesProperty {..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContextualGroundingFilterConfigProperty
-  = ContextualGroundingFilterConfigProperty {threshold :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html>
+    ContextualGroundingFilterConfigProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html#cfn-bedrock-guardrail-contextualgroundingfilterconfig-threshold>
+                                             threshold :: (Value Prelude.Double),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html#cfn-bedrock-guardrail-contextualgroundingfilterconfig-type>
                                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContextualGroundingFilterConfigProperty ::
@@ -16,7 +20,7 @@ mkContextualGroundingFilterConfigProperty ::
   -> Value Prelude.Text -> ContextualGroundingFilterConfigProperty
 mkContextualGroundingFilterConfigProperty threshold type'
   = ContextualGroundingFilterConfigProperty
-      {threshold = threshold, type' = type'}
+      {haddock_workaround_ = (), threshold = threshold, type' = type'}
 instance ToResourceProperties ContextualGroundingFilterConfigProperty where
   toResourceProperties ContextualGroundingFilterConfigProperty {..}
     = ResourceProperties

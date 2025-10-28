@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data AllowActionProperty
-  = AllowActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html>
+    AllowActionProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling>
+                         customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowActionProperty :: AllowActionProperty
 mkAllowActionProperty
-  = AllowActionProperty {customRequestHandling = Prelude.Nothing}
+  = AllowActionProperty
+      {haddock_workaround_ = (), customRequestHandling = Prelude.Nothing}
 instance ToResourceProperties AllowActionProperty where
   toResourceProperties AllowActionProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON AllowActionProperty where
                  Prelude.<$> customRequestHandling]))
 instance Property "CustomRequestHandling" AllowActionProperty where
   type PropertyType "CustomRequestHandling" AllowActionProperty = CustomRequestHandlingProperty
-  set newValue AllowActionProperty {}
+  set newValue AllowActionProperty {..}
     = AllowActionProperty
         {customRequestHandling = Prelude.pure newValue, ..}

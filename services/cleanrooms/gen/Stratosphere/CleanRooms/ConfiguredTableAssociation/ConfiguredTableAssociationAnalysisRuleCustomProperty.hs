@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfiguredTableAssociationAnalysisRuleCustomProperty
-  = ConfiguredTableAssociationAnalysisRuleCustomProperty {allowedAdditionalAnalyses :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html>
+    ConfiguredTableAssociationAnalysisRuleCustomProperty {haddock_workaround_ :: (),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom-allowedadditionalanalyses>
+                                                          allowedAdditionalAnalyses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom-allowedresultreceivers>
                                                           allowedResultReceivers :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRuleCustomProperty ::
   ConfiguredTableAssociationAnalysisRuleCustomProperty
 mkConfiguredTableAssociationAnalysisRuleCustomProperty
   = ConfiguredTableAssociationAnalysisRuleCustomProperty
-      {allowedAdditionalAnalyses = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       allowedAdditionalAnalyses = Prelude.Nothing,
        allowedResultReceivers = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTableAssociationAnalysisRuleCustomProperty where
   toResourceProperties

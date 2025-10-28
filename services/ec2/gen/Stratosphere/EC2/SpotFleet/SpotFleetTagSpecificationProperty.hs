@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SpotFleetTagSpecificationProperty
-  = SpotFleetTagSpecificationProperty {resourceType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html>
+    SpotFleetTagSpecificationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype>
+                                       resourceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-tags>
                                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetTagSpecificationProperty ::
   SpotFleetTagSpecificationProperty
 mkSpotFleetTagSpecificationProperty
   = SpotFleetTagSpecificationProperty
-      {resourceType = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceType = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SpotFleetTagSpecificationProperty where
   toResourceProperties SpotFleetTagSpecificationProperty {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoStreamsProperty
-  = CognitoStreamsProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html>
+    CognitoStreamsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-rolearn>
+                            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-streamname>
                             streamName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-streamingstatus>
                             streamingStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoStreamsProperty :: CognitoStreamsProperty
 mkCognitoStreamsProperty
   = CognitoStreamsProperty
-      {roleArn = Prelude.Nothing, streamName = Prelude.Nothing,
-       streamingStatus = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = Prelude.Nothing,
+       streamName = Prelude.Nothing, streamingStatus = Prelude.Nothing}
 instance ToResourceProperties CognitoStreamsProperty where
   toResourceProperties CognitoStreamsProperty {..}
     = ResourceProperties

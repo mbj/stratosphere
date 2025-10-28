@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.GrammarSlotTypeSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data GrammarSlotTypeSettingProperty
-  = GrammarSlotTypeSettingProperty {source :: (Prelude.Maybe GrammarSlotTypeSourceProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html>
+    GrammarSlotTypeSettingProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html#cfn-lex-bot-grammarslottypesetting-source>
+                                    source :: (Prelude.Maybe GrammarSlotTypeSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrammarSlotTypeSettingProperty :: GrammarSlotTypeSettingProperty
 mkGrammarSlotTypeSettingProperty
-  = GrammarSlotTypeSettingProperty {source = Prelude.Nothing}
+  = GrammarSlotTypeSettingProperty
+      {haddock_workaround_ = (), source = Prelude.Nothing}
 instance ToResourceProperties GrammarSlotTypeSettingProperty where
   toResourceProperties GrammarSlotTypeSettingProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON GrammarSlotTypeSettingProperty where
            (Prelude.catMaybes [(JSON..=) "Source" Prelude.<$> source]))
 instance Property "Source" GrammarSlotTypeSettingProperty where
   type PropertyType "Source" GrammarSlotTypeSettingProperty = GrammarSlotTypeSourceProperty
-  set newValue GrammarSlotTypeSettingProperty {}
+  set newValue GrammarSlotTypeSettingProperty {..}
     = GrammarSlotTypeSettingProperty
         {source = Prelude.pure newValue, ..}

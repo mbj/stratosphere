@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThirdPartyFirewallPolicyProperty
-  = ThirdPartyFirewallPolicyProperty {firewallDeploymentModel :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html>
+    ThirdPartyFirewallPolicyProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html#cfn-fms-policy-thirdpartyfirewallpolicy-firewalldeploymentmodel>
+                                      firewallDeploymentModel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThirdPartyFirewallPolicyProperty ::
   Value Prelude.Text -> ThirdPartyFirewallPolicyProperty
 mkThirdPartyFirewallPolicyProperty firewallDeploymentModel
   = ThirdPartyFirewallPolicyProperty
-      {firewallDeploymentModel = firewallDeploymentModel}
+      {haddock_workaround_ = (),
+       firewallDeploymentModel = firewallDeploymentModel}
 instance ToResourceProperties ThirdPartyFirewallPolicyProperty where
   toResourceProperties ThirdPartyFirewallPolicyProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ThirdPartyFirewallPolicyProperty where
         ["FirewallDeploymentModel" JSON..= firewallDeploymentModel]
 instance Property "FirewallDeploymentModel" ThirdPartyFirewallPolicyProperty where
   type PropertyType "FirewallDeploymentModel" ThirdPartyFirewallPolicyProperty = Value Prelude.Text
-  set newValue ThirdPartyFirewallPolicyProperty {}
+  set newValue ThirdPartyFirewallPolicyProperty {..}
     = ThirdPartyFirewallPolicyProperty
         {firewallDeploymentModel = newValue, ..}

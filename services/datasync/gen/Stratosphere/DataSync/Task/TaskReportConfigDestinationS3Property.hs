@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskReportConfigDestinationS3Property
-  = TaskReportConfigDestinationS3Property {bucketAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html>
+    TaskReportConfigDestinationS3Property {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html#cfn-datasync-task-taskreportconfigdestinations3-bucketaccessrolearn>
+                                           bucketAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html#cfn-datasync-task-taskreportconfigdestinations3-s3bucketarn>
                                            s3BucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html#cfn-datasync-task-taskreportconfigdestinations3-subdirectory>
                                            subdirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskReportConfigDestinationS3Property ::
   TaskReportConfigDestinationS3Property
 mkTaskReportConfigDestinationS3Property
   = TaskReportConfigDestinationS3Property
-      {bucketAccessRoleArn = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketAccessRoleArn = Prelude.Nothing,
        s3BucketArn = Prelude.Nothing, subdirectory = Prelude.Nothing}
 instance ToResourceProperties TaskReportConfigDestinationS3Property where
   toResourceProperties TaskReportConfigDestinationS3Property {..}

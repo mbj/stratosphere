@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsEntryProperty
-  = DnsEntryProperty {domainName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html>
+    DnsEntryProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html#cfn-vpclattice-service-dnsentry-domainname>
+                      domainName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html#cfn-vpclattice-service-dnsentry-hostedzoneid>
                       hostedZoneId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsEntryProperty :: DnsEntryProperty
 mkDnsEntryProperty
   = DnsEntryProperty
-      {domainName = Prelude.Nothing, hostedZoneId = Prelude.Nothing}
+      {haddock_workaround_ = (), domainName = Prelude.Nothing,
+       hostedZoneId = Prelude.Nothing}
 instance ToResourceProperties DnsEntryProperty where
   toResourceProperties DnsEntryProperty {..}
     = ResourceProperties

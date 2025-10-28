@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContentFilterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentPolicyConfigProperty
-  = ContentPolicyConfigProperty {filtersConfig :: [ContentFilterConfigProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html>
+    ContentPolicyConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-filtersconfig>
+                                 filtersConfig :: [ContentFilterConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentPolicyConfigProperty ::
   [ContentFilterConfigProperty] -> ContentPolicyConfigProperty
 mkContentPolicyConfigProperty filtersConfig
-  = ContentPolicyConfigProperty {filtersConfig = filtersConfig}
+  = ContentPolicyConfigProperty
+      {haddock_workaround_ = (), filtersConfig = filtersConfig}
 instance ToResourceProperties ContentPolicyConfigProperty where
   toResourceProperties ContentPolicyConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ContentPolicyConfigProperty where
     = JSON.object ["FiltersConfig" JSON..= filtersConfig]
 instance Property "FiltersConfig" ContentPolicyConfigProperty where
   type PropertyType "FiltersConfig" ContentPolicyConfigProperty = [ContentFilterConfigProperty]
-  set newValue ContentPolicyConfigProperty {}
+  set newValue ContentPolicyConfigProperty {..}
     = ContentPolicyConfigProperty {filtersConfig = newValue, ..}

@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.GameLift.Alias.RoutingStrategyProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Alias
-  = Alias {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html>
+    Alias {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description>
+           description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name>
            name :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy>
            routingStrategy :: RoutingStrategyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias :: Value Prelude.Text -> RoutingStrategyProperty -> Alias
 mkAlias name routingStrategy
   = Alias
-      {name = name, routingStrategy = routingStrategy,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       routingStrategy = routingStrategy, description = Prelude.Nothing}
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPointPolicy
-  = AccessPointPolicy {objectLambdaAccessPoint :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html>
+    AccessPointPolicy {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint>
+                       objectLambdaAccessPoint :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument>
                        policyDocument :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPointPolicy ::
   Value Prelude.Text -> JSON.Object -> AccessPointPolicy
 mkAccessPointPolicy objectLambdaAccessPoint policyDocument
   = AccessPointPolicy
-      {objectLambdaAccessPoint = objectLambdaAccessPoint,
+      {haddock_workaround_ = (),
+       objectLambdaAccessPoint = objectLambdaAccessPoint,
        policyDocument = policyDocument}
 instance ToResourceProperties AccessPointPolicy where
   toResourceProperties AccessPointPolicy {..}

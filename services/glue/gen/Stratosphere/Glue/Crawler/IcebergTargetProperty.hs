@@ -7,15 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IcebergTargetProperty
-  = IcebergTargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html>
+    IcebergTargetProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html#cfn-glue-crawler-icebergtarget-connectionname>
+                           connectionName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html#cfn-glue-crawler-icebergtarget-exclusions>
                            exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html#cfn-glue-crawler-icebergtarget-maximumtraversaldepth>
                            maximumTraversalDepth :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html#cfn-glue-crawler-icebergtarget-paths>
                            paths :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIcebergTargetProperty :: IcebergTargetProperty
 mkIcebergTargetProperty
   = IcebergTargetProperty
-      {connectionName = Prelude.Nothing, exclusions = Prelude.Nothing,
+      {haddock_workaround_ = (), connectionName = Prelude.Nothing,
+       exclusions = Prelude.Nothing,
        maximumTraversalDepth = Prelude.Nothing, paths = Prelude.Nothing}
 instance ToResourceProperties IcebergTargetProperty where
   toResourceProperties IcebergTargetProperty {..}

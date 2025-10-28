@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputSourceProperty
-  = InputSourceProperty {applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html>
+    InputSourceProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html#cfn-entityresolution-matchingworkflow-inputsource-applynormalization>
+                         applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html#cfn-entityresolution-matchingworkflow-inputsource-inputsourcearn>
                          inputSourceARN :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html#cfn-entityresolution-matchingworkflow-inputsource-schemaarn>
                          schemaArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> InputSourceProperty
 mkInputSourceProperty inputSourceARN schemaArn
   = InputSourceProperty
-      {inputSourceARN = inputSourceARN, schemaArn = schemaArn,
-       applyNormalization = Prelude.Nothing}
+      {haddock_workaround_ = (), inputSourceARN = inputSourceARN,
+       schemaArn = schemaArn, applyNormalization = Prelude.Nothing}
 instance ToResourceProperties InputSourceProperty where
   toResourceProperties InputSourceProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpotFleetMonitoringProperty
-  = SpotFleetMonitoringProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html>
+    SpotFleetMonitoringProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled>
+                                 enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetMonitoringProperty :: SpotFleetMonitoringProperty
 mkSpotFleetMonitoringProperty
-  = SpotFleetMonitoringProperty {enabled = Prelude.Nothing}
+  = SpotFleetMonitoringProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties SpotFleetMonitoringProperty where
   toResourceProperties SpotFleetMonitoringProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SpotFleetMonitoringProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" SpotFleetMonitoringProperty where
   type PropertyType "Enabled" SpotFleetMonitoringProperty = Value Prelude.Bool
-  set newValue SpotFleetMonitoringProperty {}
+  set newValue SpotFleetMonitoringProperty {..}
     = SpotFleetMonitoringProperty {enabled = Prelude.pure newValue, ..}

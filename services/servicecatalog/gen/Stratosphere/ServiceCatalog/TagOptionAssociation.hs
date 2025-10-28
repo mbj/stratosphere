@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagOptionAssociation
-  = TagOptionAssociation {resourceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html>
+    TagOptionAssociation {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-resourceid>
+                          resourceId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-tagoptionid>
                           tagOptionId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagOptionAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> TagOptionAssociation
 mkTagOptionAssociation resourceId tagOptionId
   = TagOptionAssociation
-      {resourceId = resourceId, tagOptionId = tagOptionId}
+      {haddock_workaround_ = (), resourceId = resourceId,
+       tagOptionId = tagOptionId}
 instance ToResourceProperties TagOptionAssociation where
   toResourceProperties TagOptionAssociation {..}
     = ResourceProperties

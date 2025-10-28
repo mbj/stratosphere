@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryCredentialsProperty
-  = RepositoryCredentialsProperty {credentialsParameter :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html>
+    RepositoryCredentialsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter>
+                                   credentialsParameter :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryCredentialsProperty :: RepositoryCredentialsProperty
 mkRepositoryCredentialsProperty
   = RepositoryCredentialsProperty
-      {credentialsParameter = Prelude.Nothing}
+      {haddock_workaround_ = (), credentialsParameter = Prelude.Nothing}
 instance ToResourceProperties RepositoryCredentialsProperty where
   toResourceProperties RepositoryCredentialsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON RepositoryCredentialsProperty where
                  Prelude.<$> credentialsParameter]))
 instance Property "CredentialsParameter" RepositoryCredentialsProperty where
   type PropertyType "CredentialsParameter" RepositoryCredentialsProperty = Value Prelude.Text
-  set newValue RepositoryCredentialsProperty {}
+  set newValue RepositoryCredentialsProperty {..}
     = RepositoryCredentialsProperty
         {credentialsParameter = Prelude.pure newValue, ..}

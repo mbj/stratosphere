@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3StorageConfigurationProperty
-  = S3StorageConfigurationProperty {bucketName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html>
+    S3StorageConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html#cfn-ivs-storageconfiguration-s3storageconfiguration-bucketname>
+                                    bucketName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3StorageConfigurationProperty ::
   Value Prelude.Text -> S3StorageConfigurationProperty
 mkS3StorageConfigurationProperty bucketName
-  = S3StorageConfigurationProperty {bucketName = bucketName}
+  = S3StorageConfigurationProperty
+      {haddock_workaround_ = (), bucketName = bucketName}
 instance ToResourceProperties S3StorageConfigurationProperty where
   toResourceProperties S3StorageConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON S3StorageConfigurationProperty where
     = JSON.object ["BucketName" JSON..= bucketName]
 instance Property "BucketName" S3StorageConfigurationProperty where
   type PropertyType "BucketName" S3StorageConfigurationProperty = Value Prelude.Text
-  set newValue S3StorageConfigurationProperty {}
+  set newValue S3StorageConfigurationProperty {..}
     = S3StorageConfigurationProperty {bucketName = newValue, ..}

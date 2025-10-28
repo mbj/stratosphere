@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabricksParametersProperty
-  = DatabricksParametersProperty {host :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html>
+    DatabricksParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-host>
+                                  host :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-port>
                                   port :: (Value Prelude.Double),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-sqlendpointpath>
                                   sqlEndpointPath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabricksParametersProperty ::
@@ -17,7 +22,8 @@ mkDatabricksParametersProperty ::
      -> Value Prelude.Text -> DatabricksParametersProperty
 mkDatabricksParametersProperty host port sqlEndpointPath
   = DatabricksParametersProperty
-      {host = host, port = port, sqlEndpointPath = sqlEndpointPath}
+      {haddock_workaround_ = (), host = host, port = port,
+       sqlEndpointPath = sqlEndpointPath}
 instance ToResourceProperties DatabricksParametersProperty where
   toResourceProperties DatabricksParametersProperty {..}
     = ResourceProperties

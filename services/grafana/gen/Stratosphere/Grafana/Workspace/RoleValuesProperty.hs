@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoleValuesProperty
-  = RoleValuesProperty {admin :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html>
+    RoleValuesProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html#cfn-grafana-workspace-rolevalues-admin>
+                        admin :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html#cfn-grafana-workspace-rolevalues-editor>
                         editor :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleValuesProperty :: RoleValuesProperty
 mkRoleValuesProperty
   = RoleValuesProperty
-      {admin = Prelude.Nothing, editor = Prelude.Nothing}
+      {haddock_workaround_ = (), admin = Prelude.Nothing,
+       editor = Prelude.Nothing}
 instance ToResourceProperties RoleValuesProperty where
   toResourceProperties RoleValuesProperty {..}
     = ResourceProperties

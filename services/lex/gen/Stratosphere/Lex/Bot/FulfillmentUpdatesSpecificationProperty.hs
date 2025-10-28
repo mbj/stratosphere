@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.FulfillmentUpdateResponseSpecificatio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FulfillmentUpdatesSpecificationProperty
-  = FulfillmentUpdatesSpecificationProperty {active :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html>
+    FulfillmentUpdatesSpecificationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-active>
+                                             active :: (Value Prelude.Bool),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-startresponse>
                                              startResponse :: (Prelude.Maybe FulfillmentStartResponseSpecificationProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-timeoutinseconds>
                                              timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html#cfn-lex-bot-fulfillmentupdatesspecification-updateresponse>
                                              updateResponse :: (Prelude.Maybe FulfillmentUpdateResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentUpdatesSpecificationProperty ::
   Value Prelude.Bool -> FulfillmentUpdatesSpecificationProperty
 mkFulfillmentUpdatesSpecificationProperty active
   = FulfillmentUpdatesSpecificationProperty
-      {active = active, startResponse = Prelude.Nothing,
+      {haddock_workaround_ = (), active = active,
+       startResponse = Prelude.Nothing,
        timeoutInSeconds = Prelude.Nothing,
        updateResponse = Prelude.Nothing}
 instance ToResourceProperties FulfillmentUpdatesSpecificationProperty where

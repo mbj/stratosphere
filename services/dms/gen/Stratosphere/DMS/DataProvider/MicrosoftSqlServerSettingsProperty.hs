@@ -8,10 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MicrosoftSqlServerSettingsProperty
-  = MicrosoftSqlServerSettingsProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html>
+    MicrosoftSqlServerSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-certificatearn>
+                                        certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-databasename>
                                         databaseName :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-port>
                                         port :: (Value Prelude.Integer),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-servername>
                                         serverName :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-sslmode>
                                         sslMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftSqlServerSettingsProperty ::
@@ -25,8 +32,9 @@ mkMicrosoftSqlServerSettingsProperty
   serverName
   sslMode
   = MicrosoftSqlServerSettingsProperty
-      {databaseName = databaseName, port = port, serverName = serverName,
-       sslMode = sslMode, certificateArn = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       port = port, serverName = serverName, sslMode = sslMode,
+       certificateArn = Prelude.Nothing}
 instance ToResourceProperties MicrosoftSqlServerSettingsProperty where
   toResourceProperties MicrosoftSqlServerSettingsProperty {..}
     = ResourceProperties

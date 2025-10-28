@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.Backup.Framework.ControlScopeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameworkControlProperty
-  = FrameworkControlProperty {controlInputParameters :: (Prelude.Maybe [ControlInputParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html>
+    FrameworkControlProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlinputparameters>
+                              controlInputParameters :: (Prelude.Maybe [ControlInputParameterProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlname>
                               controlName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlscope>
                               controlScope :: (Prelude.Maybe ControlScopeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameworkControlProperty ::
   Value Prelude.Text -> FrameworkControlProperty
 mkFrameworkControlProperty controlName
   = FrameworkControlProperty
-      {controlName = controlName,
+      {haddock_workaround_ = (), controlName = controlName,
        controlInputParameters = Prelude.Nothing,
        controlScope = Prelude.Nothing}
 instance ToResourceProperties FrameworkControlProperty where

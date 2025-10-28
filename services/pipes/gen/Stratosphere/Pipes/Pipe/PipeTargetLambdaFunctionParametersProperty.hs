@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetLambdaFunctionParametersProperty
-  = PipeTargetLambdaFunctionParametersProperty {invocationType :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetlambdafunctionparameters.html>
+    PipeTargetLambdaFunctionParametersProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetlambdafunctionparameters.html#cfn-pipes-pipe-pipetargetlambdafunctionparameters-invocationtype>
+                                                invocationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetLambdaFunctionParametersProperty ::
   PipeTargetLambdaFunctionParametersProperty
 mkPipeTargetLambdaFunctionParametersProperty
   = PipeTargetLambdaFunctionParametersProperty
-      {invocationType = Prelude.Nothing}
+      {haddock_workaround_ = (), invocationType = Prelude.Nothing}
 instance ToResourceProperties PipeTargetLambdaFunctionParametersProperty where
   toResourceProperties
     PipeTargetLambdaFunctionParametersProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON PipeTargetLambdaFunctionParametersProperty where
               [(JSON..=) "InvocationType" Prelude.<$> invocationType]))
 instance Property "InvocationType" PipeTargetLambdaFunctionParametersProperty where
   type PropertyType "InvocationType" PipeTargetLambdaFunctionParametersProperty = Value Prelude.Text
-  set newValue PipeTargetLambdaFunctionParametersProperty {}
+  set newValue PipeTargetLambdaFunctionParametersProperty {..}
     = PipeTargetLambdaFunctionParametersProperty
         {invocationType = Prelude.pure newValue, ..}

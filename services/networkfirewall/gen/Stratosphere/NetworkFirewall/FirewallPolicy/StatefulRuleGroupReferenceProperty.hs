@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatefulRuleGr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatefulRuleGroupReferenceProperty
-  = StatefulRuleGroupReferenceProperty {override :: (Prelude.Maybe StatefulRuleGroupOverrideProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html>
+    StatefulRuleGroupReferenceProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-override>
+                                        override :: (Prelude.Maybe StatefulRuleGroupOverrideProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-priority>
                                         priority :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn>
                                         resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulRuleGroupReferenceProperty ::
   Value Prelude.Text -> StatefulRuleGroupReferenceProperty
 mkStatefulRuleGroupReferenceProperty resourceArn
   = StatefulRuleGroupReferenceProperty
-      {resourceArn = resourceArn, override = Prelude.Nothing,
-       priority = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceArn = resourceArn,
+       override = Prelude.Nothing, priority = Prelude.Nothing}
 instance ToResourceProperties StatefulRuleGroupReferenceProperty where
   toResourceProperties StatefulRuleGroupReferenceProperty {..}
     = ResourceProperties

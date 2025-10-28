@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomEventsProperty
-  = CustomEventsProperty {status :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-customevents.html>
+    CustomEventsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-customevents.html#cfn-rum-appmonitor-customevents-status>
+                          status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomEventsProperty :: CustomEventsProperty
 mkCustomEventsProperty
-  = CustomEventsProperty {status = Prelude.Nothing}
+  = CustomEventsProperty
+      {haddock_workaround_ = (), status = Prelude.Nothing}
 instance ToResourceProperties CustomEventsProperty where
   toResourceProperties CustomEventsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON CustomEventsProperty where
            (Prelude.catMaybes [(JSON..=) "Status" Prelude.<$> status]))
 instance Property "Status" CustomEventsProperty where
   type PropertyType "Status" CustomEventsProperty = Value Prelude.Text
-  set newValue CustomEventsProperty {}
+  set newValue CustomEventsProperty {..}
     = CustomEventsProperty {status = Prelude.pure newValue, ..}

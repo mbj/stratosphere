@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Publisher
-  = Publisher {acceptTermsAndConditions :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html>
+    Publisher {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions>
+               acceptTermsAndConditions :: (Value Prelude.Bool),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn>
                connectionArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublisher :: Value Prelude.Bool -> Publisher
 mkPublisher acceptTermsAndConditions
   = Publisher
-      {acceptTermsAndConditions = acceptTermsAndConditions,
+      {haddock_workaround_ = (),
+       acceptTermsAndConditions = acceptTermsAndConditions,
        connectionArn = Prelude.Nothing}
 instance ToResourceProperties Publisher where
   toResourceProperties Publisher {..}

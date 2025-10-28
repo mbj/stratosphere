@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigurationProperty
-  = S3ConfigurationProperty {bucketArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-s3configuration.html>
+    S3ConfigurationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-s3configuration.html#cfn-cognito-logdeliveryconfiguration-s3configuration-bucketarn>
+                             bucketArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigurationProperty :: S3ConfigurationProperty
 mkS3ConfigurationProperty
-  = S3ConfigurationProperty {bucketArn = Prelude.Nothing}
+  = S3ConfigurationProperty
+      {haddock_workaround_ = (), bucketArn = Prelude.Nothing}
 instance ToResourceProperties S3ConfigurationProperty where
   toResourceProperties S3ConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON S3ConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "BucketArn" Prelude.<$> bucketArn]))
 instance Property "BucketArn" S3ConfigurationProperty where
   type PropertyType "BucketArn" S3ConfigurationProperty = Value Prelude.Text
-  set newValue S3ConfigurationProperty {}
+  set newValue S3ConfigurationProperty {..}
     = S3ConfigurationProperty {bucketArn = Prelude.pure newValue, ..}

@@ -8,17 +8,26 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptVariantProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Prompt
-  = Prompt {customerEncryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html>
+    Prompt {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-customerencryptionkeyarn>
+            customerEncryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-defaultvariant>
             defaultVariant :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-name>
             name :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-tags>
             tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html#cfn-bedrock-prompt-variants>
             variants :: (Prelude.Maybe [PromptVariantProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrompt :: Value Prelude.Text -> Prompt
 mkPrompt name
   = Prompt
-      {name = name, customerEncryptionKeyArn = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       customerEncryptionKeyArn = Prelude.Nothing,
        defaultVariant = Prelude.Nothing, description = Prelude.Nothing,
        tags = Prelude.Nothing, variants = Prelude.Nothing}
 instance ToResourceProperties Prompt where

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateIpAddressSpecificationProperty
-  = PrivateIpAddressSpecificationProperty {primary :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html>
+    PrivateIpAddressSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html#cfn-ec2-networkinterface-privateipaddressspecification-primary>
+                                           primary :: (Value Prelude.Bool),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-privateipaddressspecification.html#cfn-ec2-networkinterface-privateipaddressspecification-privateipaddress>
                                            privateIpAddress :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateIpAddressSpecificationProperty ::
@@ -16,7 +20,8 @@ mkPrivateIpAddressSpecificationProperty ::
   -> Value Prelude.Text -> PrivateIpAddressSpecificationProperty
 mkPrivateIpAddressSpecificationProperty primary privateIpAddress
   = PrivateIpAddressSpecificationProperty
-      {primary = primary, privateIpAddress = privateIpAddress}
+      {haddock_workaround_ = (), primary = primary,
+       privateIpAddress = privateIpAddress}
 instance ToResourceProperties PrivateIpAddressSpecificationProperty where
   toResourceProperties PrivateIpAddressSpecificationProperty {..}
     = ResourceProperties

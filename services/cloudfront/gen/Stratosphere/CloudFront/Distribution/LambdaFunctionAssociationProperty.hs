@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaFunctionAssociationProperty
-  = LambdaFunctionAssociationProperty {eventType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html>
+    LambdaFunctionAssociationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype>
+                                       eventType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody>
                                        includeBody :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn>
                                        lambdaFunctionARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionAssociationProperty ::
   LambdaFunctionAssociationProperty
 mkLambdaFunctionAssociationProperty
   = LambdaFunctionAssociationProperty
-      {eventType = Prelude.Nothing, includeBody = Prelude.Nothing,
-       lambdaFunctionARN = Prelude.Nothing}
+      {haddock_workaround_ = (), eventType = Prelude.Nothing,
+       includeBody = Prelude.Nothing, lambdaFunctionARN = Prelude.Nothing}
 instance ToResourceProperties LambdaFunctionAssociationProperty where
   toResourceProperties LambdaFunctionAssociationProperty {..}
     = ResourceProperties

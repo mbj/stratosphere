@@ -11,18 +11,27 @@ import {-# SOURCE #-} Stratosphere.DataPipeline.Pipeline.PipelineTagProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Pipeline
-  = Pipeline {activate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html>
+    Pipeline {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate>
+              activate :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects>
               parameterObjects :: (Prelude.Maybe [ParameterObjectProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues>
               parameterValues :: (Prelude.Maybe [ParameterValueProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects>
               pipelineObjects :: (Prelude.Maybe [PipelineObjectProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags>
               pipelineTags :: (Prelude.Maybe [PipelineTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline :: Value Prelude.Text -> Pipeline
 mkPipeline name
   = Pipeline
-      {name = name, activate = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, activate = Prelude.Nothing,
        description = Prelude.Nothing, parameterObjects = Prelude.Nothing,
        parameterValues = Prelude.Nothing,
        pipelineObjects = Prelude.Nothing, pipelineTags = Prelude.Nothing}

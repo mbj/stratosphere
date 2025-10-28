@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.RetentionArchiveTierProperty as Exports
 import Stratosphere.ResourceProperties
 data ArchiveRetainRuleProperty
-  = ArchiveRetainRuleProperty {retentionArchiveTier :: RetentionArchiveTierProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html>
+    ArchiveRetainRuleProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html#cfn-dlm-lifecyclepolicy-archiveretainrule-retentionarchivetier>
+                               retentionArchiveTier :: RetentionArchiveTierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRetainRuleProperty ::
   RetentionArchiveTierProperty -> ArchiveRetainRuleProperty
 mkArchiveRetainRuleProperty retentionArchiveTier
   = ArchiveRetainRuleProperty
-      {retentionArchiveTier = retentionArchiveTier}
+      {haddock_workaround_ = (),
+       retentionArchiveTier = retentionArchiveTier}
 instance ToResourceProperties ArchiveRetainRuleProperty where
   toResourceProperties ArchiveRetainRuleProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ArchiveRetainRuleProperty where
     = JSON.object ["RetentionArchiveTier" JSON..= retentionArchiveTier]
 instance Property "RetentionArchiveTier" ArchiveRetainRuleProperty where
   type PropertyType "RetentionArchiveTier" ArchiveRetainRuleProperty = RetentionArchiveTierProperty
-  set newValue ArchiveRetainRuleProperty {}
+  set newValue ArchiveRetainRuleProperty {..}
     = ArchiveRetainRuleProperty {retentionArchiveTier = newValue, ..}

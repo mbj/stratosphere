@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeEnvironmentOrderProperty
-  = ComputeEnvironmentOrderProperty {computeEnvironment :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html>
+    ComputeEnvironmentOrderProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-computeenvironment>
+                                     computeEnvironment :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order>
                                      order :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeEnvironmentOrderProperty ::
@@ -16,7 +20,8 @@ mkComputeEnvironmentOrderProperty ::
   -> Value Prelude.Integer -> ComputeEnvironmentOrderProperty
 mkComputeEnvironmentOrderProperty computeEnvironment order
   = ComputeEnvironmentOrderProperty
-      {computeEnvironment = computeEnvironment, order = order}
+      {haddock_workaround_ = (), computeEnvironment = computeEnvironment,
+       order = order}
 instance ToResourceProperties ComputeEnvironmentOrderProperty where
   toResourceProperties ComputeEnvironmentOrderProperty {..}
     = ResourceProperties

@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthenticationConfigurationProperty
-  = AuthenticationConfigurationProperty {clientId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html>
+    AuthenticationConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientid>
+                                         clientId :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientsecret>
                                          clientSecret :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-refreshtoken>
                                          refreshToken :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationConfigurationProperty ::
@@ -21,8 +26,8 @@ mkAuthenticationConfigurationProperty
   clientSecret
   refreshToken
   = AuthenticationConfigurationProperty
-      {clientId = clientId, clientSecret = clientSecret,
-       refreshToken = refreshToken}
+      {haddock_workaround_ = (), clientId = clientId,
+       clientSecret = clientSecret, refreshToken = refreshToken}
 instance ToResourceProperties AuthenticationConfigurationProperty where
   toResourceProperties AuthenticationConfigurationProperty {..}
     = ResourceProperties

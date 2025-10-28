@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncodingParametersProperty
-  = EncodingParametersProperty {compressionFactor :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html>
+    EncodingParametersProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html#cfn-mediaconnect-flowoutput-encodingparameters-compressionfactor>
+                                compressionFactor :: (Value Prelude.Double),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html#cfn-mediaconnect-flowoutput-encodingparameters-encoderprofile>
                                 encoderProfile :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncodingParametersProperty ::
   Value Prelude.Double -> EncodingParametersProperty
 mkEncodingParametersProperty compressionFactor
   = EncodingParametersProperty
-      {compressionFactor = compressionFactor,
+      {haddock_workaround_ = (), compressionFactor = compressionFactor,
        encoderProfile = Prelude.Nothing}
 instance ToResourceProperties EncodingParametersProperty where
   toResourceProperties EncodingParametersProperty {..}

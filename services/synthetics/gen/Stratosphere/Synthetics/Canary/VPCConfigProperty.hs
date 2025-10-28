@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCConfigProperty
-  = VPCConfigProperty {securityGroupIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html>
+    VPCConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids>
+                       securityGroupIds :: (ValueList Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids>
                        subnetIds :: (ValueList Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid>
                        vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCConfigProperty ::
@@ -16,8 +21,8 @@ mkVPCConfigProperty ::
   -> ValueList Prelude.Text -> VPCConfigProperty
 mkVPCConfigProperty securityGroupIds subnetIds
   = VPCConfigProperty
-      {securityGroupIds = securityGroupIds, subnetIds = subnetIds,
-       vpcId = Prelude.Nothing}
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds,
+       subnetIds = subnetIds, vpcId = Prelude.Nothing}
 instance ToResourceProperties VPCConfigProperty where
   toResourceProperties VPCConfigProperty {..}
     = ResourceProperties

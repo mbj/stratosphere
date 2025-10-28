@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UdpGroupSettingsProperty
-  = UdpGroupSettingsProperty {inputLossAction :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html>
+    UdpGroupSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-inputlossaction>
+                              inputLossAction :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-timedmetadataid3frame>
                               timedMetadataId3Frame :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html#cfn-medialive-channel-udpgroupsettings-timedmetadataid3period>
                               timedMetadataId3Period :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpGroupSettingsProperty :: UdpGroupSettingsProperty
 mkUdpGroupSettingsProperty
   = UdpGroupSettingsProperty
-      {inputLossAction = Prelude.Nothing,
+      {haddock_workaround_ = (), inputLossAction = Prelude.Nothing,
        timedMetadataId3Frame = Prelude.Nothing,
        timedMetadataId3Period = Prelude.Nothing}
 instance ToResourceProperties UdpGroupSettingsProperty where

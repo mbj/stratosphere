@@ -11,22 +11,33 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.EcsResourceRequirementProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsContainerOverrideProperty
-  = EcsContainerOverrideProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html>
+    EcsContainerOverrideProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-command>
+                                  command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-cpu>
                                   cpu :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-environment>
                                   environment :: (Prelude.Maybe [EcsEnvironmentVariableProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-environmentfiles>
                                   environmentFiles :: (Prelude.Maybe [EcsEnvironmentFileProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-memory>
                                   memory :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-memoryreservation>
                                   memoryReservation :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-name>
                                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html#cfn-pipes-pipe-ecscontaineroverride-resourcerequirements>
                                   resourceRequirements :: (Prelude.Maybe [EcsResourceRequirementProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsContainerOverrideProperty :: EcsContainerOverrideProperty
 mkEcsContainerOverrideProperty
   = EcsContainerOverrideProperty
-      {command = Prelude.Nothing, cpu = Prelude.Nothing,
-       environment = Prelude.Nothing, environmentFiles = Prelude.Nothing,
-       memory = Prelude.Nothing, memoryReservation = Prelude.Nothing,
-       name = Prelude.Nothing, resourceRequirements = Prelude.Nothing}
+      {haddock_workaround_ = (), command = Prelude.Nothing,
+       cpu = Prelude.Nothing, environment = Prelude.Nothing,
+       environmentFiles = Prelude.Nothing, memory = Prelude.Nothing,
+       memoryReservation = Prelude.Nothing, name = Prelude.Nothing,
+       resourceRequirements = Prelude.Nothing}
 instance ToResourceProperties EcsContainerOverrideProperty where
   toResourceProperties EcsContainerOverrideProperty {..}
     = ResourceProperties

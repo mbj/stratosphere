@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransferredProperty
-  = TransferredProperty {reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-transferred.html>
+    TransferredProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-transferred.html#cfn-datasync-task-transferred-reportlevel>
+                         reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransferredProperty :: TransferredProperty
 mkTransferredProperty
-  = TransferredProperty {reportLevel = Prelude.Nothing}
+  = TransferredProperty
+      {haddock_workaround_ = (), reportLevel = Prelude.Nothing}
 instance ToResourceProperties TransferredProperty where
   toResourceProperties TransferredProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON TransferredProperty where
               [(JSON..=) "ReportLevel" Prelude.<$> reportLevel]))
 instance Property "ReportLevel" TransferredProperty where
   type PropertyType "ReportLevel" TransferredProperty = Value Prelude.Text
-  set newValue TransferredProperty {}
+  set newValue TransferredProperty {..}
     = TransferredProperty {reportLevel = Prelude.pure newValue, ..}

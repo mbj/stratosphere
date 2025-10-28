@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.Pra
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZonalAutoshiftConfiguration
-  = ZonalAutoshiftConfiguration {practiceRunConfiguration :: (Prelude.Maybe PracticeRunConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html>
+    ZonalAutoshiftConfiguration {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration>
+                                 practiceRunConfiguration :: (Prelude.Maybe PracticeRunConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-resourceidentifier>
                                  resourceIdentifier :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-zonalautoshiftstatus>
                                  zonalAutoshiftStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZonalAutoshiftConfiguration ::
   Value Prelude.Text -> ZonalAutoshiftConfiguration
 mkZonalAutoshiftConfiguration resourceIdentifier
   = ZonalAutoshiftConfiguration
-      {resourceIdentifier = resourceIdentifier,
+      {haddock_workaround_ = (), resourceIdentifier = resourceIdentifier,
        practiceRunConfiguration = Prelude.Nothing,
        zonalAutoshiftStatus = Prelude.Nothing}
 instance ToResourceProperties ZonalAutoshiftConfiguration where

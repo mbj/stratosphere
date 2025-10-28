@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ClusterSecurityGroup
-  = ClusterSecurityGroup {description :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html>
+    ClusterSecurityGroup {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-description>
+                          description :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html#cfn-redshift-clustersecuritygroup-tags>
                           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterSecurityGroup ::
   Value Prelude.Text -> ClusterSecurityGroup
 mkClusterSecurityGroup description
   = ClusterSecurityGroup
-      {description = description, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = description,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ClusterSecurityGroup where
   toResourceProperties ClusterSecurityGroup {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcSettingsProperty
-  = VpcSettingsProperty {subnetIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html>
+    VpcSettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-subnetids>
+                         subnetIds :: (ValueList Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-vpcid>
                          vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcSettingsProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> VpcSettingsProperty
 mkVpcSettingsProperty subnetIds vpcId
-  = VpcSettingsProperty {subnetIds = subnetIds, vpcId = vpcId}
+  = VpcSettingsProperty
+      {haddock_workaround_ = (), subnetIds = subnetIds, vpcId = vpcId}
 instance ToResourceProperties VpcSettingsProperty where
   toResourceProperties VpcSettingsProperty {..}
     = ResourceProperties

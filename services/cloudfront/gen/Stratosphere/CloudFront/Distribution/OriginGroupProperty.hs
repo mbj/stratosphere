@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupMembersPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupProperty
-  = OriginGroupProperty {failoverCriteria :: OriginGroupFailoverCriteriaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html>
+    OriginGroupProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria>
+                         failoverCriteria :: OriginGroupFailoverCriteriaProperty,
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id>
                          id :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members>
                          members :: OriginGroupMembersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupProperty ::
@@ -19,7 +24,8 @@ mkOriginGroupProperty ::
      -> OriginGroupMembersProperty -> OriginGroupProperty
 mkOriginGroupProperty failoverCriteria id members
   = OriginGroupProperty
-      {failoverCriteria = failoverCriteria, id = id, members = members}
+      {haddock_workaround_ = (), failoverCriteria = failoverCriteria,
+       id = id, members = members}
 instance ToResourceProperties OriginGroupProperty where
   toResourceProperties OriginGroupProperty {..}
     = ResourceProperties

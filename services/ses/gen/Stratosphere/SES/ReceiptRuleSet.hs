@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReceiptRuleSet
-  = ReceiptRuleSet {ruleSetName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html>
+    ReceiptRuleSet {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html#cfn-ses-receiptruleset-rulesetname>
+                    ruleSetName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReceiptRuleSet :: ReceiptRuleSet
-mkReceiptRuleSet = ReceiptRuleSet {ruleSetName = Prelude.Nothing}
+mkReceiptRuleSet
+  = ReceiptRuleSet
+      {haddock_workaround_ = (), ruleSetName = Prelude.Nothing}
 instance ToResourceProperties ReceiptRuleSet where
   toResourceProperties ReceiptRuleSet {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON ReceiptRuleSet where
               [(JSON..=) "RuleSetName" Prelude.<$> ruleSetName]))
 instance Property "RuleSetName" ReceiptRuleSet where
   type PropertyType "RuleSetName" ReceiptRuleSet = Value Prelude.Text
-  set newValue ReceiptRuleSet {}
+  set newValue ReceiptRuleSet {..}
     = ReceiptRuleSet {ruleSetName = Prelude.pure newValue, ..}

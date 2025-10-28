@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpRouteActionProperty
-  = TcpRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html>
+    TcpRouteActionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html#cfn-appmesh-route-tcprouteaction-weightedtargets>
+                            weightedTargets :: [WeightedTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteActionProperty ::
   [WeightedTargetProperty] -> TcpRouteActionProperty
 mkTcpRouteActionProperty weightedTargets
-  = TcpRouteActionProperty {weightedTargets = weightedTargets}
+  = TcpRouteActionProperty
+      {haddock_workaround_ = (), weightedTargets = weightedTargets}
 instance ToResourceProperties TcpRouteActionProperty where
   toResourceProperties TcpRouteActionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TcpRouteActionProperty where
     = JSON.object ["WeightedTargets" JSON..= weightedTargets]
 instance Property "WeightedTargets" TcpRouteActionProperty where
   type PropertyType "WeightedTargets" TcpRouteActionProperty = [WeightedTargetProperty]
-  set newValue TcpRouteActionProperty {}
+  set newValue TcpRouteActionProperty {..}
     = TcpRouteActionProperty {weightedTargets = newValue, ..}

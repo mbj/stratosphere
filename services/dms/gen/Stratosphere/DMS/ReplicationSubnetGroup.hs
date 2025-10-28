@@ -8,9 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ReplicationSubnetGroup
-  = ReplicationSubnetGroup {replicationSubnetGroupDescription :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html>
+    ReplicationSubnetGroup {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupdescription>
+                            replicationSubnetGroupDescription :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupidentifier>
                             replicationSubnetGroupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-subnetids>
                             subnetIds :: (ValueList Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-tags>
                             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationSubnetGroup ::
@@ -20,7 +26,8 @@ mkReplicationSubnetGroup
   replicationSubnetGroupDescription
   subnetIds
   = ReplicationSubnetGroup
-      {replicationSubnetGroupDescription = replicationSubnetGroupDescription,
+      {haddock_workaround_ = (),
+       replicationSubnetGroupDescription = replicationSubnetGroupDescription,
        subnetIds = subnetIds,
        replicationSubnetGroupIdentifier = Prelude.Nothing,
        tags = Prelude.Nothing}

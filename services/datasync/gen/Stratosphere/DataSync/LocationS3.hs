@@ -9,18 +9,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationS3
-  = LocationS3 {s3BucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html>
+    LocationS3 {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn>
+                s3BucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config>
                 s3Config :: S3ConfigProperty,
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass>
                 s3StorageClass :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory>
                 subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationS3 :: S3ConfigProperty -> LocationS3
 mkLocationS3 s3Config
   = LocationS3
-      {s3Config = s3Config, s3BucketArn = Prelude.Nothing,
-       s3StorageClass = Prelude.Nothing, subdirectory = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Config = s3Config,
+       s3BucketArn = Prelude.Nothing, s3StorageClass = Prelude.Nothing,
+       subdirectory = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LocationS3 where
   toResourceProperties LocationS3 {..}
     = ResourceProperties

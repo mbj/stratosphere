@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.TopicRule.SigV4AuthorizationProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpAuthorizationProperty
-  = HttpAuthorizationProperty {sigv4 :: (Prelude.Maybe SigV4AuthorizationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html>
+    HttpAuthorizationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4>
+                               sigv4 :: (Prelude.Maybe SigV4AuthorizationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpAuthorizationProperty :: HttpAuthorizationProperty
 mkHttpAuthorizationProperty
-  = HttpAuthorizationProperty {sigv4 = Prelude.Nothing}
+  = HttpAuthorizationProperty
+      {haddock_workaround_ = (), sigv4 = Prelude.Nothing}
 instance ToResourceProperties HttpAuthorizationProperty where
   toResourceProperties HttpAuthorizationProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON HttpAuthorizationProperty where
            (Prelude.catMaybes [(JSON..=) "Sigv4" Prelude.<$> sigv4]))
 instance Property "Sigv4" HttpAuthorizationProperty where
   type PropertyType "Sigv4" HttpAuthorizationProperty = SigV4AuthorizationProperty
-  set newValue HttpAuthorizationProperty {}
+  set newValue HttpAuthorizationProperty {..}
     = HttpAuthorizationProperty {sigv4 = Prelude.pure newValue, ..}

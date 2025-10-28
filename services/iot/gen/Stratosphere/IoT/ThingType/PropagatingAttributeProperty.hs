@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropagatingAttributeProperty
-  = PropagatingAttributeProperty {connectionAttribute :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html>
+    PropagatingAttributeProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html#cfn-iot-thingtype-propagatingattribute-connectionattribute>
+                                  connectionAttribute :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html#cfn-iot-thingtype-propagatingattribute-thingattribute>
                                   thingAttribute :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html#cfn-iot-thingtype-propagatingattribute-userpropertykey>
                                   userPropertyKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropagatingAttributeProperty ::
   Value Prelude.Text -> PropagatingAttributeProperty
 mkPropagatingAttributeProperty userPropertyKey
   = PropagatingAttributeProperty
-      {userPropertyKey = userPropertyKey,
+      {haddock_workaround_ = (), userPropertyKey = userPropertyKey,
        connectionAttribute = Prelude.Nothing,
        thingAttribute = Prelude.Nothing}
 instance ToResourceProperties PropagatingAttributeProperty where

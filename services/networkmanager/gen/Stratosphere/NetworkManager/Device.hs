@@ -10,25 +10,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Device
-  = Device {aWSLocation :: (Prelude.Maybe AWSLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html>
+    Device {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-awslocation>
+            aWSLocation :: (Prelude.Maybe AWSLocationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid>
             globalNetworkId :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location>
             location :: (Prelude.Maybe LocationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model>
             model :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber>
             serialNumber :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid>
             siteId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags>
             tags :: (Prelude.Maybe [Tag]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type>
             type' :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor>
             vendor :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Device
 mkDevice globalNetworkId
   = Device
-      {globalNetworkId = globalNetworkId, aWSLocation = Prelude.Nothing,
-       description = Prelude.Nothing, location = Prelude.Nothing,
-       model = Prelude.Nothing, serialNumber = Prelude.Nothing,
-       siteId = Prelude.Nothing, tags = Prelude.Nothing,
-       type' = Prelude.Nothing, vendor = Prelude.Nothing}
+      {haddock_workaround_ = (), globalNetworkId = globalNetworkId,
+       aWSLocation = Prelude.Nothing, description = Prelude.Nothing,
+       location = Prelude.Nothing, model = Prelude.Nothing,
+       serialNumber = Prelude.Nothing, siteId = Prelude.Nothing,
+       tags = Prelude.Nothing, type' = Prelude.Nothing,
+       vendor = Prelude.Nothing}
 instance ToResourceProperties Device where
   toResourceProperties Device {..}
     = ResourceProperties

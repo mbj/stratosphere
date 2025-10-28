@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventInvokeConfig.OnFailureProperty as
 import {-# SOURCE #-} Stratosphere.Lambda.EventInvokeConfig.OnSuccessProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigProperty
-  = DestinationConfigProperty {onFailure :: (Prelude.Maybe OnFailureProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html>
+    DestinationConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure>
+                               onFailure :: (Prelude.Maybe OnFailureProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess>
                                onSuccess :: (Prelude.Maybe OnSuccessProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigProperty :: DestinationConfigProperty
 mkDestinationConfigProperty
   = DestinationConfigProperty
-      {onFailure = Prelude.Nothing, onSuccess = Prelude.Nothing}
+      {haddock_workaround_ = (), onFailure = Prelude.Nothing,
+       onSuccess = Prelude.Nothing}
 instance ToResourceProperties DestinationConfigProperty where
   toResourceProperties DestinationConfigProperty {..}
     = ResourceProperties

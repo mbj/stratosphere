@@ -9,17 +9,25 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceDestinationPropertiesProperty
-  = SalesforceDestinationPropertiesProperty {dataTransferApi :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html>
+    SalesforceDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-datatransferapi>
+                                             dataTransferApi :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig>
                                              errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames>
                                              idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object>
                                              object :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype>
                                              writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceDestinationPropertiesProperty ::
   Value Prelude.Text -> SalesforceDestinationPropertiesProperty
 mkSalesforceDestinationPropertiesProperty object
   = SalesforceDestinationPropertiesProperty
-      {object = object, dataTransferApi = Prelude.Nothing,
+      {haddock_workaround_ = (), object = object,
+       dataTransferApi = Prelude.Nothing,
        errorHandlingConfig = Prelude.Nothing,
        idFieldNames = Prelude.Nothing,
        writeOperationType = Prelude.Nothing}

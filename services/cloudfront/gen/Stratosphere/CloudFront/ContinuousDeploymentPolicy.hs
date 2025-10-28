@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContinuousDeploymentPolicy
-  = ContinuousDeploymentPolicy {continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html>
+    ContinuousDeploymentPolicy {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig>
+                                continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContinuousDeploymentPolicy ::
   ContinuousDeploymentPolicyConfigProperty
   -> ContinuousDeploymentPolicy
 mkContinuousDeploymentPolicy continuousDeploymentPolicyConfig
   = ContinuousDeploymentPolicy
-      {continuousDeploymentPolicyConfig = continuousDeploymentPolicyConfig}
+      {haddock_workaround_ = (),
+       continuousDeploymentPolicyConfig = continuousDeploymentPolicyConfig}
 instance ToResourceProperties ContinuousDeploymentPolicy where
   toResourceProperties ContinuousDeploymentPolicy {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON ContinuousDeploymentPolicy where
            JSON..= continuousDeploymentPolicyConfig]
 instance Property "ContinuousDeploymentPolicyConfig" ContinuousDeploymentPolicy where
   type PropertyType "ContinuousDeploymentPolicyConfig" ContinuousDeploymentPolicy = ContinuousDeploymentPolicyConfigProperty
-  set newValue ContinuousDeploymentPolicy {}
+  set newValue ContinuousDeploymentPolicy {..}
     = ContinuousDeploymentPolicy
         {continuousDeploymentPolicyConfig = newValue, ..}

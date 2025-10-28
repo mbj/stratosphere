@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KMSEncryptionConfigProperty
-  = KMSEncryptionConfigProperty {aWSKMSKeyARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html>
+    KMSEncryptionConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn>
+                                 aWSKMSKeyARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKMSEncryptionConfigProperty ::
   Value Prelude.Text -> KMSEncryptionConfigProperty
 mkKMSEncryptionConfigProperty aWSKMSKeyARN
-  = KMSEncryptionConfigProperty {aWSKMSKeyARN = aWSKMSKeyARN}
+  = KMSEncryptionConfigProperty
+      {haddock_workaround_ = (), aWSKMSKeyARN = aWSKMSKeyARN}
 instance ToResourceProperties KMSEncryptionConfigProperty where
   toResourceProperties KMSEncryptionConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON KMSEncryptionConfigProperty where
     = JSON.object ["AWSKMSKeyARN" JSON..= aWSKMSKeyARN]
 instance Property "AWSKMSKeyARN" KMSEncryptionConfigProperty where
   type PropertyType "AWSKMSKeyARN" KMSEncryptionConfigProperty = Value Prelude.Text
-  set newValue KMSEncryptionConfigProperty {}
+  set newValue KMSEncryptionConfigProperty {..}
     = KMSEncryptionConfigProperty {aWSKMSKeyARN = newValue, ..}

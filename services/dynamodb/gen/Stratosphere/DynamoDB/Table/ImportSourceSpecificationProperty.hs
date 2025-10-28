@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.S3BucketSourceProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImportSourceSpecificationProperty
-  = ImportSourceSpecificationProperty {inputCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html>
+    ImportSourceSpecificationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputcompressiontype>
+                                       inputCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputformat>
                                        inputFormat :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-inputformatoptions>
                                        inputFormatOptions :: (Prelude.Maybe InputFormatOptionsProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html#cfn-dynamodb-table-importsourcespecification-s3bucketsource>
                                        s3BucketSource :: S3BucketSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImportSourceSpecificationProperty ::
@@ -20,7 +26,8 @@ mkImportSourceSpecificationProperty ::
   -> S3BucketSourceProperty -> ImportSourceSpecificationProperty
 mkImportSourceSpecificationProperty inputFormat s3BucketSource
   = ImportSourceSpecificationProperty
-      {inputFormat = inputFormat, s3BucketSource = s3BucketSource,
+      {haddock_workaround_ = (), inputFormat = inputFormat,
+       s3BucketSource = s3BucketSource,
        inputCompressionType = Prelude.Nothing,
        inputFormatOptions = Prelude.Nothing}
 instance ToResourceProperties ImportSourceSpecificationProperty where

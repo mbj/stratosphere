@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationObjectProperty
-  = ConfigurationObjectProperty {allowedValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html>
+    ConfigurationObjectProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html#cfn-glue-usageprofile-configurationobject-allowedvalues>
+                                 allowedValues :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html#cfn-glue-usageprofile-configurationobject-defaultvalue>
                                  defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html#cfn-glue-usageprofile-configurationobject-maxvalue>
                                  maxValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html#cfn-glue-usageprofile-configurationobject-minvalue>
                                  minValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationObjectProperty :: ConfigurationObjectProperty
 mkConfigurationObjectProperty
   = ConfigurationObjectProperty
-      {allowedValues = Prelude.Nothing, defaultValue = Prelude.Nothing,
-       maxValue = Prelude.Nothing, minValue = Prelude.Nothing}
+      {haddock_workaround_ = (), allowedValues = Prelude.Nothing,
+       defaultValue = Prelude.Nothing, maxValue = Prelude.Nothing,
+       minValue = Prelude.Nothing}
 instance ToResourceProperties ConfigurationObjectProperty where
   toResourceProperties ConfigurationObjectProperty {..}
     = ResourceProperties

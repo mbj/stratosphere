@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputParallelismProperty
-  = InputParallelismProperty {count :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputparallelism.html>
+    InputParallelismProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputparallelism.html#cfn-kinesisanalytics-application-inputparallelism-count>
+                              count :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputParallelismProperty :: InputParallelismProperty
 mkInputParallelismProperty
-  = InputParallelismProperty {count = Prelude.Nothing}
+  = InputParallelismProperty
+      {haddock_workaround_ = (), count = Prelude.Nothing}
 instance ToResourceProperties InputParallelismProperty where
   toResourceProperties InputParallelismProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON InputParallelismProperty where
            (Prelude.catMaybes [(JSON..=) "Count" Prelude.<$> count]))
 instance Property "Count" InputParallelismProperty where
   type PropertyType "Count" InputParallelismProperty = Value Prelude.Integer
-  set newValue InputParallelismProperty {}
+  set newValue InputParallelismProperty {..}
     = InputParallelismProperty {count = Prelude.pure newValue, ..}

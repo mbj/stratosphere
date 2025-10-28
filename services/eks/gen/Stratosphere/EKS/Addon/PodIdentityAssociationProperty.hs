@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PodIdentityAssociationProperty
-  = PodIdentityAssociationProperty {roleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html>
+    PodIdentityAssociationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html#cfn-eks-addon-podidentityassociation-rolearn>
+                                    roleArn :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html#cfn-eks-addon-podidentityassociation-serviceaccount>
                                     serviceAccount :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPodIdentityAssociationProperty ::
@@ -16,7 +20,8 @@ mkPodIdentityAssociationProperty ::
   -> Value Prelude.Text -> PodIdentityAssociationProperty
 mkPodIdentityAssociationProperty roleArn serviceAccount
   = PodIdentityAssociationProperty
-      {roleArn = roleArn, serviceAccount = serviceAccount}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       serviceAccount = serviceAccount}
 instance ToResourceProperties PodIdentityAssociationProperty where
   toResourceProperties PodIdentityAssociationProperty {..}
     = ResourceProperties

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Synthetics.Canary.BaseScreenshotProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VisualReferenceProperty
-  = VisualReferenceProperty {baseCanaryRunId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html>
+    VisualReferenceProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid>
+                             baseCanaryRunId :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots>
                              baseScreenshots :: (Prelude.Maybe [BaseScreenshotProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualReferenceProperty ::
   Value Prelude.Text -> VisualReferenceProperty
 mkVisualReferenceProperty baseCanaryRunId
   = VisualReferenceProperty
-      {baseCanaryRunId = baseCanaryRunId,
+      {haddock_workaround_ = (), baseCanaryRunId = baseCanaryRunId,
        baseScreenshots = Prelude.Nothing}
 instance ToResourceProperties VisualReferenceProperty where
   toResourceProperties VisualReferenceProperty {..}

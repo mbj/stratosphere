@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Glue.Table.TableInputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Table
-  = Table {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html>
+    Table {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-catalogid>
+           catalogId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename>
            databaseName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-opentableformatinput>
            openTableFormatInput :: (Prelude.Maybe OpenTableFormatInputProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput>
            tableInput :: TableInputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTable ::
@@ -19,8 +25,9 @@ mkTable ::
   -> Value Prelude.Text -> TableInputProperty -> Table
 mkTable catalogId databaseName tableInput
   = Table
-      {catalogId = catalogId, databaseName = databaseName,
-       tableInput = tableInput, openTableFormatInput = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = catalogId,
+       databaseName = databaseName, tableInput = tableInput,
+       openTableFormatInput = Prelude.Nothing}
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties

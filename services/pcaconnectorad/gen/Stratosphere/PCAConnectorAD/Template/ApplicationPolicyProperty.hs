@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationPolicyProperty
-  = ApplicationPolicyProperty {policyObjectIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicy.html>
+    ApplicationPolicyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicy.html#cfn-pcaconnectorad-template-applicationpolicy-policyobjectidentifier>
+                               policyObjectIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicy.html#cfn-pcaconnectorad-template-applicationpolicy-policytype>
                                policyType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationPolicyProperty :: ApplicationPolicyProperty
 mkApplicationPolicyProperty
   = ApplicationPolicyProperty
-      {policyObjectIdentifier = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       policyObjectIdentifier = Prelude.Nothing,
        policyType = Prelude.Nothing}
 instance ToResourceProperties ApplicationPolicyProperty where
   toResourceProperties ApplicationPolicyProperty {..}

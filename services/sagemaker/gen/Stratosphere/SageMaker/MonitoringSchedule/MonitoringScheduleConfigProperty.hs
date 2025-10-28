@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.ScheduleConfigPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringScheduleConfigProperty
-  = MonitoringScheduleConfigProperty {monitoringJobDefinition :: (Prelude.Maybe MonitoringJobDefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html>
+    MonitoringScheduleConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition>
+                                      monitoringJobDefinition :: (Prelude.Maybe MonitoringJobDefinitionProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname>
                                       monitoringJobDefinitionName :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype>
                                       monitoringType :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig>
                                       scheduleConfig :: (Prelude.Maybe ScheduleConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringScheduleConfigProperty ::
   MonitoringScheduleConfigProperty
 mkMonitoringScheduleConfigProperty
   = MonitoringScheduleConfigProperty
-      {monitoringJobDefinition = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       monitoringJobDefinition = Prelude.Nothing,
        monitoringJobDefinitionName = Prelude.Nothing,
        monitoringType = Prelude.Nothing, scheduleConfig = Prelude.Nothing}
 instance ToResourceProperties MonitoringScheduleConfigProperty where

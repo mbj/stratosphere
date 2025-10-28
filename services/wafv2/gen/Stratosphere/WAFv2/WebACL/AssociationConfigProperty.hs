@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data AssociationConfigProperty
-  = AssociationConfigProperty {requestBody :: (Prelude.Maybe (Prelude.Map Prelude.Text RequestBodyAssociatedResourceTypeConfigProperty))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html>
+    AssociationConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html#cfn-wafv2-webacl-associationconfig-requestbody>
+                               requestBody :: (Prelude.Maybe (Prelude.Map Prelude.Text RequestBodyAssociatedResourceTypeConfigProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationConfigProperty :: AssociationConfigProperty
 mkAssociationConfigProperty
-  = AssociationConfigProperty {requestBody = Prelude.Nothing}
+  = AssociationConfigProperty
+      {haddock_workaround_ = (), requestBody = Prelude.Nothing}
 instance ToResourceProperties AssociationConfigProperty where
   toResourceProperties AssociationConfigProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON AssociationConfigProperty where
               [(JSON..=) "RequestBody" Prelude.<$> requestBody]))
 instance Property "RequestBody" AssociationConfigProperty where
   type PropertyType "RequestBody" AssociationConfigProperty = Prelude.Map Prelude.Text RequestBodyAssociatedResourceTypeConfigProperty
-  set newValue AssociationConfigProperty {}
+  set newValue AssociationConfigProperty {..}
     = AssociationConfigProperty
         {requestBody = Prelude.pure newValue, ..}

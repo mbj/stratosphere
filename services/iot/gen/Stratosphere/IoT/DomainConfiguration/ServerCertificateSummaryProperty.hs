@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerCertificateSummaryProperty
-  = ServerCertificateSummaryProperty {serverCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html>
+    ServerCertificateSummaryProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn>
+                                      serverCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus>
                                       serverCertificateStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail>
                                       serverCertificateStatusDetail :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificateSummaryProperty ::
   ServerCertificateSummaryProperty
 mkServerCertificateSummaryProperty
   = ServerCertificateSummaryProperty
-      {serverCertificateArn = Prelude.Nothing,
+      {haddock_workaround_ = (), serverCertificateArn = Prelude.Nothing,
        serverCertificateStatus = Prelude.Nothing,
        serverCertificateStatusDetail = Prelude.Nothing}
 instance ToResourceProperties ServerCertificateSummaryProperty where

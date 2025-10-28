@@ -7,13 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcTimeoutProperty
-  = GrpcTimeoutProperty {idle :: (Prelude.Maybe DurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpctimeout.html>
+    GrpcTimeoutProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpctimeout.html#cfn-appmesh-route-grpctimeout-idle>
+                         idle :: (Prelude.Maybe DurationProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpctimeout.html#cfn-appmesh-route-grpctimeout-perrequest>
                          perRequest :: (Prelude.Maybe DurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcTimeoutProperty :: GrpcTimeoutProperty
 mkGrpcTimeoutProperty
   = GrpcTimeoutProperty
-      {idle = Prelude.Nothing, perRequest = Prelude.Nothing}
+      {haddock_workaround_ = (), idle = Prelude.Nothing,
+       perRequest = Prelude.Nothing}
 instance ToResourceProperties GrpcTimeoutProperty where
   toResourceProperties GrpcTimeoutProperty {..}
     = ResourceProperties

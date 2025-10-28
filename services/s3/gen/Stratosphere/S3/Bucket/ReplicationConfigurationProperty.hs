@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationRuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {role :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html>
+    ReplicationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role>
+                                      role :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules>
                                       rules :: [ReplicationRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   Value Prelude.Text
   -> [ReplicationRuleProperty] -> ReplicationConfigurationProperty
 mkReplicationConfigurationProperty role rules
-  = ReplicationConfigurationProperty {role = role, rules = rules}
+  = ReplicationConfigurationProperty
+      {haddock_workaround_ = (), role = role, rules = rules}
 instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Budgets.Budget.HistoricalOptionsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoAdjustDataProperty
-  = AutoAdjustDataProperty {autoAdjustType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html>
+    AutoAdjustDataProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html#cfn-budgets-budget-autoadjustdata-autoadjusttype>
+                            autoAdjustType :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html#cfn-budgets-budget-autoadjustdata-historicaloptions>
                             historicalOptions :: (Prelude.Maybe HistoricalOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoAdjustDataProperty ::
   Value Prelude.Text -> AutoAdjustDataProperty
 mkAutoAdjustDataProperty autoAdjustType
   = AutoAdjustDataProperty
-      {autoAdjustType = autoAdjustType,
+      {haddock_workaround_ = (), autoAdjustType = autoAdjustType,
        historicalOptions = Prelude.Nothing}
 instance ToResourceProperties AutoAdjustDataProperty where
   toResourceProperties AutoAdjustDataProperty {..}

@@ -8,10 +8,17 @@ import {-# SOURCE #-} Stratosphere.AppStream.Entitlement.AttributeProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Entitlement
-  = Entitlement {appVisibility :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html>
+    Entitlement {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-appvisibility>
+                 appVisibility :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-attributes>
                  attributes :: [AttributeProperty],
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-stackname>
                  stackName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntitlement ::
@@ -20,8 +27,9 @@ mkEntitlement ::
      -> Value Prelude.Text -> Value Prelude.Text -> Entitlement
 mkEntitlement appVisibility attributes name stackName
   = Entitlement
-      {appVisibility = appVisibility, attributes = attributes,
-       name = name, stackName = stackName, description = Prelude.Nothing}
+      {haddock_workaround_ = (), appVisibility = appVisibility,
+       attributes = attributes, name = name, stackName = stackName,
+       description = Prelude.Nothing}
 instance ToResourceProperties Entitlement where
   toResourceProperties Entitlement {..}
     = ResourceProperties

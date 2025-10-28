@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColorCorrectionProperty
-  = ColorCorrectionProperty {inputColorSpace :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html>
+    ColorCorrectionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html#cfn-medialive-channel-colorcorrection-inputcolorspace>
+                             inputColorSpace :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html#cfn-medialive-channel-colorcorrection-outputcolorspace>
                              outputColorSpace :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html#cfn-medialive-channel-colorcorrection-uri>
                              uri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColorCorrectionProperty :: ColorCorrectionProperty
 mkColorCorrectionProperty
   = ColorCorrectionProperty
-      {inputColorSpace = Prelude.Nothing,
+      {haddock_workaround_ = (), inputColorSpace = Prelude.Nothing,
        outputColorSpace = Prelude.Nothing, uri = Prelude.Nothing}
 instance ToResourceProperties ColorCorrectionProperty where
   toResourceProperties ColorCorrectionProperty {..}

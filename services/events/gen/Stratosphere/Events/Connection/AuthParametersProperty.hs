@@ -12,16 +12,23 @@ import {-# SOURCE #-} Stratosphere.Events.Connection.ConnectivityParametersPrope
 import {-# SOURCE #-} Stratosphere.Events.Connection.OAuthParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data AuthParametersProperty
-  = AuthParametersProperty {apiKeyAuthParameters :: (Prelude.Maybe ApiKeyAuthParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html>
+    AuthParametersProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-apikeyauthparameters>
+                            apiKeyAuthParameters :: (Prelude.Maybe ApiKeyAuthParametersProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-basicauthparameters>
                             basicAuthParameters :: (Prelude.Maybe BasicAuthParametersProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-connectivityparameters>
                             connectivityParameters :: (Prelude.Maybe ConnectivityParametersProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-invocationhttpparameters>
                             invocationHttpParameters :: (Prelude.Maybe ConnectionHttpParametersProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-oauthparameters>
                             oAuthParameters :: (Prelude.Maybe OAuthParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthParametersProperty :: AuthParametersProperty
 mkAuthParametersProperty
   = AuthParametersProperty
-      {apiKeyAuthParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), apiKeyAuthParameters = Prelude.Nothing,
        basicAuthParameters = Prelude.Nothing,
        connectivityParameters = Prelude.Nothing,
        invocationHttpParameters = Prelude.Nothing,

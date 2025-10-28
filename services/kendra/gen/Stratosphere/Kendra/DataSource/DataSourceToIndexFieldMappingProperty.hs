@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceToIndexFieldMappingProperty
-  = DataSourceToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html>
+    DataSourceToIndexFieldMappingProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-datasourcefieldname>
+                                           dataSourceFieldName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-datefieldformat>
                                            dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-indexfieldname>
                                            indexFieldName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceToIndexFieldMappingProperty ::
@@ -19,7 +24,8 @@ mkDataSourceToIndexFieldMappingProperty
   dataSourceFieldName
   indexFieldName
   = DataSourceToIndexFieldMappingProperty
-      {dataSourceFieldName = dataSourceFieldName,
+      {haddock_workaround_ = (),
+       dataSourceFieldName = dataSourceFieldName,
        indexFieldName = indexFieldName, dateFieldFormat = Prelude.Nothing}
 instance ToResourceProperties DataSourceToIndexFieldMappingProperty where
   toResourceProperties DataSourceToIndexFieldMappingProperty {..}

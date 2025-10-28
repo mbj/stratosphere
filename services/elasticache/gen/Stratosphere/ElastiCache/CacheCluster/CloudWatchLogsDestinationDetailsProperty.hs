@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsDestinationDetailsProperty
-  = CloudWatchLogsDestinationDetailsProperty {logGroup :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html>
+    CloudWatchLogsDestinationDetailsProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup>
+                                              logGroup :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsDestinationDetailsProperty ::
   Value Prelude.Text -> CloudWatchLogsDestinationDetailsProperty
 mkCloudWatchLogsDestinationDetailsProperty logGroup
-  = CloudWatchLogsDestinationDetailsProperty {logGroup = logGroup}
+  = CloudWatchLogsDestinationDetailsProperty
+      {haddock_workaround_ = (), logGroup = logGroup}
 instance ToResourceProperties CloudWatchLogsDestinationDetailsProperty where
   toResourceProperties CloudWatchLogsDestinationDetailsProperty {..}
     = ResourceProperties
@@ -25,6 +29,6 @@ instance JSON.ToJSON CloudWatchLogsDestinationDetailsProperty where
     = JSON.object ["LogGroup" JSON..= logGroup]
 instance Property "LogGroup" CloudWatchLogsDestinationDetailsProperty where
   type PropertyType "LogGroup" CloudWatchLogsDestinationDetailsProperty = Value Prelude.Text
-  set newValue CloudWatchLogsDestinationDetailsProperty {}
+  set newValue CloudWatchLogsDestinationDetailsProperty {..}
     = CloudWatchLogsDestinationDetailsProperty
         {logGroup = newValue, ..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomImageContainerEnvironmentVariableProperty
-  = CustomImageContainerEnvironmentVariableProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html>
+    CustomImageContainerEnvironmentVariableProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html#cfn-sagemaker-appimageconfig-customimagecontainerenvironmentvariable-key>
+                                                     key :: (Value Prelude.Text),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html#cfn-sagemaker-appimageconfig-customimagecontainerenvironmentvariable-value>
                                                      value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomImageContainerEnvironmentVariableProperty ::
@@ -17,7 +21,7 @@ mkCustomImageContainerEnvironmentVariableProperty ::
      -> CustomImageContainerEnvironmentVariableProperty
 mkCustomImageContainerEnvironmentVariableProperty key value
   = CustomImageContainerEnvironmentVariableProperty
-      {key = key, value = value}
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties CustomImageContainerEnvironmentVariableProperty where
   toResourceProperties
     CustomImageContainerEnvironmentVariableProperty {..}

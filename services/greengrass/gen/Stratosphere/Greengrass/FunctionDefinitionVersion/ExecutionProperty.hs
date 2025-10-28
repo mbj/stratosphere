@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinitionVersion.RunAsPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecutionProperty
-  = ExecutionProperty {isolationMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html>
+    ExecutionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-isolationmode>
+                       isolationMode :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-runas>
                        runAs :: (Prelude.Maybe RunAsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionProperty :: ExecutionProperty
 mkExecutionProperty
   = ExecutionProperty
-      {isolationMode = Prelude.Nothing, runAs = Prelude.Nothing}
+      {haddock_workaround_ = (), isolationMode = Prelude.Nothing,
+       runAs = Prelude.Nothing}
 instance ToResourceProperties ExecutionProperty where
   toResourceProperties ExecutionProperty {..}
     = ResourceProperties

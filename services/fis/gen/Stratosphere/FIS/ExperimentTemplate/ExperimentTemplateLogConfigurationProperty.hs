@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.S3ConfigurationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateLogConfigurationProperty
-  = ExperimentTemplateLogConfigurationProperty {cloudWatchLogsConfiguration :: (Prelude.Maybe CloudWatchLogsConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html>
+    ExperimentTemplateLogConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html#cfn-fis-experimenttemplate-experimenttemplatelogconfiguration-cloudwatchlogsconfiguration>
+                                                cloudWatchLogsConfiguration :: (Prelude.Maybe CloudWatchLogsConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html#cfn-fis-experimenttemplate-experimenttemplatelogconfiguration-logschemaversion>
                                                 logSchemaVersion :: (Value Prelude.Integer),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html#cfn-fis-experimenttemplate-experimenttemplatelogconfiguration-s3configuration>
                                                 s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateLogConfigurationProperty ::
   Value Prelude.Integer -> ExperimentTemplateLogConfigurationProperty
 mkExperimentTemplateLogConfigurationProperty logSchemaVersion
   = ExperimentTemplateLogConfigurationProperty
-      {logSchemaVersion = logSchemaVersion,
+      {haddock_workaround_ = (), logSchemaVersion = logSchemaVersion,
        cloudWatchLogsConfiguration = Prelude.Nothing,
        s3Configuration = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplateLogConfigurationProperty where

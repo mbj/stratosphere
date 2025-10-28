@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ErrorProperty
-  = ErrorProperty {code :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html>
+    ErrorProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html#cfn-iottwinmaker-componenttype-error-code>
+                   code :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-error.html#cfn-iottwinmaker-componenttype-error-message>
                    message :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorProperty :: ErrorProperty
 mkErrorProperty
-  = ErrorProperty {code = Prelude.Nothing, message = Prelude.Nothing}
+  = ErrorProperty
+      {haddock_workaround_ = (), code = Prelude.Nothing,
+       message = Prelude.Nothing}
 instance ToResourceProperties ErrorProperty where
   toResourceProperties ErrorProperty {..}
     = ResourceProperties

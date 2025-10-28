@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureHlsSettingsProp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.StandardHlsSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data HlsSettingsProperty
-  = HlsSettingsProperty {audioOnlyHlsSettings :: (Prelude.Maybe AudioOnlyHlsSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html>
+    HlsSettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-audioonlyhlssettings>
+                         audioOnlyHlsSettings :: (Prelude.Maybe AudioOnlyHlsSettingsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-fmp4hlssettings>
                          fmp4HlsSettings :: (Prelude.Maybe Fmp4HlsSettingsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-framecapturehlssettings>
                          frameCaptureHlsSettings :: (Prelude.Maybe FrameCaptureHlsSettingsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html#cfn-medialive-channel-hlssettings-standardhlssettings>
                          standardHlsSettings :: (Prelude.Maybe StandardHlsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsSettingsProperty :: HlsSettingsProperty
 mkHlsSettingsProperty
   = HlsSettingsProperty
-      {audioOnlyHlsSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), audioOnlyHlsSettings = Prelude.Nothing,
        fmp4HlsSettings = Prelude.Nothing,
        frameCaptureHlsSettings = Prelude.Nothing,
        standardHlsSettings = Prelude.Nothing}

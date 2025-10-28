@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.SignalCatalog.BranchProperty as 
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.SignalCatalog.SensorProperty as Exports
 import Stratosphere.ResourceProperties
 data NodeProperty
-  = NodeProperty {actuator :: (Prelude.Maybe ActuatorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html>
+    NodeProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-actuator>
+                  actuator :: (Prelude.Maybe ActuatorProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-attribute>
                   attribute :: (Prelude.Maybe AttributeProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-branch>
                   branch :: (Prelude.Maybe BranchProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html#cfn-iotfleetwise-signalcatalog-node-sensor>
                   sensor :: (Prelude.Maybe SensorProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeProperty :: NodeProperty
 mkNodeProperty
   = NodeProperty
-      {actuator = Prelude.Nothing, attribute = Prelude.Nothing,
-       branch = Prelude.Nothing, sensor = Prelude.Nothing}
+      {haddock_workaround_ = (), actuator = Prelude.Nothing,
+       attribute = Prelude.Nothing, branch = Prelude.Nothing,
+       sensor = Prelude.Nothing}
 instance ToResourceProperties NodeProperty where
   toResourceProperties NodeProperty {..}
     = ResourceProperties

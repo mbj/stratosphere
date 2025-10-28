@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerCertificateProperty
-  = ServerCertificateProperty {resourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificate.html>
+    ServerCertificateProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificate.html#cfn-networkfirewall-tlsinspectionconfiguration-servercertificate-resourcearn>
+                               resourceArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificateProperty :: ServerCertificateProperty
 mkServerCertificateProperty
-  = ServerCertificateProperty {resourceArn = Prelude.Nothing}
+  = ServerCertificateProperty
+      {haddock_workaround_ = (), resourceArn = Prelude.Nothing}
 instance ToResourceProperties ServerCertificateProperty where
   toResourceProperties ServerCertificateProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ServerCertificateProperty where
               [(JSON..=) "ResourceArn" Prelude.<$> resourceArn]))
 instance Property "ResourceArn" ServerCertificateProperty where
   type PropertyType "ResourceArn" ServerCertificateProperty = Value Prelude.Text
-  set newValue ServerCertificateProperty {}
+  set newValue ServerCertificateProperty {..}
     = ServerCertificateProperty
         {resourceArn = Prelude.pure newValue, ..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatelessRuleGroupReferenceProperty
-  = StatelessRuleGroupReferenceProperty {priority :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html>
+    StatelessRuleGroupReferenceProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority>
+                                         priority :: (Value Prelude.Integer),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-resourcearn>
                                          resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRuleGroupReferenceProperty ::
@@ -16,7 +20,8 @@ mkStatelessRuleGroupReferenceProperty ::
   -> Value Prelude.Text -> StatelessRuleGroupReferenceProperty
 mkStatelessRuleGroupReferenceProperty priority resourceArn
   = StatelessRuleGroupReferenceProperty
-      {priority = priority, resourceArn = resourceArn}
+      {haddock_workaround_ = (), priority = priority,
+       resourceArn = resourceArn}
 instance ToResourceProperties StatelessRuleGroupReferenceProperty where
   toResourceProperties StatelessRuleGroupReferenceProperty {..}
     = ResourceProperties

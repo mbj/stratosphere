@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceShadowEnrichProperty
-  = DeviceShadowEnrichProperty {attribute :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html>
+    DeviceShadowEnrichProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-attribute>
+                                attribute :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-name>
                                 name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-next>
                                 next :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-rolearn>
                                 roleArn :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html#cfn-iotanalytics-pipeline-deviceshadowenrich-thingname>
                                 thingName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceShadowEnrichProperty ::
@@ -20,8 +27,8 @@ mkDeviceShadowEnrichProperty ::
         -> Value Prelude.Text -> DeviceShadowEnrichProperty
 mkDeviceShadowEnrichProperty attribute name roleArn thingName
   = DeviceShadowEnrichProperty
-      {attribute = attribute, name = name, roleArn = roleArn,
-       thingName = thingName, next = Prelude.Nothing}
+      {haddock_workaround_ = (), attribute = attribute, name = name,
+       roleArn = roleArn, thingName = thingName, next = Prelude.Nothing}
 instance ToResourceProperties DeviceShadowEnrichProperty where
   toResourceProperties DeviceShadowEnrichProperty {..}
     = ResourceProperties

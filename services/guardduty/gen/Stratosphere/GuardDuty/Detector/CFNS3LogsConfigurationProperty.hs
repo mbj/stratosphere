@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNS3LogsConfigurationProperty
-  = CFNS3LogsConfigurationProperty {enable :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html>
+    CFNS3LogsConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable>
+                                    enable :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNS3LogsConfigurationProperty ::
   Value Prelude.Bool -> CFNS3LogsConfigurationProperty
 mkCFNS3LogsConfigurationProperty enable
-  = CFNS3LogsConfigurationProperty {enable = enable}
+  = CFNS3LogsConfigurationProperty
+      {haddock_workaround_ = (), enable = enable}
 instance ToResourceProperties CFNS3LogsConfigurationProperty where
   toResourceProperties CFNS3LogsConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CFNS3LogsConfigurationProperty where
     = JSON.object ["Enable" JSON..= enable]
 instance Property "Enable" CFNS3LogsConfigurationProperty where
   type PropertyType "Enable" CFNS3LogsConfigurationProperty = Value Prelude.Bool
-  set newValue CFNS3LogsConfigurationProperty {}
+  set newValue CFNS3LogsConfigurationProperty {..}
     = CFNS3LogsConfigurationProperty {enable = newValue, ..}

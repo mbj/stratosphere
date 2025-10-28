@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data ResourceGroup
-  = ResourceGroup {resourceGroupTags :: [Tag]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html>
+    ResourceGroup {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags>
+                   resourceGroupTags :: [Tag]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceGroup :: [Tag] -> ResourceGroup
 mkResourceGroup resourceGroupTags
-  = ResourceGroup {resourceGroupTags = resourceGroupTags}
+  = ResourceGroup
+      {haddock_workaround_ = (), resourceGroupTags = resourceGroupTags}
 instance ToResourceProperties ResourceGroup where
   toResourceProperties ResourceGroup {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ResourceGroup where
     = JSON.object ["ResourceGroupTags" JSON..= resourceGroupTags]
 instance Property "ResourceGroupTags" ResourceGroup where
   type PropertyType "ResourceGroupTags" ResourceGroup = [Tag]
-  set newValue ResourceGroup {}
+  set newValue ResourceGroup {..}
     = ResourceGroup {resourceGroupTags = newValue, ..}

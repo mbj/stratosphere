@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingProfileQueueReferenceProperty
-  = RoutingProfileQueueReferenceProperty {channel :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html>
+    RoutingProfileQueueReferenceProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html#cfn-connect-routingprofile-routingprofilequeuereference-channel>
+                                          channel :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html#cfn-connect-routingprofile-routingprofilequeuereference-queuearn>
                                           queueArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingProfileQueueReferenceProperty ::
@@ -16,7 +20,7 @@ mkRoutingProfileQueueReferenceProperty ::
   -> Value Prelude.Text -> RoutingProfileQueueReferenceProperty
 mkRoutingProfileQueueReferenceProperty channel queueArn
   = RoutingProfileQueueReferenceProperty
-      {channel = channel, queueArn = queueArn}
+      {haddock_workaround_ = (), channel = channel, queueArn = queueArn}
 instance ToResourceProperties RoutingProfileQueueReferenceProperty where
   toResourceProperties RoutingProfileQueueReferenceProperty {..}
     = ResourceProperties

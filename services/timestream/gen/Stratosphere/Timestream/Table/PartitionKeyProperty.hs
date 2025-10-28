@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionKeyProperty
-  = PartitionKeyProperty {enforcementInRecord :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html>
+    PartitionKeyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html#cfn-timestream-table-partitionkey-enforcementinrecord>
+                          enforcementInRecord :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html#cfn-timestream-table-partitionkey-name>
                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html#cfn-timestream-table-partitionkey-type>
                           type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionKeyProperty ::
   Value Prelude.Text -> PartitionKeyProperty
 mkPartitionKeyProperty type'
   = PartitionKeyProperty
-      {type' = type', enforcementInRecord = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       enforcementInRecord = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties PartitionKeyProperty where
   toResourceProperties PartitionKeyProperty {..}
     = ResourceProperties

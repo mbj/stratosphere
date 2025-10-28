@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApprovedOrigin
-  = ApprovedOrigin {instanceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html>
+    ApprovedOrigin {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html#cfn-connect-approvedorigin-instanceid>
+                    instanceId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html#cfn-connect-approvedorigin-origin>
                     origin :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApprovedOrigin ::
   Value Prelude.Text -> Value Prelude.Text -> ApprovedOrigin
 mkApprovedOrigin instanceId origin
-  = ApprovedOrigin {instanceId = instanceId, origin = origin}
+  = ApprovedOrigin
+      {haddock_workaround_ = (), instanceId = instanceId,
+       origin = origin}
 instance ToResourceProperties ApprovedOrigin where
   toResourceProperties ApprovedOrigin {..}
     = ResourceProperties

@@ -9,21 +9,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PackageGroup
-  = PackageGroup {contactInfo :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html>
+    PackageGroup {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-contactinfo>
+                  contactInfo :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-domainname>
                   domainName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-domainowner>
                   domainOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-originconfiguration>
                   originConfiguration :: (Prelude.Maybe OriginConfigurationProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-pattern>
                   pattern :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html#cfn-codeartifact-packagegroup-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPackageGroup ::
   Value Prelude.Text -> Value Prelude.Text -> PackageGroup
 mkPackageGroup domainName pattern
   = PackageGroup
-      {domainName = domainName, pattern = pattern,
-       contactInfo = Prelude.Nothing, description = Prelude.Nothing,
-       domainOwner = Prelude.Nothing,
+      {haddock_workaround_ = (), domainName = domainName,
+       pattern = pattern, contactInfo = Prelude.Nothing,
+       description = Prelude.Nothing, domainOwner = Prelude.Nothing,
        originConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties PackageGroup where
   toResourceProperties PackageGroup {..}

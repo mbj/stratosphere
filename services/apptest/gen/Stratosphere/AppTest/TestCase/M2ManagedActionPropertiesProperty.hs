@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data M2ManagedActionPropertiesProperty
-  = M2ManagedActionPropertiesProperty {forceStop :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedactionproperties.html>
+    M2ManagedActionPropertiesProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedactionproperties.html#cfn-apptest-testcase-m2managedactionproperties-forcestop>
+                                       forceStop :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedactionproperties.html#cfn-apptest-testcase-m2managedactionproperties-importdatasetlocation>
                                        importDataSetLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkM2ManagedActionPropertiesProperty ::
   M2ManagedActionPropertiesProperty
 mkM2ManagedActionPropertiesProperty
   = M2ManagedActionPropertiesProperty
-      {forceStop = Prelude.Nothing,
+      {haddock_workaround_ = (), forceStop = Prelude.Nothing,
        importDataSetLocation = Prelude.Nothing}
 instance ToResourceProperties M2ManagedActionPropertiesProperty where
   toResourceProperties M2ManagedActionPropertiesProperty {..}

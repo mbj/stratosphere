@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InforNexusConnectorProfileCredentialsProperty
-  = InforNexusConnectorProfileCredentialsProperty {accessKeyId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html>
+    InforNexusConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid>
+                                                   accessKeyId :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey>
                                                    datakey :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey>
                                                    secretAccessKey :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid>
                                                    userId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusConnectorProfileCredentialsProperty ::
@@ -25,8 +31,9 @@ mkInforNexusConnectorProfileCredentialsProperty
   secretAccessKey
   userId
   = InforNexusConnectorProfileCredentialsProperty
-      {accessKeyId = accessKeyId, datakey = datakey,
-       secretAccessKey = secretAccessKey, userId = userId}
+      {haddock_workaround_ = (), accessKeyId = accessKeyId,
+       datakey = datakey, secretAccessKey = secretAccessKey,
+       userId = userId}
 instance ToResourceProperties InforNexusConnectorProfileCredentialsProperty where
   toResourceProperties
     InforNexusConnectorProfileCredentialsProperty {..}

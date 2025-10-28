@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountTakeoverActionTypeProperty
-  = AccountTakeoverActionTypeProperty {eventAction :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html>
+    AccountTakeoverActionTypeProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-eventaction>
+                                       eventAction :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype-notify>
                                        notify :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverActionTypeProperty ::
@@ -16,7 +20,8 @@ mkAccountTakeoverActionTypeProperty ::
   -> Value Prelude.Bool -> AccountTakeoverActionTypeProperty
 mkAccountTakeoverActionTypeProperty eventAction notify
   = AccountTakeoverActionTypeProperty
-      {eventAction = eventAction, notify = notify}
+      {haddock_workaround_ = (), eventAction = eventAction,
+       notify = notify}
 instance ToResourceProperties AccountTakeoverActionTypeProperty where
   toResourceProperties AccountTakeoverActionTypeProperty {..}
     = ResourceProperties

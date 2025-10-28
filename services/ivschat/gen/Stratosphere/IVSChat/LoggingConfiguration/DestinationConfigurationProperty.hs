@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.IVSChat.LoggingConfiguration.FirehoseDestinat
 import {-# SOURCE #-} Stratosphere.IVSChat.LoggingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsDestinationConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html>
+    DestinationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-cloudwatchlogs>
+                                      cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsDestinationConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-firehose>
                                       firehose :: (Prelude.Maybe FirehoseDestinationConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-s3>
                                       s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
   DestinationConfigurationProperty
 mkDestinationConfigurationProperty
   = DestinationConfigurationProperty
-      {cloudWatchLogs = Prelude.Nothing, firehose = Prelude.Nothing,
-       s3 = Prelude.Nothing}
+      {haddock_workaround_ = (), cloudWatchLogs = Prelude.Nothing,
+       firehose = Prelude.Nothing, s3 = Prelude.Nothing}
 instance ToResourceProperties DestinationConfigurationProperty where
   toResourceProperties DestinationConfigurationProperty {..}
     = ResourceProperties

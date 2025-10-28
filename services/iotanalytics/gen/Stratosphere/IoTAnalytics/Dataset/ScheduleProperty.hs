@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleProperty
-  = ScheduleProperty {scheduleExpression :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-schedule.html>
+    ScheduleProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-schedule.html#cfn-iotanalytics-dataset-schedule-scheduleexpression>
+                      scheduleExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: Value Prelude.Text -> ScheduleProperty
 mkScheduleProperty scheduleExpression
-  = ScheduleProperty {scheduleExpression = scheduleExpression}
+  = ScheduleProperty
+      {haddock_workaround_ = (), scheduleExpression = scheduleExpression}
 instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ScheduleProperty where
     = JSON.object ["ScheduleExpression" JSON..= scheduleExpression]
 instance Property "ScheduleExpression" ScheduleProperty where
   type PropertyType "ScheduleExpression" ScheduleProperty = Value Prelude.Text
-  set newValue ScheduleProperty {}
+  set newValue ScheduleProperty {..}
     = ScheduleProperty {scheduleExpression = newValue, ..}

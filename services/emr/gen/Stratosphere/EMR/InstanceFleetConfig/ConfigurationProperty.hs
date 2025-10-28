@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationProperty
-  = ConfigurationProperty {classification :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html>
+    ConfigurationProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html#cfn-elasticmapreduce-instancefleetconfig-configuration-classification>
+                           classification :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html#cfn-elasticmapreduce-instancefleetconfig-configuration-configurationproperties>
                            configurationProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html#cfn-elasticmapreduce-instancefleetconfig-configuration-configurations>
                            configurations :: (Prelude.Maybe [ConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProperty :: ConfigurationProperty
 mkConfigurationProperty
   = ConfigurationProperty
-      {classification = Prelude.Nothing,
+      {haddock_workaround_ = (), classification = Prelude.Nothing,
        configurationProperties = Prelude.Nothing,
        configurations = Prelude.Nothing}
 instance ToResourceProperties ConfigurationProperty where

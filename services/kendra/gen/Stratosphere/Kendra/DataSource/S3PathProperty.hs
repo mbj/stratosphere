@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3PathProperty
-  = S3PathProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html>
+    S3PathProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket>
+                    bucket :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-key>
                     key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3PathProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3PathProperty
 mkS3PathProperty bucket key
-  = S3PathProperty {bucket = bucket, key = key}
+  = S3PathProperty
+      {haddock_workaround_ = (), bucket = bucket, key = key}
 instance ToResourceProperties S3PathProperty where
   toResourceProperties S3PathProperty {..}
     = ResourceProperties

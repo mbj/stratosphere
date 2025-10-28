@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InteractiveConfigurationProperty
-  = InteractiveConfigurationProperty {livyEndpointEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html>
+    InteractiveConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html#cfn-emrserverless-application-interactiveconfiguration-livyendpointenabled>
+                                      livyEndpointEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html#cfn-emrserverless-application-interactiveconfiguration-studioenabled>
                                       studioEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInteractiveConfigurationProperty ::
   InteractiveConfigurationProperty
 mkInteractiveConfigurationProperty
   = InteractiveConfigurationProperty
-      {livyEndpointEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), livyEndpointEnabled = Prelude.Nothing,
        studioEnabled = Prelude.Nothing}
 instance ToResourceProperties InteractiveConfigurationProperty where
   toResourceProperties InteractiveConfigurationProperty {..}

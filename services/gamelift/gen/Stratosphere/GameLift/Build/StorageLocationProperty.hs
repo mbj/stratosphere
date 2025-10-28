@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageLocationProperty
-  = StorageLocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html>
+    StorageLocationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-bucket>
+                             bucket :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-key>
                              key :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-objectversion>
                              objectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storagelocation-rolearn>
                              roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLocationProperty ::
@@ -18,8 +24,8 @@ mkStorageLocationProperty ::
      -> Value Prelude.Text -> StorageLocationProperty
 mkStorageLocationProperty bucket key roleArn
   = StorageLocationProperty
-      {bucket = bucket, key = key, roleArn = roleArn,
-       objectVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket, key = key,
+       roleArn = roleArn, objectVersion = Prelude.Nothing}
 instance ToResourceProperties StorageLocationProperty where
   toResourceProperties StorageLocationProperty {..}
     = ResourceProperties

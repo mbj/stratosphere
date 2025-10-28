@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppIntegrations.Application.ExternalUrlConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ApplicationSourceConfigProperty
-  = ApplicationSourceConfigProperty {externalUrlConfig :: ExternalUrlConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html>
+    ApplicationSourceConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html#cfn-appintegrations-application-applicationsourceconfig-externalurlconfig>
+                                     externalUrlConfig :: ExternalUrlConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSourceConfigProperty ::
   ExternalUrlConfigProperty -> ApplicationSourceConfigProperty
 mkApplicationSourceConfigProperty externalUrlConfig
   = ApplicationSourceConfigProperty
-      {externalUrlConfig = externalUrlConfig}
+      {haddock_workaround_ = (), externalUrlConfig = externalUrlConfig}
 instance ToResourceProperties ApplicationSourceConfigProperty where
   toResourceProperties ApplicationSourceConfigProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON ApplicationSourceConfigProperty where
     = JSON.object ["ExternalUrlConfig" JSON..= externalUrlConfig]
 instance Property "ExternalUrlConfig" ApplicationSourceConfigProperty where
   type PropertyType "ExternalUrlConfig" ApplicationSourceConfigProperty = ExternalUrlConfigProperty
-  set newValue ApplicationSourceConfigProperty {}
+  set newValue ApplicationSourceConfigProperty {..}
     = ApplicationSourceConfigProperty
         {externalUrlConfig = newValue, ..}

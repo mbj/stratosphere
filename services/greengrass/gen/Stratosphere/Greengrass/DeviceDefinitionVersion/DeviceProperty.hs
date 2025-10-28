@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceProperty
-  = DeviceProperty {certificateArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html>
+    DeviceProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-certificatearn>
+                    certificateArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-id>
                     id :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-syncshadow>
                     syncShadow :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html#cfn-greengrass-devicedefinitionversion-device-thingarn>
                     thingArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceProperty ::
@@ -17,8 +23,8 @@ mkDeviceProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> DeviceProperty
 mkDeviceProperty certificateArn id thingArn
   = DeviceProperty
-      {certificateArn = certificateArn, id = id, thingArn = thingArn,
-       syncShadow = Prelude.Nothing}
+      {haddock_workaround_ = (), certificateArn = certificateArn,
+       id = id, thingArn = thingArn, syncShadow = Prelude.Nothing}
 instance ToResourceProperties DeviceProperty where
   toResourceProperties DeviceProperty {..}
     = ResourceProperties

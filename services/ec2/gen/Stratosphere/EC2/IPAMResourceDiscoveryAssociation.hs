@@ -9,8 +9,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IPAMResourceDiscoveryAssociation
-  = IPAMResourceDiscoveryAssociation {ipamId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html>
+    IPAMResourceDiscoveryAssociation {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html#cfn-ec2-ipamresourcediscoveryassociation-ipamid>
+                                      ipamId :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html#cfn-ec2-ipamresourcediscoveryassociation-ipamresourcediscoveryid>
                                       ipamResourceDiscoveryId :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html#cfn-ec2-ipamresourcediscoveryassociation-tags>
                                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMResourceDiscoveryAssociation ::
@@ -18,7 +23,7 @@ mkIPAMResourceDiscoveryAssociation ::
   -> Value Prelude.Text -> IPAMResourceDiscoveryAssociation
 mkIPAMResourceDiscoveryAssociation ipamId ipamResourceDiscoveryId
   = IPAMResourceDiscoveryAssociation
-      {ipamId = ipamId,
+      {haddock_workaround_ = (), ipamId = ipamId,
        ipamResourceDiscoveryId = ipamResourceDiscoveryId,
        tags = Prelude.Nothing}
 instance ToResourceProperties IPAMResourceDiscoveryAssociation where

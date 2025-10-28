@@ -7,20 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyStatement
-  = PolicyStatement {action :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html>
+    PolicyStatement {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-action>
+                     action :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-arn>
                      arn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-condition>
                      condition :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-effect>
                      effect :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-principal>
                      principal :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-statementid>
                      statementId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyStatement ::
   Value Prelude.Text -> Value Prelude.Text -> PolicyStatement
 mkPolicyStatement arn statementId
   = PolicyStatement
-      {arn = arn, statementId = statementId, action = Prelude.Nothing,
-       condition = Prelude.Nothing, effect = Prelude.Nothing,
-       principal = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = arn, statementId = statementId,
+       action = Prelude.Nothing, condition = Prelude.Nothing,
+       effect = Prelude.Nothing, principal = Prelude.Nothing}
 instance ToResourceProperties PolicyStatement where
   toResourceProperties PolicyStatement {..}
     = ResourceProperties

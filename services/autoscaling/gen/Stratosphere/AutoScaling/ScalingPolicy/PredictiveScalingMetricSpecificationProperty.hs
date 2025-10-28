@@ -14,12 +14,21 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveScalingMetricSpecificationProperty
-  = PredictiveScalingMetricSpecificationProperty {customizedCapacityMetricSpecification :: (Prelude.Maybe PredictiveScalingCustomizedCapacityMetricProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html>
+    PredictiveScalingMetricSpecificationProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-customizedcapacitymetricspecification>
+                                                  customizedCapacityMetricSpecification :: (Prelude.Maybe PredictiveScalingCustomizedCapacityMetricProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-customizedloadmetricspecification>
                                                   customizedLoadMetricSpecification :: (Prelude.Maybe PredictiveScalingCustomizedLoadMetricProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-customizedscalingmetricspecification>
                                                   customizedScalingMetricSpecification :: (Prelude.Maybe PredictiveScalingCustomizedScalingMetricProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-predefinedloadmetricspecification>
                                                   predefinedLoadMetricSpecification :: (Prelude.Maybe PredictiveScalingPredefinedLoadMetricProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-predefinedmetricpairspecification>
                                                   predefinedMetricPairSpecification :: (Prelude.Maybe PredictiveScalingPredefinedMetricPairProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-predefinedscalingmetricspecification>
                                                   predefinedScalingMetricSpecification :: (Prelude.Maybe PredictiveScalingPredefinedScalingMetricProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html#cfn-autoscaling-scalingpolicy-predictivescalingmetricspecification-targetvalue>
                                                   targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingMetricSpecificationProperty ::
@@ -27,7 +36,7 @@ mkPredictiveScalingMetricSpecificationProperty ::
   -> PredictiveScalingMetricSpecificationProperty
 mkPredictiveScalingMetricSpecificationProperty targetValue
   = PredictiveScalingMetricSpecificationProperty
-      {targetValue = targetValue,
+      {haddock_workaround_ = (), targetValue = targetValue,
        customizedCapacityMetricSpecification = Prelude.Nothing,
        customizedLoadMetricSpecification = Prelude.Nothing,
        customizedScalingMetricSpecification = Prelude.Nothing,

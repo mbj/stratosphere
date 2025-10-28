@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableResourceProperty
-  = TableResourceProperty {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html>
+    TableResourceProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-catalogid>
+                           catalogId :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-databasename>
                            databaseName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-tablewildcard>
                            tableWildcard :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableResourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TableResourceProperty
 mkTableResourceProperty catalogId databaseName
   = TableResourceProperty
-      {catalogId = catalogId, databaseName = databaseName,
-       name = Prelude.Nothing, tableWildcard = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = catalogId,
+       databaseName = databaseName, name = Prelude.Nothing,
+       tableWildcard = Prelude.Nothing}
 instance ToResourceProperties TableResourceProperty where
   toResourceProperties TableResourceProperty {..}
     = ResourceProperties

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.BridgeFlowSourceProperty 
 import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.BridgeNetworkSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data BridgeSourceProperty
-  = BridgeSourceProperty {flowSource :: (Prelude.Maybe BridgeFlowSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html>
+    BridgeSourceProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html#cfn-mediaconnect-bridge-bridgesource-flowsource>
+                          flowSource :: (Prelude.Maybe BridgeFlowSourceProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html#cfn-mediaconnect-bridge-bridgesource-networksource>
                           networkSource :: (Prelude.Maybe BridgeNetworkSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeSourceProperty :: BridgeSourceProperty
 mkBridgeSourceProperty
   = BridgeSourceProperty
-      {flowSource = Prelude.Nothing, networkSource = Prelude.Nothing}
+      {haddock_workaround_ = (), flowSource = Prelude.Nothing,
+       networkSource = Prelude.Nothing}
 instance ToResourceProperties BridgeSourceProperty where
   toResourceProperties BridgeSourceProperty {..}
     = ResourceProperties

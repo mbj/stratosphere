@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.S3EncryptionProperty as Exports
 import Stratosphere.ResourceProperties
 data ArtifactConfigProperty
-  = ArtifactConfigProperty {s3Encryption :: (Prelude.Maybe S3EncryptionProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html>
+    ArtifactConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html#cfn-synthetics-canary-artifactconfig-s3encryption>
+                            s3Encryption :: (Prelude.Maybe S3EncryptionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactConfigProperty :: ArtifactConfigProperty
 mkArtifactConfigProperty
-  = ArtifactConfigProperty {s3Encryption = Prelude.Nothing}
+  = ArtifactConfigProperty
+      {haddock_workaround_ = (), s3Encryption = Prelude.Nothing}
 instance ToResourceProperties ArtifactConfigProperty where
   toResourceProperties ArtifactConfigProperty {..}
     = ResourceProperties
@@ -29,5 +33,5 @@ instance JSON.ToJSON ArtifactConfigProperty where
               [(JSON..=) "S3Encryption" Prelude.<$> s3Encryption]))
 instance Property "S3Encryption" ArtifactConfigProperty where
   type PropertyType "S3Encryption" ArtifactConfigProperty = S3EncryptionProperty
-  set newValue ArtifactConfigProperty {}
+  set newValue ArtifactConfigProperty {..}
     = ArtifactConfigProperty {s3Encryption = Prelude.pure newValue, ..}

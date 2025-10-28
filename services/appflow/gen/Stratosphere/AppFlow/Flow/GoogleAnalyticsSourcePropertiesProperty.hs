@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoogleAnalyticsSourcePropertiesProperty
-  = GoogleAnalyticsSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html>
+    GoogleAnalyticsSourcePropertiesProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object>
+                                             object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleAnalyticsSourcePropertiesProperty ::
   Value Prelude.Text -> GoogleAnalyticsSourcePropertiesProperty
 mkGoogleAnalyticsSourcePropertiesProperty object
-  = GoogleAnalyticsSourcePropertiesProperty {object = object}
+  = GoogleAnalyticsSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties GoogleAnalyticsSourcePropertiesProperty where
   toResourceProperties GoogleAnalyticsSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON GoogleAnalyticsSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" GoogleAnalyticsSourcePropertiesProperty where
   type PropertyType "Object" GoogleAnalyticsSourcePropertiesProperty = Value Prelude.Text
-  set newValue GoogleAnalyticsSourcePropertiesProperty {}
+  set newValue GoogleAnalyticsSourcePropertiesProperty {..}
     = GoogleAnalyticsSourcePropertiesProperty {object = newValue, ..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonTokenTypeConfigurationProperty
-  = JsonTokenTypeConfigurationProperty {groupAttributeField :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html>
+    JsonTokenTypeConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield>
+                                        groupAttributeField :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-usernameattributefield>
                                         userNameAttributeField :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonTokenTypeConfigurationProperty ::
@@ -18,7 +22,8 @@ mkJsonTokenTypeConfigurationProperty
   groupAttributeField
   userNameAttributeField
   = JsonTokenTypeConfigurationProperty
-      {groupAttributeField = groupAttributeField,
+      {haddock_workaround_ = (),
+       groupAttributeField = groupAttributeField,
        userNameAttributeField = userNameAttributeField}
 instance ToResourceProperties JsonTokenTypeConfigurationProperty where
   toResourceProperties JsonTokenTypeConfigurationProperty {..}

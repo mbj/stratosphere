@@ -8,17 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Dimension
-  = Dimension {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html>
+    Dimension {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name>
+               name :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues>
                stringValues :: (ValueList Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type>
                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDimension ::
   ValueList Prelude.Text -> Value Prelude.Text -> Dimension
 mkDimension stringValues type'
   = Dimension
-      {stringValues = stringValues, type' = type',
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), stringValues = stringValues,
+       type' = type', name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Dimension where
   toResourceProperties Dimension {..}
     = ResourceProperties

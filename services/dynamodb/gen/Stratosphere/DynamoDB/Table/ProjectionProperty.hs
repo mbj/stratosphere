@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectionProperty
-  = ProjectionProperty {nonKeyAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html>
+    ProjectionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html#cfn-dynamodb-table-projection-nonkeyattributes>
+                        nonKeyAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html#cfn-dynamodb-table-projection-projectiontype>
                         projectionType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectionProperty :: ProjectionProperty
 mkProjectionProperty
   = ProjectionProperty
-      {nonKeyAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), nonKeyAttributes = Prelude.Nothing,
        projectionType = Prelude.Nothing}
 instance ToResourceProperties ProjectionProperty where
   toResourceProperties ProjectionProperty {..}

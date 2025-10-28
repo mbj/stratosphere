@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.OffPeakWindowPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OffPeakWindowOptionsProperty
-  = OffPeakWindowOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html>
+    OffPeakWindowOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html#cfn-opensearchservice-domain-offpeakwindowoptions-enabled>
+                                  enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html#cfn-opensearchservice-domain-offpeakwindowoptions-offpeakwindow>
                                   offPeakWindow :: (Prelude.Maybe OffPeakWindowProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOffPeakWindowOptionsProperty :: OffPeakWindowOptionsProperty
 mkOffPeakWindowOptionsProperty
   = OffPeakWindowOptionsProperty
-      {enabled = Prelude.Nothing, offPeakWindow = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       offPeakWindow = Prelude.Nothing}
 instance ToResourceProperties OffPeakWindowOptionsProperty where
   toResourceProperties OffPeakWindowOptionsProperty {..}
     = ResourceProperties

@@ -19,30 +19,45 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.SnsProperty as Export
 import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.SqsProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {clearTimer :: (Prelude.Maybe ClearTimerProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer>
+                    clearTimer :: (Prelude.Maybe ClearTimerProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb>
                     dynamoDB :: (Prelude.Maybe DynamoDBProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2>
                     dynamoDBv2 :: (Prelude.Maybe DynamoDBv2Property),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose>
                     firehose :: (Prelude.Maybe FirehoseProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents>
                     iotEvents :: (Prelude.Maybe IotEventsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise>
                     iotSiteWise :: (Prelude.Maybe IotSiteWiseProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish>
                     iotTopicPublish :: (Prelude.Maybe IotTopicPublishProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda>
                     lambda :: (Prelude.Maybe LambdaProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer>
                     resetTimer :: (Prelude.Maybe ResetTimerProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer>
                     setTimer :: (Prelude.Maybe SetTimerProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable>
                     setVariable :: (Prelude.Maybe SetVariableProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns>
                     sns :: (Prelude.Maybe SnsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs>
                     sqs :: (Prelude.Maybe SqsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
-      {clearTimer = Prelude.Nothing, dynamoDB = Prelude.Nothing,
-       dynamoDBv2 = Prelude.Nothing, firehose = Prelude.Nothing,
-       iotEvents = Prelude.Nothing, iotSiteWise = Prelude.Nothing,
-       iotTopicPublish = Prelude.Nothing, lambda = Prelude.Nothing,
-       resetTimer = Prelude.Nothing, setTimer = Prelude.Nothing,
-       setVariable = Prelude.Nothing, sns = Prelude.Nothing,
-       sqs = Prelude.Nothing}
+      {haddock_workaround_ = (), clearTimer = Prelude.Nothing,
+       dynamoDB = Prelude.Nothing, dynamoDBv2 = Prelude.Nothing,
+       firehose = Prelude.Nothing, iotEvents = Prelude.Nothing,
+       iotSiteWise = Prelude.Nothing, iotTopicPublish = Prelude.Nothing,
+       lambda = Prelude.Nothing, resetTimer = Prelude.Nothing,
+       setTimer = Prelude.Nothing, setVariable = Prelude.Nothing,
+       sns = Prelude.Nothing, sqs = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties

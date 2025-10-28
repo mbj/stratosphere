@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueDataSourceProperty
-  = GlueDataSourceProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html>
+    GlueDataSourceProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html#cfn-cleanroomsml-trainingdataset-gluedatasource-catalogid>
+                            catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html#cfn-cleanroomsml-trainingdataset-gluedatasource-databasename>
                             databaseName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html#cfn-cleanroomsml-trainingdataset-gluedatasource-tablename>
                             tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueDataSourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GlueDataSourceProperty
 mkGlueDataSourceProperty databaseName tableName
   = GlueDataSourceProperty
-      {databaseName = databaseName, tableName = tableName,
-       catalogId = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       tableName = tableName, catalogId = Prelude.Nothing}
 instance ToResourceProperties GlueDataSourceProperty where
   toResourceProperties GlueDataSourceProperty {..}
     = ResourceProperties

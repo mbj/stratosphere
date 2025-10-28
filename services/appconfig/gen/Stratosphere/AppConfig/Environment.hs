@@ -9,19 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Environment
-  = Environment {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html>
+    Environment {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid>
+                 applicationId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-monitors>
                  monitors :: (Prelude.Maybe [MonitorProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text -> Value Prelude.Text -> Environment
 mkEnvironment applicationId name
   = Environment
-      {applicationId = applicationId, name = name,
-       description = Prelude.Nothing, monitors = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationId = applicationId,
+       name = name, description = Prelude.Nothing,
+       monitors = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties

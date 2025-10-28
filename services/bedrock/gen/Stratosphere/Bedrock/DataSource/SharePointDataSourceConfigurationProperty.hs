@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SharePointCrawlerConfigura
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SharePointSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SharePointDataSourceConfigurationProperty
-  = SharePointDataSourceConfigurationProperty {crawlerConfiguration :: (Prelude.Maybe SharePointCrawlerConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html>
+    SharePointDataSourceConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html#cfn-bedrock-datasource-sharepointdatasourceconfiguration-crawlerconfiguration>
+                                               crawlerConfiguration :: (Prelude.Maybe SharePointCrawlerConfigurationProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html#cfn-bedrock-datasource-sharepointdatasourceconfiguration-sourceconfiguration>
                                                sourceConfiguration :: SharePointSourceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointDataSourceConfigurationProperty ::
@@ -17,7 +21,8 @@ mkSharePointDataSourceConfigurationProperty ::
   -> SharePointDataSourceConfigurationProperty
 mkSharePointDataSourceConfigurationProperty sourceConfiguration
   = SharePointDataSourceConfigurationProperty
-      {sourceConfiguration = sourceConfiguration,
+      {haddock_workaround_ = (),
+       sourceConfiguration = sourceConfiguration,
        crawlerConfiguration = Prelude.Nothing}
 instance ToResourceProperties SharePointDataSourceConfigurationProperty where
   toResourceProperties SharePointDataSourceConfigurationProperty {..}

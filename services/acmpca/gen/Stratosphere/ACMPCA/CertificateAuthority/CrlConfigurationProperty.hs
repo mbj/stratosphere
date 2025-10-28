@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.CrlDistributionPo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrlConfigurationProperty
-  = CrlConfigurationProperty {crlDistributionPointExtensionConfiguration :: (Prelude.Maybe CrlDistributionPointExtensionConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html>
+    CrlConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-crldistributionpointextensionconfiguration>
+                              crlDistributionPointExtensionConfiguration :: (Prelude.Maybe CrlDistributionPointExtensionConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname>
                               customCname :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled>
                               enabled :: (Value Prelude.Bool),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays>
                               expirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname>
                               s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl>
                               s3ObjectAcl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrlConfigurationProperty ::
   Value Prelude.Bool -> CrlConfigurationProperty
 mkCrlConfigurationProperty enabled
   = CrlConfigurationProperty
-      {enabled = enabled,
+      {haddock_workaround_ = (), enabled = enabled,
        crlDistributionPointExtensionConfiguration = Prelude.Nothing,
        customCname = Prelude.Nothing, expirationInDays = Prelude.Nothing,
        s3BucketName = Prelude.Nothing, s3ObjectAcl = Prelude.Nothing}

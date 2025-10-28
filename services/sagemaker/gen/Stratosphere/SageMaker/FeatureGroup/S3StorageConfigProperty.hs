@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3StorageConfigProperty
-  = S3StorageConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-s3storageconfig.html>
+    S3StorageConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-s3storageconfig.html#cfn-sagemaker-featuregroup-s3storageconfig-kmskeyid>
+                             kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-s3storageconfig.html#cfn-sagemaker-featuregroup-s3storageconfig-s3uri>
                              s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3StorageConfigProperty ::
   Value Prelude.Text -> S3StorageConfigProperty
 mkS3StorageConfigProperty s3Uri
   = S3StorageConfigProperty
-      {s3Uri = s3Uri, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Uri = s3Uri,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties S3StorageConfigProperty where
   toResourceProperties S3StorageConfigProperty {..}
     = ResourceProperties

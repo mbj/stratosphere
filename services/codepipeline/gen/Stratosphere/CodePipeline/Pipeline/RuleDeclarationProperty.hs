@@ -10,19 +10,28 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.RuleTypeIdProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleDeclarationProperty
-  = RuleDeclarationProperty {configuration :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html>
+    RuleDeclarationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-configuration>
+                             configuration :: (Prelude.Maybe JSON.Object),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-inputartifacts>
                              inputArtifacts :: (Prelude.Maybe [InputArtifactProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-region>
                              region :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-rolearn>
                              roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-ruletypeid>
                              ruleTypeId :: (Prelude.Maybe RuleTypeIdProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleDeclarationProperty :: RuleDeclarationProperty
 mkRuleDeclarationProperty
   = RuleDeclarationProperty
-      {configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
-       name = Prelude.Nothing, region = Prelude.Nothing,
-       roleArn = Prelude.Nothing, ruleTypeId = Prelude.Nothing}
+      {haddock_workaround_ = (), configuration = Prelude.Nothing,
+       inputArtifacts = Prelude.Nothing, name = Prelude.Nothing,
+       region = Prelude.Nothing, roleArn = Prelude.Nothing,
+       ruleTypeId = Prelude.Nothing}
 instance ToResourceProperties RuleDeclarationProperty where
   toResourceProperties RuleDeclarationProperty {..}
     = ResourceProperties

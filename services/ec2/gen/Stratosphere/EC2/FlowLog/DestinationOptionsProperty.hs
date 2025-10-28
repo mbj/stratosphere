@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationOptionsProperty
-  = DestinationOptionsProperty {fileFormat :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html>
+    DestinationOptionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html#cfn-ec2-flowlog-destinationoptions-fileformat>
+                                fileFormat :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html#cfn-ec2-flowlog-destinationoptions-hivecompatiblepartitions>
                                 hiveCompatiblePartitions :: (Value Prelude.Bool),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html#cfn-ec2-flowlog-destinationoptions-perhourpartition>
                                 perHourPartition :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationOptionsProperty ::
@@ -20,7 +25,7 @@ mkDestinationOptionsProperty
   hiveCompatiblePartitions
   perHourPartition
   = DestinationOptionsProperty
-      {fileFormat = fileFormat,
+      {haddock_workaround_ = (), fileFormat = fileFormat,
        hiveCompatiblePartitions = hiveCompatiblePartitions,
        perHourPartition = perHourPartition}
 instance ToResourceProperties DestinationOptionsProperty where

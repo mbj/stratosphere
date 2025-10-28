@@ -10,20 +10,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Connector
-  = Connector {accessRole :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html>
+    Connector {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-accessrole>
+               accessRole :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-as2config>
                as2Config :: (Prelude.Maybe As2ConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-loggingrole>
                loggingRole :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-securitypolicyname>
                securityPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-sftpconfig>
                sftpConfig :: (Prelude.Maybe SftpConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-url>
                url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
   Value Prelude.Text -> Value Prelude.Text -> Connector
 mkConnector accessRole url
   = Connector
-      {accessRole = accessRole, url = url, as2Config = Prelude.Nothing,
-       loggingRole = Prelude.Nothing,
+      {haddock_workaround_ = (), accessRole = accessRole, url = url,
+       as2Config = Prelude.Nothing, loggingRole = Prelude.Nothing,
        securityPolicyName = Prelude.Nothing, sftpConfig = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Connector where

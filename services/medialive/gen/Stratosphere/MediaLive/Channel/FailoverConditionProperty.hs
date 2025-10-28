@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FailoverConditionProperty
-  = FailoverConditionProperty {failoverConditionSettings :: (Prelude.Maybe FailoverConditionSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html>
+    FailoverConditionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html#cfn-medialive-channel-failovercondition-failoverconditionsettings>
+                               failoverConditionSettings :: (Prelude.Maybe FailoverConditionSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionProperty :: FailoverConditionProperty
 mkFailoverConditionProperty
   = FailoverConditionProperty
-      {failoverConditionSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       failoverConditionSettings = Prelude.Nothing}
 instance ToResourceProperties FailoverConditionProperty where
   toResourceProperties FailoverConditionProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON FailoverConditionProperty where
                  Prelude.<$> failoverConditionSettings]))
 instance Property "FailoverConditionSettings" FailoverConditionProperty where
   type PropertyType "FailoverConditionSettings" FailoverConditionProperty = FailoverConditionSettingsProperty
-  set newValue FailoverConditionProperty {}
+  set newValue FailoverConditionProperty {..}
     = FailoverConditionProperty
         {failoverConditionSettings = Prelude.pure newValue, ..}

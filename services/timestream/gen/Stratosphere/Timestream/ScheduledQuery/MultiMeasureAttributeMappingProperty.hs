@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiMeasureAttributeMappingProperty
-  = MultiMeasureAttributeMappingProperty {measureValueType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html>
+    MultiMeasureAttributeMappingProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-measurevaluetype>
+                                          measureValueType :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-sourcecolumn>
                                           sourceColumn :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html#cfn-timestream-scheduledquery-multimeasureattributemapping-targetmultimeasureattributename>
                                           targetMultiMeasureAttributeName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureAttributeMappingProperty ::
@@ -19,7 +24,8 @@ mkMultiMeasureAttributeMappingProperty
   measureValueType
   sourceColumn
   = MultiMeasureAttributeMappingProperty
-      {measureValueType = measureValueType, sourceColumn = sourceColumn,
+      {haddock_workaround_ = (), measureValueType = measureValueType,
+       sourceColumn = sourceColumn,
        targetMultiMeasureAttributeName = Prelude.Nothing}
 instance ToResourceProperties MultiMeasureAttributeMappingProperty where
   toResourceProperties MultiMeasureAttributeMappingProperty {..}

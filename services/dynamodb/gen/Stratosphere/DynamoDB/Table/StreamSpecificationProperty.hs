@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ResourcePolicyProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamSpecificationProperty
-  = StreamSpecificationProperty {resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html>
+    StreamSpecificationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-resourcepolicy>
+                                 resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-streamviewtype>
                                  streamViewType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSpecificationProperty ::
   Value Prelude.Text -> StreamSpecificationProperty
 mkStreamSpecificationProperty streamViewType
   = StreamSpecificationProperty
-      {streamViewType = streamViewType, resourcePolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), streamViewType = streamViewType,
+       resourcePolicy = Prelude.Nothing}
 instance ToResourceProperties StreamSpecificationProperty where
   toResourceProperties StreamSpecificationProperty {..}
     = ResourceProperties

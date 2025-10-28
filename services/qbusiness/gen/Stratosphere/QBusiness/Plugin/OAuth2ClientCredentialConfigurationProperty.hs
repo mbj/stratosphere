@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuth2ClientCredentialConfigurationProperty
-  = OAuth2ClientCredentialConfigurationProperty {roleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html>
+    OAuth2ClientCredentialConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html#cfn-qbusiness-plugin-oauth2clientcredentialconfiguration-rolearn>
+                                                 roleArn :: (Value Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html#cfn-qbusiness-plugin-oauth2clientcredentialconfiguration-secretarn>
                                                  secretArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuth2ClientCredentialConfigurationProperty ::
@@ -17,7 +21,8 @@ mkOAuth2ClientCredentialConfigurationProperty ::
      -> OAuth2ClientCredentialConfigurationProperty
 mkOAuth2ClientCredentialConfigurationProperty roleArn secretArn
   = OAuth2ClientCredentialConfigurationProperty
-      {roleArn = roleArn, secretArn = secretArn}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       secretArn = secretArn}
 instance ToResourceProperties OAuth2ClientCredentialConfigurationProperty where
   toResourceProperties
     OAuth2ClientCredentialConfigurationProperty {..}

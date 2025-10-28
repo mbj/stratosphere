@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseInspectionJsonProperty
-  = ResponseInspectionJsonProperty {failureValues :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html>
+    ResponseInspectionJsonProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-failurevalues>
+                                    failureValues :: (ValueList Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-identifier>
                                     identifier :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html#cfn-wafv2-webacl-responseinspectionjson-successvalues>
                                     successValues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionJsonProperty ::
@@ -21,8 +26,8 @@ mkResponseInspectionJsonProperty
   identifier
   successValues
   = ResponseInspectionJsonProperty
-      {failureValues = failureValues, identifier = identifier,
-       successValues = successValues}
+      {haddock_workaround_ = (), failureValues = failureValues,
+       identifier = identifier, successValues = successValues}
 instance ToResourceProperties ResponseInspectionJsonProperty where
   toResourceProperties ResponseInspectionJsonProperty {..}
     = ResourceProperties

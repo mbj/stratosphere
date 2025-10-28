@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcOutputSettingsProperty
-  = VpcOutputSettingsProperty {publicAddressAllocationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-vpcoutputsettings.html>
+    VpcOutputSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-vpcoutputsettings.html#cfn-medialive-channel-vpcoutputsettings-publicaddressallocationids>
+                               publicAddressAllocationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-vpcoutputsettings.html#cfn-medialive-channel-vpcoutputsettings-securitygroupids>
                                securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-vpcoutputsettings.html#cfn-medialive-channel-vpcoutputsettings-subnetids>
                                subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcOutputSettingsProperty :: VpcOutputSettingsProperty
 mkVpcOutputSettingsProperty
   = VpcOutputSettingsProperty
-      {publicAddressAllocationIds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       publicAddressAllocationIds = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
 instance ToResourceProperties VpcOutputSettingsProperty where
   toResourceProperties VpcOutputSettingsProperty {..}

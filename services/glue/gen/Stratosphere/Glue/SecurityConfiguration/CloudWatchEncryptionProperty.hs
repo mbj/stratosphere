@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchEncryptionProperty
-  = CloudWatchEncryptionProperty {cloudWatchEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html>
+    CloudWatchEncryptionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode>
+                                  cloudWatchEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn>
                                   kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchEncryptionProperty :: CloudWatchEncryptionProperty
 mkCloudWatchEncryptionProperty
   = CloudWatchEncryptionProperty
-      {cloudWatchEncryptionMode = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cloudWatchEncryptionMode = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing}
 instance ToResourceProperties CloudWatchEncryptionProperty where
   toResourceProperties CloudWatchEncryptionProperty {..}

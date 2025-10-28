@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterDetailProperty
-  = ParameterDetailProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html>
+    ParameterDetailProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html#cfn-bedrock-agent-parameterdetail-description>
+                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html#cfn-bedrock-agent-parameterdetail-required>
                              required :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html#cfn-bedrock-agent-parameterdetail-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterDetailProperty ::
   Value Prelude.Text -> ParameterDetailProperty
 mkParameterDetailProperty type'
   = ParameterDetailProperty
-      {type' = type', description = Prelude.Nothing,
-       required = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       description = Prelude.Nothing, required = Prelude.Nothing}
 instance ToResourceProperties ParameterDetailProperty where
   toResourceProperties ParameterDetailProperty {..}
     = ResourceProperties

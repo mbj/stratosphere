@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedPollerConfigProperty
-  = ProvisionedPollerConfigProperty {maximumPollers :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html>
+    ProvisionedPollerConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig-maximumpollers>
+                                     maximumPollers :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig-minimumpollers>
                                      minimumPollers :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedPollerConfigProperty ::
   ProvisionedPollerConfigProperty
 mkProvisionedPollerConfigProperty
   = ProvisionedPollerConfigProperty
-      {maximumPollers = Prelude.Nothing,
+      {haddock_workaround_ = (), maximumPollers = Prelude.Nothing,
        minimumPollers = Prelude.Nothing}
 instance ToResourceProperties ProvisionedPollerConfigProperty where
   toResourceProperties ProvisionedPollerConfigProperty {..}

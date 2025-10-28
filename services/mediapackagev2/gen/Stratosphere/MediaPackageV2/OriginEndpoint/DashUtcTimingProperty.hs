@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashUtcTimingProperty
-  = DashUtcTimingProperty {timingMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html>
+    DashUtcTimingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html#cfn-mediapackagev2-originendpoint-dashutctiming-timingmode>
+                           timingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html#cfn-mediapackagev2-originendpoint-dashutctiming-timingsource>
                            timingSource :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashUtcTimingProperty :: DashUtcTimingProperty
 mkDashUtcTimingProperty
   = DashUtcTimingProperty
-      {timingMode = Prelude.Nothing, timingSource = Prelude.Nothing}
+      {haddock_workaround_ = (), timingMode = Prelude.Nothing,
+       timingSource = Prelude.Nothing}
 instance ToResourceProperties DashUtcTimingProperty where
   toResourceProperties DashUtcTimingProperty {..}
     = ResourceProperties

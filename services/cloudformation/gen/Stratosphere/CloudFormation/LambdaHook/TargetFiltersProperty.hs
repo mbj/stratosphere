@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.LambdaHook.HookTargetProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetFiltersProperty
-  = TargetFiltersProperty {actions :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html>
+    TargetFiltersProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html#cfn-cloudformation-lambdahook-targetfilters-actions>
+                           actions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html#cfn-cloudformation-lambdahook-targetfilters-invocationpoints>
                            invocationPoints :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html#cfn-cloudformation-lambdahook-targetfilters-targetnames>
                            targetNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html#cfn-cloudformation-lambdahook-targetfilters-targets>
                            targets :: (Prelude.Maybe [HookTargetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetFiltersProperty :: TargetFiltersProperty
 mkTargetFiltersProperty
   = TargetFiltersProperty
-      {actions = Prelude.Nothing, invocationPoints = Prelude.Nothing,
-       targetNames = Prelude.Nothing, targets = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = Prelude.Nothing,
+       invocationPoints = Prelude.Nothing, targetNames = Prelude.Nothing,
+       targets = Prelude.Nothing}
 instance ToResourceProperties TargetFiltersProperty where
   toResourceProperties TargetFiltersProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerLimitsProperty
-  = WebCrawlerLimitsProperty {rateLimit :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html>
+    WebCrawlerLimitsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html#cfn-bedrock-datasource-webcrawlerlimits-ratelimit>
+                              rateLimit :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerLimitsProperty :: WebCrawlerLimitsProperty
 mkWebCrawlerLimitsProperty
-  = WebCrawlerLimitsProperty {rateLimit = Prelude.Nothing}
+  = WebCrawlerLimitsProperty
+      {haddock_workaround_ = (), rateLimit = Prelude.Nothing}
 instance ToResourceProperties WebCrawlerLimitsProperty where
   toResourceProperties WebCrawlerLimitsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON WebCrawlerLimitsProperty where
            (Prelude.catMaybes [(JSON..=) "RateLimit" Prelude.<$> rateLimit]))
 instance Property "RateLimit" WebCrawlerLimitsProperty where
   type PropertyType "RateLimit" WebCrawlerLimitsProperty = Value Prelude.Integer
-  set newValue WebCrawlerLimitsProperty {}
+  set newValue WebCrawlerLimitsProperty {..}
     = WebCrawlerLimitsProperty {rateLimit = Prelude.pure newValue, ..}

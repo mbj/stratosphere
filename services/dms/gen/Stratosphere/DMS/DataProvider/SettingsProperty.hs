@@ -10,15 +10,22 @@ import {-# SOURCE #-} Stratosphere.DMS.DataProvider.OracleSettingsProperty as Ex
 import {-# SOURCE #-} Stratosphere.DMS.DataProvider.PostgreSqlSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data SettingsProperty
-  = SettingsProperty {microsoftSqlServerSettings :: (Prelude.Maybe MicrosoftSqlServerSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html>
+    SettingsProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-microsoftsqlserversettings>
+                      microsoftSqlServerSettings :: (Prelude.Maybe MicrosoftSqlServerSettingsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mysqlsettings>
                       mySqlSettings :: (Prelude.Maybe MySqlSettingsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-oraclesettings>
                       oracleSettings :: (Prelude.Maybe OracleSettingsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-postgresqlsettings>
                       postgreSqlSettings :: (Prelude.Maybe PostgreSqlSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSettingsProperty :: SettingsProperty
 mkSettingsProperty
   = SettingsProperty
-      {microsoftSqlServerSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       microsoftSqlServerSettings = Prelude.Nothing,
        mySqlSettings = Prelude.Nothing, oracleSettings = Prelude.Nothing,
        postgreSqlSettings = Prelude.Nothing}
 instance ToResourceProperties SettingsProperty where

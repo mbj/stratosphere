@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisComponentProperty
-  = AnalysisComponentProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html>
+    AnalysisComponentProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn>
+                               arn :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id>
                                id :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisComponentProperty :: AnalysisComponentProperty
 mkAnalysisComponentProperty
   = AnalysisComponentProperty
-      {arn = Prelude.Nothing, id = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = Prelude.Nothing,
+       id = Prelude.Nothing}
 instance ToResourceProperties AnalysisComponentProperty where
   toResourceProperties AnalysisComponentProperty {..}
     = ResourceProperties

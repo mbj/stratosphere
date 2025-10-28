@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DvbNitSettingsProperty
-  = DvbNitSettingsProperty {networkId :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html>
+    DvbNitSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkid>
+                            networkId :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-networkname>
                             networkName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html#cfn-medialive-channel-dvbnitsettings-repinterval>
                             repInterval :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbNitSettingsProperty :: DvbNitSettingsProperty
 mkDvbNitSettingsProperty
   = DvbNitSettingsProperty
-      {networkId = Prelude.Nothing, networkName = Prelude.Nothing,
-       repInterval = Prelude.Nothing}
+      {haddock_workaround_ = (), networkId = Prelude.Nothing,
+       networkName = Prelude.Nothing, repInterval = Prelude.Nothing}
 instance ToResourceProperties DvbNitSettingsProperty where
   toResourceProperties DvbNitSettingsProperty {..}
     = ResourceProperties

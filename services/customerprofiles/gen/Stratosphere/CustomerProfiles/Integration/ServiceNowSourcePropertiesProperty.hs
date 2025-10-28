@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowSourcePropertiesProperty
-  = ServiceNowSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html>
+    ServiceNowSourcePropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object>
+                                        object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowSourcePropertiesProperty ::
   Value Prelude.Text -> ServiceNowSourcePropertiesProperty
 mkServiceNowSourcePropertiesProperty object
-  = ServiceNowSourcePropertiesProperty {object = object}
+  = ServiceNowSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties ServiceNowSourcePropertiesProperty where
   toResourceProperties ServiceNowSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ServiceNowSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" ServiceNowSourcePropertiesProperty where
   type PropertyType "Object" ServiceNowSourcePropertiesProperty = Value Prelude.Text
-  set newValue ServiceNowSourcePropertiesProperty {}
+  set newValue ServiceNowSourcePropertiesProperty {..}
     = ServiceNowSourcePropertiesProperty {object = newValue, ..}

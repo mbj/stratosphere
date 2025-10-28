@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.IPSetForwardedIPConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetReferenceStatementProperty
-  = IPSetReferenceStatementProperty {arn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html>
+    IPSetReferenceStatementProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn>
+                                     arn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig>
                                      iPSetForwardedIPConfig :: (Prelude.Maybe IPSetForwardedIPConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetReferenceStatementProperty ::
   Value Prelude.Text -> IPSetReferenceStatementProperty
 mkIPSetReferenceStatementProperty arn
   = IPSetReferenceStatementProperty
-      {arn = arn, iPSetForwardedIPConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = arn,
+       iPSetForwardedIPConfig = Prelude.Nothing}
 instance ToResourceProperties IPSetReferenceStatementProperty where
   toResourceProperties IPSetReferenceStatementProperty {..}
     = ResourceProperties

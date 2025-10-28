@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceServerScopeTypeProperty
-  = ResourceServerScopeTypeProperty {scopeDescription :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html>
+    ResourceServerScopeTypeProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopedescription>
+                                     scopeDescription :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html#cfn-cognito-userpoolresourceserver-resourceserverscopetype-scopename>
                                      scopeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceServerScopeTypeProperty ::
@@ -16,7 +20,8 @@ mkResourceServerScopeTypeProperty ::
   -> Value Prelude.Text -> ResourceServerScopeTypeProperty
 mkResourceServerScopeTypeProperty scopeDescription scopeName
   = ResourceServerScopeTypeProperty
-      {scopeDescription = scopeDescription, scopeName = scopeName}
+      {haddock_workaround_ = (), scopeDescription = scopeDescription,
+       scopeName = scopeName}
 instance ToResourceProperties ResourceServerScopeTypeProperty where
   toResourceProperties ResourceServerScopeTypeProperty {..}
     = ResourceProperties

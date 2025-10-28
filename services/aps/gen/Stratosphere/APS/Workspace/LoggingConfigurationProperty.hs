@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {logGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html>
+    LoggingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html#cfn-aps-workspace-loggingconfiguration-loggrouparn>
+                                  logGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
-  = LoggingConfigurationProperty {logGroupArn = Prelude.Nothing}
+  = LoggingConfigurationProperty
+      {haddock_workaround_ = (), logGroupArn = Prelude.Nothing}
 instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON LoggingConfigurationProperty where
               [(JSON..=) "LogGroupArn" Prelude.<$> logGroupArn]))
 instance Property "LogGroupArn" LoggingConfigurationProperty where
   type PropertyType "LogGroupArn" LoggingConfigurationProperty = Value Prelude.Text
-  set newValue LoggingConfigurationProperty {}
+  set newValue LoggingConfigurationProperty {..}
     = LoggingConfigurationProperty
         {logGroupArn = Prelude.pure newValue, ..}

@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicConfigProperty
-  = TopicConfigProperty {definition :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html>
+    TopicConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html#cfn-bedrock-guardrail-topicconfig-definition>
+                         definition :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html#cfn-bedrock-guardrail-topicconfig-examples>
                          examples :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html#cfn-bedrock-guardrail-topicconfig-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html#cfn-bedrock-guardrail-topicconfig-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicConfigProperty ::
@@ -17,8 +23,8 @@ mkTopicConfigProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> TopicConfigProperty
 mkTopicConfigProperty definition name type'
   = TopicConfigProperty
-      {definition = definition, name = name, type' = type',
-       examples = Prelude.Nothing}
+      {haddock_workaround_ = (), definition = definition, name = name,
+       type' = type', examples = Prelude.Nothing}
 instance ToResourceProperties TopicConfigProperty where
   toResourceProperties TopicConfigProperty {..}
     = ResourceProperties

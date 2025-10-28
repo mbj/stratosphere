@@ -8,13 +8,23 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MediaStreamAttributesProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaStreamProperty
-  = MediaStreamProperty {attributes :: (Prelude.Maybe MediaStreamAttributesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html>
+    MediaStreamProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-attributes>
+                         attributes :: (Prelude.Maybe MediaStreamAttributesProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-clockrate>
                          clockRate :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-description>
                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-fmt>
                          fmt :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-mediastreamid>
                          mediaStreamId :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-mediastreamname>
                          mediaStreamName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-mediastreamtype>
                          mediaStreamType :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-videoformat>
                          videoFormat :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaStreamProperty ::
@@ -22,7 +32,8 @@ mkMediaStreamProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> MediaStreamProperty
 mkMediaStreamProperty mediaStreamId mediaStreamName mediaStreamType
   = MediaStreamProperty
-      {mediaStreamId = mediaStreamId, mediaStreamName = mediaStreamName,
+      {haddock_workaround_ = (), mediaStreamId = mediaStreamId,
+       mediaStreamName = mediaStreamName,
        mediaStreamType = mediaStreamType, attributes = Prelude.Nothing,
        clockRate = Prelude.Nothing, description = Prelude.Nothing,
        fmt = Prelude.Nothing, videoFormat = Prelude.Nothing}

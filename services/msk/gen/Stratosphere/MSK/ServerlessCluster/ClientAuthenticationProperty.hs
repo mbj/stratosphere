@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.SaslProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientAuthenticationProperty
-  = ClientAuthenticationProperty {sasl :: SaslProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html>
+    ClientAuthenticationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html#cfn-msk-serverlesscluster-clientauthentication-sasl>
+                                  sasl :: SaslProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationProperty ::
   SaslProperty -> ClientAuthenticationProperty
 mkClientAuthenticationProperty sasl
-  = ClientAuthenticationProperty {sasl = sasl}
+  = ClientAuthenticationProperty
+      {haddock_workaround_ = (), sasl = sasl}
 instance ToResourceProperties ClientAuthenticationProperty where
   toResourceProperties ClientAuthenticationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ClientAuthenticationProperty where
     = JSON.object ["Sasl" JSON..= sasl]
 instance Property "Sasl" ClientAuthenticationProperty where
   type PropertyType "Sasl" ClientAuthenticationProperty = SaslProperty
-  set newValue ClientAuthenticationProperty {}
+  set newValue ClientAuthenticationProperty {..}
     = ClientAuthenticationProperty {sasl = newValue, ..}

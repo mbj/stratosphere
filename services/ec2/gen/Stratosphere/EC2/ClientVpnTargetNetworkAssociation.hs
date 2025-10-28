@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientVpnTargetNetworkAssociation
-  = ClientVpnTargetNetworkAssociation {clientVpnEndpointId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html>
+    ClientVpnTargetNetworkAssociation {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html#cfn-ec2-clientvpntargetnetworkassociation-clientvpnendpointid>
+                                       clientVpnEndpointId :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html#cfn-ec2-clientvpntargetnetworkassociation-subnetid>
                                        subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnTargetNetworkAssociation ::
@@ -16,7 +20,8 @@ mkClientVpnTargetNetworkAssociation ::
   -> Value Prelude.Text -> ClientVpnTargetNetworkAssociation
 mkClientVpnTargetNetworkAssociation clientVpnEndpointId subnetId
   = ClientVpnTargetNetworkAssociation
-      {clientVpnEndpointId = clientVpnEndpointId, subnetId = subnetId}
+      {haddock_workaround_ = (),
+       clientVpnEndpointId = clientVpnEndpointId, subnetId = subnetId}
 instance ToResourceProperties ClientVpnTargetNetworkAssociation where
   toResourceProperties ClientVpnTargetNetworkAssociation {..}
     = ResourceProperties

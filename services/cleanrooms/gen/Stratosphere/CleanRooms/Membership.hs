@@ -10,17 +10,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Membership
-  = Membership {collaborationIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html>
+    Membership {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-collaborationidentifier>
+                collaborationIdentifier :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-defaultresultconfiguration>
                 defaultResultConfiguration :: (Prelude.Maybe MembershipProtectedQueryResultConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-paymentconfiguration>
                 paymentConfiguration :: (Prelude.Maybe MembershipPaymentConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-querylogstatus>
                 queryLogStatus :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembership ::
   Value Prelude.Text -> Value Prelude.Text -> Membership
 mkMembership collaborationIdentifier queryLogStatus
   = Membership
-      {collaborationIdentifier = collaborationIdentifier,
+      {haddock_workaround_ = (),
+       collaborationIdentifier = collaborationIdentifier,
        queryLogStatus = queryLogStatus,
        defaultResultConfiguration = Prelude.Nothing,
        paymentConfiguration = Prelude.Nothing, tags = Prelude.Nothing}

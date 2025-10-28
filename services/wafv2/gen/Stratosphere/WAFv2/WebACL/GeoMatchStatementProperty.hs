@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ForwardedIPConfigurationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoMatchStatementProperty
-  = GeoMatchStatementProperty {countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html>
+    GeoMatchStatementProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes>
+                               countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig>
                                forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoMatchStatementProperty :: GeoMatchStatementProperty
 mkGeoMatchStatementProperty
   = GeoMatchStatementProperty
-      {countryCodes = Prelude.Nothing,
+      {haddock_workaround_ = (), countryCodes = Prelude.Nothing,
        forwardedIPConfig = Prelude.Nothing}
 instance ToResourceProperties GeoMatchStatementProperty where
   toResourceProperties GeoMatchStatementProperty {..}

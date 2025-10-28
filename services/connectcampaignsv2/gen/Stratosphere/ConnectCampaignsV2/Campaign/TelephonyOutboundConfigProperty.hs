@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.AnswerMachineDete
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TelephonyOutboundConfigProperty
-  = TelephonyOutboundConfigProperty {answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html>
+    TelephonyOutboundConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-answermachinedetectionconfig>
+                                     answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectcontactflowid>
                                      connectContactFlowId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectsourcephonenumber>
                                      connectSourcePhoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTelephonyOutboundConfigProperty ::
   Value Prelude.Text -> TelephonyOutboundConfigProperty
 mkTelephonyOutboundConfigProperty connectContactFlowId
   = TelephonyOutboundConfigProperty
-      {connectContactFlowId = connectContactFlowId,
+      {haddock_workaround_ = (),
+       connectContactFlowId = connectContactFlowId,
        answerMachineDetectionConfig = Prelude.Nothing,
        connectSourcePhoneNumber = Prelude.Nothing}
 instance ToResourceProperties TelephonyOutboundConfigProperty where

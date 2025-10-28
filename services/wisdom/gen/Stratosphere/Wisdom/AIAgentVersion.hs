@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AIAgentVersion
-  = AIAgentVersion {aIAgentId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagentversion.html>
+    AIAgentVersion {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagentversion.html#cfn-wisdom-aiagentversion-aiagentid>
+                    aIAgentId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagentversion.html#cfn-wisdom-aiagentversion-assistantid>
                     assistantId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagentversion.html#cfn-wisdom-aiagentversion-modifiedtimeseconds>
                     modifiedTimeSeconds :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAIAgentVersion ::
   Value Prelude.Text -> Value Prelude.Text -> AIAgentVersion
 mkAIAgentVersion aIAgentId assistantId
   = AIAgentVersion
-      {aIAgentId = aIAgentId, assistantId = assistantId,
-       modifiedTimeSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), aIAgentId = aIAgentId,
+       assistantId = assistantId, modifiedTimeSeconds = Prelude.Nothing}
 instance ToResourceProperties AIAgentVersion where
   toResourceProperties AIAgentVersion {..}
     = ResourceProperties

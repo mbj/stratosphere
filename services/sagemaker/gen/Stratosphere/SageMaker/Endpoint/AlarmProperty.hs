@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmProperty
-  = AlarmProperty {alarmName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html>
+    AlarmProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname>
+                   alarmName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: Value Prelude.Text -> AlarmProperty
-mkAlarmProperty alarmName = AlarmProperty {alarmName = alarmName}
+mkAlarmProperty alarmName
+  = AlarmProperty {haddock_workaround_ = (), alarmName = alarmName}
 instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON AlarmProperty where
     = JSON.object ["AlarmName" JSON..= alarmName]
 instance Property "AlarmName" AlarmProperty where
   type PropertyType "AlarmName" AlarmProperty = Value Prelude.Text
-  set newValue AlarmProperty {}
+  set newValue AlarmProperty {..}
     = AlarmProperty {alarmName = newValue, ..}

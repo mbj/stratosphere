@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BooleanFilterProperty
-  = BooleanFilterProperty {value :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html>
+    BooleanFilterProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html#cfn-securityhub-insight-booleanfilter-value>
+                           value :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBooleanFilterProperty ::
   Value Prelude.Bool -> BooleanFilterProperty
 mkBooleanFilterProperty value
-  = BooleanFilterProperty {value = value}
+  = BooleanFilterProperty {haddock_workaround_ = (), value = value}
 instance ToResourceProperties BooleanFilterProperty where
   toResourceProperties BooleanFilterProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON BooleanFilterProperty where
     = JSON.object ["Value" JSON..= value]
 instance Property "Value" BooleanFilterProperty where
   type PropertyType "Value" BooleanFilterProperty = Value Prelude.Bool
-  set newValue BooleanFilterProperty {}
+  set newValue BooleanFilterProperty {..}
     = BooleanFilterProperty {value = newValue, ..}

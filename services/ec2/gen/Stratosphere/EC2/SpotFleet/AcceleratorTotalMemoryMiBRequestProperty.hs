@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceleratorTotalMemoryMiBRequestProperty
-  = AcceleratorTotalMemoryMiBRequestProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html>
+    AcceleratorTotalMemoryMiBRequestProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html#cfn-ec2-spotfleet-acceleratortotalmemorymibrequest-max>
+                                              max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html#cfn-ec2-spotfleet-acceleratortotalmemorymibrequest-min>
                                               min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorTotalMemoryMiBRequestProperty ::
   AcceleratorTotalMemoryMiBRequestProperty
 mkAcceleratorTotalMemoryMiBRequestProperty
   = AcceleratorTotalMemoryMiBRequestProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties AcceleratorTotalMemoryMiBRequestProperty where
   toResourceProperties AcceleratorTotalMemoryMiBRequestProperty {..}
     = ResourceProperties

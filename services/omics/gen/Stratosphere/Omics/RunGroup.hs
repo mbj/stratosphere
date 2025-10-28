@@ -7,19 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RunGroup
-  = RunGroup {maxCpus :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html>
+    RunGroup {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxcpus>
+              maxCpus :: (Prelude.Maybe (Value Prelude.Double)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxduration>
               maxDuration :: (Prelude.Maybe (Value Prelude.Double)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxgpus>
               maxGpus :: (Prelude.Maybe (Value Prelude.Double)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-maxruns>
               maxRuns :: (Prelude.Maybe (Value Prelude.Double)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html#cfn-omics-rungroup-tags>
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunGroup :: RunGroup
 mkRunGroup
   = RunGroup
-      {maxCpus = Prelude.Nothing, maxDuration = Prelude.Nothing,
-       maxGpus = Prelude.Nothing, maxRuns = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), maxCpus = Prelude.Nothing,
+       maxDuration = Prelude.Nothing, maxGpus = Prelude.Nothing,
+       maxRuns = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties RunGroup where
   toResourceProperties RunGroup {..}
     = ResourceProperties

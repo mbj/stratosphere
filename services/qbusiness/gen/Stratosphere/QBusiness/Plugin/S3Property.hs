@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3Property
-  = S3Property {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-s3.html>
+    S3Property {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-s3.html#cfn-qbusiness-plugin-s3-bucket>
+                bucket :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-s3.html#cfn-qbusiness-plugin-s3-key>
                 key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3Property ::
   Value Prelude.Text -> Value Prelude.Text -> S3Property
-mkS3Property bucket key = S3Property {bucket = bucket, key = key}
+mkS3Property bucket key
+  = S3Property {haddock_workaround_ = (), bucket = bucket, key = key}
 instance ToResourceProperties S3Property where
   toResourceProperties S3Property {..}
     = ResourceProperties

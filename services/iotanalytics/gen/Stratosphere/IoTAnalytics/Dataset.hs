@@ -14,19 +14,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Dataset
-  = Dataset {actions :: [ActionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html>
+    Dataset {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions>
+             actions :: [ActionProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-contentdeliveryrules>
              contentDeliveryRules :: (Prelude.Maybe [DatasetContentDeliveryRuleProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname>
              datasetName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-latedatarules>
              lateDataRules :: (Prelude.Maybe [LateDataRuleProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-retentionperiod>
              retentionPeriod :: (Prelude.Maybe RetentionPeriodProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers>
              triggers :: (Prelude.Maybe [TriggerProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-versioningconfiguration>
              versioningConfiguration :: (Prelude.Maybe VersioningConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset :: [ActionProperty] -> Dataset
 mkDataset actions
   = Dataset
-      {actions = actions, contentDeliveryRules = Prelude.Nothing,
+      {haddock_workaround_ = (), actions = actions,
+       contentDeliveryRules = Prelude.Nothing,
        datasetName = Prelude.Nothing, lateDataRules = Prelude.Nothing,
        retentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
        triggers = Prelude.Nothing,

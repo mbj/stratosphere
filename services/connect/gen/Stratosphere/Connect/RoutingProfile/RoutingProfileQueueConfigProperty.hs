@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.RoutingProfileQueueRef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingProfileQueueConfigProperty
-  = RoutingProfileQueueConfigProperty {delay :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>
+    RoutingProfileQueueConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-delay>
+                                       delay :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-priority>
                                        priority :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-queuereference>
                                        queueReference :: RoutingProfileQueueReferenceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingProfileQueueConfigProperty ::
@@ -20,7 +25,7 @@ mkRoutingProfileQueueConfigProperty ::
         -> RoutingProfileQueueConfigProperty
 mkRoutingProfileQueueConfigProperty delay priority queueReference
   = RoutingProfileQueueConfigProperty
-      {delay = delay, priority = priority,
+      {haddock_workaround_ = (), delay = delay, priority = priority,
        queueReference = queueReference}
 instance ToResourceProperties RoutingProfileQueueConfigProperty where
   toResourceProperties RoutingProfileQueueConfigProperty {..}

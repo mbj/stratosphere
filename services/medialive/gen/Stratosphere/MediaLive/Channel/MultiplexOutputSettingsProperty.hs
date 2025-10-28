@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexContainerSettingsP
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty as Exports
 import Stratosphere.ResourceProperties
 data MultiplexOutputSettingsProperty
-  = MultiplexOutputSettingsProperty {containerSettings :: (Prelude.Maybe MultiplexContainerSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html>
+    MultiplexOutputSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-containersettings>
+                                     containerSettings :: (Prelude.Maybe MultiplexContainerSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-destination>
                                      destination :: (Prelude.Maybe OutputLocationRefProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexOutputSettingsProperty ::
   MultiplexOutputSettingsProperty
 mkMultiplexOutputSettingsProperty
   = MultiplexOutputSettingsProperty
-      {containerSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), containerSettings = Prelude.Nothing,
        destination = Prelude.Nothing}
 instance ToResourceProperties MultiplexOutputSettingsProperty where
   toResourceProperties MultiplexOutputSettingsProperty {..}

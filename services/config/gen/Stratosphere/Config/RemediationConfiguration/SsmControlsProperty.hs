@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SsmControlsProperty
-  = SsmControlsProperty {concurrentExecutionRatePercentage :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html>
+    SsmControlsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage>
+                         concurrentExecutionRatePercentage :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage>
                          errorPercentage :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmControlsProperty :: SsmControlsProperty
 mkSsmControlsProperty
   = SsmControlsProperty
-      {concurrentExecutionRatePercentage = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       concurrentExecutionRatePercentage = Prelude.Nothing,
        errorPercentage = Prelude.Nothing}
 instance ToResourceProperties SsmControlsProperty where
   toResourceProperties SsmControlsProperty {..}

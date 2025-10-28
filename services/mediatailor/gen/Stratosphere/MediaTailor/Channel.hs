@@ -12,14 +12,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
-  = Channel {audiences :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html>
+    Channel {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-audiences>
+             audiences :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-channelname>
              channelName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-fillerslate>
              fillerSlate :: (Prelude.Maybe SlateSourceProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-logconfiguration>
              logConfiguration :: (Prelude.Maybe LogConfigurationForChannelProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-outputs>
              outputs :: [RequestOutputItemProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-playbackmode>
              playbackMode :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-tier>
              tier :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-timeshiftconfiguration>
              timeShiftConfiguration :: (Prelude.Maybe TimeShiftConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel ::
@@ -27,11 +38,11 @@ mkChannel ::
   -> [RequestOutputItemProperty] -> Value Prelude.Text -> Channel
 mkChannel channelName outputs playbackMode
   = Channel
-      {channelName = channelName, outputs = outputs,
-       playbackMode = playbackMode, audiences = Prelude.Nothing,
-       fillerSlate = Prelude.Nothing, logConfiguration = Prelude.Nothing,
-       tags = Prelude.Nothing, tier = Prelude.Nothing,
-       timeShiftConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), channelName = channelName,
+       outputs = outputs, playbackMode = playbackMode,
+       audiences = Prelude.Nothing, fillerSlate = Prelude.Nothing,
+       logConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
+       tier = Prelude.Nothing, timeShiftConfiguration = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties

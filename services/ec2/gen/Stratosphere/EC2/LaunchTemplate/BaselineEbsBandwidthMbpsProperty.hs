@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BaselineEbsBandwidthMbpsProperty
-  = BaselineEbsBandwidthMbpsProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html>
+    BaselineEbsBandwidthMbpsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html#cfn-ec2-launchtemplate-baselineebsbandwidthmbps-max>
+                                      max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html#cfn-ec2-launchtemplate-baselineebsbandwidthmbps-min>
                                       min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselineEbsBandwidthMbpsProperty ::
   BaselineEbsBandwidthMbpsProperty
 mkBaselineEbsBandwidthMbpsProperty
   = BaselineEbsBandwidthMbpsProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties BaselineEbsBandwidthMbpsProperty where
   toResourceProperties BaselineEbsBandwidthMbpsProperty {..}
     = ResourceProperties

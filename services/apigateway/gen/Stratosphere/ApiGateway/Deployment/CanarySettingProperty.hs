@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CanarySettingProperty
-  = CanarySettingProperty {percentTraffic :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html>
+    CanarySettingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic>
+                           percentTraffic :: (Prelude.Maybe (Value Prelude.Double)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides>
                            stageVariableOverrides :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache>
                            useStageCache :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCanarySettingProperty :: CanarySettingProperty
 mkCanarySettingProperty
   = CanarySettingProperty
-      {percentTraffic = Prelude.Nothing,
+      {haddock_workaround_ = (), percentTraffic = Prelude.Nothing,
        stageVariableOverrides = Prelude.Nothing,
        useStageCache = Prelude.Nothing}
 instance ToResourceProperties CanarySettingProperty where

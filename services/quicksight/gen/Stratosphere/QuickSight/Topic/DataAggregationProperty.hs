@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataAggregationProperty
-  = DataAggregationProperty {datasetRowDateGranularity :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html>
+    DataAggregationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html#cfn-quicksight-topic-dataaggregation-datasetrowdategranularity>
+                             datasetRowDateGranularity :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html#cfn-quicksight-topic-dataaggregation-defaultdatecolumnname>
                              defaultDateColumnName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataAggregationProperty :: DataAggregationProperty
 mkDataAggregationProperty
   = DataAggregationProperty
-      {datasetRowDateGranularity = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       datasetRowDateGranularity = Prelude.Nothing,
        defaultDateColumnName = Prelude.Nothing}
 instance ToResourceProperties DataAggregationProperty where
   toResourceProperties DataAggregationProperty {..}

@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeoutSettingsProperty
-  = TimeoutSettingsProperty {disconnectTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html>
+    TimeoutSettingsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html#cfn-workspaces-workspacespool-timeoutsettings-disconnecttimeoutinseconds>
+                             disconnectTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html#cfn-workspaces-workspacespool-timeoutsettings-idledisconnecttimeoutinseconds>
                              idleDisconnectTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html#cfn-workspaces-workspacespool-timeoutsettings-maxuserdurationinseconds>
                              maxUserDurationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeoutSettingsProperty :: TimeoutSettingsProperty
 mkTimeoutSettingsProperty
   = TimeoutSettingsProperty
-      {disconnectTimeoutInSeconds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       disconnectTimeoutInSeconds = Prelude.Nothing,
        idleDisconnectTimeoutInSeconds = Prelude.Nothing,
        maxUserDurationInSeconds = Prelude.Nothing}
 instance ToResourceProperties TimeoutSettingsProperty where

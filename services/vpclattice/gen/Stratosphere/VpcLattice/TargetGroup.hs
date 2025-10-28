@@ -10,17 +10,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TargetGroup
-  = TargetGroup {config :: (Prelude.Maybe TargetGroupConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html>
+    TargetGroup {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-config>
+                 config :: (Prelude.Maybe TargetGroupConfigProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-name>
                  name :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-targets>
                  targets :: (Prelude.Maybe [TargetProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html#cfn-vpclattice-targetgroup-type>
                  type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroup :: Value Prelude.Text -> TargetGroup
 mkTargetGroup type'
   = TargetGroup
-      {type' = type', config = Prelude.Nothing, name = Prelude.Nothing,
-       tags = Prelude.Nothing, targets = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type', config = Prelude.Nothing,
+       name = Prelude.Nothing, tags = Prelude.Nothing,
+       targets = Prelude.Nothing}
 instance ToResourceProperties TargetGroup where
   toResourceProperties TargetGroup {..}
     = ResourceProperties

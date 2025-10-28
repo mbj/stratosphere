@@ -7,19 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredicateProperty
-  = PredicateProperty {and :: (Prelude.Maybe [PredicateProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html>
+    PredicateProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-and>
+                       and :: (Prelude.Maybe [PredicateProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-field>
                        field :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operand>
                        operand :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operandtype>
                        operandType :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operator>
                        operator :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-or>
                        or :: (Prelude.Maybe [PredicateProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredicateProperty :: PredicateProperty
 mkPredicateProperty
   = PredicateProperty
-      {and = Prelude.Nothing, field = Prelude.Nothing,
-       operand = Prelude.Nothing, operandType = Prelude.Nothing,
-       operator = Prelude.Nothing, or = Prelude.Nothing}
+      {haddock_workaround_ = (), and = Prelude.Nothing,
+       field = Prelude.Nothing, operand = Prelude.Nothing,
+       operandType = Prelude.Nothing, operator = Prelude.Nothing,
+       or = Prelude.Nothing}
 instance ToResourceProperties PredicateProperty where
   toResourceProperties PredicateProperty {..}
     = ResourceProperties

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.IoT.Thing.AttributePayloadProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Thing
-  = Thing {attributePayload :: (Prelude.Maybe AttributePayloadProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html>
+    Thing {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload>
+           attributePayload :: (Prelude.Maybe AttributePayloadProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname>
            thingName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThing :: Thing
 mkThing
   = Thing
-      {attributePayload = Prelude.Nothing, thingName = Prelude.Nothing}
+      {haddock_workaround_ = (), attributePayload = Prelude.Nothing,
+       thingName = Prelude.Nothing}
 instance ToResourceProperties Thing where
   toResourceProperties Thing {..}
     = ResourceProperties

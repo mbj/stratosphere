@@ -7,21 +7,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedPolicy
-  = ManagedPolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html>
+    ManagedPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups>
                    groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname>
                    managedPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-path>
                    path :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument>
                    policyDocument :: JSON.Object,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles>
                    roles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users>
                    users :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedPolicy :: JSON.Object -> ManagedPolicy
 mkManagedPolicy policyDocument
   = ManagedPolicy
-      {policyDocument = policyDocument, description = Prelude.Nothing,
-       groups = Prelude.Nothing, managedPolicyName = Prelude.Nothing,
-       path = Prelude.Nothing, roles = Prelude.Nothing,
-       users = Prelude.Nothing}
+      {haddock_workaround_ = (), policyDocument = policyDocument,
+       description = Prelude.Nothing, groups = Prelude.Nothing,
+       managedPolicyName = Prelude.Nothing, path = Prelude.Nothing,
+       roles = Prelude.Nothing, users = Prelude.Nothing}
 instance ToResourceProperties ManagedPolicy where
   toResourceProperties ManagedPolicy {..}
     = ResourceProperties

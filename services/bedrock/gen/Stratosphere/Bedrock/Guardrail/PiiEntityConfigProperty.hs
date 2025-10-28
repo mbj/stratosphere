@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PiiEntityConfigProperty
-  = PiiEntityConfigProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html>
+    PiiEntityConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html#cfn-bedrock-guardrail-piientityconfig-action>
+                             action :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html#cfn-bedrock-guardrail-piientityconfig-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPiiEntityConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PiiEntityConfigProperty
 mkPiiEntityConfigProperty action type'
-  = PiiEntityConfigProperty {action = action, type' = type'}
+  = PiiEntityConfigProperty
+      {haddock_workaround_ = (), action = action, type' = type'}
 instance ToResourceProperties PiiEntityConfigProperty where
   toResourceProperties PiiEntityConfigProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpGatewayRoutePrefixRewriteProperty
-  = HttpGatewayRoutePrefixRewriteProperty {defaultPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html>
+    HttpGatewayRoutePrefixRewriteProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-defaultprefix>
+                                           defaultPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouteprefixrewrite-value>
                                            value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRoutePrefixRewriteProperty ::
   HttpGatewayRoutePrefixRewriteProperty
 mkHttpGatewayRoutePrefixRewriteProperty
   = HttpGatewayRoutePrefixRewriteProperty
-      {defaultPrefix = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), defaultPrefix = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties HttpGatewayRoutePrefixRewriteProperty where
   toResourceProperties HttpGatewayRoutePrefixRewriteProperty {..}
     = ResourceProperties

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoImportPolicyProperty
-  = AutoImportPolicyProperty {events :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html>
+    AutoImportPolicyProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html#cfn-fsx-datarepositoryassociation-autoimportpolicy-events>
+                              events :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoImportPolicyProperty ::
   ValueList Prelude.Text -> AutoImportPolicyProperty
 mkAutoImportPolicyProperty events
-  = AutoImportPolicyProperty {events = events}
+  = AutoImportPolicyProperty
+      {haddock_workaround_ = (), events = events}
 instance ToResourceProperties AutoImportPolicyProperty where
   toResourceProperties AutoImportPolicyProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AutoImportPolicyProperty where
     = JSON.object ["Events" JSON..= events]
 instance Property "Events" AutoImportPolicyProperty where
   type PropertyType "Events" AutoImportPolicyProperty = ValueList Prelude.Text
-  set newValue AutoImportPolicyProperty {}
+  set newValue AutoImportPolicyProperty {..}
     = AutoImportPolicyProperty {events = newValue, ..}

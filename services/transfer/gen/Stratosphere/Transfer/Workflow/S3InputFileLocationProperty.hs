@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3InputFileLocationProperty
-  = S3InputFileLocationProperty {bucket :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html>
+    S3InputFileLocationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html#cfn-transfer-workflow-s3inputfilelocation-bucket>
+                                 bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html#cfn-transfer-workflow-s3inputfilelocation-key>
                                  key :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3InputFileLocationProperty :: S3InputFileLocationProperty
 mkS3InputFileLocationProperty
   = S3InputFileLocationProperty
-      {bucket = Prelude.Nothing, key = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = Prelude.Nothing,
+       key = Prelude.Nothing}
 instance ToResourceProperties S3InputFileLocationProperty where
   toResourceProperties S3InputFileLocationProperty {..}
     = ResourceProperties

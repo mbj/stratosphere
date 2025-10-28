@@ -8,18 +8,26 @@ import {-# SOURCE #-} Stratosphere.MSK.Configuration.LatestRevisionProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Configuration
-  = Configuration {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html>
+    Configuration {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-kafkaversionslist>
                    kafkaVersionsList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-latestrevision>
                    latestRevision :: (Prelude.Maybe LatestRevisionProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html#cfn-msk-configuration-serverproperties>
                    serverProperties :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
   Value Prelude.Text -> Value Prelude.Text -> Configuration
 mkConfiguration name serverProperties
   = Configuration
-      {name = name, serverProperties = serverProperties,
-       description = Prelude.Nothing, kafkaVersionsList = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       serverProperties = serverProperties, description = Prelude.Nothing,
+       kafkaVersionsList = Prelude.Nothing,
        latestRevision = Prelude.Nothing}
 instance ToResourceProperties Configuration where
   toResourceProperties Configuration {..}

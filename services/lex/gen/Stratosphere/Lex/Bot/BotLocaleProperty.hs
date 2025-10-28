@@ -11,19 +11,28 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.VoiceSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotLocaleProperty
-  = BotLocaleProperty {customVocabulary :: (Prelude.Maybe CustomVocabularyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html>
+    BotLocaleProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-customvocabulary>
+                       customVocabulary :: (Prelude.Maybe CustomVocabularyProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-intents>
                        intents :: (Prelude.Maybe [IntentProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-localeid>
                        localeId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-nluconfidencethreshold>
                        nluConfidenceThreshold :: (Value Prelude.Double),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-slottypes>
                        slotTypes :: (Prelude.Maybe [SlotTypeProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-voicesettings>
                        voiceSettings :: (Prelude.Maybe VoiceSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotLocaleProperty ::
   Value Prelude.Text -> Value Prelude.Double -> BotLocaleProperty
 mkBotLocaleProperty localeId nluConfidenceThreshold
   = BotLocaleProperty
-      {localeId = localeId,
+      {haddock_workaround_ = (), localeId = localeId,
        nluConfidenceThreshold = nluConfidenceThreshold,
        customVocabulary = Prelude.Nothing, description = Prelude.Nothing,
        intents = Prelude.Nothing, slotTypes = Prelude.Nothing,

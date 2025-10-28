@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Mp2SettingsProperty
-  = Mp2SettingsProperty {bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html>
+    Mp2SettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-bitrate>
+                         bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-codingmode>
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html#cfn-medialive-channel-mp2settings-samplerate>
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMp2SettingsProperty :: Mp2SettingsProperty
 mkMp2SettingsProperty
   = Mp2SettingsProperty
-      {bitrate = Prelude.Nothing, codingMode = Prelude.Nothing,
-       sampleRate = Prelude.Nothing}
+      {haddock_workaround_ = (), bitrate = Prelude.Nothing,
+       codingMode = Prelude.Nothing, sampleRate = Prelude.Nothing}
 instance ToResourceProperties Mp2SettingsProperty where
   toResourceProperties Mp2SettingsProperty {..}
     = ResourceProperties

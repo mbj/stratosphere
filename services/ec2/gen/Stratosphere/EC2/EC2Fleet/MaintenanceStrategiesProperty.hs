@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.CapacityRebalanceProperty as Exports
 import Stratosphere.ResourceProperties
 data MaintenanceStrategiesProperty
-  = MaintenanceStrategiesProperty {capacityRebalance :: (Prelude.Maybe CapacityRebalanceProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html>
+    MaintenanceStrategiesProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html#cfn-ec2-ec2fleet-maintenancestrategies-capacityrebalance>
+                                   capacityRebalance :: (Prelude.Maybe CapacityRebalanceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceStrategiesProperty :: MaintenanceStrategiesProperty
 mkMaintenanceStrategiesProperty
   = MaintenanceStrategiesProperty
-      {capacityRebalance = Prelude.Nothing}
+      {haddock_workaround_ = (), capacityRebalance = Prelude.Nothing}
 instance ToResourceProperties MaintenanceStrategiesProperty where
   toResourceProperties MaintenanceStrategiesProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON MaintenanceStrategiesProperty where
               [(JSON..=) "CapacityRebalance" Prelude.<$> capacityRebalance]))
 instance Property "CapacityRebalance" MaintenanceStrategiesProperty where
   type PropertyType "CapacityRebalance" MaintenanceStrategiesProperty = CapacityRebalanceProperty
-  set newValue MaintenanceStrategiesProperty {}
+  set newValue MaintenanceStrategiesProperty {..}
     = MaintenanceStrategiesProperty
         {capacityRebalance = Prelude.pure newValue, ..}

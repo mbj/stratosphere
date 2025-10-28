@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientConnectOptionsProperty
-  = ClientConnectOptionsProperty {enabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html>
+    ClientConnectOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled>
+                                  enabled :: (Value Prelude.Bool),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn>
                                   lambdaFunctionArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientConnectOptionsProperty ::
   Value Prelude.Bool -> ClientConnectOptionsProperty
 mkClientConnectOptionsProperty enabled
   = ClientConnectOptionsProperty
-      {enabled = enabled, lambdaFunctionArn = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       lambdaFunctionArn = Prelude.Nothing}
 instance ToResourceProperties ClientConnectOptionsProperty where
   toResourceProperties ClientConnectOptionsProperty {..}
     = ResourceProperties

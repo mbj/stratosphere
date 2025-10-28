@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksSecretProperty
-  = EksSecretProperty {optional :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekssecret.html>
+    EksSecretProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekssecret.html#cfn-batch-jobdefinition-ekssecret-optional>
+                       optional :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekssecret.html#cfn-batch-jobdefinition-ekssecret-secretname>
                        secretName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksSecretProperty :: Value Prelude.Text -> EksSecretProperty
 mkEksSecretProperty secretName
   = EksSecretProperty
-      {secretName = secretName, optional = Prelude.Nothing}
+      {haddock_workaround_ = (), secretName = secretName,
+       optional = Prelude.Nothing}
 instance ToResourceProperties EksSecretProperty where
   toResourceProperties EksSecretProperty {..}
     = ResourceProperties

@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.SystemAttributesProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MessageTemplateAttributesProperty
-  = MessageTemplateAttributesProperty {agentAttributes :: (Prelude.Maybe AgentAttributesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html>
+    MessageTemplateAttributesProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html#cfn-wisdom-messagetemplate-messagetemplateattributes-agentattributes>
+                                       agentAttributes :: (Prelude.Maybe AgentAttributesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html#cfn-wisdom-messagetemplate-messagetemplateattributes-customattributes>
                                        customAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html#cfn-wisdom-messagetemplate-messagetemplateattributes-customerprofileattributes>
                                        customerProfileAttributes :: (Prelude.Maybe CustomerProfileAttributesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html#cfn-wisdom-messagetemplate-messagetemplateattributes-systemattributes>
                                        systemAttributes :: (Prelude.Maybe SystemAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageTemplateAttributesProperty ::
   MessageTemplateAttributesProperty
 mkMessageTemplateAttributesProperty
   = MessageTemplateAttributesProperty
-      {agentAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), agentAttributes = Prelude.Nothing,
        customAttributes = Prelude.Nothing,
        customerProfileAttributes = Prelude.Nothing,
        systemAttributes = Prelude.Nothing}

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.PiiEntityConfigProperty as 
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.RegexConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data SensitiveInformationPolicyConfigProperty
-  = SensitiveInformationPolicyConfigProperty {piiEntitiesConfig :: (Prelude.Maybe [PiiEntityConfigProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html>
+    SensitiveInformationPolicyConfigProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html#cfn-bedrock-guardrail-sensitiveinformationpolicyconfig-piientitiesconfig>
+                                              piiEntitiesConfig :: (Prelude.Maybe [PiiEntityConfigProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html#cfn-bedrock-guardrail-sensitiveinformationpolicyconfig-regexesconfig>
                                               regexesConfig :: (Prelude.Maybe [RegexConfigProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSensitiveInformationPolicyConfigProperty ::
   SensitiveInformationPolicyConfigProperty
 mkSensitiveInformationPolicyConfigProperty
   = SensitiveInformationPolicyConfigProperty
-      {piiEntitiesConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), piiEntitiesConfig = Prelude.Nothing,
        regexesConfig = Prelude.Nothing}
 instance ToResourceProperties SensitiveInformationPolicyConfigProperty where
   toResourceProperties SensitiveInformationPolicyConfigProperty {..}

@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.MSK.Replicator.TopicReplicationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationInfoProperty
-  = ReplicationInfoProperty {consumerGroupReplication :: ConsumerGroupReplicationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html>
+    ReplicationInfoProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-consumergroupreplication>
+                             consumerGroupReplication :: ConsumerGroupReplicationProperty,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-sourcekafkaclusterarn>
                              sourceKafkaClusterArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetcompressiontype>
                              targetCompressionType :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetkafkaclusterarn>
                              targetKafkaClusterArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-topicreplication>
                              topicReplication :: TopicReplicationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationInfoProperty ::
@@ -29,7 +36,8 @@ mkReplicationInfoProperty
   targetKafkaClusterArn
   topicReplication
   = ReplicationInfoProperty
-      {consumerGroupReplication = consumerGroupReplication,
+      {haddock_workaround_ = (),
+       consumerGroupReplication = consumerGroupReplication,
        sourceKafkaClusterArn = sourceKafkaClusterArn,
        targetCompressionType = targetCompressionType,
        targetKafkaClusterArn = targetKafkaClusterArn,

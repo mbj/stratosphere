@@ -7,15 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserProfile
-  = UserProfile {allowSelfManagement :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html>
+    UserProfile {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-allowselfmanagement>
+                 allowSelfManagement :: (Prelude.Maybe (Value Prelude.Bool)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-iamuserarn>
                  iamUserArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-sshpublickey>
                  sshPublicKey :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-sshusername>
                  sshUsername :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProfile :: Value Prelude.Text -> UserProfile
 mkUserProfile iamUserArn
   = UserProfile
-      {iamUserArn = iamUserArn, allowSelfManagement = Prelude.Nothing,
+      {haddock_workaround_ = (), iamUserArn = iamUserArn,
+       allowSelfManagement = Prelude.Nothing,
        sshPublicKey = Prelude.Nothing, sshUsername = Prelude.Nothing}
 instance ToResourceProperties UserProfile where
   toResourceProperties UserProfile {..}

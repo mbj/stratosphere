@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioLanguageSelectionProperty
-  = AudioLanguageSelectionProperty {languageCode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html>
+    AudioLanguageSelectionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html#cfn-medialive-channel-audiolanguageselection-languagecode>
+                                    languageCode :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html#cfn-medialive-channel-audiolanguageselection-languageselectionpolicy>
                                     languageSelectionPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLanguageSelectionProperty :: AudioLanguageSelectionProperty
 mkAudioLanguageSelectionProperty
   = AudioLanguageSelectionProperty
-      {languageCode = Prelude.Nothing,
+      {haddock_workaround_ = (), languageCode = Prelude.Nothing,
        languageSelectionPolicy = Prelude.Nothing}
 instance ToResourceProperties AudioLanguageSelectionProperty where
   toResourceProperties AudioLanguageSelectionProperty {..}

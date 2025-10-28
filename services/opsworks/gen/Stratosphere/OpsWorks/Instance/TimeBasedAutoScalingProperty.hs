@@ -7,21 +7,30 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedAutoScalingProperty
-  = TimeBasedAutoScalingProperty {friday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html>
+    TimeBasedAutoScalingProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-friday>
+                                  friday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-monday>
                                   monday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-saturday>
                                   saturday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-sunday>
                                   sunday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-thursday>
                                   thursday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-tuesday>
                                   tuesday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-wednesday>
                                   wednesday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedAutoScalingProperty :: TimeBasedAutoScalingProperty
 mkTimeBasedAutoScalingProperty
   = TimeBasedAutoScalingProperty
-      {friday = Prelude.Nothing, monday = Prelude.Nothing,
-       saturday = Prelude.Nothing, sunday = Prelude.Nothing,
-       thursday = Prelude.Nothing, tuesday = Prelude.Nothing,
-       wednesday = Prelude.Nothing}
+      {haddock_workaround_ = (), friday = Prelude.Nothing,
+       monday = Prelude.Nothing, saturday = Prelude.Nothing,
+       sunday = Prelude.Nothing, thursday = Prelude.Nothing,
+       tuesday = Prelude.Nothing, wednesday = Prelude.Nothing}
 instance ToResourceProperties TimeBasedAutoScalingProperty where
   toResourceProperties TimeBasedAutoScalingProperty {..}
     = ResourceProperties

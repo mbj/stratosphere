@@ -9,13 +9,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRulePolicyV1Property as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAssociationAnalysisRulePolicyProperty
-  = ConfiguredTableAssociationAnalysisRulePolicyProperty {v1 :: ConfiguredTableAssociationAnalysisRulePolicyV1Property}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy.html>
+    ConfiguredTableAssociationAnalysisRulePolicyProperty {haddock_workaround_ :: (),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy-v1>
+                                                          v1 :: ConfiguredTableAssociationAnalysisRulePolicyV1Property}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRulePolicyProperty ::
   ConfiguredTableAssociationAnalysisRulePolicyV1Property
   -> ConfiguredTableAssociationAnalysisRulePolicyProperty
 mkConfiguredTableAssociationAnalysisRulePolicyProperty v1
-  = ConfiguredTableAssociationAnalysisRulePolicyProperty {v1 = v1}
+  = ConfiguredTableAssociationAnalysisRulePolicyProperty
+      {haddock_workaround_ = (), v1 = v1}
 instance ToResourceProperties ConfiguredTableAssociationAnalysisRulePolicyProperty where
   toResourceProperties
     ConfiguredTableAssociationAnalysisRulePolicyProperty {..}
@@ -29,6 +33,6 @@ instance Property "V1" ConfiguredTableAssociationAnalysisRulePolicyProperty wher
   type PropertyType "V1" ConfiguredTableAssociationAnalysisRulePolicyProperty = ConfiguredTableAssociationAnalysisRulePolicyV1Property
   set
     newValue
-    ConfiguredTableAssociationAnalysisRulePolicyProperty {}
+    ConfiguredTableAssociationAnalysisRulePolicyProperty {..}
     = ConfiguredTableAssociationAnalysisRulePolicyProperty
         {v1 = newValue, ..}

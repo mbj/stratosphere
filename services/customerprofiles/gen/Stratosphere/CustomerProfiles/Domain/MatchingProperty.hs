@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.JobScheduleProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatchingProperty
-  = MatchingProperty {autoMerging :: (Prelude.Maybe AutoMergingProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html>
+    MatchingProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-automerging>
+                      autoMerging :: (Prelude.Maybe AutoMergingProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-enabled>
                       enabled :: (Value Prelude.Bool),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-exportingconfig>
                       exportingConfig :: (Prelude.Maybe ExportingConfigProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html#cfn-customerprofiles-domain-matching-jobschedule>
                       jobSchedule :: (Prelude.Maybe JobScheduleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchingProperty :: Value Prelude.Bool -> MatchingProperty
 mkMatchingProperty enabled
   = MatchingProperty
-      {enabled = enabled, autoMerging = Prelude.Nothing,
-       exportingConfig = Prelude.Nothing, jobSchedule = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       autoMerging = Prelude.Nothing, exportingConfig = Prelude.Nothing,
+       jobSchedule = Prelude.Nothing}
 instance ToResourceProperties MatchingProperty where
   toResourceProperties MatchingProperty {..}
     = ResourceProperties

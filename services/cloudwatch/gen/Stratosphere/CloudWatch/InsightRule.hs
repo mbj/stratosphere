@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.InsightRule.TagsProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InsightRule
-  = InsightRule {ruleBody :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html>
+    InsightRule {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody>
+                 ruleBody :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulename>
                  ruleName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate>
                  ruleState :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-tags>
                  tags :: (Prelude.Maybe TagsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightRule ::
@@ -18,8 +24,8 @@ mkInsightRule ::
   -> Value Prelude.Text -> Value Prelude.Text -> InsightRule
 mkInsightRule ruleBody ruleName ruleState
   = InsightRule
-      {ruleBody = ruleBody, ruleName = ruleName, ruleState = ruleState,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), ruleBody = ruleBody,
+       ruleName = ruleName, ruleState = ruleState, tags = Prelude.Nothing}
 instance ToResourceProperties InsightRule where
   toResourceProperties InsightRule {..}
     = ResourceProperties

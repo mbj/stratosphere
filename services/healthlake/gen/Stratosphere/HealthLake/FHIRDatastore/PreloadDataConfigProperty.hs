@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PreloadDataConfigProperty
-  = PreloadDataConfigProperty {preloadDataType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-preloaddataconfig.html>
+    PreloadDataConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-preloaddataconfig.html#cfn-healthlake-fhirdatastore-preloaddataconfig-preloaddatatype>
+                               preloadDataType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPreloadDataConfigProperty ::
   Value Prelude.Text -> PreloadDataConfigProperty
 mkPreloadDataConfigProperty preloadDataType
-  = PreloadDataConfigProperty {preloadDataType = preloadDataType}
+  = PreloadDataConfigProperty
+      {haddock_workaround_ = (), preloadDataType = preloadDataType}
 instance ToResourceProperties PreloadDataConfigProperty where
   toResourceProperties PreloadDataConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON PreloadDataConfigProperty where
     = JSON.object ["PreloadDataType" JSON..= preloadDataType]
 instance Property "PreloadDataType" PreloadDataConfigProperty where
   type PropertyType "PreloadDataType" PreloadDataConfigProperty = Value Prelude.Text
-  set newValue PreloadDataConfigProperty {}
+  set newValue PreloadDataConfigProperty {..}
     = PreloadDataConfigProperty {preloadDataType = newValue, ..}

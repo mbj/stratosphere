@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.Configuration
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.SubComponentTypeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ComponentConfigurationProperty
-  = ComponentConfigurationProperty {configurationDetails :: (Prelude.Maybe ConfigurationDetailsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html>
+    ComponentConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails>
+                                    configurationDetails :: (Prelude.Maybe ConfigurationDetailsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations>
                                     subComponentTypeConfigurations :: (Prelude.Maybe [SubComponentTypeConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationProperty :: ComponentConfigurationProperty
 mkComponentConfigurationProperty
   = ComponentConfigurationProperty
-      {configurationDetails = Prelude.Nothing,
+      {haddock_workaround_ = (), configurationDetails = Prelude.Nothing,
        subComponentTypeConfigurations = Prelude.Nothing}
 instance ToResourceProperties ComponentConfigurationProperty where
   toResourceProperties ComponentConfigurationProperty {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedactionPlaceHolderProperty
-  = RedactionPlaceHolderProperty {redactionPlaceHolderText :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html>
+    RedactionPlaceHolderProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html#cfn-workspacesweb-dataprotectionsettings-redactionplaceholder-redactionplaceholdertext>
+                                  redactionPlaceHolderText :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html#cfn-workspacesweb-dataprotectionsettings-redactionplaceholder-redactionplaceholdertype>
                                   redactionPlaceHolderType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedactionPlaceHolderProperty ::
   Value Prelude.Text -> RedactionPlaceHolderProperty
 mkRedactionPlaceHolderProperty redactionPlaceHolderType
   = RedactionPlaceHolderProperty
-      {redactionPlaceHolderType = redactionPlaceHolderType,
+      {haddock_workaround_ = (),
+       redactionPlaceHolderType = redactionPlaceHolderType,
        redactionPlaceHolderText = Prelude.Nothing}
 instance ToResourceProperties RedactionPlaceHolderProperty where
   toResourceProperties RedactionPlaceHolderProperty {..}

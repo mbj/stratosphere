@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationConfiguration
-  = OrganizationConfiguration {autoEnable :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html>
+    OrganizationConfiguration {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html#cfn-securityhub-organizationconfiguration-autoenable>
+                               autoEnable :: (Value Prelude.Bool),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html#cfn-securityhub-organizationconfiguration-autoenablestandards>
                                autoEnableStandards :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html#cfn-securityhub-organizationconfiguration-configurationtype>
                                configurationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationConfiguration ::
   Value Prelude.Bool -> OrganizationConfiguration
 mkOrganizationConfiguration autoEnable
   = OrganizationConfiguration
-      {autoEnable = autoEnable, autoEnableStandards = Prelude.Nothing,
+      {haddock_workaround_ = (), autoEnable = autoEnable,
+       autoEnableStandards = Prelude.Nothing,
        configurationType = Prelude.Nothing}
 instance ToResourceProperties OrganizationConfiguration where
   toResourceProperties OrganizationConfiguration {..}

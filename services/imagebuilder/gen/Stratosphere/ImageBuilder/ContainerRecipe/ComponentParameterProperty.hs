@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentParameterProperty
-  = ComponentParameterProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentparameter.html>
+    ComponentParameterProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentparameter.html#cfn-imagebuilder-containerrecipe-componentparameter-name>
+                                name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentparameter.html#cfn-imagebuilder-containerrecipe-componentparameter-value>
                                 value :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> ComponentParameterProperty
 mkComponentParameterProperty name value
-  = ComponentParameterProperty {name = name, value = value}
+  = ComponentParameterProperty
+      {haddock_workaround_ = (), name = name, value = value}
 instance ToResourceProperties ComponentParameterProperty where
   toResourceProperties ComponentParameterProperty {..}
     = ResourceProperties

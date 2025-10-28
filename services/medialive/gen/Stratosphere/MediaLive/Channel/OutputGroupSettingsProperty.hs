@@ -17,21 +17,33 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtGroupSettingsProperty as
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpGroupSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputGroupSettingsProperty
-  = OutputGroupSettingsProperty {archiveGroupSettings :: (Prelude.Maybe ArchiveGroupSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html>
+    OutputGroupSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-archivegroupsettings>
+                                 archiveGroupSettings :: (Prelude.Maybe ArchiveGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-cmafingestgroupsettings>
                                  cmafIngestGroupSettings :: (Prelude.Maybe CmafIngestGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-framecapturegroupsettings>
                                  frameCaptureGroupSettings :: (Prelude.Maybe FrameCaptureGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-hlsgroupsettings>
                                  hlsGroupSettings :: (Prelude.Maybe HlsGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mediapackagegroupsettings>
                                  mediaPackageGroupSettings :: (Prelude.Maybe MediaPackageGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mssmoothgroupsettings>
                                  msSmoothGroupSettings :: (Prelude.Maybe MsSmoothGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-multiplexgroupsettings>
                                  multiplexGroupSettings :: (Prelude.Maybe MultiplexGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-rtmpgroupsettings>
                                  rtmpGroupSettings :: (Prelude.Maybe RtmpGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-srtgroupsettings>
                                  srtGroupSettings :: (Prelude.Maybe SrtGroupSettingsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-udpgroupsettings>
                                  udpGroupSettings :: (Prelude.Maybe UdpGroupSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputGroupSettingsProperty :: OutputGroupSettingsProperty
 mkOutputGroupSettingsProperty
   = OutputGroupSettingsProperty
-      {archiveGroupSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), archiveGroupSettings = Prelude.Nothing,
        cmafIngestGroupSettings = Prelude.Nothing,
        frameCaptureGroupSettings = Prelude.Nothing,
        hlsGroupSettings = Prelude.Nothing,

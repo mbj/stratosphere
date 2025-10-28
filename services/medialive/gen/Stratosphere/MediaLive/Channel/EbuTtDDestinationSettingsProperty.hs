@@ -8,17 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbuTtDDestinationSettingsProperty
-  = EbuTtDDestinationSettingsProperty {copyrightHolder :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html>
+    EbuTtDDestinationSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-copyrightholder>
+                                       copyrightHolder :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-filllinegap>
                                        fillLineGap :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-fontfamily>
                                        fontFamily :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-stylecontrol>
                                        styleControl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbuTtDDestinationSettingsProperty ::
   EbuTtDDestinationSettingsProperty
 mkEbuTtDDestinationSettingsProperty
   = EbuTtDDestinationSettingsProperty
-      {copyrightHolder = Prelude.Nothing, fillLineGap = Prelude.Nothing,
-       fontFamily = Prelude.Nothing, styleControl = Prelude.Nothing}
+      {haddock_workaround_ = (), copyrightHolder = Prelude.Nothing,
+       fillLineGap = Prelude.Nothing, fontFamily = Prelude.Nothing,
+       styleControl = Prelude.Nothing}
 instance ToResourceProperties EbuTtDDestinationSettingsProperty where
   toResourceProperties EbuTtDDestinationSettingsProperty {..}
     = ResourceProperties

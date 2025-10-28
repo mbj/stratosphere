@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data DashEncryptionProperty
-  = DashEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html>
+    DashEncryptionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider>
+                            spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashEncryptionProperty ::
   SpekeKeyProviderProperty -> DashEncryptionProperty
 mkDashEncryptionProperty spekeKeyProvider
-  = DashEncryptionProperty {spekeKeyProvider = spekeKeyProvider}
+  = DashEncryptionProperty
+      {haddock_workaround_ = (), spekeKeyProvider = spekeKeyProvider}
 instance ToResourceProperties DashEncryptionProperty where
   toResourceProperties DashEncryptionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON DashEncryptionProperty where
     = JSON.object ["SpekeKeyProvider" JSON..= spekeKeyProvider]
 instance Property "SpekeKeyProvider" DashEncryptionProperty where
   type PropertyType "SpekeKeyProvider" DashEncryptionProperty = SpekeKeyProviderProperty
-  set newValue DashEncryptionProperty {}
+  set newValue DashEncryptionProperty {..}
     = DashEncryptionProperty {spekeKeyProvider = newValue, ..}

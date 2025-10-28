@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.TimestampProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocationActionProperty
-  = LocationActionProperty {deviceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html>
+    LocationActionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-deviceid>
+                            deviceId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-latitude>
                             latitude :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-longitude>
                             longitude :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-rolearn>
                             roleArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-timestamp>
                             timestamp :: (Prelude.Maybe TimestampProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html#cfn-iot-topicrule-locationaction-trackername>
                             trackerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationActionProperty ::
@@ -29,9 +37,9 @@ mkLocationActionProperty
   roleArn
   trackerName
   = LocationActionProperty
-      {deviceId = deviceId, latitude = latitude, longitude = longitude,
-       roleArn = roleArn, trackerName = trackerName,
-       timestamp = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceId = deviceId,
+       latitude = latitude, longitude = longitude, roleArn = roleArn,
+       trackerName = trackerName, timestamp = Prelude.Nothing}
 instance ToResourceProperties LocationActionProperty where
   toResourceProperties LocationActionProperty {..}
     = ResourceProperties

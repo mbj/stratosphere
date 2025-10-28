@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.SrtCallerSourceRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data SrtSettingsRequestProperty
-  = SrtSettingsRequestProperty {srtCallerSources :: (Prelude.Maybe [SrtCallerSourceRequestProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html>
+    SrtSettingsRequestProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html#cfn-medialive-input-srtsettingsrequest-srtcallersources>
+                                srtCallerSources :: (Prelude.Maybe [SrtCallerSourceRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtSettingsRequestProperty :: SrtSettingsRequestProperty
 mkSrtSettingsRequestProperty
-  = SrtSettingsRequestProperty {srtCallerSources = Prelude.Nothing}
+  = SrtSettingsRequestProperty
+      {haddock_workaround_ = (), srtCallerSources = Prelude.Nothing}
 instance ToResourceProperties SrtSettingsRequestProperty where
   toResourceProperties SrtSettingsRequestProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON SrtSettingsRequestProperty where
               [(JSON..=) "SrtCallerSources" Prelude.<$> srtCallerSources]))
 instance Property "SrtCallerSources" SrtSettingsRequestProperty where
   type PropertyType "SrtCallerSources" SrtSettingsRequestProperty = [SrtCallerSourceRequestProperty]
-  set newValue SrtSettingsRequestProperty {}
+  set newValue SrtSettingsRequestProperty {..}
     = SrtSettingsRequestProperty
         {srtCallerSources = Prelude.pure newValue, ..}

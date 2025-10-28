@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EgressConfigurationProperty
-  = EgressConfigurationProperty {egressType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html>
+    EgressConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-egresstype>
+                                 egressType :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn>
                                  vpcConnectorArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressConfigurationProperty ::
   Value Prelude.Text -> EgressConfigurationProperty
 mkEgressConfigurationProperty egressType
   = EgressConfigurationProperty
-      {egressType = egressType, vpcConnectorArn = Prelude.Nothing}
+      {haddock_workaround_ = (), egressType = egressType,
+       vpcConnectorArn = Prelude.Nothing}
 instance ToResourceProperties EgressConfigurationProperty where
   toResourceProperties EgressConfigurationProperty {..}
     = ResourceProperties

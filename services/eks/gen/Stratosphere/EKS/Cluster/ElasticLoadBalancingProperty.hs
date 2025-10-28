@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ElasticLoadBalancingProperty
-  = ElasticLoadBalancingProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html>
+    ElasticLoadBalancingProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html#cfn-eks-cluster-elasticloadbalancing-enabled>
+                                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticLoadBalancingProperty :: ElasticLoadBalancingProperty
 mkElasticLoadBalancingProperty
-  = ElasticLoadBalancingProperty {enabled = Prelude.Nothing}
+  = ElasticLoadBalancingProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties ElasticLoadBalancingProperty where
   toResourceProperties ElasticLoadBalancingProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON ElasticLoadBalancingProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" ElasticLoadBalancingProperty where
   type PropertyType "Enabled" ElasticLoadBalancingProperty = Value Prelude.Bool
-  set newValue ElasticLoadBalancingProperty {}
+  set newValue ElasticLoadBalancingProperty {..}
     = ElasticLoadBalancingProperty
         {enabled = Prelude.pure newValue, ..}

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Multiplex.MultiplexMediaConnectOutputDestinationSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data MultiplexOutputDestinationProperty
-  = MultiplexOutputDestinationProperty {multiplexMediaConnectOutputDestinationSettings :: (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexoutputdestination.html>
+    MultiplexOutputDestinationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexoutputdestination.html#cfn-medialive-multiplex-multiplexoutputdestination-multiplexmediaconnectoutputdestinationsettings>
+                                        multiplexMediaConnectOutputDestinationSettings :: (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexOutputDestinationProperty ::
   MultiplexOutputDestinationProperty
 mkMultiplexOutputDestinationProperty
   = MultiplexOutputDestinationProperty
-      {multiplexMediaConnectOutputDestinationSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       multiplexMediaConnectOutputDestinationSettings = Prelude.Nothing}
 instance ToResourceProperties MultiplexOutputDestinationProperty where
   toResourceProperties MultiplexOutputDestinationProperty {..}
     = ResourceProperties
@@ -33,7 +37,7 @@ instance JSON.ToJSON MultiplexOutputDestinationProperty where
                  Prelude.<$> multiplexMediaConnectOutputDestinationSettings]))
 instance Property "MultiplexMediaConnectOutputDestinationSettings" MultiplexOutputDestinationProperty where
   type PropertyType "MultiplexMediaConnectOutputDestinationSettings" MultiplexOutputDestinationProperty = MultiplexMediaConnectOutputDestinationSettingsProperty
-  set newValue MultiplexOutputDestinationProperty {}
+  set newValue MultiplexOutputDestinationProperty {..}
     = MultiplexOutputDestinationProperty
         {multiplexMediaConnectOutputDestinationSettings = Prelude.pure
                                                             newValue,

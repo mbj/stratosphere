@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowVpcInterface
-  = FlowVpcInterface {flowArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html>
+    FlowVpcInterface {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn>
+                      flowArn :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn>
                       roleArn :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids>
                       securityGroupIds :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid>
                       subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowVpcInterface ::
@@ -20,8 +27,9 @@ mkFlowVpcInterface ::
         -> ValueList Prelude.Text -> Value Prelude.Text -> FlowVpcInterface
 mkFlowVpcInterface flowArn name roleArn securityGroupIds subnetId
   = FlowVpcInterface
-      {flowArn = flowArn, name = name, roleArn = roleArn,
-       securityGroupIds = securityGroupIds, subnetId = subnetId}
+      {haddock_workaround_ = (), flowArn = flowArn, name = name,
+       roleArn = roleArn, securityGroupIds = securityGroupIds,
+       subnetId = subnetId}
 instance ToResourceProperties FlowVpcInterface where
   toResourceProperties FlowVpcInterface {..}
     = ResourceProperties

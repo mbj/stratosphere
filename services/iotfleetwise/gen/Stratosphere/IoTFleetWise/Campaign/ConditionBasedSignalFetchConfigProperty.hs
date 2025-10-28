@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionBasedSignalFetchConfigProperty
-  = ConditionBasedSignalFetchConfigProperty {conditionExpression :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html>
+    ConditionBasedSignalFetchConfigProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html#cfn-iotfleetwise-campaign-conditionbasedsignalfetchconfig-conditionexpression>
+                                             conditionExpression :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html#cfn-iotfleetwise-campaign-conditionbasedsignalfetchconfig-triggermode>
                                              triggerMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionBasedSignalFetchConfigProperty ::
@@ -18,7 +22,8 @@ mkConditionBasedSignalFetchConfigProperty
   conditionExpression
   triggerMode
   = ConditionBasedSignalFetchConfigProperty
-      {conditionExpression = conditionExpression,
+      {haddock_workaround_ = (),
+       conditionExpression = conditionExpression,
        triggerMode = triggerMode}
 instance ToResourceProperties ConditionBasedSignalFetchConfigProperty where
   toResourceProperties ConditionBasedSignalFetchConfigProperty {..}

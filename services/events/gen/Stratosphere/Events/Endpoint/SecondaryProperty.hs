@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecondaryProperty
-  = SecondaryProperty {route :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html>
+    SecondaryProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html#cfn-events-endpoint-secondary-route>
+                       route :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecondaryProperty :: Value Prelude.Text -> SecondaryProperty
-mkSecondaryProperty route = SecondaryProperty {route = route}
+mkSecondaryProperty route
+  = SecondaryProperty {haddock_workaround_ = (), route = route}
 instance ToResourceProperties SecondaryProperty where
   toResourceProperties SecondaryProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON SecondaryProperty where
   toJSON SecondaryProperty {..} = JSON.object ["Route" JSON..= route]
 instance Property "Route" SecondaryProperty where
   type PropertyType "Route" SecondaryProperty = Value Prelude.Text
-  set newValue SecondaryProperty {}
+  set newValue SecondaryProperty {..}
     = SecondaryProperty {route = newValue, ..}

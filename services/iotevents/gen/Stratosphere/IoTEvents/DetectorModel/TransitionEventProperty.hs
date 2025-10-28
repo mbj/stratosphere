@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.ActionProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitionEventProperty
-  = TransitionEventProperty {actions :: (Prelude.Maybe [ActionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html>
+    TransitionEventProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions>
+                             actions :: (Prelude.Maybe [ActionProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition>
                              condition :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname>
                              eventName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate>
                              nextState :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitionEventProperty ::
@@ -20,8 +26,9 @@ mkTransitionEventProperty ::
      -> Value Prelude.Text -> TransitionEventProperty
 mkTransitionEventProperty condition eventName nextState
   = TransitionEventProperty
-      {condition = condition, eventName = eventName,
-       nextState = nextState, actions = Prelude.Nothing}
+      {haddock_workaround_ = (), condition = condition,
+       eventName = eventName, nextState = nextState,
+       actions = Prelude.Nothing}
 instance ToResourceProperties TransitionEventProperty where
   toResourceProperties TransitionEventProperty {..}
     = ResourceProperties

@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalGatewayRoute
-  = LocalGatewayRoute {destinationCidrBlock :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html>
+    LocalGatewayRoute {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock>
+                       destinationCidrBlock :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid>
                        localGatewayRouteTableId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid>
                        localGatewayVirtualInterfaceGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-networkinterfaceid>
                        networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRoute ::
   Value Prelude.Text -> Value Prelude.Text -> LocalGatewayRoute
 mkLocalGatewayRoute destinationCidrBlock localGatewayRouteTableId
   = LocalGatewayRoute
-      {destinationCidrBlock = destinationCidrBlock,
+      {haddock_workaround_ = (),
+       destinationCidrBlock = destinationCidrBlock,
        localGatewayRouteTableId = localGatewayRouteTableId,
        localGatewayVirtualInterfaceGroupId = Prelude.Nothing,
        networkInterfaceId = Prelude.Nothing}

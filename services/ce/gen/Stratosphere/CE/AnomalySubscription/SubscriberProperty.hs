@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubscriberProperty
-  = SubscriberProperty {address :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html>
+    SubscriberProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-address>
+                        address :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-status>
                         status :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-type>
                         type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriberProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SubscriberProperty
 mkSubscriberProperty address type'
   = SubscriberProperty
-      {address = address, type' = type', status = Prelude.Nothing}
+      {haddock_workaround_ = (), address = address, type' = type',
+       status = Prelude.Nothing}
 instance ToResourceProperties SubscriberProperty where
   toResourceProperties SubscriberProperty {..}
     = ResourceProperties

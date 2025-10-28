@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDefinitionProperty
-  = AttributeDefinitionProperty {attributeName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html>
+    AttributeDefinitionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributename>
+                                 attributeName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html#cfn-dynamodb-table-attributedefinition-attributetype>
                                  attributeType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDefinitionProperty ::
@@ -15,7 +19,8 @@ mkAttributeDefinitionProperty ::
   -> Value Prelude.Text -> AttributeDefinitionProperty
 mkAttributeDefinitionProperty attributeName attributeType
   = AttributeDefinitionProperty
-      {attributeName = attributeName, attributeType = attributeType}
+      {haddock_workaround_ = (), attributeName = attributeName,
+       attributeType = attributeType}
 instance ToResourceProperties AttributeDefinitionProperty where
   toResourceProperties AttributeDefinitionProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateDetailsProperty
-  = CertificateDetailsProperty {cAIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html>
+    CertificateDetailsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html#cfn-rds-dbinstance-certificatedetails-caidentifier>
+                                cAIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html#cfn-rds-dbinstance-certificatedetails-validtill>
                                 validTill :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateDetailsProperty :: CertificateDetailsProperty
 mkCertificateDetailsProperty
   = CertificateDetailsProperty
-      {cAIdentifier = Prelude.Nothing, validTill = Prelude.Nothing}
+      {haddock_workaround_ = (), cAIdentifier = Prelude.Nothing,
+       validTill = Prelude.Nothing}
 instance ToResourceProperties CertificateDetailsProperty where
   toResourceProperties CertificateDetailsProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScteDashProperty
-  = ScteDashProperty {adMarkerDash :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html>
+    ScteDashProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html#cfn-mediapackagev2-originendpoint-sctedash-admarkerdash>
+                      adMarkerDash :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScteDashProperty :: ScteDashProperty
 mkScteDashProperty
-  = ScteDashProperty {adMarkerDash = Prelude.Nothing}
+  = ScteDashProperty
+      {haddock_workaround_ = (), adMarkerDash = Prelude.Nothing}
 instance ToResourceProperties ScteDashProperty where
   toResourceProperties ScteDashProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON ScteDashProperty where
               [(JSON..=) "AdMarkerDash" Prelude.<$> adMarkerDash]))
 instance Property "AdMarkerDash" ScteDashProperty where
   type PropertyType "AdMarkerDash" ScteDashProperty = Value Prelude.Text
-  set newValue ScteDashProperty {}
+  set newValue ScteDashProperty {..}
     = ScteDashProperty {adMarkerDash = Prelude.pure newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChatChannelProperty
-  = ChatChannelProperty {chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html>
+    ChatChannelProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns>
+                         chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChatChannelProperty :: ChatChannelProperty
 mkChatChannelProperty
-  = ChatChannelProperty {chatbotSns = Prelude.Nothing}
+  = ChatChannelProperty
+      {haddock_workaround_ = (), chatbotSns = Prelude.Nothing}
 instance ToResourceProperties ChatChannelProperty where
   toResourceProperties ChatChannelProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON ChatChannelProperty where
               [(JSON..=) "ChatbotSns" Prelude.<$> chatbotSns]))
 instance Property "ChatbotSns" ChatChannelProperty where
   type PropertyType "ChatbotSns" ChatChannelProperty = ValueList Prelude.Text
-  set newValue ChatChannelProperty {}
+  set newValue ChatChannelProperty {..}
     = ChatChannelProperty {chatbotSns = Prelude.pure newValue, ..}

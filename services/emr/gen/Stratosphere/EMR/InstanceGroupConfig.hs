@@ -10,16 +10,29 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.EbsConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceGroupConfig
-  = InstanceGroupConfig {autoScalingPolicy :: (Prelude.Maybe AutoScalingPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html>
+    InstanceGroupConfig {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy>
+                         autoScalingPolicy :: (Prelude.Maybe AutoScalingPolicyProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice>
                          bidPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations>
                          configurations :: (Prelude.Maybe [ConfigurationProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-customamiid>
                          customAmiId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-ebsconfiguration>
                          ebsConfiguration :: (Prelude.Maybe EbsConfigurationProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfiginstancecount->
                          instanceCount :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole>
                          instanceRole :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancetype>
                          instanceType :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-jobflowid>
                          jobFlowId :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-market>
                          market :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-name>
                          name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceGroupConfig ::
@@ -32,12 +45,12 @@ mkInstanceGroupConfig
   instanceType
   jobFlowId
   = InstanceGroupConfig
-      {instanceCount = instanceCount, instanceRole = instanceRole,
-       instanceType = instanceType, jobFlowId = jobFlowId,
-       autoScalingPolicy = Prelude.Nothing, bidPrice = Prelude.Nothing,
-       configurations = Prelude.Nothing, customAmiId = Prelude.Nothing,
-       ebsConfiguration = Prelude.Nothing, market = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceCount = instanceCount,
+       instanceRole = instanceRole, instanceType = instanceType,
+       jobFlowId = jobFlowId, autoScalingPolicy = Prelude.Nothing,
+       bidPrice = Prelude.Nothing, configurations = Prelude.Nothing,
+       customAmiId = Prelude.Nothing, ebsConfiguration = Prelude.Nothing,
+       market = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties InstanceGroupConfig where
   toResourceProperties InstanceGroupConfig {..}
     = ResourceProperties

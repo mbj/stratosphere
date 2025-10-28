@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagsEntryProperty
-  = TagsEntryProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html>
+    TagsEntryProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html#cfn-eventschemas-discoverer-tagsentry-key>
+                       key :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html#cfn-eventschemas-discoverer-tagsentry-value>
                        value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagsEntryProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TagsEntryProperty
 mkTagsEntryProperty key value
-  = TagsEntryProperty {key = key, value = value}
+  = TagsEntryProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties TagsEntryProperty where
   toResourceProperties TagsEntryProperty {..}
     = ResourceProperties

@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.CustomerManagedFleetConfigurat
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.ServiceManagedEc2FleetConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FleetConfigurationProperty
-  = FleetConfigurationProperty {customerManaged :: (Prelude.Maybe CustomerManagedFleetConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetconfiguration.html>
+    FleetConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetconfiguration.html#cfn-deadline-fleet-fleetconfiguration-customermanaged>
+                                customerManaged :: (Prelude.Maybe CustomerManagedFleetConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetconfiguration.html#cfn-deadline-fleet-fleetconfiguration-servicemanagedec2>
                                 serviceManagedEc2 :: (Prelude.Maybe ServiceManagedEc2FleetConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetConfigurationProperty :: FleetConfigurationProperty
 mkFleetConfigurationProperty
   = FleetConfigurationProperty
-      {customerManaged = Prelude.Nothing,
+      {haddock_workaround_ = (), customerManaged = Prelude.Nothing,
        serviceManagedEc2 = Prelude.Nothing}
 instance ToResourceProperties FleetConfigurationProperty where
   toResourceProperties FleetConfigurationProperty {..}

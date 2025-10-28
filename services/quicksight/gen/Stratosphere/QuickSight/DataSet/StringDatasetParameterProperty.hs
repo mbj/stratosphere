@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.StringDatasetParameterDefa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StringDatasetParameterProperty
-  = StringDatasetParameterProperty {defaultValues :: (Prelude.Maybe StringDatasetParameterDefaultValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html>
+    StringDatasetParameterProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-defaultvalues>
+                                    defaultValues :: (Prelude.Maybe StringDatasetParameterDefaultValuesProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-id>
                                     id :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-name>
                                     name :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-valuetype>
                                     valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStringDatasetParameterProperty ::
@@ -20,8 +26,8 @@ mkStringDatasetParameterProperty ::
      -> Value Prelude.Text -> StringDatasetParameterProperty
 mkStringDatasetParameterProperty id name valueType
   = StringDatasetParameterProperty
-      {id = id, name = name, valueType = valueType,
-       defaultValues = Prelude.Nothing}
+      {haddock_workaround_ = (), id = id, name = name,
+       valueType = valueType, defaultValues = Prelude.Nothing}
 instance ToResourceProperties StringDatasetParameterProperty where
   toResourceProperties StringDatasetParameterProperty {..}
     = ResourceProperties

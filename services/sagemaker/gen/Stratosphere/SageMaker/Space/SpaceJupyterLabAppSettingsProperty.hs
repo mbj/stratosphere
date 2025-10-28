@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Space.ResourceSpecProperty as Expor
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.SpaceAppLifecycleManagementProperty as Exports
 import Stratosphere.ResourceProperties
 data SpaceJupyterLabAppSettingsProperty
-  = SpaceJupyterLabAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html>
+    SpaceJupyterLabAppSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html#cfn-sagemaker-space-spacejupyterlabappsettings-applifecyclemanagement>
+                                        appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html#cfn-sagemaker-space-spacejupyterlabappsettings-coderepositories>
                                         codeRepositories :: (Prelude.Maybe [CodeRepositoryProperty]),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html#cfn-sagemaker-space-spacejupyterlabappsettings-defaultresourcespec>
                                         defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceJupyterLabAppSettingsProperty ::
   SpaceJupyterLabAppSettingsProperty
 mkSpaceJupyterLabAppSettingsProperty
   = SpaceJupyterLabAppSettingsProperty
-      {appLifecycleManagement = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       appLifecycleManagement = Prelude.Nothing,
        codeRepositories = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing}
 instance ToResourceProperties SpaceJupyterLabAppSettingsProperty where

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.OnDemandCapacityReser
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandProvisioningSpecificationProperty
-  = OnDemandProvisioningSpecificationProperty {allocationStrategy :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html>
+    OnDemandProvisioningSpecificationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy>
+                                               allocationStrategy :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-capacityreservationoptions>
                                                capacityReservationOptions :: (Prelude.Maybe OnDemandCapacityReservationOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandProvisioningSpecificationProperty ::
   Value Prelude.Text -> OnDemandProvisioningSpecificationProperty
 mkOnDemandProvisioningSpecificationProperty allocationStrategy
   = OnDemandProvisioningSpecificationProperty
-      {allocationStrategy = allocationStrategy,
+      {haddock_workaround_ = (), allocationStrategy = allocationStrategy,
        capacityReservationOptions = Prelude.Nothing}
 instance ToResourceProperties OnDemandProvisioningSpecificationProperty where
   toResourceProperties OnDemandProvisioningSpecificationProperty {..}

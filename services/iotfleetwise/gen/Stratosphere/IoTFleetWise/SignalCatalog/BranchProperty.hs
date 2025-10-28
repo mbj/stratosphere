@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BranchProperty
-  = BranchProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-branch.html>
+    BranchProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-branch.html#cfn-iotfleetwise-signalcatalog-branch-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-branch.html#cfn-iotfleetwise-signalcatalog-branch-fullyqualifiedname>
                     fullyQualifiedName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBranchProperty :: Value Prelude.Text -> BranchProperty
 mkBranchProperty fullyQualifiedName
   = BranchProperty
-      {fullyQualifiedName = fullyQualifiedName,
+      {haddock_workaround_ = (), fullyQualifiedName = fullyQualifiedName,
        description = Prelude.Nothing}
 instance ToResourceProperties BranchProperty where
   toResourceProperties BranchProperty {..}

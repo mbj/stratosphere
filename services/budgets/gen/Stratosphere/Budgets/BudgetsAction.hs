@@ -11,14 +11,25 @@ import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.SubscriberProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BudgetsAction
-  = BudgetsAction {actionThreshold :: ActionThresholdProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html>
+    BudgetsAction {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold>
+                   actionThreshold :: ActionThresholdProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype>
                    actionType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel>
                    approvalModel :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname>
                    budgetName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition>
                    definition :: DefinitionProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn>
                    executionRoleArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype>
                    notificationType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-resourcetags>
                    resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers>
                    subscribers :: [SubscriberProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBudgetsAction ::
@@ -37,9 +48,9 @@ mkBudgetsAction
   notificationType
   subscribers
   = BudgetsAction
-      {actionThreshold = actionThreshold, actionType = actionType,
-       budgetName = budgetName, definition = definition,
-       executionRoleArn = executionRoleArn,
+      {haddock_workaround_ = (), actionThreshold = actionThreshold,
+       actionType = actionType, budgetName = budgetName,
+       definition = definition, executionRoleArn = executionRoleArn,
        notificationType = notificationType, subscribers = subscribers,
        approvalModel = Prelude.Nothing, resourceTags = Prelude.Nothing}
 instance ToResourceProperties BudgetsAction where

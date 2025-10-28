@@ -9,23 +9,34 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Application
-  = Application {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html>
+    Application {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-applicationid>
+                 applicationId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-applicationtype>
                  applicationType :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-credentials>
                  credentials :: (Prelude.Maybe [CredentialProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-databasearn>
                  databaseArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-instances>
                  instances :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-sapinstancenumber>
                  sapInstanceNumber :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-sid>
                  sid :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text -> Value Prelude.Text -> Application
 mkApplication applicationId applicationType
   = Application
-      {applicationId = applicationId, applicationType = applicationType,
-       credentials = Prelude.Nothing, databaseArn = Prelude.Nothing,
-       instances = Prelude.Nothing, sapInstanceNumber = Prelude.Nothing,
-       sid = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationId = applicationId,
+       applicationType = applicationType, credentials = Prelude.Nothing,
+       databaseArn = Prelude.Nothing, instances = Prelude.Nothing,
+       sapInstanceNumber = Prelude.Nothing, sid = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties

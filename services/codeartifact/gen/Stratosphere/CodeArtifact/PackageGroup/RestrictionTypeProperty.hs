@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RestrictionTypeProperty
-  = RestrictionTypeProperty {repositories :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictiontype.html>
+    RestrictionTypeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictiontype.html#cfn-codeartifact-packagegroup-restrictiontype-repositories>
+                             repositories :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictiontype.html#cfn-codeartifact-packagegroup-restrictiontype-restrictionmode>
                              restrictionMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictionTypeProperty ::
   Value Prelude.Text -> RestrictionTypeProperty
 mkRestrictionTypeProperty restrictionMode
   = RestrictionTypeProperty
-      {restrictionMode = restrictionMode, repositories = Prelude.Nothing}
+      {haddock_workaround_ = (), restrictionMode = restrictionMode,
+       repositories = Prelude.Nothing}
 instance ToResourceProperties RestrictionTypeProperty where
   toResourceProperties RestrictionTypeProperty {..}
     = ResourceProperties

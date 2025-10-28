@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.ApplicationProperty as Exports
 import Stratosphere.ResourceProperties
 data FPortsProperty
-  = FPortsProperty {applications :: (Prelude.Maybe [ApplicationProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html>
+    FPortsProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html#cfn-iotwireless-wirelessdevice-fports-applications>
+                    applications :: (Prelude.Maybe [ApplicationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFPortsProperty :: FPortsProperty
-mkFPortsProperty = FPortsProperty {applications = Prelude.Nothing}
+mkFPortsProperty
+  = FPortsProperty
+      {haddock_workaround_ = (), applications = Prelude.Nothing}
 instance ToResourceProperties FPortsProperty where
   toResourceProperties FPortsProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON FPortsProperty where
               [(JSON..=) "Applications" Prelude.<$> applications]))
 instance Property "Applications" FPortsProperty where
   type PropertyType "Applications" FPortsProperty = [ApplicationProperty]
-  set newValue FPortsProperty {}
+  set newValue FPortsProperty {..}
     = FPortsProperty {applications = Prelude.pure newValue, ..}

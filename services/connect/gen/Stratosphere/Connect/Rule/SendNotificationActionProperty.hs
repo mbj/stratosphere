@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.NotificationRecipientTypePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SendNotificationActionProperty
-  = SendNotificationActionProperty {content :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html>
+    SendNotificationActionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-content>
+                                    content :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-contenttype>
                                     contentType :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-deliverymethod>
                                     deliveryMethod :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-recipient>
                                     recipient :: NotificationRecipientTypeProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-subject>
                                     subject :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSendNotificationActionProperty ::
@@ -27,9 +34,9 @@ mkSendNotificationActionProperty
   deliveryMethod
   recipient
   = SendNotificationActionProperty
-      {content = content, contentType = contentType,
-       deliveryMethod = deliveryMethod, recipient = recipient,
-       subject = Prelude.Nothing}
+      {haddock_workaround_ = (), content = content,
+       contentType = contentType, deliveryMethod = deliveryMethod,
+       recipient = recipient, subject = Prelude.Nothing}
 instance ToResourceProperties SendNotificationActionProperty where
   toResourceProperties SendNotificationActionProperty {..}
     = ResourceProperties

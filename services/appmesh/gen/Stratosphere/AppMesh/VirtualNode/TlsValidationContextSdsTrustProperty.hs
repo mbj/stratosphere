@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsValidationContextSdsTrustProperty
-  = TlsValidationContextSdsTrustProperty {secretName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html>
+    TlsValidationContextSdsTrustProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextsdstrust-secretname>
+                                          secretName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextSdsTrustProperty ::
   Value Prelude.Text -> TlsValidationContextSdsTrustProperty
 mkTlsValidationContextSdsTrustProperty secretName
-  = TlsValidationContextSdsTrustProperty {secretName = secretName}
+  = TlsValidationContextSdsTrustProperty
+      {haddock_workaround_ = (), secretName = secretName}
 instance ToResourceProperties TlsValidationContextSdsTrustProperty where
   toResourceProperties TlsValidationContextSdsTrustProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TlsValidationContextSdsTrustProperty where
     = JSON.object ["SecretName" JSON..= secretName]
 instance Property "SecretName" TlsValidationContextSdsTrustProperty where
   type PropertyType "SecretName" TlsValidationContextSdsTrustProperty = Value Prelude.Text
-  set newValue TlsValidationContextSdsTrustProperty {}
+  set newValue TlsValidationContextSdsTrustProperty {..}
     = TlsValidationContextSdsTrustProperty {secretName = newValue, ..}

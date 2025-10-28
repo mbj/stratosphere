@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftDestinationPropertiesProperty
-  = RedshiftDestinationPropertiesProperty {bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html>
+    RedshiftDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix>
+                                           bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig>
                                            errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname>
                                            intermediateBucketName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object>
                                            object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDestinationPropertiesProperty ::
@@ -21,7 +27,8 @@ mkRedshiftDestinationPropertiesProperty
   intermediateBucketName
   object
   = RedshiftDestinationPropertiesProperty
-      {intermediateBucketName = intermediateBucketName, object = object,
+      {haddock_workaround_ = (),
+       intermediateBucketName = intermediateBucketName, object = object,
        bucketPrefix = Prelude.Nothing,
        errorHandlingConfig = Prelude.Nothing}
 instance ToResourceProperties RedshiftDestinationPropertiesProperty where

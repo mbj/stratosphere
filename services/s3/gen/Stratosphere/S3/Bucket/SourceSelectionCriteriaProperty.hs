@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicaModificationsProperty as Exp
 import {-# SOURCE #-} Stratosphere.S3.Bucket.SseKmsEncryptedObjectsProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceSelectionCriteriaProperty
-  = SourceSelectionCriteriaProperty {replicaModifications :: (Prelude.Maybe ReplicaModificationsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html>
+    SourceSelectionCriteriaProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications>
+                                     replicaModifications :: (Prelude.Maybe ReplicaModificationsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects>
                                      sseKmsEncryptedObjects :: (Prelude.Maybe SseKmsEncryptedObjectsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceSelectionCriteriaProperty ::
   SourceSelectionCriteriaProperty
 mkSourceSelectionCriteriaProperty
   = SourceSelectionCriteriaProperty
-      {replicaModifications = Prelude.Nothing,
+      {haddock_workaround_ = (), replicaModifications = Prelude.Nothing,
        sseKmsEncryptedObjects = Prelude.Nothing}
 instance ToResourceProperties SourceSelectionCriteriaProperty where
   toResourceProperties SourceSelectionCriteriaProperty {..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleOptionProperty
-  = RuleOptionProperty {keyword :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html>
+    RuleOptionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-keyword>
+                        keyword :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-settings>
                         settings :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleOptionProperty :: Value Prelude.Text -> RuleOptionProperty
 mkRuleOptionProperty keyword
   = RuleOptionProperty
-      {keyword = keyword, settings = Prelude.Nothing}
+      {haddock_workaround_ = (), keyword = keyword,
+       settings = Prelude.Nothing}
 instance ToResourceProperties RuleOptionProperty where
   toResourceProperties RuleOptionProperty {..}
     = ResourceProperties

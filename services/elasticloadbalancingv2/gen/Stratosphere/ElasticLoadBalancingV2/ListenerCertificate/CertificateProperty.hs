@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateProperty
-  = CertificateProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html>
+    CertificateProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn>
+                         certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateProperty :: CertificateProperty
 mkCertificateProperty
-  = CertificateProperty {certificateArn = Prelude.Nothing}
+  = CertificateProperty
+      {haddock_workaround_ = (), certificateArn = Prelude.Nothing}
 instance ToResourceProperties CertificateProperty where
   toResourceProperties CertificateProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON CertificateProperty where
               [(JSON..=) "CertificateArn" Prelude.<$> certificateArn]))
 instance Property "CertificateArn" CertificateProperty where
   type PropertyType "CertificateArn" CertificateProperty = Value Prelude.Text
-  set newValue CertificateProperty {}
+  set newValue CertificateProperty {..}
     = CertificateProperty {certificateArn = Prelude.pure newValue, ..}

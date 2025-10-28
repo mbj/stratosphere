@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluencePageToIndexFieldMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfluencePageConfigurationProperty
-  = ConfluencePageConfigurationProperty {pageFieldMappings :: (Prelude.Maybe [ConfluencePageToIndexFieldMappingProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html>
+    ConfluencePageConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings>
+                                         pageFieldMappings :: (Prelude.Maybe [ConfluencePageToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluencePageConfigurationProperty ::
   ConfluencePageConfigurationProperty
 mkConfluencePageConfigurationProperty
   = ConfluencePageConfigurationProperty
-      {pageFieldMappings = Prelude.Nothing}
+      {haddock_workaround_ = (), pageFieldMappings = Prelude.Nothing}
 instance ToResourceProperties ConfluencePageConfigurationProperty where
   toResourceProperties ConfluencePageConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ConfluencePageConfigurationProperty where
               [(JSON..=) "PageFieldMappings" Prelude.<$> pageFieldMappings]))
 instance Property "PageFieldMappings" ConfluencePageConfigurationProperty where
   type PropertyType "PageFieldMappings" ConfluencePageConfigurationProperty = [ConfluencePageToIndexFieldMappingProperty]
-  set newValue ConfluencePageConfigurationProperty {}
+  set newValue ConfluencePageConfigurationProperty {..}
     = ConfluencePageConfigurationProperty
         {pageFieldMappings = Prelude.pure newValue, ..}

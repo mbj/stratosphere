@@ -11,16 +11,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AppImageConfig
-  = AppImageConfig {appImageConfigName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html>
+    AppImageConfig {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname>
+                    appImageConfigName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-codeeditorappimageconfig>
                     codeEditorAppImageConfig :: (Prelude.Maybe CodeEditorAppImageConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig>
                     jupyterLabAppImageConfig :: (Prelude.Maybe JupyterLabAppImageConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig>
                     kernelGatewayImageConfig :: (Prelude.Maybe KernelGatewayImageConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppImageConfig :: Value Prelude.Text -> AppImageConfig
 mkAppImageConfig appImageConfigName
   = AppImageConfig
-      {appImageConfigName = appImageConfigName,
+      {haddock_workaround_ = (), appImageConfigName = appImageConfigName,
        codeEditorAppImageConfig = Prelude.Nothing,
        jupyterLabAppImageConfig = Prelude.Nothing,
        kernelGatewayImageConfig = Prelude.Nothing, tags = Prelude.Nothing}

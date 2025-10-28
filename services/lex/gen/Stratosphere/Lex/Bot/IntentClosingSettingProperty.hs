@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntentClosingSettingProperty
-  = IntentClosingSettingProperty {closingResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html>
+    IntentClosingSettingProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-closingresponse>
+                                  closingResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-conditional>
                                   conditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive>
                                   isActive :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-nextstep>
                                   nextStep :: (Prelude.Maybe DialogStateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentClosingSettingProperty :: IntentClosingSettingProperty
 mkIntentClosingSettingProperty
   = IntentClosingSettingProperty
-      {closingResponse = Prelude.Nothing, conditional = Prelude.Nothing,
-       isActive = Prelude.Nothing, nextStep = Prelude.Nothing}
+      {haddock_workaround_ = (), closingResponse = Prelude.Nothing,
+       conditional = Prelude.Nothing, isActive = Prelude.Nothing,
+       nextStep = Prelude.Nothing}
 instance ToResourceProperties IntentClosingSettingProperty where
   toResourceProperties IntentClosingSettingProperty {..}
     = ResourceProperties

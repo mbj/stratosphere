@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.ColumnDescriptionProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnTagProperty
-  = ColumnTagProperty {columnDescription :: (Prelude.Maybe ColumnDescriptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html>
+    ColumnTagProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription>
+                       columnDescription :: (Prelude.Maybe ColumnDescriptionProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole>
                        columnGeographicRole :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnTagProperty :: ColumnTagProperty
 mkColumnTagProperty
   = ColumnTagProperty
-      {columnDescription = Prelude.Nothing,
+      {haddock_workaround_ = (), columnDescription = Prelude.Nothing,
        columnGeographicRole = Prelude.Nothing}
 instance ToResourceProperties ColumnTagProperty where
   toResourceProperties ColumnTagProperty {..}

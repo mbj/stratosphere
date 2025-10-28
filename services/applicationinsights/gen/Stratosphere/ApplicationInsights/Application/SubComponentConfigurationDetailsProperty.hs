@@ -11,17 +11,24 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.ProcessProper
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.WindowsEventProperty as Exports
 import Stratosphere.ResourceProperties
 data SubComponentConfigurationDetailsProperty
-  = SubComponentConfigurationDetailsProperty {alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html>
+    SubComponentConfigurationDetailsProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics>
+                                              alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs>
                                               logs :: (Prelude.Maybe [LogProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-processes>
                                               processes :: (Prelude.Maybe [ProcessProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents>
                                               windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentConfigurationDetailsProperty ::
   SubComponentConfigurationDetailsProperty
 mkSubComponentConfigurationDetailsProperty
   = SubComponentConfigurationDetailsProperty
-      {alarmMetrics = Prelude.Nothing, logs = Prelude.Nothing,
-       processes = Prelude.Nothing, windowsEvents = Prelude.Nothing}
+      {haddock_workaround_ = (), alarmMetrics = Prelude.Nothing,
+       logs = Prelude.Nothing, processes = Prelude.Nothing,
+       windowsEvents = Prelude.Nothing}
 instance ToResourceProperties SubComponentConfigurationDetailsProperty where
   toResourceProperties SubComponentConfigurationDetailsProperty {..}
     = ResourceProperties

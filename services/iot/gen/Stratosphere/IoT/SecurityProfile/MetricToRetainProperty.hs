@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.MetricDimensionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricToRetainProperty
-  = MetricToRetainProperty {exportMetric :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html>
+    MetricToRetainProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-exportmetric>
+                            exportMetric :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric>
                             metric :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension>
                             metricDimension :: (Prelude.Maybe MetricDimensionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricToRetainProperty ::
   Value Prelude.Text -> MetricToRetainProperty
 mkMetricToRetainProperty metric
   = MetricToRetainProperty
-      {metric = metric, exportMetric = Prelude.Nothing,
-       metricDimension = Prelude.Nothing}
+      {haddock_workaround_ = (), metric = metric,
+       exportMetric = Prelude.Nothing, metricDimension = Prelude.Nothing}
 instance ToResourceProperties MetricToRetainProperty where
   toResourceProperties MetricToRetainProperty {..}
     = ResourceProperties

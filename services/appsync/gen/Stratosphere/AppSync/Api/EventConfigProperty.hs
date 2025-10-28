@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.AppSync.Api.AuthProviderProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.Api.EventLogConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data EventConfigProperty
-  = EventConfigProperty {authProviders :: [AuthProviderProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html>
+    EventConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-authproviders>
+                         authProviders :: [AuthProviderProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-connectionauthmodes>
                          connectionAuthModes :: [AuthModeProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-defaultpublishauthmodes>
                          defaultPublishAuthModes :: [AuthModeProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-defaultsubscribeauthmodes>
                          defaultSubscribeAuthModes :: [AuthModeProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-logconfig>
                          logConfig :: (Prelude.Maybe EventLogConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventConfigProperty ::
@@ -25,7 +32,7 @@ mkEventConfigProperty
   defaultPublishAuthModes
   defaultSubscribeAuthModes
   = EventConfigProperty
-      {authProviders = authProviders,
+      {haddock_workaround_ = (), authProviders = authProviders,
        connectionAuthModes = connectionAuthModes,
        defaultPublishAuthModes = defaultPublishAuthModes,
        defaultSubscribeAuthModes = defaultSubscribeAuthModes,

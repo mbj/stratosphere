@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChannelPolicy
-  = ChannelPolicy {channelName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channelpolicy.html>
+    ChannelPolicy {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channelpolicy.html#cfn-mediatailor-channelpolicy-channelname>
+                   channelName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channelpolicy.html#cfn-mediatailor-channelpolicy-policy>
                    policy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelPolicy ::
   Value Prelude.Text -> JSON.Object -> ChannelPolicy
 mkChannelPolicy channelName policy
-  = ChannelPolicy {channelName = channelName, policy = policy}
+  = ChannelPolicy
+      {haddock_workaround_ = (), channelName = channelName,
+       policy = policy}
 instance ToResourceProperties ChannelPolicy where
   toResourceProperties ChannelPolicy {..}
     = ResourceProperties

@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.ParquetConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FileFormatConfigurationProperty
-  = FileFormatConfigurationProperty {jsonConfiguration :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html>
+    FileFormatConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-jsonconfiguration>
+                                     jsonConfiguration :: (Prelude.Maybe JSON.Object),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html#cfn-iotanalytics-datastore-fileformatconfiguration-parquetconfiguration>
                                      parquetConfiguration :: (Prelude.Maybe ParquetConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileFormatConfigurationProperty ::
   FileFormatConfigurationProperty
 mkFileFormatConfigurationProperty
   = FileFormatConfigurationProperty
-      {jsonConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), jsonConfiguration = Prelude.Nothing,
        parquetConfiguration = Prelude.Nothing}
 instance ToResourceProperties FileFormatConfigurationProperty where
   toResourceProperties FileFormatConfigurationProperty {..}

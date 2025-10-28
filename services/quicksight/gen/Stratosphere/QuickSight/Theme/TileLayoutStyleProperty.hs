@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.GutterStyleProperty as Expor
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.MarginStyleProperty as Exports
 import Stratosphere.ResourceProperties
 data TileLayoutStyleProperty
-  = TileLayoutStyleProperty {gutter :: (Prelude.Maybe GutterStyleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html>
+    TileLayoutStyleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter>
+                             gutter :: (Prelude.Maybe GutterStyleProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin>
                              margin :: (Prelude.Maybe MarginStyleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTileLayoutStyleProperty :: TileLayoutStyleProperty
 mkTileLayoutStyleProperty
   = TileLayoutStyleProperty
-      {gutter = Prelude.Nothing, margin = Prelude.Nothing}
+      {haddock_workaround_ = (), gutter = Prelude.Nothing,
+       margin = Prelude.Nothing}
 instance ToResourceProperties TileLayoutStyleProperty where
   toResourceProperties TileLayoutStyleProperty {..}
     = ResourceProperties

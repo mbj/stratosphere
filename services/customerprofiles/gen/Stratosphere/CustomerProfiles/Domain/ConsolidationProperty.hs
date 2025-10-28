@@ -6,12 +6,16 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data ConsolidationProperty
-  = ConsolidationProperty {matchingAttributesList :: JSON.Object}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html>
+    ConsolidationProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html#cfn-customerprofiles-domain-consolidation-matchingattributeslist>
+                           matchingAttributesList :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConsolidationProperty :: JSON.Object -> ConsolidationProperty
 mkConsolidationProperty matchingAttributesList
   = ConsolidationProperty
-      {matchingAttributesList = matchingAttributesList}
+      {haddock_workaround_ = (),
+       matchingAttributesList = matchingAttributesList}
 instance ToResourceProperties ConsolidationProperty where
   toResourceProperties ConsolidationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ConsolidationProperty where
         ["MatchingAttributesList" JSON..= matchingAttributesList]
 instance Property "MatchingAttributesList" ConsolidationProperty where
   type PropertyType "MatchingAttributesList" ConsolidationProperty = JSON.Object
-  set newValue ConsolidationProperty {}
+  set newValue ConsolidationProperty {..}
     = ConsolidationProperty {matchingAttributesList = newValue, ..}

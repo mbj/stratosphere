@@ -7,15 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsBasicPutSettingsProperty
-  = HlsBasicPutSettingsProperty {connectionRetryInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html>
+    HlsBasicPutSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-connectionretryinterval>
+                                 connectionRetryInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-filecacheduration>
                                  filecacheDuration :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-numretries>
                                  numRetries :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html#cfn-medialive-channel-hlsbasicputsettings-restartdelay>
                                  restartDelay :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsBasicPutSettingsProperty :: HlsBasicPutSettingsProperty
 mkHlsBasicPutSettingsProperty
   = HlsBasicPutSettingsProperty
-      {connectionRetryInterval = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       connectionRetryInterval = Prelude.Nothing,
        filecacheDuration = Prelude.Nothing, numRetries = Prelude.Nothing,
        restartDelay = Prelude.Nothing}
 instance ToResourceProperties HlsBasicPutSettingsProperty where

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueOverrideProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueOverrideMapProperty
-  = SlotValueOverrideMapProperty {slotName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html>
+    SlotValueOverrideMapProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html#cfn-lex-bot-slotvalueoverridemap-slotname>
+                                  slotName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html#cfn-lex-bot-slotvalueoverridemap-slotvalueoverride>
                                   slotValueOverride :: (Prelude.Maybe SlotValueOverrideProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueOverrideMapProperty :: SlotValueOverrideMapProperty
 mkSlotValueOverrideMapProperty
   = SlotValueOverrideMapProperty
-      {slotName = Prelude.Nothing, slotValueOverride = Prelude.Nothing}
+      {haddock_workaround_ = (), slotName = Prelude.Nothing,
+       slotValueOverride = Prelude.Nothing}
 instance ToResourceProperties SlotValueOverrideMapProperty where
   toResourceProperties SlotValueOverrideMapProperty {..}
     = ResourceProperties

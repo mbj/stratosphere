@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Site
-  = Site {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html>
+    Site {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description>
+          description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid>
           globalNetworkId :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location>
           location :: (Prelude.Maybe LocationProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags>
           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSite :: Value Prelude.Text -> Site
 mkSite globalNetworkId
   = Site
-      {globalNetworkId = globalNetworkId, description = Prelude.Nothing,
-       location = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), globalNetworkId = globalNetworkId,
+       description = Prelude.Nothing, location = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Site where
   toResourceProperties Site {..}
     = ResourceProperties

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsPlaylistSettingsProperty
-  = HlsPlaylistSettingsProperty {adMarkupType :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html>
+    HlsPlaylistSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html#cfn-mediatailor-channel-hlsplaylistsettings-admarkuptype>
+                                 adMarkupType :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html#cfn-mediatailor-channel-hlsplaylistsettings-manifestwindowseconds>
                                  manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsPlaylistSettingsProperty :: HlsPlaylistSettingsProperty
 mkHlsPlaylistSettingsProperty
   = HlsPlaylistSettingsProperty
-      {adMarkupType = Prelude.Nothing,
+      {haddock_workaround_ = (), adMarkupType = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing}
 instance ToResourceProperties HlsPlaylistSettingsProperty where
   toResourceProperties HlsPlaylistSettingsProperty {..}

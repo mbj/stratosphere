@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JoinKeyPropertiesProperty
-  = JoinKeyPropertiesProperty {uniqueKey :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html>
+    JoinKeyPropertiesProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey>
+                               uniqueKey :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJoinKeyPropertiesProperty :: JoinKeyPropertiesProperty
 mkJoinKeyPropertiesProperty
-  = JoinKeyPropertiesProperty {uniqueKey = Prelude.Nothing}
+  = JoinKeyPropertiesProperty
+      {haddock_workaround_ = (), uniqueKey = Prelude.Nothing}
 instance ToResourceProperties JoinKeyPropertiesProperty where
   toResourceProperties JoinKeyPropertiesProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON JoinKeyPropertiesProperty where
            (Prelude.catMaybes [(JSON..=) "UniqueKey" Prelude.<$> uniqueKey]))
 instance Property "UniqueKey" JoinKeyPropertiesProperty where
   type PropertyType "UniqueKey" JoinKeyPropertiesProperty = Value Prelude.Bool
-  set newValue JoinKeyPropertiesProperty {}
+  set newValue JoinKeyPropertiesProperty {..}
     = JoinKeyPropertiesProperty {uniqueKey = Prelude.pure newValue, ..}

@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Rule
-  = Rule {actions :: ActionsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html>
+    Rule {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-actions>
+          actions :: ActionsProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-function>
           function :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-instancearn>
           instanceArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-publishstatus>
           publishStatus :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html#cfn-connect-rule-triggereventsource>
           triggerEventSource :: RuleTriggerEventSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRule ::
@@ -32,8 +41,9 @@ mkRule
   publishStatus
   triggerEventSource
   = Rule
-      {actions = actions, function = function, instanceArn = instanceArn,
-       name = name, publishStatus = publishStatus,
+      {haddock_workaround_ = (), actions = actions, function = function,
+       instanceArn = instanceArn, name = name,
+       publishStatus = publishStatus,
        triggerEventSource = triggerEventSource, tags = Prelude.Nothing}
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}

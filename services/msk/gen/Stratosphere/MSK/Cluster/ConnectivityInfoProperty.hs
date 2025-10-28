@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.PublicAccessProperty as Exports
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.VpcConnectivityProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectivityInfoProperty
-  = ConnectivityInfoProperty {publicAccess :: (Prelude.Maybe PublicAccessProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html>
+    ConnectivityInfoProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-publicaccess>
+                              publicAccess :: (Prelude.Maybe PublicAccessProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-vpcconnectivity>
                               vpcConnectivity :: (Prelude.Maybe VpcConnectivityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectivityInfoProperty :: ConnectivityInfoProperty
 mkConnectivityInfoProperty
   = ConnectivityInfoProperty
-      {publicAccess = Prelude.Nothing, vpcConnectivity = Prelude.Nothing}
+      {haddock_workaround_ = (), publicAccess = Prelude.Nothing,
+       vpcConnectivity = Prelude.Nothing}
 instance ToResourceProperties ConnectivityInfoProperty where
   toResourceProperties ConnectivityInfoProperty {..}
     = ResourceProperties

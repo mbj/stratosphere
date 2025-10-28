@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomActionAttachmentCriteriaProperty
-  = CustomActionAttachmentCriteriaProperty {operator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachmentcriteria.html>
+    CustomActionAttachmentCriteriaProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachmentcriteria.html#cfn-chatbot-customaction-customactionattachmentcriteria-operator>
+                                            operator :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachmentcriteria.html#cfn-chatbot-customaction-customactionattachmentcriteria-value>
                                             value :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachmentcriteria.html#cfn-chatbot-customaction-customactionattachmentcriteria-variablename>
                                             variableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionAttachmentCriteriaProperty ::
@@ -17,8 +22,8 @@ mkCustomActionAttachmentCriteriaProperty ::
   -> Value Prelude.Text -> CustomActionAttachmentCriteriaProperty
 mkCustomActionAttachmentCriteriaProperty operator variableName
   = CustomActionAttachmentCriteriaProperty
-      {operator = operator, variableName = variableName,
-       value = Prelude.Nothing}
+      {haddock_workaround_ = (), operator = operator,
+       variableName = variableName, value = Prelude.Nothing}
 instance ToResourceProperties CustomActionAttachmentCriteriaProperty where
   toResourceProperties CustomActionAttachmentCriteriaProperty {..}
     = ResourceProperties

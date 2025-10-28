@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecommendationConfigurationProperty
-  = RecommendationConfigurationProperty {enableBusinessNameGeneration :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-recommendationconfiguration.html>
+    RecommendationConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-recommendationconfiguration.html#cfn-datazone-datasource-recommendationconfiguration-enablebusinessnamegeneration>
+                                         enableBusinessNameGeneration :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecommendationConfigurationProperty ::
   RecommendationConfigurationProperty
 mkRecommendationConfigurationProperty
   = RecommendationConfigurationProperty
-      {enableBusinessNameGeneration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       enableBusinessNameGeneration = Prelude.Nothing}
 instance ToResourceProperties RecommendationConfigurationProperty where
   toResourceProperties RecommendationConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON RecommendationConfigurationProperty where
                  Prelude.<$> enableBusinessNameGeneration]))
 instance Property "EnableBusinessNameGeneration" RecommendationConfigurationProperty where
   type PropertyType "EnableBusinessNameGeneration" RecommendationConfigurationProperty = Value Prelude.Bool
-  set newValue RecommendationConfigurationProperty {}
+  set newValue RecommendationConfigurationProperty {..}
     = RecommendationConfigurationProperty
         {enableBusinessNameGeneration = Prelude.pure newValue, ..}

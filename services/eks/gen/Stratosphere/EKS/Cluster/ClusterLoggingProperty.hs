@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.LoggingTypeConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ClusterLoggingProperty
-  = ClusterLoggingProperty {enabledTypes :: (Prelude.Maybe [LoggingTypeConfigProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html>
+    ClusterLoggingProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html#cfn-eks-cluster-clusterlogging-enabledtypes>
+                            enabledTypes :: (Prelude.Maybe [LoggingTypeConfigProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterLoggingProperty :: ClusterLoggingProperty
 mkClusterLoggingProperty
-  = ClusterLoggingProperty {enabledTypes = Prelude.Nothing}
+  = ClusterLoggingProperty
+      {haddock_workaround_ = (), enabledTypes = Prelude.Nothing}
 instance ToResourceProperties ClusterLoggingProperty where
   toResourceProperties ClusterLoggingProperty {..}
     = ResourceProperties
@@ -29,5 +33,5 @@ instance JSON.ToJSON ClusterLoggingProperty where
               [(JSON..=) "EnabledTypes" Prelude.<$> enabledTypes]))
 instance Property "EnabledTypes" ClusterLoggingProperty where
   type PropertyType "EnabledTypes" ClusterLoggingProperty = [LoggingTypeConfigProperty]
-  set newValue ClusterLoggingProperty {}
+  set newValue ClusterLoggingProperty {..}
     = ClusterLoggingProperty {enabledTypes = Prelude.pure newValue, ..}

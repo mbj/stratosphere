@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateDimensionProperty
-  = DateDimensionProperty {dimensionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-datedimension.html>
+    DateDimensionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-datedimension.html#cfn-customerprofiles-segmentdefinition-datedimension-dimensiontype>
+                           dimensionType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-datedimension.html#cfn-customerprofiles-segmentdefinition-datedimension-values>
                            values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateDimensionProperty ::
@@ -15,7 +19,8 @@ mkDateDimensionProperty ::
   -> ValueList Prelude.Text -> DateDimensionProperty
 mkDateDimensionProperty dimensionType values
   = DateDimensionProperty
-      {dimensionType = dimensionType, values = values}
+      {haddock_workaround_ = (), dimensionType = dimensionType,
+       values = values}
 instance ToResourceProperties DateDimensionProperty where
   toResourceProperties DateDimensionProperty {..}
     = ResourceProperties

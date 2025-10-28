@@ -12,19 +12,29 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationTimeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationDestinationProperty
-  = ReplicationDestinationProperty {accessControlTranslation :: (Prelude.Maybe AccessControlTranslationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html>
+    ReplicationDestinationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation>
+                                    accessControlTranslation :: (Prelude.Maybe AccessControlTranslationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-account>
                                     account :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-bucket>
                                     bucket :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration>
                                     encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-metrics>
                                     metrics :: (Prelude.Maybe MetricsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-replicationtime>
                                     replicationTime :: (Prelude.Maybe ReplicationTimeProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-storageclass>
                                     storageClass :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationDestinationProperty ::
   Value Prelude.Text -> ReplicationDestinationProperty
 mkReplicationDestinationProperty bucket
   = ReplicationDestinationProperty
-      {bucket = bucket, accessControlTranslation = Prelude.Nothing,
+      {haddock_workaround_ = (), bucket = bucket,
+       accessControlTranslation = Prelude.Nothing,
        account = Prelude.Nothing,
        encryptionConfiguration = Prelude.Nothing,
        metrics = Prelude.Nothing, replicationTime = Prelude.Nothing,

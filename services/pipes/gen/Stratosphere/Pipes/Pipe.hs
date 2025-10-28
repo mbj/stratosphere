@@ -11,18 +11,33 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetParametersProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Pipe
-  = Pipe {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html>
+    Pipe {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-description>
+          description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-desiredstate>
           desiredState :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichment>
           enrichment :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters>
           enrichmentParameters :: (Prelude.Maybe PipeEnrichmentParametersProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-kmskeyidentifier>
           kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-logconfiguration>
           logConfiguration :: (Prelude.Maybe PipeLogConfigurationProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-name>
           name :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-rolearn>
           roleArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-source>
           source :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-sourceparameters>
           sourceParameters :: (Prelude.Maybe PipeSourceParametersProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-tags>
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-target>
           target :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-targetparameters>
           targetParameters :: (Prelude.Maybe PipeTargetParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipe ::
@@ -30,9 +45,9 @@ mkPipe ::
   -> Value Prelude.Text -> Value Prelude.Text -> Pipe
 mkPipe roleArn source target
   = Pipe
-      {roleArn = roleArn, source = source, target = target,
-       description = Prelude.Nothing, desiredState = Prelude.Nothing,
-       enrichment = Prelude.Nothing,
+      {haddock_workaround_ = (), roleArn = roleArn, source = source,
+       target = target, description = Prelude.Nothing,
+       desiredState = Prelude.Nothing, enrichment = Prelude.Nothing,
        enrichmentParameters = Prelude.Nothing,
        kmsKeyIdentifier = Prelude.Nothing,
        logConfiguration = Prelude.Nothing, name = Prelude.Nothing,

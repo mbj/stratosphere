@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectOperationProperty
-  = ProjectOperationProperty {projectedColumns :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html>
+    ProjectOperationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns>
+                              projectedColumns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectOperationProperty ::
   ValueList Prelude.Text -> ProjectOperationProperty
 mkProjectOperationProperty projectedColumns
-  = ProjectOperationProperty {projectedColumns = projectedColumns}
+  = ProjectOperationProperty
+      {haddock_workaround_ = (), projectedColumns = projectedColumns}
 instance ToResourceProperties ProjectOperationProperty where
   toResourceProperties ProjectOperationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ProjectOperationProperty where
     = JSON.object ["ProjectedColumns" JSON..= projectedColumns]
 instance Property "ProjectedColumns" ProjectOperationProperty where
   type PropertyType "ProjectedColumns" ProjectOperationProperty = ValueList Prelude.Text
-  set newValue ProjectOperationProperty {}
+  set newValue ProjectOperationProperty {..}
     = ProjectOperationProperty {projectedColumns = newValue, ..}

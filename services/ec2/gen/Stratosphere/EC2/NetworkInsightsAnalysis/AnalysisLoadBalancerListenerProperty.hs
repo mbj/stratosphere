@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisLoadBalancerListenerProperty
-  = AnalysisLoadBalancerListenerProperty {instancePort :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html>
+    AnalysisLoadBalancerListenerProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport>
+                                          instancePort :: (Prelude.Maybe (Value Prelude.Integer)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport>
                                           loadBalancerPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisLoadBalancerListenerProperty ::
   AnalysisLoadBalancerListenerProperty
 mkAnalysisLoadBalancerListenerProperty
   = AnalysisLoadBalancerListenerProperty
-      {instancePort = Prelude.Nothing,
+      {haddock_workaround_ = (), instancePort = Prelude.Nothing,
        loadBalancerPort = Prelude.Nothing}
 instance ToResourceProperties AnalysisLoadBalancerListenerProperty where
   toResourceProperties AnalysisLoadBalancerListenerProperty {..}

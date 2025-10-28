@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.BotAlias.CloudWatchLogGroupLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data TextLogDestinationProperty
-  = TextLogDestinationProperty {cloudWatch :: CloudWatchLogGroupLogDestinationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html>
+    TextLogDestinationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html#cfn-lex-botalias-textlogdestination-cloudwatch>
+                                cloudWatch :: CloudWatchLogGroupLogDestinationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextLogDestinationProperty ::
   CloudWatchLogGroupLogDestinationProperty
   -> TextLogDestinationProperty
 mkTextLogDestinationProperty cloudWatch
-  = TextLogDestinationProperty {cloudWatch = cloudWatch}
+  = TextLogDestinationProperty
+      {haddock_workaround_ = (), cloudWatch = cloudWatch}
 instance ToResourceProperties TextLogDestinationProperty where
   toResourceProperties TextLogDestinationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON TextLogDestinationProperty where
     = JSON.object ["CloudWatch" JSON..= cloudWatch]
 instance Property "CloudWatch" TextLogDestinationProperty where
   type PropertyType "CloudWatch" TextLogDestinationProperty = CloudWatchLogGroupLogDestinationProperty
-  set newValue TextLogDestinationProperty {}
+  set newValue TextLogDestinationProperty {..}
     = TextLogDestinationProperty {cloudWatch = newValue, ..}

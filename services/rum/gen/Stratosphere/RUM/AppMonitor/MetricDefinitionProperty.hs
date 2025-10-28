@@ -7,20 +7,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricDefinitionProperty
-  = MetricDefinitionProperty {dimensionKeys :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html>
+    MetricDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-dimensionkeys>
+                              dimensionKeys :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-eventpattern>
                               eventPattern :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-namespace>
                               namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-unitlabel>
                               unitLabel :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html#cfn-rum-appmonitor-metricdefinition-valuekey>
                               valueKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDefinitionProperty ::
   Value Prelude.Text -> MetricDefinitionProperty
 mkMetricDefinitionProperty name
   = MetricDefinitionProperty
-      {name = name, dimensionKeys = Prelude.Nothing,
-       eventPattern = Prelude.Nothing, namespace = Prelude.Nothing,
-       unitLabel = Prelude.Nothing, valueKey = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       dimensionKeys = Prelude.Nothing, eventPattern = Prelude.Nothing,
+       namespace = Prelude.Nothing, unitLabel = Prelude.Nothing,
+       valueKey = Prelude.Nothing}
 instance ToResourceProperties MetricDefinitionProperty where
   toResourceProperties MetricDefinitionProperty {..}
     = ResourceProperties

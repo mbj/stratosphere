@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.DatabaseTableOutputOptionsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseOutputProperty
-  = DatabaseOutputProperty {databaseOptions :: DatabaseTableOutputOptionsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html>
+    DatabaseOutputProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions>
+                            databaseOptions :: DatabaseTableOutputOptionsProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode>
                             databaseOutputMode :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname>
                             glueConnectionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseOutputProperty ::
@@ -18,7 +23,7 @@ mkDatabaseOutputProperty ::
   -> Value Prelude.Text -> DatabaseOutputProperty
 mkDatabaseOutputProperty databaseOptions glueConnectionName
   = DatabaseOutputProperty
-      {databaseOptions = databaseOptions,
+      {haddock_workaround_ = (), databaseOptions = databaseOptions,
        glueConnectionName = glueConnectionName,
        databaseOutputMode = Prelude.Nothing}
 instance ToResourceProperties DatabaseOutputProperty where

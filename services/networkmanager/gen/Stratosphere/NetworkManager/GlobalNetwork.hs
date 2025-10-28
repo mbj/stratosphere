@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data GlobalNetwork
-  = GlobalNetwork {createdAt :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html>
+    GlobalNetwork {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-createdat>
+                   createdAt :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-state>
                    state :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalNetwork :: GlobalNetwork
 mkGlobalNetwork
   = GlobalNetwork
-      {createdAt = Prelude.Nothing, description = Prelude.Nothing,
-       state = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), createdAt = Prelude.Nothing,
+       description = Prelude.Nothing, state = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties GlobalNetwork where
   toResourceProperties GlobalNetwork {..}
     = ResourceProperties

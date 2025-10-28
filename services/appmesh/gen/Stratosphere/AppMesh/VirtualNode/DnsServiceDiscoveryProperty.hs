@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsServiceDiscoveryProperty
-  = DnsServiceDiscoveryProperty {hostname :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html>
+    DnsServiceDiscoveryProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-hostname>
+                                 hostname :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-ippreference>
                                  ipPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html#cfn-appmesh-virtualnode-dnsservicediscovery-responsetype>
                                  responseType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsServiceDiscoveryProperty ::
   Value Prelude.Text -> DnsServiceDiscoveryProperty
 mkDnsServiceDiscoveryProperty hostname
   = DnsServiceDiscoveryProperty
-      {hostname = hostname, ipPreference = Prelude.Nothing,
-       responseType = Prelude.Nothing}
+      {haddock_workaround_ = (), hostname = hostname,
+       ipPreference = Prelude.Nothing, responseType = Prelude.Nothing}
 instance ToResourceProperties DnsServiceDiscoveryProperty where
   toResourceProperties DnsServiceDiscoveryProperty {..}
     = ResourceProperties

@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIDConnectConfigProperty
-  = OpenIDConnectConfigProperty {authTTL :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-openidconnectconfig.html>
+    OpenIDConnectConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-openidconnectconfig.html#cfn-appsync-api-openidconnectconfig-authttl>
+                                 authTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-openidconnectconfig.html#cfn-appsync-api-openidconnectconfig-clientid>
                                  clientId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-openidconnectconfig.html#cfn-appsync-api-openidconnectconfig-iatttl>
                                  iatTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-openidconnectconfig.html#cfn-appsync-api-openidconnectconfig-issuer>
                                  issuer :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIDConnectConfigProperty ::
   Value Prelude.Text -> OpenIDConnectConfigProperty
 mkOpenIDConnectConfigProperty issuer
   = OpenIDConnectConfigProperty
-      {issuer = issuer, authTTL = Prelude.Nothing,
-       clientId = Prelude.Nothing, iatTTL = Prelude.Nothing}
+      {haddock_workaround_ = (), issuer = issuer,
+       authTTL = Prelude.Nothing, clientId = Prelude.Nothing,
+       iatTTL = Prelude.Nothing}
 instance ToResourceProperties OpenIDConnectConfigProperty where
   toResourceProperties OpenIDConnectConfigProperty {..}
     = ResourceProperties

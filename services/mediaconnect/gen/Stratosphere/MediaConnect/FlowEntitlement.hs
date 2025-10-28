@@ -8,12 +8,21 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.FlowEntitlement.EncryptionProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowEntitlement
-  = FlowEntitlement {dataTransferSubscriberFeePercent :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html>
+    FlowEntitlement {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent>
+                     dataTransferSubscriberFeePercent :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description>
                      description :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption>
                      encryption :: (Prelude.Maybe EncryptionProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus>
                      entitlementStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn>
                      flowArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers>
                      subscribers :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowEntitlement ::
@@ -22,8 +31,8 @@ mkFlowEntitlement ::
      -> Value Prelude.Text -> ValueList Prelude.Text -> FlowEntitlement
 mkFlowEntitlement description flowArn name subscribers
   = FlowEntitlement
-      {description = description, flowArn = flowArn, name = name,
-       subscribers = subscribers,
+      {haddock_workaround_ = (), description = description,
+       flowArn = flowArn, name = name, subscribers = subscribers,
        dataTransferSubscriberFeePercent = Prelude.Nothing,
        encryption = Prelude.Nothing, entitlementStatus = Prelude.Nothing}
 instance ToResourceProperties FlowEntitlement where

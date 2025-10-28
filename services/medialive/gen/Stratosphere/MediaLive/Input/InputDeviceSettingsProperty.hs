@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputDeviceSettingsProperty
-  = InputDeviceSettingsProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html>
+    InputDeviceSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html#cfn-medialive-input-inputdevicesettings-id>
+                                 id :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDeviceSettingsProperty :: InputDeviceSettingsProperty
 mkInputDeviceSettingsProperty
-  = InputDeviceSettingsProperty {id = Prelude.Nothing}
+  = InputDeviceSettingsProperty
+      {haddock_workaround_ = (), id = Prelude.Nothing}
 instance ToResourceProperties InputDeviceSettingsProperty where
   toResourceProperties InputDeviceSettingsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON InputDeviceSettingsProperty where
            (Prelude.catMaybes [(JSON..=) "Id" Prelude.<$> id]))
 instance Property "Id" InputDeviceSettingsProperty where
   type PropertyType "Id" InputDeviceSettingsProperty = Value Prelude.Text
-  set newValue InputDeviceSettingsProperty {}
+  set newValue InputDeviceSettingsProperty {..}
     = InputDeviceSettingsProperty {id = Prelude.pure newValue, ..}

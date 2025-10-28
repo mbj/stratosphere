@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SrtGroupSettingsProperty
-  = SrtGroupSettingsProperty {inputLossAction :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtgroupsettings.html>
+    SrtGroupSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtgroupsettings.html#cfn-medialive-channel-srtgroupsettings-inputlossaction>
+                              inputLossAction :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtGroupSettingsProperty :: SrtGroupSettingsProperty
 mkSrtGroupSettingsProperty
-  = SrtGroupSettingsProperty {inputLossAction = Prelude.Nothing}
+  = SrtGroupSettingsProperty
+      {haddock_workaround_ = (), inputLossAction = Prelude.Nothing}
 instance ToResourceProperties SrtGroupSettingsProperty where
   toResourceProperties SrtGroupSettingsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SrtGroupSettingsProperty where
               [(JSON..=) "InputLossAction" Prelude.<$> inputLossAction]))
 instance Property "InputLossAction" SrtGroupSettingsProperty where
   type PropertyType "InputLossAction" SrtGroupSettingsProperty = Value Prelude.Text
-  set newValue SrtGroupSettingsProperty {}
+  set newValue SrtGroupSettingsProperty {..}
     = SrtGroupSettingsProperty
         {inputLossAction = Prelude.pure newValue, ..}

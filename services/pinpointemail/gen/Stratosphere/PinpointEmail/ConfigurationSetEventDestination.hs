@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.PinpointEmail.ConfigurationSetEventDestinatio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationSetEventDestination
-  = ConfigurationSetEventDestination {configurationSetName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html>
+    ConfigurationSetEventDestination {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-configurationsetname>
+                                      configurationSetName :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination>
                                       eventDestination :: (Prelude.Maybe EventDestinationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestinationname>
                                       eventDestinationName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSetEventDestination ::
@@ -20,7 +25,8 @@ mkConfigurationSetEventDestination
   configurationSetName
   eventDestinationName
   = ConfigurationSetEventDestination
-      {configurationSetName = configurationSetName,
+      {haddock_workaround_ = (),
+       configurationSetName = configurationSetName,
        eventDestinationName = eventDestinationName,
        eventDestination = Prelude.Nothing}
 instance ToResourceProperties ConfigurationSetEventDestination where

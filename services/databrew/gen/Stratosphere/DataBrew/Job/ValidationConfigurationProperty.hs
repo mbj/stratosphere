@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationConfigurationProperty
-  = ValidationConfigurationProperty {rulesetArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html>
+    ValidationConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-rulesetarn>
+                                     rulesetArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html#cfn-databrew-job-validationconfiguration-validationmode>
                                      validationMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationConfigurationProperty ::
   Value Prelude.Text -> ValidationConfigurationProperty
 mkValidationConfigurationProperty rulesetArn
   = ValidationConfigurationProperty
-      {rulesetArn = rulesetArn, validationMode = Prelude.Nothing}
+      {haddock_workaround_ = (), rulesetArn = rulesetArn,
+       validationMode = Prelude.Nothing}
 instance ToResourceProperties ValidationConfigurationProperty where
   toResourceProperties ValidationConfigurationProperty {..}
     = ResourceProperties

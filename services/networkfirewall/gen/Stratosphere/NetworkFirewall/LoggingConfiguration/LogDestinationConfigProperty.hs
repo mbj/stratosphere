@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogDestinationConfigProperty
-  = LogDestinationConfigProperty {logDestination :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html>
+    LogDestinationConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination>
+                                  logDestination :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestinationtype>
                                   logDestinationType :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logtype>
                                   logType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDestinationConfigProperty ::
@@ -20,7 +25,7 @@ mkLogDestinationConfigProperty
   logDestinationType
   logType
   = LogDestinationConfigProperty
-      {logDestination = logDestination,
+      {haddock_workaround_ = (), logDestination = logDestination,
        logDestinationType = logDestinationType, logType = logType}
 instance ToResourceProperties LogDestinationConfigProperty where
   toResourceProperties LogDestinationConfigProperty {..}

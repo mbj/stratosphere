@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComplianceProperty
-  = ComplianceProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-compliance.html>
+    ComplianceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-compliance.html#cfn-config-configrule-compliance-type>
+                        type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComplianceProperty :: ComplianceProperty
-mkComplianceProperty = ComplianceProperty {type' = Prelude.Nothing}
+mkComplianceProperty
+  = ComplianceProperty
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties ComplianceProperty where
   toResourceProperties ComplianceProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON ComplianceProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" ComplianceProperty where
   type PropertyType "Type" ComplianceProperty = Value Prelude.Text
-  set newValue ComplianceProperty {}
+  set newValue ComplianceProperty {..}
     = ComplianceProperty {type' = Prelude.pure newValue, ..}

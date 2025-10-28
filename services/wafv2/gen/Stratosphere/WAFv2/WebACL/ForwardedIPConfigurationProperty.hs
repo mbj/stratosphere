@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ForwardedIPConfigurationProperty
-  = ForwardedIPConfigurationProperty {fallbackBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html>
+    ForwardedIPConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior>
+                                      fallbackBehavior :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername>
                                       headerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardedIPConfigurationProperty ::
@@ -16,7 +20,8 @@ mkForwardedIPConfigurationProperty ::
   -> Value Prelude.Text -> ForwardedIPConfigurationProperty
 mkForwardedIPConfigurationProperty fallbackBehavior headerName
   = ForwardedIPConfigurationProperty
-      {fallbackBehavior = fallbackBehavior, headerName = headerName}
+      {haddock_workaround_ = (), fallbackBehavior = fallbackBehavior,
+       headerName = headerName}
 instance ToResourceProperties ForwardedIPConfigurationProperty where
   toResourceProperties ForwardedIPConfigurationProperty {..}
     = ResourceProperties

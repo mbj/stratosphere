@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.Grafana.Workspace.RoleValuesProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SamlConfigurationProperty
-  = SamlConfigurationProperty {allowedOrganizations :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html>
+    SamlConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html#cfn-grafana-workspace-samlconfiguration-allowedorganizations>
+                               allowedOrganizations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html#cfn-grafana-workspace-samlconfiguration-assertionattributes>
                                assertionAttributes :: (Prelude.Maybe AssertionAttributesProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html#cfn-grafana-workspace-samlconfiguration-idpmetadata>
                                idpMetadata :: IdpMetadataProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html#cfn-grafana-workspace-samlconfiguration-loginvalidityduration>
                                loginValidityDuration :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html#cfn-grafana-workspace-samlconfiguration-rolevalues>
                                roleValues :: (Prelude.Maybe RoleValuesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSamlConfigurationProperty ::
   IdpMetadataProperty -> SamlConfigurationProperty
 mkSamlConfigurationProperty idpMetadata
   = SamlConfigurationProperty
-      {idpMetadata = idpMetadata, allowedOrganizations = Prelude.Nothing,
+      {haddock_workaround_ = (), idpMetadata = idpMetadata,
+       allowedOrganizations = Prelude.Nothing,
        assertionAttributes = Prelude.Nothing,
        loginValidityDuration = Prelude.Nothing,
        roleValues = Prelude.Nothing}

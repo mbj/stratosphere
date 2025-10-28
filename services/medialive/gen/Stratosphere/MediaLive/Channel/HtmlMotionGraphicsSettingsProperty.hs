@@ -6,12 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HtmlMotionGraphicsSettingsProperty
-  = HtmlMotionGraphicsSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-htmlmotiongraphicssettings.html>
+    HtmlMotionGraphicsSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHtmlMotionGraphicsSettingsProperty ::
   HtmlMotionGraphicsSettingsProperty
 mkHtmlMotionGraphicsSettingsProperty
-  = HtmlMotionGraphicsSettingsProperty {}
+  = HtmlMotionGraphicsSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties HtmlMotionGraphicsSettingsProperty where
   toResourceProperties HtmlMotionGraphicsSettingsProperty {}
     = ResourceProperties

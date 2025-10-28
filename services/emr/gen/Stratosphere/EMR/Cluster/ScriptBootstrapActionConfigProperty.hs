@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptBootstrapActionConfigProperty
-  = ScriptBootstrapActionConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html>
+    ScriptBootstrapActionConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html#cfn-elasticmapreduce-cluster-scriptbootstrapactionconfig-args>
+                                         args :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html#cfn-elasticmapreduce-cluster-scriptbootstrapactionconfig-path>
                                          path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptBootstrapActionConfigProperty ::
   Value Prelude.Text -> ScriptBootstrapActionConfigProperty
 mkScriptBootstrapActionConfigProperty path
   = ScriptBootstrapActionConfigProperty
-      {path = path, args = Prelude.Nothing}
+      {haddock_workaround_ = (), path = path, args = Prelude.Nothing}
 instance ToResourceProperties ScriptBootstrapActionConfigProperty where
   toResourceProperties ScriptBootstrapActionConfigProperty {..}
     = ResourceProperties

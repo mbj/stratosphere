@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SemanticEntityTypeProperty
-  = SemanticEntityTypeProperty {subTypeName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html>
+    SemanticEntityTypeProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-subtypename>
+                                subTypeName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-typename>
                                 typeName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html#cfn-quicksight-topic-semanticentitytype-typeparameters>
                                 typeParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSemanticEntityTypeProperty :: SemanticEntityTypeProperty
 mkSemanticEntityTypeProperty
   = SemanticEntityTypeProperty
-      {subTypeName = Prelude.Nothing, typeName = Prelude.Nothing,
-       typeParameters = Prelude.Nothing}
+      {haddock_workaround_ = (), subTypeName = Prelude.Nothing,
+       typeName = Prelude.Nothing, typeParameters = Prelude.Nothing}
 instance ToResourceProperties SemanticEntityTypeProperty where
   toResourceProperties SemanticEntityTypeProperty {..}
     = ResourceProperties

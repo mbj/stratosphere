@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data OnPremisesTagSetListObjectProperty
-  = OnPremisesTagSetListObjectProperty {onPremisesTagGroup :: (Prelude.Maybe [TagFilterProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html>
+    OnPremisesTagSetListObjectProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html#cfn-codedeploy-deploymentgroup-onpremisestagsetlistobject-onpremisestaggroup>
+                                        onPremisesTagGroup :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnPremisesTagSetListObjectProperty ::
   OnPremisesTagSetListObjectProperty
 mkOnPremisesTagSetListObjectProperty
   = OnPremisesTagSetListObjectProperty
-      {onPremisesTagGroup = Prelude.Nothing}
+      {haddock_workaround_ = (), onPremisesTagGroup = Prelude.Nothing}
 instance ToResourceProperties OnPremisesTagSetListObjectProperty where
   toResourceProperties OnPremisesTagSetListObjectProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON OnPremisesTagSetListObjectProperty where
               [(JSON..=) "OnPremisesTagGroup" Prelude.<$> onPremisesTagGroup]))
 instance Property "OnPremisesTagGroup" OnPremisesTagSetListObjectProperty where
   type PropertyType "OnPremisesTagGroup" OnPremisesTagSetListObjectProperty = [TagFilterProperty]
-  set newValue OnPremisesTagSetListObjectProperty {}
+  set newValue OnPremisesTagSetListObjectProperty {..}
     = OnPremisesTagSetListObjectProperty
         {onPremisesTagGroup = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoleProperty
-  = RoleProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html>
+    RoleProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn>
+                  roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype>
                   roleType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleProperty :: RoleProperty
 mkRoleProperty
   = RoleProperty
-      {roleArn = Prelude.Nothing, roleType = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = Prelude.Nothing,
+       roleType = Prelude.Nothing}
 instance ToResourceProperties RoleProperty where
   toResourceProperties RoleProperty {..}
     = ResourceProperties

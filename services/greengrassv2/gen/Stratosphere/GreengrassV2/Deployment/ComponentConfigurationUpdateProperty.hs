@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentConfigurationUpdateProperty
-  = ComponentConfigurationUpdateProperty {merge :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html>
+    ComponentConfigurationUpdateProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html#cfn-greengrassv2-deployment-componentconfigurationupdate-merge>
+                                          merge :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html#cfn-greengrassv2-deployment-componentconfigurationupdate-reset>
                                           reset :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationUpdateProperty ::
   ComponentConfigurationUpdateProperty
 mkComponentConfigurationUpdateProperty
   = ComponentConfigurationUpdateProperty
-      {merge = Prelude.Nothing, reset = Prelude.Nothing}
+      {haddock_workaround_ = (), merge = Prelude.Nothing,
+       reset = Prelude.Nothing}
 instance ToResourceProperties ComponentConfigurationUpdateProperty where
   toResourceProperties ComponentConfigurationUpdateProperty {..}
     = ResourceProperties

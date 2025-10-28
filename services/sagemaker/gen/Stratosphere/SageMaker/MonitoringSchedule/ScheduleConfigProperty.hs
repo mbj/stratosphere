@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleConfigProperty
-  = ScheduleConfigProperty {dataAnalysisEndTime :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html>
+    ScheduleConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-dataanalysisendtime>
+                            dataAnalysisEndTime :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-dataanalysisstarttime>
                             dataAnalysisStartTime :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression>
                             scheduleExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigProperty ::
   Value Prelude.Text -> ScheduleConfigProperty
 mkScheduleConfigProperty scheduleExpression
   = ScheduleConfigProperty
-      {scheduleExpression = scheduleExpression,
+      {haddock_workaround_ = (), scheduleExpression = scheduleExpression,
        dataAnalysisEndTime = Prelude.Nothing,
        dataAnalysisStartTime = Prelude.Nothing}
 instance ToResourceProperties ScheduleConfigProperty where

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QuietTimeProperty
-  = QuietTimeProperty {end :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-quiettime.html>
+    QuietTimeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-quiettime.html#cfn-pinpoint-applicationsettings-quiettime-end>
+                       end :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-applicationsettings-quiettime.html#cfn-pinpoint-applicationsettings-quiettime-start>
                        start :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQuietTimeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> QuietTimeProperty
 mkQuietTimeProperty end start
-  = QuietTimeProperty {end = end, start = start}
+  = QuietTimeProperty
+      {haddock_workaround_ = (), end = end, start = start}
 instance ToResourceProperties QuietTimeProperty where
   toResourceProperties QuietTimeProperty {..}
     = ResourceProperties

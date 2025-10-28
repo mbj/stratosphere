@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HtmlMotionGraphicsSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data MotionGraphicsSettingsProperty
-  = MotionGraphicsSettingsProperty {htmlMotionGraphicsSettings :: (Prelude.Maybe HtmlMotionGraphicsSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html>
+    MotionGraphicsSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html#cfn-medialive-channel-motiongraphicssettings-htmlmotiongraphicssettings>
+                                    htmlMotionGraphicsSettings :: (Prelude.Maybe HtmlMotionGraphicsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMotionGraphicsSettingsProperty :: MotionGraphicsSettingsProperty
 mkMotionGraphicsSettingsProperty
   = MotionGraphicsSettingsProperty
-      {htmlMotionGraphicsSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       htmlMotionGraphicsSettings = Prelude.Nothing}
 instance ToResourceProperties MotionGraphicsSettingsProperty where
   toResourceProperties MotionGraphicsSettingsProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON MotionGraphicsSettingsProperty where
                  Prelude.<$> htmlMotionGraphicsSettings]))
 instance Property "HtmlMotionGraphicsSettings" MotionGraphicsSettingsProperty where
   type PropertyType "HtmlMotionGraphicsSettings" MotionGraphicsSettingsProperty = HtmlMotionGraphicsSettingsProperty
-  set newValue MotionGraphicsSettingsProperty {}
+  set newValue MotionGraphicsSettingsProperty {..}
     = MotionGraphicsSettingsProperty
         {htmlMotionGraphicsSettings = Prelude.pure newValue, ..}

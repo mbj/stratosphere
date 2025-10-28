@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InterfaceProperty
-  = InterfaceProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html>
+    InterfaceProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html#cfn-mediaconnect-flowoutput-interface-name>
+                       name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInterfaceProperty :: Value Prelude.Text -> InterfaceProperty
-mkInterfaceProperty name = InterfaceProperty {name = name}
+mkInterfaceProperty name
+  = InterfaceProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties InterfaceProperty where
   toResourceProperties InterfaceProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON InterfaceProperty where
   toJSON InterfaceProperty {..} = JSON.object ["Name" JSON..= name]
 instance Property "Name" InterfaceProperty where
   type PropertyType "Name" InterfaceProperty = Value Prelude.Text
-  set newValue InterfaceProperty {}
+  set newValue InterfaceProperty {..}
     = InterfaceProperty {name = newValue, ..}

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatadogConnectorProfileCredentialsProperty
-  = DatadogConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html>
+    DatadogConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey>
+                                                apiKey :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey>
                                                 applicationKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatadogConnectorProfileCredentialsProperty ::
@@ -16,7 +20,8 @@ mkDatadogConnectorProfileCredentialsProperty ::
   -> Value Prelude.Text -> DatadogConnectorProfileCredentialsProperty
 mkDatadogConnectorProfileCredentialsProperty apiKey applicationKey
   = DatadogConnectorProfileCredentialsProperty
-      {apiKey = apiKey, applicationKey = applicationKey}
+      {haddock_workaround_ = (), apiKey = apiKey,
+       applicationKey = applicationKey}
 instance ToResourceProperties DatadogConnectorProfileCredentialsProperty where
   toResourceProperties
     DatadogConnectorProfileCredentialsProperty {..}

@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lightsail.Container.EcrImagePullerRoleProperty as Exports
 import Stratosphere.ResourceProperties
 data PrivateRegistryAccessProperty
-  = PrivateRegistryAccessProperty {ecrImagePullerRole :: (Prelude.Maybe EcrImagePullerRoleProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html>
+    PrivateRegistryAccessProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html#cfn-lightsail-container-privateregistryaccess-ecrimagepullerrole>
+                                   ecrImagePullerRole :: (Prelude.Maybe EcrImagePullerRoleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateRegistryAccessProperty :: PrivateRegistryAccessProperty
 mkPrivateRegistryAccessProperty
   = PrivateRegistryAccessProperty
-      {ecrImagePullerRole = Prelude.Nothing}
+      {haddock_workaround_ = (), ecrImagePullerRole = Prelude.Nothing}
 instance ToResourceProperties PrivateRegistryAccessProperty where
   toResourceProperties PrivateRegistryAccessProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON PrivateRegistryAccessProperty where
               [(JSON..=) "EcrImagePullerRole" Prelude.<$> ecrImagePullerRole]))
 instance Property "EcrImagePullerRole" PrivateRegistryAccessProperty where
   type PropertyType "EcrImagePullerRole" PrivateRegistryAccessProperty = EcrImagePullerRoleProperty
-  set newValue PrivateRegistryAccessProperty {}
+  set newValue PrivateRegistryAccessProperty {..}
     = PrivateRegistryAccessProperty
         {ecrImagePullerRole = Prelude.pure newValue, ..}

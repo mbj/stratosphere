@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ControlPlanePlacementProperty
-  = ControlPlanePlacementProperty {groupName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html>
+    ControlPlanePlacementProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html#cfn-eks-cluster-controlplaneplacement-groupname>
+                                   groupName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkControlPlanePlacementProperty :: ControlPlanePlacementProperty
 mkControlPlanePlacementProperty
-  = ControlPlanePlacementProperty {groupName = Prelude.Nothing}
+  = ControlPlanePlacementProperty
+      {haddock_workaround_ = (), groupName = Prelude.Nothing}
 instance ToResourceProperties ControlPlanePlacementProperty where
   toResourceProperties ControlPlanePlacementProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON ControlPlanePlacementProperty where
            (Prelude.catMaybes [(JSON..=) "GroupName" Prelude.<$> groupName]))
 instance Property "GroupName" ControlPlanePlacementProperty where
   type PropertyType "GroupName" ControlPlanePlacementProperty = Value Prelude.Text
-  set newValue ControlPlanePlacementProperty {}
+  set newValue ControlPlanePlacementProperty {..}
     = ControlPlanePlacementProperty
         {groupName = Prelude.pure newValue, ..}

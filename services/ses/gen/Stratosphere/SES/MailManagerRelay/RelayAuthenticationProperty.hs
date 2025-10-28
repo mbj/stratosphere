@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelayAuthenticationProperty
-  = RelayAuthenticationProperty {noAuthentication :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerrelay-relayauthentication.html>
+    RelayAuthenticationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerrelay-relayauthentication.html#cfn-ses-mailmanagerrelay-relayauthentication-noauthentication>
+                                 noAuthentication :: (Prelude.Maybe JSON.Object),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerrelay-relayauthentication.html#cfn-ses-mailmanagerrelay-relayauthentication-secretarn>
                                  secretArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelayAuthenticationProperty :: RelayAuthenticationProperty
 mkRelayAuthenticationProperty
   = RelayAuthenticationProperty
-      {noAuthentication = Prelude.Nothing, secretArn = Prelude.Nothing}
+      {haddock_workaround_ = (), noAuthentication = Prelude.Nothing,
+       secretArn = Prelude.Nothing}
 instance ToResourceProperties RelayAuthenticationProperty where
   toResourceProperties RelayAuthenticationProperty {..}
     = ResourceProperties

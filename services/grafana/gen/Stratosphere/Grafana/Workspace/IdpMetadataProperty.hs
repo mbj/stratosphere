@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdpMetadataProperty
-  = IdpMetadataProperty {url :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html>
+    IdpMetadataProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html#cfn-grafana-workspace-idpmetadata-url>
+                         url :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html#cfn-grafana-workspace-idpmetadata-xml>
                          xml :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdpMetadataProperty :: IdpMetadataProperty
 mkIdpMetadataProperty
   = IdpMetadataProperty
-      {url = Prelude.Nothing, xml = Prelude.Nothing}
+      {haddock_workaround_ = (), url = Prelude.Nothing,
+       xml = Prelude.Nothing}
 instance ToResourceProperties IdpMetadataProperty where
   toResourceProperties IdpMetadataProperty {..}
     = ResourceProperties

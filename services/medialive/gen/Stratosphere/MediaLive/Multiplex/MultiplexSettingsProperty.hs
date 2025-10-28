@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexSettingsProperty
-  = MultiplexSettingsProperty {maximumVideoBufferDelayMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html>
+    MultiplexSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html#cfn-medialive-multiplex-multiplexsettings-maximumvideobufferdelaymilliseconds>
+                               maximumVideoBufferDelayMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html#cfn-medialive-multiplex-multiplexsettings-transportstreambitrate>
                                transportStreamBitrate :: (Value Prelude.Integer),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html#cfn-medialive-multiplex-multiplexsettings-transportstreamid>
                                transportStreamId :: (Value Prelude.Integer),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html#cfn-medialive-multiplex-multiplexsettings-transportstreamreservedbitrate>
                                transportStreamReservedBitrate :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexSettingsProperty ::
@@ -19,7 +25,8 @@ mkMultiplexSettingsProperty
   transportStreamBitrate
   transportStreamId
   = MultiplexSettingsProperty
-      {transportStreamBitrate = transportStreamBitrate,
+      {haddock_workaround_ = (),
+       transportStreamBitrate = transportStreamBitrate,
        transportStreamId = transportStreamId,
        maximumVideoBufferDelayMilliseconds = Prelude.Nothing,
        transportStreamReservedBitrate = Prelude.Nothing}

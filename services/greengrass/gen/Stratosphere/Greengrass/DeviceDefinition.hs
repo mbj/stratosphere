@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Greengrass.DeviceDefinition.DeviceDefinitionV
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceDefinition
-  = DeviceDefinition {initialVersion :: (Prelude.Maybe DeviceDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html>
+    DeviceDefinition {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-initialversion>
+                      initialVersion :: (Prelude.Maybe DeviceDefinitionVersionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-tags>
                       tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceDefinition :: Value Prelude.Text -> DeviceDefinition
 mkDeviceDefinition name
   = DeviceDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DeviceDefinition where
   toResourceProperties DeviceDefinition {..}
     = ResourceProperties

@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.MssManife
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MssPackageProperty
-  = MssPackageProperty {encryption :: (Prelude.Maybe MssEncryptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html>
+    MssPackageProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption>
+                        encryption :: (Prelude.Maybe MssEncryptionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests>
                         mssManifests :: [MssManifestProperty],
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds>
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMssPackageProperty :: [MssManifestProperty] -> MssPackageProperty
 mkMssPackageProperty mssManifests
   = MssPackageProperty
-      {mssManifests = mssManifests, encryption = Prelude.Nothing,
+      {haddock_workaround_ = (), mssManifests = mssManifests,
+       encryption = Prelude.Nothing,
        segmentDurationSeconds = Prelude.Nothing}
 instance ToResourceProperties MssPackageProperty where
   toResourceProperties MssPackageProperty {..}

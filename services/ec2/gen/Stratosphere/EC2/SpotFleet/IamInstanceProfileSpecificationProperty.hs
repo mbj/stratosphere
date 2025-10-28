@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamInstanceProfileSpecificationProperty
-  = IamInstanceProfileSpecificationProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html>
+    IamInstanceProfileSpecificationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn>
+                                             arn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIamInstanceProfileSpecificationProperty ::
   IamInstanceProfileSpecificationProperty
 mkIamInstanceProfileSpecificationProperty
-  = IamInstanceProfileSpecificationProperty {arn = Prelude.Nothing}
+  = IamInstanceProfileSpecificationProperty
+      {haddock_workaround_ = (), arn = Prelude.Nothing}
 instance ToResourceProperties IamInstanceProfileSpecificationProperty where
   toResourceProperties IamInstanceProfileSpecificationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON IamInstanceProfileSpecificationProperty where
            (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn]))
 instance Property "Arn" IamInstanceProfileSpecificationProperty where
   type PropertyType "Arn" IamInstanceProfileSpecificationProperty = Value Prelude.Text
-  set newValue IamInstanceProfileSpecificationProperty {}
+  set newValue IamInstanceProfileSpecificationProperty {..}
     = IamInstanceProfileSpecificationProperty
         {arn = Prelude.pure newValue, ..}

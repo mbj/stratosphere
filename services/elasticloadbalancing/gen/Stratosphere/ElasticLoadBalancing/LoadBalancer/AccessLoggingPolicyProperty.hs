@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessLoggingPolicyProperty
-  = AccessLoggingPolicyProperty {emitInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html>
+    AccessLoggingPolicyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-emitinterval>
+                                 emitInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-enabled>
                                  enabled :: (Value Prelude.Bool),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-s3bucketname>
                                  s3BucketName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-s3bucketprefix>
                                  s3BucketPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLoggingPolicyProperty ::
@@ -17,8 +23,9 @@ mkAccessLoggingPolicyProperty ::
   -> Value Prelude.Text -> AccessLoggingPolicyProperty
 mkAccessLoggingPolicyProperty enabled s3BucketName
   = AccessLoggingPolicyProperty
-      {enabled = enabled, s3BucketName = s3BucketName,
-       emitInterval = Prelude.Nothing, s3BucketPrefix = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       s3BucketName = s3BucketName, emitInterval = Prelude.Nothing,
+       s3BucketPrefix = Prelude.Nothing}
 instance ToResourceProperties AccessLoggingPolicyProperty where
   toResourceProperties AccessLoggingPolicyProperty {..}
     = ResourceProperties

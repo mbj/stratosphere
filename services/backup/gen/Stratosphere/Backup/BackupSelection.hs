@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupSelection.BackupSelectionResourc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupSelection
-  = BackupSelection {backupPlanId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html>
+    BackupSelection {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid>
+                     backupPlanId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection>
                      backupSelection :: BackupSelectionResourceTypeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupSelection ::
@@ -16,7 +20,8 @@ mkBackupSelection ::
   -> BackupSelectionResourceTypeProperty -> BackupSelection
 mkBackupSelection backupPlanId backupSelection
   = BackupSelection
-      {backupPlanId = backupPlanId, backupSelection = backupSelection}
+      {haddock_workaround_ = (), backupPlanId = backupPlanId,
+       backupSelection = backupSelection}
 instance ToResourceProperties BackupSelection where
   toResourceProperties BackupSelection {..}
     = ResourceProperties

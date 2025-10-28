@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterConfigurationProperty
-  = FilterConfigurationProperty {clipStartTime :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>
+    FilterConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-clipstarttime>
+                                 clipStartTime :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-end>
                                  end :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-manifestfilter>
                                  manifestFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-start>
                                  start :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-timedelayseconds>
                                  timeDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterConfigurationProperty :: FilterConfigurationProperty
 mkFilterConfigurationProperty
   = FilterConfigurationProperty
-      {clipStartTime = Prelude.Nothing, end = Prelude.Nothing,
-       manifestFilter = Prelude.Nothing, start = Prelude.Nothing,
-       timeDelaySeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), clipStartTime = Prelude.Nothing,
+       end = Prelude.Nothing, manifestFilter = Prelude.Nothing,
+       start = Prelude.Nothing, timeDelaySeconds = Prelude.Nothing}
 instance ToResourceProperties FilterConfigurationProperty where
   toResourceProperties FilterConfigurationProperty {..}
     = ResourceProperties

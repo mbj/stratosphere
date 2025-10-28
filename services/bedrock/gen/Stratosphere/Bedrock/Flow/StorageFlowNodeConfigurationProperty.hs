@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.StorageFlowNodeServiceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageFlowNodeConfigurationProperty
-  = StorageFlowNodeConfigurationProperty {serviceConfiguration :: StorageFlowNodeServiceConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodeconfiguration.html>
+    StorageFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodeconfiguration.html#cfn-bedrock-flow-storageflownodeconfiguration-serviceconfiguration>
+                                          serviceConfiguration :: StorageFlowNodeServiceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageFlowNodeConfigurationProperty ::
   StorageFlowNodeServiceConfigurationProperty
   -> StorageFlowNodeConfigurationProperty
 mkStorageFlowNodeConfigurationProperty serviceConfiguration
   = StorageFlowNodeConfigurationProperty
-      {serviceConfiguration = serviceConfiguration}
+      {haddock_workaround_ = (),
+       serviceConfiguration = serviceConfiguration}
 instance ToResourceProperties StorageFlowNodeConfigurationProperty where
   toResourceProperties StorageFlowNodeConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON StorageFlowNodeConfigurationProperty where
     = JSON.object ["ServiceConfiguration" JSON..= serviceConfiguration]
 instance Property "ServiceConfiguration" StorageFlowNodeConfigurationProperty where
   type PropertyType "ServiceConfiguration" StorageFlowNodeConfigurationProperty = StorageFlowNodeServiceConfigurationProperty
-  set newValue StorageFlowNodeConfigurationProperty {}
+  set newValue StorageFlowNodeConfigurationProperty {..}
     = StorageFlowNodeConfigurationProperty
         {serviceConfiguration = newValue, ..}

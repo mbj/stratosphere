@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.ConnectorDefinition.ConnectorProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorDefinitionVersionProperty
-  = ConnectorDefinitionVersionProperty {connectors :: [ConnectorProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html>
+    ConnectorDefinitionVersionProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html#cfn-greengrass-connectordefinition-connectordefinitionversion-connectors>
+                                        connectors :: [ConnectorProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinitionVersionProperty ::
   [ConnectorProperty] -> ConnectorDefinitionVersionProperty
 mkConnectorDefinitionVersionProperty connectors
-  = ConnectorDefinitionVersionProperty {connectors = connectors}
+  = ConnectorDefinitionVersionProperty
+      {haddock_workaround_ = (), connectors = connectors}
 instance ToResourceProperties ConnectorDefinitionVersionProperty where
   toResourceProperties ConnectorDefinitionVersionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ConnectorDefinitionVersionProperty where
     = JSON.object ["Connectors" JSON..= connectors]
 instance Property "Connectors" ConnectorDefinitionVersionProperty where
   type PropertyType "Connectors" ConnectorDefinitionVersionProperty = [ConnectorProperty]
-  set newValue ConnectorDefinitionVersionProperty {}
+  set newValue ConnectorDefinitionVersionProperty {..}
     = ConnectorDefinitionVersionProperty {connectors = newValue, ..}

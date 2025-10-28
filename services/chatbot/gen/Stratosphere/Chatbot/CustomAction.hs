@@ -10,10 +10,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CustomAction
-  = CustomAction {actionName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html>
+    CustomAction {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-actionname>
+                  actionName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-aliasname>
                   aliasName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-attachments>
                   attachments :: (Prelude.Maybe [CustomActionAttachmentProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-definition>
                   definition :: CustomActionDefinitionProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomAction ::
@@ -21,9 +28,9 @@ mkCustomAction ::
   -> CustomActionDefinitionProperty -> CustomAction
 mkCustomAction actionName definition
   = CustomAction
-      {actionName = actionName, definition = definition,
-       aliasName = Prelude.Nothing, attachments = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), actionName = actionName,
+       definition = definition, aliasName = Prelude.Nothing,
+       attachments = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CustomAction where
   toResourceProperties CustomAction {..}
     = ResourceProperties

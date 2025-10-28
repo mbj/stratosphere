@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreenFleetProvisioningOptionProperty
-  = GreenFleetProvisioningOptionProperty {action :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html>
+    GreenFleetProvisioningOptionProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-greenfleetprovisioningoption-action>
+                                          action :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGreenFleetProvisioningOptionProperty ::
   GreenFleetProvisioningOptionProperty
 mkGreenFleetProvisioningOptionProperty
-  = GreenFleetProvisioningOptionProperty {action = Prelude.Nothing}
+  = GreenFleetProvisioningOptionProperty
+      {haddock_workaround_ = (), action = Prelude.Nothing}
 instance ToResourceProperties GreenFleetProvisioningOptionProperty where
   toResourceProperties GreenFleetProvisioningOptionProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON GreenFleetProvisioningOptionProperty where
            (Prelude.catMaybes [(JSON..=) "Action" Prelude.<$> action]))
 instance Property "Action" GreenFleetProvisioningOptionProperty where
   type PropertyType "Action" GreenFleetProvisioningOptionProperty = Value Prelude.Text
-  set newValue GreenFleetProvisioningOptionProperty {}
+  set newValue GreenFleetProvisioningOptionProperty {..}
     = GreenFleetProvisioningOptionProperty
         {action = Prelude.pure newValue, ..}

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.QBusiness.Retriever.KendraIndexConfigurationP
 import {-# SOURCE #-} Stratosphere.QBusiness.Retriever.NativeIndexConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data RetrieverConfigurationProperty
-  = RetrieverConfigurationProperty {kendraIndexConfiguration :: (Prelude.Maybe KendraIndexConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-retrieverconfiguration.html>
+    RetrieverConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-retrieverconfiguration.html#cfn-qbusiness-retriever-retrieverconfiguration-kendraindexconfiguration>
+                                    kendraIndexConfiguration :: (Prelude.Maybe KendraIndexConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-retrieverconfiguration.html#cfn-qbusiness-retriever-retrieverconfiguration-nativeindexconfiguration>
                                     nativeIndexConfiguration :: (Prelude.Maybe NativeIndexConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetrieverConfigurationProperty :: RetrieverConfigurationProperty
 mkRetrieverConfigurationProperty
   = RetrieverConfigurationProperty
-      {kendraIndexConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       kendraIndexConfiguration = Prelude.Nothing,
        nativeIndexConfiguration = Prelude.Nothing}
 instance ToResourceProperties RetrieverConfigurationProperty where
   toResourceProperties RetrieverConfigurationProperty {..}

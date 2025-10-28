@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkFirewallPolicyProperty
-  = NetworkFirewallPolicyProperty {firewallDeploymentModel :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html>
+    NetworkFirewallPolicyProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html#cfn-fms-policy-networkfirewallpolicy-firewalldeploymentmodel>
+                                   firewallDeploymentModel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFirewallPolicyProperty ::
   Value Prelude.Text -> NetworkFirewallPolicyProperty
 mkNetworkFirewallPolicyProperty firewallDeploymentModel
   = NetworkFirewallPolicyProperty
-      {firewallDeploymentModel = firewallDeploymentModel}
+      {haddock_workaround_ = (),
+       firewallDeploymentModel = firewallDeploymentModel}
 instance ToResourceProperties NetworkFirewallPolicyProperty where
   toResourceProperties NetworkFirewallPolicyProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON NetworkFirewallPolicyProperty where
         ["FirewallDeploymentModel" JSON..= firewallDeploymentModel]
 instance Property "FirewallDeploymentModel" NetworkFirewallPolicyProperty where
   type PropertyType "FirewallDeploymentModel" NetworkFirewallPolicyProperty = Value Prelude.Text
-  set newValue NetworkFirewallPolicyProperty {}
+  set newValue NetworkFirewallPolicyProperty {..}
     = NetworkFirewallPolicyProperty
         {firewallDeploymentModel = newValue, ..}

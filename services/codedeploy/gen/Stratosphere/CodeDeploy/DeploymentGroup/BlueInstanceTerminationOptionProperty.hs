@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlueInstanceTerminationOptionProperty
-  = BlueInstanceTerminationOptionProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-blueinstanceterminationoption.html>
+    BlueInstanceTerminationOptionProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-blueinstanceterminationoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-blueinstanceterminationoption-action>
+                                           action :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-blueinstanceterminationoption.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-blueinstanceterminationoption-terminationwaittimeinminutes>
                                            terminationWaitTimeInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueInstanceTerminationOptionProperty ::
   BlueInstanceTerminationOptionProperty
 mkBlueInstanceTerminationOptionProperty
   = BlueInstanceTerminationOptionProperty
-      {action = Prelude.Nothing,
+      {haddock_workaround_ = (), action = Prelude.Nothing,
        terminationWaitTimeInMinutes = Prelude.Nothing}
 instance ToResourceProperties BlueInstanceTerminationOptionProperty where
   toResourceProperties BlueInstanceTerminationOptionProperty {..}

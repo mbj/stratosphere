@@ -12,19 +12,28 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.PortMappingProperty as Ex
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualNodeConnectionPoolProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerProperty
-  = ListenerProperty {connectionPool :: (Prelude.Maybe VirtualNodeConnectionPoolProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html>
+    ListenerProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool>
+                      connectionPool :: (Prelude.Maybe VirtualNodeConnectionPoolProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck>
                       healthCheck :: (Prelude.Maybe HealthCheckProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection>
                       outlierDetection :: (Prelude.Maybe OutlierDetectionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping>
                       portMapping :: PortMappingProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls>
                       tLS :: (Prelude.Maybe ListenerTlsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-timeout>
                       timeout :: (Prelude.Maybe ListenerTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerProperty :: PortMappingProperty -> ListenerProperty
 mkListenerProperty portMapping
   = ListenerProperty
-      {portMapping = portMapping, connectionPool = Prelude.Nothing,
-       healthCheck = Prelude.Nothing, outlierDetection = Prelude.Nothing,
-       tLS = Prelude.Nothing, timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), portMapping = portMapping,
+       connectionPool = Prelude.Nothing, healthCheck = Prelude.Nothing,
+       outlierDetection = Prelude.Nothing, tLS = Prelude.Nothing,
+       timeout = Prelude.Nothing}
 instance ToResourceProperties ListenerProperty where
   toResourceProperties ListenerProperty {..}
     = ResourceProperties

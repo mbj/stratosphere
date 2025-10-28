@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LookoutMetricsDestinationPropertiesProperty
-  = LookoutMetricsDestinationPropertiesProperty {object :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html>
+    LookoutMetricsDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object>
+                                                 object :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLookoutMetricsDestinationPropertiesProperty ::
   LookoutMetricsDestinationPropertiesProperty
 mkLookoutMetricsDestinationPropertiesProperty
   = LookoutMetricsDestinationPropertiesProperty
-      {object = Prelude.Nothing}
+      {haddock_workaround_ = (), object = Prelude.Nothing}
 instance ToResourceProperties LookoutMetricsDestinationPropertiesProperty where
   toResourceProperties
     LookoutMetricsDestinationPropertiesProperty {..}
@@ -30,6 +33,6 @@ instance JSON.ToJSON LookoutMetricsDestinationPropertiesProperty where
            (Prelude.catMaybes [(JSON..=) "Object" Prelude.<$> object]))
 instance Property "Object" LookoutMetricsDestinationPropertiesProperty where
   type PropertyType "Object" LookoutMetricsDestinationPropertiesProperty = Value Prelude.Text
-  set newValue LookoutMetricsDestinationPropertiesProperty {}
+  set newValue LookoutMetricsDestinationPropertiesProperty {..}
     = LookoutMetricsDestinationPropertiesProperty
         {object = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterRuleProperty
-  = FilterRuleProperty {filterType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html>
+    FilterRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype>
+                        filterType :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value>
                         value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterRuleProperty :: FilterRuleProperty
 mkFilterRuleProperty
   = FilterRuleProperty
-      {filterType = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), filterType = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties FilterRuleProperty where
   toResourceProperties FilterRuleProperty {..}
     = ResourceProperties

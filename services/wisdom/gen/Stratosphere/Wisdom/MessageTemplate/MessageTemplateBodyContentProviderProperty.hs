@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MessageTemplateBodyContentProviderProperty
-  = MessageTemplateBodyContentProviderProperty {content :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html>
+    MessageTemplateBodyContentProviderProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html#cfn-wisdom-messagetemplate-messagetemplatebodycontentprovider-content>
+                                                content :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageTemplateBodyContentProviderProperty ::
   MessageTemplateBodyContentProviderProperty
 mkMessageTemplateBodyContentProviderProperty
   = MessageTemplateBodyContentProviderProperty
-      {content = Prelude.Nothing}
+      {haddock_workaround_ = (), content = Prelude.Nothing}
 instance ToResourceProperties MessageTemplateBodyContentProviderProperty where
   toResourceProperties
     MessageTemplateBodyContentProviderProperty {..}
@@ -30,6 +33,6 @@ instance JSON.ToJSON MessageTemplateBodyContentProviderProperty where
            (Prelude.catMaybes [(JSON..=) "Content" Prelude.<$> content]))
 instance Property "Content" MessageTemplateBodyContentProviderProperty where
   type PropertyType "Content" MessageTemplateBodyContentProviderProperty = Value Prelude.Text
-  set newValue MessageTemplateBodyContentProviderProperty {}
+  set newValue MessageTemplateBodyContentProviderProperty {..}
     = MessageTemplateBodyContentProviderProperty
         {content = Prelude.pure newValue, ..}

@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsFileCertificat
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsSdsCertificateProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerTlsCertificateProperty
-  = ListenerTlsCertificateProperty {aCM :: (Prelude.Maybe ListenerTlsAcmCertificateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html>
+    ListenerTlsCertificateProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-acm>
+                                    aCM :: (Prelude.Maybe ListenerTlsAcmCertificateProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-file>
                                     file :: (Prelude.Maybe ListenerTlsFileCertificateProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-sds>
                                     sDS :: (Prelude.Maybe ListenerTlsSdsCertificateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsCertificateProperty :: ListenerTlsCertificateProperty
 mkListenerTlsCertificateProperty
   = ListenerTlsCertificateProperty
-      {aCM = Prelude.Nothing, file = Prelude.Nothing,
-       sDS = Prelude.Nothing}
+      {haddock_workaround_ = (), aCM = Prelude.Nothing,
+       file = Prelude.Nothing, sDS = Prelude.Nothing}
 instance ToResourceProperties ListenerTlsCertificateProperty where
   toResourceProperties ListenerTlsCertificateProperty {..}
     = ResourceProperties

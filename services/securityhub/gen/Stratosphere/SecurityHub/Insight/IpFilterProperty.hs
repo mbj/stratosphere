@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpFilterProperty
-  = IpFilterProperty {cidr :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html>
+    IpFilterProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html#cfn-securityhub-insight-ipfilter-cidr>
+                      cidr :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpFilterProperty :: Value Prelude.Text -> IpFilterProperty
-mkIpFilterProperty cidr = IpFilterProperty {cidr = cidr}
+mkIpFilterProperty cidr
+  = IpFilterProperty {haddock_workaround_ = (), cidr = cidr}
 instance ToResourceProperties IpFilterProperty where
   toResourceProperties IpFilterProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON IpFilterProperty where
   toJSON IpFilterProperty {..} = JSON.object ["Cidr" JSON..= cidr]
 instance Property "Cidr" IpFilterProperty where
   type PropertyType "Cidr" IpFilterProperty = Value Prelude.Text
-  set newValue IpFilterProperty {}
+  set newValue IpFilterProperty {..}
     = IpFilterProperty {cidr = newValue, ..}

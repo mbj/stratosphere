@@ -8,20 +8,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultButtonConfigurationProperty
-  = DefaultButtonConfigurationProperty {backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html>
+    DefaultButtonConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-backgroundcolor>
+                                        backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-borderradius>
                                         borderRadius :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-buttonaction>
                                         buttonAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-link>
                                         link :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-text>
                                         text :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-defaultbuttonconfiguration.html#cfn-pinpoint-campaign-defaultbuttonconfiguration-textcolor>
                                         textColor :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultButtonConfigurationProperty ::
   DefaultButtonConfigurationProperty
 mkDefaultButtonConfigurationProperty
   = DefaultButtonConfigurationProperty
-      {backgroundColor = Prelude.Nothing, borderRadius = Prelude.Nothing,
-       buttonAction = Prelude.Nothing, link = Prelude.Nothing,
-       text = Prelude.Nothing, textColor = Prelude.Nothing}
+      {haddock_workaround_ = (), backgroundColor = Prelude.Nothing,
+       borderRadius = Prelude.Nothing, buttonAction = Prelude.Nothing,
+       link = Prelude.Nothing, text = Prelude.Nothing,
+       textColor = Prelude.Nothing}
 instance ToResourceProperties DefaultButtonConfigurationProperty where
   toResourceProperties DefaultButtonConfigurationProperty {..}
     = ResourceProperties

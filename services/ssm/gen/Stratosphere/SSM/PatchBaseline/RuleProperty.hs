@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchFilterGroupProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
-  = RuleProperty {approveAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html>
+    RuleProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays>
+                  approveAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate>
                   approveUntilDate :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel>
                   complianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity>
                   enableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup>
                   patchFilterGroup :: (Prelude.Maybe PatchFilterGroupProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: RuleProperty
 mkRuleProperty
   = RuleProperty
-      {approveAfterDays = Prelude.Nothing,
+      {haddock_workaround_ = (), approveAfterDays = Prelude.Nothing,
        approveUntilDate = Prelude.Nothing,
        complianceLevel = Prelude.Nothing,
        enableNonSecurity = Prelude.Nothing,

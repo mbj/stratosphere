@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexProgramChannelDestinationSettingsProperty
-  = MultiplexProgramChannelDestinationSettingsProperty {multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html>
+    MultiplexProgramChannelDestinationSettingsProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-multiplexid>
+                                                        multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html#cfn-medialive-channel-multiplexprogramchanneldestinationsettings-programname>
                                                         programName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexProgramChannelDestinationSettingsProperty ::
   MultiplexProgramChannelDestinationSettingsProperty
 mkMultiplexProgramChannelDestinationSettingsProperty
   = MultiplexProgramChannelDestinationSettingsProperty
-      {multiplexId = Prelude.Nothing, programName = Prelude.Nothing}
+      {haddock_workaround_ = (), multiplexId = Prelude.Nothing,
+       programName = Prelude.Nothing}
 instance ToResourceProperties MultiplexProgramChannelDestinationSettingsProperty where
   toResourceProperties
     MultiplexProgramChannelDestinationSettingsProperty {..}

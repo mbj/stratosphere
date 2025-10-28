@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HiveJsonSerDeP
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.OpenXJsonSerDeProperty as Exports
 import Stratosphere.ResourceProperties
 data DeserializerProperty
-  = DeserializerProperty {hiveJsonSerDe :: (Prelude.Maybe HiveJsonSerDeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html>
+    DeserializerProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde>
+                          hiveJsonSerDe :: (Prelude.Maybe HiveJsonSerDeProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde>
                           openXJsonSerDe :: (Prelude.Maybe OpenXJsonSerDeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeserializerProperty :: DeserializerProperty
 mkDeserializerProperty
   = DeserializerProperty
-      {hiveJsonSerDe = Prelude.Nothing, openXJsonSerDe = Prelude.Nothing}
+      {haddock_workaround_ = (), hiveJsonSerDe = Prelude.Nothing,
+       openXJsonSerDe = Prelude.Nothing}
 instance ToResourceProperties DeserializerProperty where
   toResourceProperties DeserializerProperty {..}
     = ResourceProperties

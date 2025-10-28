@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocationCapacityProperty
-  = LocationCapacityProperty {desiredEC2Instances :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html>
+    LocationCapacityProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-desiredec2instances>
+                              desiredEC2Instances :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-maxsize>
                               maxSize :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-minsize>
                               minSize :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationCapacityProperty ::
@@ -17,7 +22,8 @@ mkLocationCapacityProperty ::
      -> Value Prelude.Integer -> LocationCapacityProperty
 mkLocationCapacityProperty desiredEC2Instances maxSize minSize
   = LocationCapacityProperty
-      {desiredEC2Instances = desiredEC2Instances, maxSize = maxSize,
+      {haddock_workaround_ = (),
+       desiredEC2Instances = desiredEC2Instances, maxSize = maxSize,
        minSize = minSize}
 instance ToResourceProperties LocationCapacityProperty where
   toResourceProperties LocationCapacityProperty {..}

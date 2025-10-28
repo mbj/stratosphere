@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationCont
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNamesProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerTlsValidationContextProperty
-  = ListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html>
+    ListenerTlsValidationContextProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-subjectalternativenames>
+                                          subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-trust>
                                           trust :: ListenerTlsValidationContextTrustProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsValidationContextProperty ::
@@ -17,7 +21,8 @@ mkListenerTlsValidationContextProperty ::
   -> ListenerTlsValidationContextProperty
 mkListenerTlsValidationContextProperty trust
   = ListenerTlsValidationContextProperty
-      {trust = trust, subjectAlternativeNames = Prelude.Nothing}
+      {haddock_workaround_ = (), trust = trust,
+       subjectAlternativeNames = Prelude.Nothing}
 instance ToResourceProperties ListenerTlsValidationContextProperty where
   toResourceProperties ListenerTlsValidationContextProperty {..}
     = ResourceProperties

@@ -7,15 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventLogConfigProperty
-  = EventLogConfigProperty {cloudWatchLogsRoleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html>
+    EventLogConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html#cfn-appsync-api-eventlogconfig-cloudwatchlogsrolearn>
+                            cloudWatchLogsRoleArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html#cfn-appsync-api-eventlogconfig-loglevel>
                             logLevel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventLogConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EventLogConfigProperty
 mkEventLogConfigProperty cloudWatchLogsRoleArn logLevel
   = EventLogConfigProperty
-      {cloudWatchLogsRoleArn = cloudWatchLogsRoleArn,
-       logLevel = logLevel}
+      {haddock_workaround_ = (),
+       cloudWatchLogsRoleArn = cloudWatchLogsRoleArn, logLevel = logLevel}
 instance ToResourceProperties EventLogConfigProperty where
   toResourceProperties EventLogConfigProperty {..}
     = ResourceProperties

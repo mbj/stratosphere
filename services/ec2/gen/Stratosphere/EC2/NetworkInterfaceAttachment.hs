@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInterfaceAttachment.EnaSrdSpecific
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInterfaceAttachment
-  = NetworkInterfaceAttachment {deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html>
+    NetworkInterfaceAttachment {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-deleteontermination>
+                                deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-deviceindex>
                                 deviceIndex :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enasrdspecification>
                                 enaSrdSpecification :: (Prelude.Maybe EnaSrdSpecificationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-instanceid>
                                 instanceId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-networkinterfaceid>
                                 networkInterfaceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceAttachment ::
@@ -24,8 +31,8 @@ mkNetworkInterfaceAttachment
   instanceId
   networkInterfaceId
   = NetworkInterfaceAttachment
-      {deviceIndex = deviceIndex, instanceId = instanceId,
-       networkInterfaceId = networkInterfaceId,
+      {haddock_workaround_ = (), deviceIndex = deviceIndex,
+       instanceId = instanceId, networkInterfaceId = networkInterfaceId,
        deleteOnTermination = Prelude.Nothing,
        enaSrdSpecification = Prelude.Nothing}
 instance ToResourceProperties NetworkInterfaceAttachment where

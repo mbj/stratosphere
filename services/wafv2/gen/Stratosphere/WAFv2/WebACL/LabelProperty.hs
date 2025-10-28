@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelProperty
-  = LabelProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html>
+    LabelProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name>
+                   name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelProperty :: Value Prelude.Text -> LabelProperty
-mkLabelProperty name = LabelProperty {name = name}
+mkLabelProperty name
+  = LabelProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties LabelProperty where
   toResourceProperties LabelProperty {..}
     = ResourceProperties
@@ -20,4 +24,5 @@ instance JSON.ToJSON LabelProperty where
   toJSON LabelProperty {..} = JSON.object ["Name" JSON..= name]
 instance Property "Name" LabelProperty where
   type PropertyType "Name" LabelProperty = Value Prelude.Text
-  set newValue LabelProperty {} = LabelProperty {name = newValue, ..}
+  set newValue LabelProperty {..}
+    = LabelProperty {name = newValue, ..}

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WavSettingsProperty
-  = WavSettingsProperty {bitDepth :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html>
+    WavSettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-bitdepth>
+                         bitDepth :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-codingmode>
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html#cfn-medialive-channel-wavsettings-samplerate>
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWavSettingsProperty :: WavSettingsProperty
 mkWavSettingsProperty
   = WavSettingsProperty
-      {bitDepth = Prelude.Nothing, codingMode = Prelude.Nothing,
-       sampleRate = Prelude.Nothing}
+      {haddock_workaround_ = (), bitDepth = Prelude.Nothing,
+       codingMode = Prelude.Nothing, sampleRate = Prelude.Nothing}
 instance ToResourceProperties WavSettingsProperty where
   toResourceProperties WavSettingsProperty {..}
     = ResourceProperties

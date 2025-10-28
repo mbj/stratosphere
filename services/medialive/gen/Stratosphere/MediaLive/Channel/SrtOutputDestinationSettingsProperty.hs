@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SrtOutputDestinationSettingsProperty
-  = SrtOutputDestinationSettingsProperty {encryptionPassphraseSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html>
+    SrtOutputDestinationSettingsProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html#cfn-medialive-channel-srtoutputdestinationsettings-encryptionpassphrasesecretarn>
+                                          encryptionPassphraseSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html#cfn-medialive-channel-srtoutputdestinationsettings-streamid>
                                           streamId :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html#cfn-medialive-channel-srtoutputdestinationsettings-url>
                                           url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtOutputDestinationSettingsProperty ::
   SrtOutputDestinationSettingsProperty
 mkSrtOutputDestinationSettingsProperty
   = SrtOutputDestinationSettingsProperty
-      {encryptionPassphraseSecretArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       encryptionPassphraseSecretArn = Prelude.Nothing,
        streamId = Prelude.Nothing, url = Prelude.Nothing}
 instance ToResourceProperties SrtOutputDestinationSettingsProperty where
   toResourceProperties SrtOutputDestinationSettingsProperty {..}

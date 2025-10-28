@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectTypeMappingProperty
-  = ObjectTypeMappingProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html>
+    ObjectTypeMappingProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html#cfn-customerprofiles-integration-objecttypemapping-key>
+                               key :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html#cfn-customerprofiles-integration-objecttypemapping-value>
                                value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectTypeMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ObjectTypeMappingProperty
 mkObjectTypeMappingProperty key value
-  = ObjectTypeMappingProperty {key = key, value = value}
+  = ObjectTypeMappingProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties ObjectTypeMappingProperty where
   toResourceProperties ObjectTypeMappingProperty {..}
     = ResourceProperties

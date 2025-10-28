@@ -6,13 +6,18 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data OverrideActionProperty
-  = OverrideActionProperty {count :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html>
+    OverrideActionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count>
+                            count :: (Prelude.Maybe JSON.Object),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none>
                             none :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideActionProperty :: OverrideActionProperty
 mkOverrideActionProperty
   = OverrideActionProperty
-      {count = Prelude.Nothing, none = Prelude.Nothing}
+      {haddock_workaround_ = (), count = Prelude.Nothing,
+       none = Prelude.Nothing}
 instance ToResourceProperties OverrideActionProperty where
   toResourceProperties OverrideActionProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressAnalysisProperty
-  = IngressAnalysisProperty {analyzer :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html>
+    IngressAnalysisProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html#cfn-ses-mailmanagertrafficpolicy-ingressanalysis-analyzer>
+                             analyzer :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html#cfn-ses-mailmanagertrafficpolicy-ingressanalysis-resultfield>
                              resultField :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressAnalysisProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IngressAnalysisProperty
 mkIngressAnalysisProperty analyzer resultField
   = IngressAnalysisProperty
-      {analyzer = analyzer, resultField = resultField}
+      {haddock_workaround_ = (), analyzer = analyzer,
+       resultField = resultField}
 instance ToResourceProperties IngressAnalysisProperty where
   toResourceProperties IngressAnalysisProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleMeasureMappingProperty
-  = SingleMeasureMappingProperty {measureName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html>
+    SingleMeasureMappingProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html#cfn-pipes-pipe-singlemeasuremapping-measurename>
+                                  measureName :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html#cfn-pipes-pipe-singlemeasuremapping-measurevalue>
                                   measureValue :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html#cfn-pipes-pipe-singlemeasuremapping-measurevaluetype>
                                   measureValueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleMeasureMappingProperty ::
@@ -20,8 +25,8 @@ mkSingleMeasureMappingProperty
   measureValue
   measureValueType
   = SingleMeasureMappingProperty
-      {measureName = measureName, measureValue = measureValue,
-       measureValueType = measureValueType}
+      {haddock_workaround_ = (), measureName = measureName,
+       measureValue = measureValue, measureValueType = measureValueType}
 instance ToResourceProperties SingleMeasureMappingProperty where
   toResourceProperties SingleMeasureMappingProperty {..}
     = ResourceProperties

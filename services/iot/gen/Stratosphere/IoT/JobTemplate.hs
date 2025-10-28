@@ -14,26 +14,41 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data JobTemplate
-  = JobTemplate {abortConfig :: (Prelude.Maybe AbortConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html>
+    JobTemplate {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-abortconfig>
+                 abortConfig :: (Prelude.Maybe AbortConfigProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-description>
                  description :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-destinationpackageversions>
                  destinationPackageVersions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-document>
                  document :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-documentsource>
                  documentSource :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobarn>
                  jobArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsretryconfig>
                  jobExecutionsRetryConfig :: (Prelude.Maybe JobExecutionsRetryConfigProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig>
                  jobExecutionsRolloutConfig :: (Prelude.Maybe JobExecutionsRolloutConfigProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-jobtemplateid>
                  jobTemplateId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-maintenancewindows>
                  maintenanceWindows :: (Prelude.Maybe [MaintenanceWindowProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-presignedurlconfig>
                  presignedUrlConfig :: (Prelude.Maybe PresignedUrlConfigProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html#cfn-iot-jobtemplate-timeoutconfig>
                  timeoutConfig :: (Prelude.Maybe TimeoutConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> JobTemplate
 mkJobTemplate description jobTemplateId
   = JobTemplate
-      {description = description, jobTemplateId = jobTemplateId,
-       abortConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), description = description,
+       jobTemplateId = jobTemplateId, abortConfig = Prelude.Nothing,
        destinationPackageVersions = Prelude.Nothing,
        document = Prelude.Nothing, documentSource = Prelude.Nothing,
        jobArn = Prelude.Nothing,

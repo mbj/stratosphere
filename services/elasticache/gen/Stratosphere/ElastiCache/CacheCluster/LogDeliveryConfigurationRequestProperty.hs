@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.CacheCluster.DestinationDetailsPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogDeliveryConfigurationRequestProperty
-  = LogDeliveryConfigurationRequestProperty {destinationDetails :: DestinationDetailsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html>
+    LogDeliveryConfigurationRequestProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails>
+                                             destinationDetails :: DestinationDetailsProperty,
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype>
                                              destinationType :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat>
                                              logFormat :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype>
                                              logType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfigurationRequestProperty ::
@@ -25,7 +31,7 @@ mkLogDeliveryConfigurationRequestProperty
   logFormat
   logType
   = LogDeliveryConfigurationRequestProperty
-      {destinationDetails = destinationDetails,
+      {haddock_workaround_ = (), destinationDetails = destinationDetails,
        destinationType = destinationType, logFormat = logFormat,
        logType = logType}
 instance ToResourceProperties LogDeliveryConfigurationRequestProperty where

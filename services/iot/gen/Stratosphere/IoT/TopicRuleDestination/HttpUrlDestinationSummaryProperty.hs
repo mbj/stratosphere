@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpUrlDestinationSummaryProperty
-  = HttpUrlDestinationSummaryProperty {confirmationUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html>
+    HttpUrlDestinationSummaryProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl>
+                                       confirmationUrl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpUrlDestinationSummaryProperty ::
   HttpUrlDestinationSummaryProperty
 mkHttpUrlDestinationSummaryProperty
   = HttpUrlDestinationSummaryProperty
-      {confirmationUrl = Prelude.Nothing}
+      {haddock_workaround_ = (), confirmationUrl = Prelude.Nothing}
 instance ToResourceProperties HttpUrlDestinationSummaryProperty where
   toResourceProperties HttpUrlDestinationSummaryProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON HttpUrlDestinationSummaryProperty where
               [(JSON..=) "ConfirmationUrl" Prelude.<$> confirmationUrl]))
 instance Property "ConfirmationUrl" HttpUrlDestinationSummaryProperty where
   type PropertyType "ConfirmationUrl" HttpUrlDestinationSummaryProperty = Value Prelude.Text
-  set newValue HttpUrlDestinationSummaryProperty {}
+  set newValue HttpUrlDestinationSummaryProperty {..}
     = HttpUrlDestinationSummaryProperty
         {confirmationUrl = Prelude.pure newValue, ..}

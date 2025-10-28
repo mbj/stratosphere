@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BaseScreenshotProperty
-  = BaseScreenshotProperty {ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html>
+    BaseScreenshotProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates>
+                            ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname>
                             screenshotName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaseScreenshotProperty ::
   Value Prelude.Text -> BaseScreenshotProperty
 mkBaseScreenshotProperty screenshotName
   = BaseScreenshotProperty
-      {screenshotName = screenshotName,
+      {haddock_workaround_ = (), screenshotName = screenshotName,
        ignoreCoordinates = Prelude.Nothing}
 instance ToResourceProperties BaseScreenshotProperty where
   toResourceProperties BaseScreenshotProperty {..}

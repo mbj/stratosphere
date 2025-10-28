@@ -8,12 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data RouteTable
-  = RouteTable {tags :: (Prelude.Maybe [Tag]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html>
+    RouteTable {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-tags>
+                tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-vpcid>
                 vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteTable :: Value Prelude.Text -> RouteTable
 mkRouteTable vpcId
-  = RouteTable {vpcId = vpcId, tags = Prelude.Nothing}
+  = RouteTable
+      {haddock_workaround_ = (), vpcId = vpcId, tags = Prelude.Nothing}
 instance ToResourceProperties RouteTable where
   toResourceProperties RouteTable {..}
     = ResourceProperties

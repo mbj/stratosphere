@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.Events.Connection.ConnectionHttpParametersPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuthParametersProperty
-  = OAuthParametersProperty {authorizationEndpoint :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html>
+    OAuthParametersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-authorizationendpoint>
+                             authorizationEndpoint :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-clientparameters>
                              clientParameters :: ClientParametersProperty,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-httpmethod>
                              httpMethod :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-oauthhttpparameters>
                              oAuthHttpParameters :: (Prelude.Maybe ConnectionHttpParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthParametersProperty ::
@@ -24,7 +30,8 @@ mkOAuthParametersProperty
   clientParameters
   httpMethod
   = OAuthParametersProperty
-      {authorizationEndpoint = authorizationEndpoint,
+      {haddock_workaround_ = (),
+       authorizationEndpoint = authorizationEndpoint,
        clientParameters = clientParameters, httpMethod = httpMethod,
        oAuthHttpParameters = Prelude.Nothing}
 instance ToResourceProperties OAuthParametersProperty where

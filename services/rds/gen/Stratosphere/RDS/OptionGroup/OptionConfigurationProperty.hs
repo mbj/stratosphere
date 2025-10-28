@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.RDS.OptionGroup.OptionSettingProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OptionConfigurationProperty
-  = OptionConfigurationProperty {dBSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html>
+    OptionConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-dbsecuritygroupmemberships>
+                                 dBSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionname>
                                  optionName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionsettings>
                                  optionSettings :: (Prelude.Maybe [OptionSettingProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionversion>
                                  optionVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-port>
                                  port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-vpcsecuritygroupmemberships>
                                  vpcSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionConfigurationProperty ::
   Value Prelude.Text -> OptionConfigurationProperty
 mkOptionConfigurationProperty optionName
   = OptionConfigurationProperty
-      {optionName = optionName,
+      {haddock_workaround_ = (), optionName = optionName,
        dBSecurityGroupMemberships = Prelude.Nothing,
        optionSettings = Prelude.Nothing, optionVersion = Prelude.Nothing,
        port = Prelude.Nothing,

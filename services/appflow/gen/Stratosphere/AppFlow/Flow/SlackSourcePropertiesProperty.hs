@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackSourcePropertiesProperty
-  = SlackSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html>
+    SlackSourcePropertiesProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object>
+                                   object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackSourcePropertiesProperty ::
   Value Prelude.Text -> SlackSourcePropertiesProperty
 mkSlackSourcePropertiesProperty object
-  = SlackSourcePropertiesProperty {object = object}
+  = SlackSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties SlackSourcePropertiesProperty where
   toResourceProperties SlackSourcePropertiesProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON SlackSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" SlackSourcePropertiesProperty where
   type PropertyType "Object" SlackSourcePropertiesProperty = Value Prelude.Text
-  set newValue SlackSourcePropertiesProperty {}
+  set newValue SlackSourcePropertiesProperty {..}
     = SlackSourcePropertiesProperty {object = newValue, ..}

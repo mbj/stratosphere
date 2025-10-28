@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchNotificationConstraint
-  = LaunchNotificationConstraint {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html>
+    LaunchNotificationConstraint {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#cfn-servicecatalog-launchnotificationconstraint-acceptlanguage>
+                                  acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#cfn-servicecatalog-launchnotificationconstraint-description>
                                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#cfn-servicecatalog-launchnotificationconstraint-notificationarns>
                                   notificationArns :: (ValueList Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#cfn-servicecatalog-launchnotificationconstraint-portfolioid>
                                   portfolioId :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#cfn-servicecatalog-launchnotificationconstraint-productid>
                                   productId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchNotificationConstraint ::
@@ -22,9 +29,9 @@ mkLaunchNotificationConstraint
   portfolioId
   productId
   = LaunchNotificationConstraint
-      {notificationArns = notificationArns, portfolioId = portfolioId,
-       productId = productId, acceptLanguage = Prelude.Nothing,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), notificationArns = notificationArns,
+       portfolioId = portfolioId, productId = productId,
+       acceptLanguage = Prelude.Nothing, description = Prelude.Nothing}
 instance ToResourceProperties LaunchNotificationConstraint where
   toResourceProperties LaunchNotificationConstraint {..}
     = ResourceProperties

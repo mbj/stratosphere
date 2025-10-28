@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManifestFileLocationProperty
-  = ManifestFileLocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html>
+    ManifestFileLocationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket>
+                                  bucket :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key>
                                   key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestFileLocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ManifestFileLocationProperty
 mkManifestFileLocationProperty bucket key
-  = ManifestFileLocationProperty {bucket = bucket, key = key}
+  = ManifestFileLocationProperty
+      {haddock_workaround_ = (), bucket = bucket, key = key}
 instance ToResourceProperties ManifestFileLocationProperty where
   toResourceProperties ManifestFileLocationProperty {..}
     = ResourceProperties

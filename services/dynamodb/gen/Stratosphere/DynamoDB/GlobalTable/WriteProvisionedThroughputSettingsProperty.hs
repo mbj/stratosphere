@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data WriteProvisionedThroughputSettingsProperty
-  = WriteProvisionedThroughputSettingsProperty {writeCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html>
+    WriteProvisionedThroughputSettingsProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings>
+                                                writeCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWriteProvisionedThroughputSettingsProperty ::
   WriteProvisionedThroughputSettingsProperty
 mkWriteProvisionedThroughputSettingsProperty
   = WriteProvisionedThroughputSettingsProperty
-      {writeCapacityAutoScalingSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       writeCapacityAutoScalingSettings = Prelude.Nothing}
 instance ToResourceProperties WriteProvisionedThroughputSettingsProperty where
   toResourceProperties
     WriteProvisionedThroughputSettingsProperty {..}
@@ -34,6 +38,6 @@ instance JSON.ToJSON WriteProvisionedThroughputSettingsProperty where
                  Prelude.<$> writeCapacityAutoScalingSettings]))
 instance Property "WriteCapacityAutoScalingSettings" WriteProvisionedThroughputSettingsProperty where
   type PropertyType "WriteCapacityAutoScalingSettings" WriteProvisionedThroughputSettingsProperty = CapacityAutoScalingSettingsProperty
-  set newValue WriteProvisionedThroughputSettingsProperty {}
+  set newValue WriteProvisionedThroughputSettingsProperty {..}
     = WriteProvisionedThroughputSettingsProperty
         {writeCapacityAutoScalingSettings = Prelude.pure newValue, ..}

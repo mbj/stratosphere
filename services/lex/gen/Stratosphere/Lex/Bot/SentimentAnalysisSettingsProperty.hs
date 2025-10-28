@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SentimentAnalysisSettingsProperty
-  = SentimentAnalysisSettingsProperty {detectSentiment :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sentimentanalysissettings.html>
+    SentimentAnalysisSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sentimentanalysissettings.html#cfn-lex-bot-sentimentanalysissettings-detectsentiment>
+                                       detectSentiment :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSentimentAnalysisSettingsProperty ::
   Value Prelude.Bool -> SentimentAnalysisSettingsProperty
 mkSentimentAnalysisSettingsProperty detectSentiment
   = SentimentAnalysisSettingsProperty
-      {detectSentiment = detectSentiment}
+      {haddock_workaround_ = (), detectSentiment = detectSentiment}
 instance ToResourceProperties SentimentAnalysisSettingsProperty where
   toResourceProperties SentimentAnalysisSettingsProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SentimentAnalysisSettingsProperty where
     = JSON.object ["DetectSentiment" JSON..= detectSentiment]
 instance Property "DetectSentiment" SentimentAnalysisSettingsProperty where
   type PropertyType "DetectSentiment" SentimentAnalysisSettingsProperty = Value Prelude.Bool
-  set newValue SentimentAnalysisSettingsProperty {}
+  set newValue SentimentAnalysisSettingsProperty {..}
     = SentimentAnalysisSettingsProperty
         {detectSentiment = newValue, ..}

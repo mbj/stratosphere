@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.ECS.Cluster.ExecuteCommandConfigurationProper
 import {-# SOURCE #-} Stratosphere.ECS.Cluster.ManagedStorageConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ClusterConfigurationProperty
-  = ClusterConfigurationProperty {executeCommandConfiguration :: (Prelude.Maybe ExecuteCommandConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html>
+    ClusterConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration>
+                                  executeCommandConfiguration :: (Prelude.Maybe ExecuteCommandConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-managedstorageconfiguration>
                                   managedStorageConfiguration :: (Prelude.Maybe ManagedStorageConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterConfigurationProperty :: ClusterConfigurationProperty
 mkClusterConfigurationProperty
   = ClusterConfigurationProperty
-      {executeCommandConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       executeCommandConfiguration = Prelude.Nothing,
        managedStorageConfiguration = Prelude.Nothing}
 instance ToResourceProperties ClusterConfigurationProperty where
   toResourceProperties ClusterConfigurationProperty {..}

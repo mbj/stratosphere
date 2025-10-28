@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrinoParametersProperty
-  = TrinoParametersProperty {catalog :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html>
+    TrinoParametersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html#cfn-quicksight-datasource-trinoparameters-catalog>
+                             catalog :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html#cfn-quicksight-datasource-trinoparameters-host>
                              host :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html#cfn-quicksight-datasource-trinoparameters-port>
                              port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrinoParametersProperty ::
@@ -17,7 +22,8 @@ mkTrinoParametersProperty ::
      -> Value Prelude.Double -> TrinoParametersProperty
 mkTrinoParametersProperty catalog host port
   = TrinoParametersProperty
-      {catalog = catalog, host = host, port = port}
+      {haddock_workaround_ = (), catalog = catalog, host = host,
+       port = port}
 instance ToResourceProperties TrinoParametersProperty where
   toResourceProperties TrinoParametersProperty {..}
     = ResourceProperties

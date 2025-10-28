@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ScheduledTriggerPropertiesProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggerConfigProperty
-  = TriggerConfigProperty {triggerProperties :: (Prelude.Maybe ScheduledTriggerPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html>
+    TriggerConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties>
+                           triggerProperties :: (Prelude.Maybe ScheduledTriggerPropertiesProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype>
                            triggerType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerConfigProperty ::
   Value Prelude.Text -> TriggerConfigProperty
 mkTriggerConfigProperty triggerType
   = TriggerConfigProperty
-      {triggerType = triggerType, triggerProperties = Prelude.Nothing}
+      {haddock_workaround_ = (), triggerType = triggerType,
+       triggerProperties = Prelude.Nothing}
 instance ToResourceProperties TriggerConfigProperty where
   toResourceProperties TriggerConfigProperty {..}
     = ResourceProperties

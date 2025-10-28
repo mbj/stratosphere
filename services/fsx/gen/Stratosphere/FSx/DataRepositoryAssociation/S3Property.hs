@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.FSx.DataRepositoryAssociation.AutoExportPolic
 import {-# SOURCE #-} Stratosphere.FSx.DataRepositoryAssociation.AutoImportPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data S3Property
-  = S3Property {autoExportPolicy :: (Prelude.Maybe AutoExportPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-s3.html>
+    S3Property {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-s3.html#cfn-fsx-datarepositoryassociation-s3-autoexportpolicy>
+                autoExportPolicy :: (Prelude.Maybe AutoExportPolicyProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-s3.html#cfn-fsx-datarepositoryassociation-s3-autoimportpolicy>
                 autoImportPolicy :: (Prelude.Maybe AutoImportPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3Property :: S3Property
 mkS3Property
   = S3Property
-      {autoExportPolicy = Prelude.Nothing,
+      {haddock_workaround_ = (), autoExportPolicy = Prelude.Nothing,
        autoImportPolicy = Prelude.Nothing}
 instance ToResourceProperties S3Property where
   toResourceProperties S3Property {..}

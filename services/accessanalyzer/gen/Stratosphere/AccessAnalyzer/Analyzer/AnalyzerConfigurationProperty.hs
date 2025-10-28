@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.UnusedAccessConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AnalyzerConfigurationProperty
-  = AnalyzerConfigurationProperty {unusedAccessConfiguration :: (Prelude.Maybe UnusedAccessConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html>
+    AnalyzerConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-unusedaccessconfiguration>
+                                   unusedAccessConfiguration :: (Prelude.Maybe UnusedAccessConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyzerConfigurationProperty :: AnalyzerConfigurationProperty
 mkAnalyzerConfigurationProperty
   = AnalyzerConfigurationProperty
-      {unusedAccessConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       unusedAccessConfiguration = Prelude.Nothing}
 instance ToResourceProperties AnalyzerConfigurationProperty where
   toResourceProperties AnalyzerConfigurationProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON AnalyzerConfigurationProperty where
                  Prelude.<$> unusedAccessConfiguration]))
 instance Property "UnusedAccessConfiguration" AnalyzerConfigurationProperty where
   type PropertyType "UnusedAccessConfiguration" AnalyzerConfigurationProperty = UnusedAccessConfigurationProperty
-  set newValue AnalyzerConfigurationProperty {}
+  set newValue AnalyzerConfigurationProperty {..}
     = AnalyzerConfigurationProperty
         {unusedAccessConfiguration = Prelude.pure newValue, ..}

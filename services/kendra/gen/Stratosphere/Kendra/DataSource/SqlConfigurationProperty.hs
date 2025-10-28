@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlConfigurationProperty
-  = SqlConfigurationProperty {queryIdentifiersEnclosingOption :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html>
+    SqlConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html#cfn-kendra-datasource-sqlconfiguration-queryidentifiersenclosingoption>
+                              queryIdentifiersEnclosingOption :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlConfigurationProperty :: SqlConfigurationProperty
 mkSqlConfigurationProperty
   = SqlConfigurationProperty
-      {queryIdentifiersEnclosingOption = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       queryIdentifiersEnclosingOption = Prelude.Nothing}
 instance ToResourceProperties SqlConfigurationProperty where
   toResourceProperties SqlConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON SqlConfigurationProperty where
                  Prelude.<$> queryIdentifiersEnclosingOption]))
 instance Property "QueryIdentifiersEnclosingOption" SqlConfigurationProperty where
   type PropertyType "QueryIdentifiersEnclosingOption" SqlConfigurationProperty = Value Prelude.Text
-  set newValue SqlConfigurationProperty {}
+  set newValue SqlConfigurationProperty {..}
     = SqlConfigurationProperty
         {queryIdentifiersEnclosingOption = Prelude.pure newValue, ..}

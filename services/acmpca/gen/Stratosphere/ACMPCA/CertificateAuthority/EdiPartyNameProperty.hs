@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EdiPartyNameProperty
-  = EdiPartyNameProperty {nameAssigner :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html>
+    EdiPartyNameProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner>
+                          nameAssigner :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname>
                           partyName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiPartyNameProperty ::
   Value Prelude.Text -> EdiPartyNameProperty
 mkEdiPartyNameProperty partyName
   = EdiPartyNameProperty
-      {partyName = partyName, nameAssigner = Prelude.Nothing}
+      {haddock_workaround_ = (), partyName = partyName,
+       nameAssigner = Prelude.Nothing}
 instance ToResourceProperties EdiPartyNameProperty where
   toResourceProperties EdiPartyNameProperty {..}
     = ResourceProperties

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Pipeline.S3LocationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineDefinitionProperty
-  = PipelineDefinitionProperty {pipelineDefinitionBody :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html>
+    PipelineDefinitionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitionbody>
+                                pipelineDefinitionBody :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html#cfn-sagemaker-pipeline-pipelinedefinition-pipelinedefinitions3location>
                                 pipelineDefinitionS3Location :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineDefinitionProperty :: PipelineDefinitionProperty
 mkPipelineDefinitionProperty
   = PipelineDefinitionProperty
-      {pipelineDefinitionBody = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       pipelineDefinitionBody = Prelude.Nothing,
        pipelineDefinitionS3Location = Prelude.Nothing}
 instance ToResourceProperties PipelineDefinitionProperty where
   toResourceProperties PipelineDefinitionProperty {..}

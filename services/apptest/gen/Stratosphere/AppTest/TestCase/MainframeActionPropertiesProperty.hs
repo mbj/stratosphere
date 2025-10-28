@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MainframeActionPropertiesProperty
-  = MainframeActionPropertiesProperty {dmsTaskArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactionproperties.html>
+    MainframeActionPropertiesProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactionproperties.html#cfn-apptest-testcase-mainframeactionproperties-dmstaskarn>
+                                       dmsTaskArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMainframeActionPropertiesProperty ::
   MainframeActionPropertiesProperty
 mkMainframeActionPropertiesProperty
-  = MainframeActionPropertiesProperty {dmsTaskArn = Prelude.Nothing}
+  = MainframeActionPropertiesProperty
+      {haddock_workaround_ = (), dmsTaskArn = Prelude.Nothing}
 instance ToResourceProperties MainframeActionPropertiesProperty where
   toResourceProperties MainframeActionPropertiesProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON MainframeActionPropertiesProperty where
               [(JSON..=) "DmsTaskArn" Prelude.<$> dmsTaskArn]))
 instance Property "DmsTaskArn" MainframeActionPropertiesProperty where
   type PropertyType "DmsTaskArn" MainframeActionPropertiesProperty = Value Prelude.Text
-  set newValue MainframeActionPropertiesProperty {}
+  set newValue MainframeActionPropertiesProperty {..}
     = MainframeActionPropertiesProperty
         {dmsTaskArn = Prelude.pure newValue, ..}

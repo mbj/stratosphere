@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.CloudFront.RealtimeLogConfig.EndPointProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeLogConfig
-  = RealtimeLogConfig {endPoints :: [EndPointProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html>
+    RealtimeLogConfig {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints>
+                       endPoints :: [EndPointProperty],
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields>
                        fields :: (ValueList Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name>
                        name :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate>
                        samplingRate :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeLogConfig ::
@@ -19,8 +25,8 @@ mkRealtimeLogConfig ::
      -> Value Prelude.Text -> Value Prelude.Double -> RealtimeLogConfig
 mkRealtimeLogConfig endPoints fields name samplingRate
   = RealtimeLogConfig
-      {endPoints = endPoints, fields = fields, name = name,
-       samplingRate = samplingRate}
+      {haddock_workaround_ = (), endPoints = endPoints, fields = fields,
+       name = name, samplingRate = samplingRate}
 instance ToResourceProperties RealtimeLogConfig where
   toResourceProperties RealtimeLogConfig {..}
     = ResourceProperties

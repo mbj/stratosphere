@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Model.RepositoryAuthConfigProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageConfigProperty
-  = ImageConfigProperty {repositoryAccessMode :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>
+    ImageConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryaccessmode>
+                         repositoryAccessMode :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig>
                          repositoryAuthConfig :: (Prelude.Maybe RepositoryAuthConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigProperty :: Value Prelude.Text -> ImageConfigProperty
 mkImageConfigProperty repositoryAccessMode
   = ImageConfigProperty
-      {repositoryAccessMode = repositoryAccessMode,
+      {haddock_workaround_ = (),
+       repositoryAccessMode = repositoryAccessMode,
        repositoryAuthConfig = Prelude.Nothing}
 instance ToResourceProperties ImageConfigProperty where
   toResourceProperties ImageConfigProperty {..}

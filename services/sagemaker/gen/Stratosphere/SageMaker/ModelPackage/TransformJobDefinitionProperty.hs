@@ -11,12 +11,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.TransformResourcesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformJobDefinitionProperty
-  = TransformJobDefinitionProperty {batchStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html>
+    TransformJobDefinitionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-batchstrategy>
+                                    batchStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-environment>
                                     environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxconcurrenttransforms>
                                     maxConcurrentTransforms :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-maxpayloadinmb>
                                     maxPayloadInMB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transforminput>
                                     transformInput :: TransformInputProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformoutput>
                                     transformOutput :: TransformOutputProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html#cfn-sagemaker-modelpackage-transformjobdefinition-transformresources>
                                     transformResources :: TransformResourcesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformJobDefinitionProperty ::
@@ -28,7 +37,7 @@ mkTransformJobDefinitionProperty
   transformOutput
   transformResources
   = TransformJobDefinitionProperty
-      {transformInput = transformInput,
+      {haddock_workaround_ = (), transformInput = transformInput,
        transformOutput = transformOutput,
        transformResources = transformResources,
        batchStrategy = Prelude.Nothing, environment = Prelude.Nothing,

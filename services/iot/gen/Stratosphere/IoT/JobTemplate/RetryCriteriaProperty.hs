@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetryCriteriaProperty
-  = RetryCriteriaProperty {failureType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-retrycriteria.html>
+    RetryCriteriaProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-retrycriteria.html#cfn-iot-jobtemplate-retrycriteria-failuretype>
+                           failureType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-retrycriteria.html#cfn-iot-jobtemplate-retrycriteria-numberofretries>
                            numberOfRetries :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryCriteriaProperty :: RetryCriteriaProperty
 mkRetryCriteriaProperty
   = RetryCriteriaProperty
-      {failureType = Prelude.Nothing, numberOfRetries = Prelude.Nothing}
+      {haddock_workaround_ = (), failureType = Prelude.Nothing,
+       numberOfRetries = Prelude.Nothing}
 instance ToResourceProperties RetryCriteriaProperty where
   toResourceProperties RetryCriteriaProperty {..}
     = ResourceProperties

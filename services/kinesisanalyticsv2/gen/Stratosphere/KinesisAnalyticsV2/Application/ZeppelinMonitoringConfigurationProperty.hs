@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZeppelinMonitoringConfigurationProperty
-  = ZeppelinMonitoringConfigurationProperty {logLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html>
+    ZeppelinMonitoringConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration-loglevel>
+                                             logLevel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZeppelinMonitoringConfigurationProperty ::
   ZeppelinMonitoringConfigurationProperty
 mkZeppelinMonitoringConfigurationProperty
   = ZeppelinMonitoringConfigurationProperty
-      {logLevel = Prelude.Nothing}
+      {haddock_workaround_ = (), logLevel = Prelude.Nothing}
 instance ToResourceProperties ZeppelinMonitoringConfigurationProperty where
   toResourceProperties ZeppelinMonitoringConfigurationProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON ZeppelinMonitoringConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "LogLevel" Prelude.<$> logLevel]))
 instance Property "LogLevel" ZeppelinMonitoringConfigurationProperty where
   type PropertyType "LogLevel" ZeppelinMonitoringConfigurationProperty = Value Prelude.Text
-  set newValue ZeppelinMonitoringConfigurationProperty {}
+  set newValue ZeppelinMonitoringConfigurationProperty {..}
     = ZeppelinMonitoringConfigurationProperty
         {logLevel = Prelude.pure newValue, ..}

@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceExperiment.ModelInfrastruc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelVariantConfigProperty
-  = ModelVariantConfigProperty {infrastructureConfig :: ModelInfrastructureConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html>
+    ModelVariantConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-infrastructureconfig>
+                                infrastructureConfig :: ModelInfrastructureConfigProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-modelname>
                                 modelName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html#cfn-sagemaker-inferenceexperiment-modelvariantconfig-variantname>
                                 variantName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelVariantConfigProperty ::
@@ -22,8 +27,9 @@ mkModelVariantConfigProperty
   modelName
   variantName
   = ModelVariantConfigProperty
-      {infrastructureConfig = infrastructureConfig,
-       modelName = modelName, variantName = variantName}
+      {haddock_workaround_ = (),
+       infrastructureConfig = infrastructureConfig, modelName = modelName,
+       variantName = variantName}
 instance ToResourceProperties ModelVariantConfigProperty where
   toResourceProperties ModelVariantConfigProperty {..}
     = ResourceProperties

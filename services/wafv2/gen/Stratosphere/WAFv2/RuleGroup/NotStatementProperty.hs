@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 data NotStatementProperty
-  = NotStatementProperty {statement :: StatementProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html>
+    NotStatementProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement>
+                          statement :: StatementProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotStatementProperty :: StatementProperty -> NotStatementProperty
 mkNotStatementProperty statement
-  = NotStatementProperty {statement = statement}
+  = NotStatementProperty
+      {haddock_workaround_ = (), statement = statement}
 instance ToResourceProperties NotStatementProperty where
   toResourceProperties NotStatementProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON NotStatementProperty where
     = JSON.object ["Statement" JSON..= statement]
 instance Property "Statement" NotStatementProperty where
   type PropertyType "Statement" NotStatementProperty = StatementProperty
-  set newValue NotStatementProperty {}
+  set newValue NotStatementProperty {..}
     = NotStatementProperty {statement = newValue, ..}

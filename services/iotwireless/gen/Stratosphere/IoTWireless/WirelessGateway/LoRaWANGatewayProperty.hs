@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoRaWANGatewayProperty
-  = LoRaWANGatewayProperty {gatewayEui :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html>
+    LoRaWANGatewayProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui>
+                            gatewayEui :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion>
                             rfRegion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANGatewayProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoRaWANGatewayProperty
 mkLoRaWANGatewayProperty gatewayEui rfRegion
   = LoRaWANGatewayProperty
-      {gatewayEui = gatewayEui, rfRegion = rfRegion}
+      {haddock_workaround_ = (), gatewayEui = gatewayEui,
+       rfRegion = rfRegion}
 instance ToResourceProperties LoRaWANGatewayProperty where
   toResourceProperties LoRaWANGatewayProperty {..}
     = ResourceProperties

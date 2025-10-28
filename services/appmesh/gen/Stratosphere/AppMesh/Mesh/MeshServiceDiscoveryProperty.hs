@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MeshServiceDiscoveryProperty
-  = MeshServiceDiscoveryProperty {ipPreference :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html>
+    MeshServiceDiscoveryProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html#cfn-appmesh-mesh-meshservicediscovery-ippreference>
+                                  ipPreference :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMeshServiceDiscoveryProperty :: MeshServiceDiscoveryProperty
 mkMeshServiceDiscoveryProperty
-  = MeshServiceDiscoveryProperty {ipPreference = Prelude.Nothing}
+  = MeshServiceDiscoveryProperty
+      {haddock_workaround_ = (), ipPreference = Prelude.Nothing}
 instance ToResourceProperties MeshServiceDiscoveryProperty where
   toResourceProperties MeshServiceDiscoveryProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON MeshServiceDiscoveryProperty where
               [(JSON..=) "IpPreference" Prelude.<$> ipPreference]))
 instance Property "IpPreference" MeshServiceDiscoveryProperty where
   type PropertyType "IpPreference" MeshServiceDiscoveryProperty = Value Prelude.Text
-  set newValue MeshServiceDiscoveryProperty {}
+  set newValue MeshServiceDiscoveryProperty {..}
     = MeshServiceDiscoveryProperty
         {ipPreference = Prelude.pure newValue, ..}

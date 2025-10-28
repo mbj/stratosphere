@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.DefaultConfigPr
 import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.FunctionProperty as Exports
 import Stratosphere.ResourceProperties
 data FunctionDefinitionVersionProperty
-  = FunctionDefinitionVersionProperty {defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html>
+    FunctionDefinitionVersionProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-defaultconfig>
+                                       defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html#cfn-greengrass-functiondefinition-functiondefinitionversion-functions>
                                        functions :: [FunctionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinitionVersionProperty ::
   [FunctionProperty] -> FunctionDefinitionVersionProperty
 mkFunctionDefinitionVersionProperty functions
   = FunctionDefinitionVersionProperty
-      {functions = functions, defaultConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), functions = functions,
+       defaultConfig = Prelude.Nothing}
 instance ToResourceProperties FunctionDefinitionVersionProperty where
   toResourceProperties FunctionDefinitionVersionProperty {..}
     = ResourceProperties

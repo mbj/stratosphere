@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.Project.CloudWatchLogsConfigPropert
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.S3LogsConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data LogsConfigProperty
-  = LogsConfigProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html>
+    LogsConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-cloudwatchlogs>
+                        cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-s3logs>
                         s3Logs :: (Prelude.Maybe S3LogsConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogsConfigProperty :: LogsConfigProperty
 mkLogsConfigProperty
   = LogsConfigProperty
-      {cloudWatchLogs = Prelude.Nothing, s3Logs = Prelude.Nothing}
+      {haddock_workaround_ = (), cloudWatchLogs = Prelude.Nothing,
+       s3Logs = Prelude.Nothing}
 instance ToResourceProperties LogsConfigProperty where
   toResourceProperties LogsConfigProperty {..}
     = ResourceProperties

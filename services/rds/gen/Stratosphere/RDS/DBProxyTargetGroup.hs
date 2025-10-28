@@ -8,17 +8,25 @@ import {-# SOURCE #-} Stratosphere.RDS.DBProxyTargetGroup.ConnectionPoolConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBProxyTargetGroup
-  = DBProxyTargetGroup {connectionPoolConfigurationInfo :: (Prelude.Maybe ConnectionPoolConfigurationInfoFormatProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html>
+    DBProxyTargetGroup {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo>
+                        connectionPoolConfigurationInfo :: (Prelude.Maybe ConnectionPoolConfigurationInfoFormatProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers>
                         dBClusterIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers>
                         dBInstanceIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname>
                         dBProxyName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname>
                         targetGroupName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxyTargetGroup ::
   Value Prelude.Text -> Value Prelude.Text -> DBProxyTargetGroup
 mkDBProxyTargetGroup dBProxyName targetGroupName
   = DBProxyTargetGroup
-      {dBProxyName = dBProxyName, targetGroupName = targetGroupName,
+      {haddock_workaround_ = (), dBProxyName = dBProxyName,
+       targetGroupName = targetGroupName,
        connectionPoolConfigurationInfo = Prelude.Nothing,
        dBClusterIdentifiers = Prelude.Nothing,
        dBInstanceIdentifiers = Prelude.Nothing}

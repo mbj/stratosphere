@@ -10,18 +10,25 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.SemanticEntityTypeProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicNamedEntityProperty
-  = TopicNamedEntityProperty {definition :: (Prelude.Maybe [NamedEntityDefinitionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html>
+    TopicNamedEntityProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html#cfn-quicksight-topic-topicnamedentity-definition>
+                              definition :: (Prelude.Maybe [NamedEntityDefinitionProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html#cfn-quicksight-topic-topicnamedentity-entitydescription>
                               entityDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html#cfn-quicksight-topic-topicnamedentity-entityname>
                               entityName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html#cfn-quicksight-topic-topicnamedentity-entitysynonyms>
                               entitySynonyms :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html#cfn-quicksight-topic-topicnamedentity-semanticentitytype>
                               semanticEntityType :: (Prelude.Maybe SemanticEntityTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicNamedEntityProperty ::
   Value Prelude.Text -> TopicNamedEntityProperty
 mkTopicNamedEntityProperty entityName
   = TopicNamedEntityProperty
-      {entityName = entityName, definition = Prelude.Nothing,
-       entityDescription = Prelude.Nothing,
+      {haddock_workaround_ = (), entityName = entityName,
+       definition = Prelude.Nothing, entityDescription = Prelude.Nothing,
        entitySynonyms = Prelude.Nothing,
        semanticEntityType = Prelude.Nothing}
 instance ToResourceProperties TopicNamedEntityProperty where

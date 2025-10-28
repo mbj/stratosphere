@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.AmazonMQ.ConfigurationAssociation.Configurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationAssociation
-  = ConfigurationAssociation {broker :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html>
+    ConfigurationAssociation {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-broker>
+                              broker :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#cfn-amazonmq-configurationassociation-configuration>
                               configuration :: ConfigurationIdProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationAssociation ::
@@ -17,7 +21,8 @@ mkConfigurationAssociation ::
   -> ConfigurationIdProperty -> ConfigurationAssociation
 mkConfigurationAssociation broker configuration
   = ConfigurationAssociation
-      {broker = broker, configuration = configuration}
+      {haddock_workaround_ = (), broker = broker,
+       configuration = configuration}
 instance ToResourceProperties ConfigurationAssociation where
   toResourceProperties ConfigurationAssociation {..}
     = ResourceProperties

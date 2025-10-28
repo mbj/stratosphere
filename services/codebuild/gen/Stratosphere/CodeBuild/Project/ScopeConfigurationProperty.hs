@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScopeConfigurationProperty
-  = ScopeConfigurationProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html>
+    ScopeConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html#cfn-codebuild-project-scopeconfiguration-name>
+                                name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeConfigurationProperty ::
   Value Prelude.Text -> ScopeConfigurationProperty
 mkScopeConfigurationProperty name
-  = ScopeConfigurationProperty {name = name}
+  = ScopeConfigurationProperty
+      {haddock_workaround_ = (), name = name}
 instance ToResourceProperties ScopeConfigurationProperty where
   toResourceProperties ScopeConfigurationProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ScopeConfigurationProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" ScopeConfigurationProperty where
   type PropertyType "Name" ScopeConfigurationProperty = Value Prelude.Text
-  set newValue ScopeConfigurationProperty {}
+  set newValue ScopeConfigurationProperty {..}
     = ScopeConfigurationProperty {name = newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateFilterProperty
-  = DateFilterProperty {endInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html>
+    DateFilterProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-endinclusive>
+                        endInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html#cfn-inspectorv2-filter-datefilter-startinclusive>
                         startInclusive :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateFilterProperty :: DateFilterProperty
 mkDateFilterProperty
   = DateFilterProperty
-      {endInclusive = Prelude.Nothing, startInclusive = Prelude.Nothing}
+      {haddock_workaround_ = (), endInclusive = Prelude.Nothing,
+       startInclusive = Prelude.Nothing}
 instance ToResourceProperties DateFilterProperty where
   toResourceProperties DateFilterProperty {..}
     = ResourceProperties

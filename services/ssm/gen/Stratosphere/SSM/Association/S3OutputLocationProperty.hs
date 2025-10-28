@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3OutputLocationProperty
-  = S3OutputLocationProperty {outputS3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html>
+    S3OutputLocationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname>
+                              outputS3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix>
                               outputS3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region>
                               outputS3Region :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputLocationProperty :: S3OutputLocationProperty
 mkS3OutputLocationProperty
   = S3OutputLocationProperty
-      {outputS3BucketName = Prelude.Nothing,
+      {haddock_workaround_ = (), outputS3BucketName = Prelude.Nothing,
        outputS3KeyPrefix = Prelude.Nothing,
        outputS3Region = Prelude.Nothing}
 instance ToResourceProperties S3OutputLocationProperty where

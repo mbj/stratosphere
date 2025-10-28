@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.GeoRestrictionProperty as Exports
 import Stratosphere.ResourceProperties
 data RestrictionsProperty
-  = RestrictionsProperty {geoRestriction :: GeoRestrictionProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html>
+    RestrictionsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction>
+                          geoRestriction :: GeoRestrictionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictionsProperty ::
   GeoRestrictionProperty -> RestrictionsProperty
 mkRestrictionsProperty geoRestriction
-  = RestrictionsProperty {geoRestriction = geoRestriction}
+  = RestrictionsProperty
+      {haddock_workaround_ = (), geoRestriction = geoRestriction}
 instance ToResourceProperties RestrictionsProperty where
   toResourceProperties RestrictionsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RestrictionsProperty where
     = JSON.object ["GeoRestriction" JSON..= geoRestriction]
 instance Property "GeoRestriction" RestrictionsProperty where
   type PropertyType "GeoRestriction" RestrictionsProperty = GeoRestrictionProperty
-  set newValue RestrictionsProperty {}
+  set newValue RestrictionsProperty {..}
     = RestrictionsProperty {geoRestriction = newValue, ..}

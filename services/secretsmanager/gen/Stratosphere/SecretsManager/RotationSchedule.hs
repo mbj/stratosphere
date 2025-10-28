@@ -9,16 +9,24 @@ import {-# SOURCE #-} Stratosphere.SecretsManager.RotationSchedule.RotationRules
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RotationSchedule
-  = RotationSchedule {hostedRotationLambda :: (Prelude.Maybe HostedRotationLambdaProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html>
+    RotationSchedule {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda>
+                      hostedRotationLambda :: (Prelude.Maybe HostedRotationLambdaProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotateimmediatelyonupdate>
                       rotateImmediatelyOnUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn>
                       rotationLambdaARN :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules>
                       rotationRules :: (Prelude.Maybe RotationRulesProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid>
                       secretId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRotationSchedule :: Value Prelude.Text -> RotationSchedule
 mkRotationSchedule secretId
   = RotationSchedule
-      {secretId = secretId, hostedRotationLambda = Prelude.Nothing,
+      {haddock_workaround_ = (), secretId = secretId,
+       hostedRotationLambda = Prelude.Nothing,
        rotateImmediatelyOnUpdate = Prelude.Nothing,
        rotationLambdaARN = Prelude.Nothing,
        rotationRules = Prelude.Nothing}

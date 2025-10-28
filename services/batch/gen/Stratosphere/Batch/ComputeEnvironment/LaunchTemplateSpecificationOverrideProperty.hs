@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchTemplateSpecificationOverrideProperty
-  = LaunchTemplateSpecificationOverrideProperty {launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html>
+    LaunchTemplateSpecificationOverrideProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-launchtemplateid>
+                                                 launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-launchtemplatename>
                                                  launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-targetinstancetypes>
                                                  targetInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-version>
                                                  version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateSpecificationOverrideProperty ::
   LaunchTemplateSpecificationOverrideProperty
 mkLaunchTemplateSpecificationOverrideProperty
   = LaunchTemplateSpecificationOverrideProperty
-      {launchTemplateId = Prelude.Nothing,
+      {haddock_workaround_ = (), launchTemplateId = Prelude.Nothing,
        launchTemplateName = Prelude.Nothing,
        targetInstanceTypes = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties LaunchTemplateSpecificationOverrideProperty where

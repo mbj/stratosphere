@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisDataStreamProperty
-  = KinesisDataStreamProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisdatastream.html>
+    KinesisDataStreamProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisdatastream.html#cfn-rekognition-streamprocessor-kinesisdatastream-arn>
+                               arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisDataStreamProperty ::
   Value Prelude.Text -> KinesisDataStreamProperty
 mkKinesisDataStreamProperty arn
-  = KinesisDataStreamProperty {arn = arn}
+  = KinesisDataStreamProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties KinesisDataStreamProperty where
   toResourceProperties KinesisDataStreamProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON KinesisDataStreamProperty where
     = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" KinesisDataStreamProperty where
   type PropertyType "Arn" KinesisDataStreamProperty = Value Prelude.Text
-  set newValue KinesisDataStreamProperty {}
+  set newValue KinesisDataStreamProperty {..}
     = KinesisDataStreamProperty {arn = newValue, ..}

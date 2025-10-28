@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContentSecurityPolicyProperty
-  = ContentSecurityPolicyProperty {contentSecurityPolicy :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html>
+    ContentSecurityPolicyProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html#cfn-cloudfront-responseheaderspolicy-contentsecuritypolicy-contentsecuritypolicy>
+                                   contentSecurityPolicy :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html#cfn-cloudfront-responseheaderspolicy-contentsecuritypolicy-override>
                                    override :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentSecurityPolicyProperty ::
@@ -15,8 +19,8 @@ mkContentSecurityPolicyProperty ::
   -> Value Prelude.Bool -> ContentSecurityPolicyProperty
 mkContentSecurityPolicyProperty contentSecurityPolicy override
   = ContentSecurityPolicyProperty
-      {contentSecurityPolicy = contentSecurityPolicy,
-       override = override}
+      {haddock_workaround_ = (),
+       contentSecurityPolicy = contentSecurityPolicy, override = override}
 instance ToResourceProperties ContentSecurityPolicyProperty where
   toResourceProperties ContentSecurityPolicyProperty {..}
     = ResourceProperties

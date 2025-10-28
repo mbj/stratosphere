@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolIdentityProvider
-  = UserPoolIdentityProvider {attributeMapping :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html>
+    UserPoolIdentityProvider {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping>
+                              attributeMapping :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers>
                               idpIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails>
                               providerDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername>
                               providerName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype>
                               providerType :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid>
                               userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolIdentityProvider ::
@@ -25,9 +33,9 @@ mkUserPoolIdentityProvider
   providerType
   userPoolId
   = UserPoolIdentityProvider
-      {providerDetails = providerDetails, providerName = providerName,
-       providerType = providerType, userPoolId = userPoolId,
-       attributeMapping = Prelude.Nothing,
+      {haddock_workaround_ = (), providerDetails = providerDetails,
+       providerName = providerName, providerType = providerType,
+       userPoolId = userPoolId, attributeMapping = Prelude.Nothing,
        idpIdentifiers = Prelude.Nothing}
 instance ToResourceProperties UserPoolIdentityProvider where
   toResourceProperties UserPoolIdentityProvider {..}

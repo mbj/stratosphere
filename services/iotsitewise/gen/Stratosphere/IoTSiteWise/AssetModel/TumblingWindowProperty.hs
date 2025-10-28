@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TumblingWindowProperty
-  = TumblingWindowProperty {interval :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html>
+    TumblingWindowProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval>
+                            interval :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset>
                             offset :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTumblingWindowProperty ::
   Value Prelude.Text -> TumblingWindowProperty
 mkTumblingWindowProperty interval
   = TumblingWindowProperty
-      {interval = interval, offset = Prelude.Nothing}
+      {haddock_workaround_ = (), interval = interval,
+       offset = Prelude.Nothing}
 instance ToResourceProperties TumblingWindowProperty where
   toResourceProperties TumblingWindowProperty {..}
     = ResourceProperties

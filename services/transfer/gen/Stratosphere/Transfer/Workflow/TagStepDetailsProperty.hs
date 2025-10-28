@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3TagProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagStepDetailsProperty
-  = TagStepDetailsProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html>
+    TagStepDetailsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html#cfn-transfer-workflow-tagstepdetails-name>
+                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html#cfn-transfer-workflow-tagstepdetails-sourcefilelocation>
                             sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html#cfn-transfer-workflow-tagstepdetails-tags>
                             tags :: (Prelude.Maybe [S3TagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagStepDetailsProperty :: TagStepDetailsProperty
 mkTagStepDetailsProperty
   = TagStepDetailsProperty
-      {name = Prelude.Nothing, sourceFileLocation = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       sourceFileLocation = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TagStepDetailsProperty where
   toResourceProperties TagStepDetailsProperty {..}
     = ResourceProperties

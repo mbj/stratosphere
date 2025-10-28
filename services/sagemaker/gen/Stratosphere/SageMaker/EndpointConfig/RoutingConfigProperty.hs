@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingConfigProperty
-  = RoutingConfigProperty {routingStrategy :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html>
+    RoutingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html#cfn-sagemaker-endpointconfig-productionvariant-routingconfig-routingstrategy>
+                           routingStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingConfigProperty :: RoutingConfigProperty
 mkRoutingConfigProperty
-  = RoutingConfigProperty {routingStrategy = Prelude.Nothing}
+  = RoutingConfigProperty
+      {haddock_workaround_ = (), routingStrategy = Prelude.Nothing}
 instance ToResourceProperties RoutingConfigProperty where
   toResourceProperties RoutingConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON RoutingConfigProperty where
               [(JSON..=) "RoutingStrategy" Prelude.<$> routingStrategy]))
 instance Property "RoutingStrategy" RoutingConfigProperty where
   type PropertyType "RoutingStrategy" RoutingConfigProperty = Value Prelude.Text
-  set newValue RoutingConfigProperty {}
+  set newValue RoutingConfigProperty {..}
     = RoutingConfigProperty
         {routingStrategy = Prelude.pure newValue, ..}

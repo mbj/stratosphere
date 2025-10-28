@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.PolicyStore.ValidationSet
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyStore
-  = PolicyStore {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html>
+    PolicyStore {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-description>
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-schema>
                  schema :: (Prelude.Maybe SchemaDefinitionProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-validationsettings>
                  validationSettings :: ValidationSettingsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyStore :: ValidationSettingsProperty -> PolicyStore
 mkPolicyStore validationSettings
   = PolicyStore
-      {validationSettings = validationSettings,
+      {haddock_workaround_ = (), validationSettings = validationSettings,
        description = Prelude.Nothing, schema = Prelude.Nothing}
 instance ToResourceProperties PolicyStore where
   toResourceProperties PolicyStore {..}

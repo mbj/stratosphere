@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.RetryCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data JobExecutionsRetryConfigProperty
-  = JobExecutionsRetryConfigProperty {retryCriteriaList :: (Prelude.Maybe [RetryCriteriaProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html>
+    JobExecutionsRetryConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html#cfn-iot-jobtemplate-jobexecutionsretryconfig-retrycriterialist>
+                                      retryCriteriaList :: (Prelude.Maybe [RetryCriteriaProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobExecutionsRetryConfigProperty ::
   JobExecutionsRetryConfigProperty
 mkJobExecutionsRetryConfigProperty
   = JobExecutionsRetryConfigProperty
-      {retryCriteriaList = Prelude.Nothing}
+      {haddock_workaround_ = (), retryCriteriaList = Prelude.Nothing}
 instance ToResourceProperties JobExecutionsRetryConfigProperty where
   toResourceProperties JobExecutionsRetryConfigProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON JobExecutionsRetryConfigProperty where
               [(JSON..=) "RetryCriteriaList" Prelude.<$> retryCriteriaList]))
 instance Property "RetryCriteriaList" JobExecutionsRetryConfigProperty where
   type PropertyType "RetryCriteriaList" JobExecutionsRetryConfigProperty = [RetryCriteriaProperty]
-  set newValue JobExecutionsRetryConfigProperty {}
+  set newValue JobExecutionsRetryConfigProperty {..}
     = JobExecutionsRetryConfigProperty
         {retryCriteriaList = Prelude.pure newValue, ..}

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.ResourceGroups.Group.ConfigurationParameterPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationItemProperty
-  = ConfigurationItemProperty {parameters :: (Prelude.Maybe [ConfigurationParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html>
+    ConfigurationItemProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters>
+                               parameters :: (Prelude.Maybe [ConfigurationParameterProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type>
                                type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationItemProperty :: ConfigurationItemProperty
 mkConfigurationItemProperty
   = ConfigurationItemProperty
-      {parameters = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), parameters = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties ConfigurationItemProperty where
   toResourceProperties ConfigurationItemProperty {..}
     = ResourceProperties

@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VPNGateway
-  = VPNGateway {amazonSideAsn :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html>
+    VPNGateway {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html#cfn-ec2-vpngateway-amazonsideasn>
+                amazonSideAsn :: (Prelude.Maybe (Value Prelude.Integer)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html#cfn-ec2-vpngateway-tags>
                 tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html#cfn-ec2-vpngateway-type>
                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNGateway :: Value Prelude.Text -> VPNGateway
 mkVPNGateway type'
   = VPNGateway
-      {type' = type', amazonSideAsn = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       amazonSideAsn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VPNGateway where
   toResourceProperties VPNGateway {..}
     = ResourceProperties
