@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty as Exports
 import Stratosphere.ResourceProperties
 data MetricWindowProperty
-  = MetricWindowProperty {tumbling :: (Prelude.Maybe TumblingWindowProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html>
+    MetricWindowProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling>
+                          tumbling :: (Prelude.Maybe TumblingWindowProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricWindowProperty :: MetricWindowProperty
 mkMetricWindowProperty

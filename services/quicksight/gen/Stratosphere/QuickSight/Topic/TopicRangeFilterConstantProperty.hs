@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.RangeConstantProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicRangeFilterConstantProperty
-  = TopicRangeFilterConstantProperty {constantType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrangefilterconstant.html>
+    TopicRangeFilterConstantProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrangefilterconstant.html#cfn-quicksight-topic-topicrangefilterconstant-constanttype>
+                                      constantType :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrangefilterconstant.html#cfn-quicksight-topic-topicrangefilterconstant-rangeconstant>
                                       rangeConstant :: (Prelude.Maybe RangeConstantProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRangeFilterConstantProperty ::

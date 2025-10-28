@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReadCacheConfigurationProperty
-  = ReadCacheConfigurationProperty {sizeGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html>
+    ReadCacheConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-readcacheconfiguration-sizegib>
+                                    sizeGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-readcacheconfiguration-sizingmode>
                                     sizingMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadCacheConfigurationProperty :: ReadCacheConfigurationProperty

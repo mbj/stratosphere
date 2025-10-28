@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.ExponentialRolloutRatePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobExecutionsRolloutConfigProperty
-  = JobExecutionsRolloutConfigProperty {exponentialRolloutRate :: (Prelude.Maybe ExponentialRolloutRateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html>
+    JobExecutionsRolloutConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig-exponentialrolloutrate>
+                                        exponentialRolloutRate :: (Prelude.Maybe ExponentialRolloutRateProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html#cfn-iot-jobtemplate-jobexecutionsrolloutconfig-maximumperminute>
                                         maximumPerMinute :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobExecutionsRolloutConfigProperty ::

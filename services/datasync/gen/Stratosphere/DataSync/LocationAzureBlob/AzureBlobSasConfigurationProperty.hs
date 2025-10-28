@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AzureBlobSasConfigurationProperty
-  = AzureBlobSasConfigurationProperty {azureBlobSasToken :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html>
+    AzureBlobSasConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html#cfn-datasync-locationazureblob-azureblobsasconfiguration-azureblobsastoken>
+                                       azureBlobSasToken :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAzureBlobSasConfigurationProperty ::
   Value Prelude.Text -> AzureBlobSasConfigurationProperty

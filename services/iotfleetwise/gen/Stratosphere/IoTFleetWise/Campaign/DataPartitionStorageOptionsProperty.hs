@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.StorageMinimumTimeToLiv
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPartitionStorageOptionsProperty
-  = DataPartitionStorageOptionsProperty {maximumSize :: StorageMaximumSizeProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html>
+    DataPartitionStorageOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html#cfn-iotfleetwise-campaign-datapartitionstorageoptions-maximumsize>
+                                         maximumSize :: StorageMaximumSizeProperty,
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html#cfn-iotfleetwise-campaign-datapartitionstorageoptions-minimumtimetolive>
                                          minimumTimeToLive :: StorageMinimumTimeToLiveProperty,
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html#cfn-iotfleetwise-campaign-datapartitionstorageoptions-storagelocation>
                                          storageLocation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPartitionStorageOptionsProperty ::

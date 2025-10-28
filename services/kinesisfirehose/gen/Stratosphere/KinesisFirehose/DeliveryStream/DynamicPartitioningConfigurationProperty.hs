@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamicPartitioningConfigurationProperty
-  = DynamicPartitioningConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html>
+    DynamicPartitioningConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled>
+                                              enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions>
                                               retryOptions :: (Prelude.Maybe RetryOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicPartitioningConfigurationProperty ::

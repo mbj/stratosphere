@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.FlowOutput.InterfaceProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {destinationIp :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html>
+    DestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-destinationip>
+                                      destinationIp :: (Value Prelude.Text),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-destinationport>
                                       destinationPort :: (Value Prelude.Integer),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-interface>
                                       interface :: InterfaceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::

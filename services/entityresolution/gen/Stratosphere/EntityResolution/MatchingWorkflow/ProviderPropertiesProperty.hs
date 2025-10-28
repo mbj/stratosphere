@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.Intermediat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProviderPropertiesProperty
-  = ProviderPropertiesProperty {intermediateSourceConfiguration :: (Prelude.Maybe IntermediateSourceConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-providerproperties.html>
+    ProviderPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-providerproperties.html#cfn-entityresolution-matchingworkflow-providerproperties-intermediatesourceconfiguration>
+                                intermediateSourceConfiguration :: (Prelude.Maybe IntermediateSourceConfigurationProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-providerproperties.html#cfn-entityresolution-matchingworkflow-providerproperties-providerconfiguration>
                                 providerConfiguration :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-providerproperties.html#cfn-entityresolution-matchingworkflow-providerproperties-providerservicearn>
                                 providerServiceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProviderPropertiesProperty ::

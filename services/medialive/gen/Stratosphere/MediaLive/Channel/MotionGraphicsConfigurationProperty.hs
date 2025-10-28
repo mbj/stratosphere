@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MotionGraphicsSettingsPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MotionGraphicsConfigurationProperty
-  = MotionGraphicsConfigurationProperty {motionGraphicsInsertion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html>
+    MotionGraphicsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html#cfn-medialive-channel-motiongraphicsconfiguration-motiongraphicsinsertion>
+                                         motionGraphicsInsertion :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html#cfn-medialive-channel-motiongraphicsconfiguration-motiongraphicssettings>
                                          motionGraphicsSettings :: (Prelude.Maybe MotionGraphicsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMotionGraphicsConfigurationProperty ::

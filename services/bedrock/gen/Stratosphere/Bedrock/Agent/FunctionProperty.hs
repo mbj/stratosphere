@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Agent.ParameterDetailProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionProperty
-  = FunctionProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html>
+    FunctionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-description>
+                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-name>
                       name :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-parameters>
                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterDetailProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty :: Value Prelude.Text -> FunctionProperty

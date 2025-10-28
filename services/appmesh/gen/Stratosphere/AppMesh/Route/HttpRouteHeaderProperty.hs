@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.HeaderMatchMethodProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRouteHeaderProperty
-  = HttpRouteHeaderProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteheader.html>
+    HttpRouteHeaderProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteheader.html#cfn-appmesh-route-httprouteheader-invert>
+                             invert :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteheader.html#cfn-appmesh-route-httprouteheader-match>
                              match :: (Prelude.Maybe HeaderMatchMethodProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteheader.html#cfn-appmesh-route-httprouteheader-name>
                              name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteHeaderProperty ::

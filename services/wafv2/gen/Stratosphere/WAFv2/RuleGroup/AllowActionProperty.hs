@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data AllowActionProperty
-  = AllowActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allowaction.html>
+    AllowActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allowaction.html#cfn-wafv2-rulegroup-allowaction-customrequesthandling>
+                         customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowActionProperty :: AllowActionProperty
 mkAllowActionProperty

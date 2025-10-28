@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBv2Property
-  = DynamoDBv2Property {payload :: (Prelude.Maybe PayloadProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html>
+    DynamoDBv2Property {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html#cfn-iotevents-alarmmodel-dynamodbv2-payload>
+                        payload :: (Prelude.Maybe PayloadProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-dynamodbv2.html#cfn-iotevents-alarmmodel-dynamodbv2-tablename>
                         tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBv2Property :: Value Prelude.Text -> DynamoDBv2Property

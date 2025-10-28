@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NumericQuestionPropertyValueAutomationProperty
-  = NumericQuestionPropertyValueAutomationProperty {label :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-numericquestionpropertyvalueautomation.html>
+    NumericQuestionPropertyValueAutomationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-numericquestionpropertyvalueautomation.html#cfn-connect-evaluationform-numericquestionpropertyvalueautomation-label>
+                                                    label :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericQuestionPropertyValueAutomationProperty ::
   Value Prelude.Text

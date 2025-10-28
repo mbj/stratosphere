@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupPlan.LifecycleResourceTypeProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CopyActionResourceTypeProperty
-  = CopyActionResourceTypeProperty {destinationBackupVaultArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html>
+    CopyActionResourceTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn>
+                                    destinationBackupVaultArn :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle>
                                     lifecycle :: (Prelude.Maybe LifecycleResourceTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyActionResourceTypeProperty ::

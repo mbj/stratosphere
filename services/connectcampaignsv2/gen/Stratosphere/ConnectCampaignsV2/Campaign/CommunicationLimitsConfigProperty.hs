@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.CommunicationLimitsProperty as Exports
 import Stratosphere.ResourceProperties
 data CommunicationLimitsConfigProperty
-  = CommunicationLimitsConfigProperty {allChannelsSubtypes :: (Prelude.Maybe CommunicationLimitsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html>
+    CommunicationLimitsConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html#cfn-connectcampaignsv2-campaign-communicationlimitsconfig-allchannelssubtypes>
+                                       allChannelsSubtypes :: (Prelude.Maybe CommunicationLimitsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCommunicationLimitsConfigProperty ::
   CommunicationLimitsConfigProperty

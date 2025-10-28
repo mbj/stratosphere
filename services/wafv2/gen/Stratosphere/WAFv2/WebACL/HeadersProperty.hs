@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.HeaderMatchPatternProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeadersProperty
-  = HeadersProperty {matchPattern :: HeaderMatchPatternProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headers.html>
+    HeadersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headers.html#cfn-wafv2-webacl-headers-matchpattern>
+                     matchPattern :: HeaderMatchPatternProperty,
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headers.html#cfn-wafv2-webacl-headers-matchscope>
                      matchScope :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headers.html#cfn-wafv2-webacl-headers-oversizehandling>
                      oversizeHandling :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeadersProperty ::

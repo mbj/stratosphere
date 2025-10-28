@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.S3Outposts.AccessPoint.VpcConfigurationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPoint
-  = AccessPoint {bucket :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html>
+    AccessPoint {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket>
+                 bucket :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name>
                  name :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy>
                  policy :: (Prelude.Maybe JSON.Object),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration>
                  vpcConfiguration :: VpcConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint ::

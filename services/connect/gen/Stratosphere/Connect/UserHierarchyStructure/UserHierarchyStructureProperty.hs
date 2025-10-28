@@ -12,10 +12,16 @@ import {-# SOURCE #-} Stratosphere.Connect.UserHierarchyStructure.LevelThreeProp
 import {-# SOURCE #-} Stratosphere.Connect.UserHierarchyStructure.LevelTwoProperty as Exports
 import Stratosphere.ResourceProperties
 data UserHierarchyStructureProperty
-  = UserHierarchyStructureProperty {levelFive :: (Prelude.Maybe LevelFiveProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html>
+    UserHierarchyStructureProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure-levelfive>
+                                    levelFive :: (Prelude.Maybe LevelFiveProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure-levelfour>
                                     levelFour :: (Prelude.Maybe LevelFourProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure-levelone>
                                     levelOne :: (Prelude.Maybe LevelOneProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure-levelthree>
                                     levelThree :: (Prelude.Maybe LevelThreeProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure-leveltwo>
                                     levelTwo :: (Prelude.Maybe LevelTwoProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserHierarchyStructureProperty :: UserHierarchyStructureProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceIpv6AddressProperty
-  = InstanceIpv6AddressProperty {ipv6Address :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html>
+    InstanceIpv6AddressProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html#cfn-ec2-spotfleet-instanceipv6address-ipv6address>
+                                 ipv6Address :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceIpv6AddressProperty ::
   Value Prelude.Text -> InstanceIpv6AddressProperty

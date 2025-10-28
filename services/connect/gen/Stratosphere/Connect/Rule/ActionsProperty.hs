@@ -12,13 +12,22 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.TaskActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.UpdateCaseActionProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionsProperty
-  = ActionsProperty {assignContactCategoryActions :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html>
+    ActionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-assigncontactcategoryactions>
+                     assignContactCategoryActions :: (Prelude.Maybe JSON.Object),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-createcaseactions>
                      createCaseActions :: (Prelude.Maybe [CreateCaseActionProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-endassociatedtasksactions>
                      endAssociatedTasksActions :: (Prelude.Maybe JSON.Object),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-eventbridgeactions>
                      eventBridgeActions :: (Prelude.Maybe [EventBridgeActionProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-sendnotificationactions>
                      sendNotificationActions :: (Prelude.Maybe [SendNotificationActionProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-submitautoevaluationactions>
                      submitAutoEvaluationActions :: (Prelude.Maybe [SubmitAutoEvaluationActionProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-taskactions>
                      taskActions :: (Prelude.Maybe [TaskActionProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-updatecaseactions>
                      updateCaseActions :: (Prelude.Maybe [UpdateCaseActionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionsProperty :: ActionsProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Glue.DataCatalogEncryptionSettings.DataCatalo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCatalogEncryptionSettings
-  = DataCatalogEncryptionSettings {catalogId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html>
+    DataCatalogEncryptionSettings {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-catalogid>
+                                   catalogId :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings>
                                    dataCatalogEncryptionSettings :: DataCatalogEncryptionSettingsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogEncryptionSettings ::

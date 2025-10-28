@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.AutomationRule.DateRangeProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateFilterProperty
-  = DateFilterProperty {dateRange :: (Prelude.Maybe DateRangeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html>
+    DateFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-daterange>
+                        dateRange :: (Prelude.Maybe DateRangeProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-end>
                         end :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-start>
                         start :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateFilterProperty :: DateFilterProperty

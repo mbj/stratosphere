@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.Configu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfiguredTableAssociationAnalysisRuleProperty
-  = ConfiguredTableAssociationAnalysisRuleProperty {policy :: ConfiguredTableAssociationAnalysisRulePolicyProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html>
+    ConfiguredTableAssociationAnalysisRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule-policy>
+                                                    policy :: ConfiguredTableAssociationAnalysisRulePolicyProperty,
+                                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule-type>
                                                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRuleProperty ::

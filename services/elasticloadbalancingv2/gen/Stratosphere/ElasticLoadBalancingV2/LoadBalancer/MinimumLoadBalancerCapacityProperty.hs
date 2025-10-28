@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MinimumLoadBalancerCapacityProperty
-  = MinimumLoadBalancerCapacityProperty {capacityUnits :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html>
+    MinimumLoadBalancerCapacityProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html#cfn-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity-capacityunits>
+                                         capacityUnits :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMinimumLoadBalancerCapacityProperty ::
   Value Prelude.Integer -> MinimumLoadBalancerCapacityProperty

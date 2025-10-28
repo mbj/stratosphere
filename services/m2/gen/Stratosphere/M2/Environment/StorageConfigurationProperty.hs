@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.M2.Environment.EfsStorageConfigurationPropert
 import {-# SOURCE #-} Stratosphere.M2.Environment.FsxStorageConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageConfigurationProperty
-  = StorageConfigurationProperty {efs :: (Prelude.Maybe EfsStorageConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html>
+    StorageConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html#cfn-m2-environment-storageconfiguration-efs>
+                                  efs :: (Prelude.Maybe EfsStorageConfigurationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html#cfn-m2-environment-storageconfiguration-fsx>
                                   fsx :: (Prelude.Maybe FsxStorageConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConfigurationProperty :: StorageConfigurationProperty

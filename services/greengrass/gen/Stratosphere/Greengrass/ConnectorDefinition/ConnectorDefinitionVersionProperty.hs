@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.ConnectorDefinition.ConnectorProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorDefinitionVersionProperty
-  = ConnectorDefinitionVersionProperty {connectors :: [ConnectorProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html>
+    ConnectorDefinitionVersionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html#cfn-greengrass-connectordefinition-connectordefinitionversion-connectors>
+                                        connectors :: [ConnectorProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinitionVersionProperty ::
   [ConnectorProperty] -> ConnectorDefinitionVersionProperty

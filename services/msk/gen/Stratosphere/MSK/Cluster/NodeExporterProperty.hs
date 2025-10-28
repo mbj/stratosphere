@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeExporterProperty
-  = NodeExporterProperty {enabledInBroker :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html>
+    NodeExporterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html#cfn-msk-cluster-nodeexporter-enabledinbroker>
+                          enabledInBroker :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeExporterProperty ::
   Value Prelude.Bool -> NodeExporterProperty

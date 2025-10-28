@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationCont
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerTlsProperty
-  = ListenerTlsProperty {certificate :: ListenerTlsCertificateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html>
+    ListenerTlsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-certificate>
+                         certificate :: ListenerTlsCertificateProperty,
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-mode>
                          mode :: (Value Prelude.Text),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html#cfn-appmesh-virtualnode-listenertls-validation>
                          validation :: (Prelude.Maybe ListenerTlsValidationContextProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsProperty ::

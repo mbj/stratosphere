@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.Channel.IngestEndpointProperty as Exports
 import Stratosphere.ResourceProperties
 data HlsIngestProperty
-  = HlsIngestProperty {ingestEndpoints :: (Prelude.Maybe [IngestEndpointProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>
+    HlsIngestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints>
+                       ingestEndpoints :: (Prelude.Maybe [IngestEndpointProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsIngestProperty :: HlsIngestProperty
 mkHlsIngestProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleConfigurationProperty
-  = ScheduleConfigurationProperty {scheduleExpression :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html>
+    ScheduleConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html#cfn-timestream-scheduledquery-scheduleconfiguration-scheduleexpression>
+                                   scheduleExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigurationProperty ::
   Value Prelude.Text -> ScheduleConfigurationProperty

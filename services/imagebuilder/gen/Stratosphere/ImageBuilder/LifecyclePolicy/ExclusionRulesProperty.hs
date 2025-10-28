@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.AmiExclusionRule
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExclusionRulesProperty
-  = ExclusionRulesProperty {amis :: (Prelude.Maybe AmiExclusionRulesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html>
+    ExclusionRulesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html#cfn-imagebuilder-lifecyclepolicy-exclusionrules-amis>
+                            amis :: (Prelude.Maybe AmiExclusionRulesProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html#cfn-imagebuilder-lifecyclepolicy-exclusionrules-tagmap>
                             tagMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExclusionRulesProperty :: ExclusionRulesProperty

@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.LifecycleConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DirectoryBucket
-  = DirectoryBucket {bucketEncryption :: (Prelude.Maybe BucketEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html>
+    DirectoryBucket {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-bucketencryption>
+                     bucketEncryption :: (Prelude.Maybe BucketEncryptionProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-bucketname>
                      bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-dataredundancy>
                      dataRedundancy :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-lifecycleconfiguration>
                      lifecycleConfiguration :: (Prelude.Maybe LifecycleConfigurationProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-locationname>
                      locationName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryBucket ::

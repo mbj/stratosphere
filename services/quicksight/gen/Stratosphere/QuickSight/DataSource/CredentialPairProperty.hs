@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.DataSourceParametersPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CredentialPairProperty
-  = CredentialPairProperty {alternateDataSourceParameters :: (Prelude.Maybe [DataSourceParametersProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html>
+    CredentialPairProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters>
+                            alternateDataSourceParameters :: (Prelude.Maybe [DataSourceParametersProperty]),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password>
                             password :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username>
                             username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCredentialPairProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.PolicyOptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityServicePolicyDataProperty
-  = SecurityServicePolicyDataProperty {managedServiceData :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html>
+    SecurityServicePolicyDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-managedservicedata>
+                                       managedServiceData :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-policyoption>
                                        policyOption :: (Prelude.Maybe PolicyOptionProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-type>
                                        type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityServicePolicyDataProperty ::

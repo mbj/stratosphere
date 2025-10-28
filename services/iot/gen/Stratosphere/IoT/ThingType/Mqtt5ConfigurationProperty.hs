@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.ThingType.PropagatingAttributeProperty as Exports
 import Stratosphere.ResourceProperties
 data Mqtt5ConfigurationProperty
-  = Mqtt5ConfigurationProperty {propagatingAttributes :: (Prelude.Maybe [PropagatingAttributeProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-mqtt5configuration.html>
+    Mqtt5ConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-mqtt5configuration.html#cfn-iot-thingtype-mqtt5configuration-propagatingattributes>
+                                propagatingAttributes :: (Prelude.Maybe [PropagatingAttributeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMqtt5ConfigurationProperty :: Mqtt5ConfigurationProperty
 mkMqtt5ConfigurationProperty

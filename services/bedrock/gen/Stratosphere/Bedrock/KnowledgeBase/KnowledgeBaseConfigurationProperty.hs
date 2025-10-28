@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.VectorKnowledgeBaseConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KnowledgeBaseConfigurationProperty
-  = KnowledgeBaseConfigurationProperty {type' :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html>
+    KnowledgeBaseConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-type>
+                                        type' :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-vectorknowledgebaseconfiguration>
                                         vectorKnowledgeBaseConfiguration :: VectorKnowledgeBaseConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBaseConfigurationProperty ::

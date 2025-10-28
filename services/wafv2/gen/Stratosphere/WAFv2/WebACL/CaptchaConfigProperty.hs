@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptchaConfigProperty
-  = CaptchaConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html>
+    CaptchaConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html#cfn-wafv2-webacl-captchaconfig-immunitytimeproperty>
+                           immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaConfigProperty :: CaptchaConfigProperty
 mkCaptchaConfigProperty

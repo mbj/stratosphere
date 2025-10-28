@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteMetadataMatc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcGatewayRouteMetadataProperty
-  = GrpcGatewayRouteMetadataProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html>
+    GrpcGatewayRouteMetadataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-invert>
+                                      invert :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-match>
                                       match :: (Prelude.Maybe GatewayRouteMetadataMatchProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html#cfn-appmesh-gatewayroute-grpcgatewayroutemetadata-name>
                                       name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteMetadataProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResetTimerProperty
-  = ResetTimerProperty {timerName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html>
+    ResetTimerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername>
+                        timerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResetTimerProperty :: Value Prelude.Text -> ResetTimerProperty
 mkResetTimerProperty timerName

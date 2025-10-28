@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.BridgeSource.VpcInterfaceAttachm
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeFlowSourceProperty
-  = BridgeFlowSourceProperty {flowArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html>
+    BridgeFlowSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html#cfn-mediaconnect-bridgesource-bridgeflowsource-flowarn>
+                              flowArn :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html#cfn-mediaconnect-bridgesource-bridgeflowsource-flowvpcinterfaceattachment>
                               flowVpcInterfaceAttachment :: (Prelude.Maybe VpcInterfaceAttachmentProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeFlowSourceProperty ::

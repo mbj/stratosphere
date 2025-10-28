@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.DimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data PublishMetricActionProperty
-  = PublishMetricActionProperty {dimensions :: [DimensionProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html>
+    PublishMetricActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions>
+                                 dimensions :: [DimensionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublishMetricActionProperty ::
   [DimensionProperty] -> PublishMetricActionProperty

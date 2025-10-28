@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.OpsWorks.Layer.ShutdownEventConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LifecycleEventConfigurationProperty
-  = LifecycleEventConfigurationProperty {shutdownEventConfiguration :: (Prelude.Maybe ShutdownEventConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html>
+    LifecycleEventConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration>
+                                         shutdownEventConfiguration :: (Prelude.Maybe ShutdownEventConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleEventConfigurationProperty ::
   LifecycleEventConfigurationProperty

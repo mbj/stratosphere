@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.TaskPropertiesMa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskProperty
-  = TaskProperty {connectorOperator :: (Prelude.Maybe ConnectorOperatorProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html>
+    TaskProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator>
+                  connectorOperator :: (Prelude.Maybe ConnectorOperatorProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield>
                   destinationField :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields>
                   sourceFields :: (ValueList Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties>
                   taskProperties :: (Prelude.Maybe [TaskPropertiesMapProperty]),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype>
                   taskType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskProperty ::

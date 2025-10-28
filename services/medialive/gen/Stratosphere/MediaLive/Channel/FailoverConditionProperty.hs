@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FailoverConditionProperty
-  = FailoverConditionProperty {failoverConditionSettings :: (Prelude.Maybe FailoverConditionSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html>
+    FailoverConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html#cfn-medialive-channel-failovercondition-failoverconditionsettings>
+                               failoverConditionSettings :: (Prelude.Maybe FailoverConditionSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionProperty :: FailoverConditionProperty
 mkFailoverConditionProperty

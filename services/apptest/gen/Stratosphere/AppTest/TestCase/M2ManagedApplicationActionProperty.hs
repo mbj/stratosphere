@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.M2ManagedActionPropertiesPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data M2ManagedApplicationActionProperty
-  = M2ManagedApplicationActionProperty {actionType :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedapplicationaction.html>
+    M2ManagedApplicationActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedapplicationaction.html#cfn-apptest-testcase-m2managedapplicationaction-actiontype>
+                                        actionType :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedapplicationaction.html#cfn-apptest-testcase-m2managedapplicationaction-properties>
                                         properties :: (Prelude.Maybe M2ManagedActionPropertiesProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedapplicationaction.html#cfn-apptest-testcase-m2managedapplicationaction-resource>
                                         resource :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkM2ManagedApplicationActionProperty ::

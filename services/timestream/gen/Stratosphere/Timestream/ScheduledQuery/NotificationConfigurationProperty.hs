@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.SnsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {snsConfiguration :: SnsConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html>
+    NotificationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html#cfn-timestream-scheduledquery-notificationconfiguration-snsconfiguration>
+                                       snsConfiguration :: SnsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   SnsConfigurationProperty -> NotificationConfigurationProperty

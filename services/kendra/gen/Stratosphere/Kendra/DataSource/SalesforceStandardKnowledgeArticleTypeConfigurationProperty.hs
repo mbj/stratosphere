@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceStandardKnowledgeArticleTypeConfigurationProperty
-  = SalesforceStandardKnowledgeArticleTypeConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html>
+    SalesforceStandardKnowledgeArticleTypeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documentdatafieldname>
+                                                                 documentDataFieldName :: (Value Prelude.Text),
+                                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documenttitlefieldname>
                                                                  documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings>
                                                                  fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardKnowledgeArticleTypeConfigurationProperty ::

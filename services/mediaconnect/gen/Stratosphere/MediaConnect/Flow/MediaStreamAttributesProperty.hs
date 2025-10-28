@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.FmtpProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaStreamAttributesProperty
-  = MediaStreamAttributesProperty {fmtp :: (Prelude.Maybe FmtpProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html>
+    MediaStreamAttributesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html#cfn-mediaconnect-flow-mediastreamattributes-fmtp>
+                                   fmtp :: (Prelude.Maybe FmtpProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html#cfn-mediaconnect-flow-mediastreamattributes-lang>
                                    lang :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaStreamAttributesProperty :: MediaStreamAttributesProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.CacheCluster.CloudWatchLogsDestin
 import {-# SOURCE #-} Stratosphere.ElastiCache.CacheCluster.KinesisFirehoseDestinationDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationDetailsProperty
-  = DestinationDetailsProperty {cloudWatchLogsDetails :: (Prelude.Maybe CloudWatchLogsDestinationDetailsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html>
+    DestinationDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails>
+                                cloudWatchLogsDetails :: (Prelude.Maybe CloudWatchLogsDestinationDetailsProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails>
                                 kinesisFirehoseDetails :: (Prelude.Maybe KinesisFirehoseDestinationDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationDetailsProperty :: DestinationDetailsProperty

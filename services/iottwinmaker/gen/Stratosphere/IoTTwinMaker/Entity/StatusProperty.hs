@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.ErrorProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatusProperty
-  = StatusProperty {error :: (Prelude.Maybe ErrorProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html>
+    StatusProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html#cfn-iottwinmaker-entity-status-error>
+                    error :: (Prelude.Maybe ErrorProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html#cfn-iottwinmaker-entity-status-state>
                     state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatusProperty :: StatusProperty

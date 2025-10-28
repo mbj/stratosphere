@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSo
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.JSONMappingParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data MappingParametersProperty
-  = MappingParametersProperty {cSVMappingParameters :: (Prelude.Maybe CSVMappingParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html>
+    MappingParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters-csvmappingparameters>
+                               cSVMappingParameters :: (Prelude.Maybe CSVMappingParametersProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters-jsonmappingparameters>
                                jSONMappingParameters :: (Prelude.Maybe JSONMappingParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingParametersProperty :: MappingParametersProperty

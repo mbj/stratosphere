@@ -8,8 +8,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.SetDimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data EventDimensionsProperty
-  = EventDimensionsProperty {attributes :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html>
+    EventDimensionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-attributes>
+                             attributes :: (Prelude.Maybe JSON.Object),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-eventtype>
                              eventType :: (Prelude.Maybe SetDimensionProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html#cfn-pinpoint-campaign-eventdimensions-metrics>
                              metrics :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDimensionsProperty :: EventDimensionsProperty

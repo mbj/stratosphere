@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListener
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayClientTlsCertificateProperty
-  = VirtualGatewayClientTlsCertificateProperty {file :: (Prelude.Maybe VirtualGatewayListenerTlsFileCertificateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html>
+    VirtualGatewayClientTlsCertificateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewayclienttlscertificate-file>
+                                                file :: (Prelude.Maybe VirtualGatewayListenerTlsFileCertificateProperty),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewayclienttlscertificate-sds>
                                                 sDS :: (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientTlsCertificateProperty ::

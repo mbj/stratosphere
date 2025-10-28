@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.FunctionProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectiveFunctionProperty
-  = ObjectiveFunctionProperty {function :: (Prelude.Maybe FunctionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html>
+    ObjectiveFunctionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-function>
+                               function :: (Prelude.Maybe FunctionProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html#cfn-sagemaker-modelcard-objectivefunction-notes>
                                notes :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectiveFunctionProperty :: ObjectiveFunctionProperty

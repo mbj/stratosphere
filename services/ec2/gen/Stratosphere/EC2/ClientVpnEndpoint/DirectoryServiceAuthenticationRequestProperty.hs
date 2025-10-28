@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DirectoryServiceAuthenticationRequestProperty
-  = DirectoryServiceAuthenticationRequestProperty {directoryId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html>
+    DirectoryServiceAuthenticationRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid>
+                                                   directoryId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryServiceAuthenticationRequestProperty ::
   Value Prelude.Text -> DirectoryServiceAuthenticationRequestProperty

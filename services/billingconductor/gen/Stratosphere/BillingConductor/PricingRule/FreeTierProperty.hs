@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FreeTierProperty
-  = FreeTierProperty {activated :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-freetier.html>
+    FreeTierProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-freetier.html#cfn-billingconductor-pricingrule-freetier-activated>
+                      activated :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeTierProperty :: Value Prelude.Bool -> FreeTierProperty
 mkFreeTierProperty activated

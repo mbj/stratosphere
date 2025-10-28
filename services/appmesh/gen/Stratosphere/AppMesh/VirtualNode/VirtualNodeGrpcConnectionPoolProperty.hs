@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualNodeGrpcConnectionPoolProperty
-  = VirtualNodeGrpcConnectionPoolProperty {maxRequests :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html>
+    VirtualNodeGrpcConnectionPoolProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html#cfn-appmesh-virtualnode-virtualnodegrpcconnectionpool-maxrequests>
+                                           maxRequests :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeGrpcConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualNodeGrpcConnectionPoolProperty

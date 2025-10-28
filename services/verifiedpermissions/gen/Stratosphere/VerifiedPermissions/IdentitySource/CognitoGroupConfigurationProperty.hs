@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoGroupConfigurationProperty
-  = CognitoGroupConfigurationProperty {groupEntityType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html>
+    CognitoGroupConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html#cfn-verifiedpermissions-identitysource-cognitogroupconfiguration-groupentitytype>
+                                       groupEntityType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoGroupConfigurationProperty ::
   Value Prelude.Text -> CognitoGroupConfigurationProperty

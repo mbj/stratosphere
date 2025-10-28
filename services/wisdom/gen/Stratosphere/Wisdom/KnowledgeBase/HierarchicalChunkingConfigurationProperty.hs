@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.HierarchicalChunkingLeve
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HierarchicalChunkingConfigurationProperty
-  = HierarchicalChunkingConfigurationProperty {levelConfigurations :: [HierarchicalChunkingLevelConfigurationProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html>
+    HierarchicalChunkingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html#cfn-wisdom-knowledgebase-hierarchicalchunkingconfiguration-levelconfigurations>
+                                               levelConfigurations :: [HierarchicalChunkingLevelConfigurationProperty],
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html#cfn-wisdom-knowledgebase-hierarchicalchunkingconfiguration-overlaptokens>
                                                overlapTokens :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHierarchicalChunkingConfigurationProperty ::

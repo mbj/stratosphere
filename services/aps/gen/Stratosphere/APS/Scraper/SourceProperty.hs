@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.APS.Scraper.EksConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceProperty
-  = SourceProperty {eksConfiguration :: EksConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html>
+    SourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html#cfn-aps-scraper-source-eksconfiguration>
+                    eksConfiguration :: EksConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: EksConfigurationProperty -> SourceProperty
 mkSourceProperty eksConfiguration

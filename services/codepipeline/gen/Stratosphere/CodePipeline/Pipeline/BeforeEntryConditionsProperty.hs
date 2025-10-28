@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.ConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data BeforeEntryConditionsProperty
-  = BeforeEntryConditionsProperty {conditions :: (Prelude.Maybe [ConditionProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html>
+    BeforeEntryConditionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html#cfn-codepipeline-pipeline-beforeentryconditions-conditions>
+                                   conditions :: (Prelude.Maybe [ConditionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBeforeEntryConditionsProperty :: BeforeEntryConditionsProperty
 mkBeforeEntryConditionsProperty

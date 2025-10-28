@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SemanticChunkingConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChunkingConfigurationProperty
-  = ChunkingConfigurationProperty {chunkingStrategy :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html>
+    ChunkingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-chunkingstrategy>
+                                   chunkingStrategy :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-fixedsizechunkingconfiguration>
                                    fixedSizeChunkingConfiguration :: (Prelude.Maybe FixedSizeChunkingConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-hierarchicalchunkingconfiguration>
                                    hierarchicalChunkingConfiguration :: (Prelude.Maybe HierarchicalChunkingConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-semanticchunkingconfiguration>
                                    semanticChunkingConfiguration :: (Prelude.Maybe SemanticChunkingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChunkingConfigurationProperty ::

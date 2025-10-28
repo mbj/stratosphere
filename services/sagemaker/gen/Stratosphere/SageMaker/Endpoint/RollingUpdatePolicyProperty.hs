@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.CapacitySizeProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RollingUpdatePolicyProperty
-  = RollingUpdatePolicyProperty {maximumBatchSize :: CapacitySizeProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>
+    RollingUpdatePolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html#cfn-sagemaker-endpoint-rollingupdatepolicy-maximumbatchsize>
+                                 maximumBatchSize :: CapacitySizeProperty,
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html#cfn-sagemaker-endpoint-rollingupdatepolicy-maximumexecutiontimeoutinseconds>
                                  maximumExecutionTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html#cfn-sagemaker-endpoint-rollingupdatepolicy-rollbackmaximumbatchsize>
                                  rollbackMaximumBatchSize :: (Prelude.Maybe CapacitySizeProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html#cfn-sagemaker-endpoint-rollingupdatepolicy-waitintervalinseconds>
                                  waitIntervalInSeconds :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRollingUpdatePolicyProperty ::

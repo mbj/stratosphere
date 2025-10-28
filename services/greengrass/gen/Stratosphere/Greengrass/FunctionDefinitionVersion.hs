@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinitionVersion.Function
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionDefinitionVersion
-  = FunctionDefinitionVersion {defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html>
+    FunctionDefinitionVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-defaultconfig>
+                               defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-functiondefinitionid>
                                functionDefinitionId :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html#cfn-greengrass-functiondefinitionversion-functions>
                                functions :: [FunctionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinitionVersion ::

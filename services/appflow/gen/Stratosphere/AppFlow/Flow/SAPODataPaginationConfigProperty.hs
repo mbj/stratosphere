@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataPaginationConfigProperty
-  = SAPODataPaginationConfigProperty {maxPageSize :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatapaginationconfig.html>
+    SAPODataPaginationConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatapaginationconfig.html#cfn-appflow-flow-sapodatapaginationconfig-maxpagesize>
+                                      maxPageSize :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataPaginationConfigProperty ::
   Value Prelude.Integer -> SAPODataPaginationConfigProperty

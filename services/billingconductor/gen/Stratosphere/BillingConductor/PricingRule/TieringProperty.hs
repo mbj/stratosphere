@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.BillingConductor.PricingRule.FreeTierProperty as Exports
 import Stratosphere.ResourceProperties
 data TieringProperty
-  = TieringProperty {freeTier :: (Prelude.Maybe FreeTierProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html>
+    TieringProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html#cfn-billingconductor-pricingrule-tiering-freetier>
+                     freeTier :: (Prelude.Maybe FreeTierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTieringProperty :: TieringProperty
 mkTieringProperty = TieringProperty {freeTier = Prelude.Nothing}

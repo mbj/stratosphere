@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.EncryptionAtRestProperty as Expor
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.EncryptionInTransitProperty as Exports
 import Stratosphere.ResourceProperties
 data EncryptionInfoProperty
-  = EncryptionInfoProperty {encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html>
+    EncryptionInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html#cfn-msk-cluster-encryptioninfo-encryptionatrest>
+                            encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html#cfn-msk-cluster-encryptioninfo-encryptionintransit>
                             encryptionInTransit :: (Prelude.Maybe EncryptionInTransitProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionInfoProperty :: EncryptionInfoProperty

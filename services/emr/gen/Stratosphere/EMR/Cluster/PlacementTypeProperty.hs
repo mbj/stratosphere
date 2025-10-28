@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlacementTypeProperty
-  = PlacementTypeProperty {availabilityZone :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html>
+    PlacementTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html#cfn-elasticmapreduce-cluster-placementtype-availabilityzone>
+                           availabilityZone :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementTypeProperty ::
   Value Prelude.Text -> PlacementTypeProperty

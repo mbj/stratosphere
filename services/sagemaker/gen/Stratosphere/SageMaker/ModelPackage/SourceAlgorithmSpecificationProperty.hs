@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SourceAlgorithmProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceAlgorithmSpecificationProperty
-  = SourceAlgorithmSpecificationProperty {sourceAlgorithms :: [SourceAlgorithmProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html>
+    SourceAlgorithmSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification-sourcealgorithms>
+                                          sourceAlgorithms :: [SourceAlgorithmProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAlgorithmSpecificationProperty ::
   [SourceAlgorithmProperty] -> SourceAlgorithmSpecificationProperty

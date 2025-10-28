@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ExportingConfigProperty
-  = ExportingConfigProperty {s3Exporting :: (Prelude.Maybe S3ExportingConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html>
+    ExportingConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html#cfn-customerprofiles-domain-exportingconfig-s3exporting>
+                             s3Exporting :: (Prelude.Maybe S3ExportingConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExportingConfigProperty :: ExportingConfigProperty
 mkExportingConfigProperty

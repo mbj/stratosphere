@@ -8,12 +8,20 @@ import {-# SOURCE #-} Stratosphere.Personalize.Solution.SolutionConfigProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Solution
-  = Solution {datasetGroupArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html>
+    Solution {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-datasetgrouparn>
+              datasetGroupArn :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-eventtype>
               eventType :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-name>
               name :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-performautoml>
               performAutoML :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-performhpo>
               performHPO :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-recipearn>
               recipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-solutionconfig>
               solutionConfig :: (Prelude.Maybe SolutionConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSolution :: Value Prelude.Text -> Value Prelude.Text -> Solution

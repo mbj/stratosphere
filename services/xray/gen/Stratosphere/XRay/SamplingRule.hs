@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.XRay.SamplingRule.SamplingRuleProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data SamplingRule
-  = SamplingRule {samplingRule :: (Prelude.Maybe SamplingRuleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html>
+    SamplingRule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule>
+                  samplingRule :: (Prelude.Maybe SamplingRuleProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSamplingRule :: SamplingRule

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.PerformanceFactorReferenceRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data CpuPerformanceFactorRequestProperty
-  = CpuPerformanceFactorRequestProperty {references :: (Prelude.Maybe [PerformanceFactorReferenceRequestProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html>
+    CpuPerformanceFactorRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html#cfn-autoscaling-autoscalinggroup-cpuperformancefactorrequest-references>
+                                         references :: (Prelude.Maybe [PerformanceFactorReferenceRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCpuPerformanceFactorRequestProperty ::
   CpuPerformanceFactorRequestProperty

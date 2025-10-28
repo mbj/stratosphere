@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.PromptTemplateConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptFlowNodeInlineConfigurationProperty
-  = PromptFlowNodeInlineConfigurationProperty {inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeinlineconfiguration.html>
+    PromptFlowNodeInlineConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeinlineconfiguration.html#cfn-bedrock-flow-promptflownodeinlineconfiguration-inferenceconfiguration>
+                                               inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeinlineconfiguration.html#cfn-bedrock-flow-promptflownodeinlineconfiguration-modelid>
                                                modelId :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeinlineconfiguration.html#cfn-bedrock-flow-promptflownodeinlineconfiguration-templateconfiguration>
                                                templateConfiguration :: PromptTemplateConfigurationProperty,
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptflownodeinlineconfiguration.html#cfn-bedrock-flow-promptflownodeinlineconfiguration-templatetype>
                                                templateType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptFlowNodeInlineConfigurationProperty ::

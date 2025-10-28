@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.InputProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.OutputProperty as Exports
 import Stratosphere.ResourceProperties
 data CompareActionProperty
-  = CompareActionProperty {input :: InputProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html>
+    CompareActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html#cfn-apptest-testcase-compareaction-input>
+                           input :: InputProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html#cfn-apptest-testcase-compareaction-output>
                            output :: (Prelude.Maybe OutputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompareActionProperty :: InputProperty -> CompareActionProperty

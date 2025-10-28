@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.PredefinedMetricSpe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingConfigurationProperty
-  = TargetTrackingConfigurationProperty {customizedMetricSpecification :: (Prelude.Maybe CustomizedMetricSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html>
+    TargetTrackingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-customizedmetricspecification>
+                                         customizedMetricSpecification :: (Prelude.Maybe CustomizedMetricSpecificationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-disablescalein>
                                          disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-predefinedmetricspecification>
                                          predefinedMetricSpecification :: (Prelude.Maybe PredefinedMetricSpecificationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-targetvalue>
                                          targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingConfigurationProperty ::

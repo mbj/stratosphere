@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RedshiftClusterStoragePro
 import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RedshiftServerlessStorageProperty as Exports
 import Stratosphere.ResourceProperties
 data RedshiftStorageProperty
-  = RedshiftStorageProperty {redshiftClusterSource :: (Prelude.Maybe RedshiftClusterStorageProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html>
+    RedshiftStorageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html#cfn-datazone-datasource-redshiftstorage-redshiftclustersource>
+                             redshiftClusterSource :: (Prelude.Maybe RedshiftClusterStorageProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html#cfn-datazone-datasource-redshiftstorage-redshiftserverlesssource>
                              redshiftServerlessSource :: (Prelude.Maybe RedshiftServerlessStorageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftStorageProperty :: RedshiftStorageProperty

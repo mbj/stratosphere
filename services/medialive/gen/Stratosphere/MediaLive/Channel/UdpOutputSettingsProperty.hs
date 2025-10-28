@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpContainerSettingsPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UdpOutputSettingsProperty
-  = UdpOutputSettingsProperty {bufferMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html>
+    UdpOutputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-buffermsec>
+                               bufferMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-containersettings>
                                containerSettings :: (Prelude.Maybe UdpContainerSettingsProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-destination>
                                destination :: (Prelude.Maybe OutputLocationRefProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html#cfn-medialive-channel-udpoutputsettings-fecoutputsettings>
                                fecOutputSettings :: (Prelude.Maybe FecOutputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpOutputSettingsProperty :: UdpOutputSettingsProperty

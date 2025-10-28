@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Logs.Integration.OpenSearchResourceConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceConfigProperty
-  = ResourceConfigProperty {openSearchResourceConfig :: (Prelude.Maybe OpenSearchResourceConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html>
+    ResourceConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html#cfn-logs-integration-resourceconfig-opensearchresourceconfig>
+                            openSearchResourceConfig :: (Prelude.Maybe OpenSearchResourceConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceConfigProperty :: ResourceConfigProperty
 mkResourceConfigProperty

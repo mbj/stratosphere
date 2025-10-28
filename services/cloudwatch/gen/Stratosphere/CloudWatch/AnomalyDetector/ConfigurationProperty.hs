@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.RangeProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationProperty
-  = ConfigurationProperty {excludedTimeRanges :: (Prelude.Maybe [RangeProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html>
+    ConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html#cfn-cloudwatch-anomalydetector-configuration-excludedtimeranges>
+                           excludedTimeRanges :: (Prelude.Maybe [RangeProperty]),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html#cfn-cloudwatch-anomalydetector-configuration-metrictimezone>
                            metricTimeZone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProperty :: ConfigurationProperty

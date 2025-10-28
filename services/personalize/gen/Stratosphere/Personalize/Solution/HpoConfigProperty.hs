@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Personalize.Solution.HpoObjectiveProperty as 
 import {-# SOURCE #-} Stratosphere.Personalize.Solution.HpoResourceConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data HpoConfigProperty
-  = HpoConfigProperty {algorithmHyperParameterRanges :: (Prelude.Maybe AlgorithmHyperParameterRangesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html>
+    HpoConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-algorithmhyperparameterranges>
+                       algorithmHyperParameterRanges :: (Prelude.Maybe AlgorithmHyperParameterRangesProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hpoobjective>
                        hpoObjective :: (Prelude.Maybe HpoObjectiveProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html#cfn-personalize-solution-hpoconfig-hporesourceconfig>
                        hpoResourceConfig :: (Prelude.Maybe HpoResourceConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHpoConfigProperty :: HpoConfigProperty

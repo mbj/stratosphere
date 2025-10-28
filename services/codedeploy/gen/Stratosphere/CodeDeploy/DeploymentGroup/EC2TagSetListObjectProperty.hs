@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.EC2TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data EC2TagSetListObjectProperty
-  = EC2TagSetListObjectProperty {ec2TagGroup :: (Prelude.Maybe [EC2TagFilterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html>
+    EC2TagSetListObjectProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html#cfn-codedeploy-deploymentgroup-ec2tagsetlistobject-ec2taggroup>
+                                 ec2TagGroup :: (Prelude.Maybe [EC2TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEC2TagSetListObjectProperty :: EC2TagSetListObjectProperty
 mkEC2TagSetListObjectProperty

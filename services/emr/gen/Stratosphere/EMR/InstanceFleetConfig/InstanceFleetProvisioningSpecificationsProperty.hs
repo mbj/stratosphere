@@ -10,7 +10,10 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.OnDemandProvisioningS
 import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.SpotProvisioningSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceFleetProvisioningSpecificationsProperty
-  = InstanceFleetProvisioningSpecificationsProperty {onDemandSpecification :: (Prelude.Maybe OnDemandProvisioningSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html>
+    InstanceFleetProvisioningSpecificationsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification>
+                                                     onDemandSpecification :: (Prelude.Maybe OnDemandProvisioningSpecificationProperty),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification>
                                                      spotSpecification :: (Prelude.Maybe SpotProvisioningSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetProvisioningSpecificationsProperty ::

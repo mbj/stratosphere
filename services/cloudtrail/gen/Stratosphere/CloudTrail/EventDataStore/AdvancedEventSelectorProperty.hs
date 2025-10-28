@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CloudTrail.EventDataStore.AdvancedFieldSelect
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedEventSelectorProperty
-  = AdvancedEventSelectorProperty {fieldSelectors :: [AdvancedFieldSelectorProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedeventselector.html>
+    AdvancedEventSelectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedeventselector.html#cfn-cloudtrail-eventdatastore-advancedeventselector-fieldselectors>
+                                   fieldSelectors :: [AdvancedFieldSelectorProperty],
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedeventselector.html#cfn-cloudtrail-eventdatastore-advancedeventselector-name>
                                    name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedEventSelectorProperty ::

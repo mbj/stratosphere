@@ -12,11 +12,18 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.Application.KinesisStreamsIn
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputProperty
-  = InputProperty {inputParallelism :: (Prelude.Maybe InputParallelismProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html>
+    InputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputparallelism>
+                   inputParallelism :: (Prelude.Maybe InputParallelismProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputprocessingconfiguration>
                    inputProcessingConfiguration :: (Prelude.Maybe InputProcessingConfigurationProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputschema>
                    inputSchema :: InputSchemaProperty,
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-kinesisfirehoseinput>
                    kinesisFirehoseInput :: (Prelude.Maybe KinesisFirehoseInputProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-kinesisstreamsinput>
                    kinesisStreamsInput :: (Prelude.Maybe KinesisStreamsInputProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-nameprefix>
                    namePrefix :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty ::

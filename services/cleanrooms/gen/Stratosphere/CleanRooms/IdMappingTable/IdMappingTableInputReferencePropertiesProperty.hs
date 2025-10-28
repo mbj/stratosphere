@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.IdMappingTable.IdMappingTableInputSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data IdMappingTableInputReferencePropertiesProperty
-  = IdMappingTableInputReferencePropertiesProperty {idMappingTableInputSource :: [IdMappingTableInputSourceProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html>
+    IdMappingTableInputReferencePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html#cfn-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties-idmappingtableinputsource>
+                                                    idMappingTableInputSource :: [IdMappingTableInputSourceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingTableInputReferencePropertiesProperty ::
   [IdMappingTableInputSourceProperty]

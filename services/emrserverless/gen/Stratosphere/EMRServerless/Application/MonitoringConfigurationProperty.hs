@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ManagedPersistenceM
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.S3MonitoringConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringConfigurationProperty
-  = MonitoringConfigurationProperty {cloudWatchLoggingConfiguration :: (Prelude.Maybe CloudWatchLoggingConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html>
+    MonitoringConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-cloudwatchloggingconfiguration>
+                                     cloudWatchLoggingConfiguration :: (Prelude.Maybe CloudWatchLoggingConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration>
                                      managedPersistenceMonitoringConfiguration :: (Prelude.Maybe ManagedPersistenceMonitoringConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-s3monitoringconfiguration>
                                      s3MonitoringConfiguration :: (Prelude.Maybe S3MonitoringConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringConfigurationProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.ApplicationPolicyProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationPoliciesProperty
-  = ApplicationPoliciesProperty {critical :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html>
+    ApplicationPoliciesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html#cfn-pcaconnectorad-template-applicationpolicies-critical>
+                                 critical :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html#cfn-pcaconnectorad-template-applicationpolicies-policies>
                                  policies :: [ApplicationPolicyProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationPoliciesProperty ::

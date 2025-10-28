@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNKubernetesAuditLogsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CFNKubernetesConfigurationProperty
-  = CFNKubernetesConfigurationProperty {auditLogs :: CFNKubernetesAuditLogsConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html>
+    CFNKubernetesConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html#cfn-guardduty-detector-cfnkubernetesconfiguration-auditlogs>
+                                        auditLogs :: CFNKubernetesAuditLogsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesConfigurationProperty ::
   CFNKubernetesAuditLogsConfigurationProperty

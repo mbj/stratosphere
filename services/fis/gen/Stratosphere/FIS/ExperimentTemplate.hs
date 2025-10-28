@@ -13,14 +13,24 @@ import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateTarg
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplate
-  = ExperimentTemplate {actions :: (Prelude.Maybe (Prelude.Map Prelude.Text ExperimentTemplateActionProperty)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html>
+    ExperimentTemplate {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions>
+                        actions :: (Prelude.Maybe (Prelude.Map Prelude.Text ExperimentTemplateActionProperty)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description>
                         description :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentoptions>
                         experimentOptions :: (Prelude.Maybe ExperimentTemplateExperimentOptionsProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentreportconfiguration>
                         experimentReportConfiguration :: (Prelude.Maybe ExperimentTemplateExperimentReportConfigurationProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration>
                         logConfiguration :: (Prelude.Maybe ExperimentTemplateLogConfigurationProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn>
                         roleArn :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions>
                         stopConditions :: [ExperimentTemplateStopConditionProperty],
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags>
                         tags :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets>
                         targets :: (Prelude.Map Prelude.Text ExperimentTemplateTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplate ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.NetworkFirewallPolicyProperty as E
 import {-# SOURCE #-} Stratosphere.FMS.Policy.ThirdPartyFirewallPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyOptionProperty
-  = PolicyOptionProperty {networkAclCommonPolicy :: (Prelude.Maybe NetworkAclCommonPolicyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html>
+    PolicyOptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkaclcommonpolicy>
+                          networkAclCommonPolicy :: (Prelude.Maybe NetworkAclCommonPolicyProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkfirewallpolicy>
                           networkFirewallPolicy :: (Prelude.Maybe NetworkFirewallPolicyProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-thirdpartyfirewallpolicy>
                           thirdPartyFirewallPolicy :: (Prelude.Maybe ThirdPartyFirewallPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyOptionProperty :: PolicyOptionProperty

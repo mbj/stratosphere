@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinitionVersion.RunAsPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecutionProperty
-  = ExecutionProperty {isolationMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html>
+    ExecutionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-isolationmode>
+                       isolationMode :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html#cfn-greengrass-functiondefinitionversion-execution-runas>
                        runAs :: (Prelude.Maybe RunAsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionProperty :: ExecutionProperty

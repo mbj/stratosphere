@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodProperty as Exports
 import Stratosphere.ResourceProperties
 data RestrictedPeriodsProperty
-  = RestrictedPeriodsProperty {restrictedPeriodList :: [RestrictedPeriodProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html>
+    RestrictedPeriodsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html#cfn-connectcampaignsv2-campaign-restrictedperiods-restrictedperiodlist>
+                               restrictedPeriodList :: [RestrictedPeriodProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictedPeriodsProperty ::
   [RestrictedPeriodProperty] -> RestrictedPeriodsProperty

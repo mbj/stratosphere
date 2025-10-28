@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Plan.TargetsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageProperty
-  = StageProperty {durationInMinutes :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html>
+    StageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html#cfn-ssmcontacts-plan-stage-durationinminutes>
+                   durationInMinutes :: (Value Prelude.Integer),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html#cfn-ssmcontacts-plan-stage-targets>
                    targets :: (Prelude.Maybe [TargetsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageProperty :: Value Prelude.Integer -> StageProperty

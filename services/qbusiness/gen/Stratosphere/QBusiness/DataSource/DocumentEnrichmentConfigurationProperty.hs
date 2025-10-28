@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.HookConfigurationPropert
 import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.InlineDocumentEnrichmentConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DocumentEnrichmentConfigurationProperty
-  = DocumentEnrichmentConfigurationProperty {inlineConfigurations :: (Prelude.Maybe [InlineDocumentEnrichmentConfigurationProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html>
+    DocumentEnrichmentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-inlineconfigurations>
+                                             inlineConfigurations :: (Prelude.Maybe [InlineDocumentEnrichmentConfigurationProperty]),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-postextractionhookconfiguration>
                                              postExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html#cfn-qbusiness-datasource-documentenrichmentconfiguration-preextractionhookconfiguration>
                                              preExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentEnrichmentConfigurationProperty ::

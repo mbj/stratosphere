@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.FastLa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FastLaunchConfigurationProperty
-  = FastLaunchConfigurationProperty {accountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html>
+    FastLaunchConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-accountid>
+                                     accountId :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-enabled>
                                      enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-launchtemplate>
                                      launchTemplate :: (Prelude.Maybe FastLaunchLaunchTemplateSpecificationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-maxparallellaunches>
                                      maxParallelLaunches :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html#cfn-imagebuilder-distributionconfiguration-fastlaunchconfiguration-snapshotconfiguration>
                                      snapshotConfiguration :: (Prelude.Maybe FastLaunchSnapshotConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFastLaunchConfigurationProperty ::

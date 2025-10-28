@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.EFSFileSystemConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomFileSystemConfigProperty
-  = CustomFileSystemConfigProperty {eFSFileSystemConfig :: (Prelude.Maybe EFSFileSystemConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customfilesystemconfig.html>
+    CustomFileSystemConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customfilesystemconfig.html#cfn-sagemaker-domain-customfilesystemconfig-efsfilesystemconfig>
+                                    eFSFileSystemConfig :: (Prelude.Maybe EFSFileSystemConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomFileSystemConfigProperty :: CustomFileSystemConfigProperty
 mkCustomFileSystemConfigProperty

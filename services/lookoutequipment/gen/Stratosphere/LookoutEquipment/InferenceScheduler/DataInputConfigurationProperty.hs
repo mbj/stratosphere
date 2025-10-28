@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.LookoutEquipment.InferenceScheduler.S3InputCo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataInputConfigurationProperty
-  = DataInputConfigurationProperty {inferenceInputNameConfiguration :: (Prelude.Maybe InputNameConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html>
+    DataInputConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html#cfn-lookoutequipment-inferencescheduler-datainputconfiguration-inferenceinputnameconfiguration>
+                                    inferenceInputNameConfiguration :: (Prelude.Maybe InputNameConfigurationProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html#cfn-lookoutequipment-inferencescheduler-datainputconfiguration-inputtimezoneoffset>
                                     inputTimeZoneOffset :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html#cfn-lookoutequipment-inferencescheduler-datainputconfiguration-s3inputconfiguration>
                                     s3InputConfiguration :: S3InputConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataInputConfigurationProperty ::

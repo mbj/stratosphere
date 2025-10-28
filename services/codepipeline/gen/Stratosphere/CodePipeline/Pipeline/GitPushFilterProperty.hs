@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitFilePathFilterCriter
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitTagFilterCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data GitPushFilterProperty
-  = GitPushFilterProperty {branches :: (Prelude.Maybe GitBranchFilterCriteriaProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html>
+    GitPushFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-branches>
+                           branches :: (Prelude.Maybe GitBranchFilterCriteriaProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-filepaths>
                            filePaths :: (Prelude.Maybe GitFilePathFilterCriteriaProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html#cfn-codepipeline-pipeline-gitpushfilter-tags>
                            tags :: (Prelude.Maybe GitTagFilterCriteriaProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitPushFilterProperty :: GitPushFilterProperty

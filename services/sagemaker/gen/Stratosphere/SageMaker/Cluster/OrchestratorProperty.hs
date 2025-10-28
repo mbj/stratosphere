@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Cluster.ClusterOrchestratorEksConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OrchestratorProperty
-  = OrchestratorProperty {eks :: ClusterOrchestratorEksConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html>
+    OrchestratorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html#cfn-sagemaker-cluster-orchestrator-eks>
+                          eks :: ClusterOrchestratorEksConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrchestratorProperty ::
   ClusterOrchestratorEksConfigProperty -> OrchestratorProperty

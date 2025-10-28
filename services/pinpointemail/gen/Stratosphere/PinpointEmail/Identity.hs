@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.PinpointEmail.Identity.TagsProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Identity
-  = Identity {dkimSigningEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html>
+    Identity {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-dkimsigningenabled>
+              dkimSigningEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-feedbackforwardingenabled>
               feedbackForwardingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-mailfromattributes>
               mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-name>
               name :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-tags>
               tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentity :: Value Prelude.Text -> Identity

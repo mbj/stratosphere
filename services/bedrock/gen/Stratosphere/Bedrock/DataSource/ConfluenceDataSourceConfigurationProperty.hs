@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ConfluenceCrawlerConfigura
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ConfluenceSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfluenceDataSourceConfigurationProperty
-  = ConfluenceDataSourceConfigurationProperty {crawlerConfiguration :: (Prelude.Maybe ConfluenceCrawlerConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html>
+    ConfluenceDataSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html#cfn-bedrock-datasource-confluencedatasourceconfiguration-crawlerconfiguration>
+                                               crawlerConfiguration :: (Prelude.Maybe ConfluenceCrawlerConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html#cfn-bedrock-datasource-confluencedatasourceconfiguration-sourceconfiguration>
                                                sourceConfiguration :: ConfluenceSourceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceDataSourceConfigurationProperty ::

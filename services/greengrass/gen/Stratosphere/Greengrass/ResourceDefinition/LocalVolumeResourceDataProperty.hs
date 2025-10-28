@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.GroupOwnerSetti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalVolumeResourceDataProperty
-  = LocalVolumeResourceDataProperty {destinationPath :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html>
+    LocalVolumeResourceDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-destinationpath>
+                                     destinationPath :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-groupownersetting>
                                      groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-sourcepath>
                                      sourcePath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalVolumeResourceDataProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.BotAlias.BotAliasLocaleSettingsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotAliasLocaleSettingsItemProperty
-  = BotAliasLocaleSettingsItemProperty {botAliasLocaleSetting :: BotAliasLocaleSettingsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html>
+    BotAliasLocaleSettingsItemProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-botaliaslocalesetting>
+                                        botAliasLocaleSetting :: BotAliasLocaleSettingsProperty,
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html#cfn-lex-botalias-botaliaslocalesettingsitem-localeid>
                                         localeId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAliasLocaleSettingsItemProperty ::

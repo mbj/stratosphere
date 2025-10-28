@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TemporalFilterSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data Mpeg2FilterSettingsProperty
-  = Mpeg2FilterSettingsProperty {temporalFilterSettings :: (Prelude.Maybe TemporalFilterSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2filtersettings.html>
+    Mpeg2FilterSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2filtersettings.html#cfn-medialive-channel-mpeg2filtersettings-temporalfiltersettings>
+                                 temporalFilterSettings :: (Prelude.Maybe TemporalFilterSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMpeg2FilterSettingsProperty :: Mpeg2FilterSettingsProperty
 mkMpeg2FilterSettingsProperty

@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.VariableProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerActionProperty
-  = ContainerActionProperty {executionRoleArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html>
+    ContainerActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-executionrolearn>
+                             executionRoleArn :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-image>
                              image :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-resourceconfiguration>
                              resourceConfiguration :: ResourceConfigurationProperty,
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html#cfn-iotanalytics-dataset-containeraction-variables>
                              variables :: (Prelude.Maybe [VariableProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerActionProperty ::

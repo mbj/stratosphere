@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedInputTypesProperty
-  = AllowedInputTypesProperty {allowAudioInput :: (Value Prelude.Bool),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html>
+    AllowedInputTypesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html#cfn-lex-bot-allowedinputtypes-allowaudioinput>
+                               allowAudioInput :: (Value Prelude.Bool),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html#cfn-lex-bot-allowedinputtypes-allowdtmfinput>
                                allowDTMFInput :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedInputTypesProperty ::

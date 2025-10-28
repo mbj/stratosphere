@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupSt
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupTupleProperty as Exports
 import Stratosphere.ResourceProperties
 data ForwardConfigProperty
-  = ForwardConfigProperty {targetGroupStickinessConfig :: (Prelude.Maybe TargetGroupStickinessConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html>
+    ForwardConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig>
+                           targetGroupStickinessConfig :: (Prelude.Maybe TargetGroupStickinessConfigProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups>
                            targetGroups :: (Prelude.Maybe [TargetGroupTupleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardConfigProperty :: ForwardConfigProperty

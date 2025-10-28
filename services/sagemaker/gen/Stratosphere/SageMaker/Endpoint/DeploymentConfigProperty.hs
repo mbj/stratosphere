@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.BlueGreenUpdatePolicyPrope
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.RollingUpdatePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data DeploymentConfigProperty
-  = DeploymentConfigProperty {autoRollbackConfiguration :: (Prelude.Maybe AutoRollbackConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>
+    DeploymentConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-autorollbackconfiguration>
+                              autoRollbackConfiguration :: (Prelude.Maybe AutoRollbackConfigProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-bluegreenupdatepolicy>
                               blueGreenUpdatePolicy :: (Prelude.Maybe BlueGreenUpdatePolicyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-rollingupdatepolicy>
                               rollingUpdatePolicy :: (Prelude.Maybe RollingUpdatePolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigProperty :: DeploymentConfigProperty

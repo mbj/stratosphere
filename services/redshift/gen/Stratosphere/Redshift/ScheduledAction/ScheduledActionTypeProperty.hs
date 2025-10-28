@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Redshift.ScheduledAction.ResizeClusterMessage
 import {-# SOURCE #-} Stratosphere.Redshift.ScheduledAction.ResumeClusterMessageProperty as Exports
 import Stratosphere.ResourceProperties
 data ScheduledActionTypeProperty
-  = ScheduledActionTypeProperty {pauseCluster :: (Prelude.Maybe PauseClusterMessageProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html>
+    ScheduledActionTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-pausecluster>
+                                 pauseCluster :: (Prelude.Maybe PauseClusterMessageProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resizecluster>
                                  resizeCluster :: (Prelude.Maybe ResizeClusterMessageProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resumecluster>
                                  resumeCluster :: (Prelude.Maybe ResumeClusterMessageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledActionTypeProperty :: ScheduledActionTypeProperty

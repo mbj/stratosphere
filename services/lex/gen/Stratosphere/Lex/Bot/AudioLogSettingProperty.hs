@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.AudioLogDestinationProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioLogSettingProperty
-  = AudioLogSettingProperty {destination :: AudioLogDestinationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiologsetting.html>
+    AudioLogSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiologsetting.html#cfn-lex-bot-audiologsetting-destination>
+                             destination :: AudioLogDestinationProperty,
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiologsetting.html#cfn-lex-bot-audiologsetting-enabled>
                              enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLogSettingProperty ::

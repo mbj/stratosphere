@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.PlainTextMessageProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SSMLMessageProperty as Exports
 import Stratosphere.ResourceProperties
 data MessageProperty
-  = MessageProperty {customPayload :: (Prelude.Maybe CustomPayloadProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html>
+    MessageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html#cfn-lex-bot-message-custompayload>
+                     customPayload :: (Prelude.Maybe CustomPayloadProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html#cfn-lex-bot-message-imageresponsecard>
                      imageResponseCard :: (Prelude.Maybe ImageResponseCardProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html#cfn-lex-bot-message-plaintextmessage>
                      plainTextMessage :: (Prelude.Maybe PlainTextMessageProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html#cfn-lex-bot-message-ssmlmessage>
                      sSMLMessage :: (Prelude.Maybe SSMLMessageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageProperty :: MessageProperty

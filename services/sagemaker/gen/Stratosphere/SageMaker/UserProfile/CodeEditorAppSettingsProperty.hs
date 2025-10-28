@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.ResourceSpecProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeEditorAppSettingsProperty
-  = CodeEditorAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>
+    CodeEditorAppSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-applifecyclemanagement>
+                                   appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-customimages>
                                    customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-defaultresourcespec>
                                    defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-lifecycleconfigarns>
                                    lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeEditorAppSettingsProperty :: CodeEditorAppSettingsProperty

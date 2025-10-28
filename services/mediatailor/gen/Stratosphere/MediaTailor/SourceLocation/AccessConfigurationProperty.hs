@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaTailor.SourceLocation.SecretsManagerAcce
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessConfigurationProperty
-  = AccessConfigurationProperty {accessType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-accessconfiguration.html>
+    AccessConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-accessconfiguration.html#cfn-mediatailor-sourcelocation-accessconfiguration-accesstype>
+                                 accessType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-accessconfiguration.html#cfn-mediatailor-sourcelocation-accessconfiguration-secretsmanageraccesstokenconfiguration>
                                  secretsManagerAccessTokenConfiguration :: (Prelude.Maybe SecretsManagerAccessTokenConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessConfigurationProperty :: AccessConfigurationProperty

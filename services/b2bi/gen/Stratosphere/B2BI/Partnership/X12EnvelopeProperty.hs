@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.X12OutboundEdiHeadersProperty as Exports
 import Stratosphere.ResourceProperties
 data X12EnvelopeProperty
-  = X12EnvelopeProperty {common :: (Prelude.Maybe X12OutboundEdiHeadersProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html>
+    X12EnvelopeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html#cfn-b2bi-partnership-x12envelope-common>
+                         common :: (Prelude.Maybe X12OutboundEdiHeadersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkX12EnvelopeProperty :: X12EnvelopeProperty
 mkX12EnvelopeProperty

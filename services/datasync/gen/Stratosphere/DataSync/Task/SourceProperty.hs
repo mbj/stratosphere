@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.Task.ManifestConfigSourceS3Property as Exports
 import Stratosphere.ResourceProperties
 data SourceProperty
-  = SourceProperty {s3 :: (Prelude.Maybe ManifestConfigSourceS3Property)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-source.html>
+    SourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-source.html#cfn-datasync-task-source-s3>
+                    s3 :: (Prelude.Maybe ManifestConfigSourceS3Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: SourceProperty
 mkSourceProperty = SourceProperty {s3 = Prelude.Nothing}

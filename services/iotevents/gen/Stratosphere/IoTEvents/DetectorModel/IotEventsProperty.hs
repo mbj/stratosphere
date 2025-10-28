@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.PayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotEventsProperty
-  = IotEventsProperty {inputName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html>
+    IotEventsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname>
+                       inputName :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload>
                        payload :: (Prelude.Maybe PayloadProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsProperty :: Value Prelude.Text -> IotEventsProperty

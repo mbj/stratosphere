@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.AllowActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.BlockActionProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultActionProperty
-  = DefaultActionProperty {allow :: (Prelude.Maybe AllowActionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html>
+    DefaultActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow>
+                           allow :: (Prelude.Maybe AllowActionProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block>
                            block :: (Prelude.Maybe BlockActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultActionProperty :: DefaultActionProperty

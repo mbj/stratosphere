@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmplitudeSourcePropertiesProperty
-  = AmplitudeSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html>
+    AmplitudeSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object>
+                                       object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmplitudeSourcePropertiesProperty ::
   Value Prelude.Text -> AmplitudeSourcePropertiesProperty

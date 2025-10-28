@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ConditionO
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CalculatedAttributeDimensionProperty
-  = CalculatedAttributeDimensionProperty {conditionOverrides :: (Prelude.Maybe ConditionOverridesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html>
+    CalculatedAttributeDimensionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-conditionoverrides>
+                                          conditionOverrides :: (Prelude.Maybe ConditionOverridesProperty),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-dimensiontype>
                                           dimensionType :: (Value Prelude.Text),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html#cfn-customerprofiles-segmentdefinition-calculatedattributedimension-values>
                                           values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedAttributeDimensionProperty ::

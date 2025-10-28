@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ArchiveS3SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data ArchiveCdnSettingsProperty
-  = ArchiveCdnSettingsProperty {archiveS3Settings :: (Prelude.Maybe ArchiveS3SettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html>
+    ArchiveCdnSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html#cfn-medialive-channel-archivecdnsettings-archives3settings>
+                                archiveS3Settings :: (Prelude.Maybe ArchiveS3SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveCdnSettingsProperty :: ArchiveCdnSettingsProperty
 mkArchiveCdnSettingsProperty

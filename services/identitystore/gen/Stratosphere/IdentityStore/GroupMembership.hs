@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.IdentityStore.GroupMembership.MemberIdPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupMembership
-  = GroupMembership {groupId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html>
+    GroupMembership {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-groupid>
+                     groupId :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-identitystoreid>
                      identityStoreId :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid>
                      memberId :: MemberIdProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupMembership ::

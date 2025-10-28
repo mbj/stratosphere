@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.CloudWatchLogsLogGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data LogDestinationProperty
-  = LogDestinationProperty {cloudWatchLogsLogGroup :: (Prelude.Maybe CloudWatchLogsLogGroupProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html>
+    LogDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup>
+                            cloudWatchLogsLogGroup :: (Prelude.Maybe CloudWatchLogsLogGroupProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDestinationProperty :: LogDestinationProperty
 mkLogDestinationProperty

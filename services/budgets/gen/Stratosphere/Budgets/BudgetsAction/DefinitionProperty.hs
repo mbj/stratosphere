@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.ScpActionDefinitionProp
 import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.SsmActionDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data DefinitionProperty
-  = DefinitionProperty {iamActionDefinition :: (Prelude.Maybe IamActionDefinitionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html>
+    DefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition>
+                        iamActionDefinition :: (Prelude.Maybe IamActionDefinitionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition>
                         scpActionDefinition :: (Prelude.Maybe ScpActionDefinitionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition>
                         ssmActionDefinition :: (Prelude.Maybe SsmActionDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionProperty :: DefinitionProperty

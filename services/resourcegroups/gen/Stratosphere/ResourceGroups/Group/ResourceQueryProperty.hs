@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ResourceGroups.Group.QueryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceQueryProperty
-  = ResourceQueryProperty {query :: (Prelude.Maybe QueryProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html>
+    ResourceQueryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query>
+                           query :: (Prelude.Maybe QueryProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type>
                            type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceQueryProperty :: ResourceQueryProperty

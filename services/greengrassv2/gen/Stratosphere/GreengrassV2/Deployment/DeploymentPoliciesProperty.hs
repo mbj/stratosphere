@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.DeploymentConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentPoliciesProperty
-  = DeploymentPoliciesProperty {componentUpdatePolicy :: (Prelude.Maybe DeploymentComponentUpdatePolicyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html>
+    DeploymentPoliciesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html#cfn-greengrassv2-deployment-deploymentpolicies-componentupdatepolicy>
+                                componentUpdatePolicy :: (Prelude.Maybe DeploymentComponentUpdatePolicyProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html#cfn-greengrassv2-deployment-deploymentpolicies-configurationvalidationpolicy>
                                 configurationValidationPolicy :: (Prelude.Maybe DeploymentConfigurationValidationPolicyProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html#cfn-greengrassv2-deployment-deploymentpolicies-failurehandlingpolicy>
                                 failureHandlingPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentPoliciesProperty :: DeploymentPoliciesProperty

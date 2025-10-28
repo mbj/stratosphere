@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerCertificate.Ce
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerCertificate
-  = ListenerCertificate {certificates :: [CertificateProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html>
+    ListenerCertificate {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-certificates>
+                         certificates :: [CertificateProperty],
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-listenerarn>
                          listenerArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerCertificate ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Multiplex.MultiplexMediaConnectOutputDestinationSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data MultiplexOutputDestinationProperty
-  = MultiplexOutputDestinationProperty {multiplexMediaConnectOutputDestinationSettings :: (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexoutputdestination.html>
+    MultiplexOutputDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexoutputdestination.html#cfn-medialive-multiplex-multiplexoutputdestination-multiplexmediaconnectoutputdestinationsettings>
+                                        multiplexMediaConnectOutputDestinationSettings :: (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexOutputDestinationProperty ::
   MultiplexOutputDestinationProperty

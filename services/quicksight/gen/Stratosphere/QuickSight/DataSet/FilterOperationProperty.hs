@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterOperationProperty
-  = FilterOperationProperty {conditionExpression :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>
+    FilterOperationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression>
+                             conditionExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterOperationProperty ::
   Value Prelude.Text -> FilterOperationProperty

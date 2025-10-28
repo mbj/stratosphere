@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.CloudWatchDashboardProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourcesProperty
-  = DataSourcesProperty {cloudWatchDashboards :: (Prelude.Maybe [CloudWatchDashboardProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html>
+    DataSourcesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html#cfn-fis-experimenttemplate-datasources-cloudwatchdashboards>
+                         cloudWatchDashboards :: (Prelude.Maybe [CloudWatchDashboardProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourcesProperty :: DataSourcesProperty
 mkDataSourcesProperty

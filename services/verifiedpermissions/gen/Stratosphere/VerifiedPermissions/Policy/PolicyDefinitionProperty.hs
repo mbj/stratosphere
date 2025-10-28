@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.StaticPolicyDefini
 import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyDefinitionProperty
-  = PolicyDefinitionProperty {static :: (Prelude.Maybe StaticPolicyDefinitionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html>
+    PolicyDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-static>
+                              static :: (Prelude.Maybe StaticPolicyDefinitionProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-templatelinked>
                               templateLinked :: (Prelude.Maybe TemplateLinkedPolicyDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyDefinitionProperty :: PolicyDefinitionProperty

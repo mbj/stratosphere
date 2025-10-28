@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.TextPromptTemplateConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PromptTemplateConfigurationProperty
-  = PromptTemplateConfigurationProperty {text :: TextPromptTemplateConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-prompttemplateconfiguration.html>
+    PromptTemplateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-prompttemplateconfiguration.html#cfn-bedrock-flow-prompttemplateconfiguration-text>
+                                         text :: TextPromptTemplateConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptTemplateConfigurationProperty ::
   TextPromptTemplateConfigurationProperty

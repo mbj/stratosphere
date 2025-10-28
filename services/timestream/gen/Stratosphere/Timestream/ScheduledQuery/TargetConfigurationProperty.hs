@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.TimestreamConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetConfigurationProperty
-  = TargetConfigurationProperty {timestreamConfiguration :: TimestreamConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html>
+    TargetConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html#cfn-timestream-scheduledquery-targetconfiguration-timestreamconfiguration>
+                                 timestreamConfiguration :: TimestreamConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetConfigurationProperty ::
   TimestreamConfigurationProperty -> TargetConfigurationProperty

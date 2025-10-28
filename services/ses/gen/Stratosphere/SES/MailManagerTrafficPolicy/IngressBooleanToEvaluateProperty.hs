@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressAnalysisProperty as Exports
 import Stratosphere.ResourceProperties
 data IngressBooleanToEvaluateProperty
-  = IngressBooleanToEvaluateProperty {analysis :: IngressAnalysisProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html>
+    IngressBooleanToEvaluateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate-analysis>
+                                      analysis :: IngressAnalysisProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressBooleanToEvaluateProperty ::
   IngressAnalysisProperty -> IngressBooleanToEvaluateProperty

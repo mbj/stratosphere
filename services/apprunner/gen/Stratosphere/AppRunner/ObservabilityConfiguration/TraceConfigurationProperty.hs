@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TraceConfigurationProperty
-  = TraceConfigurationProperty {vendor :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html>
+    TraceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html#cfn-apprunner-observabilityconfiguration-traceconfiguration-vendor>
+                                vendor :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTraceConfigurationProperty ::
   Value Prelude.Text -> TraceConfigurationProperty

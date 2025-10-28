@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.S3.MultiRegionAccessPoint.RegionProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiRegionAccessPoint
-  = MultiRegionAccessPoint {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html>
+    MultiRegionAccessPoint {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name>
+                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration>
                             publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions>
                             regions :: [RegionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiRegionAccessPoint ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.StorageFlowNodeS3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageFlowNodeServiceConfigurationProperty
-  = StorageFlowNodeServiceConfigurationProperty {s3 :: (Prelude.Maybe StorageFlowNodeS3ConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodeserviceconfiguration.html>
+    StorageFlowNodeServiceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-storageflownodeserviceconfiguration.html#cfn-bedrock-flow-storageflownodeserviceconfiguration-s3>
+                                                 s3 :: (Prelude.Maybe StorageFlowNodeS3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageFlowNodeServiceConfigurationProperty ::
   StorageFlowNodeServiceConfigurationProperty

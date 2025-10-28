@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.VpcLattice.Listener.FixedResponseProperty as 
 import {-# SOURCE #-} Stratosphere.VpcLattice.Listener.ForwardProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultActionProperty
-  = DefaultActionProperty {fixedResponse :: (Prelude.Maybe FixedResponseProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html>
+    DefaultActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html#cfn-vpclattice-listener-defaultaction-fixedresponse>
+                           fixedResponse :: (Prelude.Maybe FixedResponseProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html#cfn-vpclattice-listener-defaultaction-forward>
                            forward :: (Prelude.Maybe ForwardProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultActionProperty :: DefaultActionProperty

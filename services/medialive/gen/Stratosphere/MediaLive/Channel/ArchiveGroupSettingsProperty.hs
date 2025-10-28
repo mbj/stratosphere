@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveGroupSettingsProperty
-  = ArchiveGroupSettingsProperty {archiveCdnSettings :: (Prelude.Maybe ArchiveCdnSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html>
+    ArchiveGroupSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-archivecdnsettings>
+                                  archiveCdnSettings :: (Prelude.Maybe ArchiveCdnSettingsProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-destination>
                                   destination :: (Prelude.Maybe OutputLocationRefProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html#cfn-medialive-channel-archivegroupsettings-rolloverinterval>
                                   rolloverInterval :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveGroupSettingsProperty :: ArchiveGroupSettingsProperty

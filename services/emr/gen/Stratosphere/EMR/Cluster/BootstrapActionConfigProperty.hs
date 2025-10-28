@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScriptBootstrapActionConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BootstrapActionConfigProperty
-  = BootstrapActionConfigProperty {name :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html>
+    BootstrapActionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-name>
+                                   name :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-scriptbootstrapaction>
                                    scriptBootstrapAction :: ScriptBootstrapActionConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBootstrapActionConfigProperty ::

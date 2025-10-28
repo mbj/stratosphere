@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.Calculated
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ProfileAttributesProperty as Exports
 import Stratosphere.ResourceProperties
 data DimensionProperty
-  = DimensionProperty {calculatedAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text CalculatedAttributeDimensionProperty)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-dimension.html>
+    DimensionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-dimension.html#cfn-customerprofiles-segmentdefinition-dimension-calculatedattributes>
+                       calculatedAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text CalculatedAttributeDimensionProperty)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-dimension.html#cfn-customerprofiles-segmentdefinition-dimension-profileattributes>
                        profileAttributes :: (Prelude.Maybe ProfileAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionProperty :: DimensionProperty

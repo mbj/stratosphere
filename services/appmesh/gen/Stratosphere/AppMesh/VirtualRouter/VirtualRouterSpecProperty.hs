@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualRouterSpecProperty
-  = VirtualRouterSpecProperty {listeners :: [VirtualRouterListenerProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html>
+    VirtualRouterSpecProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners>
+                               listeners :: [VirtualRouterListenerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterSpecProperty ::
   [VirtualRouterListenerProperty] -> VirtualRouterSpecProperty

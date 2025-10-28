@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedCidrProperty
-  = ProvisionedCidrProperty {cidr :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-provisionedcidr.html>
+    ProvisionedCidrProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-provisionedcidr.html#cfn-ec2-ipampool-provisionedcidr-cidr>
+                             cidr :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedCidrProperty ::
   Value Prelude.Text -> ProvisionedCidrProperty

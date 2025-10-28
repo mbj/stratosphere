@@ -8,11 +8,18 @@ import {-# SOURCE #-} Stratosphere.Config.DeliveryChannel.ConfigSnapshotDelivery
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryChannel
-  = DeliveryChannel {configSnapshotDeliveryProperties :: (Prelude.Maybe ConfigSnapshotDeliveryPropertiesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html>
+    DeliveryChannel {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties>
+                     configSnapshotDeliveryProperties :: (Prelude.Maybe ConfigSnapshotDeliveryPropertiesProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-name>
                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3bucketname>
                      s3BucketName :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3keyprefix>
                      s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3kmskeyarn>
                      s3KmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn>
                      snsTopicARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryChannel :: Value Prelude.Text -> DeliveryChannel

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.OpsWorks.Layer.AutoScalingThresholdsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadBasedAutoScalingProperty
-  = LoadBasedAutoScalingProperty {downScaling :: (Prelude.Maybe AutoScalingThresholdsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html>
+    LoadBasedAutoScalingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html#cfn-opsworks-layer-loadbasedautoscaling-downscaling>
+                                  downScaling :: (Prelude.Maybe AutoScalingThresholdsProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html#cfn-opsworks-layer-loadbasedautoscaling-enable>
                                   enable :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html#cfn-opsworks-layer-loadbasedautoscaling-upscaling>
                                   upScaling :: (Prelude.Maybe AutoScalingThresholdsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBasedAutoScalingProperty :: LoadBasedAutoScalingProperty

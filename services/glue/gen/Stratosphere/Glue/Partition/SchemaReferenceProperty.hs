@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.SchemaIdProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaReferenceProperty
-  = SchemaReferenceProperty {schemaId :: (Prelude.Maybe SchemaIdProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html>
+    SchemaReferenceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid>
+                             schemaId :: (Prelude.Maybe SchemaIdProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid>
                              schemaVersionId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber>
                              schemaVersionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaReferenceProperty :: SchemaReferenceProperty

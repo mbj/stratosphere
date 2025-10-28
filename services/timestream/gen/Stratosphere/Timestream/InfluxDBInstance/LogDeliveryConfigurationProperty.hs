@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.InfluxDBInstance.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LogDeliveryConfigurationProperty
-  = LogDeliveryConfigurationProperty {s3Configuration :: S3ConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html>
+    LogDeliveryConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html#cfn-timestream-influxdbinstance-logdeliveryconfiguration-s3configuration>
+                                      s3Configuration :: S3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfigurationProperty ::
   S3ConfigurationProperty -> LogDeliveryConfigurationProperty

@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSManagedRulesATPRuleSetProperty
-  = AWSManagedRulesATPRuleSetProperty {enableRegexInPath :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html>
+    AWSManagedRulesATPRuleSetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-enableregexinpath>
+                                       enableRegexInPath :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-loginpath>
                                        loginPath :: (Value Prelude.Text),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-requestinspection>
                                        requestInspection :: (Prelude.Maybe RequestInspectionProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html#cfn-wafv2-webacl-awsmanagedrulesatpruleset-responseinspection>
                                        responseInspection :: (Prelude.Maybe ResponseInspectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSManagedRulesATPRuleSetProperty ::

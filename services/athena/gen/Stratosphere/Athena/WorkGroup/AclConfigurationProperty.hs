@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AclConfigurationProperty
-  = AclConfigurationProperty {s3AclOption :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html>
+    AclConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html#cfn-athena-workgroup-aclconfiguration-s3acloption>
+                              s3AclOption :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAclConfigurationProperty ::
   Value Prelude.Text -> AclConfigurationProperty

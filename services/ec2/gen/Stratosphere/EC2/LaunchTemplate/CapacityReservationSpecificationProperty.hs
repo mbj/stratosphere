@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CapacityReservationTargetP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityReservationSpecificationProperty
-  = CapacityReservationSpecificationProperty {capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html>
+    CapacityReservationSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html#cfn-ec2-launchtemplate-capacityreservationspecification-capacityreservationpreference>
+                                              capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html#cfn-ec2-launchtemplate-capacityreservationspecification-capacityreservationtarget>
                                               capacityReservationTarget :: (Prelude.Maybe CapacityReservationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationSpecificationProperty ::

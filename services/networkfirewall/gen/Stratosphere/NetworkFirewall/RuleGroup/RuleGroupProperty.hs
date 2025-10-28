@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.RulesSourceProperty
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.StatefulRuleOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleGroupProperty
-  = RuleGroupProperty {referenceSets :: (Prelude.Maybe ReferenceSetsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html>
+    RuleGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-referencesets>
+                       referenceSets :: (Prelude.Maybe ReferenceSetsProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables>
                        ruleVariables :: (Prelude.Maybe RuleVariablesProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource>
                        rulesSource :: RulesSourceProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-statefulruleoptions>
                        statefulRuleOptions :: (Prelude.Maybe StatefulRuleOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RulesSourceProperty -> RuleGroupProperty

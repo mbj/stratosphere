@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.RateIncreaseCriteriaProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExponentialRolloutRateProperty
-  = ExponentialRolloutRateProperty {baseRatePerMinute :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html>
+    ExponentialRolloutRateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-baserateperminute>
+                                    baseRatePerMinute :: (Value Prelude.Integer),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-incrementfactor>
                                     incrementFactor :: (Value Prelude.Double),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html#cfn-iot-jobtemplate-exponentialrolloutrate-rateincreasecriteria>
                                     rateIncreaseCriteria :: RateIncreaseCriteriaProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExponentialRolloutRateProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DeserializerProperty as Exports
 import Stratosphere.ResourceProperties
 data InputFormatConfigurationProperty
-  = InputFormatConfigurationProperty {deserializer :: (Prelude.Maybe DeserializerProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html>
+    InputFormatConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer>
+                                      deserializer :: (Prelude.Maybe DeserializerProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFormatConfigurationProperty ::
   InputFormatConfigurationProperty

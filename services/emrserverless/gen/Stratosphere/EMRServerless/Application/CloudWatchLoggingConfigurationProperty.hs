@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.LogTypeMapKeyValueP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLoggingConfigurationProperty
-  = CloudWatchLoggingConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>
+    CloudWatchLoggingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-enabled>
+                                            enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-encryptionkeyarn>
                                             encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-loggroupname>
                                             logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-logstreamnameprefix>
                                             logStreamNamePrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-logtypemap>
                                             logTypeMap :: (Prelude.Maybe [LogTypeMapKeyValuePairProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLoggingConfigurationProperty ::

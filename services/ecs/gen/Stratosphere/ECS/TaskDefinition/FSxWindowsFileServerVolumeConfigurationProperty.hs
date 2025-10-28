@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.FSxAuthorizationConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FSxWindowsFileServerVolumeConfigurationProperty
-  = FSxWindowsFileServerVolumeConfigurationProperty {authorizationConfig :: (Prelude.Maybe FSxAuthorizationConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html>
+    FSxWindowsFileServerVolumeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html#cfn-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration-authorizationconfig>
+                                                     authorizationConfig :: (Prelude.Maybe FSxAuthorizationConfigProperty),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html#cfn-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration-filesystemid>
                                                      fileSystemId :: (Value Prelude.Text),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html#cfn-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration-rootdirectory>
                                                      rootDirectory :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFSxWindowsFileServerVolumeConfigurationProperty ::

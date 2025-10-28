@@ -7,8 +7,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FormStyleConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data FormStyleProperty
-  = FormStyleProperty {horizontalGap :: (Prelude.Maybe FormStyleConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html>
+    FormStyleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-horizontalgap>
+                       horizontalGap :: (Prelude.Maybe FormStyleConfigProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-outerpadding>
                        outerPadding :: (Prelude.Maybe FormStyleConfigProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html#cfn-amplifyuibuilder-form-formstyle-verticalgap>
                        verticalGap :: (Prelude.Maybe FormStyleConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormStyleProperty :: FormStyleProperty

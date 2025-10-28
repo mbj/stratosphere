@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingMetricStatProperty
-  = TargetTrackingMetricStatProperty {metric :: (Prelude.Maybe TargetTrackingMetricProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html>
+    TargetTrackingMetricStatProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetricstat-metric>
+                                      metric :: (Prelude.Maybe TargetTrackingMetricProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetricstat-stat>
                                       stat :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetricstat-unit>
                                       unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingMetricStatProperty ::

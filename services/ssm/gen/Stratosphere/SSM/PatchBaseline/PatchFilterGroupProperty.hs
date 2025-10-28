@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PatchFilterGroupProperty
-  = PatchFilterGroupProperty {patchFilters :: (Prelude.Maybe [PatchFilterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html>
+    PatchFilterGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters>
+                              patchFilters :: (Prelude.Maybe [PatchFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchFilterGroupProperty :: PatchFilterGroupProperty
 mkPatchFilterGroupProperty

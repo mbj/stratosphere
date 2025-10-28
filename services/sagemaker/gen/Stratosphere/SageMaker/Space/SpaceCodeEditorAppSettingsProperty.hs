@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Space.ResourceSpecProperty as Expor
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.SpaceAppLifecycleManagementProperty as Exports
 import Stratosphere.ResourceProperties
 data SpaceCodeEditorAppSettingsProperty
-  = SpaceCodeEditorAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>
+    SpaceCodeEditorAppSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-applifecyclemanagement>
+                                        appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-defaultresourcespec>
                                         defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceCodeEditorAppSettingsProperty ::

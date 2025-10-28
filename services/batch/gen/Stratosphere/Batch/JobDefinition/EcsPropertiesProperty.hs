@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EcsTaskPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data EcsPropertiesProperty
-  = EcsPropertiesProperty {taskProperties :: [EcsTaskPropertiesProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html>
+    EcsPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html#cfn-batch-jobdefinition-ecsproperties-taskproperties>
+                           taskProperties :: [EcsTaskPropertiesProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsPropertiesProperty ::
   [EcsTaskPropertiesProperty] -> EcsPropertiesProperty

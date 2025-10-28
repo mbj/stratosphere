@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data CloudFrontOriginAccessIdentity
-  = CloudFrontOriginAccessIdentity {cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html>
+    CloudFrontOriginAccessIdentity {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig>
+                                    cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFrontOriginAccessIdentity ::
   CloudFrontOriginAccessIdentityConfigProperty

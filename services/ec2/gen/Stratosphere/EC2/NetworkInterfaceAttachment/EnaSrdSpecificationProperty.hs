@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInterfaceAttachment.EnaSrdUdpSpeci
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnaSrdSpecificationProperty
-  = EnaSrdSpecificationProperty {enaSrdEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>
+    EnaSrdSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html#cfn-ec2-networkinterfaceattachment-enasrdspecification-enasrdenabled>
+                                 enaSrdEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html#cfn-ec2-networkinterfaceattachment-enasrdspecification-enasrdudpspecification>
                                  enaSrdUdpSpecification :: (Prelude.Maybe EnaSrdUdpSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnaSrdSpecificationProperty :: EnaSrdSpecificationProperty

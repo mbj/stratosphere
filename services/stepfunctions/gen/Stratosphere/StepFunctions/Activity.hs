@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.StepFunctions.Activity.TagsEntryProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Activity
-  = Activity {encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html>
+    Activity {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-encryptionconfiguration>
+              encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name>
               name :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-tags>
               tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActivity :: Value Prelude.Text -> Activity

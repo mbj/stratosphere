@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcRouteMetadataProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcRouteMatchProperty
-  = GrpcRouteMatchProperty {metadata :: (Prelude.Maybe [GrpcRouteMetadataProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html>
+    GrpcRouteMatchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-metadata>
+                            metadata :: (Prelude.Maybe [GrpcRouteMetadataProperty]),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-methodname>
                             methodName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-port>
                             port :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html#cfn-appmesh-route-grpcroutematch-servicename>
                             serviceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMatchProperty :: GrpcRouteMatchProperty

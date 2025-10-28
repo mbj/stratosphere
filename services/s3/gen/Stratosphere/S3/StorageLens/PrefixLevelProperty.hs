@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.PrefixLevelStorageMetricsProperty as Exports
 import Stratosphere.ResourceProperties
 data PrefixLevelProperty
-  = PrefixLevelProperty {storageMetrics :: PrefixLevelStorageMetricsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html>
+    PrefixLevelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics>
+                         storageMetrics :: PrefixLevelStorageMetricsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixLevelProperty ::
   PrefixLevelStorageMetricsProperty -> PrefixLevelProperty

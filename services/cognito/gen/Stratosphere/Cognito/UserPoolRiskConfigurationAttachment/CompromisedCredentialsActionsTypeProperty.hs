@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompromisedCredentialsActionsTypeProperty
-  = CompromisedCredentialsActionsTypeProperty {eventAction :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html>
+    CompromisedCredentialsActionsTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype-eventaction>
+                                               eventAction :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompromisedCredentialsActionsTypeProperty ::
   Value Prelude.Text -> CompromisedCredentialsActionsTypeProperty

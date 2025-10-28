@@ -10,7 +10,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValid
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayListenerTlsValidationContextTrustProperty
-  = VirtualGatewayListenerTlsValidationContextTrustProperty {file :: (Prelude.Maybe VirtualGatewayTlsValidationContextFileTrustProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html>
+    VirtualGatewayListenerTlsValidationContextTrustProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust-file>
+                                                             file :: (Prelude.Maybe VirtualGatewayTlsValidationContextFileTrustProperty),
+                                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust-sds>
                                                              sDS :: (Prelude.Maybe VirtualGatewayTlsValidationContextSdsTrustProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsValidationContextTrustProperty ::

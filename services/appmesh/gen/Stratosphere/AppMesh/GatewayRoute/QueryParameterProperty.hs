@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpQueryParameterMatchP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryParameterProperty
-  = QueryParameterProperty {match :: (Prelude.Maybe HttpQueryParameterMatchProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html>
+    QueryParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html#cfn-appmesh-gatewayroute-queryparameter-match>
+                            match :: (Prelude.Maybe HttpQueryParameterMatchProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-queryparameter.html#cfn-appmesh-gatewayroute-queryparameter-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryParameterProperty ::

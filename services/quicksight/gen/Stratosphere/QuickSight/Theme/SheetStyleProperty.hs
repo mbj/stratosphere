@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.TileLayoutStyleProperty as E
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.TileStyleProperty as Exports
 import Stratosphere.ResourceProperties
 data SheetStyleProperty
-  = SheetStyleProperty {tile :: (Prelude.Maybe TileStyleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html>
+    SheetStyleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile>
+                        tile :: (Prelude.Maybe TileStyleProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout>
                         tileLayout :: (Prelude.Maybe TileLayoutStyleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetStyleProperty :: SheetStyleProperty

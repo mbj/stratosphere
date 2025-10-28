@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SecurityLake.Subscriber.AwsLogSourceProperty 
 import {-# SOURCE #-} Stratosphere.SecurityLake.Subscriber.CustomLogSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceProperty
-  = SourceProperty {awsLogSource :: (Prelude.Maybe AwsLogSourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html>
+    SourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html#cfn-securitylake-subscriber-source-awslogsource>
+                    awsLogSource :: (Prelude.Maybe AwsLogSourceProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html#cfn-securitylake-subscriber-source-customlogsource>
                     customLogSource :: (Prelude.Maybe CustomLogSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: SourceProperty

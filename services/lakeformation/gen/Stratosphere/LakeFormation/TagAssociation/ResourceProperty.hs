@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.TableResourcePro
 import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.TableWithColumnsResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceProperty
-  = ResourceProperty {catalog :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html>
+    ResourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-catalog>
+                      catalog :: (Prelude.Maybe JSON.Object),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-database>
                       database :: (Prelude.Maybe DatabaseResourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-table>
                       table :: (Prelude.Maybe TableResourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-tablewithcolumns>
                       tableWithColumns :: (Prelude.Maybe TableWithColumnsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty

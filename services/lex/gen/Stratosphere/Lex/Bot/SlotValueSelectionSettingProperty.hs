@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueRegexFilterProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueSelectionSettingProperty
-  = SlotValueSelectionSettingProperty {advancedRecognitionSetting :: (Prelude.Maybe AdvancedRecognitionSettingProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html>
+    SlotValueSelectionSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-advancedrecognitionsetting>
+                                       advancedRecognitionSetting :: (Prelude.Maybe AdvancedRecognitionSettingProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-regexfilter>
                                        regexFilter :: (Prelude.Maybe SlotValueRegexFilterProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html#cfn-lex-bot-slotvalueselectionsetting-resolutionstrategy>
                                        resolutionStrategy :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueSelectionSettingProperty ::

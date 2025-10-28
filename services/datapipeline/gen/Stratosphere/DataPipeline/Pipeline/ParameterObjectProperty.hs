@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataPipeline.Pipeline.ParameterAttributePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterObjectProperty
-  = ParameterObjectProperty {attributes :: [ParameterAttributeProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html>
+    ParameterObjectProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-attributes>
+                             attributes :: [ParameterAttributeProperty],
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-id>
                              id :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterObjectProperty ::

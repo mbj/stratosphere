@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.ComponentVersion.LambdaVolumeMou
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaContainerParamsProperty
-  = LambdaContainerParamsProperty {devices :: (Prelude.Maybe [LambdaDeviceMountProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html>
+    LambdaContainerParamsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices>
+                                   devices :: (Prelude.Maybe [LambdaDeviceMountProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb>
                                    memorySizeInKB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs>
                                    mountROSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes>
                                    volumes :: (Prelude.Maybe [LambdaVolumeMountProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaContainerParamsProperty :: LambdaContainerParamsProperty

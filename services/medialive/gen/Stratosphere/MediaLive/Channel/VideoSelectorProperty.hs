@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoSelectorSettingsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoSelectorProperty
-  = VideoSelectorProperty {colorSpace :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html>
+    VideoSelectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html#cfn-medialive-channel-videoselector-colorspace>
+                           colorSpace :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html#cfn-medialive-channel-videoselector-colorspacesettings>
                            colorSpaceSettings :: (Prelude.Maybe VideoSelectorColorSpaceSettingsProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html#cfn-medialive-channel-videoselector-colorspaceusage>
                            colorSpaceUsage :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html#cfn-medialive-channel-videoselector-selectorsettings>
                            selectorSettings :: (Prelude.Maybe VideoSelectorSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorProperty :: VideoSelectorProperty

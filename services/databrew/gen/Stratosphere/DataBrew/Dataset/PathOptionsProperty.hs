@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.FilterExpressionProperty as 
 import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.PathParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data PathOptionsProperty
-  = PathOptionsProperty {filesLimit :: (Prelude.Maybe FilesLimitProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html>
+    PathOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit>
+                         filesLimit :: (Prelude.Maybe FilesLimitProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition>
                          lastModifiedDateCondition :: (Prelude.Maybe FilterExpressionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters>
                          parameters :: (Prelude.Maybe [PathParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathOptionsProperty :: PathOptionsProperty

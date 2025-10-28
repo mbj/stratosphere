@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PublicDnsNamespace.PublicDnsPropertiesMutableProperty as Exports
 import Stratosphere.ResourceProperties
 data PropertiesProperty
-  = PropertiesProperty {dnsProperties :: (Prelude.Maybe PublicDnsPropertiesMutableProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html>
+    PropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html#cfn-servicediscovery-publicdnsnamespace-properties-dnsproperties>
+                        dnsProperties :: (Prelude.Maybe PublicDnsPropertiesMutableProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertiesProperty :: PropertiesProperty
 mkPropertiesProperty

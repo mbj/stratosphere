@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PublicDnsNamespace.SOAProperty as Exports
 import Stratosphere.ResourceProperties
 data PublicDnsPropertiesMutableProperty
-  = PublicDnsPropertiesMutableProperty {sOA :: (Prelude.Maybe SOAProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html>
+    PublicDnsPropertiesMutableProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html#cfn-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable-soa>
+                                        sOA :: (Prelude.Maybe SOAProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicDnsPropertiesMutableProperty ::
   PublicDnsPropertiesMutableProperty

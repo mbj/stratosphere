@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowConditionalConnectionConfigu
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowDataConnectionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FlowConnectionConfigurationProperty
-  = FlowConnectionConfigurationProperty {conditional :: (Prelude.Maybe FlowConditionalConnectionConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html>
+    FlowConnectionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html#cfn-bedrock-flow-flowconnectionconfiguration-conditional>
+                                         conditional :: (Prelude.Maybe FlowConditionalConnectionConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html#cfn-bedrock-flow-flowconnectionconfiguration-data>
                                          data' :: (Prelude.Maybe FlowDataConnectionConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowConnectionConfigurationProperty ::

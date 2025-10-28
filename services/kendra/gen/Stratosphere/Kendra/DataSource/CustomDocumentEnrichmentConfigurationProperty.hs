@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.InlineCustomDocumentEnrichm
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDocumentEnrichmentConfigurationProperty
-  = CustomDocumentEnrichmentConfigurationProperty {inlineConfigurations :: (Prelude.Maybe [InlineCustomDocumentEnrichmentConfigurationProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html>
+    CustomDocumentEnrichmentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-inlineconfigurations>
+                                                   inlineConfigurations :: (Prelude.Maybe [InlineCustomDocumentEnrichmentConfigurationProperty]),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-postextractionhookconfiguration>
                                                    postExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-preextractionhookconfiguration>
                                                    preExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html#cfn-kendra-datasource-customdocumentenrichmentconfiguration-rolearn>
                                                    roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDocumentEnrichmentConfigurationProperty ::

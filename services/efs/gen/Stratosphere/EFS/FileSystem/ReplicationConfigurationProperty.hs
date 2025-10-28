@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EFS.FileSystem.ReplicationDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {destinations :: (Prelude.Maybe [ReplicationDestinationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html>
+    ReplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html#cfn-efs-filesystem-replicationconfiguration-destinations>
+                                      destinations :: (Prelude.Maybe [ReplicationDestinationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   ReplicationConfigurationProperty

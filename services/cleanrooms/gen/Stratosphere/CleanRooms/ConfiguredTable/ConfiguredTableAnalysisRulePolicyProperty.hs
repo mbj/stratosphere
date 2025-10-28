@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1Property as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAnalysisRulePolicyProperty
-  = ConfiguredTableAnalysisRulePolicyProperty {v1 :: ConfiguredTableAnalysisRulePolicyV1Property}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html>
+    ConfiguredTableAnalysisRulePolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicy-v1>
+                                               v1 :: ConfiguredTableAnalysisRulePolicyV1Property}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAnalysisRulePolicyProperty ::
   ConfiguredTableAnalysisRulePolicyV1Property

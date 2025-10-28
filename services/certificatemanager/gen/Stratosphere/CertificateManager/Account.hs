@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CertificateManager.Account.ExpiryEventsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data Account
-  = Account {expiryEventsConfiguration :: ExpiryEventsConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html>
+    Account {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration>
+             expiryEventsConfiguration :: ExpiryEventsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: ExpiryEventsConfigurationProperty -> Account
 mkAccount expiryEventsConfiguration

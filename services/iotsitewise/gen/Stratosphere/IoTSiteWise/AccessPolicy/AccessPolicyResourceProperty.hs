@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AccessPolicy.PortalProperty as Ex
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AccessPolicy.ProjectProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessPolicyResourceProperty
-  = AccessPolicyResourceProperty {portal :: (Prelude.Maybe PortalProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html>
+    AccessPolicyResourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal>
+                                  portal :: (Prelude.Maybe PortalProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project>
                                   project :: (Prelude.Maybe ProjectProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyResourceProperty :: AccessPolicyResourceProperty

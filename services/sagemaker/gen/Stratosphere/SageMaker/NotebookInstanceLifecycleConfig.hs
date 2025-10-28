@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.NotebookInstanceLifecycleConfig.Not
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotebookInstanceLifecycleConfig
-  = NotebookInstanceLifecycleConfig {notebookInstanceLifecycleConfigName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html>
+    NotebookInstanceLifecycleConfig {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecycleconfigname>
+                                     notebookInstanceLifecycleConfigName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-oncreate>
                                      onCreate :: (Prelude.Maybe [NotebookInstanceLifecycleHookProperty]),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart>
                                      onStart :: (Prelude.Maybe [NotebookInstanceLifecycleHookProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotebookInstanceLifecycleConfig ::

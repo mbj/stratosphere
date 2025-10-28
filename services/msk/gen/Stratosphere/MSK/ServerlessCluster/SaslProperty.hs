@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.IamProperty as Exports
 import Stratosphere.ResourceProperties
 data SaslProperty
-  = SaslProperty {iam :: IamProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html>
+    SaslProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html#cfn-msk-serverlesscluster-sasl-iam>
+                  iam :: IamProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSaslProperty :: IamProperty -> SaslProperty
 mkSaslProperty iam = SaslProperty {iam = iam}

@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.WAF.SizeConstraintSet.FieldToMatchProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SizeConstraintProperty
-  = SizeConstraintProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html>
+    SizeConstraintProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator>
+                            comparisonOperator :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-fieldtomatch>
                             fieldToMatch :: FieldToMatchProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-size>
                             size :: (Value Prelude.Integer),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-texttransformation>
                             textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintProperty ::

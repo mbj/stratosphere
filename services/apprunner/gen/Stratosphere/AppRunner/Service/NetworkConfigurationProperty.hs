@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.IngressConfigurationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {egressConfiguration :: (Prelude.Maybe EgressConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html>
+    NetworkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-egressconfiguration>
+                                  egressConfiguration :: (Prelude.Maybe EgressConfigurationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ingressconfiguration>
                                   ingressConfiguration :: (Prelude.Maybe IngressConfigurationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ipaddresstype>
                                   ipAddressType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty

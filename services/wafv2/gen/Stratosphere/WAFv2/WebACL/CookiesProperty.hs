@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CookieMatchPatternProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookiesProperty
-  = CookiesProperty {matchPattern :: CookieMatchPatternProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html>
+    CookiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchpattern>
+                     matchPattern :: CookieMatchPatternProperty,
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-matchscope>
                      matchScope :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html#cfn-wafv2-webacl-cookies-oversizehandling>
                      oversizeHandling :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCookiesProperty ::

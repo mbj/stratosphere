@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.S3ConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data InternetMeasurementsLogDeliveryProperty
-  = InternetMeasurementsLogDeliveryProperty {s3Config :: (Prelude.Maybe S3ConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html>
+    InternetMeasurementsLogDeliveryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery-s3config>
+                                             s3Config :: (Prelude.Maybe S3ConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInternetMeasurementsLogDeliveryProperty ::
   InternetMeasurementsLogDeliveryProperty

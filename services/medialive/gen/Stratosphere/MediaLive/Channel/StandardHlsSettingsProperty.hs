@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.M3u8SettingsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StandardHlsSettingsProperty
-  = StandardHlsSettingsProperty {audioRenditionSets :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html>
+    StandardHlsSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-audiorenditionsets>
+                                 audioRenditionSets :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html#cfn-medialive-channel-standardhlssettings-m3u8settings>
                                  m3u8Settings :: (Prelude.Maybe M3u8SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStandardHlsSettingsProperty :: StandardHlsSettingsProperty

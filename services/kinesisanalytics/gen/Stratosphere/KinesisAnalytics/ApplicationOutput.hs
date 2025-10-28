@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationOutput.OutputProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationOutput
-  = ApplicationOutput {applicationName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html>
+    ApplicationOutput {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html#cfn-kinesisanalytics-applicationoutput-applicationname>
+                       applicationName :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html#cfn-kinesisanalytics-applicationoutput-output>
                        output :: OutputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationOutput ::

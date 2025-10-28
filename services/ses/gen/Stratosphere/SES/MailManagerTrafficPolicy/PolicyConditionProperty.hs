@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressStringExp
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolExpressionProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyConditionProperty
-  = PolicyConditionProperty {booleanExpression :: (Prelude.Maybe IngressBooleanExpressionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html>
+    PolicyConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-booleanexpression>
+                             booleanExpression :: (Prelude.Maybe IngressBooleanExpressionProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipexpression>
                              ipExpression :: (Prelude.Maybe IngressIpv4ExpressionProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-stringexpression>
                              stringExpression :: (Prelude.Maybe IngressStringExpressionProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-tlsexpression>
                              tlsExpression :: (Prelude.Maybe IngressTlsProtocolExpressionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyConditionProperty :: PolicyConditionProperty

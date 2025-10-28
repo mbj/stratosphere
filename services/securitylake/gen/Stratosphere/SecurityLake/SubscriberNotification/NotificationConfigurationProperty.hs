@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SecurityLake.SubscriberNotification.HttpsNotificationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {httpsNotificationConfiguration :: (Prelude.Maybe HttpsNotificationConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-notificationconfiguration.html>
+    NotificationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-notificationconfiguration.html#cfn-securitylake-subscribernotification-notificationconfiguration-httpsnotificationconfiguration>
+                                       httpsNotificationConfiguration :: (Prelude.Maybe HttpsNotificationConfigurationProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-notificationconfiguration.html#cfn-securitylake-subscribernotification-notificationconfiguration-sqsnotificationconfiguration>
                                        sqsNotificationConfiguration :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::

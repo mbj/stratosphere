@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.PinpointEmail.ConfigurationSetEventDestination.DimensionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CloudWatchDestinationProperty
-  = CloudWatchDestinationProperty {dimensionConfigurations :: (Prelude.Maybe [DimensionConfigurationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-cloudwatchdestination.html>
+    CloudWatchDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-cloudwatchdestination.html#cfn-pinpointemail-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations>
+                                   dimensionConfigurations :: (Prelude.Maybe [DimensionConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchDestinationProperty :: CloudWatchDestinationProperty
 mkCloudWatchDestinationProperty

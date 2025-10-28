@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.CapacityRebalanceProperty as Exports
 import Stratosphere.ResourceProperties
 data MaintenanceStrategiesProperty
-  = MaintenanceStrategiesProperty {capacityRebalance :: (Prelude.Maybe CapacityRebalanceProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html>
+    MaintenanceStrategiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html#cfn-ec2-ec2fleet-maintenancestrategies-capacityrebalance>
+                                   capacityRebalance :: (Prelude.Maybe CapacityRebalanceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceStrategiesProperty :: MaintenanceStrategiesProperty
 mkMaintenanceStrategiesProperty

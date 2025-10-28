@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DNSSEC
-  = DNSSEC {hostedZoneId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html>
+    DNSSEC {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid>
+            hostedZoneId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDNSSEC :: Value Prelude.Text -> DNSSEC
 mkDNSSEC hostedZoneId = DNSSEC {hostedZoneId = hostedZoneId}

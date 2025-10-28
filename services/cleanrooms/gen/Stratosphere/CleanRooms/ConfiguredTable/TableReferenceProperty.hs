@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.GlueTableReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 data TableReferenceProperty
-  = TableReferenceProperty {glue :: GlueTableReferenceProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html>
+    TableReferenceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-glue>
+                            glue :: GlueTableReferenceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableReferenceProperty ::
   GlueTableReferenceProperty -> TableReferenceProperty

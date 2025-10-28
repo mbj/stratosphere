@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandCapacityReservationOptionsProperty
-  = OnDemandCapacityReservationOptionsProperty {capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html>
+    OnDemandCapacityReservationOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions-capacityreservationpreference>
+                                                capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions-capacityreservationresourcegrouparn>
                                                 capacityReservationResourceGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions-usagestrategy>
                                                 usageStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandCapacityReservationOptionsProperty ::

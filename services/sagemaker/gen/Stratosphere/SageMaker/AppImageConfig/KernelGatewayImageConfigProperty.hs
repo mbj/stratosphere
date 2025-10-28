@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.FileSystemConfigProp
 import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.KernelSpecProperty as Exports
 import Stratosphere.ResourceProperties
 data KernelGatewayImageConfigProperty
-  = KernelGatewayImageConfigProperty {fileSystemConfig :: (Prelude.Maybe FileSystemConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html>
+    KernelGatewayImageConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig>
+                                      fileSystemConfig :: (Prelude.Maybe FileSystemConfigProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs>
                                       kernelSpecs :: [KernelSpecProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayImageConfigProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RefreshCadenceProperty
-  = RefreshCadenceProperty {frequency :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-refreshcadence.html>
+    RefreshCadenceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-refreshcadence.html#cfn-bcmdataexports-export-refreshcadence-frequency>
+                            frequency :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshCadenceProperty ::
   Value Prelude.Text -> RefreshCadenceProperty

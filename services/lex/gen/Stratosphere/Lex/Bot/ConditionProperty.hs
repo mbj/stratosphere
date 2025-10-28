@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionProperty
-  = ConditionProperty {expressionString :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html>
+    ConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html#cfn-lex-bot-condition-expressionstring>
+                       expressionString :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: Value Prelude.Text -> ConditionProperty
 mkConditionProperty expressionString

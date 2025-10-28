@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioDolbyEDecodeProperty a
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioTrackProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioTrackSelectionProperty
-  = AudioTrackSelectionProperty {dolbyEDecode :: (Prelude.Maybe AudioDolbyEDecodeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html>
+    AudioTrackSelectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-dolbyedecode>
+                                 dolbyEDecode :: (Prelude.Maybe AudioDolbyEDecodeProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-tracks>
                                  tracks :: (Prelude.Maybe [AudioTrackProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioTrackSelectionProperty :: AudioTrackSelectionProperty

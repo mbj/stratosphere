@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.AutomationRule.AutomationRulesFin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutomationRulesActionProperty
-  = AutomationRulesActionProperty {findingFieldsUpdate :: AutomationRulesFindingFieldsUpdateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html>
+    AutomationRulesActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-findingfieldsupdate>
+                                   findingFieldsUpdate :: AutomationRulesFindingFieldsUpdateProperty,
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-type>
                                    type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutomationRulesActionProperty ::

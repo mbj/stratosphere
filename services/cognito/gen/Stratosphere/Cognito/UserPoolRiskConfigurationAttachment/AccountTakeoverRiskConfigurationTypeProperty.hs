@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.A
 import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountTakeoverRiskConfigurationTypeProperty
-  = AccountTakeoverRiskConfigurationTypeProperty {actions :: AccountTakeoverActionsTypeProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html>
+    AccountTakeoverRiskConfigurationTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions>
+                                                  actions :: AccountTakeoverActionsTypeProperty,
+                                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-notifyconfiguration>
                                                   notifyConfiguration :: (Prelude.Maybe NotifyConfigurationTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverRiskConfigurationTypeProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TLSInspectionConfigurationProperty
-  = TLSInspectionConfigurationProperty {serverCertificateConfigurations :: (Prelude.Maybe [ServerCertificateConfigurationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration.html>
+    TLSInspectionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration.html#cfn-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration-servercertificateconfigurations>
+                                        serverCertificateConfigurations :: (Prelude.Maybe [ServerCertificateConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTLSInspectionConfigurationProperty ::
   TLSInspectionConfigurationProperty

@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Backup.RestoreTestingSelection.KeyValueProperty as Exports
 import Stratosphere.ResourceProperties
 data ProtectedResourceConditionsProperty
-  = ProtectedResourceConditionsProperty {stringEquals :: (Prelude.Maybe [KeyValueProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-protectedresourceconditions.html>
+    ProtectedResourceConditionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-protectedresourceconditions.html#cfn-backup-restoretestingselection-protectedresourceconditions-stringequals>
+                                         stringEquals :: (Prelude.Maybe [KeyValueProperty]),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-protectedresourceconditions.html#cfn-backup-restoretestingselection-protectedresourceconditions-stringnotequals>
                                          stringNotEquals :: (Prelude.Maybe [KeyValueProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtectedResourceConditionsProperty ::

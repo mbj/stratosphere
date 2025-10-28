@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.EndpointsProperty as Exports
 import Stratosphere.ResourceProperties
 data SelfManagedEventSourceProperty
-  = SelfManagedEventSourceProperty {endpoints :: (Prelude.Maybe EndpointsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html>
+    SelfManagedEventSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints>
+                                    endpoints :: (Prelude.Maybe EndpointsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedEventSourceProperty :: SelfManagedEventSourceProperty
 mkSelfManagedEventSourceProperty

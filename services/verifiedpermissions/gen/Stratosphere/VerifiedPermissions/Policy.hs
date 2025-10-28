@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.PolicyDefinitionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Policy
-  = Policy {definition :: PolicyDefinitionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html>
+    Policy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-definition>
+            definition :: PolicyDefinitionProperty,
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid>
             policyStoreId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy ::

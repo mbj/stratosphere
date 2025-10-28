@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.PasswordPolicyProperty as Ex
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.SignInPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PoliciesProperty
-  = PoliciesProperty {passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html>
+    PoliciesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-passwordpolicy>
+                      passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-signinpolicy>
                       signInPolicy :: (Prelude.Maybe SignInPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty :: PoliciesProperty

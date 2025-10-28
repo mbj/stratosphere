@@ -12,12 +12,20 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.IngressGatewayBridgePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Bridge
-  = Bridge {egressGatewayBridge :: (Prelude.Maybe EgressGatewayBridgeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html>
+    Bridge {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-egressgatewaybridge>
+            egressGatewayBridge :: (Prelude.Maybe EgressGatewayBridgeProperty),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge>
             ingressGatewayBridge :: (Prelude.Maybe IngressGatewayBridgeProperty),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-name>
             name :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-outputs>
             outputs :: (Prelude.Maybe [BridgeOutputProperty]),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-placementarn>
             placementArn :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-sourcefailoverconfig>
             sourceFailoverConfig :: (Prelude.Maybe FailoverConfigProperty),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-sources>
             sources :: [BridgeSourceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridge ::

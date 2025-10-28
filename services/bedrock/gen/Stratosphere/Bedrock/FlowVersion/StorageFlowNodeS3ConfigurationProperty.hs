@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageFlowNodeS3ConfigurationProperty
-  = StorageFlowNodeS3ConfigurationProperty {bucketName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodes3configuration.html>
+    StorageFlowNodeS3ConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodes3configuration.html#cfn-bedrock-flowversion-storageflownodes3configuration-bucketname>
+                                            bucketName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageFlowNodeS3ConfigurationProperty ::
   Value Prelude.Text -> StorageFlowNodeS3ConfigurationProperty

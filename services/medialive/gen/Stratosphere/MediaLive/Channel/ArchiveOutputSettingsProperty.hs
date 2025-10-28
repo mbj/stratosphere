@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ArchiveContainerSettingsPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveOutputSettingsProperty
-  = ArchiveOutputSettingsProperty {containerSettings :: (Prelude.Maybe ArchiveContainerSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html>
+    ArchiveOutputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-containersettings>
+                                   containerSettings :: (Prelude.Maybe ArchiveContainerSettingsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-extension>
                                    extension :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html#cfn-medialive-channel-archiveoutputsettings-namemodifier>
                                    nameModifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveOutputSettingsProperty :: ArchiveOutputSettingsProperty

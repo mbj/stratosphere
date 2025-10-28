@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleW
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficConfigProperty
-  = TrafficConfigProperty {singleHeaderConfig :: (Prelude.Maybe SingleHeaderConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html>
+    TrafficConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-singleheaderconfig>
+                           singleHeaderConfig :: (Prelude.Maybe SingleHeaderConfigProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-singleweightconfig>
                            singleWeightConfig :: (Prelude.Maybe SingleWeightConfigProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficConfigProperty ::

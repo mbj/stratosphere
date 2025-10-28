@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.ContentTransformat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformationConfigurationProperty
-  = TransformationConfigurationProperty {actions :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html>
+    TransformationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions>
+                                         actions :: (ValueList Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation>
                                          contentTransformation :: ContentTransformationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformationConfigurationProperty ::

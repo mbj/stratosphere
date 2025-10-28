@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormQuestion
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormItemProperty
-  = EvaluationFormItemProperty {question :: (Prelude.Maybe EvaluationFormQuestionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitem.html>
+    EvaluationFormItemProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitem.html#cfn-connect-evaluationform-evaluationformitem-question>
+                                question :: (Prelude.Maybe EvaluationFormQuestionProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitem.html#cfn-connect-evaluationform-evaluationformitem-section>
                                 section :: (Prelude.Maybe EvaluationFormSectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormItemProperty :: EvaluationFormItemProperty

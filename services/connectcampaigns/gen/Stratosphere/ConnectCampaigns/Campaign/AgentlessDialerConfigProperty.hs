@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentlessDialerConfigProperty
-  = AgentlessDialerConfigProperty {dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html>
+    AgentlessDialerConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html#cfn-connectcampaigns-campaign-agentlessdialerconfig-dialingcapacity>
+                                   dialingCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentlessDialerConfigProperty :: AgentlessDialerConfigProperty
 mkAgentlessDialerConfigProperty

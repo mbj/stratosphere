@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data ChallengeActionProperty
-  = ChallengeActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeaction.html>
+    ChallengeActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeaction.html#cfn-wafv2-webacl-challengeaction-customrequesthandling>
+                             customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChallengeActionProperty :: ChallengeActionProperty
 mkChallengeActionProperty

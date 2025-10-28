@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SSO.PermissionSet.CustomerManagedPolicyRefere
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PermissionsBoundaryProperty
-  = PermissionsBoundaryProperty {customerManagedPolicyReference :: (Prelude.Maybe CustomerManagedPolicyReferenceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html>
+    PermissionsBoundaryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html#cfn-sso-permissionset-permissionsboundary-customermanagedpolicyreference>
+                                 customerManagedPolicyReference :: (Prelude.Maybe CustomerManagedPolicyReferenceProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html#cfn-sso-permissionset-permissionsboundary-managedpolicyarn>
                                  managedPolicyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissionsBoundaryProperty :: PermissionsBoundaryProperty

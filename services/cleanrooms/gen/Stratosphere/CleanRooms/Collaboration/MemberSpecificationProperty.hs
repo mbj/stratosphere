@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.Collaboration.PaymentConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberSpecificationProperty
-  = MemberSpecificationProperty {accountId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html>
+    MemberSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-accountid>
+                                 accountId :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-displayname>
                                  displayName :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities>
                                  memberAbilities :: (ValueList Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-paymentconfiguration>
                                  paymentConfiguration :: (Prelude.Maybe PaymentConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberSpecificationProperty ::

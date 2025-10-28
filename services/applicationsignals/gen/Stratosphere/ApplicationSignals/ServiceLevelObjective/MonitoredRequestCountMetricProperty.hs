@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoredRequestCountMetricProperty
-  = MonitoredRequestCountMetricProperty {badCountMetric :: (Prelude.Maybe [MetricDataQueryProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html>
+    MonitoredRequestCountMetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html#cfn-applicationsignals-servicelevelobjective-monitoredrequestcountmetric-badcountmetric>
+                                         badCountMetric :: (Prelude.Maybe [MetricDataQueryProperty]),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html#cfn-applicationsignals-servicelevelobjective-monitoredrequestcountmetric-goodcountmetric>
                                          goodCountMetric :: (Prelude.Maybe [MetricDataQueryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoredRequestCountMetricProperty ::

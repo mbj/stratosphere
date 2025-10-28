@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.AnswerMachineDete
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TelephonyOutboundConfigProperty
-  = TelephonyOutboundConfigProperty {answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html>
+    TelephonyOutboundConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-answermachinedetectionconfig>
+                                     answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectcontactflowid>
                                      connectContactFlowId :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectsourcephonenumber>
                                      connectSourcePhoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTelephonyOutboundConfigProperty ::

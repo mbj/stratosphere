@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Hdr10SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data VideoSelectorColorSpaceSettingsProperty
-  = VideoSelectorColorSpaceSettingsProperty {hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html>
+    VideoSelectorColorSpaceSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html#cfn-medialive-channel-videoselectorcolorspacesettings-hdr10settings>
+                                             hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorColorSpaceSettingsProperty ::
   VideoSelectorColorSpaceSettingsProperty

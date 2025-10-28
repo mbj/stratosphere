@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoogleAnalyticsSourcePropertiesProperty
-  = GoogleAnalyticsSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html>
+    GoogleAnalyticsSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object>
+                                             object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleAnalyticsSourcePropertiesProperty ::
   Value Prelude.Text -> GoogleAnalyticsSourcePropertiesProperty

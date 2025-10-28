@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.RuleCondi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerRule
-  = ListenerRule {actions :: [ActionProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html>
+    ListenerRule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions>
+                  actions :: [ActionProperty],
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions>
                   conditions :: [RuleConditionProperty],
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn>
                   listenerArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority>
                   priority :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerRule ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.FleetLaunchTemplateSpecificatio
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.LaunchTemplateOverridesProperty as Exports
 import Stratosphere.ResourceProperties
 data LaunchTemplateConfigProperty
-  = LaunchTemplateConfigProperty {launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html>
+    LaunchTemplateConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification>
+                                  launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides>
                                   overrides :: (Prelude.Maybe [LaunchTemplateOverridesProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateConfigProperty :: LaunchTemplateConfigProperty

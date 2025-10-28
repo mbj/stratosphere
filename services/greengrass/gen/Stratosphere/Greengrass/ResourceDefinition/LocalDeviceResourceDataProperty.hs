@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.GroupOwnerSetti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalDeviceResourceDataProperty
-  = LocalDeviceResourceDataProperty {groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html>
+    LocalDeviceResourceDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html#cfn-greengrass-resourcedefinition-localdeviceresourcedata-groupownersetting>
+                                     groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html#cfn-greengrass-resourcedefinition-localdeviceresourcedata-sourcepath>
                                      sourcePath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalDeviceResourceDataProperty ::

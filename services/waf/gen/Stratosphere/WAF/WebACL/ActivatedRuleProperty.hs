@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.WAF.WebACL.WafActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActivatedRuleProperty
-  = ActivatedRuleProperty {action :: (Prelude.Maybe WafActionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html>
+    ActivatedRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-action>
+                           action :: (Prelude.Maybe WafActionProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority>
                            priority :: (Value Prelude.Integer),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-ruleid>
                            ruleId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActivatedRuleProperty ::

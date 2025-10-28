@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3Outposts.Bucket.FilterTagProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterAndOperatorProperty
-  = FilterAndOperatorProperty {prefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html>
+    FilterAndOperatorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html#cfn-s3outposts-bucket-filterandoperator-prefix>
+                               prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html#cfn-s3outposts-bucket-filterandoperator-tags>
                                tags :: [FilterTagProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterAndOperatorProperty ::

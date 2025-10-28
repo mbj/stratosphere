@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AclConfigurationProperty
-  = AclConfigurationProperty {allowedGroupsColumnName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html>
+    AclConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname>
+                              allowedGroupsColumnName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAclConfigurationProperty ::
   Value Prelude.Text -> AclConfigurationProperty

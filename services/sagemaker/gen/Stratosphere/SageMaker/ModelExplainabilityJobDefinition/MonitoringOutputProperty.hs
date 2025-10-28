@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.S3OutputProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringOutputProperty
-  = MonitoringOutputProperty {s3Output :: S3OutputProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html>
+    MonitoringOutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output>
+                              s3Output :: S3OutputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputProperty ::
   S3OutputProperty -> MonitoringOutputProperty

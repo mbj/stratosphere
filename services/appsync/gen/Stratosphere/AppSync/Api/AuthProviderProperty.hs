@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppSync.Api.OpenIDConnectConfigProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthProviderProperty
-  = AuthProviderProperty {authType :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html>
+    AuthProviderProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-authtype>
+                          authType :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-cognitoconfig>
                           cognitoConfig :: (Prelude.Maybe CognitoConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-lambdaauthorizerconfig>
                           lambdaAuthorizerConfig :: (Prelude.Maybe LambdaAuthorizerConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-openidconnectconfig>
                           openIDConnectConfig :: (Prelude.Maybe OpenIDConnectConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthProviderProperty ::

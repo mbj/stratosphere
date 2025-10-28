@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobRateIncreaseCri
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IoTJobExponentialRolloutRateProperty
-  = IoTJobExponentialRolloutRateProperty {baseRatePerMinute :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html>
+    IoTJobExponentialRolloutRateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html#cfn-greengrassv2-deployment-iotjobexponentialrolloutrate-baserateperminute>
+                                          baseRatePerMinute :: (Value Prelude.Integer),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html#cfn-greengrassv2-deployment-iotjobexponentialrolloutrate-incrementfactor>
                                           incrementFactor :: (Value Prelude.Double),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html#cfn-greengrassv2-deployment-iotjobexponentialrolloutrate-rateincreasecriteria>
                                           rateIncreaseCriteria :: IoTJobRateIncreaseCriteriaProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobExponentialRolloutRateProperty ::

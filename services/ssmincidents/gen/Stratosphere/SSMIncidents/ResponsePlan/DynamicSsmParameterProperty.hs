@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.DynamicSsmParameter
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamicSsmParameterProperty
-  = DynamicSsmParameterProperty {key :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html>
+    DynamicSsmParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-key>
+                                 key :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html#cfn-ssmincidents-responseplan-dynamicssmparameter-value>
                                  value :: DynamicSsmParameterValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicSsmParameterProperty ::

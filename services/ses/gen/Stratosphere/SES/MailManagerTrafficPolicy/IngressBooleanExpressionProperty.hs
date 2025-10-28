@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanTo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressBooleanExpressionProperty
-  = IngressBooleanExpressionProperty {evaluate :: IngressBooleanToEvaluateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html>
+    IngressBooleanExpressionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleanexpression-evaluate>
+                                      evaluate :: IngressBooleanToEvaluateProperty,
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleanexpression-operator>
                                       operator :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressBooleanExpressionProperty ::

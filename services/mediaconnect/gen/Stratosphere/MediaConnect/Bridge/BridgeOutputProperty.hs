@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.BridgeNetworkOutputProperty as Exports
 import Stratosphere.ResourceProperties
 data BridgeOutputProperty
-  = BridgeOutputProperty {networkOutput :: (Prelude.Maybe BridgeNetworkOutputProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html>
+    BridgeOutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html#cfn-mediaconnect-bridge-bridgeoutput-networkoutput>
+                          networkOutput :: (Prelude.Maybe BridgeNetworkOutputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeOutputProperty :: BridgeOutputProperty
 mkBridgeOutputProperty

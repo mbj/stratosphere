@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.NfsMountOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data NFSProperty
-  = NFSProperty {mountOptions :: NfsMountOptionsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfs.html>
+    NFSProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfs.html#cfn-datasync-locationfsxontap-nfs-mountoptions>
+                 mountOptions :: NfsMountOptionsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNFSProperty :: NfsMountOptionsProperty -> NFSProperty
 mkNFSProperty mountOptions

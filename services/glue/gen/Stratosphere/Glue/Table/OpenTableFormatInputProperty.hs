@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.Table.IcebergInputProperty as Exports
 import Stratosphere.ResourceProperties
 data OpenTableFormatInputProperty
-  = OpenTableFormatInputProperty {icebergInput :: (Prelude.Maybe IcebergInputProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html>
+    OpenTableFormatInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html#cfn-glue-table-opentableformatinput-iceberginput>
+                                  icebergInput :: (Prelude.Maybe IcebergInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenTableFormatInputProperty :: OpenTableFormatInputProperty
 mkOpenTableFormatInputProperty

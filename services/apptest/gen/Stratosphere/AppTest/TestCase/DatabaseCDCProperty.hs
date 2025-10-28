@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.SourceDatabaseMetadataProper
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.TargetDatabaseMetadataProperty as Exports
 import Stratosphere.ResourceProperties
 data DatabaseCDCProperty
-  = DatabaseCDCProperty {sourceMetadata :: SourceDatabaseMetadataProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-databasecdc.html>
+    DatabaseCDCProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-databasecdc.html#cfn-apptest-testcase-databasecdc-sourcemetadata>
+                         sourceMetadata :: SourceDatabaseMetadataProperty,
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-databasecdc.html#cfn-apptest-testcase-databasecdc-targetmetadata>
                          targetMetadata :: TargetDatabaseMetadataProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseCDCProperty ::

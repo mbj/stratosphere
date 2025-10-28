@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.TaskPropertiesObjectProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskProperty
-  = TaskProperty {connectorOperator :: (Prelude.Maybe ConnectorOperatorProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html>
+    TaskProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator>
+                  connectorOperator :: (Prelude.Maybe ConnectorOperatorProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield>
                   destinationField :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields>
                   sourceFields :: (ValueList Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties>
                   taskProperties :: (Prelude.Maybe [TaskPropertiesObjectProperty]),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype>
                   taskType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskProperty ::

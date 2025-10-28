@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.IPSetReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 data ReferenceSetsProperty
-  = ReferenceSetsProperty {iPSetReferences :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetReferenceProperty))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html>
+    ReferenceSetsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html#cfn-networkfirewall-rulegroup-referencesets-ipsetreferences>
+                           iPSetReferences :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetReferenceProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSetsProperty :: ReferenceSetsProperty
 mkReferenceSetsProperty

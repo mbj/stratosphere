@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.IntegerDatasetParameterPro
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.StringDatasetParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data DatasetParameterProperty
-  = DatasetParameterProperty {dateTimeDatasetParameter :: (Prelude.Maybe DateTimeDatasetParameterProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html>
+    DatasetParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-datetimedatasetparameter>
+                              dateTimeDatasetParameter :: (Prelude.Maybe DateTimeDatasetParameterProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-decimaldatasetparameter>
                               decimalDatasetParameter :: (Prelude.Maybe DecimalDatasetParameterProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-integerdatasetparameter>
                               integerDatasetParameter :: (Prelude.Maybe IntegerDatasetParameterProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html#cfn-quicksight-dataset-datasetparameter-stringdatasetparameter>
                               stringDatasetParameter :: (Prelude.Maybe StringDatasetParameterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetParameterProperty :: DatasetParameterProperty

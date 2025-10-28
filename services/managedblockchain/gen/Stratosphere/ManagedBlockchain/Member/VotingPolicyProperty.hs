@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.ApprovalThresholdPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data VotingPolicyProperty
-  = VotingPolicyProperty {approvalThresholdPolicy :: (Prelude.Maybe ApprovalThresholdPolicyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html>
+    VotingPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html#cfn-managedblockchain-member-votingpolicy-approvalthresholdpolicy>
+                          approvalThresholdPolicy :: (Prelude.Maybe ApprovalThresholdPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVotingPolicyProperty :: VotingPolicyProperty
 mkVotingPolicyProperty

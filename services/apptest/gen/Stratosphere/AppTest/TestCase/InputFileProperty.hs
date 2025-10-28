@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.FileMetadataProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputFileProperty
-  = InputFileProperty {fileMetadata :: FileMetadataProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-inputfile.html>
+    InputFileProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-inputfile.html#cfn-apptest-testcase-inputfile-filemetadata>
+                       fileMetadata :: FileMetadataProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-inputfile.html#cfn-apptest-testcase-inputfile-sourcelocation>
                        sourceLocation :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-inputfile.html#cfn-apptest-testcase-inputfile-targetlocation>
                        targetLocation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFileProperty ::

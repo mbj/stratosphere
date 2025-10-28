@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data ResourceGroup
-  = ResourceGroup {resourceGroupTags :: [Tag]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html>
+    ResourceGroup {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags>
+                   resourceGroupTags :: [Tag]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceGroup :: [Tag] -> ResourceGroup
 mkResourceGroup resourceGroupTags

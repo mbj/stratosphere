@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationRuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {role :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html>
+    ReplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role>
+                                      role :: (Value Prelude.Text),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules>
                                       rules :: [ReplicationRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxOpenZFS.NFSProperty as Exports
 import Stratosphere.ResourceProperties
 data ProtocolProperty
-  = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html>
+    ProtocolProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html#cfn-datasync-locationfsxopenzfs-protocol-nfs>
+                      nFS :: (Prelude.Maybe NFSProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolProperty :: ProtocolProperty
 mkProtocolProperty = ProtocolProperty {nFS = Prelude.Nothing}

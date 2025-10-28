@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationCont
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNamesProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerTlsValidationContextProperty
-  = ListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html>
+    ListenerTlsValidationContextProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-subjectalternativenames>
+                                          subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html#cfn-appmesh-virtualnode-listenertlsvalidationcontext-trust>
                                           trust :: ListenerTlsValidationContextTrustProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsValidationContextProperty ::

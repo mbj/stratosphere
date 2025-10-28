@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty as Exports
 import Stratosphere.ResourceProperties
 data DailyScheduleProperty
-  = DailyScheduleProperty {startTime :: TimeProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html>
+    DailyScheduleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html#cfn-inspectorv2-cisscanconfiguration-dailyschedule-starttime>
+                           startTime :: TimeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDailyScheduleProperty :: TimeProperty -> DailyScheduleProperty
 mkDailyScheduleProperty startTime

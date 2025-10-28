@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.ParameterConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityControlCustomParameterProperty
-  = SecurityControlCustomParameterProperty {parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterConfigurationProperty)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html>
+    SecurityControlCustomParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html#cfn-securityhub-configurationpolicy-securitycontrolcustomparameter-parameters>
+                                            parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterConfigurationProperty)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html#cfn-securityhub-configurationpolicy-securitycontrolcustomparameter-securitycontrolid>
                                             securityControlId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityControlCustomParameterProperty ::

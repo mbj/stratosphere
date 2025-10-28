@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationReferenceDataSource
-  = ApplicationReferenceDataSource {applicationName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html>
+    ApplicationReferenceDataSource {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-applicationname>
+                                    applicationName :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource>
                                     referenceDataSource :: ReferenceDataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationReferenceDataSource ::

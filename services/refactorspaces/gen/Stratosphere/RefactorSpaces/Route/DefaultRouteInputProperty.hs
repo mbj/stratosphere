@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultRouteInputProperty
-  = DefaultRouteInputProperty {activationState :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-defaultrouteinput.html>
+    DefaultRouteInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-defaultrouteinput.html#cfn-refactorspaces-route-defaultrouteinput-activationstate>
+                               activationState :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultRouteInputProperty ::
   Value Prelude.Text -> DefaultRouteInputProperty

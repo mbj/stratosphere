@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DialogStateProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultConditionalBranchProperty
-  = DefaultConditionalBranchProperty {nextStep :: (Prelude.Maybe DialogStateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html>
+    DefaultConditionalBranchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-nextstep>
+                                      nextStep :: (Prelude.Maybe DialogStateProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html#cfn-lex-bot-defaultconditionalbranch-response>
                                       response :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultConditionalBranchProperty ::

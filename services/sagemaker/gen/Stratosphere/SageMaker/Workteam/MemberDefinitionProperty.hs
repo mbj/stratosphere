@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Workteam.CognitoMemberDefinitionPro
 import {-# SOURCE #-} Stratosphere.SageMaker.Workteam.OidcMemberDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data MemberDefinitionProperty
-  = MemberDefinitionProperty {cognitoMemberDefinition :: (Prelude.Maybe CognitoMemberDefinitionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>
+    MemberDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition>
+                              cognitoMemberDefinition :: (Prelude.Maybe CognitoMemberDefinitionProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-oidcmemberdefinition>
                               oidcMemberDefinition :: (Prelude.Maybe OidcMemberDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberDefinitionProperty :: MemberDefinitionProperty

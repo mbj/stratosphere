@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.PatternObjectFilterConfigu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrawlFilterConfigurationProperty
-  = CrawlFilterConfigurationProperty {patternObjectFilter :: (Prelude.Maybe PatternObjectFilterConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html>
+    CrawlFilterConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html#cfn-bedrock-datasource-crawlfilterconfiguration-patternobjectfilter>
+                                      patternObjectFilter :: (Prelude.Maybe PatternObjectFilterConfigurationProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html#cfn-bedrock-datasource-crawlfilterconfiguration-type>
                                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrawlFilterConfigurationProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.GuardHook.StackRolesProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackFiltersProperty
-  = StackFiltersProperty {filteringCriteria :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html>
+    StackFiltersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-filteringcriteria>
+                          filteringCriteria :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stacknames>
                           stackNames :: (Prelude.Maybe StackNamesProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stackroles>
                           stackRoles :: (Prelude.Maybe StackRolesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackFiltersProperty ::

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.AppStream.AppBlock.S3LocationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptDetailsProperty
-  = ScriptDetailsProperty {executableParameters :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html>
+    ScriptDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executableparameters>
+                           executableParameters :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-executablepath>
                            executablePath :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-scripts3location>
                            scriptS3Location :: S3LocationProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html#cfn-appstream-appblock-scriptdetails-timeoutinseconds>
                            timeoutInSeconds :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptDetailsProperty ::

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.CoordinatesProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GPSPointProperty
-  = GPSPointProperty {coordinates :: CoordinatesProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html>
+    GPSPointProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates>
+                      coordinates :: CoordinatesProperty,
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint-rangeinkilometers>
                       rangeInKilometers :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGPSPointProperty ::

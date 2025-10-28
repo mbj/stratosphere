@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.KmsEncryptionConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data SseConfigurationProperty
-  = SseConfigurationProperty {kmsEncryptionConfig :: KmsEncryptionConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html>
+    SseConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html#cfn-healthlake-fhirdatastore-sseconfiguration-kmsencryptionconfig>
+                              kmsEncryptionConfig :: KmsEncryptionConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSseConfigurationProperty ::
   KmsEncryptionConfigProperty -> SseConfigurationProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppIntegrations.Application.ExternalUrlConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ApplicationSourceConfigProperty
-  = ApplicationSourceConfigProperty {externalUrlConfig :: ExternalUrlConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html>
+    ApplicationSourceConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html#cfn-appintegrations-application-applicationsourceconfig-externalurlconfig>
+                                     externalUrlConfig :: ExternalUrlConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSourceConfigProperty ::
   ExternalUrlConfigProperty -> ApplicationSourceConfigProperty

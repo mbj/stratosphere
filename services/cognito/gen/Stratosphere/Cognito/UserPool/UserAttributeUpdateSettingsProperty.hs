@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserAttributeUpdateSettingsProperty
-  = UserAttributeUpdateSettingsProperty {attributesRequireVerificationBeforeUpdate :: (ValueList Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userattributeupdatesettings.html>
+    UserAttributeUpdateSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userattributeupdatesettings.html#cfn-cognito-userpool-userattributeupdatesettings-attributesrequireverificationbeforeupdate>
+                                         attributesRequireVerificationBeforeUpdate :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserAttributeUpdateSettingsProperty ::
   ValueList Prelude.Text -> UserAttributeUpdateSettingsProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteHostnameRewriteProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcGatewayRouteRewriteProperty
-  = GrpcGatewayRouteRewriteProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html>
+    GrpcGatewayRouteRewriteProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html#cfn-appmesh-gatewayroute-grpcgatewayrouterewrite-hostname>
+                                     hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteRewriteProperty ::
   GrpcGatewayRouteRewriteProperty

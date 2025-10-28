@@ -12,10 +12,16 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.OAuth2CredentialsPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomConnectorProfileCredentialsProperty
-  = CustomConnectorProfileCredentialsProperty {apiKey :: (Prelude.Maybe ApiKeyCredentialsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html>
+    CustomConnectorProfileCredentialsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-apikey>
+                                               apiKey :: (Prelude.Maybe ApiKeyCredentialsProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-authenticationtype>
                                                authenticationType :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-basic>
                                                basic :: (Prelude.Maybe BasicAuthCredentialsProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-custom>
                                                custom :: (Prelude.Maybe CustomAuthCredentialsProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html#cfn-appflow-connectorprofile-customconnectorprofilecredentials-oauth2>
                                                oauth2 :: (Prelude.Maybe OAuth2CredentialsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorProfileCredentialsProperty ::

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitPushFilterProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitConfigurationProperty
-  = GitConfigurationProperty {pullRequest :: (Prelude.Maybe [GitPullRequestFilterProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html>
+    GitConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-pullrequest>
+                              pullRequest :: (Prelude.Maybe [GitPullRequestFilterProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-push>
                               push :: (Prelude.Maybe [GitPushFilterProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-sourceactionname>
                               sourceActionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitConfigurationProperty ::

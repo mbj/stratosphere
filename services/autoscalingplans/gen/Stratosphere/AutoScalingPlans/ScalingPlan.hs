@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ApplicationSourc
 import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ScalingInstructionProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingPlan
-  = ScalingPlan {applicationSource :: ApplicationSourceProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html>
+    ScalingPlan {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource>
+                 applicationSource :: ApplicationSourceProperty,
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions>
                  scalingInstructions :: [ScalingInstructionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPlan ::

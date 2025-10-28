@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DocumentAttributeConditionP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HookConfigurationProperty
-  = HookConfigurationProperty {invocationCondition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html>
+    HookConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-invocationcondition>
+                               invocationCondition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-lambdaarn>
                                lambdaArn :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-s3bucket>
                                s3Bucket :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHookConfigurationProperty ::

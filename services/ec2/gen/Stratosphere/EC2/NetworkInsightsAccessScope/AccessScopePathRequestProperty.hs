@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.PathStatementR
 import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.ThroughResourcesStatementRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessScopePathRequestProperty
-  = AccessScopePathRequestProperty {destination :: (Prelude.Maybe PathStatementRequestProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html>
+    AccessScopePathRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-destination>
+                                    destination :: (Prelude.Maybe PathStatementRequestProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-source>
                                     source :: (Prelude.Maybe PathStatementRequestProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html#cfn-ec2-networkinsightsaccessscope-accessscopepathrequest-throughresources>
                                     throughResources :: (Prelude.Maybe [ThroughResourcesStatementRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessScopePathRequestProperty :: AccessScopePathRequestProperty

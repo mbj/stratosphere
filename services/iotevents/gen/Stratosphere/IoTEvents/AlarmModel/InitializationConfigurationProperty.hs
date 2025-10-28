@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitializationConfigurationProperty
-  = InitializationConfigurationProperty {disabledOnInitialization :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html>
+    InitializationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html#cfn-iotevents-alarmmodel-initializationconfiguration-disabledoninitialization>
+                                         disabledOnInitialization :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitializationConfigurationProperty ::
   Value Prelude.Bool -> InitializationConfigurationProperty

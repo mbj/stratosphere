@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.UploadSettingsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3SourceProperty
-  = S3SourceProperty {dataSourceArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html>
+    S3SourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn>
+                      dataSourceArn :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns>
                       inputColumns :: [InputColumnProperty],
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings>
                       uploadSettings :: (Prelude.Maybe UploadSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourceProperty ::

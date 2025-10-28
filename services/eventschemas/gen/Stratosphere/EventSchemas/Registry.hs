@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.EventSchemas.Registry.TagsEntryProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Registry
-  = Registry {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html>
+    Registry {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-registryname>
               registryName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-tags>
               tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistry :: Registry

@@ -15,17 +15,30 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.RetrievalFlowNodeConfigur
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.StorageFlowNodeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FlowNodeConfigurationProperty
-  = FlowNodeConfigurationProperty {agent :: (Prelude.Maybe AgentFlowNodeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html>
+    FlowNodeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-agent>
+                                   agent :: (Prelude.Maybe AgentFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-collector>
                                    collector :: (Prelude.Maybe JSON.Object),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-condition>
                                    condition :: (Prelude.Maybe ConditionFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-input>
                                    input :: (Prelude.Maybe JSON.Object),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-iterator>
                                    iterator :: (Prelude.Maybe JSON.Object),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-knowledgebase>
                                    knowledgeBase :: (Prelude.Maybe KnowledgeBaseFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-lambdafunction>
                                    lambdaFunction :: (Prelude.Maybe LambdaFunctionFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-lex>
                                    lex :: (Prelude.Maybe LexFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-output>
                                    output :: (Prelude.Maybe JSON.Object),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-prompt>
                                    prompt :: (Prelude.Maybe PromptFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-retrieval>
                                    retrieval :: (Prelude.Maybe RetrievalFlowNodeConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-storage>
                                    storage :: (Prelude.Maybe StorageFlowNodeConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowNodeConfigurationProperty :: FlowNodeConfigurationProperty

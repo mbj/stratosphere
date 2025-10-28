@@ -12,11 +12,18 @@ import {-# SOURCE #-} Stratosphere.SES.EmailIdentity.MailFromAttributesProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EmailIdentity
-  = EmailIdentity {configurationSetAttributes :: (Prelude.Maybe ConfigurationSetAttributesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html>
+    EmailIdentity {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-configurationsetattributes>
+                   configurationSetAttributes :: (Prelude.Maybe ConfigurationSetAttributesProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-dkimattributes>
                    dkimAttributes :: (Prelude.Maybe DkimAttributesProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-dkimsigningattributes>
                    dkimSigningAttributes :: (Prelude.Maybe DkimSigningAttributesProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-emailidentity>
                    emailIdentity :: (Value Prelude.Text),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-feedbackattributes>
                    feedbackAttributes :: (Prelude.Maybe FeedbackAttributesProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-mailfromattributes>
                    mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailIdentity :: Value Prelude.Text -> EmailIdentity

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.PredictiveDialerCon
 import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.ProgressiveDialerConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data DialerConfigProperty
-  = DialerConfigProperty {agentlessDialerConfig :: (Prelude.Maybe AgentlessDialerConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html>
+    DialerConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-agentlessdialerconfig>
+                          agentlessDialerConfig :: (Prelude.Maybe AgentlessDialerConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-predictivedialerconfig>
                           predictiveDialerConfig :: (Prelude.Maybe PredictiveDialerConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html#cfn-connectcampaigns-campaign-dialerconfig-progressivedialerconfig>
                           progressiveDialerConfig :: (Prelude.Maybe ProgressiveDialerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialerConfigProperty :: DialerConfigProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeEnrichmentHttpParametersProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeEnrichmentParametersProperty
-  = PipeEnrichmentParametersProperty {httpParameters :: (Prelude.Maybe PipeEnrichmentHttpParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html>
+    PipeEnrichmentParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html#cfn-pipes-pipe-pipeenrichmentparameters-httpparameters>
+                                      httpParameters :: (Prelude.Maybe PipeEnrichmentHttpParametersProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html#cfn-pipes-pipe-pipeenrichmentparameters-inputtemplate>
                                       inputTemplate :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeEnrichmentParametersProperty ::

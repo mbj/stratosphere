@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ArchiveRetainRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data ArchiveRuleProperty
-  = ArchiveRuleProperty {retainRule :: ArchiveRetainRuleProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiverule.html>
+    ArchiveRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiverule.html#cfn-dlm-lifecyclepolicy-archiverule-retainrule>
+                         retainRule :: ArchiveRetainRuleProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRuleProperty ::
   ArchiveRetainRuleProperty -> ArchiveRuleProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.CachePolicy.CachePolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data CachePolicy
-  = CachePolicy {cachePolicyConfig :: CachePolicyConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html>
+    CachePolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig>
+                 cachePolicyConfig :: CachePolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCachePolicy :: CachePolicyConfigProperty -> CachePolicy
 mkCachePolicy cachePolicyConfig

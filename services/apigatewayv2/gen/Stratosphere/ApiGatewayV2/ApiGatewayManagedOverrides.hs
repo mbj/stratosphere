@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.Stage
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiGatewayManagedOverrides
-  = ApiGatewayManagedOverrides {apiId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html>
+    ApiGatewayManagedOverrides {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-apiid>
+                                apiId :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integration>
                                 integration :: (Prelude.Maybe IntegrationOverridesProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-route>
                                 route :: (Prelude.Maybe RouteOverridesProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-stage>
                                 stage :: (Prelude.Maybe StageOverridesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiGatewayManagedOverrides ::

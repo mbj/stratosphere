@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterEncryptionInTransitProperty
-  = KafkaClusterEncryptionInTransitProperty {encryptionType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html>
+    KafkaClusterEncryptionInTransitProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit-encryptiontype>
+                                             encryptionType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterEncryptionInTransitProperty ::
   Value Prelude.Text -> KafkaClusterEncryptionInTransitProperty

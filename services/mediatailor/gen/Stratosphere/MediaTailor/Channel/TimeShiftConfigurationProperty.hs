@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeShiftConfigurationProperty
-  = TimeShiftConfigurationProperty {maxTimeDelaySeconds :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-timeshiftconfiguration.html>
+    TimeShiftConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-timeshiftconfiguration.html#cfn-mediatailor-channel-timeshiftconfiguration-maxtimedelayseconds>
+                                    maxTimeDelaySeconds :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeShiftConfigurationProperty ::
   Value Prelude.Double -> TimeShiftConfigurationProperty

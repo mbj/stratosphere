@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Cassandra.Table.ScalingPolicyProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingSettingProperty
-  = AutoScalingSettingProperty {autoScalingDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html>
+    AutoScalingSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html#cfn-cassandra-table-autoscalingsetting-autoscalingdisabled>
+                                autoScalingDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html#cfn-cassandra-table-autoscalingsetting-maximumunits>
                                 maximumUnits :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html#cfn-cassandra-table-autoscalingsetting-minimumunits>
                                 minimumUnits :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html#cfn-cassandra-table-autoscalingsetting-scalingpolicy>
                                 scalingPolicy :: (Prelude.Maybe ScalingPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingSettingProperty :: AutoScalingSettingProperty

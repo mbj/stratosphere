@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowNodeOutputProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowNodeProperty
-  = FlowNodeProperty {configuration :: (Prelude.Maybe FlowNodeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html>
+    FlowNodeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html#cfn-bedrock-flow-flownode-configuration>
+                      configuration :: (Prelude.Maybe FlowNodeConfigurationProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html#cfn-bedrock-flow-flownode-inputs>
                       inputs :: (Prelude.Maybe [FlowNodeInputProperty]),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html#cfn-bedrock-flow-flownode-name>
                       name :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html#cfn-bedrock-flow-flownode-outputs>
                       outputs :: (Prelude.Maybe [FlowNodeOutputProperty]),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownode.html#cfn-bedrock-flow-flownode-type>
                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowNodeProperty ::

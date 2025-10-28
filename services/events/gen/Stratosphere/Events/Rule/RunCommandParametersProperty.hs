@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.RunCommandTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data RunCommandParametersProperty
-  = RunCommandParametersProperty {runCommandTargets :: [RunCommandTargetProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html>
+    RunCommandParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets>
+                                  runCommandTargets :: [RunCommandTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunCommandParametersProperty ::
   [RunCommandTargetProperty] -> RunCommandParametersProperty

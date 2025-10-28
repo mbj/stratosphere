@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.WorkerLogDeliveryProperty as Exports
 import Stratosphere.ResourceProperties
 data LogDeliveryProperty
-  = LogDeliveryProperty {workerLogDelivery :: WorkerLogDeliveryProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html>
+    LogDeliveryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html#cfn-kafkaconnect-connector-logdelivery-workerlogdelivery>
+                         workerLogDelivery :: WorkerLogDeliveryProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryProperty ::
   WorkerLogDeliveryProperty -> LogDeliveryProperty

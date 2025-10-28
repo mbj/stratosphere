@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.UplinkSpectrumConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AntennaUplinkConfigProperty
-  = AntennaUplinkConfigProperty {spectrumConfig :: (Prelude.Maybe UplinkSpectrumConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html>
+    AntennaUplinkConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig>
+                                 spectrumConfig :: (Prelude.Maybe UplinkSpectrumConfigProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp>
                                  targetEirp :: (Prelude.Maybe EirpProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled>
                                  transmitDisabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaUplinkConfigProperty :: AntennaUplinkConfigProperty

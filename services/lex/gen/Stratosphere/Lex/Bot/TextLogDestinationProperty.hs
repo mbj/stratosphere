@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.CloudWatchLogGroupLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data TextLogDestinationProperty
-  = TextLogDestinationProperty {cloudWatch :: CloudWatchLogGroupLogDestinationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogdestination.html>
+    TextLogDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogdestination.html#cfn-lex-bot-textlogdestination-cloudwatch>
+                                cloudWatch :: CloudWatchLogGroupLogDestinationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextLogDestinationProperty ::
   CloudWatchLogGroupLogDestinationProperty

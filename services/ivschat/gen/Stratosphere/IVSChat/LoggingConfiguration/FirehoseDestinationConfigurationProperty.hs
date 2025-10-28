@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseDestinationConfigurationProperty
-  = FirehoseDestinationConfigurationProperty {deliveryStreamName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html>
+    FirehoseDestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html#cfn-ivschat-loggingconfiguration-firehosedestinationconfiguration-deliverystreamname>
+                                              deliveryStreamName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseDestinationConfigurationProperty ::
   Value Prelude.Text -> FirehoseDestinationConfigurationProperty

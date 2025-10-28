@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data CountActionProperty
-  = CountActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html>
+    CountActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling>
+                         customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCountActionProperty :: CountActionProperty
 mkCountActionProperty

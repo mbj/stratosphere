@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.IAM.Group.PolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Group
-  = Group {groupName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html>
+    Group {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html#cfn-iam-group-groupname>
+           groupName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html#cfn-iam-group-managedpolicyarns>
            managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html#cfn-iam-group-path>
            path :: (Prelude.Maybe (Value Prelude.Text)),
+           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html#cfn-iam-group-policies>
            policies :: (Prelude.Maybe [PolicyProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Group

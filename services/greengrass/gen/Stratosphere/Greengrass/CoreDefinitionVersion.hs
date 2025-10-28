@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Greengrass.CoreDefinitionVersion.CoreProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreDefinitionVersion
-  = CoreDefinitionVersion {coreDefinitionId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html>
+    CoreDefinitionVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-coredefinitionid>
+                           coreDefinitionId :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html#cfn-greengrass-coredefinitionversion-cores>
                            cores :: [CoreProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinitionVersion ::

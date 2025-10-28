@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.CsvOutputOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputFormatOptionsProperty
-  = OutputFormatOptionsProperty {csv :: (Prelude.Maybe CsvOutputOptionsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html>
+    OutputFormatOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv>
+                                 csv :: (Prelude.Maybe CsvOutputOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFormatOptionsProperty :: OutputFormatOptionsProperty
 mkOutputFormatOptionsProperty

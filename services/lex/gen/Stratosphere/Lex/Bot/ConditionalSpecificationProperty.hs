@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DefaultConditionalBranchProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionalSpecificationProperty
-  = ConditionalSpecificationProperty {conditionalBranches :: [ConditionalBranchProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html>
+    ConditionalSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-conditionalbranches>
+                                      conditionalBranches :: [ConditionalBranchProperty],
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-defaultbranch>
                                       defaultBranch :: DefaultConditionalBranchProperty,
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html#cfn-lex-bot-conditionalspecification-isactive>
                                       isActive :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalSpecificationProperty ::

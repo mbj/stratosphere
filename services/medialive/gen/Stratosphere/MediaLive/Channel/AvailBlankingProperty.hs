@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLocationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AvailBlankingProperty
-  = AvailBlankingProperty {availBlankingImage :: (Prelude.Maybe InputLocationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html>
+    AvailBlankingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html#cfn-medialive-channel-availblanking-availblankingimage>
+                           availBlankingImage :: (Prelude.Maybe InputLocationProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html#cfn-medialive-channel-availblanking-state>
                            state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailBlankingProperty :: AvailBlankingProperty

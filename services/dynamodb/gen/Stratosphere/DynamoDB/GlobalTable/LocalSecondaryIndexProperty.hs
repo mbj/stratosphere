@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ProjectionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalSecondaryIndexProperty
-  = LocalSecondaryIndexProperty {indexName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html>
+    LocalSecondaryIndexProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname>
+                                 indexName :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema>
                                  keySchema :: [KeySchemaProperty],
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection>
                                  projection :: ProjectionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalSecondaryIndexProperty ::

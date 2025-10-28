@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.GuardrailConfigurationPro
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.PromptFlowNodeSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PromptFlowNodeConfigurationProperty
-  = PromptFlowNodeConfigurationProperty {guardrailConfiguration :: (Prelude.Maybe GuardrailConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html>
+    PromptFlowNodeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html#cfn-bedrock-flowversion-promptflownodeconfiguration-guardrailconfiguration>
+                                         guardrailConfiguration :: (Prelude.Maybe GuardrailConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html#cfn-bedrock-flowversion-promptflownodeconfiguration-sourceconfiguration>
                                          sourceConfiguration :: PromptFlowNodeSourceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptFlowNodeConfigurationProperty ::

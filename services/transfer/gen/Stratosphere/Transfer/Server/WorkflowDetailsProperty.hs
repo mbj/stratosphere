@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Transfer.Server.WorkflowDetailProperty as Exports
 import Stratosphere.ResourceProperties
 data WorkflowDetailsProperty
-  = WorkflowDetailsProperty {onPartialUpload :: (Prelude.Maybe [WorkflowDetailProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html>
+    WorkflowDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onpartialupload>
+                             onPartialUpload :: (Prelude.Maybe [WorkflowDetailProperty]),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onupload>
                              onUpload :: (Prelude.Maybe [WorkflowDetailProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowDetailsProperty :: WorkflowDetailsProperty

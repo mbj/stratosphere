@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelProperty
-  = LabelProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html>
+    LabelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name>
+                   name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelProperty :: Value Prelude.Text -> LabelProperty
 mkLabelProperty name = LabelProperty {name = name}

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.PortMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualRouterListenerProperty
-  = VirtualRouterListenerProperty {portMapping :: PortMappingProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html>
+    VirtualRouterListenerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping>
+                                   portMapping :: PortMappingProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterListenerProperty ::
   PortMappingProperty -> VirtualRouterListenerProperty

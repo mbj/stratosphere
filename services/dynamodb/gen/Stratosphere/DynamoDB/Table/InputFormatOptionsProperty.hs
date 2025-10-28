@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.CsvProperty as Exports
 import Stratosphere.ResourceProperties
 data InputFormatOptionsProperty
-  = InputFormatOptionsProperty {csv :: (Prelude.Maybe CsvProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-inputformatoptions.html>
+    InputFormatOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-inputformatoptions.html#cfn-dynamodb-table-inputformatoptions-csv>
+                                csv :: (Prelude.Maybe CsvProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFormatOptionsProperty :: InputFormatOptionsProperty
 mkInputFormatOptionsProperty

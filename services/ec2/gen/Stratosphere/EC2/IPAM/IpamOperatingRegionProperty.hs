@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpamOperatingRegionProperty
-  = IpamOperatingRegionProperty {regionName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamoperatingregion.html>
+    IpamOperatingRegionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamoperatingregion.html#cfn-ec2-ipam-ipamoperatingregion-regionname>
+                                 regionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpamOperatingRegionProperty ::
   Value Prelude.Text -> IpamOperatingRegionProperty

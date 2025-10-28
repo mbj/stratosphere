@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.IdMappingWorkflow.RuleProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingRuleBasedPropertiesProperty
-  = IdMappingRuleBasedPropertiesProperty {attributeMatchingModel :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html>
+    IdMappingRuleBasedPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html#cfn-entityresolution-idmappingworkflow-idmappingrulebasedproperties-attributematchingmodel>
+                                          attributeMatchingModel :: (Value Prelude.Text),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html#cfn-entityresolution-idmappingworkflow-idmappingrulebasedproperties-recordmatchingmodel>
                                           recordMatchingModel :: (Value Prelude.Text),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html#cfn-entityresolution-idmappingworkflow-idmappingrulebasedproperties-ruledefinitiontype>
                                           ruleDefinitionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html#cfn-entityresolution-idmappingworkflow-idmappingrulebasedproperties-rules>
                                           rules :: (Prelude.Maybe [RuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingRuleBasedPropertiesProperty ::

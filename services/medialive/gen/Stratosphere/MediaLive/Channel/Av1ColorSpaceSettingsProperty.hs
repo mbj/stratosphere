@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec601SettingsProperty as E
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec709SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data Av1ColorSpaceSettingsProperty
-  = Av1ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html>
+    Av1ColorSpaceSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-colorspacepassthroughsettings>
+                                   colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-hdr10settings>
                                    hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-rec601settings>
                                    rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-rec709settings>
                                    rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAv1ColorSpaceSettingsProperty :: Av1ColorSpaceSettingsProperty

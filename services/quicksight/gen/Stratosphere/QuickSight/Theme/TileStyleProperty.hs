@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.BorderStyleProperty as Exports
 import Stratosphere.ResourceProperties
 data TileStyleProperty
-  = TileStyleProperty {border :: (Prelude.Maybe BorderStyleProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html>
+    TileStyleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border>
+                       border :: (Prelude.Maybe BorderStyleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTileStyleProperty :: TileStyleProperty
 mkTileStyleProperty = TileStyleProperty {border = Prelude.Nothing}

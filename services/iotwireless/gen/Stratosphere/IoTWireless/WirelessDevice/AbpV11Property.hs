@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.SessionKeysAbpV11P
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AbpV11Property
-  = AbpV11Property {devAddr :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html>
+    AbpV11Property {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr>
+                    devAddr :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys>
                     sessionKeys :: SessionKeysAbpV11Property}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbpV11Property ::

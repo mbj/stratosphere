@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.ContainerProperty as Exports
 import Stratosphere.ResourceProperties
 data InferenceSpecificationProperty
-  = InferenceSpecificationProperty {containers :: [ContainerProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferencespecification.html>
+    InferenceSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferencespecification.html#cfn-sagemaker-modelcard-inferencespecification-containers>
+                                    containers :: [ContainerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceSpecificationProperty ::
   [ContainerProperty] -> InferenceSpecificationProperty

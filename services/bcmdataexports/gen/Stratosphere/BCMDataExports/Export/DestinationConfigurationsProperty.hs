@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.BCMDataExports.Export.S3DestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationsProperty
-  = DestinationConfigurationsProperty {s3Destination :: S3DestinationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-destinationconfigurations.html>
+    DestinationConfigurationsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-destinationconfigurations.html#cfn-bcmdataexports-export-destinationconfigurations-s3destination>
+                                       s3Destination :: S3DestinationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationsProperty ::
   S3DestinationProperty -> DestinationConfigurationsProperty

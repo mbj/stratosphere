@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.RecordSetProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordSetGroup
-  = RecordSetGroup {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html>
+    RecordSetGroup {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-comment>
+                    comment :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzoneid>
                     hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzonename>
                     hostedZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-recordsets>
                     recordSets :: (Prelude.Maybe [RecordSetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordSetGroup :: RecordSetGroup

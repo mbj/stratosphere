@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.RoleMappin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityPoolRoleAttachment
-  = IdentityPoolRoleAttachment {identityPoolId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html>
+    IdentityPoolRoleAttachment {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid>
+                                identityPoolId :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings>
                                 roleMappings :: (Prelude.Maybe (Prelude.Map Prelude.Text RoleMappingProperty)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles>
                                 roles :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolRoleAttachment ::

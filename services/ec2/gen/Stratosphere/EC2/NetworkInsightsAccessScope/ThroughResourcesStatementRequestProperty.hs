@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.ResourceStatementRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data ThroughResourcesStatementRequestProperty
-  = ThroughResourcesStatementRequestProperty {resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html>
+    ThroughResourcesStatementRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html#cfn-ec2-networkinsightsaccessscope-throughresourcesstatementrequest-resourcestatement>
+                                              resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThroughResourcesStatementRequestProperty ::
   ThroughResourcesStatementRequestProperty

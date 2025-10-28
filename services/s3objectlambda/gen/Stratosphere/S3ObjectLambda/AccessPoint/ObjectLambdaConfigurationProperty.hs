@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.TransformationConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectLambdaConfigurationProperty
-  = ObjectLambdaConfigurationProperty {allowedFeatures :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html>
+    ObjectLambdaConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures>
+                                       allowedFeatures :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled>
                                        cloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint>
                                        supportingAccessPoint :: (Value Prelude.Text),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations>
                                        transformationConfigurations :: [TransformationConfigurationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectLambdaConfigurationProperty ::

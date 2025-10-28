@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.CloudWatchMetricsProperty as E
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.S3BucketDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data DataExportProperty
-  = DataExportProperty {cloudWatchMetrics :: (Prelude.Maybe CloudWatchMetricsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html>
+    DataExportProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-cloudwatchmetrics>
+                        cloudWatchMetrics :: (Prelude.Maybe CloudWatchMetricsProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination>
                         s3BucketDestination :: (Prelude.Maybe S3BucketDestinationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataExportProperty :: DataExportProperty

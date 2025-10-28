@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.FleetAmountCapabilityProperty 
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.FleetAttributeCapabilityProperty as Exports
 import Stratosphere.ResourceProperties
 data FleetCapabilitiesProperty
-  = FleetCapabilitiesProperty {amounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html>
+    FleetCapabilitiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html#cfn-deadline-fleet-fleetcapabilities-amounts>
+                               amounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html#cfn-deadline-fleet-fleetcapabilities-attributes>
                                attributes :: (Prelude.Maybe [FleetAttributeCapabilityProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetCapabilitiesProperty :: FleetCapabilitiesProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.RetryCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data JobExecutionsRetryConfigProperty
-  = JobExecutionsRetryConfigProperty {retryCriteriaList :: (Prelude.Maybe [RetryCriteriaProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html>
+    JobExecutionsRetryConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html#cfn-iot-jobtemplate-jobexecutionsretryconfig-retrycriterialist>
+                                      retryCriteriaList :: (Prelude.Maybe [RetryCriteriaProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobExecutionsRetryConfigProperty ::
   JobExecutionsRetryConfigProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ECS.Cluster.ExecuteCommandLogConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecuteCommandConfigurationProperty
-  = ExecuteCommandConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html>
+    ExecuteCommandConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid>
+                                         kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration>
                                          logConfiguration :: (Prelude.Maybe ExecuteCommandLogConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging>
                                          logging :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecuteCommandConfigurationProperty ::

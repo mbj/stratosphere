@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.S3ContentBaseLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data DeployAsApplicationConfigurationProperty
-  = DeployAsApplicationConfigurationProperty {s3ContentLocation :: S3ContentBaseLocationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html>
+    DeployAsApplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-deployasapplicationconfiguration-s3contentlocation>
+                                              s3ContentLocation :: S3ContentBaseLocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployAsApplicationConfigurationProperty ::
   S3ContentBaseLocationProperty

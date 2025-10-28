@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.StepActionProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StepProperty
-  = StepProperty {action :: StepActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-step.html>
+    StepProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-step.html#cfn-apptest-testcase-step-action>
+                  action :: StepActionProperty,
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-step.html#cfn-apptest-testcase-step-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-step.html#cfn-apptest-testcase-step-name>
                   name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStepProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InitialCapacityConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitialCapacityConfigKeyValuePairProperty
-  = InitialCapacityConfigKeyValuePairProperty {key :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html>
+    InitialCapacityConfigKeyValuePairProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-key>
+                                               key :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html#cfn-emrserverless-application-initialcapacityconfigkeyvaluepair-value>
                                                value :: InitialCapacityConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialCapacityConfigKeyValuePairProperty ::

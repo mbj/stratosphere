@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OwnershipSettingsProperty
-  = OwnershipSettingsProperty {ownerUserProfileName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html>
+    OwnershipSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html#cfn-sagemaker-space-ownershipsettings-owneruserprofilename>
+                               ownerUserProfileName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOwnershipSettingsProperty ::
   Value Prelude.Text -> OwnershipSettingsProperty

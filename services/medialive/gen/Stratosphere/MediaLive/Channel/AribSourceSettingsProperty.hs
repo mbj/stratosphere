@@ -5,7 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AribSourceSettingsProperty
-  = AribSourceSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribsourcesettings.html>
+    AribSourceSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAribSourceSettingsProperty :: AribSourceSettingsProperty
 mkAribSourceSettingsProperty = AribSourceSettingsProperty {}

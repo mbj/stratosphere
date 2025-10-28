@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Personalize.Solution.ContinuousHyperParameter
 import {-# SOURCE #-} Stratosphere.Personalize.Solution.IntegerHyperParameterRangeProperty as Exports
 import Stratosphere.ResourceProperties
 data AlgorithmHyperParameterRangesProperty
-  = AlgorithmHyperParameterRangesProperty {categoricalHyperParameterRanges :: (Prelude.Maybe [CategoricalHyperParameterRangeProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html>
+    AlgorithmHyperParameterRangesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-categoricalhyperparameterranges>
+                                           categoricalHyperParameterRanges :: (Prelude.Maybe [CategoricalHyperParameterRangeProperty]),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-continuoushyperparameterranges>
                                            continuousHyperParameterRanges :: (Prelude.Maybe [ContinuousHyperParameterRangeProperty]),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html#cfn-personalize-solution-algorithmhyperparameterranges-integerhyperparameterranges>
                                            integerHyperParameterRanges :: (Prelude.Maybe [IntegerHyperParameterRangeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlgorithmHyperParameterRangesProperty ::

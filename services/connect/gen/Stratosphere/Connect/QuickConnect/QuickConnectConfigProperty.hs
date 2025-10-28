@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.Connect.QuickConnect.UserQuickConnectConfigPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QuickConnectConfigProperty
-  = QuickConnectConfigProperty {phoneConfig :: (Prelude.Maybe PhoneNumberQuickConnectConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html>
+    QuickConnectConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig>
+                                phoneConfig :: (Prelude.Maybe PhoneNumberQuickConnectConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig>
                                 queueConfig :: (Prelude.Maybe QueueQuickConnectConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype>
                                 quickConnectType :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig>
                                 userConfig :: (Prelude.Maybe UserQuickConnectConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQuickConnectConfigProperty ::

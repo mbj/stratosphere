@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobAbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data IoTJobAbortConfigProperty
-  = IoTJobAbortConfigProperty {criteriaList :: [IoTJobAbortCriteriaProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html>
+    IoTJobAbortConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html#cfn-greengrassv2-deployment-iotjobabortconfig-criterialist>
+                               criteriaList :: [IoTJobAbortCriteriaProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobAbortConfigProperty ::
   [IoTJobAbortCriteriaProperty] -> IoTJobAbortConfigProperty

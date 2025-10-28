@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricsConfigurationProperty
-  = MetricsConfigurationProperty {accessPointArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html>
+    MetricsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-accesspointarn>
+                                  accessPointArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id>
                                   id :: (Value Prelude.Text),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix>
                                   prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters>
                                   tagFilters :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsConfigurationProperty ::

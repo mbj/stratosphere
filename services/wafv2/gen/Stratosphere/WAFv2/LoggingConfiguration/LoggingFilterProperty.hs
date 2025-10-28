@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.LoggingConfiguration.FilterProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingFilterProperty
-  = LoggingFilterProperty {defaultBehavior :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html>
+    LoggingFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html#cfn-wafv2-loggingconfiguration-loggingfilter-defaultbehavior>
+                           defaultBehavior :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html#cfn-wafv2-loggingconfiguration-loggingfilter-filters>
                            filters :: [FilterProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingFilterProperty ::

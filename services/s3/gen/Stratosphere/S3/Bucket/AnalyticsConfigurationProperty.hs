@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalyticsConfigurationProperty
-  = AnalyticsConfigurationProperty {id :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html>
+    AnalyticsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id>
+                                    id :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix>
                                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis>
                                     storageClassAnalysis :: StorageClassAnalysisProperty,
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters>
                                     tagFilters :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyticsConfigurationProperty ::

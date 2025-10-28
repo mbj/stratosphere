@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.BatchResourceRequirementProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchContainerOverridesProperty
-  = BatchContainerOverridesProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html>
+    BatchContainerOverridesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html#cfn-pipes-pipe-batchcontaineroverrides-command>
+                                     command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html#cfn-pipes-pipe-batchcontaineroverrides-environment>
                                      environment :: (Prelude.Maybe [BatchEnvironmentVariableProperty]),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html#cfn-pipes-pipe-batchcontaineroverrides-instancetype>
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html#cfn-pipes-pipe-batchcontaineroverrides-resourcerequirements>
                                      resourceRequirements :: (Prelude.Maybe [BatchResourceRequirementProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchContainerOverridesProperty ::

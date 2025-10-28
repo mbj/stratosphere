@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataZone.UserProfile.IamUserProfileDetailsPro
 import {-# SOURCE #-} Stratosphere.DataZone.UserProfile.SsoUserProfileDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data UserProfileDetailsProperty
-  = UserProfileDetailsProperty {iam :: (Prelude.Maybe IamUserProfileDetailsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html>
+    UserProfileDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html#cfn-datazone-userprofile-userprofiledetails-iam>
+                                iam :: (Prelude.Maybe IamUserProfileDetailsProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html#cfn-datazone-userprofile-userprofiledetails-sso>
                                 sso :: (Prelude.Maybe SsoUserProfileDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProfileDetailsProperty :: UserProfileDetailsProperty

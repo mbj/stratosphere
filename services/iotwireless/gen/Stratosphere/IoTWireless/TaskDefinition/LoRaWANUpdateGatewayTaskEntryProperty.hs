@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTWireless.TaskDefinition.LoRaWANGatewayVersionProperty as Exports
 import Stratosphere.ResourceProperties
 data LoRaWANUpdateGatewayTaskEntryProperty
-  = LoRaWANUpdateGatewayTaskEntryProperty {currentVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html>
+    LoRaWANUpdateGatewayTaskEntryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion>
+                                           currentVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion>
                                            updateVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANUpdateGatewayTaskEntryProperty ::

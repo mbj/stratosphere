@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusItemProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelPackageStatusDetailsProperty
-  = ModelPackageStatusDetailsProperty {validationStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html>
+    ModelPackageStatusDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-validationstatuses>
+                                       validationStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageStatusDetailsProperty ::
   ModelPackageStatusDetailsProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3Outposts.Bucket.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data LifecycleConfigurationProperty
-  = LifecycleConfigurationProperty {rules :: [RuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html>
+    LifecycleConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules>
+                                    rules :: [RuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleConfigurationProperty ::
   [RuleProperty] -> LifecycleConfigurationProperty

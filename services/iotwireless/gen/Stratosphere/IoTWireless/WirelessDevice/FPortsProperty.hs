@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.ApplicationProperty as Exports
 import Stratosphere.ResourceProperties
 data FPortsProperty
-  = FPortsProperty {applications :: (Prelude.Maybe [ApplicationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html>
+    FPortsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html#cfn-iotwireless-wirelessdevice-fports-applications>
+                    applications :: (Prelude.Maybe [ApplicationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFPortsProperty :: FPortsProperty
 mkFPortsProperty = FPortsProperty {applications = Prelude.Nothing}

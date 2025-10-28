@@ -10,14 +10,24 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.MutationActionSetS
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionParametersProperty
-  = ActionParametersProperty {anchor :: (Prelude.Maybe ComponentPropertyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html>
+    ActionParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-anchor>
+                              anchor :: (Prelude.Maybe ComponentPropertyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-fields>
                               fields :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentPropertyProperty)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-global>
                               global :: (Prelude.Maybe ComponentPropertyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-id>
                               id :: (Prelude.Maybe ComponentPropertyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-model>
                               model :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-state>
                               state :: (Prelude.Maybe MutationActionSetStateParameterProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-target>
                               target :: (Prelude.Maybe ComponentPropertyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-type>
                               type' :: (Prelude.Maybe ComponentPropertyProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-actionparameters.html#cfn-amplifyuibuilder-component-actionparameters-url>
                               url :: (Prelude.Maybe ComponentPropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionParametersProperty :: ActionParametersProperty

@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.DeploymentCircuitBreakerProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfigurationProperty
-  = DeploymentConfigurationProperty {alarms :: (Prelude.Maybe DeploymentAlarmsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html>
+    DeploymentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-alarms>
+                                     alarms :: (Prelude.Maybe DeploymentAlarmsProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker>
                                      deploymentCircuitBreaker :: (Prelude.Maybe DeploymentCircuitBreakerProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent>
                                      maximumPercent :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent>
                                      minimumHealthyPercent :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigurationProperty ::

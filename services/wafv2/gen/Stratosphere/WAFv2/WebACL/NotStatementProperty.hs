@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 data NotStatementProperty
-  = NotStatementProperty {statement :: StatementProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>
+    NotStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement>
+                          statement :: StatementProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotStatementProperty :: StatementProperty -> NotStatementProperty
 mkNotStatementProperty statement

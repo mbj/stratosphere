@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApiGatewayV2.Integration.ResponseParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data ResponseParameterMapProperty
-  = ResponseParameterMapProperty {responseParameters :: (Prelude.Maybe [ResponseParameterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparametermap.html>
+    ResponseParameterMapProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparametermap.html#cfn-apigatewayv2-integration-responseparametermap-responseparameters>
+                                  responseParameters :: (Prelude.Maybe [ResponseParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseParameterMapProperty :: ResponseParameterMapProperty
 mkResponseParameterMapProperty

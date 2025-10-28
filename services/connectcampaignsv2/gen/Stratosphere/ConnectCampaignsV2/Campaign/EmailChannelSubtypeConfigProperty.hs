@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.EmailOutboundMode
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EmailChannelSubtypeConfigProperty
-  = EmailChannelSubtypeConfigProperty {capacity :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html>
+    EmailChannelSubtypeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-capacity>
+                                       capacity :: (Prelude.Maybe (Value Prelude.Double)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-defaultoutboundconfig>
                                        defaultOutboundConfig :: EmailOutboundConfigProperty,
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-outboundmode>
                                        outboundMode :: EmailOutboundModeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailChannelSubtypeConfigProperty ::

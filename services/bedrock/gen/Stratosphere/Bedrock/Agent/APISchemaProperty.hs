@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Agent.S3IdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data APISchemaProperty
-  = APISchemaProperty {payload :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html>
+    APISchemaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html#cfn-bedrock-agent-apischema-payload>
+                       payload :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html#cfn-bedrock-agent-apischema-s3>
                        s3 :: (Prelude.Maybe S3IdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAPISchemaProperty :: APISchemaProperty

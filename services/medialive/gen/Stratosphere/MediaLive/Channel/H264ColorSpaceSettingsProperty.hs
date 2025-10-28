@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec601SettingsProperty as E
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec709SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data H264ColorSpaceSettingsProperty
-  = H264ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html>
+    H264ColorSpaceSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-colorspacepassthroughsettings>
+                                    colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec601settings>
                                     rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec709settings>
                                     rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkH264ColorSpaceSettingsProperty :: H264ColorSpaceSettingsProperty

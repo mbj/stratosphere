@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Config.RemediationConfiguration.SsmControlsProperty as Exports
 import Stratosphere.ResourceProperties
 data ExecutionControlsProperty
-  = ExecutionControlsProperty {ssmControls :: (Prelude.Maybe SsmControlsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html>
+    ExecutionControlsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols>
+                               ssmControls :: (Prelude.Maybe SsmControlsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionControlsProperty :: ExecutionControlsProperty
 mkExecutionControlsProperty

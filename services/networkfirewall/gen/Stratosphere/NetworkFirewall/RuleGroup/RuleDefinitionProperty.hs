@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.MatchAttributesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleDefinitionProperty
-  = RuleDefinitionProperty {actions :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html>
+    RuleDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions>
+                            actions :: (ValueList Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes>
                             matchAttributes :: MatchAttributesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleDefinitionProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.PodPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data EksPropertiesProperty
-  = EksPropertiesProperty {podProperties :: (Prelude.Maybe PodPropertiesProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html>
+    EksPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html#cfn-batch-jobdefinition-eksproperties-podproperties>
+                           podProperties :: (Prelude.Maybe PodPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksPropertiesProperty :: EksPropertiesProperty
 mkEksPropertiesProperty

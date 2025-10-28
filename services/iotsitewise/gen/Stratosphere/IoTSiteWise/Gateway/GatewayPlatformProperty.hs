@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.Gateway.GreengrassV2Property as E
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.Gateway.SiemensIEProperty as Exports
 import Stratosphere.ResourceProperties
 data GatewayPlatformProperty
-  = GatewayPlatformProperty {greengrass :: (Prelude.Maybe GreengrassProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>
+    GatewayPlatformProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass>
+                             greengrass :: (Prelude.Maybe GreengrassProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrassv2>
                              greengrassV2 :: (Prelude.Maybe GreengrassV2Property),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-siemensie>
                              siemensIE :: (Prelude.Maybe SiemensIEProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayPlatformProperty :: GatewayPlatformProperty

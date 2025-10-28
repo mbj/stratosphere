@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Config.RemediationConfiguration.ResourceValue
 import {-# SOURCE #-} Stratosphere.Config.RemediationConfiguration.StaticValueProperty as Exports
 import Stratosphere.ResourceProperties
 data RemediationParameterValueProperty
-  = RemediationParameterValueProperty {resourceValue :: (Prelude.Maybe ResourceValueProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html>
+    RemediationParameterValueProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue>
+                                       resourceValue :: (Prelude.Maybe ResourceValueProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue>
                                        staticValue :: (Prelude.Maybe StaticValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemediationParameterValueProperty ::

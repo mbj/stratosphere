@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ColorCorrectionProperty as Exports
 import Stratosphere.ResourceProperties
 data ColorCorrectionSettingsProperty
-  = ColorCorrectionSettingsProperty {globalColorCorrections :: (Prelude.Maybe [ColorCorrectionProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html>
+    ColorCorrectionSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html#cfn-medialive-channel-colorcorrectionsettings-globalcolorcorrections>
+                                     globalColorCorrections :: (Prelude.Maybe [ColorCorrectionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColorCorrectionSettingsProperty ::
   ColorCorrectionSettingsProperty

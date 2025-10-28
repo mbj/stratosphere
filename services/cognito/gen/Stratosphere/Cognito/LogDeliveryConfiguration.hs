@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Cognito.LogDeliveryConfiguration.LogConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogDeliveryConfiguration
-  = LogDeliveryConfiguration {logConfigurations :: (Prelude.Maybe [LogConfigurationProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html>
+    LogDeliveryConfiguration {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfigurations>
+                              logConfigurations :: (Prelude.Maybe [LogConfigurationProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html#cfn-cognito-logdeliveryconfiguration-userpoolid>
                               userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfiguration ::

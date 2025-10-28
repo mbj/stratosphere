@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.RecencyProperty as Exports
 import Stratosphere.ResourceProperties
 data BehaviorProperty
-  = BehaviorProperty {recency :: (Prelude.Maybe RecencyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html>
+    BehaviorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html#cfn-pinpoint-segment-segmentdimensions-behavior-recency>
+                      recency :: (Prelude.Maybe RecencyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorProperty :: BehaviorProperty
 mkBehaviorProperty = BehaviorProperty {recency = Prelude.Nothing}

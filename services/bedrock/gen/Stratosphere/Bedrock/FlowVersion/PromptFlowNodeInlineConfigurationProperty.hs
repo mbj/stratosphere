@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.PromptTemplateConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptFlowNodeInlineConfigurationProperty
-  = PromptFlowNodeInlineConfigurationProperty {inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html>
+    PromptFlowNodeInlineConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html#cfn-bedrock-flowversion-promptflownodeinlineconfiguration-inferenceconfiguration>
+                                               inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html#cfn-bedrock-flowversion-promptflownodeinlineconfiguration-modelid>
                                                modelId :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html#cfn-bedrock-flowversion-promptflownodeinlineconfiguration-templateconfiguration>
                                                templateConfiguration :: PromptTemplateConfigurationProperty,
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html#cfn-bedrock-flowversion-promptflownodeinlineconfiguration-templatetype>
                                                templateType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptFlowNodeInlineConfigurationProperty ::

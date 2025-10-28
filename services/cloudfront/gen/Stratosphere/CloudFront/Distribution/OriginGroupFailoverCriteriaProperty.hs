@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.StatusCodesProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginGroupFailoverCriteriaProperty
-  = OriginGroupFailoverCriteriaProperty {statusCodes :: StatusCodesProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html>
+    OriginGroupFailoverCriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes>
+                                         statusCodes :: StatusCodesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupFailoverCriteriaProperty ::
   StatusCodesProperty -> OriginGroupFailoverCriteriaProperty

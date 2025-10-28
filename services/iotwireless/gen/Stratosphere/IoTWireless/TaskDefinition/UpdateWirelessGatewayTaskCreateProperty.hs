@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoTWireless.TaskDefinition.LoRaWANUpdateGatew
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpdateWirelessGatewayTaskCreateProperty
-  = UpdateWirelessGatewayTaskCreateProperty {loRaWAN :: (Prelude.Maybe LoRaWANUpdateGatewayTaskCreateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html>
+    UpdateWirelessGatewayTaskCreateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan>
+                                             loRaWAN :: (Prelude.Maybe LoRaWANUpdateGatewayTaskCreateProperty),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole>
                                              updateDataRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource>
                                              updateDataSource :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateWirelessGatewayTaskCreateProperty ::

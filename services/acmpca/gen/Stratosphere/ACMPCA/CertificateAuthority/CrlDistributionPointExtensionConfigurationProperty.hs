@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrlDistributionPointExtensionConfigurationProperty
-  = CrlDistributionPointExtensionConfigurationProperty {omitExtension :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html>
+    CrlDistributionPointExtensionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html#cfn-acmpca-certificateauthority-crldistributionpointextensionconfiguration-omitextension>
+                                                        omitExtension :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrlDistributionPointExtensionConfigurationProperty ::
   Value Prelude.Bool

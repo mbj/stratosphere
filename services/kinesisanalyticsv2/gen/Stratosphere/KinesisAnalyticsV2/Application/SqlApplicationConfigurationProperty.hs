@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.InputProperty as Exports
 import Stratosphere.ResourceProperties
 data SqlApplicationConfigurationProperty
-  = SqlApplicationConfigurationProperty {inputs :: (Prelude.Maybe [InputProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html>
+    SqlApplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-sqlapplicationconfiguration-inputs>
+                                         inputs :: (Prelude.Maybe [InputProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlApplicationConfigurationProperty ::
   SqlApplicationConfigurationProperty

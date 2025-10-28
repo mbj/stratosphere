@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Elasticsearch.Domain.MasterUserOptionsPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedSecurityOptionsInputProperty
-  = AdvancedSecurityOptionsInputProperty {anonymousAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html>
+    AdvancedSecurityOptionsInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-anonymousauthenabled>
+                                          anonymousAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled>
                                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled>
                                           internalUserDatabaseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions>
                                           masterUserOptions :: (Prelude.Maybe MasterUserOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedSecurityOptionsInputProperty ::

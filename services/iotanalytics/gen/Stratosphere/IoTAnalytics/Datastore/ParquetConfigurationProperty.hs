@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.SchemaDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data ParquetConfigurationProperty
-  = ParquetConfigurationProperty {schemaDefinition :: (Prelude.Maybe SchemaDefinitionProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html>
+    ParquetConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html#cfn-iotanalytics-datastore-parquetconfiguration-schemadefinition>
+                                  schemaDefinition :: (Prelude.Maybe SchemaDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParquetConfigurationProperty :: ParquetConfigurationProperty
 mkParquetConfigurationProperty

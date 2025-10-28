@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.OutputFileUriValueProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VariableProperty
-  = VariableProperty {datasetContentVersionValue :: (Prelude.Maybe DatasetContentVersionValueProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html>
+    VariableProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-datasetcontentversionvalue>
+                      datasetContentVersionValue :: (Prelude.Maybe DatasetContentVersionValueProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-doublevalue>
                       doubleValue :: (Prelude.Maybe (Value Prelude.Double)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-outputfileurivalue>
                       outputFileUriValue :: (Prelude.Maybe OutputFileUriValueProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-stringvalue>
                       stringValue :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html#cfn-iotanalytics-dataset-variable-variablename>
                       variableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVariableProperty :: Value Prelude.Text -> VariableProperty

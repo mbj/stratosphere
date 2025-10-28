@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ServiceCatalog.CloudFormationProduct.CodeStarParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectionParametersProperty
-  = ConnectionParametersProperty {codeStar :: (Prelude.Maybe CodeStarParametersProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html>
+    ConnectionParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters-codestar>
+                                  codeStar :: (Prelude.Maybe CodeStarParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionParametersProperty :: ConnectionParametersProperty
 mkConnectionParametersProperty

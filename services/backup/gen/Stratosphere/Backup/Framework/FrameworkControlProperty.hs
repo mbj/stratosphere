@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Backup.Framework.ControlScopeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameworkControlProperty
-  = FrameworkControlProperty {controlInputParameters :: (Prelude.Maybe [ControlInputParameterProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html>
+    FrameworkControlProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlinputparameters>
+                              controlInputParameters :: (Prelude.Maybe [ControlInputParameterProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlname>
                               controlName :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlscope>
                               controlScope :: (Prelude.Maybe ControlScopeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameworkControlProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.TransformationFunctionProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformationProperty
-  = TransformationProperty {stepToApply :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformation.html>
+    TransformationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformation.html#cfn-bedrock-datasource-transformation-steptoapply>
+                            stepToApply :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformation.html#cfn-bedrock-datasource-transformation-transformationfunction>
                             transformationFunction :: TransformationFunctionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformationProperty ::

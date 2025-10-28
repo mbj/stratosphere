@@ -13,14 +13,24 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.RateLimitQueryStringProperty 
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.RateLimitUriPathProperty as Exports
 import Stratosphere.ResourceProperties
 data RateBasedStatementCustomKeyProperty
-  = RateBasedStatementCustomKeyProperty {cookie :: (Prelude.Maybe RateLimitCookieProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html>
+    RateBasedStatementCustomKeyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-cookie>
+                                         cookie :: (Prelude.Maybe RateLimitCookieProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-forwardedip>
                                          forwardedIP :: (Prelude.Maybe JSON.Object),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-httpmethod>
                                          hTTPMethod :: (Prelude.Maybe JSON.Object),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-header>
                                          header :: (Prelude.Maybe RateLimitHeaderProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-ip>
                                          iP :: (Prelude.Maybe JSON.Object),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-labelnamespace>
                                          labelNamespace :: (Prelude.Maybe RateLimitLabelNamespaceProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-queryargument>
                                          queryArgument :: (Prelude.Maybe RateLimitQueryArgumentProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-querystring>
                                          queryString :: (Prelude.Maybe RateLimitQueryStringProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementcustomkey.html#cfn-wafv2-rulegroup-ratebasedstatementcustomkey-uripath>
                                          uriPath :: (Prelude.Maybe RateLimitUriPathProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedStatementCustomKeyProperty ::

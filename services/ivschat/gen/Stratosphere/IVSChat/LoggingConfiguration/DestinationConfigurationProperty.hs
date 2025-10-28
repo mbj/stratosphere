@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.IVSChat.LoggingConfiguration.FirehoseDestinat
 import {-# SOURCE #-} Stratosphere.IVSChat.LoggingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsDestinationConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html>
+    DestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-cloudwatchlogs>
+                                      cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsDestinationConfigurationProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-firehose>
                                       firehose :: (Prelude.Maybe FirehoseDestinationConfigurationProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration-s3>
                                       s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::

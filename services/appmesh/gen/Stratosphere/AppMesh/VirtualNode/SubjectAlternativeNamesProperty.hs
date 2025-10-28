@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNameMatchersProperty as Exports
 import Stratosphere.ResourceProperties
 data SubjectAlternativeNamesProperty
-  = SubjectAlternativeNamesProperty {match :: SubjectAlternativeNameMatchersProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html>
+    SubjectAlternativeNamesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html#cfn-appmesh-virtualnode-subjectalternativenames-match>
+                                     match :: SubjectAlternativeNameMatchersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectAlternativeNamesProperty ::
   SubjectAlternativeNameMatchersProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.AcceleratorCountRangeProperty 
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.AcceleratorSelectionProperty as Exports
 import Stratosphere.ResourceProperties
 data AcceleratorCapabilitiesProperty
-  = AcceleratorCapabilitiesProperty {count :: (Prelude.Maybe AcceleratorCountRangeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html>
+    AcceleratorCapabilitiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html#cfn-deadline-fleet-acceleratorcapabilities-count>
+                                     count :: (Prelude.Maybe AcceleratorCountRangeProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html#cfn-deadline-fleet-acceleratorcapabilities-selections>
                                      selections :: [AcceleratorSelectionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorCapabilitiesProperty ::

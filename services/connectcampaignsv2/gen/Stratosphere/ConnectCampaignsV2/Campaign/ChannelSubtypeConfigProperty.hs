@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.SmsChannelSubtype
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.TelephonyChannelSubtypeConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ChannelSubtypeConfigProperty
-  = ChannelSubtypeConfigProperty {email :: (Prelude.Maybe EmailChannelSubtypeConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html>
+    ChannelSubtypeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-email>
+                                  email :: (Prelude.Maybe EmailChannelSubtypeConfigProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-sms>
                                   sms :: (Prelude.Maybe SmsChannelSubtypeConfigProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-telephony>
                                   telephony :: (Prelude.Maybe TelephonyChannelSubtypeConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelSubtypeConfigProperty :: ChannelSubtypeConfigProperty

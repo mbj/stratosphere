@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.Table.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MagneticStoreRejectedDataLocationProperty
-  = MagneticStoreRejectedDataLocationProperty {s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html>
+    MagneticStoreRejectedDataLocationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html#cfn-timestream-table-magneticstorerejecteddatalocation-s3configuration>
+                                               s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreRejectedDataLocationProperty ::
   MagneticStoreRejectedDataLocationProperty

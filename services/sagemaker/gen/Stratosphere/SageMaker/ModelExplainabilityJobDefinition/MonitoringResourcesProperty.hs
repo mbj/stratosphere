@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.ClusterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringResourcesProperty
-  = MonitoringResourcesProperty {clusterConfig :: ClusterConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html>
+    MonitoringResourcesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig>
+                                 clusterConfig :: ClusterConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringResourcesProperty ::
   ClusterConfigProperty -> MonitoringResourcesProperty

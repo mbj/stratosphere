@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.BridgeOutput.BridgeNetworkOutput
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeOutput
-  = BridgeOutput {bridgeArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html>
+    BridgeOutput {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-bridgearn>
+                  bridgeArn :: (Value Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-name>
                   name :: (Value Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-networkoutput>
                   networkOutput :: BridgeNetworkOutputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeOutput ::

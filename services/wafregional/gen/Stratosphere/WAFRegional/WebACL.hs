@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.WebACL.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebACL
-  = WebACL {defaultAction :: ActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html>
+    WebACL {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction>
+            defaultAction :: ActionProperty,
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname>
             metricName :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name>
             name :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules>
             rules :: (Prelude.Maybe [RuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACL ::

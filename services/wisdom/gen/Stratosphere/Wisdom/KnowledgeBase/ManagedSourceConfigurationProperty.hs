@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.WebCrawlerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ManagedSourceConfigurationProperty
-  = ManagedSourceConfigurationProperty {webCrawlerConfiguration :: WebCrawlerConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html>
+    ManagedSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html#cfn-wisdom-knowledgebase-managedsourceconfiguration-webcrawlerconfiguration>
+                                        webCrawlerConfiguration :: WebCrawlerConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedSourceConfigurationProperty ::
   WebCrawlerConfigurationProperty

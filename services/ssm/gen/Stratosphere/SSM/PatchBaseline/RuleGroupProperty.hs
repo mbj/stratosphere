@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleGroupProperty
-  = RuleGroupProperty {patchRules :: (Prelude.Maybe [RuleProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html>
+    RuleGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules>
+                       patchRules :: (Prelude.Maybe [RuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RuleGroupProperty
 mkRuleGroupProperty

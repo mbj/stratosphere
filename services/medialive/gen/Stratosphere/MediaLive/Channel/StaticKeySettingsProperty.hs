@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLocationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StaticKeySettingsProperty
-  = StaticKeySettingsProperty {keyProviderServer :: (Prelude.Maybe InputLocationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html>
+    StaticKeySettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-keyproviderserver>
+                               keyProviderServer :: (Prelude.Maybe InputLocationProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html#cfn-medialive-channel-statickeysettings-statickeyvalue>
                                staticKeyValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStaticKeySettingsProperty :: StaticKeySettingsProperty

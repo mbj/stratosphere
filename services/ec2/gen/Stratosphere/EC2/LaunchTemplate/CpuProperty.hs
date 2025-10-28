@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.ReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 data CpuProperty
-  = CpuProperty {references :: (Prelude.Maybe [ReferenceProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html>
+    CpuProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html#cfn-ec2-launchtemplate-cpu-references>
+                 references :: (Prelude.Maybe [ReferenceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCpuProperty :: CpuProperty
 mkCpuProperty = CpuProperty {references = Prelude.Nothing}

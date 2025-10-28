@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.DifferentialPrivacyColumnProperty as Exports
 import Stratosphere.ResourceProperties
 data DifferentialPrivacyProperty
-  = DifferentialPrivacyProperty {columns :: [DifferentialPrivacyColumnProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacy.html>
+    DifferentialPrivacyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacy.html#cfn-cleanrooms-configuredtable-differentialprivacy-columns>
+                                 columns :: [DifferentialPrivacyColumnProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDifferentialPrivacyProperty ::
   [DifferentialPrivacyColumnProperty] -> DifferentialPrivacyProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HtmlMotionGraphicsSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data MotionGraphicsSettingsProperty
-  = MotionGraphicsSettingsProperty {htmlMotionGraphicsSettings :: (Prelude.Maybe HtmlMotionGraphicsSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html>
+    MotionGraphicsSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html#cfn-medialive-channel-motiongraphicssettings-htmlmotiongraphicssettings>
+                                    htmlMotionGraphicsSettings :: (Prelude.Maybe HtmlMotionGraphicsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMotionGraphicsSettingsProperty :: MotionGraphicsSettingsProperty
 mkMotionGraphicsSettingsProperty

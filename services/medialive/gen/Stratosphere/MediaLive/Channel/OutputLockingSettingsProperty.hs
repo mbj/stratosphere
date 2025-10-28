@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EpochLockingSettingsPropert
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.PipelineLockingSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputLockingSettingsProperty
-  = OutputLockingSettingsProperty {epochLockingSettings :: (Prelude.Maybe EpochLockingSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html>
+    OutputLockingSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html#cfn-medialive-channel-outputlockingsettings-epochlockingsettings>
+                                   epochLockingSettings :: (Prelude.Maybe EpochLockingSettingsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html#cfn-medialive-channel-outputlockingsettings-pipelinelockingsettings>
                                    pipelineLockingSettings :: (Prelude.Maybe PipelineLockingSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputLockingSettingsProperty :: OutputLockingSettingsProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteTargetProper
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteRewriteProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcGatewayRouteActionProperty
-  = GrpcGatewayRouteActionProperty {rewrite :: (Prelude.Maybe GrpcGatewayRouteRewriteProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html>
+    GrpcGatewayRouteActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-rewrite>
+                                    rewrite :: (Prelude.Maybe GrpcGatewayRouteRewriteProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target>
                                     target :: GatewayRouteTargetProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteActionProperty ::

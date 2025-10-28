@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotTopicPublishProperty
-  = IotTopicPublishProperty {mqttTopic :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iottopicpublish.html>
+    IotTopicPublishProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iottopicpublish.html#cfn-iotevents-alarmmodel-iottopicpublish-mqtttopic>
+                             mqttTopic :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iottopicpublish.html#cfn-iotevents-alarmmodel-iottopicpublish-payload>
                              payload :: (Prelude.Maybe PayloadProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotTopicPublishProperty ::

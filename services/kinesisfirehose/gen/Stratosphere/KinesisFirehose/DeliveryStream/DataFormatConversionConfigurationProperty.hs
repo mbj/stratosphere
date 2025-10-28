@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SchemaConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataFormatConversionConfigurationProperty
-  = DataFormatConversionConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html>
+    DataFormatConversionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled>
+                                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration>
                                                inputFormatConfiguration :: (Prelude.Maybe InputFormatConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration>
                                                outputFormatConfiguration :: (Prelude.Maybe OutputFormatConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration>
                                                schemaConfiguration :: (Prelude.Maybe SchemaConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataFormatConversionConfigurationProperty ::

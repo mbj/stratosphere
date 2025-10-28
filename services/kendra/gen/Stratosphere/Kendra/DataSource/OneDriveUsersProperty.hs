@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.S3PathProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OneDriveUsersProperty
-  = OneDriveUsersProperty {oneDriveUserList :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html>
+    OneDriveUsersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist>
+                           oneDriveUserList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path>
                            oneDriveUserS3Path :: (Prelude.Maybe S3PathProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOneDriveUsersProperty :: OneDriveUsersProperty

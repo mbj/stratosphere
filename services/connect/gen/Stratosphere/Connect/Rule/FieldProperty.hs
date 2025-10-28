@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldProperty
-  = FieldProperty {id :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html>
+    FieldProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-id>
+                   id :: (Value Prelude.Text),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-value>
                    value :: FieldValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldProperty ::

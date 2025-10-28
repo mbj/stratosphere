@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.BotAlias.AudioLogSettingProperty as Expor
 import {-# SOURCE #-} Stratosphere.Lex.BotAlias.TextLogSettingProperty as Exports
 import Stratosphere.ResourceProperties
 data ConversationLogSettingsProperty
-  = ConversationLogSettingsProperty {audioLogSettings :: (Prelude.Maybe [AudioLogSettingProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html>
+    ConversationLogSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-audiologsettings>
+                                     audioLogSettings :: (Prelude.Maybe [AudioLogSettingProperty]),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html#cfn-lex-botalias-conversationlogsettings-textlogsettings>
                                      textLogSettings :: (Prelude.Maybe [TextLogSettingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConversationLogSettingsProperty ::

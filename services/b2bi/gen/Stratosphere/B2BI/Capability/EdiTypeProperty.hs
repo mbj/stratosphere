@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Capability.X12DetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data EdiTypeProperty
-  = EdiTypeProperty {x12Details :: X12DetailsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-editype.html>
+    EdiTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-editype.html#cfn-b2bi-capability-editype-x12details>
+                     x12Details :: X12DetailsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiTypeProperty :: X12DetailsProperty -> EdiTypeProperty
 mkEdiTypeProperty x12Details

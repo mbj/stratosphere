@@ -13,11 +13,18 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.SuccessConditionsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageDeclarationProperty
-  = StageDeclarationProperty {actions :: [ActionDeclarationProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html>
+    StageDeclarationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-actions>
+                              actions :: [ActionDeclarationProperty],
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-beforeentry>
                               beforeEntry :: (Prelude.Maybe BeforeEntryConditionsProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers>
                               blockers :: (Prelude.Maybe [BlockerDeclarationProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name>
                               name :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure>
                               onFailure :: (Prelude.Maybe FailureConditionsProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onsuccess>
                               onSuccess :: (Prelude.Maybe SuccessConditionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageDeclarationProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.SeedUrlProperty as Exports
 import Stratosphere.ResourceProperties
 data UrlConfigurationProperty
-  = UrlConfigurationProperty {seedUrls :: (Prelude.Maybe [SeedUrlProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-urlconfiguration.html>
+    UrlConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-urlconfiguration.html#cfn-wisdom-knowledgebase-urlconfiguration-seedurls>
+                              seedUrls :: (Prelude.Maybe [SeedUrlProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUrlConfigurationProperty :: UrlConfigurationProperty
 mkUrlConfigurationProperty

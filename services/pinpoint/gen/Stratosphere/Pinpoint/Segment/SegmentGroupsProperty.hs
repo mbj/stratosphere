@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.GroupsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SegmentGroupsProperty
-  = SegmentGroupsProperty {groups :: (Prelude.Maybe [GroupsProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html>
+    SegmentGroupsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-groups>
+                           groups :: (Prelude.Maybe [GroupsProperty]),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html#cfn-pinpoint-segment-segmentgroups-include>
                            include :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentGroupsProperty :: SegmentGroupsProperty

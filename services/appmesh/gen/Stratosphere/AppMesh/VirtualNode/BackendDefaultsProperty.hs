@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data BackendDefaultsProperty
-  = BackendDefaultsProperty {clientPolicy :: (Prelude.Maybe ClientPolicyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html>
+    BackendDefaultsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html#cfn-appmesh-virtualnode-backenddefaults-clientpolicy>
+                             clientPolicy :: (Prelude.Maybe ClientPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendDefaultsProperty :: BackendDefaultsProperty
 mkBackendDefaultsProperty

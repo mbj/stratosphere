@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.CsvFormatDescr
 import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.JsonFormatDescriptorProperty as Exports
 import Stratosphere.ResourceProperties
 data FileFormatDescriptorProperty
-  = FileFormatDescriptorProperty {csvFormatDescriptor :: (Prelude.Maybe CsvFormatDescriptorProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html>
+    FileFormatDescriptorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor>
+                                  csvFormatDescriptor :: (Prelude.Maybe CsvFormatDescriptorProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor>
                                   jsonFormatDescriptor :: (Prelude.Maybe JsonFormatDescriptorProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileFormatDescriptorProperty :: FileFormatDescriptorProperty

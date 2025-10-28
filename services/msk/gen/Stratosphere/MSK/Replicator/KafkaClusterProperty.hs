@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.MSK.Replicator.AmazonMskClusterProperty as Ex
 import {-# SOURCE #-} Stratosphere.MSK.Replicator.KafkaClusterClientVpcConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data KafkaClusterProperty
-  = KafkaClusterProperty {amazonMskCluster :: AmazonMskClusterProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html>
+    KafkaClusterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-amazonmskcluster>
+                          amazonMskCluster :: AmazonMskClusterProperty,
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-vpcconfig>
                           vpcConfig :: KafkaClusterClientVpcConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterProperty ::

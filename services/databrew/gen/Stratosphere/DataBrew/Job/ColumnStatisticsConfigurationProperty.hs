@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.ColumnSelectorProperty as Export
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ColumnStatisticsConfigurationProperty
-  = ColumnStatisticsConfigurationProperty {selectors :: (Prelude.Maybe [ColumnSelectorProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html>
+    ColumnStatisticsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors>
+                                           selectors :: (Prelude.Maybe [ColumnSelectorProperty]),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics>
                                            statistics :: StatisticsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnStatisticsConfigurationProperty ::

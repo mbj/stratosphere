@@ -7,7 +7,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageProperty as Exports
 import Stratosphere.ResourceProperties
 data MessageGroupProperty
-  = MessageGroupProperty {message :: MessageProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html>
+    MessageGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-message>
+                          message :: MessageProperty,
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html#cfn-lex-bot-messagegroup-variations>
                           variations :: (Prelude.Maybe [MessageProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageGroupProperty :: MessageProperty -> MessageGroupProperty

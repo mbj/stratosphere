@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ElasticLoadBalancerAttachment
-  = ElasticLoadBalancerAttachment {elasticLoadBalancerName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html>
+    ElasticLoadBalancerAttachment {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-elbname>
+                                   elasticLoadBalancerName :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html#cfn-opsworks-elbattachment-layerid>
                                    layerId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticLoadBalancerAttachment ::

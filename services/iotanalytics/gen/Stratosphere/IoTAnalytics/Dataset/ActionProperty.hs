@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.QueryActionProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionProperty
-  = ActionProperty {actionName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html>
+    ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-actionname>
+                    actionName :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-containeraction>
                     containerAction :: (Prelude.Maybe ContainerActionProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html#cfn-iotanalytics-dataset-action-queryaction>
                     queryAction :: (Prelude.Maybe QueryActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty

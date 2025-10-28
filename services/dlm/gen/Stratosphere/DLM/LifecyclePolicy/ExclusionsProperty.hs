@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ExcludeVolumeTypesListPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExclusionsProperty
-  = ExclusionsProperty {excludeBootVolumes :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html>
+    ExclusionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludebootvolumes>
+                        excludeBootVolumes :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludetags>
                         excludeTags :: (Prelude.Maybe ExcludeTagsProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludevolumetypes>
                         excludeVolumeTypes :: (Prelude.Maybe ExcludeVolumeTypesListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExclusionsProperty :: ExclusionsProperty

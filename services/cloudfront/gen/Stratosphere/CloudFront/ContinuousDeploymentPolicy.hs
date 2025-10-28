@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContinuousDeploymentPolicy
-  = ContinuousDeploymentPolicy {continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html>
+    ContinuousDeploymentPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html#cfn-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig>
+                                continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContinuousDeploymentPolicy ::
   ContinuousDeploymentPolicyConfigProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormBaseItemProperty
-  = EvaluationFormBaseItemProperty {section :: EvaluationFormSectionProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html>
+    EvaluationFormBaseItemProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html#cfn-connect-evaluationform-evaluationformbaseitem-section>
+                                    section :: EvaluationFormSectionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormBaseItemProperty ::
   EvaluationFormSectionProperty -> EvaluationFormBaseItemProperty

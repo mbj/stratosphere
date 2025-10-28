@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Function.KeyValueStoreAssociationP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionConfigProperty
-  = FunctionConfigProperty {comment :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html>
+    FunctionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment>
+                            comment :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-keyvaluestoreassociations>
                             keyValueStoreAssociations :: (Prelude.Maybe [KeyValueStoreAssociationProperty]),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime>
                             runtime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfigProperty ::

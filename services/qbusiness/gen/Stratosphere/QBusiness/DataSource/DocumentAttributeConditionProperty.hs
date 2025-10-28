@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.DocumentAttributeValuePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentAttributeConditionProperty
-  = DocumentAttributeConditionProperty {key :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html>
+    DocumentAttributeConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-key>
+                                        key :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-operator>
                                         operator :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html#cfn-qbusiness-datasource-documentattributecondition-value>
                                         value :: (Prelude.Maybe DocumentAttributeValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeConditionProperty ::

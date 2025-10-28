@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TransformProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyTypeProperty
-  = PropertyTypeProperty {attribute :: (Prelude.Maybe AttributeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html>
+    PropertyTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute>
+                          attribute :: (Prelude.Maybe AttributeProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric>
                           metric :: (Prelude.Maybe MetricProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform>
                           transform :: (Prelude.Maybe TransformProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename>
                           typeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyTypeProperty ::

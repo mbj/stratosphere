@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedCollectionSchemeProperty
-  = TimeBasedCollectionSchemeProperty {periodMs :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedcollectionscheme.html>
+    TimeBasedCollectionSchemeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedcollectionscheme.html#cfn-iotfleetwise-campaign-timebasedcollectionscheme-periodms>
+                                       periodMs :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedCollectionSchemeProperty ::
   Value Prelude.Double -> TimeBasedCollectionSchemeProperty

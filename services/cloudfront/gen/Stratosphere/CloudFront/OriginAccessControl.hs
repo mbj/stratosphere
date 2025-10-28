@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.OriginAccessControl.OriginAccessControlConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginAccessControl
-  = OriginAccessControl {originAccessControlConfig :: OriginAccessControlConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html>
+    OriginAccessControl {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig>
+                         originAccessControlConfig :: OriginAccessControlConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginAccessControl ::
   OriginAccessControlConfigProperty -> OriginAccessControl

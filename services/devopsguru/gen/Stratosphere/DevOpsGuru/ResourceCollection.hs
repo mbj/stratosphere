@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.ResourceCollectionFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceCollection
-  = ResourceCollection {resourceCollectionFilter :: ResourceCollectionFilterProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html>
+    ResourceCollection {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter>
+                        resourceCollectionFilter :: ResourceCollectionFilterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollection ::
   ResourceCollectionFilterProperty -> ResourceCollection

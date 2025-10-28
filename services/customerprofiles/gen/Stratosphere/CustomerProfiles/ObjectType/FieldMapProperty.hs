@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.ObjectType.ObjectTypeFieldPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldMapProperty
-  = FieldMapProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html>
+    FieldMapProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name>
+                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield>
                       objectTypeField :: (Prelude.Maybe ObjectTypeFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldMapProperty :: FieldMapProperty

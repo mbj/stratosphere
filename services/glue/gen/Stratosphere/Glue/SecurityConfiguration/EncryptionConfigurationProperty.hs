@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Glue.SecurityConfiguration.JobBookmarksEncryp
 import {-# SOURCE #-} Stratosphere.Glue.SecurityConfiguration.S3EncryptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {cloudWatchEncryption :: (Prelude.Maybe CloudWatchEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption>
+                                     cloudWatchEncryption :: (Prelude.Maybe CloudWatchEncryptionProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption>
                                      jobBookmarksEncryption :: (Prelude.Maybe JobBookmarksEncryptionProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions>
                                      s3Encryptions :: (Prelude.Maybe S3EncryptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::

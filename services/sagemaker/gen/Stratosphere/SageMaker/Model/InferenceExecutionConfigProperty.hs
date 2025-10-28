@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceExecutionConfigProperty
-  = InferenceExecutionConfigProperty {mode :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html>
+    InferenceExecutionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html#cfn-sagemaker-model-inferenceexecutionconfig-mode>
+                                      mode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceExecutionConfigProperty ::
   Value Prelude.Text -> InferenceExecutionConfigProperty

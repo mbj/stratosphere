@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsFileCertificat
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsSdsCertificateProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientTlsCertificateProperty
-  = ClientTlsCertificateProperty {file :: (Prelude.Maybe ListenerTlsFileCertificateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clienttlscertificate.html>
+    ClientTlsCertificateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clienttlscertificate.html#cfn-appmesh-virtualnode-clienttlscertificate-file>
+                                  file :: (Prelude.Maybe ListenerTlsFileCertificateProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clienttlscertificate.html#cfn-appmesh-virtualnode-clienttlscertificate-sds>
                                   sDS :: (Prelude.Maybe ListenerTlsSdsCertificateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientTlsCertificateProperty :: ClientTlsCertificateProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.DefaultEbsStorageSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultSpaceStorageSettingsProperty
-  = DefaultSpaceStorageSettingsProperty {defaultEbsStorageSettings :: (Prelude.Maybe DefaultEbsStorageSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html>
+    DefaultSpaceStorageSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html#cfn-sagemaker-userprofile-defaultspacestoragesettings-defaultebsstoragesettings>
+                                         defaultEbsStorageSettings :: (Prelude.Maybe DefaultEbsStorageSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultSpaceStorageSettingsProperty ::
   DefaultSpaceStorageSettingsProperty

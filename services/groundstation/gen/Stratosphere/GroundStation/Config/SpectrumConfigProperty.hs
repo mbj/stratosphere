@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.FrequencyBandwidthProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpectrumConfigProperty
-  = SpectrumConfigProperty {bandwidth :: (Prelude.Maybe FrequencyBandwidthProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html>
+    SpectrumConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth>
+                            bandwidth :: (Prelude.Maybe FrequencyBandwidthProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency>
                             centerFrequency :: (Prelude.Maybe FrequencyProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization>
                             polarization :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpectrumConfigProperty :: SpectrumConfigProperty

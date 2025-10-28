@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.CalculatedColumnProperty as Exports
 import Stratosphere.ResourceProperties
 data CreateColumnsOperationProperty
-  = CreateColumnsOperationProperty {columns :: [CalculatedColumnProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html>
+    CreateColumnsOperationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns>
+                                    columns :: [CalculatedColumnProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateColumnsOperationProperty ::
   [CalculatedColumnProperty] -> CreateColumnsOperationProperty

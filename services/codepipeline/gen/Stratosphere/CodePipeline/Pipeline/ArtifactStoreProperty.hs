@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.EncryptionKeyProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArtifactStoreProperty
-  = ArtifactStoreProperty {encryptionKey :: (Prelude.Maybe EncryptionKeyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html>
+    ArtifactStoreProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey>
+                           encryptionKey :: (Prelude.Maybe EncryptionKeyProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-location>
                            location :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactStoreProperty ::

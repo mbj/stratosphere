@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.ResourceSpecProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KernelGatewayAppSettingsProperty
-  = KernelGatewayAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>
+    KernelGatewayAppSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages>
+                                      customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec>
                                       defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-lifecycleconfigarns>
                                       lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayAppSettingsProperty ::

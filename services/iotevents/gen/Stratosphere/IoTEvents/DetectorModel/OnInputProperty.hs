@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.EventProperty as Expo
 import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.TransitionEventProperty as Exports
 import Stratosphere.ResourceProperties
 data OnInputProperty
-  = OnInputProperty {events :: (Prelude.Maybe [EventProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html>
+    OnInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events>
+                     events :: (Prelude.Maybe [EventProperty]),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents>
                      transitionEvents :: (Prelude.Maybe [TransitionEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnInputProperty :: OnInputProperty

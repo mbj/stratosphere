@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3InputFileLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data S3FileLocationProperty
-  = S3FileLocationProperty {s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html>
+    S3FileLocationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html#cfn-transfer-workflow-s3filelocation-s3filelocation>
+                            s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3FileLocationProperty :: S3FileLocationProperty
 mkS3FileLocationProperty

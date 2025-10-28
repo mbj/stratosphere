@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.PutAssetPropertyValueEntryPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotSiteWiseActionProperty
-  = IotSiteWiseActionProperty {putAssetPropertyValueEntries :: [PutAssetPropertyValueEntryProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html>
+    IotSiteWiseActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries>
+                               putAssetPropertyValueEntries :: [PutAssetPropertyValueEntryProperty],
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn>
                                roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseActionProperty ::

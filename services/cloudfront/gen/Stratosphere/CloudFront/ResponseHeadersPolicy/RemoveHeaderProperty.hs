@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoveHeaderProperty
-  = RemoveHeaderProperty {header :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html>
+    RemoveHeaderProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html#cfn-cloudfront-responseheaderspolicy-removeheader-header>
+                          header :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeaderProperty ::
   Value Prelude.Text -> RemoveHeaderProperty

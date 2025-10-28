@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.SaslProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientAuthenticationProperty
-  = ClientAuthenticationProperty {sasl :: SaslProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html>
+    ClientAuthenticationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html#cfn-msk-serverlesscluster-clientauthentication-sasl>
+                                  sasl :: SaslProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationProperty ::
   SaslProperty -> ClientAuthenticationProperty

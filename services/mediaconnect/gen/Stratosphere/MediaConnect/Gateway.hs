@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Gateway.GatewayNetworkProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Gateway
-  = Gateway {egressCidrBlocks :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html>
+    Gateway {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-egresscidrblocks>
+             egressCidrBlocks :: (ValueList Prelude.Text),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-name>
              name :: (Value Prelude.Text),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-networks>
              networks :: [GatewayNetworkProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGateway ::

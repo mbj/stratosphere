@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.EncryptionConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisVideoStreamConfigProperty
-  = KinesisVideoStreamConfigProperty {encryptionConfig :: EncryptionConfigProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html>
+    KinesisVideoStreamConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-encryptionconfig>
+                                      encryptionConfig :: EncryptionConfigProperty,
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-prefix>
                                       prefix :: (Value Prelude.Text),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-retentionperiodhours>
                                       retentionPeriodHours :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisVideoStreamConfigProperty ::

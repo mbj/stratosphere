@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Plan.StageProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Plan
-  = Plan {contactId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html>
+    Plan {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html#cfn-ssmcontacts-plan-contactid>
+          contactId :: (Value Prelude.Text),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html#cfn-ssmcontacts-plan-rotationids>
           rotationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html#cfn-ssmcontacts-plan-stages>
           stages :: (Prelude.Maybe [StageProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlan :: Value Prelude.Text -> Plan

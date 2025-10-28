@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.RedirectRuleProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.RoutingRuleConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data RoutingRuleProperty
-  = RoutingRuleProperty {redirectRule :: RedirectRuleProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-routingrule.html>
+    RoutingRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-routingrule.html#cfn-s3-bucket-routingrule-redirectrule>
+                         redirectRule :: RedirectRuleProperty,
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-routingrule.html#cfn-s3-bucket-routingrule-routingrulecondition>
                          routingRuleCondition :: (Prelude.Maybe RoutingRuleConditionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingRuleProperty ::

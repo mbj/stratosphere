@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.MonthlySched
 import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.WeeklyScheduleProperty as Exports
 import Stratosphere.ResourceProperties
 data ScheduleProperty
-  = ScheduleProperty {daily :: (Prelude.Maybe DailyScheduleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html>
+    ScheduleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html#cfn-inspectorv2-cisscanconfiguration-schedule-daily>
+                      daily :: (Prelude.Maybe DailyScheduleProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html#cfn-inspectorv2-cisscanconfiguration-schedule-monthly>
                       monthly :: (Prelude.Maybe MonthlyScheduleProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html#cfn-inspectorv2-cisscanconfiguration-schedule-onetime>
                       oneTime :: (Prelude.Maybe JSON.Object),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html#cfn-inspectorv2-cisscanconfiguration-schedule-weekly>
                       weekly :: (Prelude.Maybe WeeklyScheduleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: ScheduleProperty

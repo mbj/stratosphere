@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesHostProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumesProperty
-  = VolumesProperty {efsVolumeConfiguration :: (Prelude.Maybe EfsVolumeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html>
+    VolumesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-efsvolumeconfiguration>
+                     efsVolumeConfiguration :: (Prelude.Maybe EfsVolumeConfigurationProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-host>
                      host :: (Prelude.Maybe VolumesHostProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-name>
                      name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumesProperty :: VolumesProperty

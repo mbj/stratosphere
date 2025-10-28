@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.NotificationChannel.NotificationChannelConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationChannel
-  = NotificationChannel {config :: NotificationChannelConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html>
+    NotificationChannel {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config>
+                         config :: NotificationChannelConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannel ::
   NotificationChannelConfigProperty -> NotificationChannel

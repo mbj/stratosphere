@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.TagFilterPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationSourceProperty
-  = ApplicationSourceProperty {cloudFormationStackARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html>
+    ApplicationSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-cloudformationstackarn>
+                               cloudFormationStackARN :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-tagfilters>
                                tagFilters :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSourceProperty :: ApplicationSourceProperty

@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.ProcessProper
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.WindowsEventProperty as Exports
 import Stratosphere.ResourceProperties
 data SubComponentConfigurationDetailsProperty
-  = SubComponentConfigurationDetailsProperty {alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html>
+    SubComponentConfigurationDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics>
+                                              alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs>
                                               logs :: (Prelude.Maybe [LogProperty]),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-processes>
                                               processes :: (Prelude.Maybe [ProcessProperty]),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents>
                                               windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentConfigurationDetailsProperty ::

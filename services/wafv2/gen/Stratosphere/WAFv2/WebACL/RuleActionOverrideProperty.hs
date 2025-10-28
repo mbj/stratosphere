@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RuleActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleActionOverrideProperty
-  = RuleActionOverrideProperty {actionToUse :: RuleActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html>
+    RuleActionOverrideProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-actiontouse>
+                                actionToUse :: RuleActionProperty,
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html#cfn-wafv2-webacl-ruleactionoverride-name>
                                 name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionOverrideProperty ::

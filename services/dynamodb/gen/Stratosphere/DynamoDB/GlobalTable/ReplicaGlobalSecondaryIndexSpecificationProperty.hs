@@ -12,9 +12,14 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughpu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaGlobalSecondaryIndexSpecificationProperty
-  = ReplicaGlobalSecondaryIndexSpecificationProperty {contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html>
+    ReplicaGlobalSecondaryIndexSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification>
+                                                      contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname>
                                                       indexName :: (Value Prelude.Text),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readondemandthroughputsettings>
                                                       readOnDemandThroughputSettings :: (Prelude.Maybe ReadOnDemandThroughputSettingsProperty),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings>
                                                       readProvisionedThroughputSettings :: (Prelude.Maybe ReadProvisionedThroughputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaGlobalSecondaryIndexSpecificationProperty ::

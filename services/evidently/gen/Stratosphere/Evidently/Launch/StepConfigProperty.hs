@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Evidently.Launch.SegmentOverrideProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StepConfigProperty
-  = StepConfigProperty {groupWeights :: [GroupToWeightProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html>
+    StepConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-groupweights>
+                        groupWeights :: [GroupToWeightProperty],
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-segmentoverrides>
                         segmentOverrides :: (Prelude.Maybe [SegmentOverrideProperty]),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html#cfn-evidently-launch-stepconfig-starttime>
                         startTime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStepConfigProperty ::

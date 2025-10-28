@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.M2tsSettingsProperty as Exp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.RawSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data ArchiveContainerSettingsProperty
-  = ArchiveContainerSettingsProperty {m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html>
+    ArchiveContainerSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-m2tssettings>
+                                      m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-rawsettings>
                                       rawSettings :: (Prelude.Maybe RawSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveContainerSettingsProperty ::

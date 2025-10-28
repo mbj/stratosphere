@@ -8,9 +8,14 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.TemplateProperty as Exports
 import Stratosphere.ResourceProperties
 data TemplateConfigurationProperty
-  = TemplateConfigurationProperty {emailTemplate :: (Prelude.Maybe TemplateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html>
+    TemplateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-emailtemplate>
+                                   emailTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-pushtemplate>
                                    pushTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-smstemplate>
                                    sMSTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-voicetemplate>
                                    voiceTemplate :: (Prelude.Maybe TemplateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateConfigurationProperty :: TemplateConfigurationProperty

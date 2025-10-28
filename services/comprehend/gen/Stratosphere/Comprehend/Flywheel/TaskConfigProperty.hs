@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Comprehend.Flywheel.EntityRecognitionConfigPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskConfigProperty
-  = TaskConfigProperty {documentClassificationConfig :: (Prelude.Maybe DocumentClassificationConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html>
+    TaskConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-documentclassificationconfig>
+                        documentClassificationConfig :: (Prelude.Maybe DocumentClassificationConfigProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-entityrecognitionconfig>
                         entityRecognitionConfig :: (Prelude.Maybe EntityRecognitionConfigProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html#cfn-comprehend-flywheel-taskconfig-languagecode>
                         languageCode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskConfigProperty :: Value Prelude.Text -> TaskConfigProperty

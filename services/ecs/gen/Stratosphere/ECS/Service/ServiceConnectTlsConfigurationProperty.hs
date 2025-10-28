@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectTlsCertificateAutho
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectTlsConfigurationProperty
-  = ServiceConnectTlsConfigurationProperty {issuerCertificateAuthority :: ServiceConnectTlsCertificateAuthorityProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html>
+    ServiceConnectTlsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html#cfn-ecs-service-serviceconnecttlsconfiguration-issuercertificateauthority>
+                                            issuerCertificateAuthority :: ServiceConnectTlsCertificateAuthorityProperty,
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html#cfn-ecs-service-serviceconnecttlsconfiguration-kmskey>
                                             kmsKey :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html#cfn-ecs-service-serviceconnecttlsconfiguration-rolearn>
                                             roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectTlsConfigurationProperty ::

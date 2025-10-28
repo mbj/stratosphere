@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.AwsLambdaProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentTransformationProperty
-  = ContentTransformationProperty {awsLambda :: AwsLambdaProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html>
+    ContentTransformationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html#cfn-s3objectlambda-accesspoint-contenttransformation-awslambda>
+                                   awsLambda :: AwsLambdaProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentTransformationProperty ::
   AwsLambdaProperty -> ContentTransformationProperty

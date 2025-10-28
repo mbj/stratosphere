@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.SqlInjectionMatchSet.SqlInjection
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlInjectionMatchSet
-  = SqlInjectionMatchSet {name :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html>
+    SqlInjectionMatchSet {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-name>
+                          name :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuples>
                           sqlInjectionMatchTuples :: (Prelude.Maybe [SqlInjectionMatchTupleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlInjectionMatchSet ::

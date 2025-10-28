@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.TimeRangeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DailyHourProperty
-  = DailyHourProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-dailyhour.html>
+    DailyHourProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-dailyhour.html#cfn-connectcampaignsv2-campaign-dailyhour-key>
+                       key :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-dailyhour.html#cfn-connectcampaignsv2-campaign-dailyhour-value>
                        value :: (Prelude.Maybe [TimeRangeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDailyHourProperty :: DailyHourProperty

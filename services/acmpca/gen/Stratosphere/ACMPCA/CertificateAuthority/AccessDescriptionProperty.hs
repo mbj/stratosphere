@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.AccessMethodPrope
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.GeneralNameProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessDescriptionProperty
-  = AccessDescriptionProperty {accessLocation :: GeneralNameProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html>
+    AccessDescriptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation>
+                               accessLocation :: GeneralNameProperty,
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod>
                                accessMethod :: AccessMethodProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessDescriptionProperty ::

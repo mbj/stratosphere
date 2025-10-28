@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.FailoverConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data RoutingConfigProperty
-  = RoutingConfigProperty {failoverConfig :: FailoverConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html>
+    RoutingConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html#cfn-events-endpoint-routingconfig-failoverconfig>
+                           failoverConfig :: FailoverConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingConfigProperty ::
   FailoverConfigProperty -> RoutingConfigProperty

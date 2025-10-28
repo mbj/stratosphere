@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticOverrideProperty
-  = StatisticOverrideProperty {parameters :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html>
+    StatisticOverrideProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters>
+                               parameters :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic>
                                statistic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticOverrideProperty ::

@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.DecimalDatasetParameterDef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalDatasetParameterProperty
-  = DecimalDatasetParameterProperty {defaultValues :: (Prelude.Maybe DecimalDatasetParameterDefaultValuesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html>
+    DecimalDatasetParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-defaultvalues>
+                                     defaultValues :: (Prelude.Maybe DecimalDatasetParameterDefaultValuesProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-id>
                                      id :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-name>
                                      name :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-valuetype>
                                      valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalDatasetParameterProperty ::

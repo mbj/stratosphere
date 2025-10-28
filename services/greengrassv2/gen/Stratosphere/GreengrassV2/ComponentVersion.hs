@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.ComponentVersion.LambdaFunctionR
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentVersion
-  = ComponentVersion {inlineRecipe :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html>
+    ComponentVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe>
+                      inlineRecipe :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction>
                       lambdaFunction :: (Prelude.Maybe LambdaFunctionRecipeSourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags>
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentVersion :: ComponentVersion

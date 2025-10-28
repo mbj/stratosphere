@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.DestinationConnectorPropertiesPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationFlowConfigProperty
-  = DestinationFlowConfigProperty {apiVersion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html>
+    DestinationFlowConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-apiversion>
+                                   apiVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename>
                                    connectorProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype>
                                    connectorType :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties>
                                    destinationConnectorProperties :: DestinationConnectorPropertiesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationFlowConfigProperty ::

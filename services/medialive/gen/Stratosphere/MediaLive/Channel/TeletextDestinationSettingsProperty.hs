@@ -6,7 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TeletextDestinationSettingsProperty
-  = TeletextDestinationSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextdestinationsettings.html>
+    TeletextDestinationSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTeletextDestinationSettingsProperty ::
   TeletextDestinationSettingsProperty

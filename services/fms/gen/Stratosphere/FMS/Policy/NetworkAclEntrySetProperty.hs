@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.NetworkAclEntryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkAclEntrySetProperty
-  = NetworkAclEntrySetProperty {firstEntries :: (Prelude.Maybe [NetworkAclEntryProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html>
+    NetworkAclEntrySetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html#cfn-fms-policy-networkaclentryset-firstentries>
+                                firstEntries :: (Prelude.Maybe [NetworkAclEntryProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html#cfn-fms-policy-networkaclentryset-forceremediateforfirstentries>
                                 forceRemediateForFirstEntries :: (Value Prelude.Bool),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html#cfn-fms-policy-networkaclentryset-forceremediateforlastentries>
                                 forceRemediateForLastEntries :: (Value Prelude.Bool),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html#cfn-fms-policy-networkaclentryset-lastentries>
                                 lastEntries :: (Prelude.Maybe [NetworkAclEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclEntrySetProperty ::

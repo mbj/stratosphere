@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleNumberToEvaluatePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleNumberExpressionProperty
-  = RuleNumberExpressionProperty {evaluate :: RuleNumberToEvaluateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html>
+    RuleNumberExpressionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html#cfn-ses-mailmanagerruleset-rulenumberexpression-evaluate>
+                                  evaluate :: RuleNumberToEvaluateProperty,
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html#cfn-ses-mailmanagerruleset-rulenumberexpression-operator>
                                   operator :: (Value Prelude.Text),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html#cfn-ses-mailmanagerruleset-rulenumberexpression-value>
                                   value :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleNumberExpressionProperty ::

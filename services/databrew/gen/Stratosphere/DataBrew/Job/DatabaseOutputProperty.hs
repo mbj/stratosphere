@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.DatabaseTableOutputOptionsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseOutputProperty
-  = DatabaseOutputProperty {databaseOptions :: DatabaseTableOutputOptionsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html>
+    DatabaseOutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions>
+                            databaseOptions :: DatabaseTableOutputOptionsProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode>
                             databaseOutputMode :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname>
                             glueConnectionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseOutputProperty ::

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.ActionDefinitionPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomActionProperty
-  = CustomActionProperty {actionDefinition :: ActionDefinitionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html>
+    CustomActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition>
+                          actionDefinition :: ActionDefinitionProperty,
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actionname>
                           actionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionProperty ::

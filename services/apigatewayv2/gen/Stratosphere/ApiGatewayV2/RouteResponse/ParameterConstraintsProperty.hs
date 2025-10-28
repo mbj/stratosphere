@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterConstraintsProperty
-  = ParameterConstraintsProperty {required :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>
+    ParameterConstraintsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html#cfn-apigatewayv2-routeresponse-parameterconstraints-required>
+                                  required :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterConstraintsProperty ::
   Value Prelude.Bool -> ParameterConstraintsProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.CodeContentPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationCodeConfigurationProperty
-  = ApplicationCodeConfigurationProperty {codeContent :: CodeContentProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html>
+    ApplicationCodeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontent>
+                                          codeContent :: CodeContentProperty,
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html#cfn-kinesisanalyticsv2-application-applicationcodeconfiguration-codecontenttype>
                                           codeContentType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationCodeConfigurationProperty ::

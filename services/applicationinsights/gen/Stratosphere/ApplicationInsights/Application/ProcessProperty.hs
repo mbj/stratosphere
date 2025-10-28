@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.AlarmMetricPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProcessProperty
-  = ProcessProperty {alarmMetrics :: [AlarmMetricProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html>
+    ProcessProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html#cfn-applicationinsights-application-process-alarmmetrics>
+                     alarmMetrics :: [AlarmMetricProperty],
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html#cfn-applicationinsights-application-process-processname>
                      processName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.CalculatedAttributeDefinitio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionsProperty
-  = ConditionsProperty {objectCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html>
+    ConditionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html#cfn-customerprofiles-calculatedattributedefinition-conditions-objectcount>
+                        objectCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html#cfn-customerprofiles-calculatedattributedefinition-conditions-range>
                         range :: (Prelude.Maybe RangeProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html#cfn-customerprofiles-calculatedattributedefinition-conditions-threshold>
                         threshold :: (Prelude.Maybe ThresholdProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionsProperty :: ConditionsProperty

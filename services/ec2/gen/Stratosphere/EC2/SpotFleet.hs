@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotFleetRequestConfigDataProperty as Exports
 import Stratosphere.ResourceProperties
 data SpotFleet
-  = SpotFleet {spotFleetRequestConfigData :: SpotFleetRequestConfigDataProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html>
+    SpotFleet {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata>
+               spotFleetRequestConfigData :: SpotFleetRequestConfigDataProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleet :: SpotFleetRequestConfigDataProperty -> SpotFleet
 mkSpotFleet spotFleetRequestConfigData

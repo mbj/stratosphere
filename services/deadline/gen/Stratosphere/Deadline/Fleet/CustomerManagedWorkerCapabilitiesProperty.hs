@@ -14,14 +14,24 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.VCpuCountRangeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerManagedWorkerCapabilitiesProperty
-  = CustomerManagedWorkerCapabilitiesProperty {acceleratorCount :: (Prelude.Maybe AcceleratorCountRangeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html>
+    CustomerManagedWorkerCapabilitiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-acceleratorcount>
+                                               acceleratorCount :: (Prelude.Maybe AcceleratorCountRangeProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-acceleratortotalmemorymib>
                                                acceleratorTotalMemoryMiB :: (Prelude.Maybe AcceleratorTotalMemoryMiBRangeProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-acceleratortypes>
                                                acceleratorTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-cpuarchitecturetype>
                                                cpuArchitectureType :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-customamounts>
                                                customAmounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-customattributes>
                                                customAttributes :: (Prelude.Maybe [FleetAttributeCapabilityProperty]),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-memorymib>
                                                memoryMiB :: MemoryMiBRangeProperty,
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-osfamily>
                                                osFamily :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html#cfn-deadline-fleet-customermanagedworkercapabilities-vcpucount>
                                                vCpuCount :: VCpuCountRangeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedWorkerCapabilitiesProperty ::

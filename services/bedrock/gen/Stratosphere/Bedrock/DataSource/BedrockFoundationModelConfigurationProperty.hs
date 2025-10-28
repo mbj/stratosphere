@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ParsingPromptProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BedrockFoundationModelConfigurationProperty
-  = BedrockFoundationModelConfigurationProperty {modelArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html>
+    BedrockFoundationModelConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelconfiguration-modelarn>
+                                                 modelArn :: (Value Prelude.Text),
+                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelconfiguration-parsingprompt>
                                                  parsingPrompt :: (Prelude.Maybe ParsingPromptProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBedrockFoundationModelConfigurationProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.RecoveryOptionProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountRecoverySettingProperty
-  = AccountRecoverySettingProperty {recoveryMechanisms :: (Prelude.Maybe [RecoveryOptionProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html>
+    AccountRecoverySettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html#cfn-cognito-userpool-accountrecoverysetting-recoverymechanisms>
+                                    recoveryMechanisms :: (Prelude.Maybe [RecoveryOptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountRecoverySettingProperty :: AccountRecoverySettingProperty
 mkAccountRecoverySettingProperty

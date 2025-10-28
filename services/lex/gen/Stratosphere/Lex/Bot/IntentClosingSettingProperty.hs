@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntentClosingSettingProperty
-  = IntentClosingSettingProperty {closingResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html>
+    IntentClosingSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-closingresponse>
+                                  closingResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-conditional>
                                   conditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-isactive>
                                   isActive :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html#cfn-lex-bot-intentclosingsetting-nextstep>
                                   nextStep :: (Prelude.Maybe DialogStateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentClosingSettingProperty :: IntentClosingSettingProperty

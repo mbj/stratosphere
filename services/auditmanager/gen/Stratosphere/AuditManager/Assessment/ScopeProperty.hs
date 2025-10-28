@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AuditManager.Assessment.AWSAccountProperty as
 import {-# SOURCE #-} Stratosphere.AuditManager.Assessment.AWSServiceProperty as Exports
 import Stratosphere.ResourceProperties
 data ScopeProperty
-  = ScopeProperty {awsAccounts :: (Prelude.Maybe [AWSAccountProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html>
+    ScopeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts>
+                   awsAccounts :: (Prelude.Maybe [AWSAccountProperty]),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices>
                    awsServices :: (Prelude.Maybe [AWSServiceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeProperty :: ScopeProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.S3DataSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceProperty
-  = DataSourceProperty {s3DataSource :: S3DataSourceProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-datasource.html>
+    DataSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-datasource.html#cfn-sagemaker-modelpackage-datasource-s3datasource>
+                        s3DataSource :: S3DataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty :: S3DataSourceProperty -> DataSourceProperty
 mkDataSourceProperty s3DataSource

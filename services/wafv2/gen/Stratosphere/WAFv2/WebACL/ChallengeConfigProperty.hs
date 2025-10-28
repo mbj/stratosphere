@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data ChallengeConfigProperty
-  = ChallengeConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeconfig.html>
+    ChallengeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeconfig.html#cfn-wafv2-webacl-challengeconfig-immunitytimeproperty>
+                             immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChallengeConfigProperty :: ChallengeConfigProperty
 mkChallengeConfigProperty

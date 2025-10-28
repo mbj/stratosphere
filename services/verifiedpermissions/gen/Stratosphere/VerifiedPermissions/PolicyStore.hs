@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.PolicyStore.ValidationSet
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyStore
-  = PolicyStore {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html>
+    PolicyStore {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-description>
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-schema>
                  schema :: (Prelude.Maybe SchemaDefinitionProperty),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-validationsettings>
                  validationSettings :: ValidationSettingsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyStore :: ValidationSettingsProperty -> PolicyStore

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Glue.Trigger.ConditionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredicateProperty
-  = PredicateProperty {conditions :: (Prelude.Maybe [ConditionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html>
+    PredicateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions>
+                       conditions :: (Prelude.Maybe [ConditionProperty]),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical>
                        logical :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredicateProperty :: PredicateProperty

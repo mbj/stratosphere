@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.ApacheKafkaClusterProperty as Exports
 import Stratosphere.ResourceProperties
 data KafkaClusterProperty
-  = KafkaClusterProperty {apacheKafkaCluster :: ApacheKafkaClusterProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html>
+    KafkaClusterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html#cfn-kafkaconnect-connector-kafkacluster-apachekafkacluster>
+                          apacheKafkaCluster :: ApacheKafkaClusterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterProperty ::
   ApacheKafkaClusterProperty -> KafkaClusterProperty

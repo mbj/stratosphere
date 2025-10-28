@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinition.LoggerProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggerDefinitionVersionProperty
-  = LoggerDefinitionVersionProperty {loggers :: [LoggerProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html>
+    LoggerDefinitionVersionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html#cfn-greengrass-loggerdefinition-loggerdefinitionversion-loggers>
+                                     loggers :: [LoggerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinitionVersionProperty ::
   [LoggerProperty] -> LoggerDefinitionVersionProperty

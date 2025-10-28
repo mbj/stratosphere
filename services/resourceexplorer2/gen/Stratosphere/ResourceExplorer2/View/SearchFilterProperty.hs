@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SearchFilterProperty
-  = SearchFilterProperty {filterString :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-searchfilter.html>
+    SearchFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-searchfilter.html#cfn-resourceexplorer2-view-searchfilter-filterstring>
+                          filterString :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSearchFilterProperty ::
   Value Prelude.Text -> SearchFilterProperty

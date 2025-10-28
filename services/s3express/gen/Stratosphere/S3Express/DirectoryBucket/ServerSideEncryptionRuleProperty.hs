@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.ServerSideEncryptio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerSideEncryptionRuleProperty
-  = ServerSideEncryptionRuleProperty {bucketKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionrule.html>
+    ServerSideEncryptionRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionrule.html#cfn-s3express-directorybucket-serversideencryptionrule-bucketkeyenabled>
+                                      bucketKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionrule.html#cfn-s3express-directorybucket-serversideencryptionrule-serversideencryptionbydefault>
                                       serverSideEncryptionByDefault :: (Prelude.Maybe ServerSideEncryptionByDefaultProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionRuleProperty ::

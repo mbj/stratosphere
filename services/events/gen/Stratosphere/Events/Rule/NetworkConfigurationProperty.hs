@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.AwsVpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {awsVpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html>
+    NetworkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html#cfn-events-rule-networkconfiguration-awsvpcconfiguration>
+                                  awsVpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty

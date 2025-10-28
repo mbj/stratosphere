@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Glue.Table.MetadataOperationProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IcebergInputProperty
-  = IcebergInputProperty {metadataOperation :: (Prelude.Maybe MetadataOperationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html>
+    IcebergInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html#cfn-glue-table-iceberginput-metadataoperation>
+                          metadataOperation :: (Prelude.Maybe MetadataOperationProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html#cfn-glue-table-iceberginput-version>
                           version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIcebergInputProperty :: IcebergInputProperty

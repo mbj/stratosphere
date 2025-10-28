@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.AwsCloudMapInstanceAttrib
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsCloudMapServiceDiscoveryProperty
-  = AwsCloudMapServiceDiscoveryProperty {attributes :: (Prelude.Maybe [AwsCloudMapInstanceAttributeProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html>
+    AwsCloudMapServiceDiscoveryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-attributes>
+                                         attributes :: (Prelude.Maybe [AwsCloudMapInstanceAttributeProperty]),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-ippreference>
                                          ipPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-namespacename>
                                          namespaceName :: (Value Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html#cfn-appmesh-virtualnode-awscloudmapservicediscovery-servicename>
                                          serviceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsCloudMapServiceDiscoveryProperty ::

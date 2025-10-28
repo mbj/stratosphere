@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.ByteMatchSet.ByteMatchTupleProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ByteMatchSet
-  = ByteMatchSet {byteMatchTuples :: (Prelude.Maybe [ByteMatchTupleProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html>
+    ByteMatchSet {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-bytematchtuples>
+                  byteMatchTuples :: (Prelude.Maybe [ByteMatchTupleProperty]),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html#cfn-wafregional-bytematchset-name>
                   name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchSet :: Value Prelude.Text -> ByteMatchSet

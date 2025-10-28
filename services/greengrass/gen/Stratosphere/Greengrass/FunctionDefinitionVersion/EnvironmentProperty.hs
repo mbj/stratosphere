@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinitionVersion.Resource
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentProperty
-  = EnvironmentProperty {accessSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html>
+    EnvironmentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-accesssysfs>
+                         accessSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-execution>
                          execution :: (Prelude.Maybe ExecutionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-resourceaccesspolicies>
                          resourceAccessPolicies :: (Prelude.Maybe [ResourceAccessPolicyProperty]),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html#cfn-greengrass-functiondefinitionversion-environment-variables>
                          variables :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProperty :: EnvironmentProperty

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.DatasetParameterProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathParameterProperty
-  = PathParameterProperty {datasetParameter :: DatasetParameterProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html>
+    PathParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter>
+                           datasetParameter :: DatasetParameterProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername>
                            pathParameterName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathParameterProperty ::

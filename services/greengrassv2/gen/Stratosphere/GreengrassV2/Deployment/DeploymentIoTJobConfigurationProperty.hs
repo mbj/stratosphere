@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobExecutionsRollo
 import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobTimeoutConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data DeploymentIoTJobConfigurationProperty
-  = DeploymentIoTJobConfigurationProperty {abortConfig :: (Prelude.Maybe IoTJobAbortConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html>
+    DeploymentIoTJobConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-abortconfig>
+                                           abortConfig :: (Prelude.Maybe IoTJobAbortConfigProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-jobexecutionsrolloutconfig>
                                            jobExecutionsRolloutConfig :: (Prelude.Maybe IoTJobExecutionsRolloutConfigProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html#cfn-greengrassv2-deployment-deploymentiotjobconfiguration-timeoutconfig>
                                            timeoutConfig :: (Prelude.Maybe IoTJobTimeoutConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentIoTJobConfigurationProperty ::

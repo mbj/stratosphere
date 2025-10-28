@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseSpecificationProperty
-  = ResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html>
+    ResponseSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-allowinterrupt>
+                                   allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-messagegroupslist>
                                    messageGroupsList :: [MessageGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseSpecificationProperty ::

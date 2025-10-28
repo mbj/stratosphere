@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Greengrass.DeviceDefinitionVersion.DeviceProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceDefinitionVersion
-  = DeviceDefinitionVersion {deviceDefinitionId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html>
+    DeviceDefinitionVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devicedefinitionid>
+                             deviceDefinitionId :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html#cfn-greengrass-devicedefinitionversion-devices>
                              devices :: [DeviceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceDefinitionVersion ::

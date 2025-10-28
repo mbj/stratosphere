@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.IamProperty as Exports
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.ScramProperty as Exports
 import Stratosphere.ResourceProperties
 data SaslProperty
-  = SaslProperty {iam :: (Prelude.Maybe IamProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html>
+    SaslProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-iam>
+                  iam :: (Prelude.Maybe IamProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram>
                   scram :: (Prelude.Maybe ScramProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSaslProperty :: SaslProperty

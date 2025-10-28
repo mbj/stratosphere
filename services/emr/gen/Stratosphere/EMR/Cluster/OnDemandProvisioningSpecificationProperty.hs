@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.OnDemandCapacityReservationOption
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandProvisioningSpecificationProperty
-  = OnDemandProvisioningSpecificationProperty {allocationStrategy :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html>
+    OnDemandProvisioningSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy>
+                                               allocationStrategy :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-capacityreservationoptions>
                                                capacityReservationOptions :: (Prelude.Maybe OnDemandCapacityReservationOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandProvisioningSpecificationProperty ::

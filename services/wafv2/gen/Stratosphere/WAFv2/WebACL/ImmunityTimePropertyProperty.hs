@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImmunityTimePropertyProperty
-  = ImmunityTimePropertyProperty {immunityTime :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html>
+    ImmunityTimePropertyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html#cfn-wafv2-webacl-immunitytimeproperty-immunitytime>
+                                  immunityTime :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImmunityTimePropertyProperty ::
   Value Prelude.Integer -> ImmunityTimePropertyProperty

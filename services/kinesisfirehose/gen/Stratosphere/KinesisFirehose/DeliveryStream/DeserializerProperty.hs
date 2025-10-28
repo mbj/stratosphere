@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HiveJsonSerDeP
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.OpenXJsonSerDeProperty as Exports
 import Stratosphere.ResourceProperties
 data DeserializerProperty
-  = DeserializerProperty {hiveJsonSerDe :: (Prelude.Maybe HiveJsonSerDeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html>
+    DeserializerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde>
+                          hiveJsonSerDe :: (Prelude.Maybe HiveJsonSerDeProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde>
                           openXJsonSerDe :: (Prelude.Maybe OpenXJsonSerDeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeserializerProperty :: DeserializerProperty

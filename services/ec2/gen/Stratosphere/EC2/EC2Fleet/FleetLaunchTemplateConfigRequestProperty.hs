@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateOverridesRequ
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateSpecificationRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data FleetLaunchTemplateConfigRequestProperty
-  = FleetLaunchTemplateConfigRequestProperty {launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationRequestProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html>
+    FleetLaunchTemplateConfigRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification>
+                                              launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationRequestProperty),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides>
                                               overrides :: (Prelude.Maybe [FleetLaunchTemplateOverridesRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateConfigRequestProperty ::

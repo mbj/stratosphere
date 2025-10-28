@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.RemoveHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data RemoveHeadersConfigProperty
-  = RemoveHeadersConfigProperty {items :: [RemoveHeaderProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html>
+    RemoveHeadersConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html#cfn-cloudfront-responseheaderspolicy-removeheadersconfig-items>
+                                 items :: [RemoveHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeadersConfigProperty ::
   [RemoveHeaderProperty] -> RemoveHeadersConfigProperty

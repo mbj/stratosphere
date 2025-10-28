@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ECS.ClusterCapacityProviderAssociations.Capac
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterCapacityProviderAssociations
-  = ClusterCapacityProviderAssociations {capacityProviders :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html>
+    ClusterCapacityProviderAssociations {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders>
+                                         capacityProviders :: (ValueList Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster>
                                          cluster :: (Value Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy>
                                          defaultCapacityProviderStrategy :: [CapacityProviderStrategyProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterCapacityProviderAssociations ::

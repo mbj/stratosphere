@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplaceDefaultPolicyVersionParamsProperty
-  = ReplaceDefaultPolicyVersionParamsProperty {templateName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html>
+    ReplaceDefaultPolicyVersionParamsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename>
+                                               templateName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplaceDefaultPolicyVersionParamsProperty ::
   Value Prelude.Text -> ReplaceDefaultPolicyVersionParamsProperty

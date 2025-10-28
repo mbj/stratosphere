@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.MulticastSourceCreateRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data MulticastSettingsCreateRequestProperty
-  = MulticastSettingsCreateRequestProperty {sources :: (Prelude.Maybe [MulticastSourceCreateRequestProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsettingscreaterequest.html>
+    MulticastSettingsCreateRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsettingscreaterequest.html#cfn-medialive-input-multicastsettingscreaterequest-sources>
+                                            sources :: (Prelude.Maybe [MulticastSourceCreateRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMulticastSettingsCreateRequestProperty ::
   MulticastSettingsCreateRequestProperty

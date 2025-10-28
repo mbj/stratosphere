@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.S3OutputProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringOutputProperty
-  = MonitoringOutputProperty {s3Output :: S3OutputProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html>
+    MonitoringOutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output>
+                              s3Output :: S3OutputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputProperty ::
   S3OutputProperty -> MonitoringOutputProperty

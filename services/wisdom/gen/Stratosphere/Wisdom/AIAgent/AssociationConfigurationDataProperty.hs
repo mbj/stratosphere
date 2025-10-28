@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationDataProperty as Exports
 import Stratosphere.ResourceProperties
 data AssociationConfigurationDataProperty
-  = AssociationConfigurationDataProperty {knowledgeBaseAssociationConfigurationData :: KnowledgeBaseAssociationConfigurationDataProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html>
+    AssociationConfigurationDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html#cfn-wisdom-aiagent-associationconfigurationdata-knowledgebaseassociationconfigurationdata>
+                                          knowledgeBaseAssociationConfigurationData :: KnowledgeBaseAssociationConfigurationDataProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationConfigurationDataProperty ::
   KnowledgeBaseAssociationConfigurationDataProperty

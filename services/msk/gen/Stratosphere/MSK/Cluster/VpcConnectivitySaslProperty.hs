@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.VpcConnectivityIamProperty as Exp
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.VpcConnectivityScramProperty as Exports
 import Stratosphere.ResourceProperties
 data VpcConnectivitySaslProperty
-  = VpcConnectivitySaslProperty {iam :: (Prelude.Maybe VpcConnectivityIamProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html>
+    VpcConnectivitySaslProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html#cfn-msk-cluster-vpcconnectivitysasl-iam>
+                                 iam :: (Prelude.Maybe VpcConnectivityIamProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html#cfn-msk-cluster-vpcconnectivitysasl-scram>
                                  scram :: (Prelude.Maybe VpcConnectivityScramProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivitySaslProperty :: VpcConnectivitySaslProperty

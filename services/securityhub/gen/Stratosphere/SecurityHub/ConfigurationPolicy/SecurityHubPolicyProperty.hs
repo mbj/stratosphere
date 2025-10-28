@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.SecurityContr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityHubPolicyProperty
-  = SecurityHubPolicyProperty {enabledStandardIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html>
+    SecurityHubPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html#cfn-securityhub-configurationpolicy-securityhubpolicy-enabledstandardidentifiers>
+                               enabledStandardIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html#cfn-securityhub-configurationpolicy-securityhubpolicy-securitycontrolsconfiguration>
                                securityControlsConfiguration :: (Prelude.Maybe SecurityControlsConfigurationProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html#cfn-securityhub-configurationpolicy-securityhubpolicy-serviceenabled>
                                serviceEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityHubPolicyProperty :: SecurityHubPolicyProperty

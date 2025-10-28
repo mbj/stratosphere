@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HubAccessConfigProperty
-  = HubAccessConfigProperty {hubContentArn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html>
+    HubAccessConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html#cfn-sagemaker-model-s3datasource-hubaccessconfig-hubcontentarn>
+                             hubContentArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHubAccessConfigProperty ::
   Value Prelude.Text -> HubAccessConfigProperty

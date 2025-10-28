@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginRequestPolicy
-  = OriginRequestPolicy {originRequestPolicyConfig :: OriginRequestPolicyConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html>
+    OriginRequestPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig>
+                         originRequestPolicyConfig :: OriginRequestPolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginRequestPolicy ::
   OriginRequestPolicyConfigProperty -> OriginRequestPolicy

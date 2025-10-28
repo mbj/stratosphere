@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.TelephonyOutbound
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TelephonyChannelSubtypeConfigProperty
-  = TelephonyChannelSubtypeConfigProperty {capacity :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html>
+    TelephonyChannelSubtypeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-capacity>
+                                           capacity :: (Prelude.Maybe (Value Prelude.Double)),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-connectqueueid>
                                            connectQueueId :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-defaultoutboundconfig>
                                            defaultOutboundConfig :: TelephonyOutboundConfigProperty,
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-outboundmode>
                                            outboundMode :: TelephonyOutboundModeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTelephonyChannelSubtypeConfigProperty ::

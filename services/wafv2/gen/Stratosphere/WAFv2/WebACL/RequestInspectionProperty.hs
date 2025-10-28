@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldIdentifierProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestInspectionProperty
-  = RequestInspectionProperty {passwordField :: FieldIdentifierProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html>
+    RequestInspectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-passwordfield>
+                               passwordField :: FieldIdentifierProperty,
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-payloadtype>
                                payloadType :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html#cfn-wafv2-webacl-requestinspection-usernamefield>
                                usernameField :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestInspectionProperty ::

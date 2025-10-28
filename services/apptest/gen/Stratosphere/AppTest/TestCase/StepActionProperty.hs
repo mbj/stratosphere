@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.MainframeActionProperty as E
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.ResourceActionProperty as Exports
 import Stratosphere.ResourceProperties
 data StepActionProperty
-  = StepActionProperty {compareAction :: (Prelude.Maybe CompareActionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-stepaction.html>
+    StepActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-stepaction.html#cfn-apptest-testcase-stepaction-compareaction>
+                        compareAction :: (Prelude.Maybe CompareActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-stepaction.html#cfn-apptest-testcase-stepaction-mainframeaction>
                         mainframeAction :: (Prelude.Maybe MainframeActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-stepaction.html#cfn-apptest-testcase-stepaction-resourceaction>
                         resourceAction :: (Prelude.Maybe ResourceActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStepActionProperty :: StepActionProperty

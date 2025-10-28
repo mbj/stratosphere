@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.ScheduleProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CisScanConfiguration
-  = CisScanConfiguration {scanName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html>
+    CisScanConfiguration {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-scanname>
+                          scanName :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-schedule>
                           schedule :: ScheduleProperty,
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-securitylevel>
                           securityLevel :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-tags>
                           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-targets>
                           targets :: CisTargetsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCisScanConfiguration ::

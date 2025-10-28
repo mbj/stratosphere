@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.MainframeActionTypeProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MainframeActionProperty
-  = MainframeActionProperty {actionType :: MainframeActionTypeProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeaction.html>
+    MainframeActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeaction.html#cfn-apptest-testcase-mainframeaction-actiontype>
+                             actionType :: MainframeActionTypeProperty,
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeaction.html#cfn-apptest-testcase-mainframeaction-properties>
                              properties :: (Prelude.Maybe MainframeActionPropertiesProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeaction.html#cfn-apptest-testcase-mainframeaction-resource>
                              resource :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMainframeActionProperty ::

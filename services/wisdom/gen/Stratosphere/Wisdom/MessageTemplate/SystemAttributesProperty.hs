@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.SystemEndpointAttribut
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemAttributesProperty
-  = SystemAttributesProperty {customerEndpoint :: (Prelude.Maybe SystemEndpointAttributesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html>
+    SystemAttributesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-customerendpoint>
+                              customerEndpoint :: (Prelude.Maybe SystemEndpointAttributesProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-name>
                               name :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-systemendpoint>
                               systemEndpoint :: (Prelude.Maybe SystemEndpointAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemAttributesProperty :: SystemAttributesProperty

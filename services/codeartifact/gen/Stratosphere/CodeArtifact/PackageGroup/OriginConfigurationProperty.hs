@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeArtifact.PackageGroup.RestrictionsProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginConfigurationProperty
-  = OriginConfigurationProperty {restrictions :: RestrictionsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-originconfiguration.html>
+    OriginConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-originconfiguration.html#cfn-codeartifact-packagegroup-originconfiguration-restrictions>
+                                 restrictions :: RestrictionsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginConfigurationProperty ::
   RestrictionsProperty -> OriginConfigurationProperty

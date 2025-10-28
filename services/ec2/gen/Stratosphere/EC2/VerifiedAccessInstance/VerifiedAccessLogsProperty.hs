@@ -11,10 +11,16 @@ import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessInstance.S3Property as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VerifiedAccessLogsProperty
-  = VerifiedAccessLogsProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html>
+    VerifiedAccessLogsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-cloudwatchlogs>
+                                cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-includetrustcontext>
                                 includeTrustContext :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-kinesisdatafirehose>
                                 kinesisDataFirehose :: (Prelude.Maybe KinesisDataFirehoseProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-logversion>
                                 logVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html#cfn-ec2-verifiedaccessinstance-verifiedaccesslogs-s3>
                                 s3 :: (Prelude.Maybe S3Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessLogsProperty :: VerifiedAccessLogsProperty

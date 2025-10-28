@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.InviteMessageTemplatePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdminCreateUserConfigProperty
-  = AdminCreateUserConfigProperty {allowAdminCreateUserOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html>
+    AdminCreateUserConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-allowadmincreateuseronly>
+                                   allowAdminCreateUserOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-invitemessagetemplate>
                                    inviteMessageTemplate :: (Prelude.Maybe InviteMessageTemplateProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-unusedaccountvaliditydays>
                                    unusedAccountValidityDays :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdminCreateUserConfigProperty :: AdminCreateUserConfigProperty

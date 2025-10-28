@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.GeoRestrictionProperty as Exports
 import Stratosphere.ResourceProperties
 data RestrictionsProperty
-  = RestrictionsProperty {geoRestriction :: GeoRestrictionProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html>
+    RestrictionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction>
+                          geoRestriction :: GeoRestrictionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictionsProperty ::
   GeoRestrictionProperty -> RestrictionsProperty

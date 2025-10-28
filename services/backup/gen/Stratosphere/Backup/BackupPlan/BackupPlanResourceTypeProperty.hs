@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupPlan.BackupRuleResourceTypePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupPlanResourceTypeProperty
-  = BackupPlanResourceTypeProperty {advancedBackupSettings :: (Prelude.Maybe [AdvancedBackupSettingResourceTypeProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html>
+    BackupPlanResourceTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings>
+                                    advancedBackupSettings :: (Prelude.Maybe [AdvancedBackupSettingResourceTypeProperty]),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname>
                                     backupPlanName :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule>
                                     backupPlanRule :: [BackupRuleResourceTypeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupPlanResourceTypeProperty ::

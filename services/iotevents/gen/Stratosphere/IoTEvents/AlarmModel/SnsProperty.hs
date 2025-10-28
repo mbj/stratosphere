@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsProperty
-  = SnsProperty {payload :: (Prelude.Maybe PayloadProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html>
+    SnsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-payload>
+                 payload :: (Prelude.Maybe PayloadProperty),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sns.html#cfn-iotevents-alarmmodel-sns-targetarn>
                  targetArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsProperty :: Value Prelude.Text -> SnsProperty

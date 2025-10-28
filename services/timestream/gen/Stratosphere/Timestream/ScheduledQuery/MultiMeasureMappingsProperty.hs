@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.MultiMeasureAttribu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiMeasureMappingsProperty
-  = MultiMeasureMappingsProperty {multiMeasureAttributeMappings :: [MultiMeasureAttributeMappingProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html>
+    MultiMeasureMappingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html#cfn-timestream-scheduledquery-multimeasuremappings-multimeasureattributemappings>
+                                  multiMeasureAttributeMappings :: [MultiMeasureAttributeMappingProperty],
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html#cfn-timestream-scheduledquery-multimeasuremappings-targetmultimeasurename>
                                   targetMultiMeasureName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureMappingsProperty ::

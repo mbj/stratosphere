@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressIpToEvalu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressIpv4ExpressionProperty
-  = IngressIpv4ExpressionProperty {evaluate :: IngressIpToEvaluateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html>
+    IngressIpv4ExpressionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-evaluate>
+                                   evaluate :: IngressIpToEvaluateProperty,
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-operator>
                                    operator :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html#cfn-ses-mailmanagertrafficpolicy-ingressipv4expression-values>
                                    values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressIpv4ExpressionProperty ::

@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.QueueConfigurationProperty as Expor
 import {-# SOURCE #-} Stratosphere.S3.Bucket.TopicConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {eventBridgeConfiguration :: (Prelude.Maybe EventBridgeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html>
+    NotificationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-eventbridgeconfiguration>
+                                       eventBridgeConfiguration :: (Prelude.Maybe EventBridgeConfigurationProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-lambdaconfigurations>
                                        lambdaConfigurations :: (Prelude.Maybe [LambdaConfigurationProperty]),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-queueconfigurations>
                                        queueConfigurations :: (Prelude.Maybe [QueueConfigurationProperty]),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html#cfn-s3-bucket-notificationconfiguration-topicconfigurations>
                                        topicConfigurations :: (Prelude.Maybe [TopicConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::

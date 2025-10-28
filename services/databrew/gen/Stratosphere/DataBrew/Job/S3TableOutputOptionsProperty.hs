@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data S3TableOutputOptionsProperty
-  = S3TableOutputOptionsProperty {location :: S3LocationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html>
+    S3TableOutputOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location>
+                                  location :: S3LocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3TableOutputOptionsProperty ::
   S3LocationProperty -> S3TableOutputOptionsProperty

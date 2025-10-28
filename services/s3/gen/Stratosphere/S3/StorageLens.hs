@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.StorageLensConfigurationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data StorageLens
-  = StorageLens {storageLensConfiguration :: StorageLensConfigurationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html>
+    StorageLens {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration>
+                 storageLensConfiguration :: StorageLensConfigurationProperty,
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLens :: StorageLensConfigurationProperty -> StorageLens

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.NielsenNaesIiNwProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NielsenWatermarksSettingsProperty
-  = NielsenWatermarksSettingsProperty {nielsenCbetSettings :: (Prelude.Maybe NielsenCBETProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html>
+    NielsenWatermarksSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsencbetsettings>
+                                       nielsenCbetSettings :: (Prelude.Maybe NielsenCBETProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsendistributiontype>
                                        nielsenDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsennaesiinwsettings>
                                        nielsenNaesIiNwSettings :: (Prelude.Maybe NielsenNaesIiNwProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenWatermarksSettingsProperty ::

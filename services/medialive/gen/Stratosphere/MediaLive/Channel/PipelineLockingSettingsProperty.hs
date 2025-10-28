@@ -6,7 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipelineLockingSettingsProperty
-  = PipelineLockingSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html>
+    PipelineLockingSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineLockingSettingsProperty ::
   PipelineLockingSettingsProperty

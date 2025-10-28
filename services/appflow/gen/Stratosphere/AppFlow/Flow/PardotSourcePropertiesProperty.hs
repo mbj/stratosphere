@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PardotSourcePropertiesProperty
-  = PardotSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-pardotsourceproperties.html>
+    PardotSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-pardotsourceproperties.html#cfn-appflow-flow-pardotsourceproperties-object>
+                                    object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotSourcePropertiesProperty ::
   Value Prelude.Text -> PardotSourcePropertiesProperty

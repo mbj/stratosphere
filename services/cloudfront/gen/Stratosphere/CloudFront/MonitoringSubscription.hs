@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.MonitoringSubscription.MonitoringS
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringSubscription
-  = MonitoringSubscription {distributionId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html>
+    MonitoringSubscription {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html#cfn-cloudfront-monitoringsubscription-distributionid>
+                            distributionId :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html#cfn-cloudfront-monitoringsubscription-monitoringsubscription>
                             monitoringSubscription :: MonitoringSubscriptionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringSubscription ::

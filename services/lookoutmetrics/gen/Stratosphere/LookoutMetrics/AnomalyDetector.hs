@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.MetricSetPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalyDetector
-  = AnomalyDetector {anomalyDetectorConfig :: AnomalyDetectorConfigProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html>
+    AnomalyDetector {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig>
+                     anomalyDetectorConfig :: AnomalyDetectorConfigProperty,
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription>
                      anomalyDetectorDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname>
                      anomalyDetectorName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn>
                      kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist>
                      metricSetList :: [MetricSetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyDetector ::

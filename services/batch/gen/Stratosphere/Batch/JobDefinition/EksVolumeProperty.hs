@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksSecretProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksVolumeProperty
-  = EksVolumeProperty {emptyDir :: (Prelude.Maybe EksEmptyDirProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html>
+    EksVolumeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-emptydir>
+                       emptyDir :: (Prelude.Maybe EksEmptyDirProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-hostpath>
                        hostPath :: (Prelude.Maybe EksHostPathProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-name>
                        name :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-secret>
                        secret :: (Prelude.Maybe EksSecretProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksVolumeProperty :: Value Prelude.Text -> EksVolumeProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.EventDes
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationSetEventDestination
-  = ConfigurationSetEventDestination {configurationSetName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html>
+    ConfigurationSetEventDestination {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-configurationsetname>
+                                      configurationSetName :: (Value Prelude.Text),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-eventdestination>
                                       eventDestination :: EventDestinationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSetEventDestination ::

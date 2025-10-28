@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AccessPolicy.IamUserProperty as E
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AccessPolicy.UserProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessPolicyIdentityProperty
-  = AccessPolicyIdentityProperty {iamRole :: (Prelude.Maybe IamRoleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html>
+    AccessPolicyIdentityProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole>
+                                  iamRole :: (Prelude.Maybe IamRoleProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser>
                                   iamUser :: (Prelude.Maybe IamUserProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user>
                                   user :: (Prelude.Maybe UserProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyIdentityProperty :: AccessPolicyIdentityProperty

@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListener
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayPortMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayListenerProperty
-  = VirtualGatewayListenerProperty {connectionPool :: (Prelude.Maybe VirtualGatewayConnectionPoolProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html>
+    VirtualGatewayListenerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool>
+                                    connectionPool :: (Prelude.Maybe VirtualGatewayConnectionPoolProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck>
                                     healthCheck :: (Prelude.Maybe VirtualGatewayHealthCheckPolicyProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping>
                                     portMapping :: VirtualGatewayPortMappingProperty,
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls>
                                     tLS :: (Prelude.Maybe VirtualGatewayListenerTlsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerProperty ::

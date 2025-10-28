@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DatasetContentDeliveryRu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetContentDeliveryRuleProperty
-  = DatasetContentDeliveryRuleProperty {destination :: DatasetContentDeliveryRuleDestinationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html>
+    DatasetContentDeliveryRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-destination>
+                                        destination :: DatasetContentDeliveryRuleDestinationProperty,
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-entryname>
                                         entryName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentDeliveryRuleProperty ::

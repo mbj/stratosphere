@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObfuscationSettingProperty
-  = ObfuscationSettingProperty {obfuscationSettingType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html>
+    ObfuscationSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html#cfn-lex-bot-obfuscationsetting-obfuscationsettingtype>
+                                obfuscationSettingType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObfuscationSettingProperty ::
   Value Prelude.Text -> ObfuscationSettingProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CpuProperty as Exports
 import Stratosphere.ResourceProperties
 data BaselinePerformanceFactorsProperty
-  = BaselinePerformanceFactorsProperty {cpu :: (Prelude.Maybe CpuProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html>
+    BaselinePerformanceFactorsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html#cfn-ec2-launchtemplate-baselineperformancefactors-cpu>
+                                        cpu :: (Prelude.Maybe CpuProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselinePerformanceFactorsProperty ::
   BaselinePerformanceFactorsProperty

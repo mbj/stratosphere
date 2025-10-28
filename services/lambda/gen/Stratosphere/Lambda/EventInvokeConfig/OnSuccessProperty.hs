@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnSuccessProperty
-  = OnSuccessProperty {destination :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html>
+    OnSuccessProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html#cfn-lambda-eventinvokeconfig-onsuccess-destination>
+                       destination :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnSuccessProperty :: Value Prelude.Text -> OnSuccessProperty
 mkOnSuccessProperty destination

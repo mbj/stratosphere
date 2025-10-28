@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.SpaceIdleSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data SpaceAppLifecycleManagementProperty
-  = SpaceAppLifecycleManagementProperty {idleSettings :: (Prelude.Maybe SpaceIdleSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html>
+    SpaceAppLifecycleManagementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html#cfn-sagemaker-space-spaceapplifecyclemanagement-idlesettings>
+                                         idleSettings :: (Prelude.Maybe SpaceIdleSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceAppLifecycleManagementProperty ::
   SpaceAppLifecycleManagementProperty

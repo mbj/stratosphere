@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ValidationProfilePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationSpecificationProperty
-  = ValidationSpecificationProperty {validationProfiles :: [ValidationProfileProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html>
+    ValidationSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationprofiles>
+                                     validationProfiles :: [ValidationProfileProperty],
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationrole>
                                      validationRole :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationSpecificationProperty ::

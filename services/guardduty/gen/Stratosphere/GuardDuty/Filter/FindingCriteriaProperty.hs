@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GuardDuty.Filter.ConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data FindingCriteriaProperty
-  = FindingCriteriaProperty {criterion :: (Prelude.Maybe (Prelude.Map Prelude.Text ConditionProperty))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html>
+    FindingCriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-criterion>
+                             criterion :: (Prelude.Maybe (Prelude.Map Prelude.Text ConditionProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingCriteriaProperty :: FindingCriteriaProperty
 mkFindingCriteriaProperty

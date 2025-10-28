@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.MediaStore.Container.MetricPolicyRuleProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricPolicyProperty
-  = MetricPolicyProperty {containerLevelMetrics :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html>
+    MetricPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-containerlevelmetrics>
+                          containerLevelMetrics :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html#cfn-mediastore-container-metricpolicy-metricpolicyrules>
                           metricPolicyRules :: (Prelude.Maybe [MetricPolicyRuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricPolicyProperty ::

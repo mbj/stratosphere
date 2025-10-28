@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.GutterStyleProperty as Expor
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.MarginStyleProperty as Exports
 import Stratosphere.ResourceProperties
 data TileLayoutStyleProperty
-  = TileLayoutStyleProperty {gutter :: (Prelude.Maybe GutterStyleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html>
+    TileLayoutStyleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter>
+                             gutter :: (Prelude.Maybe GutterStyleProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin>
                              margin :: (Prelude.Maybe MarginStyleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTileLayoutStyleProperty :: TileLayoutStyleProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DeltaTimeProperty as Exports
 import Stratosphere.ResourceProperties
 data FilterProperty
-  = FilterProperty {deltaTime :: (Prelude.Maybe DeltaTimeProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html>
+    FilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html#cfn-iotanalytics-dataset-filter-deltatime>
+                    deltaTime :: (Prelude.Maybe DeltaTimeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
 mkFilterProperty = FilterProperty {deltaTime = Prelude.Nothing}

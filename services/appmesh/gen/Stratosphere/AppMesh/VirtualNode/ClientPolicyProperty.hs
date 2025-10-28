@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyTlsProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientPolicyProperty
-  = ClientPolicyProperty {tLS :: (Prelude.Maybe ClientPolicyTlsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html>
+    ClientPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html#cfn-appmesh-virtualnode-clientpolicy-tls>
+                          tLS :: (Prelude.Maybe ClientPolicyTlsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientPolicyProperty :: ClientPolicyProperty
 mkClientPolicyProperty

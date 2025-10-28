@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.SubscriptionDefinition.SubscriptionProperty as Exports
 import Stratosphere.ResourceProperties
 data SubscriptionDefinitionVersionProperty
-  = SubscriptionDefinitionVersionProperty {subscriptions :: [SubscriptionProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html>
+    SubscriptionDefinitionVersionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html#cfn-greengrass-subscriptiondefinition-subscriptiondefinitionversion-subscriptions>
+                                           subscriptions :: [SubscriptionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinitionVersionProperty ::
   [SubscriptionProperty] -> SubscriptionDefinitionVersionProperty

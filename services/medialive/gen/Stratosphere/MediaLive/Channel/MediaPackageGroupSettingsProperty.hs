@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty as Exports
 import Stratosphere.ResourceProperties
 data MediaPackageGroupSettingsProperty
-  = MediaPackageGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html>
+    MediaPackageGroupSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-destination>
+                                       destination :: (Prelude.Maybe OutputLocationRefProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageGroupSettingsProperty ::
   MediaPackageGroupSettingsProperty

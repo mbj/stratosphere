@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WorkSpacesWeb.UserSettings.CookieSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data CookieSynchronizationConfigurationProperty
-  = CookieSynchronizationConfigurationProperty {allowlist :: [CookieSpecificationProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html>
+    CookieSynchronizationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration-allowlist>
+                                                allowlist :: [CookieSpecificationProperty],
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration-blocklist>
                                                 blocklist :: (Prelude.Maybe [CookieSpecificationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCookieSynchronizationConfigurationProperty ::

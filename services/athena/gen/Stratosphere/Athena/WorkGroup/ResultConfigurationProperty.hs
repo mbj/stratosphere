@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.EncryptionConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResultConfigurationProperty
-  = ResultConfigurationProperty {aclConfiguration :: (Prelude.Maybe AclConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html>
+    ResultConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-aclconfiguration>
+                                 aclConfiguration :: (Prelude.Maybe AclConfigurationProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration>
                                  encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-expectedbucketowner>
                                  expectedBucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation>
                                  outputLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResultConfigurationProperty :: ResultConfigurationProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.PublicKey.PublicKeyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data PublicKey
-  = PublicKey {publicKeyConfig :: PublicKeyConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html>
+    PublicKey {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig>
+               publicKeyConfig :: PublicKeyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicKey :: PublicKeyConfigProperty -> PublicKey
 mkPublicKey publicKeyConfig

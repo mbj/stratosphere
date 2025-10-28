@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsPath.FilterPortRangeProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathFilterProperty
-  = PathFilterProperty {destinationAddress :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html>
+    PathFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html#cfn-ec2-networkinsightspath-pathfilter-destinationaddress>
+                        destinationAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html#cfn-ec2-networkinsightspath-pathfilter-destinationportrange>
                         destinationPortRange :: (Prelude.Maybe FilterPortRangeProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html#cfn-ec2-networkinsightspath-pathfilter-sourceaddress>
                         sourceAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html#cfn-ec2-networkinsightspath-pathfilter-sourceportrange>
                         sourcePortRange :: (Prelude.Maybe FilterPortRangeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathFilterProperty :: PathFilterProperty

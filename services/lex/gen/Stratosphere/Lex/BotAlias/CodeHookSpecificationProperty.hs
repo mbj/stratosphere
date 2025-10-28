@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.BotAlias.LambdaCodeHookProperty as Exports
 import Stratosphere.ResourceProperties
 data CodeHookSpecificationProperty
-  = CodeHookSpecificationProperty {lambdaCodeHook :: LambdaCodeHookProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html>
+    CodeHookSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html#cfn-lex-botalias-codehookspecification-lambdacodehook>
+                                   lambdaCodeHook :: LambdaCodeHookProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeHookSpecificationProperty ::
   LambdaCodeHookProperty -> CodeHookSpecificationProperty

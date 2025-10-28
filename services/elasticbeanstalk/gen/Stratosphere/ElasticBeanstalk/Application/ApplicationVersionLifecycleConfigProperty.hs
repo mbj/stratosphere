@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.Application.MaxAgeRuleProper
 import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.Application.MaxCountRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data ApplicationVersionLifecycleConfigProperty
-  = ApplicationVersionLifecycleConfigProperty {maxAgeRule :: (Prelude.Maybe MaxAgeRuleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html>
+    ApplicationVersionLifecycleConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxagerule>
+                                               maxAgeRule :: (Prelude.Maybe MaxAgeRuleProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html#cfn-elasticbeanstalk-application-applicationversionlifecycleconfig-maxcountrule>
                                                maxCountRule :: (Prelude.Maybe MaxCountRuleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersionLifecycleConfigProperty ::

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DTMFSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioAndDTMFInputSpecificationProperty
-  = AudioAndDTMFInputSpecificationProperty {audioSpecification :: (Prelude.Maybe AudioSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html>
+    AudioAndDTMFInputSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html#cfn-lex-bot-audioanddtmfinputspecification-audiospecification>
+                                            audioSpecification :: (Prelude.Maybe AudioSpecificationProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html#cfn-lex-bot-audioanddtmfinputspecification-dtmfspecification>
                                             dTMFSpecification :: (Prelude.Maybe DTMFSpecificationProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html#cfn-lex-bot-audioanddtmfinputspecification-starttimeoutms>
                                             startTimeoutMs :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioAndDTMFInputSpecificationProperty ::

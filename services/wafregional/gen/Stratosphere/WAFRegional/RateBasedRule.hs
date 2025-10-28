@@ -8,10 +8,16 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.RateBasedRule.PredicateProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateBasedRule
-  = RateBasedRule {matchPredicates :: (Prelude.Maybe [PredicateProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html>
+    RateBasedRule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-matchpredicates>
+                   matchPredicates :: (Prelude.Maybe [PredicateProperty]),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-metricname>
                    metricName :: (Value Prelude.Text),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-name>
                    name :: (Value Prelude.Text),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-ratekey>
                    rateKey :: (Value Prelude.Text),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html#cfn-wafregional-ratebasedrule-ratelimit>
                    rateLimit :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedRule ::

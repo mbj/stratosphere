@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticOverrideProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticsConfigurationProperty
-  = StatisticsConfigurationProperty {includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html>
+    StatisticsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics>
+                                     includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides>
                                      overrides :: (Prelude.Maybe [StatisticOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticsConfigurationProperty ::

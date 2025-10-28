@@ -9,7 +9,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormNumericQuestionAutomationProperty
-  = EvaluationFormNumericQuestionAutomationProperty {propertyValue :: NumericQuestionPropertyValueAutomationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html>
+    EvaluationFormNumericQuestionAutomationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-propertyvalue>
+                                                     propertyValue :: NumericQuestionPropertyValueAutomationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionAutomationProperty ::
   NumericQuestionPropertyValueAutomationProperty

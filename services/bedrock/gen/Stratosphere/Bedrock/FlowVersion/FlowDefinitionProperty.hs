@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.FlowConnectionProperty as
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.FlowNodeProperty as Exports
 import Stratosphere.ResourceProperties
 data FlowDefinitionProperty
-  = FlowDefinitionProperty {connections :: (Prelude.Maybe [FlowConnectionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdefinition.html>
+    FlowDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdefinition.html#cfn-bedrock-flowversion-flowdefinition-connections>
+                            connections :: (Prelude.Maybe [FlowConnectionProperty]),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdefinition.html#cfn-bedrock-flowversion-flowdefinition-nodes>
                             nodes :: (Prelude.Maybe [FlowNodeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowDefinitionProperty :: FlowDefinitionProperty

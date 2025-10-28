@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.Association.S3OutputLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceAssociationOutputLocationProperty
-  = InstanceAssociationOutputLocationProperty {s3Location :: (Prelude.Maybe S3OutputLocationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html>
+    InstanceAssociationOutputLocationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location>
+                                               s3Location :: (Prelude.Maybe S3OutputLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceAssociationOutputLocationProperty ::
   InstanceAssociationOutputLocationProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data AssociationConfigProperty
-  = AssociationConfigProperty {requestBody :: (Prelude.Maybe (Prelude.Map Prelude.Text RequestBodyAssociatedResourceTypeConfigProperty))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html>
+    AssociationConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html#cfn-wafv2-webacl-associationconfig-requestbody>
+                               requestBody :: (Prelude.Maybe (Prelude.Map Prelude.Text RequestBodyAssociatedResourceTypeConfigProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationConfigProperty :: AssociationConfigProperty
 mkAssociationConfigProperty

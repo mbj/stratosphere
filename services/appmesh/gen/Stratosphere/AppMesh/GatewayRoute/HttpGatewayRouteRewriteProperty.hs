@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePathRewr
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewriteProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpGatewayRouteRewriteProperty
-  = HttpGatewayRouteRewriteProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html>
+    HttpGatewayRouteRewriteProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-hostname>
+                                     hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-path>
                                      path :: (Prelude.Maybe HttpGatewayRoutePathRewriteProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html#cfn-appmesh-gatewayroute-httpgatewayrouterewrite-prefix>
                                      prefix :: (Prelude.Maybe HttpGatewayRoutePrefixRewriteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteRewriteProperty ::

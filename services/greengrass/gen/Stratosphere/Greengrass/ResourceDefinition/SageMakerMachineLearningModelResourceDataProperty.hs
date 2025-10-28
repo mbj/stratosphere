@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceDownloa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SageMakerMachineLearningModelResourceDataProperty
-  = SageMakerMachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html>
+    SageMakerMachineLearningModelResourceDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-destinationpath>
+                                                       destinationPath :: (Value Prelude.Text),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-ownersetting>
                                                        ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata-sagemakerjobarn>
                                                        sageMakerJobArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSageMakerMachineLearningModelResourceDataProperty ::

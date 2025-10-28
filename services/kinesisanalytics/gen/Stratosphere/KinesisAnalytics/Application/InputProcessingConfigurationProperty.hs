@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalytics.Application.InputLambdaProcessorProperty as Exports
 import Stratosphere.ResourceProperties
 data InputProcessingConfigurationProperty
-  = InputProcessingConfigurationProperty {inputLambdaProcessor :: (Prelude.Maybe InputLambdaProcessorProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputprocessingconfiguration.html>
+    InputProcessingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputprocessingconfiguration.html#cfn-kinesisanalytics-application-inputprocessingconfiguration-inputlambdaprocessor>
+                                          inputLambdaProcessor :: (Prelude.Maybe InputLambdaProcessorProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProcessingConfigurationProperty ::
   InputProcessingConfigurationProperty

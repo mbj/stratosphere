@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomHTTPHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomRequestHandlingProperty
-  = CustomRequestHandlingProperty {insertHeaders :: [CustomHTTPHeaderProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html>
+    CustomRequestHandlingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders>
+                                   insertHeaders :: [CustomHTTPHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomRequestHandlingProperty ::
   [CustomHTTPHeaderProperty] -> CustomRequestHandlingProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Evidently.Launch.GroupToWeightProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SegmentOverrideProperty
-  = SegmentOverrideProperty {evaluationOrder :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html>
+    SegmentOverrideProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-evaluationorder>
+                             evaluationOrder :: (Value Prelude.Integer),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-segment>
                              segment :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html#cfn-evidently-launch-segmentoverride-weights>
                              weights :: [GroupToWeightProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentOverrideProperty ::

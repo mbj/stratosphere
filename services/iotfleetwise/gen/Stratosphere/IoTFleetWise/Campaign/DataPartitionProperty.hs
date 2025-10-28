@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.DataPartitionUploadOpti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPartitionProperty
-  = DataPartitionProperty {id :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html>
+    DataPartitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-id>
+                           id :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-storageoptions>
                            storageOptions :: DataPartitionStorageOptionsProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-uploadoptions>
                            uploadOptions :: (Prelude.Maybe DataPartitionUploadOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPartitionProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotCapacityRebalanceProperty as Exports
 import Stratosphere.ResourceProperties
 data SpotMaintenanceStrategiesProperty
-  = SpotMaintenanceStrategiesProperty {capacityRebalance :: (Prelude.Maybe SpotCapacityRebalanceProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html>
+    SpotMaintenanceStrategiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance>
+                                       capacityRebalance :: (Prelude.Maybe SpotCapacityRebalanceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotMaintenanceStrategiesProperty ::
   SpotMaintenanceStrategiesProperty

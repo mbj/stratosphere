@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WordConfigProperty
-  = WordConfigProperty {text :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html>
+    WordConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html#cfn-bedrock-guardrail-wordconfig-text>
+                        text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWordConfigProperty :: Value Prelude.Text -> WordConfigProperty
 mkWordConfigProperty text = WordConfigProperty {text = text}

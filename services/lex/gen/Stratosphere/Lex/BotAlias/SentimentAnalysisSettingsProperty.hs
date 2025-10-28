@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SentimentAnalysisSettingsProperty
-  = SentimentAnalysisSettingsProperty {detectSentiment :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-sentimentanalysissettings.html>
+    SentimentAnalysisSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-sentimentanalysissettings.html#cfn-lex-botalias-sentimentanalysissettings-detectsentiment>
+                                       detectSentiment :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSentimentAnalysisSettingsProperty ::
   Value Prelude.Bool -> SentimentAnalysisSettingsProperty

@@ -12,10 +12,16 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HlsS3SettingsProperty as Ex
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HlsWebdavSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data HlsCdnSettingsProperty
-  = HlsCdnSettingsProperty {hlsAkamaiSettings :: (Prelude.Maybe HlsAkamaiSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html>
+    HlsCdnSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlsakamaisettings>
+                            hlsAkamaiSettings :: (Prelude.Maybe HlsAkamaiSettingsProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlsbasicputsettings>
                             hlsBasicPutSettings :: (Prelude.Maybe HlsBasicPutSettingsProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlsmediastoresettings>
                             hlsMediaStoreSettings :: (Prelude.Maybe HlsMediaStoreSettingsProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlss3settings>
                             hlsS3Settings :: (Prelude.Maybe HlsS3SettingsProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html#cfn-medialive-channel-hlscdnsettings-hlswebdavsettings>
                             hlsWebdavSettings :: (Prelude.Maybe HlsWebdavSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsCdnSettingsProperty :: HlsCdnSettingsProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.GlobalReplicationGroup.Resharding
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegionalConfigurationProperty
-  = RegionalConfigurationProperty {replicationGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html>
+    RegionalConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid>
+                                   replicationGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion>
                                    replicationGroupRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations>
                                    reshardingConfigurations :: (Prelude.Maybe [ReshardingConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionalConfigurationProperty :: RegionalConfigurationProperty

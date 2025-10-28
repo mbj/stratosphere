@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.ContainerConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data CodeEditorAppImageConfigProperty
-  = CodeEditorAppImageConfigProperty {containerConfig :: (Prelude.Maybe ContainerConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html>
+    CodeEditorAppImageConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html#cfn-sagemaker-appimageconfig-codeeditorappimageconfig-containerconfig>
+                                      containerConfig :: (Prelude.Maybe ContainerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeEditorAppImageConfigProperty ::
   CodeEditorAppImageConfigProperty

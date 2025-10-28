@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.FSx.StorageVirtualMachine.SelfManagedActiveDi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActiveDirectoryConfigurationProperty
-  = ActiveDirectoryConfigurationProperty {netBiosName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html>
+    ActiveDirectoryConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-activedirectoryconfiguration-netbiosname>
+                                          netBiosName :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration>
                                           selfManagedActiveDirectoryConfiguration :: (Prelude.Maybe SelfManagedActiveDirectoryConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActiveDirectoryConfigurationProperty ::
