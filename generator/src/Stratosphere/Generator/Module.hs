@@ -29,8 +29,7 @@ writeModule path targetModule = do
   Text.writeFile path =<< renderModule effectiveModule
   where
     effectiveModule = targetModule
-      { GHC.hsmodImports = filteredImports
-      , GHC.hsmodExports = fmap filterExports <$> targetModule.hsmodExports
+      { GHC.hsmodExports = fmap filterExports <$> targetModule.hsmodExports
       }
 
     filterExports :: [GHC.LIE GHC.GhcPs] -> [GHC.LIE GHC.GhcPs]
@@ -39,11 +38,6 @@ writeModule path targetModule = do
         GHC.IEModuleContents{} -> hasAsExport
         _other                 -> True
 
-    filteredImports =
-      List.filter
-        ((/=) targetModule.hsmodName . pure . (.ideclName) . GHC.unLoc )
-        targetModule.hsmodImports
-
     hasAsExport = List.any
       ((==) (pure $ GHC.mkModuleName "Exports") . fmap GHC.unLoc . (.ideclAs) . GHC.unLoc)
-      filteredImports
+      targetModule.hsmodImports
