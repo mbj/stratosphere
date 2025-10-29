@@ -13,6 +13,7 @@ import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Map                   as Map
+import qualified Data.Maybe                 as Maybe
 import qualified Data.Set                   as Set
 import qualified Data.Text                  as Text
 import qualified Data.Text.IO               as Text
@@ -87,7 +88,7 @@ writeResourceTypeModule resourceTypeName Raw.ResourceType{..} = do
     GHC.module'
       (Just moduleName)
       (Just exports)
-      (renderImports (pure resourceTypeName) imports)
+      (renderImports moduleName (pure resourceTypeName) imports)
       declarations
   where
     moduleFilePath = serviceDirectory service </> moduleFileName moduleName
@@ -147,7 +148,7 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
       GHC.module'
         (Just moduleName)
         (Just exports)
-        (renderImports resourceTypeName imports)
+        (renderImports moduleName resourceTypeName imports)
         [typeAlias]
         where
           (typeAlias, State{..}) = genTypeAlias propertyTypeName propertyType
@@ -156,7 +157,7 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
       GHC.module'
         (Just moduleName)
         (Just exports)
-        (renderImports resourceTypeName imports)
+        (renderImports moduleName resourceTypeName imports)
         declarations
         where
           (declarations, State{..})
@@ -172,7 +173,7 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
       GHC.module'
         (Just moduleName)
         Nothing
-        (renderImports resourceTypeName imports)
+        (renderImports moduleName resourceTypeName imports)
         declarations
         where
           (declarations, State{..})
@@ -184,20 +185,23 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
               , properties  = []
               }
 
-renderImports :: Maybe Raw.ResourceTypeName -> Set Import -> [GHC.ImportDecl']
-renderImports resourceTypeName = fmap mkImport . Set.toList
+renderImports :: GHC.ModuleNameStr -> Maybe Raw.ResourceTypeName -> Set Import -> [GHC.ImportDecl']
+renderImports currentModuleName resourceTypeName = Maybe.mapMaybe mkImport . Set.toList
   where
     mkImport = \case
-      JSON                     -> GHC.qualified' $ GHC.import' "Data.Aeson" `GHC.as'` "JSON"
-      Prelude                  -> GHC.qualified' $ GHC.import' "Stratosphere.Prelude" `GHC.as'` "Prelude"
-      Property                 -> GHC.import' "Stratosphere.Property"
-      ResourceProperties       -> GHC.import' "Stratosphere.ResourceProperties"
-      Tag                      -> GHC.import' "Stratosphere.Tag"
-      Value                    -> GHC.import' "Stratosphere.Value"
+      JSON                     -> Just $ GHC.qualified' $ GHC.import' "Data.Aeson" `GHC.as'` "JSON"
+      Prelude                  -> Just $ GHC.qualified' $ GHC.import' "Stratosphere.Prelude" `GHC.as'` "Prelude"
+      Property                 -> Just $ GHC.import' "Stratosphere.Property"
+      ResourceProperties       -> Just $ GHC.import' "Stratosphere.ResourceProperties"
+      Tag                      -> Just $ GHC.import' "Stratosphere.Tag"
+      Value                    -> Just $ GHC.import' "Stratosphere.Value"
       (Reference propertyName) ->
         case resourceTypeName of
           (Just resourceTypeName') ->
-             GHC.source $ GHC.import' (resourceTypePropertyModuleName resourceTypeName' propertyName) `GHC.as'` "Exports"
+             let refModuleName = resourceTypePropertyModuleName resourceTypeName' propertyName
+             in if refModuleName == currentModuleName
+                   then Nothing  -- Skip self-references
+                   else Just $ GHC.source $ GHC.import' refModuleName `GHC.as'` "Exports"
           Nothing -> error $ "Unresolved reference to: " <> show propertyName
 
 packageSlug :: Raw.Service -> Text

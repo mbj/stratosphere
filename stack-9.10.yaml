@@ -442,7 +442,7 @@ flags:
 packages:
 - .
 - examples
-# - generator, AST not compatible with GHC 9.10+
+# - generator, only supported on GHC 9.12
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq

@@ -1,5 +1,8 @@
 ---
 resolver: nightly-2025-10-26
+extra-deps:
+- git: https://github.com/google/ghc-source-gen.git
+  commit: 42d650d3b62c6bc4e3d33d1abc91e3e60f446941
 flags:
   stratosphere:
     development: true
@@ -442,7 +445,7 @@ flags:
 packages:
 - .
 - examples
-# - generator, AST not compatible with GHC 9.12+
+- generator
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq

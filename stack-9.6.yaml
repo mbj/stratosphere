@@ -446,7 +446,6 @@ flags:
 packages:
 - .
 - examples
-- generator
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq
