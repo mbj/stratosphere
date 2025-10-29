@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTCoreDeviceAdvisor.SuiteDefinition.SuiteDef
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data SuiteDefinition
-  = SuiteDefinition {suiteDefinitionConfiguration :: SuiteDefinitionConfigurationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html>
+    SuiteDefinition {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration>
+                     suiteDefinitionConfiguration :: SuiteDefinitionConfigurationProperty,
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuiteDefinition ::

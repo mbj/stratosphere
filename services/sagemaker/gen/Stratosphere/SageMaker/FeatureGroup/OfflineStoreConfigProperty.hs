@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.S3StorageConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OfflineStoreConfigProperty
-  = OfflineStoreConfigProperty {dataCatalogConfig :: (Prelude.Maybe DataCatalogConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html>
+    OfflineStoreConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-datacatalogconfig>
+                                dataCatalogConfig :: (Prelude.Maybe DataCatalogConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-disablegluetablecreation>
                                 disableGlueTableCreation :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-s3storageconfig>
                                 s3StorageConfig :: S3StorageConfigProperty,
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html#cfn-sagemaker-featuregroup-offlinestoreconfig-tableformat>
                                 tableFormat :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOfflineStoreConfigProperty ::

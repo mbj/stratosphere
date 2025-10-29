@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceDefinit
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceDefinition
-  = ResourceDefinition {initialVersion :: (Prelude.Maybe ResourceDefinitionVersionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html>
+    ResourceDefinition {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-initialversion>
+                        initialVersion :: (Prelude.Maybe ResourceDefinitionVersionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-name>
                         name :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html#cfn-greengrass-resourcedefinition-tags>
                         tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinition :: Value Prelude.Text -> ResourceDefinition

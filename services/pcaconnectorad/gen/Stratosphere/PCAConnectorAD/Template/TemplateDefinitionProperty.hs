@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.TemplateV3Property as
 import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.TemplateV4Property as Exports
 import Stratosphere.ResourceProperties
 data TemplateDefinitionProperty
-  = TemplateDefinitionProperty {templateV2 :: (Prelude.Maybe TemplateV2Property),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html>
+    TemplateDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html#cfn-pcaconnectorad-template-templatedefinition-templatev2>
+                                templateV2 :: (Prelude.Maybe TemplateV2Property),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html#cfn-pcaconnectorad-template-templatedefinition-templatev3>
                                 templateV3 :: (Prelude.Maybe TemplateV3Property),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html#cfn-pcaconnectorad-template-templatedefinition-templatev4>
                                 templateV4 :: (Prelude.Maybe TemplateV4Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateDefinitionProperty :: TemplateDefinitionProperty

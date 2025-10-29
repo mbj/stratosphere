@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.DestinationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataExportProperty
-  = DataExportProperty {destination :: DestinationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html>
+    DataExportProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination>
+                        destination :: DestinationProperty,
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion>
                         outputSchemaVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataExportProperty ::

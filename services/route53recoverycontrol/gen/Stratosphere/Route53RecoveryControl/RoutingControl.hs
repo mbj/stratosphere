@@ -7,8 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingControl
-  = RoutingControl {clusterArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html>
+    RoutingControl {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn>
+                    clusterArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn>
                     controlPanelArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name>
                     name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingControl :: Value Prelude.Text -> RoutingControl

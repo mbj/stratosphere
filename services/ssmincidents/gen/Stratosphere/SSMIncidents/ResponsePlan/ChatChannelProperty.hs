@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChatChannelProperty
-  = ChatChannelProperty {chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html>
+    ChatChannelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns>
+                         chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChatChannelProperty :: ChatChannelProperty
 mkChatChannelProperty

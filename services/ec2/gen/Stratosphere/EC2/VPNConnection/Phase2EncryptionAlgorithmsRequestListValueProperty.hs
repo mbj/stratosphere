@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Phase2EncryptionAlgorithmsRequestListValueProperty
-  = Phase2EncryptionAlgorithmsRequestListValueProperty {value :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html>
+    Phase2EncryptionAlgorithmsRequestListValueProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html#cfn-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue-value>
+                                                        value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPhase2EncryptionAlgorithmsRequestListValueProperty ::
   Phase2EncryptionAlgorithmsRequestListValueProperty

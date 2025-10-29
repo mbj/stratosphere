@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaAuthorizerConfigProperty
-  = LambdaAuthorizerConfigProperty {authorizerResultTtlInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-lambdaauthorizerconfig.html>
+    LambdaAuthorizerConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-lambdaauthorizerconfig.html#cfn-appsync-api-lambdaauthorizerconfig-authorizerresultttlinseconds>
+                                    authorizerResultTtlInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-lambdaauthorizerconfig.html#cfn-appsync-api-lambdaauthorizerconfig-authorizeruri>
                                     authorizerUri :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-lambdaauthorizerconfig.html#cfn-appsync-api-lambdaauthorizerconfig-identityvalidationexpression>
                                     identityValidationExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaAuthorizerConfigProperty ::

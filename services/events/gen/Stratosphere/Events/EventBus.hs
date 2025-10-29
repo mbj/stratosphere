@@ -9,12 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EventBus
-  = EventBus {deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html>
+    EventBus {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-deadletterconfig>
+              deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename>
               eventSourceName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-kmskeyidentifier>
               kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-name>
               name :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-policy>
               policy :: (Prelude.Maybe JSON.Object),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBus :: Value Prelude.Text -> EventBus

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncludedPropertyProperty
-  = IncludedPropertyProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html>
+    IncludedPropertyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html#cfn-resourceexplorer2-view-includedproperty-name>
+                              name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIncludedPropertyProperty ::
   Value Prelude.Text -> IncludedPropertyProperty

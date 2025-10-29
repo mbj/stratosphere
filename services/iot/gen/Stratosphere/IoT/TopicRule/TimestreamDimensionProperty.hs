@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimestreamDimensionProperty
-  = TimestreamDimensionProperty {name :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html>
+    TimestreamDimensionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name>
+                                 name :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value>
                                  value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamDimensionProperty ::

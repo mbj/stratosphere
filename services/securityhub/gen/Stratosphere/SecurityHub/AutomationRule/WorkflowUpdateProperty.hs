@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkflowUpdateProperty
-  = WorkflowUpdateProperty {status :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html>
+    WorkflowUpdateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html#cfn-securityhub-automationrule-workflowupdate-status>
+                            status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowUpdateProperty ::
   Value Prelude.Text -> WorkflowUpdateProperty

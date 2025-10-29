@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.ComponentRunWithPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentDeploymentSpecificationProperty
-  = ComponentDeploymentSpecificationProperty {componentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html>
+    ComponentDeploymentSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html#cfn-greengrassv2-deployment-componentdeploymentspecification-componentversion>
+                                              componentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html#cfn-greengrassv2-deployment-componentdeploymentspecification-configurationupdate>
                                               configurationUpdate :: (Prelude.Maybe ComponentConfigurationUpdateProperty),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html#cfn-greengrassv2-deployment-componentdeploymentspecification-runwith>
                                               runWith :: (Prelude.Maybe ComponentRunWithProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDeploymentSpecificationProperty ::

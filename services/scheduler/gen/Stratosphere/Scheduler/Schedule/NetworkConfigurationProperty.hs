@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Scheduler.Schedule.AwsVpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {awsvpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-networkconfiguration.html>
+    NetworkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-networkconfiguration.html#cfn-scheduler-schedule-networkconfiguration-awsvpcconfiguration>
+                                  awsvpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty

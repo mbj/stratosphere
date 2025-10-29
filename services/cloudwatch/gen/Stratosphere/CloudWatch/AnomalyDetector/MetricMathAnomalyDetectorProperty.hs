@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 data MetricMathAnomalyDetectorProperty
-  = MetricMathAnomalyDetectorProperty {metricDataQueries :: (Prelude.Maybe [MetricDataQueryProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html>
+    MetricMathAnomalyDetectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector-metricdataqueries>
+                                       metricDataQueries :: (Prelude.Maybe [MetricDataQueryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricMathAnomalyDetectorProperty ::
   MetricMathAnomalyDetectorProperty

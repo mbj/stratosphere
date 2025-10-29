@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobExponentialRoll
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IoTJobExecutionsRolloutConfigProperty
-  = IoTJobExecutionsRolloutConfigProperty {exponentialRate :: (Prelude.Maybe IoTJobExponentialRolloutRateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html>
+    IoTJobExecutionsRolloutConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html#cfn-greengrassv2-deployment-iotjobexecutionsrolloutconfig-exponentialrate>
+                                           exponentialRate :: (Prelude.Maybe IoTJobExponentialRolloutRateProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html#cfn-greengrassv2-deployment-iotjobexecutionsrolloutconfig-maximumperminute>
                                            maximumPerMinute :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobExecutionsRolloutConfigProperty ::

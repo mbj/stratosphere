@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackConnectorProfilePropertiesProperty
-  = SlackConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html>
+    SlackConnectorProfilePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl>
+                                             instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> SlackConnectorProfilePropertiesProperty

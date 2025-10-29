@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressConfigurationProperty
-  = IngressConfigurationProperty {isPubliclyAccessible :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-ingressconfiguration.html>
+    IngressConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-ingressconfiguration.html#cfn-apprunner-service-ingressconfiguration-ispubliclyaccessible>
+                                  isPubliclyAccessible :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressConfigurationProperty ::
   Value Prelude.Bool -> IngressConfigurationProperty

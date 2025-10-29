@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationTimeValueProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricsProperty
-  = MetricsProperty {eventThreshold :: (Prelude.Maybe ReplicationTimeValueProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html>
+    MetricsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold>
+                     eventThreshold :: (Prelude.Maybe ReplicationTimeValueProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status>
                      status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsProperty :: Value Prelude.Text -> MetricsProperty

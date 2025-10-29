@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.MLTransform.GlueTablesProperty as Exports
 import Stratosphere.ResourceProperties
 data InputRecordTablesProperty
-  = InputRecordTablesProperty {glueTables :: (Prelude.Maybe [GlueTablesProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html>
+    InputRecordTablesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables>
+                               glueTables :: (Prelude.Maybe [GlueTablesProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputRecordTablesProperty :: InputRecordTablesProperty
 mkInputRecordTablesProperty

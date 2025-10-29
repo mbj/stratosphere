@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpaceIdleSettingsProperty
-  = SpaceIdleSettingsProperty {idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html>
+    SpaceIdleSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html#cfn-sagemaker-space-spaceidlesettings-idletimeoutinminutes>
+                               idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceIdleSettingsProperty :: SpaceIdleSettingsProperty
 mkSpaceIdleSettingsProperty

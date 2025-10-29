@@ -13,11 +13,18 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.SqlConfigurationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseConfigurationProperty
-  = DatabaseConfigurationProperty {aclConfiguration :: (Prelude.Maybe AclConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html>
+    DatabaseConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration>
+                                   aclConfiguration :: (Prelude.Maybe AclConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration>
                                    columnConfiguration :: ColumnConfigurationProperty,
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration>
                                    connectionConfiguration :: ConnectionConfigurationProperty,
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype>
                                    databaseEngineType :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration>
                                    sqlConfiguration :: (Prelude.Maybe SqlConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration>
                                    vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseConfigurationProperty ::

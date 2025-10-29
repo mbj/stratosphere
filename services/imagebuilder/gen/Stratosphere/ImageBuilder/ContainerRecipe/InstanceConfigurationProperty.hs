@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ContainerRecipe.InstanceBlockDev
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceConfigurationProperty
-  = InstanceConfigurationProperty {blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html>
+    InstanceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings>
+                                   blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image>
                                    image :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceConfigurationProperty :: InstanceConfigurationProperty

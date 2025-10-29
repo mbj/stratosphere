@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackendProperty
-  = BackendProperty {stackArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html>
+    BackendProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html#cfn-amplify-branch-backend-stackarn>
+                     stackArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendProperty :: BackendProperty
 mkBackendProperty = BackendProperty {stackArn = Prelude.Nothing}

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyPathDefinitionProperty
-  = PropertyPathDefinitionProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html>
+    PropertyPathDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html#cfn-iotsitewise-assetmodel-propertypathdefinition-name>
+                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyPathDefinitionProperty ::
   Value Prelude.Text -> PropertyPathDefinitionProperty

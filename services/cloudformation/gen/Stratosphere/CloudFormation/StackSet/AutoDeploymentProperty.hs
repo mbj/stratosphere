@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoDeploymentProperty
-  = AutoDeploymentProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html>
+    AutoDeploymentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled>
+                            enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval>
                             retainStacksOnAccountRemoval :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoDeploymentProperty :: AutoDeploymentProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceReusePolicyProperty
-  = InstanceReusePolicyProperty {reuseOnScaleIn :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html>
+    InstanceReusePolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-warmpool-instancereusepolicy.html#cfn-autoscaling-warmpool-instancereusepolicy-reuseonscalein>
+                                 reuseOnScaleIn :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceReusePolicyProperty :: InstanceReusePolicyProperty
 mkInstanceReusePolicyProperty

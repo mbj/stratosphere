@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupMembersPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupProperty
-  = OriginGroupProperty {failoverCriteria :: OriginGroupFailoverCriteriaProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html>
+    OriginGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria>
+                         failoverCriteria :: OriginGroupFailoverCriteriaProperty,
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id>
                          id :: (Value Prelude.Text),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members>
                          members :: OriginGroupMembersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupProperty ::

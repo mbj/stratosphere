@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Athena.CapacityReservation.CapacityAssignmentProperty as Exports
 import Stratosphere.ResourceProperties
 data CapacityAssignmentConfigurationProperty
-  = CapacityAssignmentConfigurationProperty {capacityAssignments :: [CapacityAssignmentProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html>
+    CapacityAssignmentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html#cfn-athena-capacityreservation-capacityassignmentconfiguration-capacityassignments>
+                                             capacityAssignments :: [CapacityAssignmentProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityAssignmentConfigurationProperty ::
   [CapacityAssignmentProperty]

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContentTypeOptionsProperty
-  = ContentTypeOptionsProperty {override :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html>
+    ContentTypeOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html#cfn-cloudfront-responseheaderspolicy-contenttypeoptions-override>
+                                override :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentTypeOptionsProperty ::
   Value Prelude.Bool -> ContentTypeOptionsProperty

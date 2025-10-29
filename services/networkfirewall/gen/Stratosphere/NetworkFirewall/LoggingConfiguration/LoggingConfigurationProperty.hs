@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.LoggingConfiguration.LogDestinationConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {logDestinationConfigs :: [LogDestinationConfigProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html>
+    LoggingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs>
+                                  logDestinationConfigs :: [LogDestinationConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty ::
   [LogDestinationConfigProperty] -> LoggingConfigurationProperty

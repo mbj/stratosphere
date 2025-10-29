@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MLUserDataEncryptionProperty
-  = MLUserDataEncryptionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html>
+    MLUserDataEncryptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid>
+                                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode>
                                   mLUserDataEncryptionMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMLUserDataEncryptionProperty ::

@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourcePolicy
-  = ResourcePolicy {resourceArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html>
+    ResourcePolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html#cfn-kinesis-resourcepolicy-resourcearn>
+                    resourceArn :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html#cfn-kinesis-resourcepolicy-resourcepolicy>
                     resourcePolicy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::

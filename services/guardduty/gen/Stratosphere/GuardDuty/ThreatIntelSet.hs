@@ -8,11 +8,18 @@ import {-# SOURCE #-} Stratosphere.GuardDuty.ThreatIntelSet.TagItemProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThreatIntelSet
-  = ThreatIntelSet {activate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html>
+    ThreatIntelSet {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-activate>
+                    activate :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-detectorid>
                     detectorId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-format>
                     format :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-location>
                     location :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-name>
                     name :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-tags>
                     tags :: (Prelude.Maybe [TagItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThreatIntelSet ::

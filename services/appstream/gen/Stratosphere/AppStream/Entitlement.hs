@@ -8,10 +8,16 @@ import {-# SOURCE #-} Stratosphere.AppStream.Entitlement.AttributeProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Entitlement
-  = Entitlement {appVisibility :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html>
+    Entitlement {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-appvisibility>
+                 appVisibility :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-attributes>
                  attributes :: [AttributeProperty],
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-name>
                  name :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html#cfn-appstream-entitlement-stackname>
                  stackName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntitlement ::

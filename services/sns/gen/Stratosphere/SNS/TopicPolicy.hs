@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicPolicy
-  = TopicPolicy {policyDocument :: JSON.Object,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html>
+    TopicPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html#cfn-sns-topicpolicy-policydocument>
+                 policyDocument :: JSON.Object,
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html#cfn-sns-topicpolicy-topics>
                  topics :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicPolicy ::

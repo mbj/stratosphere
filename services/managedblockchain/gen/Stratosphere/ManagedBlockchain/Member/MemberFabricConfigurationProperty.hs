@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberFabricConfigurationProperty
-  = MemberFabricConfigurationProperty {adminPassword :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html>
+    MemberFabricConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminpassword>
+                                       adminPassword :: (Value Prelude.Text),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html#cfn-managedblockchain-member-memberfabricconfiguration-adminusername>
                                        adminUsername :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberFabricConfigurationProperty ::

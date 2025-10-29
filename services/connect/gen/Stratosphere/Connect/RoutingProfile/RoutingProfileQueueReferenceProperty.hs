@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingProfileQueueReferenceProperty
-  = RoutingProfileQueueReferenceProperty {channel :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html>
+    RoutingProfileQueueReferenceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html#cfn-connect-routingprofile-routingprofilequeuereference-channel>
+                                          channel :: (Value Prelude.Text),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html#cfn-connect-routingprofile-routingprofilequeuereference-queuearn>
                                           queueArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingProfileQueueReferenceProperty ::

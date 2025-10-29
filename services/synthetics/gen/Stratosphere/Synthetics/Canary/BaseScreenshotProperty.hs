@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BaseScreenshotProperty
-  = BaseScreenshotProperty {ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html>
+    BaseScreenshotProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates>
+                            ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname>
                             screenshotName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaseScreenshotProperty ::

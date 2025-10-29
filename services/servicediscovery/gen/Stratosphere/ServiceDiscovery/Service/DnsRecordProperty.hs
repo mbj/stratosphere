@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsRecordProperty
-  = DnsRecordProperty {tTL :: (Value Prelude.Double),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html>
+    DnsRecordProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl>
+                       tTL :: (Value Prelude.Double),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type>
                        type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsRecordProperty ::

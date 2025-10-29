@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueOverrideProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueOverrideMapProperty
-  = SlotValueOverrideMapProperty {slotName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html>
+    SlotValueOverrideMapProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html#cfn-lex-bot-slotvalueoverridemap-slotname>
+                                  slotName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html#cfn-lex-bot-slotvalueoverridemap-slotvalueoverride>
                                   slotValueOverride :: (Prelude.Maybe SlotValueOverrideProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueOverrideMapProperty :: SlotValueOverrideMapProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenderingConfigurationProperty
-  = RenderingConfigurationProperty {templateUri :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html>
+    RenderingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html#cfn-wisdom-knowledgebase-renderingconfiguration-templateuri>
+                                    templateUri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRenderingConfigurationProperty :: RenderingConfigurationProperty
 mkRenderingConfigurationProperty

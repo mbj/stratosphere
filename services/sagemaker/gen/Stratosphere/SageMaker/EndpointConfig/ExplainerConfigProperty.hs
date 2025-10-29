@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ClarifyExplainerConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ExplainerConfigProperty
-  = ExplainerConfigProperty {clarifyExplainerConfig :: (Prelude.Maybe ClarifyExplainerConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-explainerconfig.html>
+    ExplainerConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-explainerconfig.html#cfn-sagemaker-endpointconfig-explainerconfig-clarifyexplainerconfig>
+                             clarifyExplainerConfig :: (Prelude.Maybe ClarifyExplainerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExplainerConfigProperty :: ExplainerConfigProperty
 mkExplainerConfigProperty

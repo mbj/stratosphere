@@ -11,14 +11,24 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DialogStateProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data PostDialogCodeHookInvocationSpecificationProperty
-  = PostDialogCodeHookInvocationSpecificationProperty {failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html>
+    PostDialogCodeHookInvocationSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-failureconditional>
+                                                       failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-failurenextstep>
                                                        failureNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-failureresponse>
                                                        failureResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-successconditional>
                                                        successConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-successnextstep>
                                                        successNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-successresponse>
                                                        successResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-timeoutconditional>
                                                        timeoutConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-timeoutnextstep>
                                                        timeoutNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html#cfn-lex-bot-postdialogcodehookinvocationspecification-timeoutresponse>
                                                        timeoutResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPostDialogCodeHookInvocationSpecificationProperty ::

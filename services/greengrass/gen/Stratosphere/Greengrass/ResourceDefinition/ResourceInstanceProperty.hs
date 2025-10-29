@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceDataCon
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceInstanceProperty
-  = ResourceInstanceProperty {id :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html>
+    ResourceInstanceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-id>
+                              id :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-name>
                               name :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html#cfn-greengrass-resourcedefinition-resourceinstance-resourcedatacontainer>
                               resourceDataContainer :: ResourceDataContainerProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceInstanceProperty ::

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.AutoScalingProperty as
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.ProvisionedCapacityProperty as Exports
 import Stratosphere.ResourceProperties
 data CapacityProperty
-  = CapacityProperty {autoScaling :: (Prelude.Maybe AutoScalingProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html>
+    CapacityProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html#cfn-kafkaconnect-connector-capacity-autoscaling>
+                      autoScaling :: (Prelude.Maybe AutoScalingProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html#cfn-kafkaconnect-connector-capacity-provisionedcapacity>
                       provisionedCapacity :: (Prelude.Maybe ProvisionedCapacityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProperty :: CapacityProperty

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleCustom
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleListProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAnalysisRulePolicyV1Property
-  = ConfiguredTableAnalysisRulePolicyV1Property {aggregation :: (Prelude.Maybe AnalysisRuleAggregationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html>
+    ConfiguredTableAnalysisRulePolicyV1Property {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-aggregation>
+                                                 aggregation :: (Prelude.Maybe AnalysisRuleAggregationProperty),
+                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-custom>
                                                  custom :: (Prelude.Maybe AnalysisRuleCustomProperty),
+                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-list>
                                                  list :: (Prelude.Maybe AnalysisRuleListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAnalysisRulePolicyV1Property ::

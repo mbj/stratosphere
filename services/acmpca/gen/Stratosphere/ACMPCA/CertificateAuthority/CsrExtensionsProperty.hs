@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.AccessDescription
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.KeyUsageProperty as Exports
 import Stratosphere.ResourceProperties
 data CsrExtensionsProperty
-  = CsrExtensionsProperty {keyUsage :: (Prelude.Maybe KeyUsageProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html>
+    CsrExtensionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage>
+                           keyUsage :: (Prelude.Maybe KeyUsageProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess>
                            subjectInformationAccess :: (Prelude.Maybe [AccessDescriptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCsrExtensionsProperty :: CsrExtensionsProperty

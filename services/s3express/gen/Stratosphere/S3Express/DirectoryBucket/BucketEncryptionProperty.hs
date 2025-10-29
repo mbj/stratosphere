@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.ServerSideEncryptionRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data BucketEncryptionProperty
-  = BucketEncryptionProperty {serverSideEncryptionConfiguration :: [ServerSideEncryptionRuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-bucketencryption.html>
+    BucketEncryptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-bucketencryption.html#cfn-s3express-directorybucket-bucketencryption-serversideencryptionconfiguration>
+                              serverSideEncryptionConfiguration :: [ServerSideEncryptionRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketEncryptionProperty ::
   [ServerSideEncryptionRuleProperty] -> BucketEncryptionProperty

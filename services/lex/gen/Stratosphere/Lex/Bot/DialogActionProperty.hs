@@ -7,8 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DialogActionProperty
-  = DialogActionProperty {slotToElicit :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html>
+    DialogActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html#cfn-lex-bot-dialogaction-slottoelicit>
+                          slotToElicit :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html#cfn-lex-bot-dialogaction-suppressnextmessage>
                           suppressNextMessage :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html#cfn-lex-bot-dialogaction-type>
                           type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogActionProperty ::

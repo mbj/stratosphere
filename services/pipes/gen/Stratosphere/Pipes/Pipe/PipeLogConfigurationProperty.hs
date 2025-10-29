@@ -11,10 +11,16 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.S3LogDestinationProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeLogConfigurationProperty
-  = PipeLogConfigurationProperty {cloudwatchLogsLogDestination :: (Prelude.Maybe CloudwatchLogsLogDestinationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html>
+    PipeLogConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-cloudwatchlogslogdestination>
+                                  cloudwatchLogsLogDestination :: (Prelude.Maybe CloudwatchLogsLogDestinationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-firehoselogdestination>
                                   firehoseLogDestination :: (Prelude.Maybe FirehoseLogDestinationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-includeexecutiondata>
                                   includeExecutionData :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-level>
                                   level :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-s3logdestination>
                                   s3LogDestination :: (Prelude.Maybe S3LogDestinationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeLogConfigurationProperty :: PipeLogConfigurationProperty

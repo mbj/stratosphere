@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayBackendDefaultsProperty
-  = VirtualGatewayBackendDefaultsProperty {clientPolicy :: (Prelude.Maybe VirtualGatewayClientPolicyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html>
+    VirtualGatewayBackendDefaultsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy>
+                                           clientPolicy :: (Prelude.Maybe VirtualGatewayClientPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayBackendDefaultsProperty ::
   VirtualGatewayBackendDefaultsProperty

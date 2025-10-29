@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueuePolicy
-  = QueuePolicy {policyDocument :: JSON.Object,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html>
+    QueuePolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html#cfn-sqs-queuepolicy-policydocument>
+                 policyDocument :: JSON.Object,
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html#cfn-sqs-queuepolicy-queues>
                  queues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueuePolicy ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetKinesisStreamParametersProperty
-  = PipeTargetKinesisStreamParametersProperty {partitionKey :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html>
+    PipeTargetKinesisStreamParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html#cfn-pipes-pipe-pipetargetkinesisstreamparameters-partitionkey>
+                                               partitionKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetKinesisStreamParametersProperty ::
   Value Prelude.Text -> PipeTargetKinesisStreamParametersProperty

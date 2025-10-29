@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data OnPremisesTagSetListObjectProperty
-  = OnPremisesTagSetListObjectProperty {onPremisesTagGroup :: (Prelude.Maybe [TagFilterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html>
+    OnPremisesTagSetListObjectProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html#cfn-codedeploy-deploymentgroup-onpremisestagsetlistobject-onpremisestaggroup>
+                                        onPremisesTagGroup :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnPremisesTagSetListObjectProperty ::
   OnPremisesTagSetListObjectProperty

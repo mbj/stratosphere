@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VectorSearchConfigurationProperty
-  = VectorSearchConfigurationProperty {vectorSearchDimension :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html>
+    VectorSearchConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html#cfn-neptunegraph-graph-vectorsearchconfiguration-vectorsearchdimension>
+                                       vectorSearchDimension :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorSearchConfigurationProperty ::
   Value Prelude.Integer -> VectorSearchConfigurationProperty

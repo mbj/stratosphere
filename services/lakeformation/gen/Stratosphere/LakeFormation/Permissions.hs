@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.ResourceProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Permissions
-  = Permissions {dataLakePrincipal :: DataLakePrincipalProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html>
+    Permissions {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-datalakeprincipal>
+                 dataLakePrincipal :: DataLakePrincipalProperty,
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissions>
                  permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissionswithgrantoption>
                  permissionsWithGrantOption :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-resource>
                  resource :: ResourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissions ::

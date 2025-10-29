@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.BillingConductor.CustomLineItem.LineItemFilte
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemChargeDetailsProperty
-  = CustomLineItemChargeDetailsProperty {flat :: (Prelude.Maybe CustomLineItemFlatChargeDetailsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html>
+    CustomLineItemChargeDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-flat>
+                                         flat :: (Prelude.Maybe CustomLineItemFlatChargeDetailsProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-lineitemfilters>
                                          lineItemFilters :: (Prelude.Maybe [LineItemFilterProperty]),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-percentage>
                                          percentage :: (Prelude.Maybe CustomLineItemPercentageChargeDetailsProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-type>
                                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemChargeDetailsProperty ::

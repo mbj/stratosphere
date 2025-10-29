@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatelessRuleGroupReferenceProperty
-  = StatelessRuleGroupReferenceProperty {priority :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html>
+    StatelessRuleGroupReferenceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority>
+                                         priority :: (Value Prelude.Integer),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-resourcearn>
                                          resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRuleGroupReferenceProperty ::

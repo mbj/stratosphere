@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelAccessConfigProperty
-  = ModelAccessConfigProperty {acceptEula :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-modelaccessconfig.html>
+    ModelAccessConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-modelaccessconfig.html#cfn-sagemaker-model-s3datasource-modelaccessconfig-accepteula>
+                               acceptEula :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelAccessConfigProperty ::
   Value Prelude.Bool -> ModelAccessConfigProperty

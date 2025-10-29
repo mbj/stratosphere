@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsOrganizationsSourceProperty
-  = AwsOrganizationsSourceProperty {organizationSourceType :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html>
+    AwsOrganizationsSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype>
+                                    organizationSourceType :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits>
                                     organizationalUnits :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsOrganizationsSourceProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.GlueDataCatalogConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CatalogConfigurationProperty
-  = CatalogConfigurationProperty {glueDataCatalogConfiguration :: (Prelude.Maybe GlueDataCatalogConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html>
+    CatalogConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html#cfn-kinesisanalyticsv2-application-catalogconfiguration-gluedatacatalogconfiguration>
+                                  glueDataCatalogConfiguration :: (Prelude.Maybe GlueDataCatalogConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCatalogConfigurationProperty :: CatalogConfigurationProperty
 mkCatalogConfigurationProperty

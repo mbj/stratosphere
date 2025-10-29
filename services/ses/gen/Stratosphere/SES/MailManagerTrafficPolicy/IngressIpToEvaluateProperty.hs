@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressIpToEvaluateProperty
-  = IngressIpToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html>
+    IngressIpToEvaluateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressiptoevaluate-attribute>
+                                 attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressIpToEvaluateProperty ::
   Value Prelude.Text -> IngressIpToEvaluateProperty

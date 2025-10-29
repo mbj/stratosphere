@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.MonitoringOutput
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringOutputConfigProperty
-  = MonitoringOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html>
+    MonitoringOutputConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid>
+                                    kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs>
                                     monitoringOutputs :: [MonitoringOutputProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputConfigProperty ::

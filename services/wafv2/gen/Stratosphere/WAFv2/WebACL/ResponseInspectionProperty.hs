@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionJsonProperty a
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionStatusCodeProperty as Exports
 import Stratosphere.ResourceProperties
 data ResponseInspectionProperty
-  = ResponseInspectionProperty {bodyContains :: (Prelude.Maybe ResponseInspectionBodyContainsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html>
+    ResponseInspectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-bodycontains>
+                                bodyContains :: (Prelude.Maybe ResponseInspectionBodyContainsProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-header>
                                 header :: (Prelude.Maybe ResponseInspectionHeaderProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-json>
                                 json :: (Prelude.Maybe ResponseInspectionJsonProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-statuscode>
                                 statusCode :: (Prelude.Maybe ResponseInspectionStatusCodeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionProperty :: ResponseInspectionProperty

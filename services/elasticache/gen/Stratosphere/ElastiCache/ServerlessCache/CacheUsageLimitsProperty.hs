@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.ServerlessCache.DataStorageProper
 import {-# SOURCE #-} Stratosphere.ElastiCache.ServerlessCache.ECPUPerSecondProperty as Exports
 import Stratosphere.ResourceProperties
 data CacheUsageLimitsProperty
-  = CacheUsageLimitsProperty {dataStorage :: (Prelude.Maybe DataStorageProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html>
+    CacheUsageLimitsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html#cfn-elasticache-serverlesscache-cacheusagelimits-datastorage>
+                              dataStorage :: (Prelude.Maybe DataStorageProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html#cfn-elasticache-serverlesscache-cacheusagelimits-ecpupersecond>
                               eCPUPerSecond :: (Prelude.Maybe ECPUPerSecondProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheUsageLimitsProperty :: CacheUsageLimitsProperty

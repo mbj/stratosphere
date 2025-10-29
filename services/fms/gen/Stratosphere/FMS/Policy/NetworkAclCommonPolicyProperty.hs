@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FMS.Policy.NetworkAclEntrySetProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkAclCommonPolicyProperty
-  = NetworkAclCommonPolicyProperty {networkAclEntrySet :: NetworkAclEntrySetProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html>
+    NetworkAclCommonPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html#cfn-fms-policy-networkaclcommonpolicy-networkaclentryset>
+                                    networkAclEntrySet :: NetworkAclEntrySetProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclCommonPolicyProperty ::
   NetworkAclEntrySetProperty -> NetworkAclCommonPolicyProperty

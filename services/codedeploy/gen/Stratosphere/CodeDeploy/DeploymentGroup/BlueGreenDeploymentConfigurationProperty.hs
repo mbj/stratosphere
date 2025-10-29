@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.DeploymentReadyOpt
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.GreenFleetProvisioningOptionProperty as Exports
 import Stratosphere.ResourceProperties
 data BlueGreenDeploymentConfigurationProperty
-  = BlueGreenDeploymentConfigurationProperty {deploymentReadyOption :: (Prelude.Maybe DeploymentReadyOptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html>
+    BlueGreenDeploymentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-deploymentreadyoption>
+                                              deploymentReadyOption :: (Prelude.Maybe DeploymentReadyOptionProperty),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-greenfleetprovisioningoption>
                                               greenFleetProvisioningOption :: (Prelude.Maybe GreenFleetProvisioningOptionProperty),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html#cfn-codedeploy-deploymentgroup-bluegreendeploymentconfiguration-terminateblueinstancesondeploymentsuccess>
                                               terminateBlueInstancesOnDeploymentSuccess :: (Prelude.Maybe BlueInstanceTerminationOptionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueGreenDeploymentConfigurationProperty ::

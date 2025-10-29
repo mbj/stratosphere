@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAF.XssMatchSet.FieldToMatchProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data XssMatchTupleProperty
-  = XssMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html>
+    XssMatchTupleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html#cfn-waf-xssmatchset-xssmatchtuple-fieldtomatch>
+                           fieldToMatch :: FieldToMatchProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html#cfn-waf-xssmatchset-xssmatchtuple-texttransformation>
                            textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchTupleProperty ::

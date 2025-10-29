@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.StreamSelectionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CmafPackageProperty
-  = CmafPackageProperty {encryption :: (Prelude.Maybe CmafEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html>
+    CmafPackageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption>
+                         encryption :: (Prelude.Maybe CmafEncryptionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests>
                          hlsManifests :: (Prelude.Maybe [HlsManifestProperty]),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds>
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix>
                          segmentPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection>
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafPackageProperty :: CmafPackageProperty

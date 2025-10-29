@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.TextTransformationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegexPatternSetReferenceStatementProperty
-  = RegexPatternSetReferenceStatementProperty {arn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html>
+    RegexPatternSetReferenceStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn>
+                                               arn :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch>
                                                fieldToMatch :: FieldToMatchProperty,
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations>
                                                textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexPatternSetReferenceStatementProperty ::

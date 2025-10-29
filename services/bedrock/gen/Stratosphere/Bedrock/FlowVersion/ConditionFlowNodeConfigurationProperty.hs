@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.FlowConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data ConditionFlowNodeConfigurationProperty
-  = ConditionFlowNodeConfigurationProperty {conditions :: [FlowConditionProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-conditionflownodeconfiguration.html>
+    ConditionFlowNodeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-conditionflownodeconfiguration.html#cfn-bedrock-flowversion-conditionflownodeconfiguration-conditions>
+                                            conditions :: [FlowConditionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionFlowNodeConfigurationProperty ::
   [FlowConditionProperty] -> ConditionFlowNodeConfigurationProperty

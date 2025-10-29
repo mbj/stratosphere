@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Agent.FunctionProperty as Exports
 import Stratosphere.ResourceProperties
 data FunctionSchemaProperty
-  = FunctionSchemaProperty {functions :: [FunctionProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html>
+    FunctionSchemaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html#cfn-bedrock-agent-functionschema-functions>
+                            functions :: [FunctionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionSchemaProperty ::
   [FunctionProperty] -> FunctionSchemaProperty

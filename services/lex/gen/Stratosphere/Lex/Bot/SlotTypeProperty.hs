@@ -10,11 +10,18 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueSelectionSettingProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotTypeProperty
-  = SlotTypeProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html>
+    SlotTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-description>
+                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-externalsourcesetting>
                       externalSourceSetting :: (Prelude.Maybe ExternalSourceSettingProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-name>
                       name :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-parentslottypesignature>
                       parentSlotTypeSignature :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-slottypevalues>
                       slotTypeValues :: (Prelude.Maybe [SlotTypeValueProperty]),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-valueselectionsetting>
                       valueSelectionSetting :: (Prelude.Maybe SlotValueSelectionSettingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotTypeProperty :: Value Prelude.Text -> SlotTypeProperty

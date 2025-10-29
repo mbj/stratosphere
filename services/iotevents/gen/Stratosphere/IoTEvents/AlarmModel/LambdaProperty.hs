@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaProperty
-  = LambdaProperty {functionArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html>
+    LambdaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html#cfn-iotevents-alarmmodel-lambda-functionarn>
+                    functionArn :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-lambda.html#cfn-iotevents-alarmmodel-lambda-payload>
                     payload :: (Prelude.Maybe PayloadProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaProperty :: Value Prelude.Text -> LambdaProperty

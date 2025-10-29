@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntermediateSourceConfigurationProperty
-  = IntermediateSourceConfigurationProperty {intermediateS3Path :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-intermediatesourceconfiguration.html>
+    IntermediateSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-intermediatesourceconfiguration.html#cfn-entityresolution-matchingworkflow-intermediatesourceconfiguration-intermediates3path>
+                                             intermediateS3Path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntermediateSourceConfigurationProperty ::
   Value Prelude.Text -> IntermediateSourceConfigurationProperty

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.EventSchemas.Discoverer.TagsEntryProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Discoverer
-  = Discoverer {crossAccount :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html>
+    Discoverer {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-crossaccount>
+                crossAccount :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-sourcearn>
                 sourceArn :: (Value Prelude.Text),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-tags>
                 tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDiscoverer :: Value Prelude.Text -> Discoverer

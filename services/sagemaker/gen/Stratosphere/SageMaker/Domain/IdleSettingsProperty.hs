@@ -7,9 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdleSettingsProperty
-  = IdleSettingsProperty {idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html>
+    IdleSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html#cfn-sagemaker-domain-idlesettings-idletimeoutinminutes>
+                          idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html#cfn-sagemaker-domain-idlesettings-lifecyclemanagement>
                           lifecycleManagement :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html#cfn-sagemaker-domain-idlesettings-maxidletimeoutinminutes>
                           maxIdleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html#cfn-sagemaker-domain-idlesettings-minidletimeoutinminutes>
                           minIdleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdleSettingsProperty :: IdleSettingsProperty

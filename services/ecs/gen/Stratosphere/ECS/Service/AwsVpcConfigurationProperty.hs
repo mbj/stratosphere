@@ -7,8 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsVpcConfigurationProperty
-  = AwsVpcConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html>
+    AwsVpcConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip>
+                                 assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups>
                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets>
                                  subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsVpcConfigurationProperty :: AwsVpcConfigurationProperty

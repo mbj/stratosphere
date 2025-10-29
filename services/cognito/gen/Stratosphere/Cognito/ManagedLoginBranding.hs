@@ -8,11 +8,18 @@ import {-# SOURCE #-} Stratosphere.Cognito.ManagedLoginBranding.AssetTypePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedLoginBranding
-  = ManagedLoginBranding {assets :: (Prelude.Maybe [AssetTypeProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html>
+    ManagedLoginBranding {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-assets>
+                          assets :: (Prelude.Maybe [AssetTypeProperty]),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-clientid>
                           clientId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-returnmergedresources>
                           returnMergedResources :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-settings>
                           settings :: (Prelude.Maybe JSON.Object),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-usecognitoprovidedvalues>
                           useCognitoProvidedValues :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-userpoolid>
                           userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedLoginBranding ::

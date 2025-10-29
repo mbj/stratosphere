@@ -10,11 +10,18 @@ import {-# SOURCE #-} Stratosphere.Events.Endpoint.RoutingConfigProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Endpoint
-  = Endpoint {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html>
+    Endpoint {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-eventbuses>
               eventBuses :: [EndpointEventBusProperty],
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-replicationconfig>
               replicationConfig :: (Prelude.Maybe ReplicationConfigProperty),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-rolearn>
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-routingconfig>
               routingConfig :: RoutingConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint ::

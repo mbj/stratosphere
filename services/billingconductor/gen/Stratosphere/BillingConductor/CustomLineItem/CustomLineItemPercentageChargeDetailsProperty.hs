@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemPercentageChargeDetailsProperty
-  = CustomLineItemPercentageChargeDetailsProperty {childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html>
+    CustomLineItemPercentageChargeDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-childassociatedresources>
+                                                   childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html#cfn-billingconductor-customlineitem-customlineitempercentagechargedetails-percentagevalue>
                                                    percentageValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemPercentageChargeDetailsProperty ::

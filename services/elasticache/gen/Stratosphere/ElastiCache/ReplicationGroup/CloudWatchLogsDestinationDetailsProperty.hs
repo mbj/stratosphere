@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsDestinationDetailsProperty
-  = CloudWatchLogsDestinationDetailsProperty {logGroup :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html>
+    CloudWatchLogsDestinationDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup>
+                                              logGroup :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsDestinationDetailsProperty ::
   Value Prelude.Text -> CloudWatchLogsDestinationDetailsProperty

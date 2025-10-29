@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.B2BI.Transformer.FormatOptionsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputConversionProperty
-  = OutputConversionProperty {formatOptions :: (Prelude.Maybe FormatOptionsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html>
+    OutputConversionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-formatoptions>
+                              formatOptions :: (Prelude.Maybe FormatOptionsProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-toformat>
                               toFormat :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputConversionProperty ::

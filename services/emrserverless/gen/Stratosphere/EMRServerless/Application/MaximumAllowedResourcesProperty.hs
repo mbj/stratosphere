@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaximumAllowedResourcesProperty
-  = MaximumAllowedResourcesProperty {cpu :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html>
+    MaximumAllowedResourcesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-cpu>
+                                     cpu :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-disk>
                                      disk :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-memory>
                                      memory :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumAllowedResourcesProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TcpRouteMatchProperty
-  = TcpRouteMatchProperty {port :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html>
+    TcpRouteMatchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html#cfn-appmesh-route-tcproutematch-port>
+                           port :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteMatchProperty :: TcpRouteMatchProperty
 mkTcpRouteMatchProperty

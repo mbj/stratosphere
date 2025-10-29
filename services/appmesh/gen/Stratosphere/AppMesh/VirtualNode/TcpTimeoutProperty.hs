@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpTimeoutProperty
-  = TcpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html>
+    TcpTimeoutProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html#cfn-appmesh-virtualnode-tcptimeout-idle>
+                        idle :: (Prelude.Maybe DurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpTimeoutProperty :: TcpTimeoutProperty
 mkTcpTimeoutProperty = TcpTimeoutProperty {idle = Prelude.Nothing}

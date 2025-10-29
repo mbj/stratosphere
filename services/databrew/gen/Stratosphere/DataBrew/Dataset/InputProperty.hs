@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.MetadataProperty as Exports
 import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InputProperty
-  = InputProperty {dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html>
+    InputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition>
+                   dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition>
                    databaseInputDefinition :: (Prelude.Maybe DatabaseInputDefinitionProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-metadata>
                    metadata :: (Prelude.Maybe MetadataProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition>
                    s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty :: InputProperty

@@ -7,11 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolIdentityProvider
-  = UserPoolIdentityProvider {attributeMapping :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html>
+    UserPoolIdentityProvider {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping>
+                              attributeMapping :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers>
                               idpIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails>
                               providerDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername>
                               providerName :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype>
                               providerType :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid>
                               userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolIdentityProvider ::

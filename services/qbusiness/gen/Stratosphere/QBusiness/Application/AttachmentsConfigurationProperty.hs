@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttachmentsConfigurationProperty
-  = AttachmentsConfigurationProperty {attachmentsControlMode :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-attachmentsconfiguration.html>
+    AttachmentsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-attachmentsconfiguration.html#cfn-qbusiness-application-attachmentsconfiguration-attachmentscontrolmode>
+                                      attachmentsControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttachmentsConfigurationProperty ::
   Value Prelude.Text -> AttachmentsConfigurationProperty

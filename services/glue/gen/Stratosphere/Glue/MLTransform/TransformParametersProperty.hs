@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Glue.MLTransform.FindMatchesParametersPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformParametersProperty
-  = TransformParametersProperty {findMatchesParameters :: (Prelude.Maybe FindMatchesParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html>
+    TransformParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters>
+                                 findMatchesParameters :: (Prelude.Maybe FindMatchesParametersProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype>
                                  transformType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformParametersProperty ::

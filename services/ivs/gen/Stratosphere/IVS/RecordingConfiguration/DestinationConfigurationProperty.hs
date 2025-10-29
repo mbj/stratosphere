@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html>
+    DestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3>
+                                      s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
   DestinationConfigurationProperty

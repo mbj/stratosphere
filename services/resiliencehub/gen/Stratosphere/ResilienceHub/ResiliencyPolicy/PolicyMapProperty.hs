@@ -7,9 +7,14 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ResilienceHub.ResiliencyPolicy.FailurePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyMapProperty
-  = PolicyMapProperty {aZ :: FailurePolicyProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html>
+    PolicyMapProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-az>
+                       aZ :: FailurePolicyProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-hardware>
                        hardware :: FailurePolicyProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-region>
                        region :: (Prelude.Maybe FailurePolicyProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html#cfn-resiliencehub-resiliencypolicy-policymap-software>
                        software :: FailurePolicyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyMapProperty ::

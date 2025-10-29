@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.BotAlias.S3BucketLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioLogDestinationProperty
-  = AudioLogDestinationProperty {s3Bucket :: S3BucketLogDestinationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html>
+    AudioLogDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html#cfn-lex-botalias-audiologdestination-s3bucket>
+                                 s3Bucket :: S3BucketLogDestinationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLogDestinationProperty ::
   S3BucketLogDestinationProperty -> AudioLogDestinationProperty

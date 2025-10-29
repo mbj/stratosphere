@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreengrassProperty
-  = GreengrassProperty {groupArn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html>
+    GreengrassProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn>
+                        groupArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGreengrassProperty :: Value Prelude.Text -> GreengrassProperty
 mkGreengrassProperty groupArn

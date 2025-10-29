@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Shield.ProactiveEngagement.EmergencyContactPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProactiveEngagement
-  = ProactiveEngagement {emergencyContactList :: [EmergencyContactProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html>
+    ProactiveEngagement {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html#cfn-shield-proactiveengagement-emergencycontactlist>
+                         emergencyContactList :: [EmergencyContactProperty],
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html#cfn-shield-proactiveengagement-proactiveengagementstatus>
                          proactiveEngagementStatus :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProactiveEngagement ::

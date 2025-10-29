@@ -11,13 +11,22 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.EncryptionConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationConfigurationProperty
-  = S3DestinationConfigurationProperty {bucketARN :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html>
+    S3DestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn>
+                                        bucketARN :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints>
                                         bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions>
                                         cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat>
                                         compressionFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration>
                                         encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-erroroutputprefix>
                                         errorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-prefix>
                                         prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn>
                                         roleARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::

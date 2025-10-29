@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberIdProperty
-  = MemberIdProperty {userId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html>
+    MemberIdProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html#cfn-identitystore-groupmembership-memberid-userid>
+                      userId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberIdProperty :: Value Prelude.Text -> MemberIdProperty
 mkMemberIdProperty userId = MemberIdProperty {userId = userId}

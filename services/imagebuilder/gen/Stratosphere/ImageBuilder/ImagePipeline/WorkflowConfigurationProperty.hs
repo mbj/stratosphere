@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.WorkflowParameterP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkflowConfigurationProperty
-  = WorkflowConfigurationProperty {onFailure :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html>
+    WorkflowConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html#cfn-imagebuilder-imagepipeline-workflowconfiguration-onfailure>
+                                   onFailure :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html#cfn-imagebuilder-imagepipeline-workflowconfiguration-parallelgroup>
                                    parallelGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html#cfn-imagebuilder-imagepipeline-workflowconfiguration-parameters>
                                    parameters :: (Prelude.Maybe [WorkflowParameterProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html#cfn-imagebuilder-imagepipeline-workflowconfiguration-workflowarn>
                                    workflowArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowConfigurationProperty :: WorkflowConfigurationProperty

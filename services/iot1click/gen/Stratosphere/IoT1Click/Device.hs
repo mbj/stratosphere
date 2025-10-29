@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Device
-  = Device {deviceId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html>
+    Device {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-deviceid>
+            deviceId :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-enabled>
             enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Value Prelude.Bool -> Device

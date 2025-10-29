@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.ConsolidationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoMergingProperty
-  = AutoMergingProperty {conflictResolution :: (Prelude.Maybe ConflictResolutionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html>
+    AutoMergingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-conflictresolution>
+                         conflictResolution :: (Prelude.Maybe ConflictResolutionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-consolidation>
                          consolidation :: (Prelude.Maybe ConsolidationProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-enabled>
                          enabled :: (Value Prelude.Bool),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html#cfn-customerprofiles-domain-automerging-minallowedconfidencescoreformerging>
                          minAllowedConfidenceScoreForMerging :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoMergingProperty :: Value Prelude.Bool -> AutoMergingProperty

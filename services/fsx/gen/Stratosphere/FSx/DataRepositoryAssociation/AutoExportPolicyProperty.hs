@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoExportPolicyProperty
-  = AutoExportPolicyProperty {events :: (ValueList Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html>
+    AutoExportPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html#cfn-fsx-datarepositoryassociation-autoexportpolicy-events>
+                              events :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoExportPolicyProperty ::
   ValueList Prelude.Text -> AutoExportPolicyProperty

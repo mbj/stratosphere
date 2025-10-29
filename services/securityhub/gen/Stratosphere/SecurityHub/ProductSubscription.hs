@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProductSubscription
-  = ProductSubscription {productArn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html>
+    ProductSubscription {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html#cfn-securityhub-productsubscription-productarn>
+                         productArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProductSubscription :: Value Prelude.Text -> ProductSubscription
 mkProductSubscription productArn

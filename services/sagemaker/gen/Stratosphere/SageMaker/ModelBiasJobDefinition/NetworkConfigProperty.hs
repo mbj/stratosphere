@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelBiasJobDefinition.VpcConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigProperty
-  = NetworkConfigProperty {enableInterContainerTrafficEncryption :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html>
+    NetworkConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption>
+                           enableInterContainerTrafficEncryption :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation>
                            enableNetworkIsolation :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig>
                            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigProperty :: NetworkConfigProperty

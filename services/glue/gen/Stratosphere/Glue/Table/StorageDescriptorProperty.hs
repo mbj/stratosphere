@@ -13,18 +13,32 @@ import {-# SOURCE #-} Stratosphere.Glue.Table.SkewedInfoProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageDescriptorProperty
-  = StorageDescriptorProperty {bucketColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html>
+    StorageDescriptorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns>
+                               bucketColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns>
                                columns :: (Prelude.Maybe [ColumnProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed>
                                compressed :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat>
                                inputFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location>
                                location :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets>
                                numberOfBuckets :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat>
                                outputFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters>
                                parameters :: (Prelude.Maybe JSON.Object),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference>
                                schemaReference :: (Prelude.Maybe SchemaReferenceProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo>
                                serdeInfo :: (Prelude.Maybe SerdeInfoProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo>
                                skewedInfo :: (Prelude.Maybe SkewedInfoProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns>
                                sortColumns :: (Prelude.Maybe [OrderProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories>
                                storedAsSubDirectories :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageDescriptorProperty :: StorageDescriptorProperty

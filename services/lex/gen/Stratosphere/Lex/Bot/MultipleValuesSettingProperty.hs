@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultipleValuesSettingProperty
-  = MultipleValuesSettingProperty {allowMultipleValues :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html>
+    MultipleValuesSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html#cfn-lex-bot-multiplevaluessetting-allowmultiplevalues>
+                                   allowMultipleValues :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultipleValuesSettingProperty :: MultipleValuesSettingProperty
 mkMultipleValuesSettingProperty

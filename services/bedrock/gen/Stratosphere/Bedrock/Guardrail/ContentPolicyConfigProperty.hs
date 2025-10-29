@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContentFilterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentPolicyConfigProperty
-  = ContentPolicyConfigProperty {filtersConfig :: [ContentFilterConfigProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html>
+    ContentPolicyConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-filtersconfig>
+                                 filtersConfig :: [ContentFilterConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentPolicyConfigProperty ::
   [ContentFilterConfigProperty] -> ContentPolicyConfigProperty

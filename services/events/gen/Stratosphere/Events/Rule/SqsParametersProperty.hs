@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqsParametersProperty
-  = SqsParametersProperty {messageGroupId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html>
+    SqsParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html#cfn-events-rule-sqsparameters-messagegroupid>
+                           messageGroupId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsParametersProperty ::
   Value Prelude.Text -> SqsParametersProperty

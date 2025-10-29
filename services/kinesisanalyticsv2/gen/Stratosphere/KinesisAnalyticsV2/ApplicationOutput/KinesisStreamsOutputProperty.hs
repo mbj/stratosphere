@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisStreamsOutputProperty
-  = KinesisStreamsOutputProperty {resourceARN :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html>
+    KinesisStreamsOutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput-resourcearn>
+                                  resourceARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisStreamsOutputProperty ::
   Value Prelude.Text -> KinesisStreamsOutputProperty

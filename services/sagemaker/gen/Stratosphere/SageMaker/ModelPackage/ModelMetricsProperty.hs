@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelDataQualityProper
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelQualityProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelMetricsProperty
-  = ModelMetricsProperty {bias :: (Prelude.Maybe BiasProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html>
+    ModelMetricsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-bias>
+                          bias :: (Prelude.Maybe BiasProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-explainability>
                           explainability :: (Prelude.Maybe ExplainabilityProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modeldataquality>
                           modelDataQuality :: (Prelude.Maybe ModelDataQualityProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-modelquality>
                           modelQuality :: (Prelude.Maybe ModelQualityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelMetricsProperty :: ModelMetricsProperty

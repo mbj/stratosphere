@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.PrincipalPermissions.LFTagPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LFTagPolicyResourceProperty
-  = LFTagPolicyResourceProperty {catalogId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html>
+    LFTagPolicyResourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-catalogid>
+                                 catalogId :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-expression>
                                  expression :: [LFTagProperty],
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html#cfn-lakeformation-principalpermissions-lftagpolicyresource-resourcetype>
                                  resourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagPolicyResourceProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicSingularFilterConstantP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicRelativeDateFilterProperty
-  = TopicRelativeDateFilterProperty {constant :: (Prelude.Maybe TopicSingularFilterConstantProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html>
+    TopicRelativeDateFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-constant>
+                                     constant :: (Prelude.Maybe TopicSingularFilterConstantProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-relativedatefilterfunction>
                                      relativeDateFilterFunction :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html#cfn-quicksight-topic-topicrelativedatefilter-timegranularity>
                                      timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRelativeDateFilterProperty ::

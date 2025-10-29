@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.DataCatalogInputDefinitionPro
 import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InputProperty
-  = InputProperty {dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html>
+    InputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html#cfn-databrew-recipe-input-datacataloginputdefinition>
+                   dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html#cfn-databrew-recipe-input-s3inputdefinition>
                    s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty :: InputProperty

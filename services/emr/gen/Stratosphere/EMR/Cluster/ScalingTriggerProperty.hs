@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.CloudWatchAlarmDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingTriggerProperty
-  = ScalingTriggerProperty {cloudWatchAlarmDefinition :: CloudWatchAlarmDefinitionProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html>
+    ScalingTriggerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html#cfn-elasticmapreduce-cluster-scalingtrigger-cloudwatchalarmdefinition>
+                            cloudWatchAlarmDefinition :: CloudWatchAlarmDefinitionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingTriggerProperty ::
   CloudWatchAlarmDefinitionProperty -> ScalingTriggerProperty

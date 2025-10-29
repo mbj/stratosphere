@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.UnusedAccessConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AnalyzerConfigurationProperty
-  = AnalyzerConfigurationProperty {unusedAccessConfiguration :: (Prelude.Maybe UnusedAccessConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html>
+    AnalyzerConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-unusedaccessconfiguration>
+                                   unusedAccessConfiguration :: (Prelude.Maybe UnusedAccessConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyzerConfigurationProperty :: AnalyzerConfigurationProperty
 mkAnalyzerConfigurationProperty

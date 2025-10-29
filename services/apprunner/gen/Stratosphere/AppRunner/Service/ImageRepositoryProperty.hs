@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.ImageConfigurationProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageRepositoryProperty
-  = ImageRepositoryProperty {imageConfiguration :: (Prelude.Maybe ImageConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html>
+    ImageRepositoryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration>
+                             imageConfiguration :: (Prelude.Maybe ImageConfigurationProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier>
                              imageIdentifier :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype>
                              imageRepositoryType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageRepositoryProperty ::

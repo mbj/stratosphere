@@ -11,11 +11,18 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.InAppTemplate.HeaderConfigProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InAppMessageContentProperty
-  = InAppMessageContentProperty {backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html>
+    InAppMessageContentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-backgroundcolor>
+                                 backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-bodyconfig>
                                  bodyConfig :: (Prelude.Maybe BodyConfigProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-headerconfig>
                                  headerConfig :: (Prelude.Maybe HeaderConfigProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-imageurl>
                                  imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-primarybtn>
                                  primaryBtn :: (Prelude.Maybe ButtonConfigProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html#cfn-pinpoint-inapptemplate-inappmessagecontent-secondarybtn>
                                  secondaryBtn :: (Prelude.Maybe ButtonConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageContentProperty :: InAppMessageContentProperty

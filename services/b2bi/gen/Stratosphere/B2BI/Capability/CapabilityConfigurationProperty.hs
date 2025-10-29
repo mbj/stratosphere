@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Capability.EdiConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CapabilityConfigurationProperty
-  = CapabilityConfigurationProperty {edi :: EdiConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilityconfiguration.html>
+    CapabilityConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilityconfiguration.html#cfn-b2bi-capability-capabilityconfiguration-edi>
+                                     edi :: EdiConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapabilityConfigurationProperty ::
   EdiConfigurationProperty -> CapabilityConfigurationProperty

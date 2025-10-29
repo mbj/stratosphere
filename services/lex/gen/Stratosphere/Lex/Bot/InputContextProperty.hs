@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputContextProperty
-  = InputContextProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-inputcontext.html>
+    InputContextProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-inputcontext.html#cfn-lex-bot-inputcontext-name>
+                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputContextProperty ::
   Value Prelude.Text -> InputContextProperty

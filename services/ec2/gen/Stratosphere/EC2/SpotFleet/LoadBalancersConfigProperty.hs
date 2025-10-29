@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.ClassicLoadBalancersConfigPrope
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.TargetGroupsConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data LoadBalancersConfigProperty
-  = LoadBalancersConfigProperty {classicLoadBalancersConfig :: (Prelude.Maybe ClassicLoadBalancersConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html>
+    LoadBalancersConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig>
+                                 classicLoadBalancersConfig :: (Prelude.Maybe ClassicLoadBalancersConfigProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig>
                                  targetGroupsConfig :: (Prelude.Maybe TargetGroupsConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancersConfigProperty :: LoadBalancersConfigProperty

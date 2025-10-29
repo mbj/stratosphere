@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data RequiredFieldInfoProperty
-  = RequiredFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html>
+    RequiredFieldInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html#cfn-connect-tasktemplate-requiredfieldinfo-id>
+                               id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequiredFieldInfoProperty ::
   FieldIdentifierProperty -> RequiredFieldInfoProperty

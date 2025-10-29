@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.FirehoseLogDeliveryPro
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.S3LogDeliveryProperty as Exports
 import Stratosphere.ResourceProperties
 data WorkerLogDeliveryProperty
-  = WorkerLogDeliveryProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsLogDeliveryProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html>
+    WorkerLogDeliveryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-cloudwatchlogs>
+                               cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsLogDeliveryProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-firehose>
                                firehose :: (Prelude.Maybe FirehoseLogDeliveryProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html#cfn-kafkaconnect-connector-workerlogdelivery-s3>
                                s3 :: (Prelude.Maybe S3LogDeliveryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerLogDeliveryProperty :: WorkerLogDeliveryProperty

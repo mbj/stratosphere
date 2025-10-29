@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Connection.ResourceParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data InvocationConnectivityParametersProperty
-  = InvocationConnectivityParametersProperty {resourceParameters :: ResourceParametersProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html>
+    InvocationConnectivityParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html#cfn-events-connection-invocationconnectivityparameters-resourceparameters>
+                                              resourceParameters :: ResourceParametersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInvocationConnectivityParametersProperty ::
   ResourceParametersProperty

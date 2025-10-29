@@ -7,9 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiKey
-  = ApiKey {apiId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html>
+    ApiKey {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apiid>
+            apiId :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid>
             apiKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-expires>
             expires :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKey :: Value Prelude.Text -> ApiKey

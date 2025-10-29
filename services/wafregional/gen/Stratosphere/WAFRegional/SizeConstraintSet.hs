@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.SizeConstraintSet.SizeConstraintP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SizeConstraintSet
-  = SizeConstraintSet {name :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html>
+    SizeConstraintSet {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-name>
+                       name :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints>
                        sizeConstraints :: (Prelude.Maybe [SizeConstraintProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintSet :: Value Prelude.Text -> SizeConstraintSet

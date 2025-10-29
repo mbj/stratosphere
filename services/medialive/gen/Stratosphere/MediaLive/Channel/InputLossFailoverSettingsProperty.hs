@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputLossFailoverSettingsProperty
-  = InputLossFailoverSettingsProperty {inputLossThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html>
+    InputLossFailoverSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html#cfn-medialive-channel-inputlossfailoversettings-inputlossthresholdmsec>
+                                       inputLossThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLossFailoverSettingsProperty ::
   InputLossFailoverSettingsProperty

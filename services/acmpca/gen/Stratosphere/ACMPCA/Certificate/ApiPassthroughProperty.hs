@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.ExtensionsProperty as Expo
 import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.SubjectProperty as Exports
 import Stratosphere.ResourceProperties
 data ApiPassthroughProperty
-  = ApiPassthroughProperty {extensions :: (Prelude.Maybe ExtensionsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html>
+    ApiPassthroughProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions>
+                            extensions :: (Prelude.Maybe ExtensionsProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject>
                             subject :: (Prelude.Maybe SubjectProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiPassthroughProperty :: ApiPassthroughProperty

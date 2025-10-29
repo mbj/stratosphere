@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.ReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskActionProperty
-  = TaskActionProperty {contactFlowArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html>
+    TaskActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html#cfn-connect-rule-taskaction-contactflowarn>
+                        contactFlowArn :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html#cfn-connect-rule-taskaction-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html#cfn-connect-rule-taskaction-name>
                         name :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html#cfn-connect-rule-taskaction-references>
                         references :: (Prelude.Maybe (Prelude.Map Prelude.Text ReferenceProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskActionProperty ::

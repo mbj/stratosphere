@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.EncryptionConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigProperty
-  = S3ConfigProperty {bucketName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html>
+    S3ConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketname>
+                      bucketName :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-bucketprefix>
                       bucketPrefix :: (Value Prelude.Text),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html#cfn-connect-instancestorageconfig-s3config-encryptionconfig>
                       encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty ::

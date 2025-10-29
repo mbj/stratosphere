@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.SSM.MaintenanceWindowTask.MaintenanceWindowRu
 import {-# SOURCE #-} Stratosphere.SSM.MaintenanceWindowTask.MaintenanceWindowStepFunctionsParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data TaskInvocationParametersProperty
-  = TaskInvocationParametersProperty {maintenanceWindowAutomationParameters :: (Prelude.Maybe MaintenanceWindowAutomationParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html>
+    TaskInvocationParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters>
+                                      maintenanceWindowAutomationParameters :: (Prelude.Maybe MaintenanceWindowAutomationParametersProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters>
                                       maintenanceWindowLambdaParameters :: (Prelude.Maybe MaintenanceWindowLambdaParametersProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters>
                                       maintenanceWindowRunCommandParameters :: (Prelude.Maybe MaintenanceWindowRunCommandParametersProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters>
                                       maintenanceWindowStepFunctionsParameters :: (Prelude.Maybe MaintenanceWindowStepFunctionsParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskInvocationParametersProperty ::

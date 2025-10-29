@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExpiryEventsConfigurationProperty
-  = ExpiryEventsConfigurationProperty {daysBeforeExpiry :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html>
+    ExpiryEventsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry>
+                                       daysBeforeExpiry :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExpiryEventsConfigurationProperty ::
   ExpiryEventsConfigurationProperty

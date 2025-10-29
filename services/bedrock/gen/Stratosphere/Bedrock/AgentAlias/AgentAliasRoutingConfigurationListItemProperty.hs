@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentAliasRoutingConfigurationListItemProperty
-  = AgentAliasRoutingConfigurationListItemProperty {agentVersion :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html>
+    AgentAliasRoutingConfigurationListItemProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html#cfn-bedrock-agentalias-agentaliasroutingconfigurationlistitem-agentversion>
+                                                    agentVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentAliasRoutingConfigurationListItemProperty ::
   Value Prelude.Text

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedCostOptimizationMetricsProperty
-  = AdvancedCostOptimizationMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html>
+    AdvancedCostOptimizationMetricsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html#cfn-s3-storagelens-advancedcostoptimizationmetrics-isenabled>
+                                             isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedCostOptimizationMetricsProperty ::
   AdvancedCostOptimizationMetricsProperty

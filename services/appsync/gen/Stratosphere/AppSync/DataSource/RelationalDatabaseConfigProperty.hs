@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.RdsHttpEndpointConfigPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelationalDatabaseConfigProperty
-  = RelationalDatabaseConfigProperty {rdsHttpEndpointConfig :: (Prelude.Maybe RdsHttpEndpointConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html>
+    RelationalDatabaseConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-rdshttpendpointconfig>
+                                      rdsHttpEndpointConfig :: (Prelude.Maybe RdsHttpEndpointConfigProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype>
                                       relationalDatabaseSourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalDatabaseConfigProperty ::

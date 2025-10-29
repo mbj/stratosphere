@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Batch.SchedulingPolicy.FairsharePolicyPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchedulingPolicy
-  = SchedulingPolicy {fairsharePolicy :: (Prelude.Maybe FairsharePolicyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html>
+    SchedulingPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy>
+                      fairsharePolicy :: (Prelude.Maybe FairsharePolicyProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-tags>
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchedulingPolicy :: SchedulingPolicy

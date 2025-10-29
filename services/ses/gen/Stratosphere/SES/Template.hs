@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.Template.TemplateProperty as Exports
 import Stratosphere.ResourceProperties
 data Template
-  = Template {template :: (Prelude.Maybe TemplateProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html>
+    Template {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html#cfn-ses-template-template>
+              template :: (Prelude.Maybe TemplateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplate :: Template
 mkTemplate = Template {template = Prelude.Nothing}

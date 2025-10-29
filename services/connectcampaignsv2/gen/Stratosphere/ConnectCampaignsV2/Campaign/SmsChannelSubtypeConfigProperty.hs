@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.SmsOutboundModePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmsChannelSubtypeConfigProperty
-  = SmsChannelSubtypeConfigProperty {capacity :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html>
+    SmsChannelSubtypeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-capacity>
+                                     capacity :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-defaultoutboundconfig>
                                      defaultOutboundConfig :: SmsOutboundConfigProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-outboundmode>
                                      outboundMode :: SmsOutboundModeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsChannelSubtypeConfigProperty ::

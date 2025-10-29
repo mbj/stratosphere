@@ -9,19 +9,34 @@ import {-# SOURCE #-} Stratosphere.AppSync.FunctionConfiguration.SyncConfigPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionConfiguration
-  = FunctionConfiguration {apiId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html>
+    FunctionConfiguration {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-apiid>
+                           apiId :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-code>
                            code :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-codes3location>
                            codeS3Location :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename>
                            dataSourceName :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion>
                            functionVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-maxbatchsize>
                            maxBatchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name>
                            name :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-requestmappingtemplate>
                            requestMappingTemplate :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-requestmappingtemplates3location>
                            requestMappingTemplateS3Location :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplate>
                            responseMappingTemplate :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location>
                            responseMappingTemplateS3Location :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-runtime>
                            runtime :: (Prelude.Maybe AppSyncRuntimeProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig>
                            syncConfig :: (Prelude.Maybe SyncConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfiguration ::

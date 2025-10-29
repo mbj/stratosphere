@@ -11,12 +11,20 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.StatusProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompositeComponentProperty
-  = CompositeComponentProperty {componentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html>
+    CompositeComponentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componentname>
+                                componentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componentpath>
                                 componentPath :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componenttypeid>
                                 componentTypeId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-description>
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-properties>
                                 properties :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyProperty)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-propertygroups>
                                 propertyGroups :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyGroupProperty)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-status>
                                 status :: (Prelude.Maybe StatusProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompositeComponentProperty :: CompositeComponentProperty

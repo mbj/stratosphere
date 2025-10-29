@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateCo
 import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.SmsMessageTemplateContentProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentProperty
-  = ContentProperty {emailMessageTemplateContent :: (Prelude.Maybe EmailMessageTemplateContentProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html>
+    ContentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html#cfn-wisdom-messagetemplate-content-emailmessagetemplatecontent>
+                     emailMessageTemplateContent :: (Prelude.Maybe EmailMessageTemplateContentProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html#cfn-wisdom-messagetemplate-content-smsmessagetemplatecontent>
                      smsMessageTemplateContent :: (Prelude.Maybe SmsMessageTemplateContentProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentProperty :: ContentProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.AwsVpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {awsvpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html>
+    NetworkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html#cfn-pipes-pipe-networkconfiguration-awsvpcconfiguration>
+                                  awsvpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty

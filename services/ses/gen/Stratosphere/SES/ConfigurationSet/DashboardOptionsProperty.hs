@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashboardOptionsProperty
-  = DashboardOptionsProperty {engagementMetrics :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html>
+    DashboardOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html#cfn-ses-configurationset-dashboardoptions-engagementmetrics>
+                              engagementMetrics :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardOptionsProperty ::
   Value Prelude.Text -> DashboardOptionsProperty

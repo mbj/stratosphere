@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventLogConfigProperty
-  = EventLogConfigProperty {cloudWatchLogsRoleArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html>
+    EventLogConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html#cfn-appsync-api-eventlogconfig-cloudwatchlogsrolearn>
+                            cloudWatchLogsRoleArn :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html#cfn-appsync-api-eventlogconfig-loglevel>
                             logLevel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventLogConfigProperty ::

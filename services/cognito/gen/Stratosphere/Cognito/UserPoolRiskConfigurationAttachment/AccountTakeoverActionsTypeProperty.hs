@@ -8,8 +8,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountTakeoverActionsTypeProperty
-  = AccountTakeoverActionsTypeProperty {highAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html>
+    AccountTakeoverActionsTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-highaction>
+                                        highAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-lowaction>
                                         lowAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-mediumaction>
                                         mediumAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverActionsTypeProperty ::

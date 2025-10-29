@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpdateDeviceCertificateParamsProperty
-  = UpdateDeviceCertificateParamsProperty {action :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html>
+    UpdateDeviceCertificateParamsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action>
+                                           action :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateDeviceCertificateParamsProperty ::
   Value Prelude.Text -> UpdateDeviceCertificateParamsProperty

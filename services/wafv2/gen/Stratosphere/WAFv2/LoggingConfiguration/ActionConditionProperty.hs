@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionConditionProperty
-  = ActionConditionProperty {action :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-actioncondition.html>
+    ActionConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-actioncondition.html#cfn-wafv2-loggingconfiguration-actioncondition-action>
+                             action :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionConditionProperty ::
   Value Prelude.Text -> ActionConditionProperty

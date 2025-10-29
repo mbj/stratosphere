@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Comprehend.Flywheel.EntityTypesListItemProperty as Exports
 import Stratosphere.ResourceProperties
 data EntityRecognitionConfigProperty
-  = EntityRecognitionConfigProperty {entityTypes :: (Prelude.Maybe [EntityTypesListItemProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entityrecognitionconfig.html>
+    EntityRecognitionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entityrecognitionconfig.html#cfn-comprehend-flywheel-entityrecognitionconfig-entitytypes>
+                                     entityTypes :: (Prelude.Maybe [EntityTypesListItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityRecognitionConfigProperty ::
   EntityRecognitionConfigProperty

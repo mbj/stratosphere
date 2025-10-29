@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.CodeConfigurationValuesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeConfigurationProperty
-  = CodeConfigurationProperty {codeConfigurationValues :: (Prelude.Maybe CodeConfigurationValuesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html>
+    CodeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues>
+                               codeConfigurationValues :: (Prelude.Maybe CodeConfigurationValuesProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource>
                                configurationSource :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeConfigurationProperty ::

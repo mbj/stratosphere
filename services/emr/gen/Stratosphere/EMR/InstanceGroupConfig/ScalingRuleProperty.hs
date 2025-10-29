@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.ScalingTriggerPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingRuleProperty
-  = ScalingRuleProperty {action :: ScalingActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html>
+    ScalingRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html#cfn-elasticmapreduce-instancegroupconfig-scalingrule-action>
+                         action :: ScalingActionProperty,
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html#cfn-elasticmapreduce-instancegroupconfig-scalingrule-description>
                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html#cfn-elasticmapreduce-instancegroupconfig-scalingrule-name>
                          name :: (Value Prelude.Text),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html#cfn-elasticmapreduce-instancegroupconfig-scalingrule-trigger>
                          trigger :: ScalingTriggerProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingRuleProperty ::

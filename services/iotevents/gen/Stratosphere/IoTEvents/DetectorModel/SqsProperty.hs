@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.PayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqsProperty
-  = SqsProperty {payload :: (Prelude.Maybe PayloadProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html>
+    SqsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload>
+                 payload :: (Prelude.Maybe PayloadProperty),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl>
                  queueUrl :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64>
                  useBase64 :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsProperty :: Value Prelude.Text -> SqsProperty

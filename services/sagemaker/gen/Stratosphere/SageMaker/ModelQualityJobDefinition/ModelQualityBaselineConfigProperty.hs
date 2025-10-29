@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.Constrain
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelQualityBaselineConfigProperty
-  = ModelQualityBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html>
+    ModelQualityBaselineConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname>
+                                        baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource>
                                         constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityBaselineConfigProperty ::

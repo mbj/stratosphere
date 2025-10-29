@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthPolicy
-  = AuthPolicy {policy :: JSON.Object,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html>
+    AuthPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html#cfn-vpclattice-authpolicy-policy>
+                policy :: JSON.Object,
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html#cfn-vpclattice-authpolicy-resourceidentifier>
                 resourceIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthPolicy :: JSON.Object -> Value Prelude.Text -> AuthPolicy

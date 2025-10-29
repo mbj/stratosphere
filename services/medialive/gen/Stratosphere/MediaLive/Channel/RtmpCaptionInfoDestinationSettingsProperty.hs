@@ -6,7 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RtmpCaptionInfoDestinationSettingsProperty
-  = RtmpCaptionInfoDestinationSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html>
+    RtmpCaptionInfoDestinationSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRtmpCaptionInfoDestinationSettingsProperty ::
   RtmpCaptionInfoDestinationSettingsProperty

@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Macie.AllowList.S3WordsListProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CriteriaProperty
-  = CriteriaProperty {regex :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html>
+    CriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html#cfn-macie-allowlist-criteria-regex>
+                      regex :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html#cfn-macie-allowlist-criteria-s3wordslist>
                       s3WordsList :: (Prelude.Maybe S3WordsListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCriteriaProperty :: CriteriaProperty

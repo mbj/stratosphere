@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Contact.TargetsProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageProperty
-  = StageProperty {durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html>
+    StageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes>
+                   durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-rotationids>
                    rotationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets>
                    targets :: (Prelude.Maybe [TargetsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageProperty :: StageProperty

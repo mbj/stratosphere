@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedConcurrencyConfigurationProperty
-  = ProvisionedConcurrencyConfigurationProperty {provisionedConcurrentExecutions :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html>
+    ProvisionedConcurrencyConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html#cfn-lambda-alias-provisionedconcurrencyconfiguration-provisionedconcurrentexecutions>
+                                                 provisionedConcurrentExecutions :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedConcurrencyConfigurationProperty ::
   Value Prelude.Integer

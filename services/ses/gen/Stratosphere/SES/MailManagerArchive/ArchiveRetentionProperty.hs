@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveRetentionProperty
-  = ArchiveRetentionProperty {retentionPeriod :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerarchive-archiveretention.html>
+    ArchiveRetentionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerarchive-archiveretention.html#cfn-ses-mailmanagerarchive-archiveretention-retentionperiod>
+                              retentionPeriod :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRetentionProperty ::
   Value Prelude.Text -> ArchiveRetentionProperty

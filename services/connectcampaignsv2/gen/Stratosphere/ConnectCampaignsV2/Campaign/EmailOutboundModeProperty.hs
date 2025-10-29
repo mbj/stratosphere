@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data EmailOutboundModeProperty
-  = EmailOutboundModeProperty {agentlessConfig :: (Prelude.Maybe JSON.Object)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html>
+    EmailOutboundModeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html#cfn-connectcampaignsv2-campaign-emailoutboundmode-agentlessconfig>
+                               agentlessConfig :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailOutboundModeProperty :: EmailOutboundModeProperty
 mkEmailOutboundModeProperty

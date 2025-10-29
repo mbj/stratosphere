@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotVersionLocaleDetailsProperty
-  = BotVersionLocaleDetailsProperty {sourceBotVersion :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html>
+    BotVersionLocaleDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html#cfn-lex-botversion-botversionlocaledetails-sourcebotversion>
+                                     sourceBotVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersionLocaleDetailsProperty ::
   Value Prelude.Text -> BotVersionLocaleDetailsProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.VpcLattice.Listener.WeightedTargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data ForwardProperty
-  = ForwardProperty {targetGroups :: [WeightedTargetGroupProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html>
+    ForwardProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-forward.html#cfn-vpclattice-listener-forward-targetgroups>
+                     targetGroups :: [WeightedTargetGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardProperty ::
   [WeightedTargetGroupProperty] -> ForwardProperty

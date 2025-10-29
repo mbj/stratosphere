@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.CrlConfigurationP
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.OcspConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data RevocationConfigurationProperty
-  = RevocationConfigurationProperty {crlConfiguration :: (Prelude.Maybe CrlConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html>
+    RevocationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration>
+                                     crlConfiguration :: (Prelude.Maybe CrlConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration>
                                      ocspConfiguration :: (Prelude.Maybe OcspConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRevocationConfigurationProperty ::

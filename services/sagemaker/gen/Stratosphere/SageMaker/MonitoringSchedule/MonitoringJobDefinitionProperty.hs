@@ -15,14 +15,24 @@ import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.StoppingConditio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringJobDefinitionProperty
-  = MonitoringJobDefinitionProperty {baselineConfig :: (Prelude.Maybe BaselineConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html>
+    MonitoringJobDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig>
+                                     baselineConfig :: (Prelude.Maybe BaselineConfigProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment>
                                      environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification>
                                      monitoringAppSpecification :: MonitoringAppSpecificationProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs>
                                      monitoringInputs :: [MonitoringInputProperty],
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig>
                                      monitoringOutputConfig :: MonitoringOutputConfigProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources>
                                      monitoringResources :: MonitoringResourcesProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig>
                                      networkConfig :: (Prelude.Maybe NetworkConfigProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn>
                                      roleArn :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition>
                                      stoppingCondition :: (Prelude.Maybe StoppingConditionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringJobDefinitionProperty ::

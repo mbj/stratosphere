@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QAppsConfigurationProperty
-  = QAppsConfigurationProperty {qAppsControlMode :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html>
+    QAppsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html#cfn-qbusiness-application-qappsconfiguration-qappscontrolmode>
+                                qAppsControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQAppsConfigurationProperty ::
   Value Prelude.Text -> QAppsConfigurationProperty

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.DataZone.ProjectMembership.MemberProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectMembership
-  = ProjectMembership {designation :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html>
+    ProjectMembership {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html#cfn-datazone-projectmembership-designation>
+                       designation :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html#cfn-datazone-projectmembership-domainidentifier>
                        domainIdentifier :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html#cfn-datazone-projectmembership-member>
                        member :: MemberProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html#cfn-datazone-projectmembership-projectidentifier>
                        projectIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectMembership ::

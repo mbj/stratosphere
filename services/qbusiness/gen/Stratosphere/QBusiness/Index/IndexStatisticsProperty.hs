@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QBusiness.Index.TextDocumentStatisticsProperty as Exports
 import Stratosphere.ResourceProperties
 data IndexStatisticsProperty
-  = IndexStatisticsProperty {textDocumentStatistics :: (Prelude.Maybe TextDocumentStatisticsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexstatistics.html>
+    IndexStatisticsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexstatistics.html#cfn-qbusiness-index-indexstatistics-textdocumentstatistics>
+                             textDocumentStatistics :: (Prelude.Maybe TextDocumentStatisticsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIndexStatisticsProperty :: IndexStatisticsProperty
 mkIndexStatisticsProperty

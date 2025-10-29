@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerContentEncryptionConfigurationProperty
-  = CustomerContentEncryptionConfigurationProperty {kmsKey :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>
+    CustomerContentEncryptionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html#cfn-athena-workgroup-customercontentencryptionconfiguration-kmskey>
+                                                    kmsKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerContentEncryptionConfigurationProperty ::
   Value Prelude.Text

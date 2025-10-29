@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentReportS3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputsProperty
-  = OutputsProperty {experimentReportS3Configuration :: ExperimentReportS3ConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html>
+    OutputsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html#cfn-fis-experimenttemplate-outputs-experimentreports3configuration>
+                     experimentReportS3Configuration :: ExperimentReportS3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputsProperty ::
   ExperimentReportS3ConfigurationProperty -> OutputsProperty

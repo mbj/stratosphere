@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceProfileModelSourceProperty
-  = InferenceProfileModelSourceProperty {copyFrom :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html>
+    InferenceProfileModelSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilemodelsource-copyfrom>
+                                         copyFrom :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceProfileModelSourceProperty ::
   Value Prelude.Text -> InferenceProfileModelSourceProperty

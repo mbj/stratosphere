@@ -8,10 +8,16 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.AssetPropertyValueProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotSiteWiseProperty
-  = IotSiteWiseProperty {assetId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html>
+    IotSiteWiseProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-assetid>
+                         assetId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-entryid>
                          entryId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyalias>
                          propertyAlias :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyid>
                          propertyId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-iotsitewise.html#cfn-iotevents-alarmmodel-iotsitewise-propertyvalue>
                          propertyValue :: (Prelude.Maybe AssetPropertyValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseProperty :: IotSiteWiseProperty

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.OutputAttri
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputSourceProperty
-  = OutputSourceProperty {applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html>
+    OutputSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-applynormalization>
+                          applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-kmsarn>
                           kMSArn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-output>
                           output :: [OutputAttributeProperty],
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-outputs3path>
                           outputS3Path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputSourceProperty ::

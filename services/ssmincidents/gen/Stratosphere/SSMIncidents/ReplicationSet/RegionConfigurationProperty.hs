@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegionConfigurationProperty
-  = RegionConfigurationProperty {sseKmsKeyId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html>
+    RegionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid>
+                                 sseKmsKeyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionConfigurationProperty ::
   Value Prelude.Text -> RegionConfigurationProperty

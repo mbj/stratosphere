@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.KeyUsagePropertyPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateKeyAttributesV4Property
-  = PrivateKeyAttributesV4Property {algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html>
+    PrivateKeyAttributesV4Property {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html#cfn-pcaconnectorad-template-privatekeyattributesv4-algorithm>
+                                    algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html#cfn-pcaconnectorad-template-privatekeyattributesv4-cryptoproviders>
                                     cryptoProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html#cfn-pcaconnectorad-template-privatekeyattributesv4-keyspec>
                                     keySpec :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html#cfn-pcaconnectorad-template-privatekeyattributesv4-keyusageproperty>
                                     keyUsageProperty :: (Prelude.Maybe KeyUsagePropertyProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html#cfn-pcaconnectorad-template-privatekeyattributesv4-minimalkeylength>
                                     minimalKeyLength :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateKeyAttributesV4Property ::

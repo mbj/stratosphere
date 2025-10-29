@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.AbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data AbortConfigProperty
-  = AbortConfigProperty {criteriaList :: [AbortCriteriaProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html>
+    AbortConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html#cfn-iot-jobtemplate-abortconfig-criterialist>
+                         criteriaList :: [AbortCriteriaProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortConfigProperty ::
   [AbortCriteriaProperty] -> AbortConfigProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TargetGroupInfoPro
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TrafficRouteProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetGroupPairInfoProperty
-  = TargetGroupPairInfoProperty {prodTrafficRoute :: (Prelude.Maybe TrafficRouteProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html>
+    TargetGroupPairInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-prodtrafficroute>
+                                 prodTrafficRoute :: (Prelude.Maybe TrafficRouteProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-targetgroups>
                                  targetGroups :: (Prelude.Maybe [TargetGroupInfoProperty]),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html#cfn-codedeploy-deploymentgroup-targetgrouppairinfo-testtrafficroute>
                                  testTrafficRoute :: (Prelude.Maybe TrafficRouteProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupPairInfoProperty :: TargetGroupPairInfoProperty

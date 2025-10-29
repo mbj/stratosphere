@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.MetricDataItemsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricGroupProperty
-  = MetricGroupProperty {metricData :: [MetricDataItemsProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html>
+    MetricGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html#cfn-sagemaker-modelcard-metricgroup-metricdata>
+                         metricData :: [MetricDataItemsProperty],
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html#cfn-sagemaker-modelcard-metricgroup-name>
                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricGroupProperty ::

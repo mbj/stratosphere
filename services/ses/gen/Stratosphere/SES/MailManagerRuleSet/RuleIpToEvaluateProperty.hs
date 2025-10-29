@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleIpToEvaluateProperty
-  = RuleIpToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html>
+    RuleIpToEvaluateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html#cfn-ses-mailmanagerruleset-ruleiptoevaluate-attribute>
+                              attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleIpToEvaluateProperty ::
   Value Prelude.Text -> RuleIpToEvaluateProperty

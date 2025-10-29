@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ForwardedIPConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoMatchStatementProperty
-  = GeoMatchStatementProperty {countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html>
+    GeoMatchStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes>
+                               countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig>
                                forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoMatchStatementProperty :: GeoMatchStatementProperty

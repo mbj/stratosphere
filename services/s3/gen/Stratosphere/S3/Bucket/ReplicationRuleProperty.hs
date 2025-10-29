@@ -12,13 +12,22 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.SourceSelectionCriteriaProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationRuleProperty
-  = ReplicationRuleProperty {deleteMarkerReplication :: (Prelude.Maybe DeleteMarkerReplicationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html>
+    ReplicationRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-deletemarkerreplication>
+                             deleteMarkerReplication :: (Prelude.Maybe DeleteMarkerReplicationProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-destination>
                              destination :: ReplicationDestinationProperty,
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-filter>
                              filter :: (Prelude.Maybe ReplicationRuleFilterProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-id>
                              id :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-prefix>
                              prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-priority>
                              priority :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria>
                              sourceSelectionCriteria :: (Prelude.Maybe SourceSelectionCriteriaProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-status>
                              status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleProperty ::

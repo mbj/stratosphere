@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty as Exports
 import Stratosphere.ResourceProperties
 data WorkerTypeSpecificationInputProperty
-  = WorkerTypeSpecificationInputProperty {imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html>
+    WorkerTypeSpecificationInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html#cfn-emrserverless-application-workertypespecificationinput-imageconfiguration>
+                                          imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerTypeSpecificationInputProperty ::
   WorkerTypeSpecificationInputProperty

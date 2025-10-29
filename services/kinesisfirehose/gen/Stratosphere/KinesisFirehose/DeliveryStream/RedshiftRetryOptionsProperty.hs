@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftRetryOptionsProperty
-  = RedshiftRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html>
+    RedshiftRetryOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds>
+                                  durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftRetryOptionsProperty :: RedshiftRetryOptionsProperty
 mkRedshiftRetryOptionsProperty

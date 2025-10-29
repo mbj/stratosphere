@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.RangeOverrideProperty as Exports
 import Stratosphere.ResourceProperties
 data ConditionOverridesProperty
-  = ConditionOverridesProperty {range :: (Prelude.Maybe RangeOverrideProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html>
+    ConditionOverridesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html#cfn-customerprofiles-segmentdefinition-conditionoverrides-range>
+                                range :: (Prelude.Maybe RangeOverrideProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionOverridesProperty :: ConditionOverridesProperty
 mkConditionOverridesProperty

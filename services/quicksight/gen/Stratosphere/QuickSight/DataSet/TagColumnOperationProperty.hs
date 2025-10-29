@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.ColumnTagProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagColumnOperationProperty
-  = TagColumnOperationProperty {columnName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html>
+    TagColumnOperationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname>
+                                columnName :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags>
                                 tags :: [ColumnTagProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagColumnOperationProperty ::

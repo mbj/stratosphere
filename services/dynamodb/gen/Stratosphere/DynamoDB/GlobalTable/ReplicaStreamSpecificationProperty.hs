@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ResourcePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicaStreamSpecificationProperty
-  = ReplicaStreamSpecificationProperty {resourcePolicy :: ResourcePolicyProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html>
+    ReplicaStreamSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html#cfn-dynamodb-globaltable-replicastreamspecification-resourcepolicy>
+                                        resourcePolicy :: ResourcePolicyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaStreamSpecificationProperty ::
   ResourcePolicyProperty -> ReplicaStreamSpecificationProperty

@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigProperty
-  = VpcConfigProperty {securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html>
+    VpcConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html#cfn-msk-serverlesscluster-vpcconfig-securitygroups>
+                       securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html#cfn-msk-serverlesscluster-vpcconfig-subnetids>
                        subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigProperty :: ValueList Prelude.Text -> VpcConfigProperty

@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.TimestreamTimestampProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimestreamActionProperty
-  = TimestreamActionProperty {databaseName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html>
+    TimestreamActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename>
+                              databaseName :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions>
                               dimensions :: [TimestreamDimensionProperty],
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename>
                               tableName :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp>
                               timestamp :: (Prelude.Maybe TimestreamTimestampProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamActionProperty ::

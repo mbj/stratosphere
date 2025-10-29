@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.DashboardOptionsProperty
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.GuardianOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data VdmOptionsProperty
-  = VdmOptionsProperty {dashboardOptions :: (Prelude.Maybe DashboardOptionsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html>
+    VdmOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-dashboardoptions>
+                        dashboardOptions :: (Prelude.Maybe DashboardOptionsProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-guardianoptions>
                         guardianOptions :: (Prelude.Maybe GuardianOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVdmOptionsProperty :: VdmOptionsProperty

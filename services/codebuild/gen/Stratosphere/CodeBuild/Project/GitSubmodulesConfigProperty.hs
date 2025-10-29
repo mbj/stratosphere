@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitSubmodulesConfigProperty
-  = GitSubmodulesConfigProperty {fetchSubmodules :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html>
+    GitSubmodulesConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html#cfn-codebuild-project-gitsubmodulesconfig-fetchsubmodules>
+                                 fetchSubmodules :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitSubmodulesConfigProperty ::
   Value Prelude.Bool -> GitSubmodulesConfigProperty

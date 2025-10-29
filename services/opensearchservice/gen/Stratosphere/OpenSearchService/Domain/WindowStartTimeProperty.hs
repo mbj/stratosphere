@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WindowStartTimeProperty
-  = WindowStartTimeProperty {hours :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html>
+    WindowStartTimeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html#cfn-opensearchservice-domain-windowstarttime-hours>
+                             hours :: (Value Prelude.Integer),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html#cfn-opensearchservice-domain-windowstarttime-minutes>
                              minutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWindowStartTimeProperty ::

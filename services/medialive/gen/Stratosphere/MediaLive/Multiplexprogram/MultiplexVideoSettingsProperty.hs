@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Multiplexprogram.MultiplexStatmuxVi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexVideoSettingsProperty
-  = MultiplexVideoSettingsProperty {constantBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html>
+    MultiplexVideoSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html#cfn-medialive-multiplexprogram-multiplexvideosettings-constantbitrate>
+                                    constantBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html#cfn-medialive-multiplexprogram-multiplexvideosettings-statmuxsettings>
                                     statmuxSettings :: (Prelude.Maybe MultiplexStatmuxVideoSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexVideoSettingsProperty :: MultiplexVideoSettingsProperty

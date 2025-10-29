@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EirpProperty
-  = EirpProperty {units :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html>
+    EirpProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units>
+                  units :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value>
                   value :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEirpProperty :: EirpProperty

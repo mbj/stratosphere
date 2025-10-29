@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationSettingsProperty
-  = ValidationSettingsProperty {mode :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html>
+    ValidationSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html#cfn-verifiedpermissions-policystore-validationsettings-mode>
+                                mode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationSettingsProperty ::
   Value Prelude.Text -> ValidationSettingsProperty

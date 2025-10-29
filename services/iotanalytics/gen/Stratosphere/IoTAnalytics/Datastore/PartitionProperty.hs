@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionProperty
-  = PartitionProperty {attributeName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html>
+    PartitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html#cfn-iotanalytics-datastore-partition-attributename>
+                       attributeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionProperty :: Value Prelude.Text -> PartitionProperty
 mkPartitionProperty attributeName

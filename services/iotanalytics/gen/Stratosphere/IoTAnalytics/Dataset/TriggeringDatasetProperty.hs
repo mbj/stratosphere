@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggeringDatasetProperty
-  = TriggeringDatasetProperty {datasetName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html>
+    TriggeringDatasetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html#cfn-iotanalytics-dataset-triggeringdataset-datasetname>
+                               datasetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggeringDatasetProperty ::
   Value Prelude.Text -> TriggeringDatasetProperty

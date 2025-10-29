@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNS3LogsConfigurationProperty
-  = CFNS3LogsConfigurationProperty {enable :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html>
+    CFNS3LogsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable>
+                                    enable :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNS3LogsConfigurationProperty ::
   Value Prelude.Bool -> CFNS3LogsConfigurationProperty

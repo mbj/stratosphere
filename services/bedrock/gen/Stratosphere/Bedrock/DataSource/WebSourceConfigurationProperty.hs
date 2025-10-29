@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.UrlConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebSourceConfigurationProperty
-  = WebSourceConfigurationProperty {urlConfiguration :: UrlConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html>
+    WebSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html#cfn-bedrock-datasource-websourceconfiguration-urlconfiguration>
+                                    urlConfiguration :: UrlConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebSourceConfigurationProperty ::
   UrlConfigurationProperty -> WebSourceConfigurationProperty

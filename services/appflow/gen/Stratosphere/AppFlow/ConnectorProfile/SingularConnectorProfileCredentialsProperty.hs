@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingularConnectorProfileCredentialsProperty
-  = SingularConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html>
+    SingularConnectorProfileCredentialsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey>
+                                                 apiKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingularConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> SingularConnectorProfileCredentialsProperty

@@ -5,7 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Rec709SettingsProperty
-  = Rec709SettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec709settings.html>
+    Rec709SettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRec709SettingsProperty :: Rec709SettingsProperty
 mkRec709SettingsProperty = Rec709SettingsProperty {}

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.NotificationFilterProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueueConfigurationProperty
-  = QueueConfigurationProperty {event :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html>
+    QueueConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html#cfn-s3-bucket-queueconfiguration-event>
+                                event :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html#cfn-s3-bucket-queueconfiguration-filter>
                                 filter :: (Prelude.Maybe NotificationFilterProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html#cfn-s3-bucket-queueconfiguration-queue>
                                 queue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueueConfigurationProperty ::

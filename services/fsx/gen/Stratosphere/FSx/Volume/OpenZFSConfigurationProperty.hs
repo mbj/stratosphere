@@ -11,16 +11,28 @@ import {-# SOURCE #-} Stratosphere.FSx.Volume.UserAndGroupQuotasProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenZFSConfigurationProperty
-  = OpenZFSConfigurationProperty {copyTagsToSnapshots :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html>
+    OpenZFSConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-copytagstosnapshots>
+                                  copyTagsToSnapshots :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-datacompressiontype>
                                   dataCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-nfsexports>
                                   nfsExports :: (Prelude.Maybe [NfsExportsProperty]),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-options>
                                   options :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-originsnapshot>
                                   originSnapshot :: (Prelude.Maybe OriginSnapshotProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-parentvolumeid>
                                   parentVolumeId :: (Value Prelude.Text),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-readonly>
                                   readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-recordsizekib>
                                   recordSizeKiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-storagecapacityquotagib>
                                   storageCapacityQuotaGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-storagecapacityreservationgib>
                                   storageCapacityReservationGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html#cfn-fsx-volume-openzfsconfiguration-userandgroupquotas>
                                   userAndGroupQuotas :: (Prelude.Maybe [UserAndGroupQuotasProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenZFSConfigurationProperty ::

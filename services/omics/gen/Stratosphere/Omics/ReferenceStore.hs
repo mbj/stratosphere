@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.Omics.ReferenceStore.SseConfigProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceStore
-  = ReferenceStore {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html>
+    ReferenceStore {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html#cfn-omics-referencestore-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html#cfn-omics-referencestore-name>
                     name :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html#cfn-omics-referencestore-sseconfig>
                     sseConfig :: (Prelude.Maybe SseConfigProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html#cfn-omics-referencestore-tags>
                     tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceStore :: Value Prelude.Text -> ReferenceStore

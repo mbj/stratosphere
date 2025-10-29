@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.VolumeSpecificationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsBlockDeviceConfigProperty
-  = EbsBlockDeviceConfigProperty {volumeSpecification :: VolumeSpecificationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html>
+    EbsBlockDeviceConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html#cfn-elasticmapreduce-cluster-ebsblockdeviceconfig-volumespecification>
+                                  volumeSpecification :: VolumeSpecificationProperty,
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html#cfn-elasticmapreduce-cluster-ebsblockdeviceconfig-volumesperinstance>
                                   volumesPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsBlockDeviceConfigProperty ::

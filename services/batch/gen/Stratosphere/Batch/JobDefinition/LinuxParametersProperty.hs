@@ -10,11 +10,18 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.TmpfsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LinuxParametersProperty
-  = LinuxParametersProperty {devices :: (Prelude.Maybe [DeviceProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html>
+    LinuxParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-devices>
+                             devices :: (Prelude.Maybe [DeviceProperty]),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-initprocessenabled>
                              initProcessEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-maxswap>
                              maxSwap :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-sharedmemorysize>
                              sharedMemorySize :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-swappiness>
                              swappiness :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters-tmpfs>
                              tmpfs :: (Prelude.Maybe [TmpfsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLinuxParametersProperty :: LinuxParametersProperty

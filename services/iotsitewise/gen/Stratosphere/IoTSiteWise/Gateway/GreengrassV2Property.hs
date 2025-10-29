@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreengrassV2Property
-  = GreengrassV2Property {coreDeviceThingName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html>
+    GreengrassV2Property {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname>
+                          coreDeviceThingName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGreengrassV2Property ::
   Value Prelude.Text -> GreengrassV2Property

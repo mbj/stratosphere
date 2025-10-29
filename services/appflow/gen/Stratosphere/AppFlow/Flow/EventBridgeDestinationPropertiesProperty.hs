@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeDestinationPropertiesProperty
-  = EventBridgeDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html>
+    EventBridgeDestinationPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig>
+                                              errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object>
                                               object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeDestinationPropertiesProperty ::

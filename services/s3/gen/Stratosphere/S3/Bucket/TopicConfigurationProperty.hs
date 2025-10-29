@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.NotificationFilterProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicConfigurationProperty
-  = TopicConfigurationProperty {event :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html>
+    TopicConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html#cfn-s3-bucket-topicconfiguration-event>
+                                event :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html#cfn-s3-bucket-topicconfiguration-filter>
                                 filter :: (Prelude.Maybe NotificationFilterProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html#cfn-s3-bucket-topicconfiguration-topic>
                                 topic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicConfigurationProperty ::

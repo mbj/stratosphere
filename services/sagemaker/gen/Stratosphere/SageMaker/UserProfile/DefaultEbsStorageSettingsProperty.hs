@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultEbsStorageSettingsProperty
-  = DefaultEbsStorageSettingsProperty {defaultEbsVolumeSizeInGb :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html>
+    DefaultEbsStorageSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-defaultebsvolumesizeingb>
+                                       defaultEbsVolumeSizeInGb :: (Value Prelude.Integer),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-maximumebsvolumesizeingb>
                                        maximumEbsVolumeSizeInGb :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultEbsStorageSettingsProperty ::

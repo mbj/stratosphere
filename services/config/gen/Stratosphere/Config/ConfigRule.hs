@@ -11,13 +11,22 @@ import {-# SOURCE #-} Stratosphere.Config.ConfigRule.SourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigRule
-  = ConfigRule {compliance :: (Prelude.Maybe ComplianceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html>
+    ConfigRule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-compliance>
+                compliance :: (Prelude.Maybe ComplianceProperty),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename>
                 configRuleName :: (Prelude.Maybe (Value Prelude.Text)),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-evaluationmodes>
                 evaluationModes :: (Prelude.Maybe [EvaluationModeConfigurationProperty]),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-inputparameters>
                 inputParameters :: (Prelude.Maybe JSON.Object),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-maximumexecutionfrequency>
                 maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-scope>
                 scope :: (Prelude.Maybe ScopeProperty),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source>
                 source :: SourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigRule :: SourceProperty -> ConfigRule

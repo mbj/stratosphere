@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.EKS.FargateProfile.LabelProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelectorProperty
-  = SelectorProperty {labels :: (Prelude.Maybe [LabelProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html>
+    SelectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels>
+                      labels :: (Prelude.Maybe [LabelProperty]),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace>
                       namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectorProperty :: Value Prelude.Text -> SelectorProperty

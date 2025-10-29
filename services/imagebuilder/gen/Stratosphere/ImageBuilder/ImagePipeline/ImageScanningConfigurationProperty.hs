@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.EcrConfigurationPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageScanningConfigurationProperty
-  = ImageScanningConfigurationProperty {ecrConfiguration :: (Prelude.Maybe EcrConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html>
+    ImageScanningConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration-ecrconfiguration>
+                                        ecrConfiguration :: (Prelude.Maybe EcrConfigurationProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration-imagescanningenabled>
                                         imageScanningEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageScanningConfigurationProperty ::

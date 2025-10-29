@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.SsmAutomationProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {ssmAutomation :: (Prelude.Maybe SsmAutomationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html>
+    ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation>
+                    ssmAutomation :: (Prelude.Maybe SsmAutomationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty = ActionProperty {ssmAutomation = Prelude.Nothing}

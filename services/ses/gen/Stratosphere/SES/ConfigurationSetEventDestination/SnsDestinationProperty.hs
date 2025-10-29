@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsDestinationProperty
-  = SnsDestinationProperty {topicARN :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html>
+    SnsDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html#cfn-ses-configurationseteventdestination-snsdestination-topicarn>
+                            topicARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsDestinationProperty ::
   Value Prelude.Text -> SnsDestinationProperty

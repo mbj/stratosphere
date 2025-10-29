@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributePayloadProperty
-  = AttributePayloadProperty {attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html>
+    AttributePayloadProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes>
+                              attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributePayloadProperty :: AttributePayloadProperty
 mkAttributePayloadProperty

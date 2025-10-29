@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InforNexusSourcePropertiesProperty
-  = InforNexusSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html>
+    InforNexusSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object>
+                                        object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusSourcePropertiesProperty ::
   Value Prelude.Text -> InforNexusSourcePropertiesProperty

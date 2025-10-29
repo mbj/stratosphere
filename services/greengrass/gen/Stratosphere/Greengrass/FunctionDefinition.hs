@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.FunctionDefinit
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionDefinition
-  = FunctionDefinition {initialVersion :: (Prelude.Maybe FunctionDefinitionVersionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html>
+    FunctionDefinition {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-initialversion>
+                        initialVersion :: (Prelude.Maybe FunctionDefinitionVersionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-name>
                         name :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-tags>
                         tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinition :: Value Prelude.Text -> FunctionDefinition

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.TextLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextLogSettingProperty
-  = TextLogSettingProperty {destination :: TextLogDestinationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html>
+    TextLogSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html#cfn-lex-bot-textlogsetting-destination>
+                            destination :: TextLogDestinationProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textlogsetting.html#cfn-lex-bot-textlogsetting-enabled>
                             enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextLogSettingProperty ::

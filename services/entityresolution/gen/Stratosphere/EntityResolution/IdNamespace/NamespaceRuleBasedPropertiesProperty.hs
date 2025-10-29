@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.IdNamespace.RuleProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamespaceRuleBasedPropertiesProperty
-  = NamespaceRuleBasedPropertiesProperty {attributeMatchingModel :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html>
+    NamespaceRuleBasedPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html#cfn-entityresolution-idnamespace-namespacerulebasedproperties-attributematchingmodel>
+                                          attributeMatchingModel :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html#cfn-entityresolution-idnamespace-namespacerulebasedproperties-recordmatchingmodels>
                                           recordMatchingModels :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html#cfn-entityresolution-idnamespace-namespacerulebasedproperties-ruledefinitiontypes>
                                           ruleDefinitionTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html#cfn-entityresolution-idnamespace-namespacerulebasedproperties-rules>
                                           rules :: (Prelude.Maybe [RuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespaceRuleBasedPropertiesProperty ::

@@ -9,7 +9,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 data PredictiveScalingCustomizedScalingMetricProperty
-  = PredictiveScalingCustomizedScalingMetricProperty {metricDataQueries :: [PredictiveScalingMetricDataQueryProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html>
+    PredictiveScalingCustomizedScalingMetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric-metricdataqueries>
+                                                      metricDataQueries :: [PredictiveScalingMetricDataQueryProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingCustomizedScalingMetricProperty ::
   [PredictiveScalingMetricDataQueryProperty]

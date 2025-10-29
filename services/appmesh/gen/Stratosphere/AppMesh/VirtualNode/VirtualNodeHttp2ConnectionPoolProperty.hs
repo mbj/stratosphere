@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualNodeHttp2ConnectionPoolProperty
-  = VirtualNodeHttp2ConnectionPoolProperty {maxRequests :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html>
+    VirtualNodeHttp2ConnectionPoolProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests>
+                                            maxRequests :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeHttp2ConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualNodeHttp2ConnectionPoolProperty

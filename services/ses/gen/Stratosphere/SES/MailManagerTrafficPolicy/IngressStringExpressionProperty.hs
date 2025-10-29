@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressStringToE
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressStringExpressionProperty
-  = IngressStringExpressionProperty {evaluate :: IngressStringToEvaluateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html>
+    IngressStringExpressionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressstringexpression-evaluate>
+                                     evaluate :: IngressStringToEvaluateProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressstringexpression-operator>
                                      operator :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressstringexpression-values>
                                      values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressStringExpressionProperty ::

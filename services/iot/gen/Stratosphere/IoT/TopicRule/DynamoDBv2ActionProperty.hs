@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.PutItemInputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBv2ActionProperty
-  = DynamoDBv2ActionProperty {putItem :: (Prelude.Maybe PutItemInputProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html>
+    DynamoDBv2ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem>
+                              putItem :: (Prelude.Maybe PutItemInputProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn>
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBv2ActionProperty :: DynamoDBv2ActionProperty

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.RetryConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FailureConditionsProperty
-  = FailureConditionsProperty {conditions :: (Prelude.Maybe [ConditionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html>
+    FailureConditionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-conditions>
+                               conditions :: (Prelude.Maybe [ConditionProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-result>
                                result :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-retryconfiguration>
                                retryConfiguration :: (Prelude.Maybe RetryConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailureConditionsProperty :: FailureConditionsProperty

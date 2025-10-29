@@ -8,12 +8,20 @@ import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.AbortIncompleteMult
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
-  = RuleProperty {abortIncompleteMultipartUpload :: (Prelude.Maybe AbortIncompleteMultipartUploadProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html>
+    RuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-abortincompletemultipartupload>
+                  abortIncompleteMultipartUpload :: (Prelude.Maybe AbortIncompleteMultipartUploadProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-expirationindays>
                   expirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-id>
                   id :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-objectsizegreaterthan>
                   objectSizeGreaterThan :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-objectsizelessthan>
                   objectSizeLessThan :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-prefix>
                   prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html#cfn-s3express-directorybucket-rule-status>
                   status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: Value Prelude.Text -> RuleProperty

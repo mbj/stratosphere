@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationTimeValueProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationTimeProperty
-  = ReplicationTimeProperty {status :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html>
+    ReplicationTimeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status>
+                             status :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time>
                              time :: ReplicationTimeValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTimeProperty ::

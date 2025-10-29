@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.DimensionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CloudWatchDestinationProperty
-  = CloudWatchDestinationProperty {dimensionConfigurations :: (Prelude.Maybe [DimensionConfigurationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html>
+    CloudWatchDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations>
+                                   dimensionConfigurations :: (Prelude.Maybe [DimensionConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchDestinationProperty :: CloudWatchDestinationProperty
 mkCloudWatchDestinationProperty

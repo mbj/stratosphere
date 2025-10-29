@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationRuleAndOperatorProperty
-  = ReplicationRuleAndOperatorProperty {prefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html>
+    ReplicationRuleAndOperatorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix>
+                                        prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters>
                                         tagFilters :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleAndOperatorProperty ::

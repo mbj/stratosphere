@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.APS.Scraper.AmpConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationProperty
-  = DestinationProperty {ampConfiguration :: AmpConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html>
+    DestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html#cfn-aps-scraper-destination-ampconfiguration>
+                         ampConfiguration :: AmpConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty ::
   AmpConfigurationProperty -> DestinationProperty

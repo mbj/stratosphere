@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.RepublishActionHeadersProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepublishActionProperty
-  = RepublishActionProperty {headers :: (Prelude.Maybe RepublishActionHeadersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html>
+    RepublishActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-headers>
+                             headers :: (Prelude.Maybe RepublishActionHeadersProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos>
                              qos :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn>
                              roleArn :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic>
                              topic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepublishActionProperty ::

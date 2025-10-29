@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WeeklyScheduleProperty
-  = WeeklyScheduleProperty {days :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-weeklyschedule.html>
+    WeeklyScheduleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-weeklyschedule.html#cfn-inspectorv2-cisscanconfiguration-weeklyschedule-days>
+                            days :: (ValueList Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-weeklyschedule.html#cfn-inspectorv2-cisscanconfiguration-weeklyschedule-starttime>
                             startTime :: TimeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWeeklyScheduleProperty ::

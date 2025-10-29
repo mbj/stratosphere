@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AccessPolicy.AccessPolicyResource
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPolicy
-  = AccessPolicy {accessPolicyIdentity :: AccessPolicyIdentityProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html>
+    AccessPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity>
+                  accessPolicyIdentity :: AccessPolicyIdentityProperty,
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission>
                   accessPolicyPermission :: (Value Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource>
                   accessPolicyResource :: AccessPolicyResourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicy ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.ColumnSchemaProp
 import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.DataSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DatasetInputConfigProperty
-  = DatasetInputConfigProperty {dataSource :: DataSourceProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasetinputconfig.html>
+    DatasetInputConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasetinputconfig.html#cfn-cleanroomsml-trainingdataset-datasetinputconfig-datasource>
+                                dataSource :: DataSourceProperty,
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasetinputconfig.html#cfn-cleanroomsml-trainingdataset-datasetinputconfig-schema>
                                 schema :: [ColumnSchemaProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetInputConfigProperty ::

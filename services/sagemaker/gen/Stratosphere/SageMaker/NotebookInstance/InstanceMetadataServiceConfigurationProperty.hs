@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceMetadataServiceConfigurationProperty
-  = InstanceMetadataServiceConfigurationProperty {minimumInstanceMetadataServiceVersion :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>
+    InstanceMetadataServiceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html#cfn-sagemaker-notebookinstance-instancemetadataserviceconfiguration-minimuminstancemetadataserviceversion>
+                                                  minimumInstanceMetadataServiceVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMetadataServiceConfigurationProperty ::
   Value Prelude.Text -> InstanceMetadataServiceConfigurationProperty

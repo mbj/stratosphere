@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterClientAuthenticationProperty
-  = KafkaClusterClientAuthenticationProperty {authenticationType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html>
+    KafkaClusterClientAuthenticationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication-authenticationtype>
+                                              authenticationType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterClientAuthenticationProperty ::
   Value Prelude.Text -> KafkaClusterClientAuthenticationProperty

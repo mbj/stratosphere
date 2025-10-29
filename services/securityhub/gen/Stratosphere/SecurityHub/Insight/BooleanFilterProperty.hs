@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BooleanFilterProperty
-  = BooleanFilterProperty {value :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html>
+    BooleanFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html#cfn-securityhub-insight-booleanfilter-value>
+                           value :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBooleanFilterProperty ::
   Value Prelude.Bool -> BooleanFilterProperty

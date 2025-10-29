@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelAccessConfigPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ModelDataSourceProperty
-  = S3ModelDataSourceProperty {compressionType :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html>
+    S3ModelDataSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-compressiontype>
+                               compressionType :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-modelaccessconfig>
                                modelAccessConfig :: (Prelude.Maybe ModelAccessConfigProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-s3datatype>
                                s3DataType :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-s3uri>
                                s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ModelDataSourceProperty ::

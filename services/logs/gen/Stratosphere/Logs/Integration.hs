@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Logs.Integration.ResourceConfigProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Integration
-  = Integration {integrationName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html>
+    Integration {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html#cfn-logs-integration-integrationname>
+                 integrationName :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html#cfn-logs-integration-integrationtype>
                  integrationType :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html#cfn-logs-integration-resourceconfig>
                  resourceConfig :: ResourceConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegration ::

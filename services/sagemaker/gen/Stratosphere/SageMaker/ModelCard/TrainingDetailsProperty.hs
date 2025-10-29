@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.TrainingJobDetailsPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingDetailsProperty
-  = TrainingDetailsProperty {objectiveFunction :: (Prelude.Maybe ObjectiveFunctionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html>
+    TrainingDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-objectivefunction>
+                             objectiveFunction :: (Prelude.Maybe ObjectiveFunctionProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-trainingjobdetails>
                              trainingJobDetails :: (Prelude.Maybe TrainingJobDetailsProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html#cfn-sagemaker-modelcard-trainingdetails-trainingobservations>
                              trainingObservations :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingDetailsProperty :: TrainingDetailsProperty

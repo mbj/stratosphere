@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualService.VirtualServiceProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualServiceSpecProperty
-  = VirtualServiceSpecProperty {provider :: (Prelude.Maybe VirtualServiceProviderProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html>
+    VirtualServiceSpecProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html#cfn-appmesh-virtualservice-virtualservicespec-provider>
+                                provider :: (Prelude.Maybe VirtualServiceProviderProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceSpecProperty :: VirtualServiceSpecProperty
 mkVirtualServiceSpecProperty

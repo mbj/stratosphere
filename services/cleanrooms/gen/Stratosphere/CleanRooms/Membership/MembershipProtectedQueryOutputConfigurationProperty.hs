@@ -9,7 +9,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.ProtectedQueryS3OutputConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MembershipProtectedQueryOutputConfigurationProperty
-  = MembershipProtectedQueryOutputConfigurationProperty {s3 :: ProtectedQueryS3OutputConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html>
+    MembershipProtectedQueryOutputConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html#cfn-cleanrooms-membership-membershipprotectedqueryoutputconfiguration-s3>
+                                                         s3 :: ProtectedQueryS3OutputConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipProtectedQueryOutputConfigurationProperty ::
   ProtectedQueryS3OutputConfigurationProperty

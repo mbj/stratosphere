@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.SimpleRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data AlarmRuleProperty
-  = AlarmRuleProperty {simpleRule :: (Prelude.Maybe SimpleRuleProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html>
+    AlarmRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html#cfn-iotevents-alarmmodel-alarmrule-simplerule>
+                       simpleRule :: (Prelude.Maybe SimpleRuleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmRuleProperty :: AlarmRuleProperty
 mkAlarmRuleProperty

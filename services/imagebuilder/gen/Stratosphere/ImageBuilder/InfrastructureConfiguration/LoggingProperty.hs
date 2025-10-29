@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.S3LogsProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
-  = LoggingProperty {s3Logs :: (Prelude.Maybe S3LogsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html>
+    LoggingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs>
+                     s3Logs :: (Prelude.Maybe S3LogsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty = LoggingProperty {s3Logs = Prelude.Nothing}

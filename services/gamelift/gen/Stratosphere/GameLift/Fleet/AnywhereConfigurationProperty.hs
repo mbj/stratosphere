@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnywhereConfigurationProperty
-  = AnywhereConfigurationProperty {cost :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>
+    AnywhereConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html#cfn-gamelift-fleet-anywhereconfiguration-cost>
+                                   cost :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnywhereConfigurationProperty ::
   Value Prelude.Text -> AnywhereConfigurationProperty

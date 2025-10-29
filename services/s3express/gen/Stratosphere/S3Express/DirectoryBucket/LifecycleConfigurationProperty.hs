@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data LifecycleConfigurationProperty
-  = LifecycleConfigurationProperty {rules :: [RuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-lifecycleconfiguration.html>
+    LifecycleConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-lifecycleconfiguration.html#cfn-s3express-directorybucket-lifecycleconfiguration-rules>
+                                    rules :: [RuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleConfigurationProperty ::
   [RuleProperty] -> LifecycleConfigurationProperty

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.GuardHook.HookTargetProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetFiltersProperty
-  = TargetFiltersProperty {actions :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetfilters.html>
+    TargetFiltersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetfilters.html#cfn-cloudformation-guardhook-targetfilters-actions>
+                           actions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetfilters.html#cfn-cloudformation-guardhook-targetfilters-invocationpoints>
                            invocationPoints :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetfilters.html#cfn-cloudformation-guardhook-targetfilters-targetnames>
                            targetNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetfilters.html#cfn-cloudformation-guardhook-targetfilters-targets>
                            targets :: (Prelude.Maybe [HookTargetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetFiltersProperty :: TargetFiltersProperty

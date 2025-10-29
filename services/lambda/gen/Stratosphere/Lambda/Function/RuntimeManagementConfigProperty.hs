@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuntimeManagementConfigProperty
-  = RuntimeManagementConfigProperty {runtimeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html>
+    RuntimeManagementConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html#cfn-lambda-function-runtimemanagementconfig-runtimeversionarn>
+                                     runtimeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html#cfn-lambda-function-runtimemanagementconfig-updateruntimeon>
                                      updateRuntimeOn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimeManagementConfigProperty ::

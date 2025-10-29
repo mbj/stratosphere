@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MembershipQueryComputePaymentConfigProperty
-  = MembershipQueryComputePaymentConfigProperty {isResponsible :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>
+    MembershipQueryComputePaymentConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html#cfn-cleanrooms-membership-membershipquerycomputepaymentconfig-isresponsible>
+                                                 isResponsible :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipQueryComputePaymentConfigProperty ::
   Value Prelude.Bool -> MembershipQueryComputePaymentConfigProperty

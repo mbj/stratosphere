@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Theme.ThemeValuesProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThemeValueProperty
-  = ThemeValueProperty {children :: (Prelude.Maybe [ThemeValuesProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html>
+    ThemeValueProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html#cfn-amplifyuibuilder-theme-themevalue-children>
+                        children :: (Prelude.Maybe [ThemeValuesProperty]),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-theme-themevalue.html#cfn-amplifyuibuilder-theme-themevalue-value>
                         value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeValueProperty :: ThemeValueProperty

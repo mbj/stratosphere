@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EphemeralStorageProperty
-  = EphemeralStorageProperty {sizeInGiB :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-ephemeralstorage.html>
+    EphemeralStorageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-ephemeralstorage.html#cfn-batch-jobdefinition-ecstaskproperties-ephemeralstorage-sizeingib>
+                              sizeInGiB :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEphemeralStorageProperty ::
   Value Prelude.Integer -> EphemeralStorageProperty

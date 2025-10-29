@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Config.ConfigurationRecorder.RecordingModeOve
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordingModeProperty
-  = RecordingModeProperty {recordingFrequency :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html>
+    RecordingModeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html#cfn-config-configurationrecorder-recordingmode-recordingfrequency>
+                           recordingFrequency :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html#cfn-config-configurationrecorder-recordingmode-recordingmodeoverrides>
                            recordingModeOverrides :: (Prelude.Maybe [RecordingModeOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingModeProperty ::

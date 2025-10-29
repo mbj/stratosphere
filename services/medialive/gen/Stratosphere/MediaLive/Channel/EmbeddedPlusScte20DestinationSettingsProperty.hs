@@ -6,7 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EmbeddedPlusScte20DestinationSettingsProperty
-  = EmbeddedPlusScte20DestinationSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedplusscte20destinationsettings.html>
+    EmbeddedPlusScte20DestinationSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddedPlusScte20DestinationSettingsProperty ::
   EmbeddedPlusScte20DestinationSettingsProperty

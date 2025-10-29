@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataZone.DataSource.GlueRunConfigurationInput
 import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RedshiftRunConfigurationInputProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceConfigurationInputProperty
-  = DataSourceConfigurationInputProperty {glueRunConfiguration :: (Prelude.Maybe GlueRunConfigurationInputProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html>
+    DataSourceConfigurationInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-gluerunconfiguration>
+                                          glueRunConfiguration :: (Prelude.Maybe GlueRunConfigurationInputProperty),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-redshiftrunconfiguration>
                                           redshiftRunConfiguration :: (Prelude.Maybe RedshiftRunConfigurationInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationInputProperty ::

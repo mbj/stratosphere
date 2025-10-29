@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.CloudFormationC
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.TagCollectionProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceCollectionFilterProperty
-  = ResourceCollectionFilterProperty {cloudFormation :: (Prelude.Maybe CloudFormationCollectionFilterProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html>
+    ResourceCollectionFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation>
+                                      cloudFormation :: (Prelude.Maybe CloudFormationCollectionFilterProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-tags>
                                       tags :: (Prelude.Maybe [TagCollectionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollectionFilterProperty ::

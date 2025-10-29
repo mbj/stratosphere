@@ -11,12 +11,20 @@ import {-# SOURCE #-} Stratosphere.CloudFront.StreamingDistribution.TrustedSigne
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamingDistributionConfigProperty
-  = StreamingDistributionConfigProperty {aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html>
+    StreamingDistributionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases>
+                                         aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment>
                                          comment :: (Value Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled>
                                          enabled :: (Value Prelude.Bool),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging>
                                          logging :: (Prelude.Maybe LoggingProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass>
                                          priceClass :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin>
                                          s3Origin :: S3OriginProperty,
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners>
                                          trustedSigners :: TrustedSignersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingDistributionConfigProperty ::

@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SizeConstraintStatementProperty
-  = SizeConstraintStatementProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html>
+    SizeConstraintStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator>
+                                     comparisonOperator :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch>
                                      fieldToMatch :: FieldToMatchProperty,
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size>
                                      size :: (Value Prelude.Double),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations>
                                      textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintStatementProperty ::

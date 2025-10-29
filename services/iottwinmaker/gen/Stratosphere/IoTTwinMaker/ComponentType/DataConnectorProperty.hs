@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.LambdaFunctionProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataConnectorProperty
-  = DataConnectorProperty {isNative :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-dataconnector.html>
+    DataConnectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-dataconnector.html#cfn-iottwinmaker-componenttype-dataconnector-isnative>
+                           isNative :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-dataconnector.html#cfn-iottwinmaker-componenttype-dataconnector-lambda>
                            lambda :: (Prelude.Maybe LambdaFunctionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataConnectorProperty :: DataConnectorProperty

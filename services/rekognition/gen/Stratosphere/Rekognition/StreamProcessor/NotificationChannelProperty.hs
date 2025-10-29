@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationChannelProperty
-  = NotificationChannelProperty {arn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html>
+    NotificationChannelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html#cfn-rekognition-streamprocessor-notificationchannel-arn>
+                                 arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannelProperty ::
   Value Prelude.Text -> NotificationChannelProperty

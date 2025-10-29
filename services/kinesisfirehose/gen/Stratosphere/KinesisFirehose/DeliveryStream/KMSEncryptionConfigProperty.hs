@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KMSEncryptionConfigProperty
-  = KMSEncryptionConfigProperty {aWSKMSKeyARN :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html>
+    KMSEncryptionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn>
+                                 aWSKMSKeyARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKMSEncryptionConfigProperty ::
   Value Prelude.Text -> KMSEncryptionConfigProperty

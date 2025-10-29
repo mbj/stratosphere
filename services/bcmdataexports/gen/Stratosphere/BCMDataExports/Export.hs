@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.BCMDataExports.Export.ExportProperty as Expor
 import {-# SOURCE #-} Stratosphere.BCMDataExports.Export.ResourceTagProperty as Exports
 import Stratosphere.ResourceProperties
 data Export
-  = Export {export :: ExportProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html>
+    Export {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html#cfn-bcmdataexports-export-export>
+            export :: ExportProperty,
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html#cfn-bcmdataexports-export-tags>
             tags :: (Prelude.Maybe [ResourceTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExport :: ExportProperty -> Export

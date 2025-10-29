@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data ResourcePolicyProperty
-  = ResourcePolicyProperty {policyDocument :: JSON.Object}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html>
+    ResourcePolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html#cfn-dynamodb-table-resourcepolicy-policydocument>
+                            policyDocument :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicyProperty :: JSON.Object -> ResourcePolicyProperty
 mkResourcePolicyProperty policyDocument

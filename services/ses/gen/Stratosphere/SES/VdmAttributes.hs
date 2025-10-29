@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SES.VdmAttributes.DashboardAttributesProperty
 import {-# SOURCE #-} Stratosphere.SES.VdmAttributes.GuardianAttributesProperty as Exports
 import Stratosphere.ResourceProperties
 data VdmAttributes
-  = VdmAttributes {dashboardAttributes :: (Prelude.Maybe DashboardAttributesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html>
+    VdmAttributes {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html#cfn-ses-vdmattributes-dashboardattributes>
+                   dashboardAttributes :: (Prelude.Maybe DashboardAttributesProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html#cfn-ses-vdmattributes-guardianattributes>
                    guardianAttributes :: (Prelude.Maybe GuardianAttributesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVdmAttributes :: VdmAttributes

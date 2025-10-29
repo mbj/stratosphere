@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MappingRuleProperty
-  = MappingRuleProperty {specifier :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html>
+    MappingRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html#cfn-rolesanywhere-profile-mappingrule-specifier>
+                         specifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingRuleProperty :: Value Prelude.Text -> MappingRuleProperty
 mkMappingRuleProperty specifier

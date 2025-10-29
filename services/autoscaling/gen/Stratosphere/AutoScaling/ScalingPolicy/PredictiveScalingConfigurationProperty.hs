@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingMe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveScalingConfigurationProperty
-  = PredictiveScalingConfigurationProperty {maxCapacityBreachBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html>
+    PredictiveScalingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-maxcapacitybreachbehavior>
+                                            maxCapacityBreachBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-maxcapacitybuffer>
                                             maxCapacityBuffer :: (Prelude.Maybe (Value Prelude.Integer)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-metricspecifications>
                                             metricSpecifications :: [PredictiveScalingMetricSpecificationProperty],
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-mode>
                                             mode :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html#cfn-autoscaling-scalingpolicy-predictivescalingconfiguration-schedulingbuffertime>
                                             schedulingBufferTime :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingConfigurationProperty ::

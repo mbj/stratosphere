@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Config.ConfigRule.SourceDetailProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceProperty
-  = SourceProperty {customPolicyDetails :: (Prelude.Maybe CustomPolicyDetailsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html>
+    SourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-custompolicydetails>
+                    customPolicyDetails :: (Prelude.Maybe CustomPolicyDetailsProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner>
                     owner :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails>
                     sourceDetails :: (Prelude.Maybe [SourceDetailProperty]),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier>
                     sourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: Value Prelude.Text -> SourceProperty

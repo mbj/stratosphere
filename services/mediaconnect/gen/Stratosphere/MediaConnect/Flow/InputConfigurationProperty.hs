@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.InterfaceProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputConfigurationProperty
-  = InputConfigurationProperty {inputPort :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html>
+    InputConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html#cfn-mediaconnect-flow-inputconfiguration-inputport>
+                                inputPort :: (Value Prelude.Integer),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html#cfn-mediaconnect-flow-inputconfiguration-interface>
                                 interface :: InterfaceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputConfigurationProperty ::

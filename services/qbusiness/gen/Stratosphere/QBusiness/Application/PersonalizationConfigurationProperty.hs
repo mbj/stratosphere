@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PersonalizationConfigurationProperty
-  = PersonalizationConfigurationProperty {personalizationControlMode :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html>
+    PersonalizationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html#cfn-qbusiness-application-personalizationconfiguration-personalizationcontrolmode>
+                                          personalizationControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPersonalizationConfigurationProperty ::
   Value Prelude.Text -> PersonalizationConfigurationProperty

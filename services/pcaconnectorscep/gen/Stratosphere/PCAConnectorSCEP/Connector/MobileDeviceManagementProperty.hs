@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.PCAConnectorSCEP.Connector.IntuneConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MobileDeviceManagementProperty
-  = MobileDeviceManagementProperty {intune :: IntuneConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html>
+    MobileDeviceManagementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html#cfn-pcaconnectorscep-connector-mobiledevicemanagement-intune>
+                                    intune :: IntuneConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMobileDeviceManagementProperty ::
   IntuneConfigurationProperty -> MobileDeviceManagementProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseDestinationDetailsProperty
-  = KinesisFirehoseDestinationDetailsProperty {deliveryStream :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html>
+    KinesisFirehoseDestinationDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream>
+                                               deliveryStream :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseDestinationDetailsProperty ::
   Value Prelude.Text -> KinesisFirehoseDestinationDetailsProperty

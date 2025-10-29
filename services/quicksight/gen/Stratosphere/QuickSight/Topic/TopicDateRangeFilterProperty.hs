@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicRangeFilterConstantProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicDateRangeFilterProperty
-  = TopicDateRangeFilterProperty {constant :: (Prelude.Maybe TopicRangeFilterConstantProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html>
+    TopicDateRangeFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html#cfn-quicksight-topic-topicdaterangefilter-constant>
+                                  constant :: (Prelude.Maybe TopicRangeFilterConstantProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html#cfn-quicksight-topic-topicdaterangefilter-inclusive>
                                   inclusive :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicDateRangeFilterProperty :: TopicDateRangeFilterProperty

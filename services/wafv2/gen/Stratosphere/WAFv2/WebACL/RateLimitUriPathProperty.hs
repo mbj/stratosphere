@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data RateLimitUriPathProperty
-  = RateLimitUriPathProperty {textTransformations :: [TextTransformationProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimituripath.html>
+    RateLimitUriPathProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimituripath.html#cfn-wafv2-webacl-ratelimituripath-texttransformations>
+                              textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitUriPathProperty ::
   [TextTransformationProperty] -> RateLimitUriPathProperty

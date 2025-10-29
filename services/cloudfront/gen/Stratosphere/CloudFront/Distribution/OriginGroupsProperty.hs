@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupsProperty
-  = OriginGroupsProperty {items :: (Prelude.Maybe [OriginGroupProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html>
+    OriginGroupsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items>
+                          items :: (Prelude.Maybe [OriginGroupProperty]),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity>
                           quantity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupsProperty ::

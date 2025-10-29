@@ -7,8 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessKey
-  = AccessKey {serial :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>
+    AccessKey {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-serial>
+               serial :: (Prelude.Maybe (Value Prelude.Integer)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-status>
                status :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-username>
                userName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessKey :: Value Prelude.Text -> AccessKey

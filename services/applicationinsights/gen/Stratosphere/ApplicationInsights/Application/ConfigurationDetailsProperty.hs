@@ -17,15 +17,26 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.SQLServerProm
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.WindowsEventProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfigurationDetailsProperty
-  = ConfigurationDetailsProperty {alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html>
+    ConfigurationDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics>
+                                  alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms>
                                   alarms :: (Prelude.Maybe [AlarmProperty]),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-haclusterprometheusexporter>
                                   hAClusterPrometheusExporter :: (Prelude.Maybe HAClusterPrometheusExporterProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-hanaprometheusexporter>
                                   hANAPrometheusExporter :: (Prelude.Maybe HANAPrometheusExporterProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter>
                                   jMXPrometheusExporter :: (Prelude.Maybe JMXPrometheusExporterProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs>
                                   logs :: (Prelude.Maybe [LogProperty]),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-netweaverprometheusexporter>
                                   netWeaverPrometheusExporter :: (Prelude.Maybe NetWeaverPrometheusExporterProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-processes>
                                   processes :: (Prelude.Maybe [ProcessProperty]),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-sqlserverprometheusexporter>
                                   sQLServerPrometheusExporter :: (Prelude.Maybe SQLServerPrometheusExporterProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents>
                                   windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationDetailsProperty :: ConfigurationDetailsProperty

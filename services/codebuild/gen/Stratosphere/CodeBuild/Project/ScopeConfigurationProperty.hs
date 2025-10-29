@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScopeConfigurationProperty
-  = ScopeConfigurationProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html>
+    ScopeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html#cfn-codebuild-project-scopeconfiguration-name>
+                                name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeConfigurationProperty ::
   Value Prelude.Text -> ScopeConfigurationProperty

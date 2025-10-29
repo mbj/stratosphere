@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.TopicRule.SigV4AuthorizationProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpAuthorizationProperty
-  = HttpAuthorizationProperty {sigv4 :: (Prelude.Maybe SigV4AuthorizationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html>
+    HttpAuthorizationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4>
+                               sigv4 :: (Prelude.Maybe SigV4AuthorizationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpAuthorizationProperty :: HttpAuthorizationProperty
 mkHttpAuthorizationProperty

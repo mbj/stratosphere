@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.ScheduledTriggerPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data TriggerPropertiesProperty
-  = TriggerPropertiesProperty {scheduled :: (Prelude.Maybe ScheduledTriggerPropertiesProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html>
+    TriggerPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled>
+                               scheduled :: (Prelude.Maybe ScheduledTriggerPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerPropertiesProperty :: TriggerPropertiesProperty
 mkTriggerPropertiesProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3StorageProperty as Exports
 import Stratosphere.ResourceProperties
 data IotSiteWiseMultiLayerStorageProperty
-  = IotSiteWiseMultiLayerStorageProperty {customerManagedS3Storage :: (Prelude.Maybe CustomerManagedS3StorageProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html>
+    IotSiteWiseMultiLayerStorageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html#cfn-iotanalytics-datastore-iotsitewisemultilayerstorage-customermanageds3storage>
+                                          customerManagedS3Storage :: (Prelude.Maybe CustomerManagedS3StorageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseMultiLayerStorageProperty ::
   IotSiteWiseMultiLayerStorageProperty

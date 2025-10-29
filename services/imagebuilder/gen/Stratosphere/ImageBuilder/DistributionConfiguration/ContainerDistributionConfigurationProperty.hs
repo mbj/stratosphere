@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.Target
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerDistributionConfigurationProperty
-  = ContainerDistributionConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html>
+    ContainerDistributionConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-containertags>
+                                                containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-description>
                                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-containerdistributionconfiguration-targetrepository>
                                                 targetRepository :: (Prelude.Maybe TargetContainerRepositoryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDistributionConfigurationProperty ::

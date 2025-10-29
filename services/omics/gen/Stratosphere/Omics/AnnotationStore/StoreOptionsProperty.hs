@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Omics.AnnotationStore.TsvStoreOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data StoreOptionsProperty
-  = StoreOptionsProperty {tsvStoreOptions :: TsvStoreOptionsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html>
+    StoreOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html#cfn-omics-annotationstore-storeoptions-tsvstoreoptions>
+                          tsvStoreOptions :: TsvStoreOptionsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStoreOptionsProperty ::
   TsvStoreOptionsProperty -> StoreOptionsProperty

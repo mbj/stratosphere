@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.CustomImageProperty as Expor
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.ResourceSpecProperty as Exports
 import Stratosphere.ResourceProperties
 data RSessionAppSettingsProperty
-  = RSessionAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>
+    RSessionAppSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-customimages>
+                                 customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-defaultresourcespec>
                                  defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRSessionAppSettingsProperty :: RSessionAppSettingsProperty

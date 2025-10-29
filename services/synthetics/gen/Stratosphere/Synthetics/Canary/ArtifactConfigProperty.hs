@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.S3EncryptionProperty as Exports
 import Stratosphere.ResourceProperties
 data ArtifactConfigProperty
-  = ArtifactConfigProperty {s3Encryption :: (Prelude.Maybe S3EncryptionProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html>
+    ArtifactConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html#cfn-synthetics-canary-artifactconfig-s3encryption>
+                            s3Encryption :: (Prelude.Maybe S3EncryptionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactConfigProperty :: ArtifactConfigProperty
 mkArtifactConfigProperty

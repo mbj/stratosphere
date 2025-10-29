@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.AsyncInferenceClient
 import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.AsyncInferenceOutputConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data AsyncInferenceConfigProperty
-  = AsyncInferenceConfigProperty {clientConfig :: (Prelude.Maybe AsyncInferenceClientConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html>
+    AsyncInferenceConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-clientconfig>
+                                  clientConfig :: (Prelude.Maybe AsyncInferenceClientConfigProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html#cfn-sagemaker-endpointconfig-asyncinferenceconfig-outputconfig>
                                   outputConfig :: AsyncInferenceOutputConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceConfigProperty ::

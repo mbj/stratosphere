@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DialogCodeHookSettingProperty
-  = DialogCodeHookSettingProperty {enabled :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html>
+    DialogCodeHookSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html#cfn-lex-bot-dialogcodehooksetting-enabled>
+                                   enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogCodeHookSettingProperty ::
   Value Prelude.Bool -> DialogCodeHookSettingProperty

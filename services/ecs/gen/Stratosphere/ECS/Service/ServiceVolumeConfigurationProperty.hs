@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceManagedEBSVolumeConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceVolumeConfigurationProperty
-  = ServiceVolumeConfigurationProperty {managedEBSVolume :: (Prelude.Maybe ServiceManagedEBSVolumeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html>
+    ServiceVolumeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html#cfn-ecs-service-servicevolumeconfiguration-managedebsvolume>
+                                        managedEBSVolume :: (Prelude.Maybe ServiceManagedEBSVolumeConfigurationProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html#cfn-ecs-service-servicevolumeconfiguration-name>
                                         name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceVolumeConfigurationProperty ::

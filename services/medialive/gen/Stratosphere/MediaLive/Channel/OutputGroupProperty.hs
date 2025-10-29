@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputGroupSettingsProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputGroupProperty
-  = OutputGroupProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html>
+    OutputGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-name>
+                         name :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-outputgroupsettings>
                          outputGroupSettings :: (Prelude.Maybe OutputGroupSettingsProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html#cfn-medialive-channel-outputgroup-outputs>
                          outputs :: (Prelude.Maybe [OutputProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputGroupProperty :: OutputGroupProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.AccessScopePat
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data NetworkInsightsAccessScope
-  = NetworkInsightsAccessScope {excludePaths :: (Prelude.Maybe [AccessScopePathRequestProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html>
+    NetworkInsightsAccessScope {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-excludepaths>
+                                excludePaths :: (Prelude.Maybe [AccessScopePathRequestProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-matchpaths>
                                 matchPaths :: (Prelude.Maybe [AccessScopePathRequestProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html#cfn-ec2-networkinsightsaccessscope-tags>
                                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsAccessScope :: NetworkInsightsAccessScope

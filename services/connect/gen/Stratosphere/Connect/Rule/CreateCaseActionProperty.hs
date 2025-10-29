@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreateCaseActionProperty
-  = CreateCaseActionProperty {fields :: [FieldProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html>
+    CreateCaseActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html#cfn-connect-rule-createcaseaction-fields>
+                              fields :: [FieldProperty],
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html#cfn-connect-rule-createcaseaction-templateid>
                               templateId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateCaseActionProperty ::

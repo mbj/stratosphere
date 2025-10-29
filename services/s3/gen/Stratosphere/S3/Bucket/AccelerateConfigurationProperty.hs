@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccelerateConfigurationProperty
-  = AccelerateConfigurationProperty {accelerationStatus :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html>
+    AccelerateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus>
+                                     accelerationStatus :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccelerateConfigurationProperty ::
   Value Prelude.Text -> AccelerateConfigurationProperty

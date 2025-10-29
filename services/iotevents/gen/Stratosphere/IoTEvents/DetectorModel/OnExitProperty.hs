@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.EventProperty as Exports
 import Stratosphere.ResourceProperties
 data OnExitProperty
-  = OnExitProperty {events :: (Prelude.Maybe [EventProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html>
+    OnExitProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events>
+                    events :: (Prelude.Maybe [EventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnExitProperty :: OnExitProperty
 mkOnExitProperty = OnExitProperty {events = Prelude.Nothing}

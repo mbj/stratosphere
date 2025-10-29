@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.VpcConnectionProperties
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuthParametersProperty
-  = OAuthParametersProperty {identityProviderResourceUri :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html>
+    OAuthParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html#cfn-quicksight-datasource-oauthparameters-identityproviderresourceuri>
+                             identityProviderResourceUri :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html#cfn-quicksight-datasource-oauthparameters-identityprovidervpcconnectionproperties>
                              identityProviderVpcConnectionProperties :: (Prelude.Maybe VpcConnectionPropertiesProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html#cfn-quicksight-datasource-oauthparameters-oauthscope>
                              oAuthScope :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html#cfn-quicksight-datasource-oauthparameters-tokenproviderurl>
                              tokenProviderUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthParametersProperty ::

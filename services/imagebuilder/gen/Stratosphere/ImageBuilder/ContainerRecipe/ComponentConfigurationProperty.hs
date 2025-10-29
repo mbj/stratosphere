@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ContainerRecipe.ComponentParamet
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentConfigurationProperty
-  = ComponentConfigurationProperty {componentArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html>
+    ComponentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn>
+                                    componentArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-parameters>
                                     parameters :: (Prelude.Maybe [ComponentParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationProperty :: ComponentConfigurationProperty

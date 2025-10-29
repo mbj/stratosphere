@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.JsonProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetFormatProperty
-  = DatasetFormatProperty {csv :: (Prelude.Maybe CsvProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html>
+    DatasetFormatProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-csv>
+                           csv :: (Prelude.Maybe CsvProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-json>
                            json :: (Prelude.Maybe JsonProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-datasetformat.html#cfn-sagemaker-dataqualityjobdefinition-datasetformat-parquet>
                            parquet :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetFormatProperty :: DatasetFormatProperty

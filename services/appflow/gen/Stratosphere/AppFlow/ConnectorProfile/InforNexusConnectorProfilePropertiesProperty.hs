@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InforNexusConnectorProfilePropertiesProperty
-  = InforNexusConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html>
+    InforNexusConnectorProfilePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl>
+                                                  instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> InforNexusConnectorProfilePropertiesProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.Js
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetFormatProperty
-  = DatasetFormatProperty {csv :: (Prelude.Maybe CsvProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-datasetformat.html>
+    DatasetFormatProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-datasetformat.html#cfn-sagemaker-modelexplainabilityjobdefinition-datasetformat-csv>
+                           csv :: (Prelude.Maybe CsvProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-datasetformat.html#cfn-sagemaker-modelexplainabilityjobdefinition-datasetformat-json>
                            json :: (Prelude.Maybe JsonProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-datasetformat.html#cfn-sagemaker-modelexplainabilityjobdefinition-datasetformat-parquet>
                            parquet :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetFormatProperty :: DatasetFormatProperty

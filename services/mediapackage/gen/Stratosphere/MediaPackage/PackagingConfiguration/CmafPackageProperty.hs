@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.HlsManife
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CmafPackageProperty
-  = CmafPackageProperty {encryption :: (Prelude.Maybe CmafEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html>
+    CmafPackageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption>
+                         encryption :: (Prelude.Maybe CmafEncryptionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests>
                          hlsManifests :: [HlsManifestProperty],
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments>
                          includeEncoderConfigurationInSegments :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds>
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafPackageProperty ::

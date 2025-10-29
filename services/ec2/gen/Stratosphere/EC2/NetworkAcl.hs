@@ -8,7 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data NetworkAcl
-  = NetworkAcl {tags :: (Prelude.Maybe [Tag]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html>
+    NetworkAcl {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html#cfn-ec2-networkacl-tags>
+                tags :: (Prelude.Maybe [Tag]),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html#cfn-ec2-networkacl-vpcid>
                 vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAcl :: Value Prelude.Text -> NetworkAcl

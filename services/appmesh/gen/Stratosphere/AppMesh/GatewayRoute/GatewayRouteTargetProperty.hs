@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteVirtualServi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteTargetProperty
-  = GatewayRouteTargetProperty {port :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html>
+    GatewayRouteTargetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-port>
+                                port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice>
                                 virtualService :: GatewayRouteVirtualServiceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteTargetProperty ::

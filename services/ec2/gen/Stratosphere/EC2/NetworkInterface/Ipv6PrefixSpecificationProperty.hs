@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ipv6PrefixSpecificationProperty
-  = Ipv6PrefixSpecificationProperty {ipv6Prefix :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv6prefixspecification.html>
+    Ipv6PrefixSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv6prefixspecification.html#cfn-ec2-networkinterface-ipv6prefixspecification-ipv6prefix>
+                                     ipv6Prefix :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpv6PrefixSpecificationProperty ::
   Value Prelude.Text -> Ipv6PrefixSpecificationProperty

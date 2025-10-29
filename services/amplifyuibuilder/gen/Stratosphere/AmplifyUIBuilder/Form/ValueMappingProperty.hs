@@ -7,7 +7,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FormInputValuePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data ValueMappingProperty
-  = ValueMappingProperty {displayValue :: (Prelude.Maybe FormInputValuePropertyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html>
+    ValueMappingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html#cfn-amplifyuibuilder-form-valuemapping-displayvalue>
+                          displayValue :: (Prelude.Maybe FormInputValuePropertyProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemapping.html#cfn-amplifyuibuilder-form-valuemapping-value>
                           value :: FormInputValuePropertyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValueMappingProperty ::

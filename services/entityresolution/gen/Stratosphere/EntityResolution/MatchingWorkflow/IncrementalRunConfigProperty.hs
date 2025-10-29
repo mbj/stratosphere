@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncrementalRunConfigProperty
-  = IncrementalRunConfigProperty {incrementalRunType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html>
+    IncrementalRunConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html#cfn-entityresolution-matchingworkflow-incrementalrunconfig-incrementalruntype>
+                                  incrementalRunType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIncrementalRunConfigProperty ::
   Value Prelude.Text -> IncrementalRunConfigProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data InvisibleFieldInfoProperty
-  = InvisibleFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>
+    InvisibleFieldInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html#cfn-connect-tasktemplate-invisiblefieldinfo-id>
+                                id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInvisibleFieldInfoProperty ::
   FieldIdentifierProperty -> InvisibleFieldInfoProperty

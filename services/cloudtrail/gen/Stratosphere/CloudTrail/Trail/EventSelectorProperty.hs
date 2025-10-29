@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.CloudTrail.Trail.DataResourceProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventSelectorProperty
-  = EventSelectorProperty {dataResources :: (Prelude.Maybe [DataResourceProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html>
+    EventSelectorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources>
+                           dataResources :: (Prelude.Maybe [DataResourceProperty]),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources>
                            excludeManagementEventSources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents>
                            includeManagementEvents :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype>
                            readWriteType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSelectorProperty :: EventSelectorProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpFilterProperty
-  = IpFilterProperty {cidr :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html>
+    IpFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html#cfn-securityhub-insight-ipfilter-cidr>
+                      cidr :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpFilterProperty :: Value Prelude.Text -> IpFilterProperty
 mkIpFilterProperty cidr = IpFilterProperty {cidr = cidr}

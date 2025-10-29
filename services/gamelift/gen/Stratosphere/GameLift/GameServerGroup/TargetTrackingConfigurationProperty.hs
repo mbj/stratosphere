@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingConfigurationProperty
-  = TargetTrackingConfigurationProperty {targetValue :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html>
+    TargetTrackingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue>
+                                         targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingConfigurationProperty ::
   Value Prelude.Double -> TargetTrackingConfigurationProperty

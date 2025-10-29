@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectServiceProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectConfigurationProperty
-  = ServiceConnectConfigurationProperty {enabled :: (Value Prelude.Bool),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html>
+    ServiceConnectConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled>
+                                         enabled :: (Value Prelude.Bool),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-logconfiguration>
                                          logConfiguration :: (Prelude.Maybe LogConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-namespace>
                                          namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-services>
                                          services :: (Prelude.Maybe [ServiceConnectServiceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectConfigurationProperty ::

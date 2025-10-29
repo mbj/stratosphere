@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.SAPODataParallelismConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataSourcePropertiesProperty
-  = SAPODataSourcePropertiesProperty {objectPath :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html>
+    SAPODataSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath>
+                                      objectPath :: (Value Prelude.Text),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-paginationconfig>
                                       paginationConfig :: (Prelude.Maybe SAPODataPaginationConfigProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-parallelismconfig>
                                       parallelismConfig :: (Prelude.Maybe SAPODataParallelismConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataSourcePropertiesProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppFlow.Flow.GlueDataCatalogProperty as Exports
 import Stratosphere.ResourceProperties
 data MetadataCatalogConfigProperty
-  = MetadataCatalogConfigProperty {glueDataCatalog :: (Prelude.Maybe GlueDataCatalogProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-metadatacatalogconfig.html>
+    MetadataCatalogConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-metadatacatalogconfig.html#cfn-appflow-flow-metadatacatalogconfig-gluedatacatalog>
+                                   glueDataCatalog :: (Prelude.Maybe GlueDataCatalogProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataCatalogConfigProperty :: MetadataCatalogConfigProperty
 mkMetadataCatalogConfigProperty

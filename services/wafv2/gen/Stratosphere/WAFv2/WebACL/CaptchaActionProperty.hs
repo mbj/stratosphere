@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptchaActionProperty
-  = CaptchaActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html>
+    CaptchaActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html#cfn-wafv2-webacl-captchaaction-customrequesthandling>
+                           customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaActionProperty :: CaptchaActionProperty
 mkCaptchaActionProperty

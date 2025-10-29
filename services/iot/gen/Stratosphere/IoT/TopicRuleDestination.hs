@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRuleDestination.VpcDestinationProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicRuleDestination
-  = TopicRuleDestination {httpUrlProperties :: (Prelude.Maybe HttpUrlDestinationSummaryProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html>
+    TopicRuleDestination {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties>
+                          httpUrlProperties :: (Prelude.Maybe HttpUrlDestinationSummaryProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status>
                           status :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties>
                           vpcProperties :: (Prelude.Maybe VpcDestinationPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRuleDestination :: TopicRuleDestination

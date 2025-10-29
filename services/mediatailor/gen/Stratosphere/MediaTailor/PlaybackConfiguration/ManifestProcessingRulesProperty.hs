@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty as Exports
 import Stratosphere.ResourceProperties
 data ManifestProcessingRulesProperty
-  = ManifestProcessingRulesProperty {adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html>
+    ManifestProcessingRulesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html#cfn-mediatailor-playbackconfiguration-manifestprocessingrules-admarkerpassthrough>
+                                     adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestProcessingRulesProperty ::
   ManifestProcessingRulesProperty

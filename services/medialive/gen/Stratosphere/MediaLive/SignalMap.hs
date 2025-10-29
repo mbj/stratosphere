@@ -7,12 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignalMap
-  = SignalMap {cloudWatchAlarmTemplateGroupIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html>
+    SignalMap {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-cloudwatchalarmtemplategroupidentifiers>
+               cloudWatchAlarmTemplateGroupIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-description>
                description :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-discoveryentrypointarn>
                discoveryEntryPointArn :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-eventbridgeruletemplategroupidentifiers>
                eventBridgeRuleTemplateGroupIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-forcerediscovery>
                forceRediscovery :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-name>
                name :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html#cfn-medialive-signalmap-tags>
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalMap ::

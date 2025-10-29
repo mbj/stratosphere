@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.ObjectType.ObjectTypeKeyProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyMapProperty
-  = KeyMapProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html>
+    KeyMapProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name>
+                    name :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist>
                     objectTypeKeyList :: (Prelude.Maybe [ObjectTypeKeyProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyMapProperty :: KeyMapProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.TargetTrackingScalingPolicyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingPolicyProperty
-  = ScalingPolicyProperty {targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html>
+    ScalingPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html#cfn-cassandra-table-scalingpolicy-targettrackingscalingpolicyconfiguration>
+                           targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicyProperty :: ScalingPolicyProperty
 mkScalingPolicyProperty

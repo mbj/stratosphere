@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.StateProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DetectorModelDefinitionProperty
-  = DetectorModelDefinitionProperty {initialStateName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html>
+    DetectorModelDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename>
+                                     initialStateName :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states>
                                      states :: [StateProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDetectorModelDefinitionProperty ::

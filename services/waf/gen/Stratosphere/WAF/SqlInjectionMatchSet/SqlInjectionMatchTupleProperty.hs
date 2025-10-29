@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.WAF.SqlInjectionMatchSet.FieldToMatchProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlInjectionMatchTupleProperty
-  = SqlInjectionMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html>
+    SqlInjectionMatchTupleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples-fieldtomatch>
+                                    fieldToMatch :: FieldToMatchProperty,
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html#cfn-waf-sqlinjectionmatchset-sqlinjectionmatchtuples-texttransformation>
                                     textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlInjectionMatchTupleProperty ::

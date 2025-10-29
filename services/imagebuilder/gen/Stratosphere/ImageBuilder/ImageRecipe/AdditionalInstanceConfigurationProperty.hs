@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ImageRecipe.SystemsManagerAgentP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdditionalInstanceConfigurationProperty
-  = AdditionalInstanceConfigurationProperty {systemsManagerAgent :: (Prelude.Maybe SystemsManagerAgentProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html>
+    AdditionalInstanceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent>
+                                             systemsManagerAgent :: (Prelude.Maybe SystemsManagerAgentProperty),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride>
                                              userDataOverride :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalInstanceConfigurationProperty ::

@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.ApplicationVersion.SourceBun
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationVersion
-  = ApplicationVersion {applicationName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html>
+    ApplicationVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-applicationname>
+                        applicationName :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-sourcebundle>
                         sourceBundle :: SourceBundleProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersion ::

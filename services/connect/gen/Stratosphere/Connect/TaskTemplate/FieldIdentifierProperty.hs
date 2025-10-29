@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldIdentifierProperty
-  = FieldIdentifierProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>
+    FieldIdentifierProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html#cfn-connect-tasktemplate-fieldidentifier-name>
+                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldIdentifierProperty ::
   Value Prelude.Text -> FieldIdentifierProperty

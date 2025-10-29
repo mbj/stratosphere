@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.AnalysisRuleProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UnusedAccessConfigurationProperty
-  = UnusedAccessConfigurationProperty {analysisRule :: (Prelude.Maybe AnalysisRuleProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html>
+    UnusedAccessConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html#cfn-accessanalyzer-analyzer-unusedaccessconfiguration-analysisrule>
+                                       analysisRule :: (Prelude.Maybe AnalysisRuleProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html#cfn-accessanalyzer-analyzer-unusedaccessconfiguration-unusedaccessage>
                                        unusedAccessAge :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUnusedAccessConfigurationProperty ::

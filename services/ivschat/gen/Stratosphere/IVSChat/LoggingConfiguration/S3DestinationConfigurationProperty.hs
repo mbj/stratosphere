@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationConfigurationProperty
-  = S3DestinationConfigurationProperty {bucketName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html>
+    S3DestinationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html#cfn-ivschat-loggingconfiguration-s3destinationconfiguration-bucketname>
+                                        bucketName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::
   Value Prelude.Text -> S3DestinationConfigurationProperty

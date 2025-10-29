@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AddressProperty
-  = AddressProperty {addressDefinition :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-address.html>
+    AddressProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-address.html#cfn-networkfirewall-tlsinspectionconfiguration-address-addressdefinition>
+                     addressDefinition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAddressProperty :: Value Prelude.Text -> AddressProperty
 mkAddressProperty addressDefinition

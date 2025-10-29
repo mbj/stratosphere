@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRContainers.VirtualCluster.EksInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data ContainerInfoProperty
-  = ContainerInfoProperty {eksInfo :: EksInfoProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html>
+    ContainerInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html#cfn-emrcontainers-virtualcluster-containerinfo-eksinfo>
+                           eksInfo :: EksInfoProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerInfoProperty :: EksInfoProperty -> ContainerInfoProperty
 mkContainerInfoProperty eksInfo

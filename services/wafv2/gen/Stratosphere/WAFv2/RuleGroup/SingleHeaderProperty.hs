@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleHeaderProperty
-  = SingleHeaderProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singleheader.html>
+    SingleHeaderProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-singleheader.html#cfn-wafv2-rulegroup-singleheader-name>
+                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleHeaderProperty ::
   Value Prelude.Text -> SingleHeaderProperty

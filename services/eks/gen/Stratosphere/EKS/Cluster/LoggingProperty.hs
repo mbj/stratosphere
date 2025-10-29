@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.ClusterLoggingProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
-  = LoggingProperty {clusterLogging :: (Prelude.Maybe ClusterLoggingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html>
+    LoggingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html#cfn-eks-cluster-logging-clusterlogging>
+                     clusterLogging :: (Prelude.Maybe ClusterLoggingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty

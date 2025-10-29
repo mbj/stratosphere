@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.BlockStorageProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageConfigProperty
-  = StorageConfigProperty {blockStorage :: (Prelude.Maybe BlockStorageProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html>
+    StorageConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html#cfn-eks-cluster-storageconfig-blockstorage>
+                           blockStorage :: (Prelude.Maybe BlockStorageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConfigProperty :: StorageConfigProperty
 mkStorageConfigProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.OnDemandResizingSpeci
 import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.SpotResizingSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceFleetResizingSpecificationsProperty
-  = InstanceFleetResizingSpecificationsProperty {onDemandResizeSpecification :: (Prelude.Maybe OnDemandResizingSpecificationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html>
+    InstanceFleetResizingSpecificationsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications-ondemandresizespecification>
+                                                 onDemandResizeSpecification :: (Prelude.Maybe OnDemandResizingSpecificationProperty),
+                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications-spotresizespecification>
                                                  spotResizeSpecification :: (Prelude.Maybe SpotResizingSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetResizingSpecificationsProperty ::

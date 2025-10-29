@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.RealtimeLogConfig.KinesisStreamCon
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndPointProperty
-  = EndPointProperty {kinesisStreamConfig :: KinesisStreamConfigProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html>
+    EndPointProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig>
+                      kinesisStreamConfig :: KinesisStreamConfigProperty,
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype>
                       streamType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndPointProperty ::

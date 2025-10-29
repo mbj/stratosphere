@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.PolicyConditionP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyStatementProperty
-  = PolicyStatementProperty {action :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html>
+    PolicyStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html#cfn-ses-mailmanagertrafficpolicy-policystatement-action>
+                             action :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html#cfn-ses-mailmanagertrafficpolicy-policystatement-conditions>
                              conditions :: [PolicyConditionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyStatementProperty ::

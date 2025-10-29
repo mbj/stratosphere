@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.FrequencyProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UplinkSpectrumConfigProperty
-  = UplinkSpectrumConfigProperty {centerFrequency :: (Prelude.Maybe FrequencyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html>
+    UplinkSpectrumConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency>
+                                  centerFrequency :: (Prelude.Maybe FrequencyProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization>
                                   polarization :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUplinkSpectrumConfigProperty :: UplinkSpectrumConfigProperty

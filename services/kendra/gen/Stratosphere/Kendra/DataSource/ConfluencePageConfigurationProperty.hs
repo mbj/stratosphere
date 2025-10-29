@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluencePageToIndexFieldMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfluencePageConfigurationProperty
-  = ConfluencePageConfigurationProperty {pageFieldMappings :: (Prelude.Maybe [ConfluencePageToIndexFieldMappingProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html>
+    ConfluencePageConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings>
+                                         pageFieldMappings :: (Prelude.Maybe [ConfluencePageToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluencePageConfigurationProperty ::
   ConfluencePageConfigurationProperty

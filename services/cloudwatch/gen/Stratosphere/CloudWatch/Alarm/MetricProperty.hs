@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.Alarm.DimensionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricProperty
-  = MetricProperty {dimensions :: (Prelude.Maybe [DimensionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html>
+    MetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions>
+                    dimensions :: (Prelude.Maybe [DimensionProperty]),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-metricname>
                     metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-namespace>
                     namespace :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty :: MetricProperty

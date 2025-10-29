@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotDefaultValueProperty as Exports
 import Stratosphere.ResourceProperties
 data SlotDefaultValueSpecificationProperty
-  = SlotDefaultValueSpecificationProperty {defaultValueList :: [SlotDefaultValueProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvaluespecification.html>
+    SlotDefaultValueSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvaluespecification.html#cfn-lex-bot-slotdefaultvaluespecification-defaultvaluelist>
+                                           defaultValueList :: [SlotDefaultValueProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotDefaultValueSpecificationProperty ::
   [SlotDefaultValueProperty] -> SlotDefaultValueSpecificationProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayAccessLogProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayLoggingProperty
-  = VirtualGatewayLoggingProperty {accessLog :: (Prelude.Maybe VirtualGatewayAccessLogProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html>
+    VirtualGatewayLoggingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog>
+                                   accessLog :: (Prelude.Maybe VirtualGatewayAccessLogProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayLoggingProperty :: VirtualGatewayLoggingProperty
 mkVirtualGatewayLoggingProperty

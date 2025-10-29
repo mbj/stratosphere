@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.ExpressionVariableProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformProperty
-  = TransformProperty {expression :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html>
+    TransformProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression>
+                       expression :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables>
                        variables :: [ExpressionVariableProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformProperty ::

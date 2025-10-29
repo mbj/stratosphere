@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemFlatChargeDetailsProperty
-  = CustomLineItemFlatChargeDetailsProperty {chargeValue :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html>
+    CustomLineItemFlatChargeDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html#cfn-billingconductor-customlineitem-customlineitemflatchargedetails-chargevalue>
+                                             chargeValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemFlatChargeDetailsProperty ::
   Value Prelude.Double -> CustomLineItemFlatChargeDetailsProperty

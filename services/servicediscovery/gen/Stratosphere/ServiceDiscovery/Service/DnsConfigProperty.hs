@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.ServiceDiscovery.Service.DnsRecordProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DnsConfigProperty
-  = DnsConfigProperty {dnsRecords :: [DnsRecordProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html>
+    DnsConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords>
+                       dnsRecords :: [DnsRecordProperty],
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid>
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy>
                        routingPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsConfigProperty :: [DnsRecordProperty] -> DnsConfigProperty

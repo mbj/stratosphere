@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.AccessLogProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
-  = LoggingProperty {accessLog :: (Prelude.Maybe AccessLogProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html>
+    LoggingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html#cfn-appmesh-virtualnode-logging-accesslog>
+                     accessLog :: (Prelude.Maybe AccessLogProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty = LoggingProperty {accessLog = Prelude.Nothing}

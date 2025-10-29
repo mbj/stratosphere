@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.CognitoUse
 import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data IdentitySourceConfigurationProperty
-  = IdentitySourceConfigurationProperty {cognitoUserPoolConfiguration :: (Prelude.Maybe CognitoUserPoolConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html>
+    IdentitySourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-cognitouserpoolconfiguration>
+                                         cognitoUserPoolConfiguration :: (Prelude.Maybe CognitoUserPoolConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-openidconnectconfiguration>
                                          openIdConnectConfiguration :: (Prelude.Maybe OpenIdConnectConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentitySourceConfigurationProperty ::

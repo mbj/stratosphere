@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConn
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIdConnectConfigurationProperty
-  = OpenIdConnectConfigurationProperty {entityIdPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html>
+    OpenIdConnectConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectconfiguration-entityidprefix>
+                                        entityIdPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectconfiguration-groupconfiguration>
                                         groupConfiguration :: (Prelude.Maybe OpenIdConnectGroupConfigurationProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectconfiguration-issuer>
                                         issuer :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectconfiguration-tokenselection>
                                         tokenSelection :: OpenIdConnectTokenSelectionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIdConnectConfigurationProperty ::

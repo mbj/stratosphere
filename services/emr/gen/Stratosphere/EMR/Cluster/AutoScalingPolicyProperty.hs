@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScalingConstraintsProperty as Exp
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScalingRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoScalingPolicyProperty
-  = AutoScalingPolicyProperty {constraints :: ScalingConstraintsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html>
+    AutoScalingPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-constraints>
+                               constraints :: ScalingConstraintsProperty,
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html#cfn-elasticmapreduce-cluster-autoscalingpolicy-rules>
                                rules :: [ScalingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::

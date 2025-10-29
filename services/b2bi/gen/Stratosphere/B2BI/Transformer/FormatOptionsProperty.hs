@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Transformer.X12DetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data FormatOptionsProperty
-  = FormatOptionsProperty {x12 :: X12DetailsProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-formatoptions.html>
+    FormatOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-formatoptions.html#cfn-b2bi-transformer-formatoptions-x12>
+                           x12 :: X12DetailsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormatOptionsProperty ::
   X12DetailsProperty -> FormatOptionsProperty

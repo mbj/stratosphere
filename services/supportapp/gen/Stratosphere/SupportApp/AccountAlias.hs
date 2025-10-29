@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAlias
-  = AccountAlias {accountAlias :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html>
+    AccountAlias {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html#cfn-supportapp-accountalias-accountalias>
+                  accountAlias :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAlias :: Value Prelude.Text -> AccountAlias
 mkAccountAlias accountAlias

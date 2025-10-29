@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Forecast.Dataset.AttributesItemsProperty as Exports
 import Stratosphere.ResourceProperties
 data SchemaProperty
-  = SchemaProperty {attributes :: (Prelude.Maybe [AttributesItemsProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-schema.html>
+    SchemaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-schema.html#cfn-forecast-dataset-schema-attributes>
+                    attributes :: (Prelude.Maybe [AttributesItemsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaProperty :: SchemaProperty
 mkSchemaProperty = SchemaProperty {attributes = Prelude.Nothing}

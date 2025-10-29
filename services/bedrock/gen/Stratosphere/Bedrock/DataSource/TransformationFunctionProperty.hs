@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.TransformationLambdaConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TransformationFunctionProperty
-  = TransformationFunctionProperty {transformationLambdaConfiguration :: TransformationLambdaConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationfunction.html>
+    TransformationFunctionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationfunction.html#cfn-bedrock-datasource-transformationfunction-transformationlambdaconfiguration>
+                                    transformationLambdaConfiguration :: TransformationLambdaConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformationFunctionProperty ::
   TransformationLambdaConfigurationProperty

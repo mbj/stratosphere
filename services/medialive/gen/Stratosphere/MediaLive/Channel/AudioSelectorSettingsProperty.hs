@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioPidSelectionProperty a
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioTrackSelectionProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioSelectorSettingsProperty
-  = AudioSelectorSettingsProperty {audioHlsRenditionSelection :: (Prelude.Maybe AudioHlsRenditionSelectionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html>
+    AudioSelectorSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiohlsrenditionselection>
+                                   audioHlsRenditionSelection :: (Prelude.Maybe AudioHlsRenditionSelectionProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiolanguageselection>
                                    audioLanguageSelection :: (Prelude.Maybe AudioLanguageSelectionProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiopidselection>
                                    audioPidSelection :: (Prelude.Maybe AudioPidSelectionProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiotrackselection>
                                    audioTrackSelection :: (Prelude.Maybe AudioTrackSelectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSelectorSettingsProperty :: AudioSelectorSettingsProperty

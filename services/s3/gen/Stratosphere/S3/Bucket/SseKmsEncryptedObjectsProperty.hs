@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SseKmsEncryptedObjectsProperty
-  = SseKmsEncryptedObjectsProperty {status :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html>
+    SseKmsEncryptedObjectsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status>
+                                    status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSseKmsEncryptedObjectsProperty ::
   Value Prelude.Text -> SseKmsEncryptedObjectsProperty

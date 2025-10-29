@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.AppSync.FunctionConfiguration.LambdaConflictH
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SyncConfigProperty
-  = SyncConfigProperty {conflictDetection :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html>
+    SyncConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection>
+                        conflictDetection :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler>
                         conflictHandler :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-lambdaconflicthandlerconfig>
                         lambdaConflictHandlerConfig :: (Prelude.Maybe LambdaConflictHandlerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncConfigProperty :: Value Prelude.Text -> SyncConfigProperty

@@ -13,24 +13,44 @@ import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.UpdateConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Nodegroup
-  = Nodegroup {amiType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html>
+    Nodegroup {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-amitype>
+               amiType :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype>
                capacityType :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername>
                clusterName :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize>
                diskSize :: (Prelude.Maybe (Value Prelude.Integer)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-forceupdateenabled>
                forceUpdateEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes>
                instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels>
                labels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate>
                launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderepairconfig>
                nodeRepairConfig :: (Prelude.Maybe NodeRepairConfigProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole>
                nodeRole :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname>
                nodegroupName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-releaseversion>
                releaseVersion :: (Prelude.Maybe (Value Prelude.Text)),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-remoteaccess>
                remoteAccess :: (Prelude.Maybe RemoteAccessProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-scalingconfig>
                scalingConfig :: (Prelude.Maybe ScalingConfigProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-subnets>
                subnets :: (ValueList Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-tags>
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-taints>
                taints :: (Prelude.Maybe [TaintProperty]),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-updateconfig>
                updateConfig :: (Prelude.Maybe UpdateConfigProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-version>
                version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodegroup ::

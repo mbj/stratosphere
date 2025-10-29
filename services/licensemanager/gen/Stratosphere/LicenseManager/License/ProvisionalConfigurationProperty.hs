@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionalConfigurationProperty
-  = ProvisionalConfigurationProperty {maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html>
+    ProvisionalConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes>
+                                      maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionalConfigurationProperty ::
   Value Prelude.Integer -> ProvisionalConfigurationProperty

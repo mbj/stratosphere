@@ -10,7 +10,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeName
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayListenerTlsValidationContextProperty
-  = VirtualGatewayListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html>
+    VirtualGatewayListenerTlsValidationContextProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext-subjectalternativenames>
+                                                        subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+                                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext-trust>
                                                         trust :: VirtualGatewayListenerTlsValidationContextTrustProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsValidationContextProperty ::

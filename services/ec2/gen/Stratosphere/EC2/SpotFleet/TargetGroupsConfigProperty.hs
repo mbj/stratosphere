@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.TargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetGroupsConfigProperty
-  = TargetGroupsConfigProperty {targetGroups :: [TargetGroupProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html>
+    TargetGroupsConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups>
+                                targetGroups :: [TargetGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupsConfigProperty ::
   [TargetGroupProperty] -> TargetGroupsConfigProperty

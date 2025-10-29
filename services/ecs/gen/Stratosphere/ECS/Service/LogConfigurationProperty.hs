@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.SecretProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
-  = LogConfigurationProperty {logDriver :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-logconfiguration.html>
+    LogConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-logconfiguration.html#cfn-ecs-service-logconfiguration-logdriver>
+                              logDriver :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-logconfiguration.html#cfn-ecs-service-logconfiguration-options>
                               options :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-logconfiguration.html#cfn-ecs-service-logconfiguration-secretoptions>
                               secretOptions :: (Prelude.Maybe [SecretProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty :: LogConfigurationProperty

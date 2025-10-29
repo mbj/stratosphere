@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowValidationProperty
-  = FlowValidationProperty {message :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowvalidation.html>
+    FlowValidationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowvalidation.html#cfn-bedrock-flow-flowvalidation-message>
+                            message :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowValidationProperty ::
   Value Prelude.Text -> FlowValidationProperty

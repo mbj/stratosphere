@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlTranslationProperty
-  = AccessControlTranslationProperty {owner :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html>
+    AccessControlTranslationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner>
+                                      owner :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlTranslationProperty ::
   Value Prelude.Text -> AccessControlTranslationProperty

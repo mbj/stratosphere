@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SES.ReceiptFilter.IpFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {ipFilter :: IpFilterProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html>
+    FilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter>
+                    ipFilter :: IpFilterProperty,
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name>
                     name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: IpFilterProperty -> FilterProperty

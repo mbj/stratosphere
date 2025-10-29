@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.Insight.AwsSecurityFindingFilters
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Insight
-  = Insight {filters :: AwsSecurityFindingFiltersProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html>
+    Insight {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-filters>
+             filters :: AwsSecurityFindingFiltersProperty,
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-groupbyattribute>
              groupByAttribute :: (Value Prelude.Text),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-name>
              name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInsight ::

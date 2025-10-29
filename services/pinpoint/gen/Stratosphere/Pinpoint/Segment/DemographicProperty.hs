@@ -7,11 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.SetDimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data DemographicProperty
-  = DemographicProperty {appVersion :: (Prelude.Maybe SetDimensionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html>
+    DemographicProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-appversion>
+                         appVersion :: (Prelude.Maybe SetDimensionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-channel>
                          channel :: (Prelude.Maybe SetDimensionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-devicetype>
                          deviceType :: (Prelude.Maybe SetDimensionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-make>
                          make :: (Prelude.Maybe SetDimensionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-model>
                          model :: (Prelude.Maybe SetDimensionProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html#cfn-pinpoint-segment-segmentdimensions-demographic-platform>
                          platform :: (Prelude.Maybe SetDimensionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDemographicProperty :: DemographicProperty

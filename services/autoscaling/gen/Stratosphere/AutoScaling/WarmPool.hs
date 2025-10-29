@@ -8,10 +8,16 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.WarmPool.InstanceReusePolicyPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WarmPool
-  = WarmPool {autoScalingGroupName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html>
+    WarmPool {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname>
+              autoScalingGroupName :: (Value Prelude.Text),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-instancereusepolicy>
               instanceReusePolicy :: (Prelude.Maybe InstanceReusePolicyProperty),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity>
               maxGroupPreparedCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize>
               minSize :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate>
               poolState :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWarmPool :: Value Prelude.Text -> WarmPool

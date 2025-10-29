@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.RulePropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleBasedPropertiesProperty
-  = RuleBasedPropertiesProperty {attributeMatchingModel :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html>
+    RuleBasedPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-attributematchingmodel>
+                                 attributeMatchingModel :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-matchpurpose>
                                  matchPurpose :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-rules>
                                  rules :: [RuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleBasedPropertiesProperty ::

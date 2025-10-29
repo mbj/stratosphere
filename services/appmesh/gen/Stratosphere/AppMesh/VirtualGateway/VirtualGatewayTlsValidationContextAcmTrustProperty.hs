@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextAcmTrustProperty
-  = VirtualGatewayTlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html>
+    VirtualGatewayTlsValidationContextAcmTrustProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns>
+                                                        certificateAuthorityArns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextAcmTrustProperty ::
   ValueList Prelude.Text

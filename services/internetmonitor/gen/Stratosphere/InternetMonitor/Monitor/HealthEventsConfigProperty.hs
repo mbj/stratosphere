@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.LocalHealthEventsConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthEventsConfigProperty
-  = HealthEventsConfigProperty {availabilityLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html>
+    HealthEventsConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilitylocalhealtheventsconfig>
+                                availabilityLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-availabilityscorethreshold>
                                 availabilityScoreThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-performancelocalhealtheventsconfig>
                                 performanceLocalHealthEventsConfig :: (Prelude.Maybe LocalHealthEventsConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html#cfn-internetmonitor-monitor-healtheventsconfig-performancescorethreshold>
                                 performanceScoreThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthEventsConfigProperty :: HealthEventsConfigProperty

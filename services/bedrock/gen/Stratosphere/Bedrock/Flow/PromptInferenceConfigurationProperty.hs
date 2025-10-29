@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.PromptModelInferenceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PromptInferenceConfigurationProperty
-  = PromptInferenceConfigurationProperty {text :: PromptModelInferenceConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptinferenceconfiguration.html>
+    PromptInferenceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-promptinferenceconfiguration.html#cfn-bedrock-flow-promptinferenceconfiguration-text>
+                                          text :: PromptModelInferenceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptInferenceConfigurationProperty ::
   PromptModelInferenceConfigurationProperty

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.AlarmProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmConfigurationProperty
-  = AlarmConfigurationProperty {alarms :: (Prelude.Maybe [AlarmProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html>
+    AlarmConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html#cfn-codedeploy-deploymentgroup-alarmconfiguration-alarms>
+                                alarms :: (Prelude.Maybe [AlarmProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html#cfn-codedeploy-deploymentgroup-alarmconfiguration-enabled>
                                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html#cfn-codedeploy-deploymentgroup-alarmconfiguration-ignorepollalarmfailure>
                                 ignorePollAlarmFailure :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmConfigurationProperty :: AlarmConfigurationProperty

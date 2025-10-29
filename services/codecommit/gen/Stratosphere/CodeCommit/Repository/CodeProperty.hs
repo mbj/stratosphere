@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CodeCommit.Repository.S3Property as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeProperty
-  = CodeProperty {branchName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html>
+    CodeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname>
+                  branchName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3>
                   s3 :: S3Property}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: S3Property -> CodeProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedSignalFetchConfigProperty
-  = TimeBasedSignalFetchConfigProperty {executionFrequencyMs :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html>
+    TimeBasedSignalFetchConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html#cfn-iotfleetwise-campaign-timebasedsignalfetchconfig-executionfrequencyms>
+                                        executionFrequencyMs :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedSignalFetchConfigProperty ::
   Value Prelude.Double -> TimeBasedSignalFetchConfigProperty

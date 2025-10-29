@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.SpekeKeyProvide
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionProperty
-  = EncryptionProperty {constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html>
+    EncryptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-constantinitializationvector>
+                        constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-encryptionmethod>
                         encryptionMethod :: EncryptionMethodProperty,
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-keyrotationintervalseconds>
                         keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-spekekeyprovider>
                         spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionProperty ::

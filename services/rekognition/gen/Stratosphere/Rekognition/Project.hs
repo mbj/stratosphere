@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Project
-  = Project {projectName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html>
+    Project {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html#cfn-rekognition-project-projectname>
+             projectName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Project
 mkProject projectName = Project {projectName = projectName}

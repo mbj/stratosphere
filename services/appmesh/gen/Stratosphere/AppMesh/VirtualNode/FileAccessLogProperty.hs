@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.LoggingFormatProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileAccessLogProperty
-  = FileAccessLogProperty {format :: (Prelude.Maybe LoggingFormatProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html>
+    FileAccessLogProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-format>
+                           format :: (Prelude.Maybe LoggingFormatProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html#cfn-appmesh-virtualnode-fileaccesslog-path>
                            path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileAccessLogProperty ::

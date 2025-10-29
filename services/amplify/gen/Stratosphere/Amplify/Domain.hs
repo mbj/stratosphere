@@ -9,12 +9,20 @@ import {-# SOURCE #-} Stratosphere.Amplify.Domain.SubDomainSettingProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Domain
-  = Domain {appId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html>
+    Domain {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid>
+            appId :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns>
             autoSubDomainCreationPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole>
             autoSubDomainIAMRole :: (Prelude.Maybe (Value Prelude.Text)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-certificatesettings>
             certificateSettings :: (Prelude.Maybe CertificateSettingsProperty),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname>
             domainName :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain>
             enableAutoSubDomain :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings>
             subDomainSettings :: [SubDomainSettingProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::

@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogGroupLogDestinationProperty
-  = CloudWatchLogGroupLogDestinationProperty {cloudWatchLogGroupArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-cloudwatchloggrouplogdestination.html>
+    CloudWatchLogGroupLogDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-cloudwatchloggrouplogdestination.html#cfn-lex-bot-cloudwatchloggrouplogdestination-cloudwatchloggrouparn>
+                                              cloudWatchLogGroupArn :: (Value Prelude.Text),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-cloudwatchloggrouplogdestination.html#cfn-lex-bot-cloudwatchloggrouplogdestination-logprefix>
                                               logPrefix :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogGroupLogDestinationProperty ::

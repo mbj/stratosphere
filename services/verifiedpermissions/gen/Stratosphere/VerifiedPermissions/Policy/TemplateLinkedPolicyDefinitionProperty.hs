@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.EntityIdentifierPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateLinkedPolicyDefinitionProperty
-  = TemplateLinkedPolicyDefinitionProperty {policyTemplateId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html>
+    TemplateLinkedPolicyDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-policytemplateid>
+                                            policyTemplateId :: (Value Prelude.Text),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-principal>
                                             principal :: (Prelude.Maybe EntityIdentifierProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-resource>
                                             resource :: (Prelude.Maybe EntityIdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateLinkedPolicyDefinitionProperty ::

@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceStandardObjectConfigurationProperty
-  = SalesforceStandardObjectConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html>
+    SalesforceStandardObjectConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documentdatafieldname>
+                                                   documentDataFieldName :: (Value Prelude.Text),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname>
                                                    documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings>
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name>
                                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardObjectConfigurationProperty ::

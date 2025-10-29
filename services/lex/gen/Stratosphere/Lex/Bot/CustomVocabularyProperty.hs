@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.CustomVocabularyItemProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomVocabularyProperty
-  = CustomVocabularyProperty {customVocabularyItems :: [CustomVocabularyItemProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html>
+    CustomVocabularyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html#cfn-lex-bot-customvocabulary-customvocabularyitems>
+                              customVocabularyItems :: [CustomVocabularyItemProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomVocabularyProperty ::
   [CustomVocabularyItemProperty] -> CustomVocabularyProperty

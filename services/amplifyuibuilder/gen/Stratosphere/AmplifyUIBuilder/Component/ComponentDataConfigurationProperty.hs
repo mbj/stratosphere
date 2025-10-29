@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.SortPropertyProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentDataConfigurationProperty
-  = ComponentDataConfigurationProperty {identifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html>
+    ComponentDataConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-identifiers>
+                                        identifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-model>
                                         model :: (Value Prelude.Text),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-predicate>
                                         predicate :: (Prelude.Maybe PredicateProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentdataconfiguration.html#cfn-amplifyuibuilder-component-componentdataconfiguration-sort>
                                         sort :: (Prelude.Maybe [SortPropertyProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDataConfigurationProperty ::

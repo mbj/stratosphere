@@ -8,10 +8,16 @@ import {-# SOURCE #-} Stratosphere.Kendra.Index.ValueImportanceItemProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelevanceProperty
-  = RelevanceProperty {duration :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html>
+    RelevanceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-duration>
+                       duration :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness>
                        freshness :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-importance>
                        importance :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder>
                        rankOrder :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems>
                        valueImportanceItems :: (Prelude.Maybe [ValueImportanceItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelevanceProperty :: RelevanceProperty

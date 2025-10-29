@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.IncludeResources
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionProperty
-  = ActionProperty {includeResources :: (Prelude.Maybe IncludeResourcesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-action.html>
+    ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-action.html#cfn-imagebuilder-lifecyclepolicy-action-includeresources>
+                    includeResources :: (Prelude.Maybe IncludeResourcesProperty),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-action.html#cfn-imagebuilder-lifecyclepolicy-action-type>
                     type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty

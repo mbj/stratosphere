@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.DataSetProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.DatabaseCDCProperty as Exports
 import Stratosphere.ResourceProperties
 data FileMetadataProperty
-  = FileMetadataProperty {dataSets :: (Prelude.Maybe [DataSetProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html>
+    FileMetadataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html#cfn-apptest-testcase-filemetadata-datasets>
+                          dataSets :: (Prelude.Maybe [DataSetProperty]),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html#cfn-apptest-testcase-filemetadata-databasecdc>
                           databaseCDC :: (Prelude.Maybe DatabaseCDCProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileMetadataProperty :: FileMetadataProperty

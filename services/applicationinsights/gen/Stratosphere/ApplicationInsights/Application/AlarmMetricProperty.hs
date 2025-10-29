@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmMetricProperty
-  = AlarmMetricProperty {alarmMetricName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html>
+    AlarmMetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname>
+                         alarmMetricName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmMetricProperty :: Value Prelude.Text -> AlarmMetricProperty
 mkAlarmMetricProperty alarmMetricName

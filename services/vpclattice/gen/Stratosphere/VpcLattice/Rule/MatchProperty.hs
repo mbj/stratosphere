@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.HttpMatchProperty as Exports
 import Stratosphere.ResourceProperties
 data MatchProperty
-  = MatchProperty {httpMatch :: HttpMatchProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-match.html>
+    MatchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-match.html#cfn-vpclattice-rule-match-httpmatch>
+                   httpMatch :: HttpMatchProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchProperty :: HttpMatchProperty -> MatchProperty
 mkMatchProperty httpMatch = MatchProperty {httpMatch = httpMatch}

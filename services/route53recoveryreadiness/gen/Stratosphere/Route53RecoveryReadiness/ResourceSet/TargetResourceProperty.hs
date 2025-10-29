@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Route53RecoveryReadiness.ResourceSet.NLBResou
 import {-# SOURCE #-} Stratosphere.Route53RecoveryReadiness.ResourceSet.R53ResourceRecordProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetResourceProperty
-  = TargetResourceProperty {nLBResource :: (Prelude.Maybe NLBResourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html>
+    TargetResourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource>
+                            nLBResource :: (Prelude.Maybe NLBResourceProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource>
                             r53Resource :: (Prelude.Maybe R53ResourceRecordProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetResourceProperty :: TargetResourceProperty

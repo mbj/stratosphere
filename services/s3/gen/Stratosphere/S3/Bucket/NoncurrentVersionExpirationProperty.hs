@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NoncurrentVersionExpirationProperty
-  = NoncurrentVersionExpirationProperty {newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html>
+    NoncurrentVersionExpirationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html#cfn-s3-bucket-noncurrentversionexpiration-newernoncurrentversions>
+                                         newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html#cfn-s3-bucket-noncurrentversionexpiration-noncurrentdays>
                                          noncurrentDays :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNoncurrentVersionExpirationProperty ::

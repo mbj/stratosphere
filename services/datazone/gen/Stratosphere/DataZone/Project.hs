@@ -7,9 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Project
-  = Project {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html>
+    Project {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-description>
+             description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-domainidentifier>
              domainIdentifier :: (Value Prelude.Text),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-glossaryterms>
              glossaryTerms :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-name>
              name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Value Prelude.Text -> Project

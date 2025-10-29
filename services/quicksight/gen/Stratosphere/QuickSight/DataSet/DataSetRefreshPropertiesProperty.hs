@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RefreshConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSetRefreshPropertiesProperty
-  = DataSetRefreshPropertiesProperty {refreshConfiguration :: (Prelude.Maybe RefreshConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html>
+    DataSetRefreshPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html#cfn-quicksight-dataset-datasetrefreshproperties-refreshconfiguration>
+                                      refreshConfiguration :: (Prelude.Maybe RefreshConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetRefreshPropertiesProperty ::
   DataSetRefreshPropertiesProperty

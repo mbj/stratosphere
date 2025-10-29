@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordingStrategyProperty
-  = RecordingStrategyProperty {useOnly :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html>
+    RecordingStrategyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html#cfn-config-configurationrecorder-recordingstrategy-useonly>
+                               useOnly :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingStrategyProperty ::
   Value Prelude.Text -> RecordingStrategyProperty

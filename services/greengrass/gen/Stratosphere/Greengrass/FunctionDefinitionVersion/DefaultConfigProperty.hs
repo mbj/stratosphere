@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinitionVersion.ExecutionProperty as Exports
 import Stratosphere.ResourceProperties
 data DefaultConfigProperty
-  = DefaultConfigProperty {execution :: ExecutionProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html>
+    DefaultConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html#cfn-greengrass-functiondefinitionversion-defaultconfig-execution>
+                           execution :: ExecutionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultConfigProperty ::
   ExecutionProperty -> DefaultConfigProperty

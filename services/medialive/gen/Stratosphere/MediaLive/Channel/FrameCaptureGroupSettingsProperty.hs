@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureCdnSettingsProp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty as Exports
 import Stratosphere.ResourceProperties
 data FrameCaptureGroupSettingsProperty
-  = FrameCaptureGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html>
+    FrameCaptureGroupSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html#cfn-medialive-channel-framecapturegroupsettings-destination>
+                                       destination :: (Prelude.Maybe OutputLocationRefProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html#cfn-medialive-channel-framecapturegroupsettings-framecapturecdnsettings>
                                        frameCaptureCdnSettings :: (Prelude.Maybe FrameCaptureCdnSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureGroupSettingsProperty ::

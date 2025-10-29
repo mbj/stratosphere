@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExcludedRuleProperty
-  = ExcludedRuleProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html>
+    ExcludedRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name>
+                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExcludedRuleProperty ::
   Value Prelude.Text -> ExcludedRuleProperty

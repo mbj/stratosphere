@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupIdentifierProperty
-  = GroupIdentifierProperty {groupId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html>
+    GroupIdentifierProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid>
+                             groupId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupIdentifierProperty ::
   Value Prelude.Text -> GroupIdentifierProperty

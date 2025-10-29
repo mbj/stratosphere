@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.NetworkManager.CoreNetwork.SegmentsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreNetworkNetworkFunctionGroupProperty
-  = CoreNetworkNetworkFunctionGroupProperty {edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html>
+    CoreNetworkNetworkFunctionGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-edgelocations>
+                                             edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-name>
                                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html#cfn-networkmanager-corenetwork-corenetworknetworkfunctiongroup-segments>
                                              segments :: (Prelude.Maybe SegmentsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetworkNetworkFunctionGroupProperty ::

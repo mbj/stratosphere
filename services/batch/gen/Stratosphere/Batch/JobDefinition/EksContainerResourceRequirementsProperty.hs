@@ -7,7 +7,10 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data EksContainerResourceRequirementsProperty
-  = EksContainerResourceRequirementsProperty {limits :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html>
+    EksContainerResourceRequirementsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html#cfn-batch-jobdefinition-ekscontainerresourcerequirements-limits>
+                                              limits :: (Prelude.Maybe JSON.Object),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html#cfn-batch-jobdefinition-ekscontainerresourcerequirements-requests>
                                               requests :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerResourceRequirementsProperty ::

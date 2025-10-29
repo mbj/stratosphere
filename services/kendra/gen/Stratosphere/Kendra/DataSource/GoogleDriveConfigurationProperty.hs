@@ -9,12 +9,20 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoogleDriveConfigurationProperty
-  = GoogleDriveConfigurationProperty {excludeMimeTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html>
+    GoogleDriveConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes>
+                                      excludeMimeTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives>
                                       excludeSharedDrives :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts>
                                       excludeUserAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns>
                                       exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings>
                                       fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns>
                                       inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-secretarn>
                                       secretArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleDriveConfigurationProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.MonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringSubscriptionProperty
-  = MonitoringSubscriptionProperty {realtimeMetricsSubscriptionConfig :: (Prelude.Maybe RealtimeMetricsSubscriptionConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html>
+    MonitoringSubscriptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html#cfn-cloudfront-monitoringsubscription-monitoringsubscription-realtimemetricssubscriptionconfig>
+                                    realtimeMetricsSubscriptionConfig :: (Prelude.Maybe RealtimeMetricsSubscriptionConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringSubscriptionProperty :: MonitoringSubscriptionProperty
 mkMonitoringSubscriptionProperty

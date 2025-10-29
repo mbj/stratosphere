@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerSeedUrlConfigurat
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerSiteMapsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebCrawlerUrlsProperty
-  = WebCrawlerUrlsProperty {seedUrlConfiguration :: (Prelude.Maybe WebCrawlerSeedUrlConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html>
+    WebCrawlerUrlsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html#cfn-kendra-datasource-webcrawlerurls-seedurlconfiguration>
+                            seedUrlConfiguration :: (Prelude.Maybe WebCrawlerSeedUrlConfigurationProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html#cfn-kendra-datasource-webcrawlerurls-sitemapsconfiguration>
                             siteMapsConfiguration :: (Prelude.Maybe WebCrawlerSiteMapsConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerUrlsProperty :: WebCrawlerUrlsProperty

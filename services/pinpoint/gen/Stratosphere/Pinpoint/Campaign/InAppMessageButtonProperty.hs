@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.DefaultButtonConfigurationP
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.OverrideButtonConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data InAppMessageButtonProperty
-  = InAppMessageButtonProperty {android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html>
+    InAppMessageButtonProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-android>
+                                android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-defaultconfig>
                                 defaultConfig :: (Prelude.Maybe DefaultButtonConfigurationProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-ios>
                                 iOS :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-web>
                                 web :: (Prelude.Maybe OverrideButtonConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageButtonProperty :: InAppMessageButtonProperty

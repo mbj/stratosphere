@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.KeyGroup.KeyGroupConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data KeyGroup
-  = KeyGroup {keyGroupConfig :: KeyGroupConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html>
+    KeyGroup {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig>
+              keyGroupConfig :: KeyGroupConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyGroup :: KeyGroupConfigProperty -> KeyGroup
 mkKeyGroup keyGroupConfig

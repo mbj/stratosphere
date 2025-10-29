@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.DatasetInputConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetProperty
-  = DatasetProperty {inputConfig :: DatasetInputConfigProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html>
+    DatasetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html#cfn-cleanroomsml-trainingdataset-dataset-inputconfig>
+                     inputConfig :: DatasetInputConfigProperty,
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html#cfn-cleanroomsml-trainingdataset-dataset-type>
                      type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetProperty ::

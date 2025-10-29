@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppFlow.Connector.LambdaConnectorProvisioningConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorProvisioningConfigProperty
-  = ConnectorProvisioningConfigProperty {lambda :: (Prelude.Maybe LambdaConnectorProvisioningConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html>
+    ConnectorProvisioningConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html#cfn-appflow-connector-connectorprovisioningconfig-lambda>
+                                         lambda :: (Prelude.Maybe LambdaConnectorProvisioningConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProvisioningConfigProperty ::
   ConnectorProvisioningConfigProperty

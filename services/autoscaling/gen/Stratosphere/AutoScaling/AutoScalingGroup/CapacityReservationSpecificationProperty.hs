@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.CapacityReservat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityReservationSpecificationProperty
-  = CapacityReservationSpecificationProperty {capacityReservationPreference :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html>
+    CapacityReservationSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification-capacityreservationpreference>
+                                              capacityReservationPreference :: (Value Prelude.Text),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification-capacityreservationtarget>
                                               capacityReservationTarget :: (Prelude.Maybe CapacityReservationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationSpecificationProperty ::

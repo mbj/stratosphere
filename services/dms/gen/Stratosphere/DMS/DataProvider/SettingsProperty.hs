@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.DMS.DataProvider.OracleSettingsProperty as Ex
 import {-# SOURCE #-} Stratosphere.DMS.DataProvider.PostgreSqlSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data SettingsProperty
-  = SettingsProperty {microsoftSqlServerSettings :: (Prelude.Maybe MicrosoftSqlServerSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html>
+    SettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-microsoftsqlserversettings>
+                      microsoftSqlServerSettings :: (Prelude.Maybe MicrosoftSqlServerSettingsProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mysqlsettings>
                       mySqlSettings :: (Prelude.Maybe MySqlSettingsProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-oraclesettings>
                       oracleSettings :: (Prelude.Maybe OracleSettingsProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-postgresqlsettings>
                       postgreSqlSettings :: (Prelude.Maybe PostgreSqlSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSettingsProperty :: SettingsProperty

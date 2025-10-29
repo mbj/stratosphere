@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoSelectorPidProperty as
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoSelectorProgramIdProperty as Exports
 import Stratosphere.ResourceProperties
 data VideoSelectorSettingsProperty
-  = VideoSelectorSettingsProperty {videoSelectorPid :: (Prelude.Maybe VideoSelectorPidProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html>
+    VideoSelectorSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html#cfn-medialive-channel-videoselectorsettings-videoselectorpid>
+                                   videoSelectorPid :: (Prelude.Maybe VideoSelectorPidProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html#cfn-medialive-channel-videoselectorsettings-videoselectorprogramid>
                                    videoSelectorProgramId :: (Prelude.Maybe VideoSelectorProgramIdProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorSettingsProperty :: VideoSelectorSettingsProperty

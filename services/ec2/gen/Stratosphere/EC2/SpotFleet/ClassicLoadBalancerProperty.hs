@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClassicLoadBalancerProperty
-  = ClassicLoadBalancerProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html>
+    ClassicLoadBalancerProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html#cfn-ec2-spotfleet-classicloadbalancer-name>
+                                 name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClassicLoadBalancerProperty ::
   Value Prelude.Text -> ClassicLoadBalancerProperty

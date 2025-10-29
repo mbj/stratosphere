@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorSCEP.Connector.MobileDeviceManage
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Connector
-  = Connector {certificateAuthorityArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html>
+    Connector {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html#cfn-pcaconnectorscep-connector-certificateauthorityarn>
+               certificateAuthorityArn :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html#cfn-pcaconnectorscep-connector-mobiledevicemanagement>
                mobileDeviceManagement :: (Prelude.Maybe MobileDeviceManagementProperty),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html#cfn-pcaconnectorscep-connector-tags>
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector :: Value Prelude.Text -> Connector

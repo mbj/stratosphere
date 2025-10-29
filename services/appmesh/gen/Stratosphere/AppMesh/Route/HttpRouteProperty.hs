@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.HttpRouteMatchProperty as Expor
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.HttpTimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpRouteProperty
-  = HttpRouteProperty {action :: HttpRouteActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html>
+    HttpRouteProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-action>
+                       action :: HttpRouteActionProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-match>
                        match :: HttpRouteMatchProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-retrypolicy>
                        retryPolicy :: (Prelude.Maybe HttpRetryPolicyProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html#cfn-appmesh-route-httproute-timeout>
                        timeout :: (Prelude.Maybe HttpTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DeltaTimeSessionWindowConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LateDataRuleConfigurationProperty
-  = LateDataRuleConfigurationProperty {deltaTimeSessionWindowConfiguration :: (Prelude.Maybe DeltaTimeSessionWindowConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html>
+    LateDataRuleConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html#cfn-iotanalytics-dataset-latedataruleconfiguration-deltatimesessionwindowconfiguration>
+                                       deltaTimeSessionWindowConfiguration :: (Prelude.Maybe DeltaTimeSessionWindowConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLateDataRuleConfigurationProperty ::
   LateDataRuleConfigurationProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppSyncParametersProperty
-  = AppSyncParametersProperty {graphQLOperation :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html>
+    AppSyncParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html#cfn-events-rule-appsyncparameters-graphqloperation>
+                               graphQLOperation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppSyncParametersProperty ::
   Value Prelude.Text -> AppSyncParametersProperty

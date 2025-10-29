@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RelationalFilterConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueRunConfigurationInputProperty
-  = GlueRunConfigurationInputProperty {autoImportDataQualityResult :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html>
+    GlueRunConfigurationInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-autoimportdataqualityresult>
+                                       autoImportDataQualityResult :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-dataaccessrole>
                                        dataAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-relationalfilterconfigurations>
                                        relationalFilterConfigurations :: [RelationalFilterConfigurationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueRunConfigurationInputProperty ::

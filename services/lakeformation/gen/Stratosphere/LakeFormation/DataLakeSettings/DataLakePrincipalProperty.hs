@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLakePrincipalProperty
-  = DataLakePrincipalProperty {dataLakePrincipalIdentifier :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-datalakeprincipal.html>
+    DataLakePrincipalProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-datalakeprincipal.html#cfn-lakeformation-datalakesettings-datalakeprincipal-datalakeprincipalidentifier>
+                               dataLakePrincipalIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLakePrincipalProperty ::
   Value Prelude.Text -> DataLakePrincipalProperty

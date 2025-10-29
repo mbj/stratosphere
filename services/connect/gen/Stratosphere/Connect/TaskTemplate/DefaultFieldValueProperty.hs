@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultFieldValueProperty
-  = DefaultFieldValueProperty {defaultValue :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html>
+    DefaultFieldValueProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-defaultvalue>
+                               defaultValue :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html#cfn-connect-tasktemplate-defaultfieldvalue-id>
                                id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFieldValueProperty ::

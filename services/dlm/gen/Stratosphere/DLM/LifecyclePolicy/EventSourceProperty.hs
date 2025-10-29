@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.EventParametersProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventSourceProperty
-  = EventSourceProperty {parameters :: (Prelude.Maybe EventParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html>
+    EventSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters>
+                         parameters :: (Prelude.Maybe EventParametersProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSourceProperty :: Value Prelude.Text -> EventSourceProperty

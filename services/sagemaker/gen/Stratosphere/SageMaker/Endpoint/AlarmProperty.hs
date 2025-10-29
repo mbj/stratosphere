@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmProperty
-  = AlarmProperty {alarmName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html>
+    AlarmProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname>
+                   alarmName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: Value Prelude.Text -> AlarmProperty
 mkAlarmProperty alarmName = AlarmProperty {alarmName = alarmName}

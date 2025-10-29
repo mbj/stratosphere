@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.EMR.Step.KeyValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HadoopJarStepConfigProperty
-  = HadoopJarStepConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html>
+    HadoopJarStepConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-args>
+                                 args :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-jar>
                                  jar :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-mainclass>
                                  mainClass :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html#cfn-emr-step-hadoopjarstepconfig-stepproperties>
                                  stepProperties :: (Prelude.Maybe [KeyValueProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHadoopJarStepConfigProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.JoinInstructionProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogicalTableSourceProperty
-  = LogicalTableSourceProperty {dataSetArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html>
+    LogicalTableSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-datasetarn>
+                                dataSetArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction>
                                 joinInstruction :: (Prelude.Maybe JoinInstructionProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid>
                                 physicalTableId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableSourceProperty :: LogicalTableSourceProperty

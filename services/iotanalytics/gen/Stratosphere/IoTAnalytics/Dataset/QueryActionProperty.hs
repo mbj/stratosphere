@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.FilterProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryActionProperty
-  = QueryActionProperty {filters :: (Prelude.Maybe [FilterProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html>
+    QueryActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-filters>
+                         filters :: (Prelude.Maybe [FilterProperty]),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html#cfn-iotanalytics-dataset-queryaction-sqlquery>
                          sqlQuery :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryActionProperty :: Value Prelude.Text -> QueryActionProperty

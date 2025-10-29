@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.RevisionLocationPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentProperty
-  = DeploymentProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html>
+    DeploymentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-description>
+                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-ignoreapplicationstopfailures>
                         ignoreApplicationStopFailures :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision>
                         revision :: RevisionLocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentProperty ::

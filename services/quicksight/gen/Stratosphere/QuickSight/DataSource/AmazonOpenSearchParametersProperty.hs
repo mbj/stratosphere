@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonOpenSearchParametersProperty
-  = AmazonOpenSearchParametersProperty {domain :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html>
+    AmazonOpenSearchParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html#cfn-quicksight-datasource-amazonopensearchparameters-domain>
+                                        domain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonOpenSearchParametersProperty ::
   Value Prelude.Text -> AmazonOpenSearchParametersProperty

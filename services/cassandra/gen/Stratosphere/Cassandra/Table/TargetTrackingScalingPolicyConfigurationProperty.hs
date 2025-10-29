@@ -8,9 +8,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingScalingPolicyConfigurationProperty
-  = TargetTrackingScalingPolicyConfigurationProperty {disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html>
+    TargetTrackingScalingPolicyConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html#cfn-cassandra-table-targettrackingscalingpolicyconfiguration-disablescalein>
+                                                      disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html#cfn-cassandra-table-targettrackingscalingpolicyconfiguration-scaleincooldown>
                                                       scaleInCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html#cfn-cassandra-table-targettrackingscalingpolicyconfiguration-scaleoutcooldown>
                                                       scaleOutCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html#cfn-cassandra-table-targettrackingscalingpolicyconfiguration-targetvalue>
                                                       targetValue :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingScalingPolicyConfigurationProperty ::

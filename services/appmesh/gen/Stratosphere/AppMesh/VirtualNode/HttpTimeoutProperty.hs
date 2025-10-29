@@ -7,7 +7,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpTimeoutProperty
-  = HttpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-httptimeout.html>
+    HttpTimeoutProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-httptimeout.html#cfn-appmesh-virtualnode-httptimeout-idle>
+                         idle :: (Prelude.Maybe DurationProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-httptimeout.html#cfn-appmesh-virtualnode-httptimeout-perrequest>
                          perRequest :: (Prelude.Maybe DurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpTimeoutProperty :: HttpTimeoutProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsStorageSettingsProperty
-  = EbsStorageSettingsProperty {ebsVolumeSizeInGb :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html>
+    EbsStorageSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html#cfn-sagemaker-space-ebsstoragesettings-ebsvolumesizeingb>
+                                ebsVolumeSizeInGb :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsStorageSettingsProperty ::
   Value Prelude.Integer -> EbsStorageSettingsProperty

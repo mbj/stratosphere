@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectPeer.ConnectPeerBgpConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectPeerConfigurationProperty
-  = ConnectPeerConfigurationProperty {bgpConfigurations :: (Prelude.Maybe [ConnectPeerBgpConfigurationProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html>
+    ConnectPeerConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html#cfn-networkmanager-connectpeer-connectpeerconfiguration-bgpconfigurations>
+                                      bgpConfigurations :: (Prelude.Maybe [ConnectPeerBgpConfigurationProperty]),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html#cfn-networkmanager-connectpeer-connectpeerconfiguration-corenetworkaddress>
                                       coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html#cfn-networkmanager-connectpeer-connectpeerconfiguration-insidecidrblocks>
                                       insideCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html#cfn-networkmanager-connectpeer-connectpeerconfiguration-peeraddress>
                                       peerAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html#cfn-networkmanager-connectpeer-connectpeerconfiguration-protocol>
                                       protocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectPeerConfigurationProperty ::

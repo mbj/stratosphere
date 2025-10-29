@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParsingPromptProperty
-  = ParsingPromptProperty {parsingPromptText :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingprompt.html>
+    ParsingPromptProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingprompt.html#cfn-bedrock-datasource-parsingprompt-parsingprompttext>
+                           parsingPromptText :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParsingPromptProperty ::
   Value Prelude.Text -> ParsingPromptProperty

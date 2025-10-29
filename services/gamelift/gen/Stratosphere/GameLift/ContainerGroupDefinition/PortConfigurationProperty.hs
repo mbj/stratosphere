@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GameLift.ContainerGroupDefinition.ContainerPortRangeProperty as Exports
 import Stratosphere.ResourceProperties
 data PortConfigurationProperty
-  = PortConfigurationProperty {containerPortRanges :: [ContainerPortRangeProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>
+    PortConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html#cfn-gamelift-containergroupdefinition-portconfiguration-containerportranges>
+                               containerPortRanges :: [ContainerPortRangeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortConfigurationProperty ::
   [ContainerPortRangeProperty] -> PortConfigurationProperty

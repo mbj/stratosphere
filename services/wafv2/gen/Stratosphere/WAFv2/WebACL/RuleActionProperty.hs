@@ -11,10 +11,16 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ChallengeActionProperty as Expor
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CountActionProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleActionProperty
-  = RuleActionProperty {allow :: (Prelude.Maybe AllowActionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html>
+    RuleActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow>
+                        allow :: (Prelude.Maybe AllowActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block>
                         block :: (Prelude.Maybe BlockActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-captcha>
                         captcha :: (Prelude.Maybe CaptchaActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-challenge>
                         challenge :: (Prelude.Maybe ChallengeActionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count>
                         count :: (Prelude.Maybe CountActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionProperty :: RuleActionProperty

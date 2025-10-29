@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.RecordFormatPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputSchemaProperty
-  = InputSchemaProperty {recordColumns :: [RecordColumnProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html>
+    InputSchemaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordcolumns>
+                         recordColumns :: [RecordColumnProperty],
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordencoding>
                          recordEncoding :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html#cfn-kinesisanalyticsv2-application-inputschema-recordformat>
                          recordFormat :: RecordFormatProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSchemaProperty ::

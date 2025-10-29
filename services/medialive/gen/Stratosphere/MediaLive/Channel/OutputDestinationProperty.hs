@@ -12,10 +12,16 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtOutputDestinationSetting
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputDestinationProperty
-  = OutputDestinationProperty {id :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html>
+    OutputDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-id>
+                               id :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings>
                                mediaPackageSettings :: (Prelude.Maybe [MediaPackageOutputDestinationSettingsProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings>
                                multiplexSettings :: (Prelude.Maybe MultiplexProgramChannelDestinationSettingsProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings>
                                settings :: (Prelude.Maybe [OutputDestinationSettingsProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-srtsettings>
                                srtSettings :: (Prelude.Maybe [SrtOutputDestinationSettingsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputDestinationProperty :: OutputDestinationProperty

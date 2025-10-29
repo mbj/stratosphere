@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data AuditNotificationTargetConfigurationsProperty
-  = AuditNotificationTargetConfigurationsProperty {sns :: (Prelude.Maybe AuditNotificationTargetProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html>
+    AuditNotificationTargetConfigurationsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns>
+                                                   sns :: (Prelude.Maybe AuditNotificationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditNotificationTargetConfigurationsProperty ::
   AuditNotificationTargetConfigurationsProperty

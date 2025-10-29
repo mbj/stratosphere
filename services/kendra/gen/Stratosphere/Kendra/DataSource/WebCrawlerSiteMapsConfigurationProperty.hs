@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSiteMapsConfigurationProperty
-  = WebCrawlerSiteMapsConfigurationProperty {siteMaps :: (ValueList Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html>
+    WebCrawlerSiteMapsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html#cfn-kendra-datasource-webcrawlersitemapsconfiguration-sitemaps>
+                                             siteMaps :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerSiteMapsConfigurationProperty ::
   ValueList Prelude.Text -> WebCrawlerSiteMapsConfigurationProperty

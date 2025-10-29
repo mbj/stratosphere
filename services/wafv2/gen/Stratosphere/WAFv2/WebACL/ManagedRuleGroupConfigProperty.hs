@@ -12,12 +12,20 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldIdentifierProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedRuleGroupConfigProperty
-  = ManagedRuleGroupConfigProperty {aWSManagedRulesACFPRuleSet :: (Prelude.Maybe AWSManagedRulesACFPRuleSetProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html>
+    ManagedRuleGroupConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesacfpruleset>
+                                    aWSManagedRulesACFPRuleSet :: (Prelude.Maybe AWSManagedRulesACFPRuleSetProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesatpruleset>
                                     aWSManagedRulesATPRuleSet :: (Prelude.Maybe AWSManagedRulesATPRuleSetProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesbotcontrolruleset>
                                     aWSManagedRulesBotControlRuleSet :: (Prelude.Maybe AWSManagedRulesBotControlRuleSetProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-loginpath>
                                     loginPath :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-passwordfield>
                                     passwordField :: (Prelude.Maybe FieldIdentifierProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-payloadtype>
                                     payloadType :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-usernamefield>
                                     usernameField :: (Prelude.Maybe FieldIdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedRuleGroupConfigProperty :: ManagedRuleGroupConfigProperty

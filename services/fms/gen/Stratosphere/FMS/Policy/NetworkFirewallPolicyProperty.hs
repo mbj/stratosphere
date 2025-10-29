@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkFirewallPolicyProperty
-  = NetworkFirewallPolicyProperty {firewallDeploymentModel :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html>
+    NetworkFirewallPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html#cfn-fms-policy-networkfirewallpolicy-firewalldeploymentmodel>
+                                   firewallDeploymentModel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFirewallPolicyProperty ::
   Value Prelude.Text -> NetworkFirewallPolicyProperty

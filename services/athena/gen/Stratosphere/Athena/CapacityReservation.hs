@@ -9,9 +9,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CapacityReservation
-  = CapacityReservation {capacityAssignmentConfiguration :: (Prelude.Maybe CapacityAssignmentConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html>
+    CapacityReservation {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html#cfn-athena-capacityreservation-capacityassignmentconfiguration>
+                         capacityAssignmentConfiguration :: (Prelude.Maybe CapacityAssignmentConfigurationProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html#cfn-athena-capacityreservation-name>
                          name :: (Value Prelude.Text),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html#cfn-athena-capacityreservation-tags>
                          tags :: (Prelude.Maybe [Tag]),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html#cfn-athena-capacityreservation-targetdpus>
                          targetDpus :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservation ::

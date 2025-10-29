@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.EKS.AccessEntry.AccessScopeProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPolicyProperty
-  = AccessPolicyProperty {accessScope :: AccessScopeProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html>
+    AccessPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html#cfn-eks-accessentry-accesspolicy-accessscope>
+                          accessScope :: AccessScopeProperty,
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html#cfn-eks-accessentry-accesspolicy-policyarn>
                           policyArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyProperty ::

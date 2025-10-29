@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.DefaultRetentionProperty as Exports
 import Stratosphere.ResourceProperties
 data ObjectLockRuleProperty
-  = ObjectLockRuleProperty {defaultRetention :: (Prelude.Maybe DefaultRetentionProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html>
+    ObjectLockRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention>
+                            defaultRetention :: (Prelude.Maybe DefaultRetentionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectLockRuleProperty :: ObjectLockRuleProperty
 mkObjectLockRuleProperty

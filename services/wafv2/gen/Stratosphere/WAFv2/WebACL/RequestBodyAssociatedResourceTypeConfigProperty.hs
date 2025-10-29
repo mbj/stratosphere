@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestBodyAssociatedResourceTypeConfigProperty
-  = RequestBodyAssociatedResourceTypeConfigProperty {defaultSizeInspectionLimit :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html>
+    RequestBodyAssociatedResourceTypeConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html#cfn-wafv2-webacl-requestbodyassociatedresourcetypeconfig-defaultsizeinspectionlimit>
+                                                     defaultSizeInspectionLimit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestBodyAssociatedResourceTypeConfigProperty ::
   Value Prelude.Text

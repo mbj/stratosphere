@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.PrefixConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpsolverS3OutputFormatConfigProperty
-  = UpsolverS3OutputFormatConfigProperty {aggregationConfig :: (Prelude.Maybe AggregationConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html>
+    UpsolverS3OutputFormatConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig>
+                                          aggregationConfig :: (Prelude.Maybe AggregationConfigProperty),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype>
                                           fileType :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig>
                                           prefixConfig :: PrefixConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpsolverS3OutputFormatConfigProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SecurityLake.SubscriberNotification.Notificat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubscriberNotification
-  = SubscriberNotification {notificationConfiguration :: NotificationConfigurationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html>
+    SubscriberNotification {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html#cfn-securitylake-subscribernotification-notificationconfiguration>
+                            notificationConfiguration :: NotificationConfigurationProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html#cfn-securitylake-subscribernotification-subscriberarn>
                             subscriberArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriberNotification ::

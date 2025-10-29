@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnapshotBlockPublicAccess
-  = SnapshotBlockPublicAccess {state :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html>
+    SnapshotBlockPublicAccess {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html#cfn-ec2-snapshotblockpublicaccess-state>
+                               state :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapshotBlockPublicAccess ::
   Value Prelude.Text -> SnapshotBlockPublicAccess

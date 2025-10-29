@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupMemberProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupMembersProperty
-  = OriginGroupMembersProperty {items :: [OriginGroupMemberProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html>
+    OriginGroupMembersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items>
+                                items :: [OriginGroupMemberProperty],
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity>
                                 quantity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupMembersProperty ::

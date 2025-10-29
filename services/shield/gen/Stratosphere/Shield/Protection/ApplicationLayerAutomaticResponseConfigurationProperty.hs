@@ -10,7 +10,10 @@ import {-# SOURCE #-} Stratosphere.Shield.Protection.ActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationLayerAutomaticResponseConfigurationProperty
-  = ApplicationLayerAutomaticResponseConfigurationProperty {action :: ActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html>
+    ApplicationLayerAutomaticResponseConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html#cfn-shield-protection-applicationlayerautomaticresponseconfiguration-action>
+                                                            action :: ActionProperty,
+                                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html#cfn-shield-protection-applicationlayerautomaticresponseconfiguration-status>
                                                             status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationLayerAutomaticResponseConfigurationProperty ::

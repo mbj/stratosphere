@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.GeoSpatialColumnGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data ColumnGroupProperty
-  = ColumnGroupProperty {geoSpatialColumnGroup :: (Prelude.Maybe GeoSpatialColumnGroupProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html>
+    ColumnGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup>
+                         geoSpatialColumnGroup :: (Prelude.Maybe GeoSpatialColumnGroupProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnGroupProperty :: ColumnGroupProperty
 mkColumnGroupProperty

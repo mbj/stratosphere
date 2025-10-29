@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryComputePaymentConfigProperty
-  = QueryComputePaymentConfigProperty {isResponsible :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>
+    QueryComputePaymentConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html#cfn-cleanrooms-collaboration-querycomputepaymentconfig-isresponsible>
+                                       isResponsible :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryComputePaymentConfigProperty ::
   Value Prelude.Bool -> QueryComputePaymentConfigProperty

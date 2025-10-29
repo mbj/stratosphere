@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLossFailoverSettingsPr
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoBlackFailoverSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FailoverConditionSettingsProperty
-  = FailoverConditionSettingsProperty {audioSilenceSettings :: (Prelude.Maybe AudioSilenceFailoverSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html>
+    FailoverConditionSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-audiosilencesettings>
+                                       audioSilenceSettings :: (Prelude.Maybe AudioSilenceFailoverSettingsProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-inputlosssettings>
                                        inputLossSettings :: (Prelude.Maybe InputLossFailoverSettingsProperty),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-videoblacksettings>
                                        videoBlackSettings :: (Prelude.Maybe VideoBlackFailoverSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionSettingsProperty ::

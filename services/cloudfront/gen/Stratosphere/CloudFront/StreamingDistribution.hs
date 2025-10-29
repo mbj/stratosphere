@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.StreamingDistribution.StreamingDis
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data StreamingDistribution
-  = StreamingDistribution {streamingDistributionConfig :: StreamingDistributionConfigProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html>
+    StreamingDistribution {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig>
+                           streamingDistributionConfig :: StreamingDistributionConfigProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-tags>
                            tags :: [Tag]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingDistribution ::

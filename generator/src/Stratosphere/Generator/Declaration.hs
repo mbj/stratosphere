@@ -25,6 +25,8 @@ import qualified Data.Map.Strict                   as Map
 import qualified Data.Set                          as Set
 import qualified Data.Text                         as Text
 import qualified Data.Text.Manipulate              as Text
+import qualified GHC.Hs.Doc                        as GHC
+import qualified GHC.Hs.DocString                  as GHC
 import qualified GHC.Hs.Extension                  as GHC
 import qualified GHC.Hs.Pat                        as GHC
 import qualified GHC.Hs.Type                       as GHC
@@ -32,6 +34,7 @@ import qualified GHC.Parser.Annotation             as GHC
 import qualified GHC.SourceGen                     as GHC
 import qualified GHC.Types.Basic                   as GHC
 import qualified GHC.Types.Fixity                  as GHC
+import qualified GHC.Types.Name                    as GHC
 import qualified GHC.Types.Name.Occurrence         as GHC
 import qualified GHC.Types.Name.Reader             as GHC
 import qualified GHC.Types.SrcLoc                  as GHC
@@ -41,10 +44,11 @@ import qualified Language.Haskell.Syntax.Extension as GHC
 import qualified Stratosphere.Generator.Raw        as Raw
 
 data Record = Record
-  { awsType     :: Text
-  , builderName :: Text
-  , name        :: Text
-  , properties  :: Map Raw.PropertyName Raw.Property
+  { awsType       :: Text
+  , builderName   :: Text
+  , name          :: Text
+  , properties    :: Map Raw.PropertyName Raw.Property
+  , documentation :: Text
   }
 
 data Import
@@ -75,6 +79,56 @@ instance Monoid State where
     }
 
 type Generator a = Writer State a
+
+-- | Create documentation from Text (returns Nothing for empty strings)
+-- Formats URLs according to Haddock syntax for external documentation links
+mkDoc :: Text -> Maybe (GHC.LHsDoc GHC.GhcPs)
+mkDoc txt
+  | Text.null txt = Nothing
+  | otherwise = Just $ GHC.L GHC.noSrcSpan $ GHC.WithHsDocIdentifiers
+      { GHC.hsDocString = GHC.mkGeneratedHsDocString . Text.unpack $ formatDocUrl txt
+      , GHC.hsDocIdentifiers = []
+      }
+  where
+    -- Format URL according to Haddock syntax: See: <URL>
+    formatDocUrl :: Text -> Text
+    formatDocUrl url = "See: <" <> url <> ">"
+
+-- | Attach documentation to a constructor declaration
+attachConDoc :: GHC.ConDecl GHC.GhcPs -> Maybe (GHC.LHsDoc GHC.GhcPs) -> GHC.ConDecl GHC.GhcPs
+attachConDoc con@(GHC.ConDeclH98 {..}) mbDoc = con { GHC.con_doc = mbDoc }
+attachConDoc con@(GHC.ConDeclGADT {..}) mbDoc = con { GHC.con_doc = mbDoc }
+
+-- | Attach documentation to a data declaration's constructor and fields
+attachDataDoc :: GHC.HsDecl' -> Maybe (GHC.LHsDoc GHC.GhcPs) -> Map String Text -> GHC.HsDecl'
+attachDataDoc (GHC.TyClD ext tycl@(GHC.DataDecl { tcdDataDefn = defn@(GHC.HsDataDefn {..})})) mbDoc fieldDocs =
+  GHC.TyClD ext $ tycl { GHC.tcdDataDefn = updatedDataDefn }
+  where
+    updatedDataDefn = case dd_cons of
+      GHC.DataTypeCons isTypeData cons ->
+        let updatedCons = map (fmap (attachDocsToConDecl mbDoc fieldDocs)) cons
+        in defn { GHC.dd_cons = GHC.DataTypeCons isTypeData updatedCons }
+      other -> defn
+attachDataDoc decl _ _ = decl
+
+-- | Attach constructor and field documentation to a ConDecl
+attachDocsToConDecl :: Maybe (GHC.LHsDoc GHC.GhcPs) -> Map String Text -> GHC.ConDecl GHC.GhcPs -> GHC.ConDecl GHC.GhcPs
+attachDocsToConDecl mbConDoc fieldDocs con@(GHC.ConDeclH98 { GHC.con_args = GHC.RecCon fields, ..}) =
+  con { GHC.con_doc = mbConDoc
+      , GHC.con_args = GHC.RecCon (fmap (map (attachFieldDoc fieldDocs)) fields)
+      }
+attachDocsToConDecl mbConDoc _ con = attachConDoc con mbConDoc
+
+-- | Attach documentation to a record field
+attachFieldDoc :: Map String Text -> GHC.LConDeclField GHC.GhcPs -> GHC.LConDeclField GHC.GhcPs
+attachFieldDoc fieldDocs (GHC.L loc field@(GHC.ConDeclField {..})) =
+  GHC.L loc $ field { GHC.cd_fld_doc = lookupFieldDoc cd_fld_names }
+  where
+    lookupFieldDoc :: [GHC.LFieldOcc GHC.GhcPs] -> Maybe (GHC.LHsDoc GHC.GhcPs)
+    lookupFieldDoc [] = Nothing
+    lookupFieldDoc (GHC.L _ (GHC.FieldOcc _ (GHC.L _ rdrName)) : _) =
+      let fieldName = GHC.occNameString (GHC.rdrNameOcc rdrName)
+      in mkDoc =<< Map.lookup fieldName fieldDocs
 
 genTypeAlias
   :: HasCallStack
@@ -125,11 +179,19 @@ genRecord Record{..} = runGen $ do
     genRecordDeclaration = do
       fields <- traverse (uncurry genField) $ Map.toList properties
 
-      addExport (GHC.thingAll recordName) $ GHC.data'
-        recordName
-        []
-        [GHC.recordCon recordName fields]
-        [GHC.derivingStock [GHC.var "Prelude.Eq", GHC.var "Prelude.Show"]]
+      let baseDecl = GHC.data'
+            recordName
+            []
+            [GHC.recordCon recordName fields]
+            [GHC.derivingStock [GHC.var "Prelude.Eq", GHC.var "Prelude.Show"]]
+          -- Build map of field names to documentation
+          fieldDocs = Map.fromList
+            [ (propertyFieldName propName, propDoc)
+            | (propName, Raw.Property{propertyDocumentation = propDoc}) <- Map.toList properties
+            ]
+          declWithDoc = attachDataDoc baseDecl (mkDoc documentation) fieldDocs
+
+      addExport (GHC.thingAll recordName) declWithDoc
       where
         genField :: Raw.PropertyName -> Raw.Property -> Generator (GHC.OccNameStr, GHC.Field)
         genField propertyName Raw.Property{..} =

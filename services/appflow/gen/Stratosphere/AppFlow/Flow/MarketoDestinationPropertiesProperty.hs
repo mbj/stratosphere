@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarketoDestinationPropertiesProperty
-  = MarketoDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html>
+    MarketoDestinationPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-errorhandlingconfig>
+                                          errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-object>
                                           object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMarketoDestinationPropertiesProperty ::

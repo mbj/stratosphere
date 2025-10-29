@@ -5,7 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RawSettingsProperty
-  = RawSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html>
+    RawSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRawSettingsProperty :: RawSettingsProperty
 mkRawSettingsProperty = RawSettingsProperty {}

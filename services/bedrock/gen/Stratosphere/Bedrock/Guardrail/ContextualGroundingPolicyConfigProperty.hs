@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContextualGroundingFilterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ContextualGroundingPolicyConfigProperty
-  = ContextualGroundingPolicyConfigProperty {filtersConfig :: [ContextualGroundingFilterConfigProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html>
+    ContextualGroundingPolicyConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig-filtersconfig>
+                                             filtersConfig :: [ContextualGroundingFilterConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContextualGroundingPolicyConfigProperty ::
   [ContextualGroundingFilterConfigProperty]

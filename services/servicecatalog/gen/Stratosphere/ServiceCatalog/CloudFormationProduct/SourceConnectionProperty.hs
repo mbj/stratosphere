@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ServiceCatalog.CloudFormationProduct.Connecti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceConnectionProperty
-  = SourceConnectionProperty {connectionParameters :: ConnectionParametersProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html>
+    SourceConnectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters>
+                              connectionParameters :: ConnectionParametersProperty,
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html#cfn-servicecatalog-cloudformationproduct-sourceconnection-type>
                               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectionProperty ::

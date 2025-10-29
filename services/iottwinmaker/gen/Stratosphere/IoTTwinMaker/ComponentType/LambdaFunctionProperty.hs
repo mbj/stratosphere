@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaFunctionProperty
-  = LambdaFunctionProperty {arn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html>
+    LambdaFunctionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html#cfn-iottwinmaker-componenttype-lambdafunction-arn>
+                            arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionProperty ::
   Value Prelude.Text -> LambdaFunctionProperty

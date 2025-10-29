@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceSpaceToIndexFieldMappingProperty
-  = ConfluenceSpaceToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html>
+    ConfluenceSpaceToIndexFieldMappingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-datasourcefieldname>
+                                                dataSourceFieldName :: (Value Prelude.Text),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-datefieldformat>
                                                 dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-indexfieldname>
                                                 indexFieldName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceSpaceToIndexFieldMappingProperty ::

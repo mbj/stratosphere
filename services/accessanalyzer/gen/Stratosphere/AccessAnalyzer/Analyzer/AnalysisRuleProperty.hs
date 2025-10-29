@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.AnalysisRuleCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data AnalysisRuleProperty
-  = AnalysisRuleProperty {exclusions :: (Prelude.Maybe [AnalysisRuleCriteriaProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrule.html>
+    AnalysisRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrule.html#cfn-accessanalyzer-analyzer-analysisrule-exclusions>
+                          exclusions :: (Prelude.Maybe [AnalysisRuleCriteriaProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRuleProperty :: AnalysisRuleProperty
 mkAnalysisRuleProperty

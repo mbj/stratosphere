@@ -11,12 +11,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.TrainingMetricProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingJobDetailsProperty
-  = TrainingJobDetailsProperty {hyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html>
+    TrainingJobDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-hyperparameters>
+                                hyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingarn>
                                 trainingArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingdatasets>
                                 trainingDatasets :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingenvironment>
                                 trainingEnvironment :: (Prelude.Maybe TrainingEnvironmentProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingmetrics>
                                 trainingMetrics :: (Prelude.Maybe [TrainingMetricProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-userprovidedhyperparameters>
                                 userProvidedHyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-userprovidedtrainingmetrics>
                                 userProvidedTrainingMetrics :: (Prelude.Maybe [TrainingMetricProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingJobDetailsProperty :: TrainingJobDetailsProperty

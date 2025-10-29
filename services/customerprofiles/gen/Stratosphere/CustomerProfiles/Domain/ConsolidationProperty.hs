@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data ConsolidationProperty
-  = ConsolidationProperty {matchingAttributesList :: JSON.Object}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html>
+    ConsolidationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html#cfn-customerprofiles-domain-consolidation-matchingattributeslist>
+                           matchingAttributesList :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConsolidationProperty :: JSON.Object -> ConsolidationProperty
 mkConsolidationProperty matchingAttributesList

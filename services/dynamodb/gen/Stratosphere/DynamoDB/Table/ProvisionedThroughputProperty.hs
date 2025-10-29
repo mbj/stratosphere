@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedThroughputProperty
-  = ProvisionedThroughputProperty {readCapacityUnits :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html>
+    ProvisionedThroughputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-readcapacityunits>
+                                   readCapacityUnits :: (Value Prelude.Integer),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html#cfn-dynamodb-table-provisionedthroughput-writecapacityunits>
                                    writeCapacityUnits :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedThroughputProperty ::

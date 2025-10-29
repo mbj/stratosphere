@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.FilterCriteriaProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Filter
-  = Filter {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html>
+    Filter {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-description>
+            description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-filteraction>
             filterAction :: (Value Prelude.Text),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-filtercriteria>
             filterCriteria :: FilterCriteriaProperty,
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-name>
             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilter ::

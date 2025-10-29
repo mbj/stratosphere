@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksInfoProperty
-  = EksInfoProperty {namespace :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html>
+    EksInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html#cfn-emrcontainers-virtualcluster-eksinfo-namespace>
+                     namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksInfoProperty :: Value Prelude.Text -> EksInfoProperty
 mkEksInfoProperty namespace

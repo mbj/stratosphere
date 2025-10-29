@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.ConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data SuccessConditionsProperty
-  = SuccessConditionsProperty {conditions :: (Prelude.Maybe [ConditionProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-successconditions.html>
+    SuccessConditionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-successconditions.html#cfn-codepipeline-pipeline-successconditions-conditions>
+                               conditions :: (Prelude.Maybe [ConditionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuccessConditionsProperty :: SuccessConditionsProperty
 mkSuccessConditionsProperty

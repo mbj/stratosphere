@@ -8,13 +8,22 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.TargetProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Rule
-  = Rule {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html>
+    Rule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description>
+          description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventbusname>
           eventBusName :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern>
           eventPattern :: (Prelude.Maybe JSON.Object),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name>
           name :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn>
           roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression>
           scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state>
           state :: (Prelude.Maybe (Value Prelude.Text)),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets>
           targets :: (Prelude.Maybe [TargetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRule :: Rule

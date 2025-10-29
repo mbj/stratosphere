@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuccessfulMonitorDeploymentProperty
-  = SuccessfulMonitorDeploymentProperty {detailsUri :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html>
+    SuccessfulMonitorDeploymentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html#cfn-medialive-signalmap-successfulmonitordeployment-detailsuri>
+                                         detailsUri :: (Value Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html#cfn-medialive-signalmap-successfulmonitordeployment-status>
                                          status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuccessfulMonitorDeploymentProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ResponseHeadersPolicy
-  = ResponseHeadersPolicy {responseHeadersPolicyConfig :: ResponseHeadersPolicyConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html>
+    ResponseHeadersPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig>
+                           responseHeadersPolicyConfig :: ResponseHeadersPolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseHeadersPolicy ::
   ResponseHeadersPolicyConfigProperty -> ResponseHeadersPolicy

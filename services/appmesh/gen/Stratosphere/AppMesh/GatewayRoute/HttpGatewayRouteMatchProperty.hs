@@ -12,12 +12,20 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.QueryParameterProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpGatewayRouteMatchProperty
-  = HttpGatewayRouteMatchProperty {headers :: (Prelude.Maybe [HttpGatewayRouteHeaderProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html>
+    HttpGatewayRouteMatchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-headers>
+                                   headers :: (Prelude.Maybe [HttpGatewayRouteHeaderProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-hostname>
                                    hostname :: (Prelude.Maybe GatewayRouteHostnameMatchProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-method>
                                    method :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-path>
                                    path :: (Prelude.Maybe HttpPathMatchProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-port>
                                    port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-prefix>
                                    prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-queryparameters>
                                    queryParameters :: (Prelude.Maybe [QueryParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteMatchProperty :: HttpGatewayRouteMatchProperty

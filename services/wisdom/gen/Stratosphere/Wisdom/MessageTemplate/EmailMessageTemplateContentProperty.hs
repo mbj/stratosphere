@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateHe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EmailMessageTemplateContentProperty
-  = EmailMessageTemplateContentProperty {body :: EmailMessageTemplateContentBodyProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html>
+    EmailMessageTemplateContentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontent-body>
+                                         body :: EmailMessageTemplateContentBodyProperty,
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontent-headers>
                                          headers :: [EmailMessageTemplateHeaderProperty],
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontent-subject>
                                          subject :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailMessageTemplateContentProperty ::

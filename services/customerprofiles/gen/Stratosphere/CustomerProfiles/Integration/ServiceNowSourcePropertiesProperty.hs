@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowSourcePropertiesProperty
-  = ServiceNowSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html>
+    ServiceNowSourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object>
+                                        object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowSourcePropertiesProperty ::
   Value Prelude.Text -> ServiceNowSourcePropertiesProperty

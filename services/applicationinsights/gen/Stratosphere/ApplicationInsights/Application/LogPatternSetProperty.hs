@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.LogPatternPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogPatternSetProperty
-  = LogPatternSetProperty {logPatterns :: [LogPatternProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html>
+    LogPatternSetProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns>
+                           logPatterns :: [LogPatternProperty],
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname>
                            patternSetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPatternSetProperty ::

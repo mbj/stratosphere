@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RowLevelPermissionTagRuleP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RowLevelPermissionTagConfigurationProperty
-  = RowLevelPermissionTagConfigurationProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html>
+    RowLevelPermissionTagConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-status>
+                                                status :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagruleconfigurations>
                                                 tagRuleConfigurations :: (Prelude.Maybe JSON.Object),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration-tagrules>
                                                 tagRules :: [RowLevelPermissionTagRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagConfigurationProperty ::

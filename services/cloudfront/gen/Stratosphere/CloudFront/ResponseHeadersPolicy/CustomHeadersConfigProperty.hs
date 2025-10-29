@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomHeadersConfigProperty
-  = CustomHeadersConfigProperty {items :: [CustomHeaderProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html>
+    CustomHeadersConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html#cfn-cloudfront-responseheaderspolicy-customheadersconfig-items>
+                                 items :: [CustomHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHeadersConfigProperty ::
   [CustomHeaderProperty] -> CustomHeadersConfigProperty

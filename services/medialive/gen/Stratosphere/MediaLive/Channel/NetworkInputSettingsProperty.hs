@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MulticastInputSettingsPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInputSettingsProperty
-  = NetworkInputSettingsProperty {hlsInputSettings :: (Prelude.Maybe HlsInputSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html>
+    NetworkInputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-hlsinputsettings>
+                                  hlsInputSettings :: (Prelude.Maybe HlsInputSettingsProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-multicastinputsettings>
                                   multicastInputSettings :: (Prelude.Maybe MulticastInputSettingsProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html#cfn-medialive-channel-networkinputsettings-servervalidation>
                                   serverValidation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInputSettingsProperty :: NetworkInputSettingsProperty

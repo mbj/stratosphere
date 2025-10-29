@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.PagerDutyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data IntegrationProperty
-  = IntegrationProperty {pagerDutyConfiguration :: PagerDutyConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html>
+    IntegrationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html#cfn-ssmincidents-responseplan-integration-pagerdutyconfiguration>
+                         pagerDutyConfiguration :: PagerDutyConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationProperty ::
   PagerDutyConfigurationProperty -> IntegrationProperty

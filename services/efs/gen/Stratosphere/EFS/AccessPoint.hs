@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.EFS.AccessPoint.RootDirectoryProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPoint
-  = AccessPoint {accessPointTags :: (Prelude.Maybe [AccessPointTagProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html>
+    AccessPoint {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags>
+                 accessPointTags :: (Prelude.Maybe [AccessPointTagProperty]),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken>
                  clientToken :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid>
                  fileSystemId :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser>
                  posixUser :: (Prelude.Maybe PosixUserProperty),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory>
                  rootDirectory :: (Prelude.Maybe RootDirectoryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: Value Prelude.Text -> AccessPoint

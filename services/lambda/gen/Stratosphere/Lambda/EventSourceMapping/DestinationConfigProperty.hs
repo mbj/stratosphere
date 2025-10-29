@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.OnFailureProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigProperty
-  = DestinationConfigProperty {onFailure :: (Prelude.Maybe OnFailureProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html>
+    DestinationConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure>
+                               onFailure :: (Prelude.Maybe OnFailureProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigProperty :: DestinationConfigProperty
 mkDestinationConfigProperty

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data WriteProvisionedThroughputSettingsProperty
-  = WriteProvisionedThroughputSettingsProperty {writeCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html>
+    WriteProvisionedThroughputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings>
+                                                writeCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWriteProvisionedThroughputSettingsProperty ::
   WriteProvisionedThroughputSettingsProperty

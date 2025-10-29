@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.Session
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleWeightConfigProperty
-  = SingleWeightConfigProperty {sessionStickinessConfig :: (Prelude.Maybe SessionStickinessConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html>
+    SingleWeightConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleweightconfig-sessionstickinessconfig>
+                                sessionStickinessConfig :: (Prelude.Maybe SessionStickinessConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleweightconfig-weight>
                                 weight :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleWeightConfigProperty ::

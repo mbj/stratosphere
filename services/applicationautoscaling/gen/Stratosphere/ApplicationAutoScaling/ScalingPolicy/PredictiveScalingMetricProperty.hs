@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.Predicti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveScalingMetricProperty
-  = PredictiveScalingMetricProperty {dimensions :: (Prelude.Maybe [PredictiveScalingMetricDimensionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html>
+    PredictiveScalingMetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingmetric-dimensions>
+                                     dimensions :: (Prelude.Maybe [PredictiveScalingMetricDimensionProperty]),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingmetric-metricname>
                                      metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingmetric-namespace>
                                      namespace :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingMetricProperty ::

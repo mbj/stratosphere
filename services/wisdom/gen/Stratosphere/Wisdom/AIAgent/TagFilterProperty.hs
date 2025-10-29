@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.OrConditionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.TagConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data TagFilterProperty
-  = TagFilterProperty {andConditions :: (Prelude.Maybe [TagConditionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagfilter.html>
+    TagFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagfilter.html#cfn-wisdom-aiagent-tagfilter-andconditions>
+                       andConditions :: (Prelude.Maybe [TagConditionProperty]),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagfilter.html#cfn-wisdom-aiagent-tagfilter-orconditions>
                        orConditions :: (Prelude.Maybe [OrConditionProperty]),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagfilter.html#cfn-wisdom-aiagent-tagfilter-tagcondition>
                        tagCondition :: (Prelude.Maybe TagConditionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagFilterProperty :: TagFilterProperty

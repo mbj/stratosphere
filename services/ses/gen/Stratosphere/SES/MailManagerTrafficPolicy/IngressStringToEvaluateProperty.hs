@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressStringToEvaluateProperty
-  = IngressStringToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>
+    IngressStringToEvaluateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressstringtoevaluate-attribute>
+                                     attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressStringToEvaluateProperty ::
   Value Prelude.Text -> IngressStringToEvaluateProperty

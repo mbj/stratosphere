@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQ
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormNumericQuestionPropertiesProperty
-  = EvaluationFormNumericQuestionPropertiesProperty {automation :: (Prelude.Maybe EvaluationFormNumericQuestionAutomationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html>
+    EvaluationFormNumericQuestionPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-automation>
+                                                     automation :: (Prelude.Maybe EvaluationFormNumericQuestionAutomationProperty),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-maxvalue>
                                                      maxValue :: (Value Prelude.Integer),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-minvalue>
                                                      minValue :: (Value Prelude.Integer),
+                                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html#cfn-connect-evaluationform-evaluationformnumericquestionproperties-options>
                                                      options :: (Prelude.Maybe [EvaluationFormNumericQuestionOptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionPropertiesProperty ::

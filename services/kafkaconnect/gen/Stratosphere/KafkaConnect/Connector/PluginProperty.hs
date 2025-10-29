@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.CustomPluginProperty as Exports
 import Stratosphere.ResourceProperties
 data PluginProperty
-  = PluginProperty {customPlugin :: CustomPluginProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html>
+    PluginProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html#cfn-kafkaconnect-connector-plugin-customplugin>
+                    customPlugin :: CustomPluginProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPluginProperty :: CustomPluginProperty -> PluginProperty
 mkPluginProperty customPlugin

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListener
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayListenerTlsProperty
-  = VirtualGatewayListenerTlsProperty {certificate :: VirtualGatewayListenerTlsCertificateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html>
+    VirtualGatewayListenerTlsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate>
+                                       certificate :: VirtualGatewayListenerTlsCertificateProperty,
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode>
                                        mode :: (Value Prelude.Text),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-validation>
                                        validation :: (Prelude.Maybe VirtualGatewayListenerTlsValidationContextProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsProperty ::

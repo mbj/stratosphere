@@ -8,11 +8,18 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.NumberFilterProperty as Ex
 import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.StringFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PackageFilterProperty
-  = PackageFilterProperty {architecture :: (Prelude.Maybe StringFilterProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html>
+    PackageFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-architecture>
+                           architecture :: (Prelude.Maybe StringFilterProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-epoch>
                            epoch :: (Prelude.Maybe NumberFilterProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-name>
                            name :: (Prelude.Maybe StringFilterProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-release>
                            release :: (Prelude.Maybe StringFilterProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelayerhash>
                            sourceLayerHash :: (Prelude.Maybe StringFilterProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-version>
                            version :: (Prelude.Maybe StringFilterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPackageFilterProperty :: PackageFilterProperty

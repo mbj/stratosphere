@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexContainerSettingsP
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty as Exports
 import Stratosphere.ResourceProperties
 data MultiplexOutputSettingsProperty
-  = MultiplexOutputSettingsProperty {containerSettings :: (Prelude.Maybe MultiplexContainerSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html>
+    MultiplexOutputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-containersettings>
+                                     containerSettings :: (Prelude.Maybe MultiplexContainerSettingsProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-destination>
                                      destination :: (Prelude.Maybe OutputLocationRefProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexOutputSettingsProperty ::

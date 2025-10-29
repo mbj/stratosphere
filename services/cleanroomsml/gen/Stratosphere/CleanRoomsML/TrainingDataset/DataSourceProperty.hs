@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.GlueDataSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceProperty
-  = DataSourceProperty {glueDataSource :: GlueDataSourceProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasource.html>
+    DataSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasource.html#cfn-cleanroomsml-trainingdataset-datasource-gluedatasource>
+                        glueDataSource :: GlueDataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty ::
   GlueDataSourceProperty -> DataSourceProperty

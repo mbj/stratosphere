@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.CalculatedAttributeDefinitio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDetailsProperty
-  = AttributeDetailsProperty {attributes :: [AttributeItemProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html>
+    AttributeDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html#cfn-customerprofiles-calculatedattributedefinition-attributedetails-attributes>
+                              attributes :: [AttributeItemProperty],
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html#cfn-customerprofiles-calculatedattributedefinition-attributedetails-expression>
                               expression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDetailsProperty ::

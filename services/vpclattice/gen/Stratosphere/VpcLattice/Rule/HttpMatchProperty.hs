@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.PathMatchProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpMatchProperty
-  = HttpMatchProperty {headerMatches :: (Prelude.Maybe [HeaderMatchProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html>
+    HttpMatchProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-headermatches>
+                       headerMatches :: (Prelude.Maybe [HeaderMatchProperty]),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-method>
                        method :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html#cfn-vpclattice-rule-httpmatch-pathmatch>
                        pathMatch :: (Prelude.Maybe PathMatchProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpMatchProperty :: HttpMatchProperty

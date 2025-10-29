@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluenceAttachmentToIndex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceAttachmentConfigurationProperty
-  = ConfluenceAttachmentConfigurationProperty {attachmentFieldMappings :: (Prelude.Maybe [ConfluenceAttachmentToIndexFieldMappingProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html>
+    ConfluenceAttachmentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings>
+                                               attachmentFieldMappings :: (Prelude.Maybe [ConfluenceAttachmentToIndexFieldMappingProperty]),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments>
                                                crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceAttachmentConfigurationProperty ::

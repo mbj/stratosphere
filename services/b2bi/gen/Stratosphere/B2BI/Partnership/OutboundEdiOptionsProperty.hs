@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.X12EnvelopeProperty as Exports
 import Stratosphere.ResourceProperties
 data OutboundEdiOptionsProperty
-  = OutboundEdiOptionsProperty {x12 :: X12EnvelopeProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html>
+    OutboundEdiOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html#cfn-b2bi-partnership-outboundedioptions-x12>
+                                x12 :: X12EnvelopeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutboundEdiOptionsProperty ::
   X12EnvelopeProperty -> OutboundEdiOptionsProperty

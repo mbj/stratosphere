@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.ReplicationRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {rules :: [ReplicationRuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html>
+    ReplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules>
+                                      rules :: [ReplicationRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   [ReplicationRuleProperty] -> ReplicationConfigurationProperty

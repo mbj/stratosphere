@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data PipeTargetSageMakerPipelineParametersProperty
-  = PipeTargetSageMakerPipelineParametersProperty {pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html>
+    PipeTargetSageMakerPipelineParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html#cfn-pipes-pipe-pipetargetsagemakerpipelineparameters-pipelineparameterlist>
+                                                   pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetSageMakerPipelineParametersProperty ::
   PipeTargetSageMakerPipelineParametersProperty

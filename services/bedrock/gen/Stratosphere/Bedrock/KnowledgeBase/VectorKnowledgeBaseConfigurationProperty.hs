@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.EmbeddingModelConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VectorKnowledgeBaseConfigurationProperty
-  = VectorKnowledgeBaseConfigurationProperty {embeddingModelArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html>
+    VectorKnowledgeBaseConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelarn>
+                                              embeddingModelArn :: (Value Prelude.Text),
+                                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelconfiguration>
                                               embeddingModelConfiguration :: (Prelude.Maybe EmbeddingModelConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorKnowledgeBaseConfigurationProperty ::

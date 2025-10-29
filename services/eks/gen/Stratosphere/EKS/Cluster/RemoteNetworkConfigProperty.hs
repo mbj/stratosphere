@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.RemoteNodeNetworkProperty as Expo
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.RemotePodNetworkProperty as Exports
 import Stratosphere.ResourceProperties
 data RemoteNetworkConfigProperty
-  = RemoteNetworkConfigProperty {remoteNodeNetworks :: [RemoteNodeNetworkProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html>
+    RemoteNetworkConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html#cfn-eks-cluster-remotenetworkconfig-remotenodenetworks>
+                                 remoteNodeNetworks :: [RemoteNodeNetworkProperty],
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html#cfn-eks-cluster-remotenetworkconfig-remotepodnetworks>
                                  remotePodNetworks :: (Prelude.Maybe [RemotePodNetworkProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoteNetworkConfigProperty ::

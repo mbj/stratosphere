@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.BasicAuthCredentials
 import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.OAuthCredentialsProperty as Exports
 import Stratosphere.ResourceProperties
 data SAPODataConnectorProfileCredentialsProperty
-  = SAPODataConnectorProfileCredentialsProperty {basicAuthCredentials :: (Prelude.Maybe BasicAuthCredentialsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html>
+    SAPODataConnectorProfileCredentialsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html#cfn-appflow-connectorprofile-sapodataconnectorprofilecredentials-basicauthcredentials>
+                                                 basicAuthCredentials :: (Prelude.Maybe BasicAuthCredentialsProperty),
+                                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html#cfn-appflow-connectorprofile-sapodataconnectorprofilecredentials-oauthcredentials>
                                                  oAuthCredentials :: (Prelude.Maybe OAuthCredentialsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataConnectorProfileCredentialsProperty ::

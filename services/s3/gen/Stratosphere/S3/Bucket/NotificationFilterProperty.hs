@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.S3KeyFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationFilterProperty
-  = NotificationFilterProperty {s3Key :: S3KeyFilterProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationfilter.html>
+    NotificationFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationfilter.html#cfn-s3-bucket-notificationfilter-s3key>
+                                s3Key :: S3KeyFilterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationFilterProperty ::
   S3KeyFilterProperty -> NotificationFilterProperty

@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceBlogToIndexFieldMappingProperty
-  = ConfluenceBlogToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html>
+    ConfluenceBlogToIndexFieldMappingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datasourcefieldname>
+                                               dataSourceFieldName :: (Value Prelude.Text),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datefieldformat>
                                                dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-indexfieldname>
                                                indexFieldName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceBlogToIndexFieldMappingProperty ::

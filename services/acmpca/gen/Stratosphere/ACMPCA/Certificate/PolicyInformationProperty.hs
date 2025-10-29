@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.PolicyQualifierInfoPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyInformationProperty
-  = PolicyInformationProperty {certPolicyId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html>
+    PolicyInformationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid>
+                               certPolicyId :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers>
                                policyQualifiers :: (Prelude.Maybe [PolicyQualifierInfoProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyInformationProperty ::

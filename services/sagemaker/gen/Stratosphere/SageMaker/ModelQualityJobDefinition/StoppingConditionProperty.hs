@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StoppingConditionProperty
-  = StoppingConditionProperty {maxRuntimeInSeconds :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html>
+    StoppingConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds>
+                               maxRuntimeInSeconds :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStoppingConditionProperty ::
   Value Prelude.Integer -> StoppingConditionProperty

@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcRouteMatchProperty as Expor
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcTimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcRouteProperty
-  = GrpcRouteProperty {action :: GrpcRouteActionProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html>
+    GrpcRouteProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-action>
+                       action :: GrpcRouteActionProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-match>
                        match :: GrpcRouteMatchProperty,
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-retrypolicy>
                        retryPolicy :: (Prelude.Maybe GrpcRetryPolicyProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-timeout>
                        timeout :: (Prelude.Maybe GrpcTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteProperty ::

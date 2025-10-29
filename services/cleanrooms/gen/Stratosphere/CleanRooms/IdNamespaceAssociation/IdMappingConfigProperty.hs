@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingConfigProperty
-  = IdMappingConfigProperty {allowUseAsDimensionColumn :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html>
+    IdMappingConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html#cfn-cleanrooms-idnamespaceassociation-idmappingconfig-allowuseasdimensioncolumn>
+                             allowUseAsDimensionColumn :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingConfigProperty ::
   Value Prelude.Bool -> IdMappingConfigProperty

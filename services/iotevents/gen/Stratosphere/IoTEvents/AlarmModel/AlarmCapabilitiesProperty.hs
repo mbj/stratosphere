@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.AcknowledgeFlowProperty 
 import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.InitializationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AlarmCapabilitiesProperty
-  = AlarmCapabilitiesProperty {acknowledgeFlow :: (Prelude.Maybe AcknowledgeFlowProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html>
+    AlarmCapabilitiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html#cfn-iotevents-alarmmodel-alarmcapabilities-acknowledgeflow>
+                               acknowledgeFlow :: (Prelude.Maybe AcknowledgeFlowProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html#cfn-iotevents-alarmmodel-alarmcapabilities-initializationconfiguration>
                                initializationConfiguration :: (Prelude.Maybe InitializationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmCapabilitiesProperty :: AlarmCapabilitiesProperty

@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DialogStateProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data InitialResponseSettingProperty
-  = InitialResponseSettingProperty {codeHook :: (Prelude.Maybe DialogCodeHookInvocationSettingProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html>
+    InitialResponseSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html#cfn-lex-bot-initialresponsesetting-codehook>
+                                    codeHook :: (Prelude.Maybe DialogCodeHookInvocationSettingProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html#cfn-lex-bot-initialresponsesetting-conditional>
                                     conditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html#cfn-lex-bot-initialresponsesetting-initialresponse>
                                     initialResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html#cfn-lex-bot-initialresponsesetting-nextstep>
                                     nextStep :: (Prelude.Maybe DialogStateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialResponseSettingProperty :: InitialResponseSettingProperty

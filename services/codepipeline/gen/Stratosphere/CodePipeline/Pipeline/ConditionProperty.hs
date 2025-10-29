@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.RuleDeclarationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionProperty
-  = ConditionProperty {result :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html>
+    ConditionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html#cfn-codepipeline-pipeline-condition-result>
+                       result :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html#cfn-codepipeline-pipeline-condition-rules>
                        rules :: (Prelude.Maybe [RuleDeclarationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty

@@ -5,7 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PassThroughSettingsProperty
-  = PassThroughSettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html>
+    PassThroughSettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPassThroughSettingsProperty :: PassThroughSettingsProperty
 mkPassThroughSettingsProperty = PassThroughSettingsProperty {}

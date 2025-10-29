@@ -17,15 +17,26 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerConfigurationProp
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WorkDocsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceConfigurationProperty
-  = DataSourceConfigurationProperty {confluenceConfiguration :: (Prelude.Maybe ConfluenceConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html>
+    DataSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration>
+                                     confluenceConfiguration :: (Prelude.Maybe ConfluenceConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration>
                                      databaseConfiguration :: (Prelude.Maybe DatabaseConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration>
                                      googleDriveConfiguration :: (Prelude.Maybe GoogleDriveConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration>
                                      oneDriveConfiguration :: (Prelude.Maybe OneDriveConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration>
                                      s3Configuration :: (Prelude.Maybe S3DataSourceConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration>
                                      salesforceConfiguration :: (Prelude.Maybe SalesforceConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration>
                                      serviceNowConfiguration :: (Prelude.Maybe ServiceNowConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration>
                                      sharePointConfiguration :: (Prelude.Maybe SharePointConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-webcrawlerconfiguration>
                                      webCrawlerConfiguration :: (Prelude.Maybe WebCrawlerConfigurationProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-workdocsconfiguration>
                                      workDocsConfiguration :: (Prelude.Maybe WorkDocsConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationProperty ::

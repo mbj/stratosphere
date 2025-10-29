@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Glue.Database.DataLakePrincipalProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrincipalPrivilegesProperty
-  = PrincipalPrivilegesProperty {permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html>
+    PrincipalPrivilegesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions>
+                                 permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal>
                                  principal :: (Prelude.Maybe DataLakePrincipalProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrincipalPrivilegesProperty :: PrincipalPrivilegesProperty

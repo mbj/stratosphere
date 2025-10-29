@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PauseClusterMessageProperty
-  = PauseClusterMessageProperty {clusterIdentifier :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html>
+    PauseClusterMessageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html#cfn-redshift-scheduledaction-pauseclustermessage-clusteridentifier>
+                                 clusterIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPauseClusterMessageProperty ::
   Value Prelude.Text -> PauseClusterMessageProperty

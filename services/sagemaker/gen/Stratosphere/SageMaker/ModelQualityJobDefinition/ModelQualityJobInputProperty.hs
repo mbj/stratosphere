@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.EndpointI
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelQualityJobInputProperty
-  = ModelQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>
+    ModelQualityJobInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-batchtransforminput>
+                                  batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput>
                                   endpointInput :: (Prelude.Maybe EndpointInputProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input>
                                   groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityJobInputProperty ::

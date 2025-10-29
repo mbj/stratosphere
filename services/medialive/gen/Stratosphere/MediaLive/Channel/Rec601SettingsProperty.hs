@@ -5,7 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Rec601SettingsProperty
-  = Rec601SettingsProperty {}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec601settings.html>
+    Rec601SettingsProperty {}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRec601SettingsProperty :: Rec601SettingsProperty
 mkRec601SettingsProperty = Rec601SettingsProperty {}

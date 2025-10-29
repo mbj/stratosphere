@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.KeyValuePairProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProxyConfigurationProperty
-  = ProxyConfigurationProperty {containerName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html>
+    ProxyConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername>
+                                containerName :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties>
                                 proxyConfigurationProperties :: (Prelude.Maybe [KeyValuePairProperty]),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type>
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProxyConfigurationProperty ::

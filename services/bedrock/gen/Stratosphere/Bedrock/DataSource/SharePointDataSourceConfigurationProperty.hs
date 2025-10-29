@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SharePointCrawlerConfigura
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SharePointSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SharePointDataSourceConfigurationProperty
-  = SharePointDataSourceConfigurationProperty {crawlerConfiguration :: (Prelude.Maybe SharePointCrawlerConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html>
+    SharePointDataSourceConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html#cfn-bedrock-datasource-sharepointdatasourceconfiguration-crawlerconfiguration>
+                                               crawlerConfiguration :: (Prelude.Maybe SharePointCrawlerConfigurationProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html#cfn-bedrock-datasource-sharepointdatasourceconfiguration-sourceconfiguration>
                                                sourceConfiguration :: SharePointSourceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointDataSourceConfigurationProperty ::

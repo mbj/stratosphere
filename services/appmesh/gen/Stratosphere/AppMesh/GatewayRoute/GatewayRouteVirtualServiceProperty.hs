@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteVirtualServiceProperty
-  = GatewayRouteVirtualServiceProperty {virtualServiceName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html>
+    GatewayRouteVirtualServiceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename>
+                                        virtualServiceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteVirtualServiceProperty ::
   Value Prelude.Text -> GatewayRouteVirtualServiceProperty

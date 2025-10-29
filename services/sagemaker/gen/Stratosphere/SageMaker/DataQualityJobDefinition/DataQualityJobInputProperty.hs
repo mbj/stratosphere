@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.BatchTrans
 import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.EndpointInputProperty as Exports
 import Stratosphere.ResourceProperties
 data DataQualityJobInputProperty
-  = DataQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html>
+    DataQualityJobInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-batchtransforminput>
+                                 batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput>
                                  endpointInput :: (Prelude.Maybe EndpointInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQualityJobInputProperty :: DataQualityJobInputProperty

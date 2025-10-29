@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3FileLocationProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CopyStepDetailsProperty
-  = CopyStepDetailsProperty {destinationFileLocation :: (Prelude.Maybe S3FileLocationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html>
+    CopyStepDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-destinationfilelocation>
+                             destinationFileLocation :: (Prelude.Maybe S3FileLocationProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-overwriteexisting>
                              overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-sourcefilelocation>
                              sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyStepDetailsProperty :: CopyStepDetailsProperty

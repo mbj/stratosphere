@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNScanEc2InstanceWithFindingsConfigurationProperty
-  = CFNScanEc2InstanceWithFindingsConfigurationProperty {ebsVolumes :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html>
+    CFNScanEc2InstanceWithFindingsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html#cfn-guardduty-detector-cfnscanec2instancewithfindingsconfiguration-ebsvolumes>
+                                                         ebsVolumes :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNScanEc2InstanceWithFindingsConfigurationProperty ::
   CFNScanEc2InstanceWithFindingsConfigurationProperty

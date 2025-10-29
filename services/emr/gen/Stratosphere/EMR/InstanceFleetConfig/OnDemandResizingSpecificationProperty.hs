@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceFleetConfig.OnDemandCapacityReser
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandResizingSpecificationProperty
-  = OnDemandResizingSpecificationProperty {allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html>
+    OnDemandResizingSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandresizingspecification-allocationstrategy>
+                                           allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandresizingspecification-capacityreservationoptions>
                                            capacityReservationOptions :: (Prelude.Maybe OnDemandCapacityReservationOptionsProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandresizingspecification-timeoutdurationminutes>
                                            timeoutDurationMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandResizingSpecificationProperty ::

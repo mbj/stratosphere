@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDecodingSignalProperty
-  = CustomDecodingSignalProperty {id :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html>
+    CustomDecodingSignalProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html#cfn-iotfleetwise-decodermanifest-customdecodingsignal-id>
+                                  id :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDecodingSignalProperty ::
   Value Prelude.Text -> CustomDecodingSignalProperty

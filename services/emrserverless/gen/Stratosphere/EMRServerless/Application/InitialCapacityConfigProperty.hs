@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.WorkerConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitialCapacityConfigProperty
-  = InitialCapacityConfigProperty {workerConfiguration :: WorkerConfigurationProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html>
+    InitialCapacityConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workerconfiguration>
+                                   workerConfiguration :: WorkerConfigurationProperty,
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount>
                                    workerCount :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialCapacityConfigProperty ::

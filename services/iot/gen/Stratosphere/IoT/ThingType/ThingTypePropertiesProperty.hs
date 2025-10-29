@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.IoT.ThingType.Mqtt5ConfigurationProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThingTypePropertiesProperty
-  = ThingTypePropertiesProperty {mqtt5Configuration :: (Prelude.Maybe Mqtt5ConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html>
+    ThingTypePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-mqtt5configuration>
+                                 mqtt5Configuration :: (Prelude.Maybe Mqtt5ConfigurationProperty),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-searchableattributes>
                                  searchableAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-thingtypedescription>
                                  thingTypeDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThingTypePropertiesProperty :: ThingTypePropertiesProperty

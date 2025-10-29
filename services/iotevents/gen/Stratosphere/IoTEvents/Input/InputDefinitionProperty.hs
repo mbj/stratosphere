@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.Input.AttributeProperty as Exports
 import Stratosphere.ResourceProperties
 data InputDefinitionProperty
-  = InputDefinitionProperty {attributes :: [AttributeProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html>
+    InputDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes>
+                             attributes :: [AttributeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDefinitionProperty ::
   [AttributeProperty] -> InputDefinitionProperty

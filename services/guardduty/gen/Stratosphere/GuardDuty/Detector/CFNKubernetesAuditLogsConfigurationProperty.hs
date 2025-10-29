@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNKubernetesAuditLogsConfigurationProperty
-  = CFNKubernetesAuditLogsConfigurationProperty {enable :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html>
+    CFNKubernetesAuditLogsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html#cfn-guardduty-detector-cfnkubernetesauditlogsconfiguration-enable>
+                                                 enable :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesAuditLogsConfigurationProperty ::
   Value Prelude.Bool -> CFNKubernetesAuditLogsConfigurationProperty

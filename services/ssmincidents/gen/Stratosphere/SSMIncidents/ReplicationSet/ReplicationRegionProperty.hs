@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SSMIncidents.ReplicationSet.RegionConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationRegionProperty
-  = ReplicationRegionProperty {regionConfiguration :: (Prelude.Maybe RegionConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html>
+    ReplicationRegionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration>
+                               regionConfiguration :: (Prelude.Maybe RegionConfigurationProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname>
                                regionName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRegionProperty :: ReplicationRegionProperty

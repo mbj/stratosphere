@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.EMR.Step.HadoopJarStepConfigProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Step
-  = Step {actionOnFailure :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html>
+    Step {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-actiononfailure>
+          actionOnFailure :: (Value Prelude.Text),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-hadoopjarstep>
           hadoopJarStep :: HadoopJarStepConfigProperty,
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-jobflowid>
           jobFlowId :: (Value Prelude.Text),
+          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-name>
           name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStep ::

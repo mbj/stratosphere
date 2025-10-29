@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.AutoScalingSettingProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoScalingSpecificationProperty
-  = AutoScalingSpecificationProperty {readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html>
+    AutoScalingSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html#cfn-cassandra-table-autoscalingspecification-readcapacityautoscaling>
+                                      readCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html#cfn-cassandra-table-autoscalingspecification-writecapacityautoscaling>
                                       writeCapacityAutoScaling :: (Prelude.Maybe AutoScalingSettingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingSpecificationProperty ::

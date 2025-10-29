@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceInstanceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceDefinitionVersionProperty
-  = ResourceDefinitionVersionProperty {resources :: [ResourceInstanceProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html>
+    ResourceDefinitionVersionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html#cfn-greengrass-resourcedefinition-resourcedefinitionversion-resources>
+                                       resources :: [ResourceInstanceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinitionVersionProperty ::
   [ResourceInstanceProperty] -> ResourceDefinitionVersionProperty

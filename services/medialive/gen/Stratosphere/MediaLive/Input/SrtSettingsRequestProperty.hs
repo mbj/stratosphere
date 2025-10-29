@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.SrtCallerSourceRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data SrtSettingsRequestProperty
-  = SrtSettingsRequestProperty {srtCallerSources :: (Prelude.Maybe [SrtCallerSourceRequestProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html>
+    SrtSettingsRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html#cfn-medialive-input-srtsettingsrequest-srtcallersources>
+                                srtCallerSources :: (Prelude.Maybe [SrtCallerSourceRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtSettingsRequestProperty :: SrtSettingsRequestProperty
 mkSrtSettingsRequestProperty

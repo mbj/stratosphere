@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Model.S3DataSourceProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdditionalModelDataSourceProperty
-  = AdditionalModelDataSourceProperty {channelName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html>
+    AdditionalModelDataSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html#cfn-sagemaker-model-additionalmodeldatasource-channelname>
+                                       channelName :: (Value Prelude.Text),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html#cfn-sagemaker-model-additionalmodeldatasource-s3datasource>
                                        s3DataSource :: S3DataSourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalModelDataSourceProperty ::

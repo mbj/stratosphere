@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomResponseProperty as Exports
 import Stratosphere.ResourceProperties
 data BlockActionProperty
-  = BlockActionProperty {customResponse :: (Prelude.Maybe CustomResponseProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html>
+    BlockActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html#cfn-wafv2-rulegroup-blockaction-customresponse>
+                         customResponse :: (Prelude.Maybe CustomResponseProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockActionProperty :: BlockActionProperty
 mkBlockActionProperty

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TargetGroupInfoPro
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TargetGroupPairInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data LoadBalancerInfoProperty
-  = LoadBalancerInfoProperty {elbInfoList :: (Prelude.Maybe [ELBInfoProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html>
+    LoadBalancerInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-elbinfolist>
+                              elbInfoList :: (Prelude.Maybe [ELBInfoProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgroupinfolist>
                               targetGroupInfoList :: (Prelude.Maybe [TargetGroupInfoProperty]),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgrouppairinfolist>
                               targetGroupPairInfoList :: (Prelude.Maybe [TargetGroupPairInfoProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerInfoProperty :: LoadBalancerInfoProperty

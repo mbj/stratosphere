@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.RefreshSchedule.RefreshScheduleMap
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RefreshSchedule
-  = RefreshSchedule {awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html>
+    RefreshSchedule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-awsaccountid>
+                     awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-datasetid>
                      dataSetId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html#cfn-quicksight-refreshschedule-schedule>
                      schedule :: (Prelude.Maybe RefreshScheduleMapProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshSchedule :: RefreshSchedule

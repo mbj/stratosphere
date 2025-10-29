@@ -9,11 +9,18 @@ import {-# SOURCE #-} Stratosphere.Glue.Connection.PhysicalConnectionRequirement
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionInputProperty
-  = ConnectionInputProperty {connectionProperties :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html>
+    ConnectionInputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties>
+                             connectionProperties :: (Prelude.Maybe JSON.Object),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype>
                              connectionType :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description>
                              description :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria>
                              matchCriteria :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements>
                              physicalConnectionRequirements :: (Prelude.Maybe PhysicalConnectionRequirementsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionInputProperty ::

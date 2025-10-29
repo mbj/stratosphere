@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessorPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProcessingConfigurationProperty
-  = ProcessingConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html>
+    ProcessingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled>
+                                     enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors>
                                      processors :: (Prelude.Maybe [ProcessorProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessingConfigurationProperty ::

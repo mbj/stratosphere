@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmplitudeConnectorProfileCredentialsProperty
-  = AmplitudeConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html>
+    AmplitudeConnectorProfileCredentialsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey>
+                                                  apiKey :: (Value Prelude.Text),
+                                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey>
                                                   secretKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmplitudeConnectorProfileCredentialsProperty ::

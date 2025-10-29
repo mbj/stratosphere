@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Connect.HoursOfOperation.OverrideTimeSlicePro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HoursOfOperationOverrideConfigProperty
-  = HoursOfOperationOverrideConfigProperty {day :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html>
+    HoursOfOperationOverrideConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html#cfn-connect-hoursofoperation-hoursofoperationoverrideconfig-day>
+                                            day :: (Value Prelude.Text),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html#cfn-connect-hoursofoperation-hoursofoperationoverrideconfig-endtime>
                                             endTime :: OverrideTimeSliceProperty,
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html#cfn-connect-hoursofoperation-hoursofoperationoverrideconfig-starttime>
                                             startTime :: OverrideTimeSliceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationOverrideConfigProperty ::

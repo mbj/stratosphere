@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.HlsManife
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsPackageProperty
-  = HlsPackageProperty {encryption :: (Prelude.Maybe HlsEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html>
+    HlsPackageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption>
+                        encryption :: (Prelude.Maybe HlsEncryptionProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests>
                         hlsManifests :: [HlsManifestProperty],
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-includedvbsubtitles>
                         includeDvbSubtitles :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds>
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup>
                         useAudioRenditionGroup :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsPackageProperty :: [HlsManifestProperty] -> HlsPackageProperty

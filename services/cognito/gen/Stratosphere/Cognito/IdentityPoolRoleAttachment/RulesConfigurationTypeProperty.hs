@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data RulesConfigurationTypeProperty
-  = RulesConfigurationTypeProperty {rules :: [MappingRuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>
+    RulesConfigurationTypeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules>
+                                    rules :: [MappingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesConfigurationTypeProperty ::
   [MappingRuleProperty] -> RulesConfigurationTypeProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamSpecificationProperty
-  = StreamSpecificationProperty {streamViewType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html>
+    StreamSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype>
+                                 streamViewType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSpecificationProperty ::
   Value Prelude.Text -> StreamSpecificationProperty

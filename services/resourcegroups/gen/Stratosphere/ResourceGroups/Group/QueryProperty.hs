@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.ResourceGroups.Group.TagFilterProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryProperty
-  = QueryProperty {resourceTypeFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html>
+    QueryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters>
+                   resourceTypeFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier>
                    stackIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters>
                    tagFilters :: (Prelude.Maybe [TagFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryProperty :: QueryProperty

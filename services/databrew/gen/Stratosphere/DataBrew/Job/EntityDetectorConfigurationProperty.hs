@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.AllowedStatisticsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityDetectorConfigurationProperty
-  = EntityDetectorConfigurationProperty {allowedStatistics :: (Prelude.Maybe AllowedStatisticsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html>
+    EntityDetectorConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html#cfn-databrew-job-entitydetectorconfiguration-allowedstatistics>
+                                         allowedStatistics :: (Prelude.Maybe AllowedStatisticsProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html#cfn-databrew-job-entitydetectorconfiguration-entitytypes>
                                          entityTypes :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityDetectorConfigurationProperty ::

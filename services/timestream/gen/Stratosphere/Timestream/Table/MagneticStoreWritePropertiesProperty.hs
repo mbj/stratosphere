@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Timestream.Table.MagneticStoreRejectedDataLoc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MagneticStoreWritePropertiesProperty
-  = MagneticStoreWritePropertiesProperty {enableMagneticStoreWrites :: (Value Prelude.Bool),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html>
+    MagneticStoreWritePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html#cfn-timestream-table-magneticstorewriteproperties-enablemagneticstorewrites>
+                                          enableMagneticStoreWrites :: (Value Prelude.Bool),
+                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html#cfn-timestream-table-magneticstorewriteproperties-magneticstorerejecteddatalocation>
                                           magneticStoreRejectedDataLocation :: (Prelude.Maybe MagneticStoreRejectedDataLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreWritePropertiesProperty ::

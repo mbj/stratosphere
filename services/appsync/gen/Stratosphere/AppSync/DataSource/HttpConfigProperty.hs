@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.AuthorizationConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpConfigProperty
-  = HttpConfigProperty {authorizationConfig :: (Prelude.Maybe AuthorizationConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html>
+    HttpConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-authorizationconfig>
+                        authorizationConfig :: (Prelude.Maybe AuthorizationConfigProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint>
                         endpoint :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpConfigProperty :: Value Prelude.Text -> HttpConfigProperty

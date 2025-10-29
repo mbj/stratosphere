@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Deadline.Queue.WindowsUserProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobRunAsUserProperty
-  = JobRunAsUserProperty {posix :: (Prelude.Maybe PosixUserProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobrunasuser.html>
+    JobRunAsUserProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobrunasuser.html#cfn-deadline-queue-jobrunasuser-posix>
+                          posix :: (Prelude.Maybe PosixUserProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobrunasuser.html#cfn-deadline-queue-jobrunasuser-runas>
                           runAs :: (Value Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobrunasuser.html#cfn-deadline-queue-jobrunasuser-windows>
                           windows :: (Prelude.Maybe WindowsUserProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobRunAsUserProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.SecurityHubPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyProperty
-  = PolicyProperty {securityHub :: (Prelude.Maybe SecurityHubPolicyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html>
+    PolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html#cfn-securityhub-configurationpolicy-policy-securityhub>
+                    securityHub :: (Prelude.Maybe SecurityHubPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyProperty :: PolicyProperty
 mkPolicyProperty = PolicyProperty {securityHub = Prelude.Nothing}

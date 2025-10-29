@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeltaTimeSessionWindowConfigurationProperty
-  = DeltaTimeSessionWindowConfigurationProperty {timeoutInMinutes :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html>
+    DeltaTimeSessionWindowConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html#cfn-iotanalytics-dataset-deltatimesessionwindowconfiguration-timeoutinminutes>
+                                                 timeoutInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTimeSessionWindowConfigurationProperty ::
   Value Prelude.Integer

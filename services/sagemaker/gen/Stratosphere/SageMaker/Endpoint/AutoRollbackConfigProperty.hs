@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.AlarmProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoRollbackConfigProperty
-  = AutoRollbackConfigProperty {alarms :: [AlarmProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>
+    AutoRollbackConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms>
+                                alarms :: [AlarmProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoRollbackConfigProperty ::
   [AlarmProperty] -> AutoRollbackConfigProperty

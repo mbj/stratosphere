@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.SocketAdd
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionDetailsProperty
-  = ConnectionDetailsProperty {mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>
+    ConnectionDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-mtu>
+                               mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-socketaddress>
                                socketAddress :: (Prelude.Maybe SocketAddressProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionDetailsProperty :: ConnectionDetailsProperty

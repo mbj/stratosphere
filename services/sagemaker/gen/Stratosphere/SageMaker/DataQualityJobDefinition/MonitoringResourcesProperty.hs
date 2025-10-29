@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.ClusterConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringResourcesProperty
-  = MonitoringResourcesProperty {clusterConfig :: ClusterConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html>
+    MonitoringResourcesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig>
+                                 clusterConfig :: ClusterConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringResourcesProperty ::
   ClusterConfigProperty -> MonitoringResourcesProperty

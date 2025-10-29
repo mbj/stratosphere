@@ -11,10 +11,16 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.DetailedStatusCodesMetricsProp
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.PrefixLevelProperty as Exports
 import Stratosphere.ResourceProperties
 data BucketLevelProperty
-  = BucketLevelProperty {activityMetrics :: (Prelude.Maybe ActivityMetricsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html>
+    BucketLevelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics>
+                         activityMetrics :: (Prelude.Maybe ActivityMetricsProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedcostoptimizationmetrics>
                          advancedCostOptimizationMetrics :: (Prelude.Maybe AdvancedCostOptimizationMetricsProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advanceddataprotectionmetrics>
                          advancedDataProtectionMetrics :: (Prelude.Maybe AdvancedDataProtectionMetricsProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-detailedstatuscodesmetrics>
                          detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel>
                          prefixLevel :: (Prelude.Maybe PrefixLevelProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketLevelProperty :: BucketLevelProperty

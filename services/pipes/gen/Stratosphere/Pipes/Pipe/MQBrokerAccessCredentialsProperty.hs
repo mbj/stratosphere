@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MQBrokerAccessCredentialsProperty
-  = MQBrokerAccessCredentialsProperty {basicAuth :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html>
+    MQBrokerAccessCredentialsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html#cfn-pipes-pipe-mqbrokeraccesscredentials-basicauth>
+                                       basicAuth :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMQBrokerAccessCredentialsProperty ::
   Value Prelude.Text -> MQBrokerAccessCredentialsProperty

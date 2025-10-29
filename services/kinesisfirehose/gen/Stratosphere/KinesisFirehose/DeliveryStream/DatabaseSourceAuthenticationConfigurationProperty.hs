@@ -9,7 +9,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DatabaseSourceAuthenticationConfigurationProperty
-  = DatabaseSourceAuthenticationConfigurationProperty {secretsManagerConfiguration :: SecretsManagerConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html>
+    DatabaseSourceAuthenticationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html#cfn-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration-secretsmanagerconfiguration>
+                                                       secretsManagerConfiguration :: SecretsManagerConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseSourceAuthenticationConfigurationProperty ::
   SecretsManagerConfigurationProperty

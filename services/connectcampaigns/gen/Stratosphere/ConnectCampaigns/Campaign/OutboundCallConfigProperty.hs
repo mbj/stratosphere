@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.AnswerMachineDetect
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutboundCallConfigProperty
-  = OutboundCallConfigProperty {answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html>
+    OutboundCallConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html#cfn-connectcampaigns-campaign-outboundcallconfig-answermachinedetectionconfig>
+                                answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html#cfn-connectcampaigns-campaign-outboundcallconfig-connectcontactflowarn>
                                 connectContactFlowArn :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html#cfn-connectcampaigns-campaign-outboundcallconfig-connectqueuearn>
                                 connectQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html#cfn-connectcampaigns-campaign-outboundcallconfig-connectsourcephonenumber>
                                 connectSourcePhoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutboundCallConfigProperty ::

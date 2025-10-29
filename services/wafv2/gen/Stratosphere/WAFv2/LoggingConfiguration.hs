@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.WAFv2.LoggingConfiguration.LoggingFilterPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfiguration
-  = LoggingConfiguration {logDestinationConfigs :: (ValueList Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html>
+    LoggingConfiguration {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs>
+                          logDestinationConfigs :: (ValueList Prelude.Text),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter>
                           loggingFilter :: (Prelude.Maybe LoggingFilterProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields>
                           redactedFields :: (Prelude.Maybe [FieldToMatchProperty]),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn>
                           resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::

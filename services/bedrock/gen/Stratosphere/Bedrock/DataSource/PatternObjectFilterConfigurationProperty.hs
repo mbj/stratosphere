@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.PatternObjectFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PatternObjectFilterConfigurationProperty
-  = PatternObjectFilterConfigurationProperty {filters :: [PatternObjectFilterProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html>
+    PatternObjectFilterConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html#cfn-bedrock-datasource-patternobjectfilterconfiguration-filters>
+                                              filters :: [PatternObjectFilterProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPatternObjectFilterConfigurationProperty ::
   [PatternObjectFilterProperty]

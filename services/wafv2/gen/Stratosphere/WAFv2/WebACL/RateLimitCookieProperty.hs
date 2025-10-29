@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateLimitCookieProperty
-  = RateLimitCookieProperty {name :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitcookie.html>
+    RateLimitCookieProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitcookie.html#cfn-wafv2-webacl-ratelimitcookie-name>
+                             name :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitcookie.html#cfn-wafv2-webacl-ratelimitcookie-texttransformations>
                              textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitCookieProperty ::

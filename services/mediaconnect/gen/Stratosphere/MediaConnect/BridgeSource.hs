@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.BridgeSource.BridgeNetworkSource
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeSource
-  = BridgeSource {bridgeArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html>
+    BridgeSource {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-bridgearn>
+                  bridgeArn :: (Value Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-flowsource>
                   flowSource :: (Prelude.Maybe BridgeFlowSourceProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-name>
                   name :: (Value Prelude.Text),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-networksource>
                   networkSource :: (Prelude.Maybe BridgeNetworkSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeSource ::

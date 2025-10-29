@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HierarchicalChunkingLevelConfigurationProperty
-  = HierarchicalChunkingLevelConfigurationProperty {maxTokens :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html>
+    HierarchicalChunkingLevelConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html#cfn-bedrock-datasource-hierarchicalchunkinglevelconfiguration-maxtokens>
+                                                    maxTokens :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHierarchicalChunkingLevelConfigurationProperty ::
   Value Prelude.Integer

@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSour
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceSchemaProperty
-  = ReferenceSchemaProperty {recordColumns :: [RecordColumnProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html>
+    ReferenceSchemaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordcolumns>
+                             recordColumns :: [RecordColumnProperty],
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordencoding>
                              recordEncoding :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalytics-applicationreferencedatasource-referenceschema-recordformat>
                              recordFormat :: RecordFormatProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSchemaProperty ::

@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data RegistryPolicy
-  = RegistryPolicy {policyText :: JSON.Object}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html>
+    RegistryPolicy {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext>
+                    policyText :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryPolicy :: JSON.Object -> RegistryPolicy
 mkRegistryPolicy policyText

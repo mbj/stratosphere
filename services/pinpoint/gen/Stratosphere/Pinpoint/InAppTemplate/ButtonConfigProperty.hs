@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.InAppTemplate.DefaultButtonConfigura
 import {-# SOURCE #-} Stratosphere.Pinpoint.InAppTemplate.OverrideButtonConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ButtonConfigProperty
-  = ButtonConfigProperty {android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html>
+    ButtonConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-android>
+                          android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-defaultconfig>
                           defaultConfig :: (Prelude.Maybe DefaultButtonConfigurationProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-ios>
                           iOS :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html#cfn-pinpoint-inapptemplate-buttonconfig-web>
                           web :: (Prelude.Maybe OverrideButtonConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkButtonConfigProperty :: ButtonConfigProperty

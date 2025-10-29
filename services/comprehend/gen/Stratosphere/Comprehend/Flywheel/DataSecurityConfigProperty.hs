@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Comprehend.Flywheel.VpcConfigProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSecurityConfigProperty
-  = DataSecurityConfigProperty {dataLakeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>
+    DataSecurityConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-datalakekmskeyid>
+                                dataLakeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-modelkmskeyid>
                                 modelKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-volumekmskeyid>
                                 volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-vpcconfig>
                                 vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSecurityConfigProperty :: DataSecurityConfigProperty

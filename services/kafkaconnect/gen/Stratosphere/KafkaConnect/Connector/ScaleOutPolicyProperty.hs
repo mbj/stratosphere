@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScaleOutPolicyProperty
-  = ScaleOutPolicyProperty {cpuUtilizationPercentage :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html>
+    ScaleOutPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html#cfn-kafkaconnect-connector-scaleoutpolicy-cpuutilizationpercentage>
+                            cpuUtilizationPercentage :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScaleOutPolicyProperty ::
   Value Prelude.Integer -> ScaleOutPolicyProperty

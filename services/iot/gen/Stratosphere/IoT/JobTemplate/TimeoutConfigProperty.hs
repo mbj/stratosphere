@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeoutConfigProperty
-  = TimeoutConfigProperty {inProgressTimeoutInMinutes :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html>
+    TimeoutConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html#cfn-iot-jobtemplate-timeoutconfig-inprogresstimeoutinminutes>
+                           inProgressTimeoutInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeoutConfigProperty ::
   Value Prelude.Integer -> TimeoutConfigProperty

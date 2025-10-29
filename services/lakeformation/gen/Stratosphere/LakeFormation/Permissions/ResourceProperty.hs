@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.TableResourceProper
 import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.TableWithColumnsResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceProperty
-  = ResourceProperty {dataLocationResource :: (Prelude.Maybe DataLocationResourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html>
+    ResourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-datalocationresource>
+                      dataLocationResource :: (Prelude.Maybe DataLocationResourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-databaseresource>
                       databaseResource :: (Prelude.Maybe DatabaseResourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-tableresource>
                       tableResource :: (Prelude.Maybe TableResourceProperty),
+                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html#cfn-lakeformation-permissions-resource-tablewithcolumnsresource>
                       tableWithColumnsResource :: (Prelude.Maybe TableWithColumnsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty

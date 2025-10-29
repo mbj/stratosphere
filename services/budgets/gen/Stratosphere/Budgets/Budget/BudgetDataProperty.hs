@@ -11,14 +11,24 @@ import {-# SOURCE #-} Stratosphere.Budgets.Budget.TimePeriodProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BudgetDataProperty
-  = BudgetDataProperty {autoAdjustData :: (Prelude.Maybe AutoAdjustDataProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html>
+    BudgetDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-autoadjustdata>
+                        autoAdjustData :: (Prelude.Maybe AutoAdjustDataProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit>
                         budgetLimit :: (Prelude.Maybe SpendProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname>
                         budgetName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype>
                         budgetType :: (Value Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters>
                         costFilters :: (Prelude.Maybe JSON.Object),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes>
                         costTypes :: (Prelude.Maybe CostTypesProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits>
                         plannedBudgetLimits :: (Prelude.Maybe JSON.Object),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod>
                         timePeriod :: (Prelude.Maybe TimePeriodProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit>
                         timeUnit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBudgetDataProperty ::

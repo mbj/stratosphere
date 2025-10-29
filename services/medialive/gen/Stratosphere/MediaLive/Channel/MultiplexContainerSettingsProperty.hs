@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexM2tsSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data MultiplexContainerSettingsProperty
-  = MultiplexContainerSettingsProperty {multiplexM2tsSettings :: (Prelude.Maybe MultiplexM2tsSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexcontainersettings.html>
+    MultiplexContainerSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexcontainersettings.html#cfn-medialive-channel-multiplexcontainersettings-multiplexm2tssettings>
+                                        multiplexM2tsSettings :: (Prelude.Maybe MultiplexM2tsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexContainerSettingsProperty ::
   MultiplexContainerSettingsProperty

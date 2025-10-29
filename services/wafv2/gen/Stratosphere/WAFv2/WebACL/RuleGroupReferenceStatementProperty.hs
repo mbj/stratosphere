@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RuleActionOverrideProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleGroupReferenceStatementProperty
-  = RuleGroupReferenceStatementProperty {arn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html>
+    RuleGroupReferenceStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn>
+                                         arn :: (Value Prelude.Text),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules>
                                          excludedRules :: (Prelude.Maybe [ExcludedRuleProperty]),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-ruleactionoverrides>
                                          ruleActionOverrides :: (Prelude.Maybe [RuleActionOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupReferenceStatementProperty ::

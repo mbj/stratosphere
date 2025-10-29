@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.DataflowE
 import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.SecurityDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data EndpointDetailsProperty
-  = EndpointDetailsProperty {awsGroundStationAgentEndpoint :: (Prelude.Maybe AwsGroundStationAgentEndpointProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html>
+    EndpointDetailsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-awsgroundstationagentendpoint>
+                             awsGroundStationAgentEndpoint :: (Prelude.Maybe AwsGroundStationAgentEndpointProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint>
                              endpoint :: (Prelude.Maybe DataflowEndpointProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails>
                              securityDetails :: (Prelude.Maybe SecurityDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointDetailsProperty :: EndpointDetailsProperty

@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.HttpAuthorizationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpActionProperty
-  = HttpActionProperty {auth :: (Prelude.Maybe HttpAuthorizationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html>
+    HttpActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth>
+                        auth :: (Prelude.Maybe HttpAuthorizationProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl>
                         confirmationUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers>
                         headers :: (Prelude.Maybe [HttpActionHeaderProperty]),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url>
                         url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpActionProperty :: Value Prelude.Text -> HttpActionProperty

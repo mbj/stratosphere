@@ -11,10 +11,16 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.RedshiftSource
 import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.S3SourceConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data MetricSourceProperty
-  = MetricSourceProperty {appFlowConfig :: (Prelude.Maybe AppFlowConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html>
+    MetricSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig>
+                          appFlowConfig :: (Prelude.Maybe AppFlowConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig>
                           cloudwatchConfig :: (Prelude.Maybe CloudwatchConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig>
                           rDSSourceConfig :: (Prelude.Maybe RDSSourceConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig>
                           redshiftSourceConfig :: (Prelude.Maybe RedshiftSourceConfigProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig>
                           s3SourceConfig :: (Prelude.Maybe S3SourceConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricSourceProperty :: MetricSourceProperty

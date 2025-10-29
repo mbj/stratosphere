@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.TagFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KnowledgeBaseAssociationConfigurationDataProperty
-  = KnowledgeBaseAssociationConfigurationDataProperty {contentTagFilter :: (Prelude.Maybe TagFilterProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html>
+    KnowledgeBaseAssociationConfigurationDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html#cfn-wisdom-aiagent-knowledgebaseassociationconfigurationdata-contenttagfilter>
+                                                       contentTagFilter :: (Prelude.Maybe TagFilterProperty),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html#cfn-wisdom-aiagent-knowledgebaseassociationconfigurationdata-maxresults>
                                                        maxResults :: (Prelude.Maybe (Value Prelude.Double)),
+                                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html#cfn-wisdom-aiagent-knowledgebaseassociationconfigurationdata-overrideknowledgebasesearchtype>
                                                        overrideKnowledgeBaseSearchType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBaseAssociationConfigurationDataProperty ::

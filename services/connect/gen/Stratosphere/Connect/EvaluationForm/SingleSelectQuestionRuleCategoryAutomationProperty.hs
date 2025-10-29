@@ -8,8 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleSelectQuestionRuleCategoryAutomationProperty
-  = SingleSelectQuestionRuleCategoryAutomationProperty {category :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html>
+    SingleSelectQuestionRuleCategoryAutomationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-category>
+                                                        category :: (Value Prelude.Text),
+                                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-condition>
                                                         condition :: (Value Prelude.Text),
+                                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html#cfn-connect-evaluationform-singleselectquestionrulecategoryautomation-optionrefid>
                                                         optionRefId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleSelectQuestionRuleCategoryAutomationProperty ::

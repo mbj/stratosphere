@@ -9,7 +9,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormSingleSelectQuestionAutomationOptionProperty
-  = EvaluationFormSingleSelectQuestionAutomationOptionProperty {ruleCategory :: SingleSelectQuestionRuleCategoryAutomationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomationoption.html>
+    EvaluationFormSingleSelectQuestionAutomationOptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomationoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomationoption-rulecategory>
+                                                                ruleCategory :: SingleSelectQuestionRuleCategoryAutomationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionAutomationOptionProperty ::
   SingleSelectQuestionRuleCategoryAutomationProperty

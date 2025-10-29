@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.Standard.StandardsControlProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Standard
-  = Standard {disabledStandardsControls :: (Prelude.Maybe [StandardsControlProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html>
+    Standard {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html#cfn-securityhub-standard-disabledstandardscontrols>
+              disabledStandardsControls :: (Prelude.Maybe [StandardsControlProperty]),
+              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html#cfn-securityhub-standard-standardsarn>
               standardsArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStandard :: Value Prelude.Text -> Standard

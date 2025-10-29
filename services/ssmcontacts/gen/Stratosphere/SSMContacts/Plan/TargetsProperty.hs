@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Plan.ChannelTargetInfoProperty as
 import {-# SOURCE #-} Stratosphere.SSMContacts.Plan.ContactTargetInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetsProperty
-  = TargetsProperty {channelTargetInfo :: (Prelude.Maybe ChannelTargetInfoProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-targets.html>
+    TargetsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-targets.html#cfn-ssmcontacts-plan-targets-channeltargetinfo>
+                     channelTargetInfo :: (Prelude.Maybe ChannelTargetInfoProperty),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-targets.html#cfn-ssmcontacts-plan-targets-contacttargetinfo>
                      contactTargetInfo :: (Prelude.Maybe ContactTargetInfoProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty :: TargetsProperty

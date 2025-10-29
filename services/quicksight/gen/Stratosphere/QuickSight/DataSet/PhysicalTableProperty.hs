@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RelationalTableProperty as
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.S3SourceProperty as Exports
 import Stratosphere.ResourceProperties
 data PhysicalTableProperty
-  = PhysicalTableProperty {customSql :: (Prelude.Maybe CustomSqlProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html>
+    PhysicalTableProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql>
+                           customSql :: (Prelude.Maybe CustomSqlProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable>
                            relationalTable :: (Prelude.Maybe RelationalTableProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source>
                            s3Source :: (Prelude.Maybe S3SourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPhysicalTableProperty :: PhysicalTableProperty

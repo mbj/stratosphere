@@ -8,7 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data RouteTable
-  = RouteTable {tags :: (Prelude.Maybe [Tag]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html>
+    RouteTable {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-tags>
+                tags :: (Prelude.Maybe [Tag]),
+                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#cfn-ec2-routetable-vpcid>
                 vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteTable :: Value Prelude.Text -> RouteTable

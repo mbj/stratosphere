@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPrivacyProperty
-  = DataPrivacyProperty {childDirected :: (Value Prelude.Bool)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html>
+    DataPrivacyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html#cfn-lex-bot-dataprivacy-childdirected>
+                         childDirected :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPrivacyProperty :: Value Prelude.Bool -> DataPrivacyProperty
 mkDataPrivacyProperty childDirected

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerBasicAuthenticationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebCrawlerAuthenticationConfigurationProperty
-  = WebCrawlerAuthenticationConfigurationProperty {basicAuthentication :: (Prelude.Maybe [WebCrawlerBasicAuthenticationProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html>
+    WebCrawlerAuthenticationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html#cfn-kendra-datasource-webcrawlerauthenticationconfiguration-basicauthentication>
+                                                   basicAuthentication :: (Prelude.Maybe [WebCrawlerBasicAuthenticationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerAuthenticationConfigurationProperty ::
   WebCrawlerAuthenticationConfigurationProperty

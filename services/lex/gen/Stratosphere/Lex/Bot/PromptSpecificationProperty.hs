@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.PromptAttemptSpecificationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptSpecificationProperty
-  = PromptSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html>
+    PromptSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-allowinterrupt>
+                                 allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-maxretries>
                                  maxRetries :: (Value Prelude.Integer),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-messagegroupslist>
                                  messageGroupsList :: [MessageGroupProperty],
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-messageselectionstrategy>
                                  messageSelectionStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html#cfn-lex-bot-promptspecification-promptattemptsspecification>
                                  promptAttemptsSpecification :: (Prelude.Maybe (Prelude.Map Prelude.Text PromptAttemptSpecificationProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptSpecificationProperty ::

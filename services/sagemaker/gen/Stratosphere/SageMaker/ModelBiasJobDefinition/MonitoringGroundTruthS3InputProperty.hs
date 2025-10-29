@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringGroundTruthS3InputProperty
-  = MonitoringGroundTruthS3InputProperty {s3Uri :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html>
+    MonitoringGroundTruthS3InputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri>
+                                          s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringGroundTruthS3InputProperty ::
   Value Prelude.Text -> MonitoringGroundTruthS3InputProperty

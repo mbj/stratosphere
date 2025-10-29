@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.PrefixConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3OutputFormatConfigProperty
-  = S3OutputFormatConfigProperty {aggregationConfig :: (Prelude.Maybe AggregationConfigProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html>
+    S3OutputFormatConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig>
+                                  aggregationConfig :: (Prelude.Maybe AggregationConfigProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype>
                                   fileType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig>
                                   prefixConfig :: (Prelude.Maybe PrefixConfigProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-preservesourcedatatyping>
                                   preserveSourceDataTyping :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputFormatConfigProperty :: S3OutputFormatConfigProperty

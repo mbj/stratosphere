@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Cluster.ClusterEbsVolumeConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ClusterInstanceStorageConfigProperty
-  = ClusterInstanceStorageConfigProperty {ebsVolumeConfig :: (Prelude.Maybe ClusterEbsVolumeConfigProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html>
+    ClusterInstanceStorageConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html#cfn-sagemaker-cluster-clusterinstancestorageconfig-ebsvolumeconfig>
+                                          ebsVolumeConfig :: (Prelude.Maybe ClusterEbsVolumeConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterInstanceStorageConfigProperty ::
   ClusterInstanceStorageConfigProperty

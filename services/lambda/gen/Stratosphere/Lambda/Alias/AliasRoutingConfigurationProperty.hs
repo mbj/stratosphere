@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.Alias.VersionWeightProperty as Exports
 import Stratosphere.ResourceProperties
 data AliasRoutingConfigurationProperty
-  = AliasRoutingConfigurationProperty {additionalVersionWeights :: (Prelude.Maybe [VersionWeightProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html>
+    AliasRoutingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights>
+                                       additionalVersionWeights :: (Prelude.Maybe [VersionWeightProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAliasRoutingConfigurationProperty ::
   AliasRoutingConfigurationProperty

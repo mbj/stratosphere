@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.PostFulfillmentStatusSpecificationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FulfillmentCodeHookSettingProperty
-  = FulfillmentCodeHookSettingProperty {enabled :: (Value Prelude.Bool),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html>
+    FulfillmentCodeHookSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-enabled>
+                                        enabled :: (Value Prelude.Bool),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-fulfillmentupdatesspecification>
                                         fulfillmentUpdatesSpecification :: (Prelude.Maybe FulfillmentUpdatesSpecificationProperty),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-isactive>
                                         isActive :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html#cfn-lex-bot-fulfillmentcodehooksetting-postfulfillmentstatusspecification>
                                         postFulfillmentStatusSpecification :: (Prelude.Maybe PostFulfillmentStatusSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentCodeHookSettingProperty ::

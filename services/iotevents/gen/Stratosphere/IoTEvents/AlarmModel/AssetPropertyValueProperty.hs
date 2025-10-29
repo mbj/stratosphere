@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.AssetPropertyVariantProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyValueProperty
-  = AssetPropertyValueProperty {quality :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html>
+    AssetPropertyValueProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-quality>
+                                quality :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-timestamp>
                                 timestamp :: (Prelude.Maybe AssetPropertyTimestampProperty),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertyvalue.html#cfn-iotevents-alarmmodel-assetpropertyvalue-value>
                                 value :: AssetPropertyVariantProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyValueProperty ::

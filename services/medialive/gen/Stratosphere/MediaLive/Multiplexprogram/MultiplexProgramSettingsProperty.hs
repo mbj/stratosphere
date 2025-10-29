@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Multiplexprogram.MultiplexVideoSett
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexProgramSettingsProperty
-  = MultiplexProgramSettingsProperty {preferredChannelPipeline :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html>
+    MultiplexProgramSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html#cfn-medialive-multiplexprogram-multiplexprogramsettings-preferredchannelpipeline>
+                                      preferredChannelPipeline :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html#cfn-medialive-multiplexprogram-multiplexprogramsettings-programnumber>
                                       programNumber :: (Value Prelude.Integer),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html#cfn-medialive-multiplexprogram-multiplexprogramsettings-servicedescriptor>
                                       serviceDescriptor :: (Prelude.Maybe MultiplexProgramServiceDescriptorProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html#cfn-medialive-multiplexprogram-multiplexprogramsettings-videosettings>
                                       videoSettings :: (Prelude.Maybe MultiplexVideoSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexProgramSettingsProperty ::

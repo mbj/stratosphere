@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Budgets.Budget.NotificationWithSubscribersPro
 import {-# SOURCE #-} Stratosphere.Budgets.Budget.ResourceTagProperty as Exports
 import Stratosphere.ResourceProperties
 data Budget
-  = Budget {budget :: BudgetDataProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html>
+    Budget {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-budget>
+            budget :: BudgetDataProperty,
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers>
             notificationsWithSubscribers :: (Prelude.Maybe [NotificationWithSubscribersProperty]),
+            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags>
             resourceTags :: (Prelude.Maybe [ResourceTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBudget :: BudgetDataProperty -> Budget

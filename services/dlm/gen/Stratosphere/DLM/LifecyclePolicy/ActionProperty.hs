@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyActionProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionProperty
-  = ActionProperty {crossRegionCopy :: [CrossRegionCopyActionProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html>
+    ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy>
+                    crossRegionCopy :: [CrossRegionCopyActionProperty],
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name>
                     name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty ::

@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.PartitionInputProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Partition
-  = Partition {catalogId :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html>
+    Partition {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-catalogid>
+               catalogId :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-databasename>
                databaseName :: (Value Prelude.Text),
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-partitioninput>
                partitionInput :: PartitionInputProperty,
+               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-tablename>
                tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartition ::

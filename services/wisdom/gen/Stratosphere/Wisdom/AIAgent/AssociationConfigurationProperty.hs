@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.AssociationConfigurationDataPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssociationConfigurationProperty
-  = AssociationConfigurationProperty {associationConfigurationData :: (Prelude.Maybe AssociationConfigurationDataProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfiguration.html>
+    AssociationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfiguration.html#cfn-wisdom-aiagent-associationconfiguration-associationconfigurationdata>
+                                      associationConfigurationData :: (Prelude.Maybe AssociationConfigurationDataProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfiguration.html#cfn-wisdom-aiagent-associationconfiguration-associationid>
                                       associationId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfiguration.html#cfn-wisdom-aiagent-associationconfiguration-associationtype>
                                       associationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationConfigurationProperty ::

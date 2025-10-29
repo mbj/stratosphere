@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.AIPrompt.TextFullAIPromptEditTemplateConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AIPromptTemplateConfigurationProperty
-  = AIPromptTemplateConfigurationProperty {textFullAIPromptEditTemplateConfiguration :: TextFullAIPromptEditTemplateConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html>
+    AIPromptTemplateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html#cfn-wisdom-aiprompt-aiprompttemplateconfiguration-textfullaipromptedittemplateconfiguration>
+                                           textFullAIPromptEditTemplateConfiguration :: TextFullAIPromptEditTemplateConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAIPromptTemplateConfigurationProperty ::
   TextFullAIPromptEditTemplateConfigurationProperty

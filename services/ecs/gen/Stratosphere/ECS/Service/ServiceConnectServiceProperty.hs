@@ -11,11 +11,18 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.TimeoutConfigurationProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectServiceProperty
-  = ServiceConnectServiceProperty {clientAliases :: (Prelude.Maybe [ServiceConnectClientAliasProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html>
+    ServiceConnectServiceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-clientaliases>
+                                   clientAliases :: (Prelude.Maybe [ServiceConnectClientAliasProperty]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-discoveryname>
                                    discoveryName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-ingressportoverride>
                                    ingressPortOverride :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-portname>
                                    portName :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-timeout>
                                    timeout :: (Prelude.Maybe TimeoutConfigurationProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-tls>
                                    tls :: (Prelude.Maybe ServiceConnectTlsConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectServiceProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeMetricsSubscriptionConfigProperty
-  = RealtimeMetricsSubscriptionConfigProperty {realtimeMetricsSubscriptionStatus :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>
+    RealtimeMetricsSubscriptionConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html#cfn-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig-realtimemetricssubscriptionstatus>
+                                               realtimeMetricsSubscriptionStatus :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeMetricsSubscriptionConfigProperty ::
   Value Prelude.Text -> RealtimeMetricsSubscriptionConfigProperty

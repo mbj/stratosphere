@@ -10,8 +10,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayMulticastDomain
-  = TransitGatewayMulticastDomain {options :: (Prelude.Maybe OptionsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html>
+    TransitGatewayMulticastDomain {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options>
+                                   options :: (Prelude.Maybe OptionsProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags>
                                    tags :: (Prelude.Maybe [Tag]),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid>
                                    transitGatewayId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastDomain ::

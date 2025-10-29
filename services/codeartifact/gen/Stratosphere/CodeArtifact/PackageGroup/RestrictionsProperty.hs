@@ -7,8 +7,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeArtifact.PackageGroup.RestrictionTypeProperty as Exports
 import Stratosphere.ResourceProperties
 data RestrictionsProperty
-  = RestrictionsProperty {externalUpstream :: (Prelude.Maybe RestrictionTypeProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictions.html>
+    RestrictionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictions.html#cfn-codeartifact-packagegroup-restrictions-externalupstream>
+                          externalUpstream :: (Prelude.Maybe RestrictionTypeProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictions.html#cfn-codeartifact-packagegroup-restrictions-internalupstream>
                           internalUpstream :: (Prelude.Maybe RestrictionTypeProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictions.html#cfn-codeartifact-packagegroup-restrictions-publish>
                           publish :: (Prelude.Maybe RestrictionTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictionsProperty :: RestrictionsProperty

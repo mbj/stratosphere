@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KendraIndexConfigurationProperty
-  = KendraIndexConfigurationProperty {indexId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-kendraindexconfiguration.html>
+    KendraIndexConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-kendraindexconfiguration.html#cfn-qbusiness-retriever-kendraindexconfiguration-indexid>
+                                      indexId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKendraIndexConfigurationProperty ::
   Value Prelude.Text -> KendraIndexConfigurationProperty

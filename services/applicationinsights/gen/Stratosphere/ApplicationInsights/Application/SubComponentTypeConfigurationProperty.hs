@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.SubComponentC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubComponentTypeConfigurationProperty
-  = SubComponentTypeConfigurationProperty {subComponentConfigurationDetails :: SubComponentConfigurationDetailsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html>
+    SubComponentTypeConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails>
+                                           subComponentConfigurationDetails :: SubComponentConfigurationDetailsProperty,
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype>
                                            subComponentType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentTypeConfigurationProperty ::

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualServiceBackendProperty
-  = VirtualServiceBackendProperty {clientPolicy :: (Prelude.Maybe ClientPolicyProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html>
+    VirtualServiceBackendProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-clientpolicy>
+                                   clientPolicy :: (Prelude.Maybe ClientPolicyProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename>
                                    virtualServiceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceBackendProperty ::

@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.WAF.ByteMatchSet.FieldToMatchProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ByteMatchTupleProperty
-  = ByteMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html>
+    ByteMatchTupleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html#cfn-waf-bytematchset-bytematchtuples-fieldtomatch>
+                            fieldToMatch :: FieldToMatchProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html#cfn-waf-bytematchset-bytematchtuples-positionalconstraint>
                             positionalConstraint :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html#cfn-waf-bytematchset-bytematchtuples-targetstring>
                             targetString :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html#cfn-waf-bytematchset-bytematchtuples-targetstringbase64>
                             targetStringBase64 :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html#cfn-waf-bytematchset-bytematchtuples-texttransformation>
                             textTransformation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchTupleProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 data OrStatementProperty
-  = OrStatementProperty {statements :: [StatementProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html>
+    OrStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements>
+                         statements :: [StatementProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrStatementProperty :: [StatementProperty] -> OrStatementProperty
 mkOrStatementProperty statements

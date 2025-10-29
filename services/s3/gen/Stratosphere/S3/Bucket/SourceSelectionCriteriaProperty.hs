@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicaModificationsProperty as Exp
 import {-# SOURCE #-} Stratosphere.S3.Bucket.SseKmsEncryptedObjectsProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceSelectionCriteriaProperty
-  = SourceSelectionCriteriaProperty {replicaModifications :: (Prelude.Maybe ReplicaModificationsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html>
+    SourceSelectionCriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications>
+                                     replicaModifications :: (Prelude.Maybe ReplicaModificationsProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects>
                                      sseKmsEncryptedObjects :: (Prelude.Maybe SseKmsEncryptedObjectsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceSelectionCriteriaProperty ::

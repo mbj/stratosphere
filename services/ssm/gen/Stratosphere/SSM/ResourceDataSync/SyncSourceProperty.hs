@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.SSM.ResourceDataSync.AwsOrganizationsSourcePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SyncSourceProperty
-  = SyncSourceProperty {awsOrganizationsSource :: (Prelude.Maybe AwsOrganizationsSourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html>
+    SyncSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource>
+                        awsOrganizationsSource :: (Prelude.Maybe AwsOrganizationsSourceProperty),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions>
                         includeFutureRegions :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions>
                         sourceRegions :: (ValueList Prelude.Text),
+                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype>
                         sourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncSourceProperty ::

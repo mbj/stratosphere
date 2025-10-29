@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.ClientConfigurationsProperty as Exports
 import Stratosphere.ResourceProperties
 data NfsExportsProperty
-  = NfsExportsProperty {clientConfigurations :: (Prelude.Maybe [ClientConfigurationsProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>
+    NfsExportsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations>
+                        clientConfigurations :: (Prelude.Maybe [ClientConfigurationsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNfsExportsProperty :: NfsExportsProperty
 mkNfsExportsProperty

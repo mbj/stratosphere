@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrossChannelBehaviorProperty
-  = CrossChannelBehaviorProperty {behaviorType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-crosschannelbehavior.html>
+    CrossChannelBehaviorProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-crosschannelbehavior.html#cfn-connect-routingprofile-crosschannelbehavior-behaviortype>
+                                  behaviorType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossChannelBehaviorProperty ::
   Value Prelude.Text -> CrossChannelBehaviorProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.DailyHourProperty as Exports
 import Stratosphere.ResourceProperties
 data OpenHoursProperty
-  = OpenHoursProperty {dailyHours :: [DailyHourProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-openhours.html>
+    OpenHoursProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-openhours.html#cfn-connectcampaignsv2-campaign-openhours-dailyhours>
+                       dailyHours :: [DailyHourProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenHoursProperty :: [DailyHourProperty] -> OpenHoursProperty
 mkOpenHoursProperty dailyHours

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.NetworkFabricConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkFrameworkConfigurationProperty
-  = NetworkFrameworkConfigurationProperty {networkFabricConfiguration :: (Prelude.Maybe NetworkFabricConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html>
+    NetworkFrameworkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html#cfn-managedblockchain-member-networkframeworkconfiguration-networkfabricconfiguration>
+                                           networkFabricConfiguration :: (Prelude.Maybe NetworkFabricConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFrameworkConfigurationProperty ::
   NetworkFrameworkConfigurationProperty

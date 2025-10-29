@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.OutboundEdiOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data CapabilityOptionsProperty
-  = CapabilityOptionsProperty {outboundEdi :: (Prelude.Maybe OutboundEdiOptionsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html>
+    CapabilityOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-outboundedi>
+                               outboundEdi :: (Prelude.Maybe OutboundEdiOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapabilityOptionsProperty :: CapabilityOptionsProperty
 mkCapabilityOptionsProperty

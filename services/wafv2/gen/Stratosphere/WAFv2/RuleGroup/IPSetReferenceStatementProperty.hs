@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.IPSetForwardedIPConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetReferenceStatementProperty
-  = IPSetReferenceStatementProperty {arn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html>
+    IPSetReferenceStatementProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn>
+                                     arn :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig>
                                      iPSetForwardedIPConfig :: (Prelude.Maybe IPSetForwardedIPConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetReferenceStatementProperty ::

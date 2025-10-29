@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSetti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReadProvisionedThroughputSettingsProperty
-  = ReadProvisionedThroughputSettingsProperty {readCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html>
+    ReadProvisionedThroughputSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings>
+                                               readCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty),
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits>
                                                readCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadProvisionedThroughputSettingsProperty ::

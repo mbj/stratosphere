@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FormInputValuePropertyB
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormInputValuePropertyProperty
-  = FormInputValuePropertyProperty {bindingProperties :: (Prelude.Maybe FormInputValuePropertyBindingPropertiesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html>
+    FormInputValuePropertyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-bindingproperties>
+                                    bindingProperties :: (Prelude.Maybe FormInputValuePropertyBindingPropertiesProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-concat>
                                     concat :: (Prelude.Maybe [FormInputValuePropertyProperty]),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-value>
                                     value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormInputValuePropertyProperty :: FormInputValuePropertyProperty

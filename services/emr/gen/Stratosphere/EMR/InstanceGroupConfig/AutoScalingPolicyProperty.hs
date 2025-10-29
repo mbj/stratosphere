@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.ScalingConstraintsPro
 import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.ScalingRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoScalingPolicyProperty
-  = AutoScalingPolicyProperty {constraints :: ScalingConstraintsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html>
+    AutoScalingPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-constraints>
+                               constraints :: ScalingConstraintsProperty,
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-rules>
                                rules :: [ScalingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::

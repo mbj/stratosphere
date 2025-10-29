@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ComputeLimitsProperty as Exports
 import Stratosphere.ResourceProperties
 data ManagedScalingPolicyProperty
-  = ManagedScalingPolicyProperty {computeLimits :: (Prelude.Maybe ComputeLimitsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html>
+    ManagedScalingPolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits>
+                                  computeLimits :: (Prelude.Maybe ComputeLimitsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedScalingPolicyProperty :: ManagedScalingPolicyProperty
 mkManagedScalingPolicyProperty

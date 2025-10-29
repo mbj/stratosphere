@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleConditionProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
-  = RuleProperty {actions :: [RuleActionProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html>
+    RuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html#cfn-ses-mailmanagerruleset-rule-actions>
+                  actions :: [RuleActionProperty],
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html#cfn-ses-mailmanagerruleset-rule-conditions>
                   conditions :: (Prelude.Maybe [RuleConditionProperty]),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html#cfn-ses-mailmanagerruleset-rule-name>
                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html#cfn-ses-mailmanagerruleset-rule-unless>
                   unless :: (Prelude.Maybe [RuleConditionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: [RuleActionProperty] -> RuleProperty

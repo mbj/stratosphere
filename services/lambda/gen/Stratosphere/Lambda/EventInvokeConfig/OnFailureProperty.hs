@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnFailureProperty
-  = OnFailureProperty {destination :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onfailure.html>
+    OnFailureProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onfailure.html#cfn-lambda-eventinvokeconfig-onfailure-destination>
+                       destination :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnFailureProperty :: Value Prelude.Text -> OnFailureProperty
 mkOnFailureProperty destination

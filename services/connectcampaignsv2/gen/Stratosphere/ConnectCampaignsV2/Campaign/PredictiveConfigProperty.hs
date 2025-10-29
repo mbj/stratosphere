@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveConfigProperty
-  = PredictiveConfigProperty {bandwidthAllocation :: (Value Prelude.Double)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html>
+    PredictiveConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html#cfn-connectcampaignsv2-campaign-predictiveconfig-bandwidthallocation>
+                              bandwidthAllocation :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveConfigProperty ::
   Value Prelude.Double -> PredictiveConfigProperty

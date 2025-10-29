@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpTimeoutProperty
-  = TcpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html>
+    TcpTimeoutProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcptimeout.html#cfn-appmesh-route-tcptimeout-idle>
+                        idle :: (Prelude.Maybe DurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpTimeoutProperty :: TcpTimeoutProperty
 mkTcpTimeoutProperty = TcpTimeoutProperty {idle = Prelude.Nothing}

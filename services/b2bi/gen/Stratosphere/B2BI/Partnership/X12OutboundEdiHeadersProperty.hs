@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.B2BI.Partnership.X12InterchangeControlHeaders
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data X12OutboundEdiHeadersProperty
-  = X12OutboundEdiHeadersProperty {delimiters :: (Prelude.Maybe X12DelimitersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html>
+    X12OutboundEdiHeadersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-delimiters>
+                                   delimiters :: (Prelude.Maybe X12DelimitersProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-functionalgroupheaders>
                                    functionalGroupHeaders :: (Prelude.Maybe X12FunctionalGroupHeadersProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-interchangecontrolheaders>
                                    interchangeControlHeaders :: (Prelude.Maybe X12InterchangeControlHeadersProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-validateedi>
                                    validateEdi :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkX12OutboundEdiHeadersProperty :: X12OutboundEdiHeadersProperty

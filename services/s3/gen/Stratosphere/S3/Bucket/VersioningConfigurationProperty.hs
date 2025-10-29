@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VersioningConfigurationProperty
-  = VersioningConfigurationProperty {status :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfiguration.html>
+    VersioningConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfiguration.html#cfn-s3-bucket-versioningconfiguration-status>
+                                     status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVersioningConfigurationProperty ::
   Value Prelude.Text -> VersioningConfigurationProperty

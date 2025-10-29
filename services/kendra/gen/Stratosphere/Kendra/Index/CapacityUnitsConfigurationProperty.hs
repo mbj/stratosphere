@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityUnitsConfigurationProperty
-  = CapacityUnitsConfigurationProperty {queryCapacityUnits :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html>
+    CapacityUnitsConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits>
+                                        queryCapacityUnits :: (Value Prelude.Integer),
+                                        -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits>
                                         storageCapacityUnits :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityUnitsConfigurationProperty ::

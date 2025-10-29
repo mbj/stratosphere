@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.GameLift.Fleet.LocationCapacityProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocationConfigurationProperty
-  = LocationConfigurationProperty {location :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html>
+    LocationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location>
+                                   location :: (Value Prelude.Text),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity>
                                    locationCapacity :: (Prelude.Maybe LocationCapacityProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationConfigurationProperty ::

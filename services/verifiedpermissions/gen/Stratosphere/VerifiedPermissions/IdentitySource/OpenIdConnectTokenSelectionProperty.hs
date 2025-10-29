@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConn
 import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectIdentityTokenConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data OpenIdConnectTokenSelectionProperty
-  = OpenIdConnectTokenSelectionProperty {accessTokenOnly :: (Prelude.Maybe OpenIdConnectAccessTokenConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html>
+    OpenIdConnectTokenSelectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html#cfn-verifiedpermissions-identitysource-openidconnecttokenselection-accesstokenonly>
+                                         accessTokenOnly :: (Prelude.Maybe OpenIdConnectAccessTokenConfigurationProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html#cfn-verifiedpermissions-identitysource-openidconnecttokenselection-identitytokenonly>
                                          identityTokenOnly :: (Prelude.Maybe OpenIdConnectIdentityTokenConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIdConnectTokenSelectionProperty ::

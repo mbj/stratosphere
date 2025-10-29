@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.CustomPlugin.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomPluginLocationProperty
-  = CustomPluginLocationProperty {s3Location :: S3LocationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html>
+    CustomPluginLocationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html#cfn-kafkaconnect-customplugin-custompluginlocation-s3location>
+                                  s3Location :: S3LocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginLocationProperty ::
   S3LocationProperty -> CustomPluginLocationProperty

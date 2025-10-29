@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.IntermediateStoragePropert
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.TransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomTransformationConfigurationProperty
-  = CustomTransformationConfigurationProperty {intermediateStorage :: IntermediateStorageProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-customtransformationconfiguration.html>
+    CustomTransformationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-customtransformationconfiguration.html#cfn-bedrock-datasource-customtransformationconfiguration-intermediatestorage>
+                                               intermediateStorage :: IntermediateStorageProperty,
+                                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-customtransformationconfiguration.html#cfn-bedrock-datasource-customtransformationconfiguration-transformations>
                                                transformations :: [TransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomTransformationConfigurationProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.PredictiveConfigP
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.ProgressiveConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data TelephonyOutboundModeProperty
-  = TelephonyOutboundModeProperty {agentlessConfig :: (Prelude.Maybe JSON.Object),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html>
+    TelephonyOutboundModeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-agentlessconfig>
+                                   agentlessConfig :: (Prelude.Maybe JSON.Object),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-predictiveconfig>
                                    predictiveConfig :: (Prelude.Maybe PredictiveConfigProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-progressiveconfig>
                                    progressiveConfig :: (Prelude.Maybe ProgressiveConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTelephonyOutboundModeProperty :: TelephonyOutboundModeProperty

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.FilterRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data S3KeyFilterProperty
-  = S3KeyFilterProperty {rules :: [FilterRuleProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html>
+    S3KeyFilterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html#cfn-s3-bucket-s3keyfilter-rules>
+                         rules :: [FilterRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3KeyFilterProperty ::
   [FilterRuleProperty] -> S3KeyFilterProperty

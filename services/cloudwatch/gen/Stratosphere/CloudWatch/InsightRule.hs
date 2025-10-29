@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.InsightRule.TagsProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InsightRule
-  = InsightRule {ruleBody :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html>
+    InsightRule {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody>
+                 ruleBody :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulename>
                  ruleName :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate>
                  ruleState :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-tags>
                  tags :: (Prelude.Maybe TagsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightRule ::

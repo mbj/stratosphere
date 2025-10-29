@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSour
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordFormatProperty
-  = RecordFormatProperty {mappingParameters :: (Prelude.Maybe MappingParametersProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html>
+    RecordFormatProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html#cfn-kinesisanalytics-applicationreferencedatasource-recordformat-mappingparameters>
+                          mappingParameters :: (Prelude.Maybe MappingParametersProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html#cfn-kinesisanalytics-applicationreferencedatasource-recordformat-recordformattype>
                           recordFormatType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordFormatProperty ::

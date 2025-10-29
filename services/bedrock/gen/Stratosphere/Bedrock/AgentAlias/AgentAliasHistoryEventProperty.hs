@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Bedrock.AgentAlias.AgentAliasRoutingConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentAliasHistoryEventProperty
-  = AgentAliasHistoryEventProperty {endDate :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliashistoryevent.html>
+    AgentAliasHistoryEventProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliashistoryevent.html#cfn-bedrock-agentalias-agentaliashistoryevent-enddate>
+                                    endDate :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliashistoryevent.html#cfn-bedrock-agentalias-agentaliashistoryevent-routingconfiguration>
                                     routingConfiguration :: (Prelude.Maybe [AgentAliasRoutingConfigurationListItemProperty]),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliashistoryevent.html#cfn-bedrock-agentalias-agentaliashistoryevent-startdate>
                                     startDate :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentAliasHistoryEventProperty :: AgentAliasHistoryEventProperty

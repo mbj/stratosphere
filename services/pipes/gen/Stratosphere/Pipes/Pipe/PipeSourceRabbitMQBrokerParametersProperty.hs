@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.MQBrokerAccessCredentialsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeSourceRabbitMQBrokerParametersProperty
-  = PipeSourceRabbitMQBrokerParametersProperty {batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html>
+    PipeSourceRabbitMQBrokerParametersProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-batchsize>
+                                                batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-credentials>
                                                 credentials :: MQBrokerAccessCredentialsProperty,
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-maximumbatchingwindowinseconds>
                                                 maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-queuename>
                                                 queueName :: (Value Prelude.Text),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html#cfn-pipes-pipe-pipesourcerabbitmqbrokerparameters-virtualhost>
                                                 virtualHost :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceRabbitMQBrokerParametersProperty ::

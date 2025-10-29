@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.S3OutputFormatConfigProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationPropertiesProperty
-  = S3DestinationPropertiesProperty {bucketName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html>
+    S3DestinationPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname>
+                                     bucketName :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix>
                                      bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig>
                                      s3OutputFormatConfig :: (Prelude.Maybe S3OutputFormatConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationPropertiesProperty ::

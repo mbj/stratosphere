@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrimaryProperty
-  = PrimaryProperty {healthCheck :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html>
+    PrimaryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html#cfn-events-endpoint-primary-healthcheck>
+                     healthCheck :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrimaryProperty :: Value Prelude.Text -> PrimaryProperty
 mkPrimaryProperty healthCheck

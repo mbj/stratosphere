@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.Glue.SchemaVersion.SchemaProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaVersion
-  = SchemaVersion {schema :: SchemaProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html>
+    SchemaVersion {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema>
+                   schema :: SchemaProperty,
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition>
                    schemaDefinition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersion ::

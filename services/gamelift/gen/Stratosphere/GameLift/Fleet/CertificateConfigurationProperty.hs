@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateConfigurationProperty
-  = CertificateConfigurationProperty {certificateType :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>
+    CertificateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype>
+                                      certificateType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateConfigurationProperty ::
   Value Prelude.Text -> CertificateConfigurationProperty

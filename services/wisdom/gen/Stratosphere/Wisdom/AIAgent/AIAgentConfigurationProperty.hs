@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.AnswerRecommendationAIAgentCon
 import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.ManualSearchAIAgentConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AIAgentConfigurationProperty
-  = AIAgentConfigurationProperty {answerRecommendationAIAgentConfiguration :: (Prelude.Maybe AnswerRecommendationAIAgentConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html>
+    AIAgentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-answerrecommendationaiagentconfiguration>
+                                  answerRecommendationAIAgentConfiguration :: (Prelude.Maybe AnswerRecommendationAIAgentConfigurationProperty),
+                                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-manualsearchaiagentconfiguration>
                                   manualSearchAIAgentConfiguration :: (Prelude.Maybe ManualSearchAIAgentConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAIAgentConfigurationProperty :: AIAgentConfigurationProperty

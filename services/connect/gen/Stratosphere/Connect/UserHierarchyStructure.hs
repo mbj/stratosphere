@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Connect.UserHierarchyStructure.UserHierarchyS
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserHierarchyStructure
-  = UserHierarchyStructure {instanceArn :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html>
+    UserHierarchyStructure {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html#cfn-connect-userhierarchystructure-instancearn>
+                            instanceArn :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure>
                             userHierarchyStructure :: (Prelude.Maybe UserHierarchyStructureProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserHierarchyStructure ::

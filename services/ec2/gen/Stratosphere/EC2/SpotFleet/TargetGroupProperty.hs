@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetGroupProperty
-  = TargetGroupProperty {arn :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html>
+    TargetGroupProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn>
+                         arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupProperty :: Value Prelude.Text -> TargetGroupProperty
 mkTargetGroupProperty arn = TargetGroupProperty {arn = arn}

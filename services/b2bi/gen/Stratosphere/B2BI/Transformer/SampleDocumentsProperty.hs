@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.B2BI.Transformer.SampleDocumentKeysProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SampleDocumentsProperty
-  = SampleDocumentsProperty {bucketName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocuments.html>
+    SampleDocumentsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocuments.html#cfn-b2bi-transformer-sampledocuments-bucketname>
+                             bucketName :: (Value Prelude.Text),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocuments.html#cfn-b2bi-transformer-sampledocuments-keys>
                              keys :: [SampleDocumentKeysProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSampleDocumentsProperty ::

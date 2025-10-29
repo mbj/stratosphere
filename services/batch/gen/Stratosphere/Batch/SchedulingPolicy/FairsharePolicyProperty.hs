@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Batch.SchedulingPolicy.ShareAttributesPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FairsharePolicyProperty
-  = FairsharePolicyProperty {computeReservation :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html>
+    FairsharePolicyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-computereservation>
+                             computeReservation :: (Prelude.Maybe (Value Prelude.Double)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedecayseconds>
                              shareDecaySeconds :: (Prelude.Maybe (Value Prelude.Double)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedistribution>
                              shareDistribution :: (Prelude.Maybe [ShareAttributesProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFairsharePolicyProperty :: FairsharePolicyProperty

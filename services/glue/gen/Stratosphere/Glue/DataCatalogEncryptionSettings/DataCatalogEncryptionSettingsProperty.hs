@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Glue.DataCatalogEncryptionSettings.Connection
 import {-# SOURCE #-} Stratosphere.Glue.DataCatalogEncryptionSettings.EncryptionAtRestProperty as Exports
 import Stratosphere.ResourceProperties
 data DataCatalogEncryptionSettingsProperty
-  = DataCatalogEncryptionSettingsProperty {connectionPasswordEncryption :: (Prelude.Maybe ConnectionPasswordEncryptionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html>
+    DataCatalogEncryptionSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption>
+                                           connectionPasswordEncryption :: (Prelude.Maybe ConnectionPasswordEncryptionProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest>
                                            encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogEncryptionSettingsProperty ::

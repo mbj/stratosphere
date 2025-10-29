@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data CmafEncryptionProperty
-  = CmafEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html>
+    CmafEncryptionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider>
+                            spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafEncryptionProperty ::
   SpekeKeyProviderProperty -> CmafEncryptionProperty

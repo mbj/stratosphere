@@ -7,8 +7,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data BiasProperty
-  = BiasProperty {postTrainingReport :: (Prelude.Maybe MetricsSourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html>
+    BiasProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html#cfn-sagemaker-modelpackage-bias-posttrainingreport>
+                  postTrainingReport :: (Prelude.Maybe MetricsSourceProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html#cfn-sagemaker-modelpackage-bias-pretrainingreport>
                   preTrainingReport :: (Prelude.Maybe MetricsSourceProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html#cfn-sagemaker-modelpackage-bias-report>
                   report :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBiasProperty :: BiasProperty

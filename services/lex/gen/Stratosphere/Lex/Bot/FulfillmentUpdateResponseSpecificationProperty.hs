@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FulfillmentUpdateResponseSpecificationProperty
-  = FulfillmentUpdateResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html>
+    FulfillmentUpdateResponseSpecificationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-allowinterrupt>
+                                                    allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-frequencyinseconds>
                                                     frequencyInSeconds :: (Value Prelude.Integer),
+                                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-messagegroups>
                                                     messageGroups :: [MessageGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentUpdateResponseSpecificationProperty ::

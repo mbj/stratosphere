@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Inte
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoalProperty
-  = GoalProperty {attainmentGoal :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html>
+    GoalProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-attainmentgoal>
+                  attainmentGoal :: (Prelude.Maybe (Value Prelude.Double)),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-interval>
                   interval :: (Prelude.Maybe IntervalProperty),
+                  -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-warningthreshold>
                   warningThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGoalProperty :: GoalProperty

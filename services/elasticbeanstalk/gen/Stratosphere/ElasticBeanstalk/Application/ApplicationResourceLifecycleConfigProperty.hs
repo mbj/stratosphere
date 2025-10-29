@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ElasticBeanstalk.Application.ApplicationVersi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationResourceLifecycleConfigProperty
-  = ApplicationResourceLifecycleConfigProperty {serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html>
+    ApplicationResourceLifecycleConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html#cfn-elasticbeanstalk-application-applicationresourcelifecycleconfig-servicerole>
+                                                serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html#cfn-elasticbeanstalk-application-applicationresourcelifecycleconfig-versionlifecycleconfig>
                                                 versionLifecycleConfig :: (Prelude.Maybe ApplicationVersionLifecycleConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationResourceLifecycleConfigProperty ::

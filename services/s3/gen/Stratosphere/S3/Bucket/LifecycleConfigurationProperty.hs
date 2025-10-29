@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecycleConfigurationProperty
-  = LifecycleConfigurationProperty {rules :: [RuleProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html>
+    LifecycleConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-rules>
+                                    rules :: [RuleProperty],
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-transitiondefaultminimumobjectsize>
                                     transitionDefaultMinimumObjectSize :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleConfigurationProperty ::

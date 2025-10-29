@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.RecipeSelectionP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceSelectionProperty
-  = ResourceSelectionProperty {recipes :: (Prelude.Maybe [RecipeSelectionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html>
+    ResourceSelectionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html#cfn-imagebuilder-lifecyclepolicy-resourceselection-recipes>
+                               recipes :: (Prelude.Maybe [RecipeSelectionProperty]),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html#cfn-imagebuilder-lifecyclepolicy-resourceselection-tagmap>
                                tagMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceSelectionProperty :: ResourceSelectionProperty

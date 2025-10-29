@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.M2tsSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data UdpContainerSettingsProperty
-  = UdpContainerSettingsProperty {m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html>
+    UdpContainerSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html#cfn-medialive-channel-udpcontainersettings-m2tssettings>
+                                  m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpContainerSettingsProperty :: UdpContainerSettingsProperty
 mkUdpContainerSettingsProperty

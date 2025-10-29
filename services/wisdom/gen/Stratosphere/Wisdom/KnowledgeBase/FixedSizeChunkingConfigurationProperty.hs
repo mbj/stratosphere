@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FixedSizeChunkingConfigurationProperty
-  = FixedSizeChunkingConfigurationProperty {maxTokens :: (Value Prelude.Double),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html>
+    FixedSizeChunkingConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html#cfn-wisdom-knowledgebase-fixedsizechunkingconfiguration-maxtokens>
+                                            maxTokens :: (Value Prelude.Double),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html#cfn-wisdom-knowledgebase-fixedsizechunkingconfiguration-overlappercentage>
                                             overlapPercentage :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFixedSizeChunkingConfigurationProperty ::

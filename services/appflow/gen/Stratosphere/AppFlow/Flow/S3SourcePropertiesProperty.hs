@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.S3InputFormatConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3SourcePropertiesProperty
-  = S3SourcePropertiesProperty {bucketName :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html>
+    S3SourcePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname>
+                                bucketName :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix>
                                 bucketPrefix :: (Value Prelude.Text),
+                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-s3inputformatconfig>
                                 s3InputFormatConfig :: (Prelude.Maybe S3InputFormatConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourcePropertiesProperty ::

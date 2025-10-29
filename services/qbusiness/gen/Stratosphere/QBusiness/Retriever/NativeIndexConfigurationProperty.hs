@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NativeIndexConfigurationProperty
-  = NativeIndexConfigurationProperty {indexId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-nativeindexconfiguration.html>
+    NativeIndexConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-nativeindexconfiguration.html#cfn-qbusiness-retriever-nativeindexconfiguration-indexid>
+                                      indexId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNativeIndexConfigurationProperty ::
   Value Prelude.Text -> NativeIndexConfigurationProperty

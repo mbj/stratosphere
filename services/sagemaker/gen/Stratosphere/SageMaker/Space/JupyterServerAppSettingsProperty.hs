@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Space.ResourceSpecProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JupyterServerAppSettingsProperty
-  = JupyterServerAppSettingsProperty {defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html>
+    JupyterServerAppSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html#cfn-sagemaker-space-jupyterserverappsettings-defaultresourcespec>
+                                      defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                      -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html#cfn-sagemaker-space-jupyterserverappsettings-lifecycleconfigarns>
                                       lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJupyterServerAppSettingsProperty ::

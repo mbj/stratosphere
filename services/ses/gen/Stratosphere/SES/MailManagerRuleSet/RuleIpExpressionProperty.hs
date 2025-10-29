@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleIpToEvaluateProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleIpExpressionProperty
-  = RuleIpExpressionProperty {evaluate :: RuleIpToEvaluateProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html>
+    RuleIpExpressionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html#cfn-ses-mailmanagerruleset-ruleipexpression-evaluate>
+                              evaluate :: RuleIpToEvaluateProperty,
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html#cfn-ses-mailmanagerruleset-ruleipexpression-operator>
                               operator :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html#cfn-ses-mailmanagerruleset-ruleipexpression-values>
                               values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleIpExpressionProperty ::

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.GrammarSlotTypeSettingProperty as Exports
 import Stratosphere.ResourceProperties
 data ExternalSourceSettingProperty
-  = ExternalSourceSettingProperty {grammarSlotTypeSetting :: (Prelude.Maybe GrammarSlotTypeSettingProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-externalsourcesetting.html>
+    ExternalSourceSettingProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-externalsourcesetting.html#cfn-lex-bot-externalsourcesetting-grammarslottypesetting>
+                                   grammarSlotTypeSetting :: (Prelude.Maybe GrammarSlotTypeSettingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExternalSourceSettingProperty :: ExternalSourceSettingProperty
 mkExternalSourceSettingProperty

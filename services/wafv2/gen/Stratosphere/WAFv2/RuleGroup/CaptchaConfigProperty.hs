@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ImmunityTimePropertyProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptchaConfigProperty
-  = CaptchaConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html>
+    CaptchaConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html#cfn-wafv2-rulegroup-captchaconfig-immunitytimeproperty>
+                           immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaConfigProperty :: CaptchaConfigProperty
 mkCaptchaConfigProperty

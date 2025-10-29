@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.SourceConnectorP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceFlowConfigProperty
-  = SourceFlowConfigProperty {connectorProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html>
+    SourceFlowConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename>
+                              connectorProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype>
                               connectorType :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig>
                               incrementalPullConfig :: (Prelude.Maybe IncrementalPullConfigProperty),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties>
                               sourceConnectorProperties :: SourceConnectorPropertiesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceFlowConfigProperty ::

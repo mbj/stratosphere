@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.SourceCodeVersionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeRepositoryProperty
-  = CodeRepositoryProperty {codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html>
+    CodeRepositoryProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration>
+                            codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl>
                             repositoryUrl :: (Value Prelude.Text),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion>
                             sourceCodeVersion :: SourceCodeVersionProperty,
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcedirectory>
                             sourceDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepositoryProperty ::

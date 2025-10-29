@@ -12,14 +12,24 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.AutomationRule.WorkflowUpdateProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutomationRulesFindingFieldsUpdateProperty
-  = AutomationRulesFindingFieldsUpdateProperty {confidence :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html>
+    AutomationRulesFindingFieldsUpdateProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-confidence>
+                                                confidence :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-criticality>
                                                 criticality :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-note>
                                                 note :: (Prelude.Maybe NoteUpdateProperty),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-relatedfindings>
                                                 relatedFindings :: (Prelude.Maybe [RelatedFindingProperty]),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-severity>
                                                 severity :: (Prelude.Maybe SeverityUpdateProperty),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-types>
                                                 types :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-userdefinedfields>
                                                 userDefinedFields :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-verificationstate>
                                                 verificationState :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html#cfn-securityhub-automationrule-automationrulesfindingfieldsupdate-workflow>
                                                 workflow :: (Prelude.Maybe WorkflowUpdateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutomationRulesFindingFieldsUpdateProperty ::

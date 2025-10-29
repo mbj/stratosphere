@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.RUM.AppMonitor.MetricDefinitionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricDestinationProperty
-  = MetricDestinationProperty {destination :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html>
+    MetricDestinationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html#cfn-rum-appmonitor-metricdestination-destination>
+                               destination :: (Value Prelude.Text),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html#cfn-rum-appmonitor-metricdestination-destinationarn>
                                destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html#cfn-rum-appmonitor-metricdestination-iamrolearn>
                                iamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html#cfn-rum-appmonitor-metricdestination-metricdefinitions>
                                metricDefinitions :: (Prelude.Maybe [MetricDefinitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDestinationProperty ::

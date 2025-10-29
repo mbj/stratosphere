@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.SliM
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SliProperty
-  = SliProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html>
+    SliProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-comparisonoperator>
+                 comparisonOperator :: (Value Prelude.Text),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-metricthreshold>
                  metricThreshold :: (Value Prelude.Double),
+                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-slimetric>
                  sliMetric :: SliMetricProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSliProperty ::

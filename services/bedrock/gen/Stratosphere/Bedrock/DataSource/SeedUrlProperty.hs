@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SeedUrlProperty
-  = SeedUrlProperty {url :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html>
+    SeedUrlProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html#cfn-bedrock-datasource-seedurl-url>
+                     url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSeedUrlProperty :: Value Prelude.Text -> SeedUrlProperty
 mkSeedUrlProperty url = SeedUrlProperty {url = url}

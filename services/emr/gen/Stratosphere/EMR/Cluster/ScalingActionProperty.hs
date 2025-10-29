@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.SimpleScalingPolicyConfigurationP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingActionProperty
-  = ScalingActionProperty {market :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html>
+    ScalingActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-market>
+                           market :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html#cfn-elasticmapreduce-cluster-scalingaction-simplescalingpolicyconfiguration>
                            simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingActionProperty ::

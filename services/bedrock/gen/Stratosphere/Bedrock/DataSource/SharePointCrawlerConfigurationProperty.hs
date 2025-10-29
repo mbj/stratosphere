@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.CrawlFilterConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SharePointCrawlerConfigurationProperty
-  = SharePointCrawlerConfigurationProperty {filterConfiguration :: (Prelude.Maybe CrawlFilterConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html>
+    SharePointCrawlerConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html#cfn-bedrock-datasource-sharepointcrawlerconfiguration-filterconfiguration>
+                                            filterConfiguration :: (Prelude.Maybe CrawlFilterConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointCrawlerConfigurationProperty ::
   SharePointCrawlerConfigurationProperty

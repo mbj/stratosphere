@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValid
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayClientPolicyTlsProperty
-  = VirtualGatewayClientPolicyTlsProperty {certificate :: (Prelude.Maybe VirtualGatewayClientTlsCertificateProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html>
+    VirtualGatewayClientPolicyTlsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-certificate>
+                                           certificate :: (Prelude.Maybe VirtualGatewayClientTlsCertificateProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce>
                                            enforce :: (Prelude.Maybe (Value Prelude.Bool)),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports>
                                            ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation>
                                            validation :: VirtualGatewayTlsValidationContextProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientPolicyTlsProperty ::

@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.WebCrawlerLimitsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerConfigurationProperty
-  = WebCrawlerConfigurationProperty {crawlerLimits :: (Prelude.Maybe WebCrawlerLimitsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html>
+    WebCrawlerConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-crawlerlimits>
+                                     crawlerLimits :: (Prelude.Maybe WebCrawlerLimitsProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-exclusionfilters>
                                      exclusionFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-inclusionfilters>
                                      inclusionFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-scope>
                                      scope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerConfigurationProperty ::

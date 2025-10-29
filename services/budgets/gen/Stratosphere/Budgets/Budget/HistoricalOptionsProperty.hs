@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HistoricalOptionsProperty
-  = HistoricalOptionsProperty {budgetAdjustmentPeriod :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html>
+    HistoricalOptionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html#cfn-budgets-budget-historicaloptions-budgetadjustmentperiod>
+                               budgetAdjustmentPeriod :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHistoricalOptionsProperty ::
   Value Prelude.Integer -> HistoricalOptionsProperty

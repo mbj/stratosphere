@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data RateLimitQueryStringProperty
-  = RateLimitQueryStringProperty {textTransformations :: [TextTransformationProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitquerystring.html>
+    RateLimitQueryStringProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitquerystring.html#cfn-wafv2-webacl-ratelimitquerystring-texttransformations>
+                                  textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitQueryStringProperty ::
   [TextTransformationProperty] -> RateLimitQueryStringProperty

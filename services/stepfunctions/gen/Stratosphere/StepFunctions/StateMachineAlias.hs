@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachineAlias.RoutingConfig
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StateMachineAlias
-  = StateMachineAlias {deploymentPreference :: (Prelude.Maybe DeploymentPreferenceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html>
+    StateMachineAlias {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-deploymentpreference>
+                       deploymentPreference :: (Prelude.Maybe DeploymentPreferenceProperty),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-name>
                        name :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-routingconfiguration>
                        routingConfiguration :: (Prelude.Maybe [RoutingConfigurationVersionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStateMachineAlias :: StateMachineAlias

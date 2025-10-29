@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParallelismConfigurationProperty
-  = ParallelismConfigurationProperty {maxParallelExecutionSteps :: (Value Prelude.Integer)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>
+    ParallelismConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html#cfn-sagemaker-pipeline-parallelismconfiguration-maxparallelexecutionsteps>
+                                      maxParallelExecutionSteps :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParallelismConfigurationProperty ::
   Value Prelude.Integer -> ParallelismConfigurationProperty

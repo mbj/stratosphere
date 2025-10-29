@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SeedUrlProperty as Exports
 import Stratosphere.ResourceProperties
 data UrlConfigurationProperty
-  = UrlConfigurationProperty {seedUrls :: [SeedUrlProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html>
+    UrlConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html#cfn-bedrock-datasource-urlconfiguration-seedurls>
+                              seedUrls :: [SeedUrlProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUrlConfigurationProperty ::
   [SeedUrlProperty] -> UrlConfigurationProperty

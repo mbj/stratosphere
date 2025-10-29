@@ -8,8 +8,12 @@ import {-# SOURCE #-} Stratosphere.CloudFront.KeyValueStore.ImportSourceProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyValueStore
-  = KeyValueStore {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html>
+    KeyValueStore {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-comment>
+                   comment :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-importsource>
                    importSource :: (Prelude.Maybe ImportSourceProperty),
+                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-name>
                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValueStore :: Value Prelude.Text -> KeyValueStore

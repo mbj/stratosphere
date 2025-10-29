@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ErrorReportConfigurationProperty
-  = ErrorReportConfigurationProperty {s3Configuration :: S3ConfigurationProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html>
+    ErrorReportConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html#cfn-timestream-scheduledquery-errorreportconfiguration-s3configuration>
+                                      s3Configuration :: S3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorReportConfigurationProperty ::
   S3ConfigurationProperty -> ErrorReportConfigurationProperty

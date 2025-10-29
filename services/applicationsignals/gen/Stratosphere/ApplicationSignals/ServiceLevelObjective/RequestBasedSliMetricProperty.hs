@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Moni
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestBasedSliMetricProperty
-  = RequestBasedSliMetricProperty {keyAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html>
+    RequestBasedSliMetricProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-keyattributes>
+                                   keyAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-metrictype>
                                    metricType :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-monitoredrequestcountmetric>
                                    monitoredRequestCountMetric :: (Prelude.Maybe MonitoredRequestCountMetricProperty),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-operationname>
                                    operationName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-totalrequestcountmetric>
                                    totalRequestCountMetric :: (Prelude.Maybe [MetricDataQueryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestBasedSliMetricProperty :: RequestBasedSliMetricProperty

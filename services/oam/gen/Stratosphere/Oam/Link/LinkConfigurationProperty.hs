@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Oam.Link.LinkFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data LinkConfigurationProperty
-  = LinkConfigurationProperty {logGroupConfiguration :: (Prelude.Maybe LinkFilterProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html>
+    LinkConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html#cfn-oam-link-linkconfiguration-loggroupconfiguration>
+                               logGroupConfiguration :: (Prelude.Maybe LinkFilterProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html#cfn-oam-link-linkconfiguration-metricconfiguration>
                                metricConfiguration :: (Prelude.Maybe LinkFilterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLinkConfigurationProperty :: LinkConfigurationProperty

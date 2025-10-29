@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.FontProperty as Exports
 import Stratosphere.ResourceProperties
 data TypographyProperty
-  = TypographyProperty {fontFamilies :: (Prelude.Maybe [FontProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html>
+    TypographyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies>
+                        fontFamilies :: (Prelude.Maybe [FontProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTypographyProperty :: TypographyProperty
 mkTypographyProperty

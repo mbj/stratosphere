@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.FilterProperty as Exports
 import Stratosphere.ResourceProperties
 data FilterCriteriaProperty
-  = FilterCriteriaProperty {filters :: (Prelude.Maybe [FilterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html>
+    FilterCriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html#cfn-lambda-eventsourcemapping-filtercriteria-filters>
+                            filters :: (Prelude.Maybe [FilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty

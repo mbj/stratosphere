@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecutionPropertyProperty
-  = ExecutionPropertyProperty {maxConcurrentRuns :: (Prelude.Maybe (Value Prelude.Double))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html>
+    ExecutionPropertyProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns>
+                               maxConcurrentRuns :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionPropertyProperty :: ExecutionPropertyProperty
 mkExecutionPropertyProperty

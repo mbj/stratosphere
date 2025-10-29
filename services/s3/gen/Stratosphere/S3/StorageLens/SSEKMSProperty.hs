@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SSEKMSProperty
-  = SSEKMSProperty {keyId :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html>
+    SSEKMSProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html#cfn-s3-storagelens-ssekms-keyid>
+                    keyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSSEKMSProperty :: Value Prelude.Text -> SSEKMSProperty
 mkSSEKMSProperty keyId = SSEKMSProperty {keyId = keyId}

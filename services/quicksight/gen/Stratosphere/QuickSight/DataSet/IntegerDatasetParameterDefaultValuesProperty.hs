@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerDatasetParameterDefaultValuesProperty
-  = IntegerDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html>
+    IntegerDatasetParameterDefaultValuesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html#cfn-quicksight-dataset-integerdatasetparameterdefaultvalues-staticvalues>
+                                                  staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerDatasetParameterDefaultValuesProperty ::
   IntegerDatasetParameterDefaultValuesProperty

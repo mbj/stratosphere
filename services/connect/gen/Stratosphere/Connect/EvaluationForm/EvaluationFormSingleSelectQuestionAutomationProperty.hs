@@ -10,7 +10,10 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionAutomationProperty
-  = EvaluationFormSingleSelectQuestionAutomationProperty {defaultOptionRefId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html>
+    EvaluationFormSingleSelectQuestionAutomationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid>
+                                                          defaultOptionRefId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options>
                                                           options :: [EvaluationFormSingleSelectQuestionAutomationOptionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionAutomationProperty ::

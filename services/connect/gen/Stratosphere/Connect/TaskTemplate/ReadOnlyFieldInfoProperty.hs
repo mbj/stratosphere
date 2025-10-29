@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data ReadOnlyFieldInfoProperty
-  = ReadOnlyFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html>
+    ReadOnlyFieldInfoProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html#cfn-connect-tasktemplate-readonlyfieldinfo-id>
+                               id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadOnlyFieldInfoProperty ::
   FieldIdentifierProperty -> ReadOnlyFieldInfoProperty

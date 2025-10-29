@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldProperty as Exports
 import Stratosphere.ResourceProperties
 data UpdateCaseActionProperty
-  = UpdateCaseActionProperty {fields :: [FieldProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html>
+    UpdateCaseActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html#cfn-connect-rule-updatecaseaction-fields>
+                              fields :: [FieldProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateCaseActionProperty ::
   [FieldProperty] -> UpdateCaseActionProperty

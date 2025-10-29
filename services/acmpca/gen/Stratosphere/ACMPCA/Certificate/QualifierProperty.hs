@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QualifierProperty
-  = QualifierProperty {cpsUri :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html>
+    QualifierProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri>
+                       cpsUri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQualifierProperty :: Value Prelude.Text -> QualifierProperty
 mkQualifierProperty cpsUri = QualifierProperty {cpsUri = cpsUri}

@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.BedrockEmbeddingModelConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data EmbeddingModelConfigurationProperty
-  = EmbeddingModelConfigurationProperty {bedrockEmbeddingModelConfiguration :: (Prelude.Maybe BedrockEmbeddingModelConfigurationProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>
+    EmbeddingModelConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-embeddingmodelconfiguration-bedrockembeddingmodelconfiguration>
+                                         bedrockEmbeddingModelConfiguration :: (Prelude.Maybe BedrockEmbeddingModelConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddingModelConfigurationProperty ::
   EmbeddingModelConfigurationProperty

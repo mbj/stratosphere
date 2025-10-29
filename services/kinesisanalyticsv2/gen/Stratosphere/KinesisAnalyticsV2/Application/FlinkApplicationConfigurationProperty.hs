@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.MonitoringConf
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ParallelismConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FlinkApplicationConfigurationProperty
-  = FlinkApplicationConfigurationProperty {checkpointConfiguration :: (Prelude.Maybe CheckpointConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html>
+    FlinkApplicationConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-checkpointconfiguration>
+                                           checkpointConfiguration :: (Prelude.Maybe CheckpointConfigurationProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-monitoringconfiguration>
                                            monitoringConfiguration :: (Prelude.Maybe MonitoringConfigurationProperty),
+                                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-flinkapplicationconfiguration-parallelismconfiguration>
                                            parallelismConfiguration :: (Prelude.Maybe ParallelismConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlinkApplicationConfigurationProperty ::

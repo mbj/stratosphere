@@ -11,9 +11,14 @@ import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.FederatedAuthentication
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientAuthenticationRequestProperty
-  = ClientAuthenticationRequestProperty {activeDirectory :: (Prelude.Maybe DirectoryServiceAuthenticationRequestProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html>
+    ClientAuthenticationRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory>
+                                         activeDirectory :: (Prelude.Maybe DirectoryServiceAuthenticationRequestProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication>
                                          federatedAuthentication :: (Prelude.Maybe FederatedAuthenticationRequestProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication>
                                          mutualAuthentication :: (Prelude.Maybe CertificateAuthenticationRequestProperty),
+                                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type>
                                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationRequestProperty ::

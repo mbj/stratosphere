@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.TtlDurationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnlineStoreConfigProperty
-  = OnlineStoreConfigProperty {enableOnlineStore :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html>
+    OnlineStoreConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-enableonlinestore>
+                               enableOnlineStore :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-securityconfig>
                                securityConfig :: (Prelude.Maybe OnlineStoreSecurityConfigProperty),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype>
                                storageType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-ttlduration>
                                ttlDuration :: (Prelude.Maybe TtlDurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineStoreConfigProperty :: OnlineStoreConfigProperty

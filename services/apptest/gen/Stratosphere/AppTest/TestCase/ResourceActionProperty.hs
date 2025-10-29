@@ -10,8 +10,12 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.M2ManagedApplicationActionPr
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.M2NonManagedApplicationActionProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceActionProperty
-  = ResourceActionProperty {cloudFormationAction :: (Prelude.Maybe CloudFormationActionProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html>
+    ResourceActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-cloudformationaction>
+                            cloudFormationAction :: (Prelude.Maybe CloudFormationActionProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-m2managedapplicationaction>
                             m2ManagedApplicationAction :: (Prelude.Maybe M2ManagedApplicationActionProperty),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-m2nonmanagedapplicationaction>
                             m2NonManagedApplicationAction :: (Prelude.Maybe M2NonManagedApplicationActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceActionProperty :: ResourceActionProperty

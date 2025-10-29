@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceDownloa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3MachineLearningModelResourceDataProperty
-  = S3MachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html>
+    S3MachineLearningModelResourceDataProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-destinationpath>
+                                                destinationPath :: (Value Prelude.Text),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-ownersetting>
                                                 ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
+                                                -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinition-s3machinelearningmodelresourcedata-s3uri>
                                                 s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3MachineLearningModelResourceDataProperty ::

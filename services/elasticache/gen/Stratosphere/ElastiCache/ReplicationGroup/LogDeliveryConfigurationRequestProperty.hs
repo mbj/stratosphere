@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.ReplicationGroup.DestinationDetai
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogDeliveryConfigurationRequestProperty
-  = LogDeliveryConfigurationRequestProperty {destinationDetails :: DestinationDetailsProperty,
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html>
+    LogDeliveryConfigurationRequestProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails>
+                                             destinationDetails :: DestinationDetailsProperty,
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype>
                                              destinationType :: (Value Prelude.Text),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat>
                                              logFormat :: (Value Prelude.Text),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype>
                                              logType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfigurationRequestProperty ::

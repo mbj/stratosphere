@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.RoutingProfileQueueRef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingProfileQueueConfigProperty
-  = RoutingProfileQueueConfigProperty {delay :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>
+    RoutingProfileQueueConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-delay>
+                                       delay :: (Value Prelude.Integer),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-priority>
                                        priority :: (Value Prelude.Integer),
+                                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html#cfn-connect-routingprofile-routingprofilequeueconfig-queuereference>
                                        queueReference :: RoutingProfileQueueReferenceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingProfileQueueConfigProperty ::

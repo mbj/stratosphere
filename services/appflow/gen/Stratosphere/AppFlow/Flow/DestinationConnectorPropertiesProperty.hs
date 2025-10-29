@@ -18,16 +18,28 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.UpsolverDestinationPropertiesPro
 import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ZendeskDestinationPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConnectorPropertiesProperty
-  = DestinationConnectorPropertiesProperty {customConnector :: (Prelude.Maybe CustomConnectorDestinationPropertiesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html>
+    DestinationConnectorPropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-customconnector>
+                                            customConnector :: (Prelude.Maybe CustomConnectorDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge>
                                             eventBridge :: (Prelude.Maybe EventBridgeDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics>
                                             lookoutMetrics :: (Prelude.Maybe LookoutMetricsDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-marketo>
                                             marketo :: (Prelude.Maybe MarketoDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift>
                                             redshift :: (Prelude.Maybe RedshiftDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3>
                                             s3 :: (Prelude.Maybe S3DestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-sapodata>
                                             sAPOData :: (Prelude.Maybe SAPODataDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce>
                                             salesforce :: (Prelude.Maybe SalesforceDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake>
                                             snowflake :: (Prelude.Maybe SnowflakeDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver>
                                             upsolver :: (Prelude.Maybe UpsolverDestinationPropertiesProperty),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk>
                                             zendesk :: (Prelude.Maybe ZendeskDestinationPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConnectorPropertiesProperty ::

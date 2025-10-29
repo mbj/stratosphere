@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.TopicConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data TopicPolicyConfigProperty
-  = TopicPolicyConfigProperty {topicsConfig :: [TopicConfigProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html>
+    TopicPolicyConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicsconfig>
+                               topicsConfig :: [TopicConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicPolicyConfigProperty ::
   [TopicConfigProperty] -> TopicPolicyConfigProperty

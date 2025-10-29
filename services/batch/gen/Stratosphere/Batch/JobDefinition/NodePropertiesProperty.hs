@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NodeRangePropertyProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodePropertiesProperty
-  = NodePropertiesProperty {mainNode :: (Value Prelude.Integer),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html>
+    NodePropertiesProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-mainnode>
+                            mainNode :: (Value Prelude.Integer),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties>
                             nodeRangeProperties :: [NodeRangePropertyProperty],
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-numnodes>
                             numNodes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodePropertiesProperty ::

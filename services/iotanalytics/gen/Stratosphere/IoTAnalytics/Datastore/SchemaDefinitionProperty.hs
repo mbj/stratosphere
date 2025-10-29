@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.ColumnProperty as Exports
 import Stratosphere.ResourceProperties
 data SchemaDefinitionProperty
-  = SchemaDefinitionProperty {columns :: (Prelude.Maybe [ColumnProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html>
+    SchemaDefinitionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html#cfn-iotanalytics-datastore-schemadefinition-columns>
+                              columns :: (Prelude.Maybe [ColumnProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaDefinitionProperty :: SchemaDefinitionProperty
 mkSchemaDefinitionProperty

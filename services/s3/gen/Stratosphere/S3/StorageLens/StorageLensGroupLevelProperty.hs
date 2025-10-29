@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.StorageLensGroupSelectionCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageLensGroupLevelProperty
-  = StorageLensGroupLevelProperty {storageLensGroupSelectionCriteria :: (Prelude.Maybe StorageLensGroupSelectionCriteriaProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgrouplevel.html>
+    StorageLensGroupLevelProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgrouplevel.html#cfn-s3-storagelens-storagelensgrouplevel-storagelensgroupselectioncriteria>
+                                   storageLensGroupSelectionCriteria :: (Prelude.Maybe StorageLensGroupSelectionCriteriaProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLensGroupLevelProperty :: StorageLensGroupLevelProperty
 mkStorageLensGroupLevelProperty

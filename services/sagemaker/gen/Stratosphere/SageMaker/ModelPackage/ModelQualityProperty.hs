@@ -7,7 +7,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelQualityProperty
-  = ModelQualityProperty {constraints :: (Prelude.Maybe MetricsSourceProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html>
+    ModelQualityProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html#cfn-sagemaker-modelpackage-modelquality-constraints>
+                          constraints :: (Prelude.Maybe MetricsSourceProperty),
+                          -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html#cfn-sagemaker-modelpackage-modelquality-statistics>
                           statistics :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityProperty :: ModelQualityProperty

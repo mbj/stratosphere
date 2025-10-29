@@ -10,10 +10,16 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputSettingsProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputAttachmentProperty
-  = InputAttachmentProperty {automaticInputFailoverSettings :: (Prelude.Maybe AutomaticInputFailoverSettingsProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html>
+    InputAttachmentProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings>
+                             automaticInputFailoverSettings :: (Prelude.Maybe AutomaticInputFailoverSettingsProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname>
                              inputAttachmentName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputid>
                              inputId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputsettings>
                              inputSettings :: (Prelude.Maybe InputSettingsProperty),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-logicalinterfacenames>
                              logicalInterfaceNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputAttachmentProperty :: InputAttachmentProperty

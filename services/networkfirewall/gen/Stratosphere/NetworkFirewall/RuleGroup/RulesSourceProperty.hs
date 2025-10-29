@@ -10,9 +10,14 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.StatelessRulesAndCu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RulesSourceProperty
-  = RulesSourceProperty {rulesSourceList :: (Prelude.Maybe RulesSourceListProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html>
+    RulesSourceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist>
+                         rulesSourceList :: (Prelude.Maybe RulesSourceListProperty),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring>
                          rulesString :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules>
                          statefulRules :: (Prelude.Maybe [StatefulRuleProperty]),
+                         -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions>
                          statelessRulesAndCustomActions :: (Prelude.Maybe StatelessRulesAndCustomActionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesSourceProperty :: RulesSourceProperty

@@ -7,7 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagItemProperty
-  = TagItemProperty {key :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-tagitem.html>
+    TagItemProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-tagitem.html#cfn-guardduty-filter-tagitem-key>
+                     key :: (Value Prelude.Text),
+                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-tagitem.html#cfn-guardduty-filter-tagitem-value>
                      value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagItemProperty ::

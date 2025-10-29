@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Container.HealthCheckConfigProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublicEndpointProperty
-  = PublicEndpointProperty {containerName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html>
+    PublicEndpointProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containername>
+                            containerName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containerport>
                             containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-healthcheckconfig>
                             healthCheckConfig :: (Prelude.Maybe HealthCheckConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicEndpointProperty :: PublicEndpointProperty

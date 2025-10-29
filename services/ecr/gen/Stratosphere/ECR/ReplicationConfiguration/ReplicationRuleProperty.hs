@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.ReplicationDesti
 import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.RepositoryFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicationRuleProperty
-  = ReplicationRuleProperty {destinations :: [ReplicationDestinationProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html>
+    ReplicationRuleProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations>
+                             destinations :: [ReplicationDestinationProperty],
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-repositoryfilters>
                              repositoryFilters :: (Prelude.Maybe [RepositoryFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleProperty ::

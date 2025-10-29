@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.IntegerDatasetParameterDef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerDatasetParameterProperty
-  = IntegerDatasetParameterProperty {defaultValues :: (Prelude.Maybe IntegerDatasetParameterDefaultValuesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html>
+    IntegerDatasetParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-defaultvalues>
+                                     defaultValues :: (Prelude.Maybe IntegerDatasetParameterDefaultValuesProperty),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-id>
                                      id :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-name>
                                      name :: (Value Prelude.Text),
+                                     -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html#cfn-quicksight-dataset-integerdatasetparameter-valuetype>
                                      valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerDatasetParameterProperty ::

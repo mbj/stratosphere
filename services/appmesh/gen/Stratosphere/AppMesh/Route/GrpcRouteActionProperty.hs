@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcRouteActionProperty
-  = GrpcRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html>
+    GrpcRouteActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html#cfn-appmesh-route-grpcrouteaction-weightedtargets>
+                             weightedTargets :: [WeightedTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteActionProperty ::
   [WeightedTargetProperty] -> GrpcRouteActionProperty

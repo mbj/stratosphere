@@ -8,9 +8,14 @@ import {-# SOURCE #-} Stratosphere.CloudFront.RealtimeLogConfig.EndPointProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeLogConfig
-  = RealtimeLogConfig {endPoints :: [EndPointProperty],
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html>
+    RealtimeLogConfig {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints>
+                       endPoints :: [EndPointProperty],
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields>
                        fields :: (ValueList Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name>
                        name :: (Value Prelude.Text),
+                       -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate>
                        samplingRate :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeLogConfig ::

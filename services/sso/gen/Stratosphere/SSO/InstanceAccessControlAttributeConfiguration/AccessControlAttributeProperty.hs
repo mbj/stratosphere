@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.SSO.InstanceAccessControlAttributeConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAttributeProperty
-  = AccessControlAttributeProperty {key :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html>
+    AccessControlAttributeProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key>
+                                    key :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value>
                                     value :: AccessControlAttributeValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAttributeProperty ::

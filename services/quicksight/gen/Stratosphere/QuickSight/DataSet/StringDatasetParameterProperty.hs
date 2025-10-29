@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.StringDatasetParameterDefa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StringDatasetParameterProperty
-  = StringDatasetParameterProperty {defaultValues :: (Prelude.Maybe StringDatasetParameterDefaultValuesProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html>
+    StringDatasetParameterProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-defaultvalues>
+                                    defaultValues :: (Prelude.Maybe StringDatasetParameterDefaultValuesProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-id>
                                     id :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-name>
                                     name :: (Value Prelude.Text),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html#cfn-quicksight-dataset-stringdatasetparameter-valuetype>
                                     valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStringDatasetParameterProperty ::

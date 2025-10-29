@@ -8,7 +8,10 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.RecipeParametersProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionProperty
-  = ActionProperty {operation :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html>
+    ActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation>
+                    operation :: (Value Prelude.Text),
+                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters>
                     parameters :: (Prelude.Maybe RecipeParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.CustomActionPropert
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.StatelessRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data StatelessRulesAndCustomActionsProperty
-  = StatelessRulesAndCustomActionsProperty {customActions :: (Prelude.Maybe [CustomActionProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html>
+    StatelessRulesAndCustomActionsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions>
+                                            customActions :: (Prelude.Maybe [CustomActionProperty]),
+                                            -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules>
                                             statelessRules :: [StatelessRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRulesAndCustomActionsProperty ::

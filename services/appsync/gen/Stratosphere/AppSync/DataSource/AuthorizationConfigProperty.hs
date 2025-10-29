@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppSync.DataSource.AwsIamConfigProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthorizationConfigProperty
-  = AuthorizationConfigProperty {authorizationType :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html>
+    AuthorizationConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype>
+                                 authorizationType :: (Value Prelude.Text),
+                                 -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig>
                                  awsIamConfig :: (Prelude.Maybe AwsIamConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationConfigProperty ::

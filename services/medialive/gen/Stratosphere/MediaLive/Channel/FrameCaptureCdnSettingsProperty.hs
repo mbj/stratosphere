@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureS3SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FrameCaptureCdnSettingsProperty
-  = FrameCaptureCdnSettingsProperty {frameCaptureS3Settings :: (Prelude.Maybe FrameCaptureS3SettingsProperty)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html>
+    FrameCaptureCdnSettingsProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html#cfn-medialive-channel-framecapturecdnsettings-framecaptures3settings>
+                                     frameCaptureS3Settings :: (Prelude.Maybe FrameCaptureS3SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureCdnSettingsProperty ::
   FrameCaptureCdnSettingsProperty

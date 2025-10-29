@@ -9,10 +9,16 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptTemplateConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptVariantProperty
-  = PromptVariantProperty {inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html>
+    PromptVariantProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-inferenceconfiguration>
+                           inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-modelid>
                            modelId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-name>
                            name :: (Value Prelude.Text),
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templateconfiguration>
                            templateConfiguration :: PromptTemplateConfigurationProperty,
+                           -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templatetype>
                            templateType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptVariantProperty ::

@@ -7,7 +7,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.OutputFileProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputProperty
-  = OutputProperty {file :: OutputFileProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-output.html>
+    OutputProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-output.html#cfn-apptest-testcase-output-file>
+                    file :: OutputFileProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: OutputFileProperty -> OutputProperty
 mkOutputProperty file = OutputProperty {file = file}

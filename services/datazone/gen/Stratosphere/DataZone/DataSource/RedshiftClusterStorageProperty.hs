@@ -8,7 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftClusterStorageProperty
-  = RedshiftClusterStorageProperty {clusterName :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftclusterstorage.html>
+    RedshiftClusterStorageProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftclusterstorage.html#cfn-datazone-datasource-redshiftclusterstorage-clustername>
+                                    clusterName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftClusterStorageProperty ::
   Value Prelude.Text -> RedshiftClusterStorageProperty

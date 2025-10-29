@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SampleUtteranceProperty
-  = SampleUtteranceProperty {utterance :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html>
+    SampleUtteranceProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html#cfn-lex-bot-sampleutterance-utterance>
+                             utterance :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSampleUtteranceProperty ::
   Value Prelude.Text -> SampleUtteranceProperty

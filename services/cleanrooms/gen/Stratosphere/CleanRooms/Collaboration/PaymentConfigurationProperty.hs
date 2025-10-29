@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.Collaboration.QueryComputePaymentConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data PaymentConfigurationProperty
-  = PaymentConfigurationProperty {queryCompute :: QueryComputePaymentConfigProperty}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html>
+    PaymentConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-querycompute>
+                                  queryCompute :: QueryComputePaymentConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPaymentConfigurationProperty ::
   QueryComputePaymentConfigProperty -> PaymentConfigurationProperty

@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualService.VirtualNodeServiceProv
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualService.VirtualRouterServiceProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualServiceProviderProperty
-  = VirtualServiceProviderProperty {virtualNode :: (Prelude.Maybe VirtualNodeServiceProviderProperty),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html>
+    VirtualServiceProviderProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualnode>
+                                    virtualNode :: (Prelude.Maybe VirtualNodeServiceProviderProperty),
+                                    -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html#cfn-appmesh-virtualservice-virtualserviceprovider-virtualrouter>
                                     virtualRouter :: (Prelude.Maybe VirtualRouterServiceProviderProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceProviderProperty :: VirtualServiceProviderProperty

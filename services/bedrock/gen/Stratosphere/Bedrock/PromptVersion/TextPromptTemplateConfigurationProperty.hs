@@ -9,7 +9,10 @@ import {-# SOURCE #-} Stratosphere.Bedrock.PromptVersion.PromptInputVariableProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextPromptTemplateConfigurationProperty
-  = TextPromptTemplateConfigurationProperty {inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html>
+    TextPromptTemplateConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-inputvariables>
+                                             inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+                                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-text>
                                              text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextPromptTemplateConfigurationProperty ::

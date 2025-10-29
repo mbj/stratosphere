@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeActionProperty
-  = EventBridgeActionProperty {name :: (Value Prelude.Text)}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html>
+    EventBridgeActionProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html#cfn-connect-rule-eventbridgeaction-name>
+                               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeActionProperty ::
   Value Prelude.Text -> EventBridgeActionProperty

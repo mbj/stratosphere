@@ -8,7 +8,9 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.FilterProperty as Exports
 import Stratosphere.ResourceProperties
 data FilterCriteriaProperty
-  = FilterCriteriaProperty {filters :: (Prelude.Maybe [FilterProperty])}
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html>
+    FilterCriteriaProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html#cfn-pipes-pipe-filtercriteria-filters>
+                            filters :: (Prelude.Maybe [FilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty

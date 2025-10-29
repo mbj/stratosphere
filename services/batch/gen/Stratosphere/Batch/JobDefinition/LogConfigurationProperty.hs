@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
-  = LogConfigurationProperty {logDriver :: (Value Prelude.Text),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html>
+    LogConfigurationProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-logdriver>
+                              logDriver :: (Value Prelude.Text),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-options>
                               options :: (Prelude.Maybe JSON.Object),
+                              -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration-secretoptions>
                               secretOptions :: (Prelude.Maybe [SecretProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty ::

@@ -9,8 +9,12 @@ import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.CustomImageContainer
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerConfigProperty
-  = ContainerConfigProperty {containerArguments :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html>
+    ContainerConfigProperty {-- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html#cfn-sagemaker-appimageconfig-containerconfig-containerarguments>
+                             containerArguments :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html#cfn-sagemaker-appimageconfig-containerconfig-containerentrypoint>
                              containerEntrypoint :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- |See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html#cfn-sagemaker-appimageconfig-containerconfig-containerenvironmentvariables>
                              containerEnvironmentVariables :: (Prelude.Maybe [CustomImageContainerEnvironmentVariableProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerConfigProperty :: ContainerConfigProperty
