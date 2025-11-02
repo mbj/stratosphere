@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StaticValueProperty
-  = StaticValueProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html>
+    StaticValueProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values>
+                         values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStaticValueProperty :: StaticValueProperty
 mkStaticValueProperty
-  = StaticValueProperty {values = Prelude.Nothing}
+  = StaticValueProperty
+      {haddock_workaround_ = (), values = Prelude.Nothing}
 instance ToResourceProperties StaticValueProperty where
   toResourceProperties StaticValueProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON StaticValueProperty where
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" StaticValueProperty where
   type PropertyType "Values" StaticValueProperty = ValueList Prelude.Text
-  set newValue StaticValueProperty {}
+  set newValue StaticValueProperty {..}
     = StaticValueProperty {values = Prelude.pure newValue, ..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaRegionProperty
-  = ReplicaRegionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html>
+    ReplicaRegionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html#cfn-secretsmanager-secret-replicaregion-kmskeyid>
+                           kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html#cfn-secretsmanager-secret-replicaregion-region>
                            region :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaRegionProperty ::
   Value Prelude.Text -> ReplicaRegionProperty
 mkReplicaRegionProperty region
   = ReplicaRegionProperty
-      {region = region, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), region = region,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties ReplicaRegionProperty where
   toResourceProperties ReplicaRegionProperty {..}
     = ResourceProperties

@@ -7,12 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Scene
-  = Scene {capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html>
+    Scene {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-capabilities>
+           capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-contentlocation>
            contentLocation :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-sceneid>
            sceneId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-scenemetadata>
            sceneMetadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-tags>
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html#cfn-iottwinmaker-scene-workspaceid>
            workspaceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScene ::
@@ -20,10 +29,10 @@ mkScene ::
   -> Value Prelude.Text -> Value Prelude.Text -> Scene
 mkScene contentLocation sceneId workspaceId
   = Scene
-      {contentLocation = contentLocation, sceneId = sceneId,
-       workspaceId = workspaceId, capabilities = Prelude.Nothing,
-       description = Prelude.Nothing, sceneMetadata = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), contentLocation = contentLocation,
+       sceneId = sceneId, workspaceId = workspaceId,
+       capabilities = Prelude.Nothing, description = Prelude.Nothing,
+       sceneMetadata = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Scene where
   toResourceProperties Scene {..}
     = ResourceProperties

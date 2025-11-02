@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.ReadOnlyFieldInfoPropert
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.RequiredFieldInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data ConstraintsProperty
-  = ConstraintsProperty {invisibleFields :: (Prelude.Maybe [InvisibleFieldInfoProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html>
+    ConstraintsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html#cfn-connect-tasktemplate-constraints-invisiblefields>
+                         invisibleFields :: (Prelude.Maybe [InvisibleFieldInfoProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html#cfn-connect-tasktemplate-constraints-readonlyfields>
                          readOnlyFields :: (Prelude.Maybe [ReadOnlyFieldInfoProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html#cfn-connect-tasktemplate-constraints-requiredfields>
                          requiredFields :: (Prelude.Maybe [RequiredFieldInfoProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConstraintsProperty :: ConstraintsProperty
 mkConstraintsProperty
   = ConstraintsProperty
-      {invisibleFields = Prelude.Nothing,
+      {haddock_workaround_ = (), invisibleFields = Prelude.Nothing,
        readOnlyFields = Prelude.Nothing, requiredFields = Prelude.Nothing}
 instance ToResourceProperties ConstraintsProperty where
   toResourceProperties ConstraintsProperty {..}

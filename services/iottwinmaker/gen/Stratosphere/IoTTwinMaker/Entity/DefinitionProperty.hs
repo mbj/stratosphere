@@ -9,24 +9,36 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.DataValueProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefinitionProperty
-  = DefinitionProperty {configuration :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html>
+    DefinitionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-configuration>
+                        configuration :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-datatype>
                         dataType :: (Prelude.Maybe DataTypeProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-defaultvalue>
                         defaultValue :: (Prelude.Maybe DataValueProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isexternalid>
                         isExternalId :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isfinal>
                         isFinal :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isimported>
                         isImported :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isinherited>
                         isInherited :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isrequiredinentity>
                         isRequiredInEntity :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-isstoredexternally>
                         isStoredExternally :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html#cfn-iottwinmaker-entity-definition-istimeseries>
                         isTimeSeries :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionProperty :: DefinitionProperty
 mkDefinitionProperty
   = DefinitionProperty
-      {configuration = Prelude.Nothing, dataType = Prelude.Nothing,
-       defaultValue = Prelude.Nothing, isExternalId = Prelude.Nothing,
-       isFinal = Prelude.Nothing, isImported = Prelude.Nothing,
-       isInherited = Prelude.Nothing,
+      {haddock_workaround_ = (), configuration = Prelude.Nothing,
+       dataType = Prelude.Nothing, defaultValue = Prelude.Nothing,
+       isExternalId = Prelude.Nothing, isFinal = Prelude.Nothing,
+       isImported = Prelude.Nothing, isInherited = Prelude.Nothing,
        isRequiredInEntity = Prelude.Nothing,
        isStoredExternally = Prelude.Nothing,
        isTimeSeries = Prelude.Nothing}

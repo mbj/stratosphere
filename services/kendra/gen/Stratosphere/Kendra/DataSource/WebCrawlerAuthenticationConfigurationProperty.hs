@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerBasicAuthenticationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebCrawlerAuthenticationConfigurationProperty
-  = WebCrawlerAuthenticationConfigurationProperty {basicAuthentication :: (Prelude.Maybe [WebCrawlerBasicAuthenticationProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html>
+    WebCrawlerAuthenticationConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html#cfn-kendra-datasource-webcrawlerauthenticationconfiguration-basicauthentication>
+                                                   basicAuthentication :: (Prelude.Maybe [WebCrawlerBasicAuthenticationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerAuthenticationConfigurationProperty ::
   WebCrawlerAuthenticationConfigurationProperty
 mkWebCrawlerAuthenticationConfigurationProperty
   = WebCrawlerAuthenticationConfigurationProperty
-      {basicAuthentication = Prelude.Nothing}
+      {haddock_workaround_ = (), basicAuthentication = Prelude.Nothing}
 instance ToResourceProperties WebCrawlerAuthenticationConfigurationProperty where
   toResourceProperties
     WebCrawlerAuthenticationConfigurationProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON WebCrawlerAuthenticationConfigurationProperty where
               [(JSON..=) "BasicAuthentication" Prelude.<$> basicAuthentication]))
 instance Property "BasicAuthentication" WebCrawlerAuthenticationConfigurationProperty where
   type PropertyType "BasicAuthentication" WebCrawlerAuthenticationConfigurationProperty = [WebCrawlerBasicAuthenticationProperty]
-  set newValue WebCrawlerAuthenticationConfigurationProperty {}
+  set newValue WebCrawlerAuthenticationConfigurationProperty {..}
     = WebCrawlerAuthenticationConfigurationProperty
         {basicAuthentication = Prelude.pure newValue, ..}

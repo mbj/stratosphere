@@ -8,14 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Connection.ResourceParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data InvocationConnectivityParametersProperty
-  = InvocationConnectivityParametersProperty {resourceParameters :: ResourceParametersProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html>
+    InvocationConnectivityParametersProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html#cfn-events-connection-invocationconnectivityparameters-resourceparameters>
+                                              resourceParameters :: ResourceParametersProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInvocationConnectivityParametersProperty ::
   ResourceParametersProperty
   -> InvocationConnectivityParametersProperty
 mkInvocationConnectivityParametersProperty resourceParameters
   = InvocationConnectivityParametersProperty
-      {resourceParameters = resourceParameters}
+      {haddock_workaround_ = (), resourceParameters = resourceParameters}
 instance ToResourceProperties InvocationConnectivityParametersProperty where
   toResourceProperties InvocationConnectivityParametersProperty {..}
     = ResourceProperties
@@ -27,6 +30,6 @@ instance JSON.ToJSON InvocationConnectivityParametersProperty where
     = JSON.object ["ResourceParameters" JSON..= resourceParameters]
 instance Property "ResourceParameters" InvocationConnectivityParametersProperty where
   type PropertyType "ResourceParameters" InvocationConnectivityParametersProperty = ResourceParametersProperty
-  set newValue InvocationConnectivityParametersProperty {}
+  set newValue InvocationConnectivityParametersProperty {..}
     = InvocationConnectivityParametersProperty
         {resourceParameters = newValue, ..}

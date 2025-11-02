@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamSpecificationProperty
-  = StreamSpecificationProperty {streamViewType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html>
+    StreamSpecificationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype>
+                                 streamViewType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSpecificationProperty ::
   Value Prelude.Text -> StreamSpecificationProperty
 mkStreamSpecificationProperty streamViewType
-  = StreamSpecificationProperty {streamViewType = streamViewType}
+  = StreamSpecificationProperty
+      {haddock_workaround_ = (), streamViewType = streamViewType}
 instance ToResourceProperties StreamSpecificationProperty where
   toResourceProperties StreamSpecificationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON StreamSpecificationProperty where
     = JSON.object ["StreamViewType" JSON..= streamViewType]
 instance Property "StreamViewType" StreamSpecificationProperty where
   type PropertyType "StreamViewType" StreamSpecificationProperty = Value Prelude.Text
-  set newValue StreamSpecificationProperty {}
+  set newValue StreamSpecificationProperty {..}
     = StreamSpecificationProperty {streamViewType = newValue, ..}

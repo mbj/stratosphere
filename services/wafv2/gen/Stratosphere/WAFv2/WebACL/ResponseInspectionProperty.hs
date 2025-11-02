@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionJsonProperty a
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionStatusCodeProperty as Exports
 import Stratosphere.ResourceProperties
 data ResponseInspectionProperty
-  = ResponseInspectionProperty {bodyContains :: (Prelude.Maybe ResponseInspectionBodyContainsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html>
+    ResponseInspectionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-bodycontains>
+                                bodyContains :: (Prelude.Maybe ResponseInspectionBodyContainsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-header>
                                 header :: (Prelude.Maybe ResponseInspectionHeaderProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-json>
                                 json :: (Prelude.Maybe ResponseInspectionJsonProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html#cfn-wafv2-webacl-responseinspection-statuscode>
                                 statusCode :: (Prelude.Maybe ResponseInspectionStatusCodeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionProperty :: ResponseInspectionProperty
 mkResponseInspectionProperty
   = ResponseInspectionProperty
-      {bodyContains = Prelude.Nothing, header = Prelude.Nothing,
-       json = Prelude.Nothing, statusCode = Prelude.Nothing}
+      {haddock_workaround_ = (), bodyContains = Prelude.Nothing,
+       header = Prelude.Nothing, json = Prelude.Nothing,
+       statusCode = Prelude.Nothing}
 instance ToResourceProperties ResponseInspectionProperty where
   toResourceProperties ResponseInspectionProperty {..}
     = ResourceProperties

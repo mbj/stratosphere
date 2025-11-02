@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessLogSettingProperty
-  = AccessLogSettingProperty {destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html>
+    AccessLogSettingProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn>
+                              destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format>
                               format :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLogSettingProperty :: AccessLogSettingProperty
 mkAccessLogSettingProperty
   = AccessLogSettingProperty
-      {destinationArn = Prelude.Nothing, format = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationArn = Prelude.Nothing,
+       format = Prelude.Nothing}
 instance ToResourceProperties AccessLogSettingProperty where
   toResourceProperties AccessLogSettingProperty {..}
     = ResourceProperties

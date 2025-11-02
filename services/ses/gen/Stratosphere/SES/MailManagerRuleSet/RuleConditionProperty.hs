@@ -12,17 +12,25 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleStringExpressionPr
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RuleVerdictExpressionProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleConditionProperty
-  = RuleConditionProperty {booleanExpression :: (Prelude.Maybe RuleBooleanExpressionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html>
+    RuleConditionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-booleanexpression>
+                           booleanExpression :: (Prelude.Maybe RuleBooleanExpressionProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-dmarcexpression>
                            dmarcExpression :: (Prelude.Maybe RuleDmarcExpressionProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-ipexpression>
                            ipExpression :: (Prelude.Maybe RuleIpExpressionProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-numberexpression>
                            numberExpression :: (Prelude.Maybe RuleNumberExpressionProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-stringexpression>
                            stringExpression :: (Prelude.Maybe RuleStringExpressionProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html#cfn-ses-mailmanagerruleset-rulecondition-verdictexpression>
                            verdictExpression :: (Prelude.Maybe RuleVerdictExpressionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleConditionProperty :: RuleConditionProperty
 mkRuleConditionProperty
   = RuleConditionProperty
-      {booleanExpression = Prelude.Nothing,
+      {haddock_workaround_ = (), booleanExpression = Prelude.Nothing,
        dmarcExpression = Prelude.Nothing, ipExpression = Prelude.Nothing,
        numberExpression = Prelude.Nothing,
        stringExpression = Prelude.Nothing,

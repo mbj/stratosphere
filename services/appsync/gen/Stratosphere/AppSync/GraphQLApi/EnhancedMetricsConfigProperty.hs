@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnhancedMetricsConfigProperty
-  = EnhancedMetricsConfigProperty {dataSourceLevelMetricsBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html>
+    EnhancedMetricsConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html#cfn-appsync-graphqlapi-enhancedmetricsconfig-datasourcelevelmetricsbehavior>
+                                   dataSourceLevelMetricsBehavior :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html#cfn-appsync-graphqlapi-enhancedmetricsconfig-operationlevelmetricsconfig>
                                    operationLevelMetricsConfig :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html#cfn-appsync-graphqlapi-enhancedmetricsconfig-resolverlevelmetricsbehavior>
                                    resolverLevelMetricsBehavior :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnhancedMetricsConfigProperty ::
@@ -20,7 +25,8 @@ mkEnhancedMetricsConfigProperty
   operationLevelMetricsConfig
   resolverLevelMetricsBehavior
   = EnhancedMetricsConfigProperty
-      {dataSourceLevelMetricsBehavior = dataSourceLevelMetricsBehavior,
+      {haddock_workaround_ = (),
+       dataSourceLevelMetricsBehavior = dataSourceLevelMetricsBehavior,
        operationLevelMetricsConfig = operationLevelMetricsConfig,
        resolverLevelMetricsBehavior = resolverLevelMetricsBehavior}
 instance ToResourceProperties EnhancedMetricsConfigProperty where

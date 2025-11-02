@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentAttributesProperty
-  = AgentAttributesProperty {firstName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-agentattributes.html>
+    AgentAttributesProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-agentattributes.html#cfn-wisdom-messagetemplate-agentattributes-firstname>
+                             firstName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-agentattributes.html#cfn-wisdom-messagetemplate-agentattributes-lastname>
                              lastName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentAttributesProperty :: AgentAttributesProperty
 mkAgentAttributesProperty
   = AgentAttributesProperty
-      {firstName = Prelude.Nothing, lastName = Prelude.Nothing}
+      {haddock_workaround_ = (), firstName = Prelude.Nothing,
+       lastName = Prelude.Nothing}
 instance ToResourceProperties AgentAttributesProperty where
   toResourceProperties AgentAttributesProperty {..}
     = ResourceProperties

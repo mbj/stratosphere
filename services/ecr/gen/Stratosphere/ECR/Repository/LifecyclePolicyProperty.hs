@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecyclePolicyProperty
-  = LifecyclePolicyProperty {lifecyclePolicyText :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html>
+    LifecyclePolicyProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext>
+                             lifecyclePolicyText :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid>
                              registryId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicyProperty :: LifecyclePolicyProperty
 mkLifecyclePolicyProperty
   = LifecyclePolicyProperty
-      {lifecyclePolicyText = Prelude.Nothing,
+      {haddock_workaround_ = (), lifecyclePolicyText = Prelude.Nothing,
        registryId = Prelude.Nothing}
 instance ToResourceProperties LifecyclePolicyProperty where
   toResourceProperties LifecyclePolicyProperty {..}

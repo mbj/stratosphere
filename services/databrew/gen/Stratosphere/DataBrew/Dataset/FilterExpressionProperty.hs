@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.FilterValueProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterExpressionProperty
-  = FilterExpressionProperty {expression :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html>
+    FilterExpressionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression>
+                              expression :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap>
                               valuesMap :: [FilterValueProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterExpressionProperty ::
@@ -17,7 +21,8 @@ mkFilterExpressionProperty ::
   -> [FilterValueProperty] -> FilterExpressionProperty
 mkFilterExpressionProperty expression valuesMap
   = FilterExpressionProperty
-      {expression = expression, valuesMap = valuesMap}
+      {haddock_workaround_ = (), expression = expression,
+       valuesMap = valuesMap}
 instance ToResourceProperties FilterExpressionProperty where
   toResourceProperties FilterExpressionProperty {..}
     = ResourceProperties

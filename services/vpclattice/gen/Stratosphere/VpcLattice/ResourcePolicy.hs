@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourcePolicy
-  = ResourcePolicy {policy :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html>
+    ResourcePolicy {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html#cfn-vpclattice-resourcepolicy-policy>
+                    policy :: JSON.Object,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html#cfn-vpclattice-resourcepolicy-resourcearn>
                     resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::
   JSON.Object -> Value Prelude.Text -> ResourcePolicy
 mkResourcePolicy policy resourceArn
-  = ResourcePolicy {policy = policy, resourceArn = resourceArn}
+  = ResourcePolicy
+      {haddock_workaround_ = (), policy = policy,
+       resourceArn = resourceArn}
 instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties

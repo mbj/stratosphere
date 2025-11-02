@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpPoolProperty
-  = IpPoolProperty {cidr :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-ippool.html>
+    IpPoolProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-ippool.html#cfn-medialive-network-ippool-cidr>
+                    cidr :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpPoolProperty :: IpPoolProperty
-mkIpPoolProperty = IpPoolProperty {cidr = Prelude.Nothing}
+mkIpPoolProperty
+  = IpPoolProperty {haddock_workaround_ = (), cidr = Prelude.Nothing}
 instance ToResourceProperties IpPoolProperty where
   toResourceProperties IpPoolProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IpPoolProperty where
            (Prelude.catMaybes [(JSON..=) "Cidr" Prelude.<$> cidr]))
 instance Property "Cidr" IpPoolProperty where
   type PropertyType "Cidr" IpPoolProperty = Value Prelude.Text
-  set newValue IpPoolProperty {}
+  set newValue IpPoolProperty {..}
     = IpPoolProperty {cidr = Prelude.pure newValue, ..}

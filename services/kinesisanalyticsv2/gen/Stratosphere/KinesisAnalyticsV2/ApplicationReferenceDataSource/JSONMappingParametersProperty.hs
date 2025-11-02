@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JSONMappingParametersProperty
-  = JSONMappingParametersProperty {recordRowPath :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html>
+    JSONMappingParametersProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters-recordrowpath>
+                                   recordRowPath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJSONMappingParametersProperty ::
   Value Prelude.Text -> JSONMappingParametersProperty
 mkJSONMappingParametersProperty recordRowPath
-  = JSONMappingParametersProperty {recordRowPath = recordRowPath}
+  = JSONMappingParametersProperty
+      {haddock_workaround_ = (), recordRowPath = recordRowPath}
 instance ToResourceProperties JSONMappingParametersProperty where
   toResourceProperties JSONMappingParametersProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON JSONMappingParametersProperty where
     = JSON.object ["RecordRowPath" JSON..= recordRowPath]
 instance Property "RecordRowPath" JSONMappingParametersProperty where
   type PropertyType "RecordRowPath" JSONMappingParametersProperty = Value Prelude.Text
-  set newValue JSONMappingParametersProperty {}
+  set newValue JSONMappingParametersProperty {..}
     = JSONMappingParametersProperty {recordRowPath = newValue, ..}

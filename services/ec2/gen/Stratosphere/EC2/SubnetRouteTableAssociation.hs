@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubnetRouteTableAssociation
-  = SubnetRouteTableAssociation {routeTableId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html>
+    SubnetRouteTableAssociation {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-routetableid>
+                                 routeTableId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-subnetid>
                                  subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetRouteTableAssociation ::
@@ -15,7 +19,8 @@ mkSubnetRouteTableAssociation ::
   -> Value Prelude.Text -> SubnetRouteTableAssociation
 mkSubnetRouteTableAssociation routeTableId subnetId
   = SubnetRouteTableAssociation
-      {routeTableId = routeTableId, subnetId = subnetId}
+      {haddock_workaround_ = (), routeTableId = routeTableId,
+       subnetId = subnetId}
 instance ToResourceProperties SubnetRouteTableAssociation where
   toResourceProperties SubnetRouteTableAssociation {..}
     = ResourceProperties

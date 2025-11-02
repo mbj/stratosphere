@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RefreshOnDayProperty
-  = RefreshOnDayProperty {dayOfMonth :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshonday.html>
+    RefreshOnDayProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshonday.html#cfn-quicksight-refreshschedule-refreshonday-dayofmonth>
+                          dayOfMonth :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshonday.html#cfn-quicksight-refreshschedule-refreshonday-dayofweek>
                           dayOfWeek :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshOnDayProperty :: RefreshOnDayProperty
 mkRefreshOnDayProperty
   = RefreshOnDayProperty
-      {dayOfMonth = Prelude.Nothing, dayOfWeek = Prelude.Nothing}
+      {haddock_workaround_ = (), dayOfMonth = Prelude.Nothing,
+       dayOfWeek = Prelude.Nothing}
 instance ToResourceProperties RefreshOnDayProperty where
   toResourceProperties RefreshOnDayProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrustedSignersProperty
-  = TrustedSignersProperty {awsAccountNumbers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html>
+    TrustedSignersProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers>
+                            awsAccountNumbers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled>
                             enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrustedSignersProperty ::
   Value Prelude.Bool -> TrustedSignersProperty
 mkTrustedSignersProperty enabled
   = TrustedSignersProperty
-      {enabled = enabled, awsAccountNumbers = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       awsAccountNumbers = Prelude.Nothing}
 instance ToResourceProperties TrustedSignersProperty where
   toResourceProperties TrustedSignersProperty {..}
     = ResourceProperties

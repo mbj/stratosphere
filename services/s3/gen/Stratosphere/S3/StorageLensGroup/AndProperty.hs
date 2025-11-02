@@ -10,16 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AndProperty
-  = AndProperty {matchAnyPrefix :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html>
+    AndProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html#cfn-s3-storagelensgroup-and-matchanyprefix>
+                 matchAnyPrefix :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html#cfn-s3-storagelensgroup-and-matchanysuffix>
                  matchAnySuffix :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html#cfn-s3-storagelensgroup-and-matchanytag>
                  matchAnyTag :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html#cfn-s3-storagelensgroup-and-matchobjectage>
                  matchObjectAge :: (Prelude.Maybe MatchObjectAgeProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html#cfn-s3-storagelensgroup-and-matchobjectsize>
                  matchObjectSize :: (Prelude.Maybe MatchObjectSizeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAndProperty :: AndProperty
 mkAndProperty
   = AndProperty
-      {matchAnyPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), matchAnyPrefix = Prelude.Nothing,
        matchAnySuffix = Prelude.Nothing, matchAnyTag = Prelude.Nothing,
        matchObjectAge = Prelude.Nothing,
        matchObjectSize = Prelude.Nothing}

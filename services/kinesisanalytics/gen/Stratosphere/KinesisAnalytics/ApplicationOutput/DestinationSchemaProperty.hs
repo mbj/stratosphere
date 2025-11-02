@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationSchemaProperty
-  = DestinationSchemaProperty {recordFormatType :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html>
+    DestinationSchemaProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html#cfn-kinesisanalytics-applicationoutput-destinationschema-recordformattype>
+                               recordFormatType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationSchemaProperty :: DestinationSchemaProperty
 mkDestinationSchemaProperty
-  = DestinationSchemaProperty {recordFormatType = Prelude.Nothing}
+  = DestinationSchemaProperty
+      {haddock_workaround_ = (), recordFormatType = Prelude.Nothing}
 instance ToResourceProperties DestinationSchemaProperty where
   toResourceProperties DestinationSchemaProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DestinationSchemaProperty where
               [(JSON..=) "RecordFormatType" Prelude.<$> recordFormatType]))
 instance Property "RecordFormatType" DestinationSchemaProperty where
   type PropertyType "RecordFormatType" DestinationSchemaProperty = Value Prelude.Text
-  set newValue DestinationSchemaProperty {}
+  set newValue DestinationSchemaProperty {..}
     = DestinationSchemaProperty
         {recordFormatType = Prelude.pure newValue, ..}

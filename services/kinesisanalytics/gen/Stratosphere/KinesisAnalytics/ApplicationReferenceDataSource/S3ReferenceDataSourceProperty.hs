@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ReferenceDataSourceProperty
-  = S3ReferenceDataSourceProperty {bucketARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html>
+    S3ReferenceDataSourceProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-s3referencedatasource-bucketarn>
+                                   bucketARN :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-s3referencedatasource-filekey>
                                    fileKey :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-s3referencedatasource-referencerolearn>
                                    referenceRoleARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ReferenceDataSourceProperty ::
@@ -17,8 +22,8 @@ mkS3ReferenceDataSourceProperty ::
      -> Value Prelude.Text -> S3ReferenceDataSourceProperty
 mkS3ReferenceDataSourceProperty bucketARN fileKey referenceRoleARN
   = S3ReferenceDataSourceProperty
-      {bucketARN = bucketARN, fileKey = fileKey,
-       referenceRoleARN = referenceRoleARN}
+      {haddock_workaround_ = (), bucketARN = bucketARN,
+       fileKey = fileKey, referenceRoleARN = referenceRoleARN}
 instance ToResourceProperties S3ReferenceDataSourceProperty where
   toResourceProperties S3ReferenceDataSourceProperty {..}
     = ResourceProperties

@@ -10,11 +10,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data BillingGroup
-  = BillingGroup {accountGrouping :: AccountGroupingProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html>
+    BillingGroup {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-accountgrouping>
+                  accountGrouping :: AccountGroupingProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-computationpreference>
                   computationPreference :: ComputationPreferenceProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-primaryaccountid>
                   primaryAccountId :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingGroup ::
@@ -27,7 +35,7 @@ mkBillingGroup
   name
   primaryAccountId
   = BillingGroup
-      {accountGrouping = accountGrouping,
+      {haddock_workaround_ = (), accountGrouping = accountGrouping,
        computationPreference = computationPreference, name = name,
        primaryAccountId = primaryAccountId, description = Prelude.Nothing,
        tags = Prelude.Nothing}

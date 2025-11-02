@@ -7,26 +7,44 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Route
-  = Route {carrierGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html>
+    Route {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid>
+           carrierGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-corenetworkarn>
            coreNetworkArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock>
            destinationCidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock>
            destinationIpv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationprefixlistid>
            destinationPrefixListId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid>
            egressOnlyInternetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid>
            gatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid>
            instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid>
            localGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid>
            natGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid>
            networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid>
            routeTableId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid>
            transitGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid>
            vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid>
            vpcPeeringConnectionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute :: Value Prelude.Text -> Route
 mkRoute routeTableId
   = Route
-      {routeTableId = routeTableId, carrierGatewayId = Prelude.Nothing,
+      {haddock_workaround_ = (), routeTableId = routeTableId,
+       carrierGatewayId = Prelude.Nothing,
        coreNetworkArn = Prelude.Nothing,
        destinationCidrBlock = Prelude.Nothing,
        destinationIpv6CidrBlock = Prelude.Nothing,

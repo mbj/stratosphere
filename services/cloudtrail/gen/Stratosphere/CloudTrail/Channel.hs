@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
-  = Channel {destinations :: (Prelude.Maybe [DestinationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html>
+    Channel {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html#cfn-cloudtrail-channel-destinations>
+             destinations :: (Prelude.Maybe [DestinationProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html#cfn-cloudtrail-channel-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html#cfn-cloudtrail-channel-source>
              source :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html#cfn-cloudtrail-channel-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel
-      {destinations = Prelude.Nothing, name = Prelude.Nothing,
-       source = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), destinations = Prelude.Nothing,
+       name = Prelude.Nothing, source = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties

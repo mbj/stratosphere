@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemsManagerAgentProperty
-  = SystemsManagerAgentProperty {uninstallAfterBuild :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html>
+    SystemsManagerAgentProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild>
+                                 uninstallAfterBuild :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemsManagerAgentProperty :: SystemsManagerAgentProperty
 mkSystemsManagerAgentProperty
   = SystemsManagerAgentProperty
-      {uninstallAfterBuild = Prelude.Nothing}
+      {haddock_workaround_ = (), uninstallAfterBuild = Prelude.Nothing}
 instance ToResourceProperties SystemsManagerAgentProperty where
   toResourceProperties SystemsManagerAgentProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON SystemsManagerAgentProperty where
               [(JSON..=) "UninstallAfterBuild" Prelude.<$> uninstallAfterBuild]))
 instance Property "UninstallAfterBuild" SystemsManagerAgentProperty where
   type PropertyType "UninstallAfterBuild" SystemsManagerAgentProperty = Value Prelude.Bool
-  set newValue SystemsManagerAgentProperty {}
+  set newValue SystemsManagerAgentProperty {..}
     = SystemsManagerAgentProperty
         {uninstallAfterBuild = Prelude.pure newValue, ..}

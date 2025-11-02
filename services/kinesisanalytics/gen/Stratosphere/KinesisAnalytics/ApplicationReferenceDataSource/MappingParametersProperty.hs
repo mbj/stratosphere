@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSour
 import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSource.JSONMappingParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data MappingParametersProperty
-  = MappingParametersProperty {cSVMappingParameters :: (Prelude.Maybe CSVMappingParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html>
+    MappingParametersProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-mappingparameters-csvmappingparameters>
+                               cSVMappingParameters :: (Prelude.Maybe CSVMappingParametersProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html#cfn-kinesisanalytics-applicationreferencedatasource-mappingparameters-jsonmappingparameters>
                                jSONMappingParameters :: (Prelude.Maybe JSONMappingParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingParametersProperty :: MappingParametersProperty
 mkMappingParametersProperty
   = MappingParametersProperty
-      {cSVMappingParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), cSVMappingParameters = Prelude.Nothing,
        jSONMappingParameters = Prelude.Nothing}
 instance ToResourceProperties MappingParametersProperty where
   toResourceProperties MappingParametersProperty {..}

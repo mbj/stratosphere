@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaActionProperty
-  = LambdaActionProperty {functionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html>
+    LambdaActionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn>
+                          functionArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaActionProperty :: LambdaActionProperty
 mkLambdaActionProperty
-  = LambdaActionProperty {functionArn = Prelude.Nothing}
+  = LambdaActionProperty
+      {haddock_workaround_ = (), functionArn = Prelude.Nothing}
 instance ToResourceProperties LambdaActionProperty where
   toResourceProperties LambdaActionProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON LambdaActionProperty where
               [(JSON..=) "FunctionArn" Prelude.<$> functionArn]))
 instance Property "FunctionArn" LambdaActionProperty where
   type PropertyType "FunctionArn" LambdaActionProperty = Value Prelude.Text
-  set newValue LambdaActionProperty {}
+  set newValue LambdaActionProperty {..}
     = LambdaActionProperty {functionArn = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetsProperty
-  = TargetsProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html>
+    TargetsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key>
+                     key :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values>
                      values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty ::
   Value Prelude.Text -> ValueList Prelude.Text -> TargetsProperty
 mkTargetsProperty key values
-  = TargetsProperty {key = key, values = values}
+  = TargetsProperty
+      {haddock_workaround_ = (), key = key, values = values}
 instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}
     = ResourceProperties

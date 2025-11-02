@@ -7,29 +7,50 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaSettingsProperty
-  = KafkaSettingsProperty {broker :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html>
+    KafkaSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-broker>
+                           broker :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-includecontroldetails>
                            includeControlDetails :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-includenullandempty>
                            includeNullAndEmpty :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-includepartitionvalue>
                            includePartitionValue :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-includetablealteroperations>
                            includeTableAlterOperations :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-includetransactiondetails>
                            includeTransactionDetails :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-messageformat>
                            messageFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-messagemaxbytes>
                            messageMaxBytes :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-nohexprefix>
                            noHexPrefix :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-partitionincludeschematable>
                            partitionIncludeSchemaTable :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-saslpassword>
                            saslPassword :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-saslusername>
                            saslUserName :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-securityprotocol>
                            securityProtocol :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-sslcacertificatearn>
                            sslCaCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-sslclientcertificatearn>
                            sslClientCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-sslclientkeyarn>
                            sslClientKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-sslclientkeypassword>
                            sslClientKeyPassword :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html#cfn-dms-endpoint-kafkasettings-topic>
                            topic :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaSettingsProperty :: KafkaSettingsProperty
 mkKafkaSettingsProperty
   = KafkaSettingsProperty
-      {broker = Prelude.Nothing, includeControlDetails = Prelude.Nothing,
+      {haddock_workaround_ = (), broker = Prelude.Nothing,
+       includeControlDetails = Prelude.Nothing,
        includeNullAndEmpty = Prelude.Nothing,
        includePartitionValue = Prelude.Nothing,
        includeTableAlterOperations = Prelude.Nothing,

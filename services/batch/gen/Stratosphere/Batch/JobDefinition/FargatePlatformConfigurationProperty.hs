@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FargatePlatformConfigurationProperty
-  = FargatePlatformConfigurationProperty {platformVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html>
+    FargatePlatformConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion>
+                                          platformVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFargatePlatformConfigurationProperty ::
   FargatePlatformConfigurationProperty
 mkFargatePlatformConfigurationProperty
   = FargatePlatformConfigurationProperty
-      {platformVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), platformVersion = Prelude.Nothing}
 instance ToResourceProperties FargatePlatformConfigurationProperty where
   toResourceProperties FargatePlatformConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON FargatePlatformConfigurationProperty where
               [(JSON..=) "PlatformVersion" Prelude.<$> platformVersion]))
 instance Property "PlatformVersion" FargatePlatformConfigurationProperty where
   type PropertyType "PlatformVersion" FargatePlatformConfigurationProperty = Value Prelude.Text
-  set newValue FargatePlatformConfigurationProperty {}
+  set newValue FargatePlatformConfigurationProperty {..}
     = FargatePlatformConfigurationProperty
         {platformVersion = Prelude.pure newValue, ..}

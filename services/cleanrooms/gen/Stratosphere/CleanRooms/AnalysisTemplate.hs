@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AnalysisTemplate
-  = AnalysisTemplate {analysisParameters :: (Prelude.Maybe [AnalysisParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html>
+    AnalysisTemplate {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-analysisparameters>
+                      analysisParameters :: (Prelude.Maybe [AnalysisParameterProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-description>
                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-format>
                       format :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-membershipidentifier>
                       membershipIdentifier :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-source>
                       source :: AnalysisSourceProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisTemplate ::
@@ -24,8 +33,9 @@ mkAnalysisTemplate ::
      -> Value Prelude.Text -> AnalysisSourceProperty -> AnalysisTemplate
 mkAnalysisTemplate format membershipIdentifier name source
   = AnalysisTemplate
-      {format = format, membershipIdentifier = membershipIdentifier,
-       name = name, source = source, analysisParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), format = format,
+       membershipIdentifier = membershipIdentifier, name = name,
+       source = source, analysisParameters = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AnalysisTemplate where
   toResourceProperties AnalysisTemplate {..}

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VisibilityConfigProperty
-  = VisibilityConfigProperty {cloudWatchMetricsEnabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html>
+    VisibilityConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled>
+                              cloudWatchMetricsEnabled :: (Value Prelude.Bool),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname>
                               metricName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled>
                               sampledRequestsEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVisibilityConfigProperty ::
@@ -20,7 +25,8 @@ mkVisibilityConfigProperty
   metricName
   sampledRequestsEnabled
   = VisibilityConfigProperty
-      {cloudWatchMetricsEnabled = cloudWatchMetricsEnabled,
+      {haddock_workaround_ = (),
+       cloudWatchMetricsEnabled = cloudWatchMetricsEnabled,
        metricName = metricName,
        sampledRequestsEnabled = sampledRequestsEnabled}
 instance ToResourceProperties VisibilityConfigProperty where

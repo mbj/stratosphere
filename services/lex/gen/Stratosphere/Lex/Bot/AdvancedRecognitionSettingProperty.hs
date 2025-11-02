@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedRecognitionSettingProperty
-  = AdvancedRecognitionSettingProperty {audioRecognitionStrategy :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html>
+    AdvancedRecognitionSettingProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html#cfn-lex-bot-advancedrecognitionsetting-audiorecognitionstrategy>
+                                        audioRecognitionStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedRecognitionSettingProperty ::
   AdvancedRecognitionSettingProperty
 mkAdvancedRecognitionSettingProperty
   = AdvancedRecognitionSettingProperty
-      {audioRecognitionStrategy = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       audioRecognitionStrategy = Prelude.Nothing}
 instance ToResourceProperties AdvancedRecognitionSettingProperty where
   toResourceProperties AdvancedRecognitionSettingProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON AdvancedRecognitionSettingProperty where
                  Prelude.<$> audioRecognitionStrategy]))
 instance Property "AudioRecognitionStrategy" AdvancedRecognitionSettingProperty where
   type PropertyType "AudioRecognitionStrategy" AdvancedRecognitionSettingProperty = Value Prelude.Text
-  set newValue AdvancedRecognitionSettingProperty {}
+  set newValue AdvancedRecognitionSettingProperty {..}
     = AdvancedRecognitionSettingProperty
         {audioRecognitionStrategy = Prelude.pure newValue, ..}

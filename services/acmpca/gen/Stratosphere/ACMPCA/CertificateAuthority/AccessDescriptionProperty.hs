@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.AccessMethodPrope
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.GeneralNameProperty as Exports
 import Stratosphere.ResourceProperties
 data AccessDescriptionProperty
-  = AccessDescriptionProperty {accessLocation :: GeneralNameProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html>
+    AccessDescriptionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation>
+                               accessLocation :: GeneralNameProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod>
                                accessMethod :: AccessMethodProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessDescriptionProperty ::
@@ -17,7 +21,8 @@ mkAccessDescriptionProperty ::
   -> AccessMethodProperty -> AccessDescriptionProperty
 mkAccessDescriptionProperty accessLocation accessMethod
   = AccessDescriptionProperty
-      {accessLocation = accessLocation, accessMethod = accessMethod}
+      {haddock_workaround_ = (), accessLocation = accessLocation,
+       accessMethod = accessMethod}
 instance ToResourceProperties AccessDescriptionProperty where
   toResourceProperties AccessDescriptionProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecretTargetAttachment
-  = SecretTargetAttachment {secretId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html>
+    SecretTargetAttachment {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-secretid>
+                            secretId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targetid>
                             targetId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targettype>
                             targetType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretTargetAttachment ::
@@ -17,7 +22,8 @@ mkSecretTargetAttachment ::
      -> Value Prelude.Text -> SecretTargetAttachment
 mkSecretTargetAttachment secretId targetId targetType
   = SecretTargetAttachment
-      {secretId = secretId, targetId = targetId, targetType = targetType}
+      {haddock_workaround_ = (), secretId = secretId,
+       targetId = targetId, targetType = targetType}
 instance ToResourceProperties SecretTargetAttachment where
   toResourceProperties SecretTargetAttachment {..}
     = ResourceProperties

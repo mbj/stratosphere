@@ -9,27 +9,45 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.StreamSelectionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashPackageProperty
-  = DashPackageProperty {adTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html>
+    DashPackageProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers>
+                         adTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions>
                          adsOnDeliveryRestrictions :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption>
                          encryption :: (Prelude.Maybe DashEncryptionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-includeiframeonlystream>
                          includeIframeOnlyStream :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout>
                          manifestLayout :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds>
                          manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds>
                          minBufferTimeSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds>
                          minUpdatePeriodSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers>
                          periodTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile>
                          profile :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds>
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat>
                          segmentTemplateFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection>
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds>
                          suggestedPresentationDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming>
                          utcTiming :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri>
                          utcTimingUri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashPackageProperty :: DashPackageProperty
 mkDashPackageProperty
   = DashPackageProperty
-      {adTriggers = Prelude.Nothing,
+      {haddock_workaround_ = (), adTriggers = Prelude.Nothing,
        adsOnDeliveryRestrictions = Prelude.Nothing,
        encryption = Prelude.Nothing,
        includeIframeOnlyStream = Prelude.Nothing,

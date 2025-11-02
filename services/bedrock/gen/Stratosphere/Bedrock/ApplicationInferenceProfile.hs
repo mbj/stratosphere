@@ -10,16 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ApplicationInferenceProfile
-  = ApplicationInferenceProfile {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html>
+    ApplicationInferenceProfile {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-description>
+                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilename>
                                  inferenceProfileName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-modelsource>
                                  modelSource :: (Prelude.Maybe InferenceProfileModelSourceProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-tags>
                                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationInferenceProfile ::
   Value Prelude.Text -> ApplicationInferenceProfile
 mkApplicationInferenceProfile inferenceProfileName
   = ApplicationInferenceProfile
-      {inferenceProfileName = inferenceProfileName,
+      {haddock_workaround_ = (),
+       inferenceProfileName = inferenceProfileName,
        description = Prelude.Nothing, modelSource = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties ApplicationInferenceProfile where

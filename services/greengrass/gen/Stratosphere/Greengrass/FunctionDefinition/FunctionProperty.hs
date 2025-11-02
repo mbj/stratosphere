@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.FunctionConfigu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionProperty
-  = FunctionProperty {functionArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html>
+    FunctionProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionarn>
+                      functionArn :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-functionconfiguration>
                       functionConfiguration :: FunctionConfigurationProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html#cfn-greengrass-functiondefinition-function-id>
                       id :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty ::
@@ -18,7 +23,7 @@ mkFunctionProperty ::
      -> Value Prelude.Text -> FunctionProperty
 mkFunctionProperty functionArn functionConfiguration id
   = FunctionProperty
-      {functionArn = functionArn,
+      {haddock_workaround_ = (), functionArn = functionArn,
        functionConfiguration = functionConfiguration, id = id}
 instance ToResourceProperties FunctionProperty where
   toResourceProperties FunctionProperty {..}

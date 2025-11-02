@@ -7,17 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EsamProperty
-  = EsamProperty {acquisitionPointId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html>
+    EsamProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-acquisitionpointid>
+                  acquisitionPointId :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-adavailoffset>
                   adAvailOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-passwordparam>
                   passwordParam :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-poisendpoint>
                   poisEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-username>
                   username :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html#cfn-medialive-channel-esam-zoneidentity>
                   zoneIdentity :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEsamProperty :: EsamProperty
 mkEsamProperty
   = EsamProperty
-      {acquisitionPointId = Prelude.Nothing,
+      {haddock_workaround_ = (), acquisitionPointId = Prelude.Nothing,
        adAvailOffset = Prelude.Nothing, passwordParam = Prelude.Nothing,
        poisEndpoint = Prelude.Nothing, username = Prelude.Nothing,
        zoneIdentity = Prelude.Nothing}

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteVirtualServi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteTargetProperty
-  = GatewayRouteTargetProperty {port :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html>
+    GatewayRouteTargetProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-port>
+                                port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice>
                                 virtualService :: GatewayRouteVirtualServiceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteTargetProperty ::
   GatewayRouteVirtualServiceProperty -> GatewayRouteTargetProperty
 mkGatewayRouteTargetProperty virtualService
   = GatewayRouteTargetProperty
-      {virtualService = virtualService, port = Prelude.Nothing}
+      {haddock_workaround_ = (), virtualService = virtualService,
+       port = Prelude.Nothing}
 instance ToResourceProperties GatewayRouteTargetProperty where
   toResourceProperties GatewayRouteTargetProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionAtRestOptionsProperty
-  = EncryptionAtRestOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html>
+    EncryptionAtRestOptionsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-enabled>
+                                     enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-kmskeyid>
                                      kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestOptionsProperty ::
   EncryptionAtRestOptionsProperty
 mkEncryptionAtRestOptionsProperty
   = EncryptionAtRestOptionsProperty
-      {enabled = Prelude.Nothing, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties EncryptionAtRestOptionsProperty where
   toResourceProperties EncryptionAtRestOptionsProperty {..}
     = ResourceProperties

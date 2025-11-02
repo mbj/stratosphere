@@ -8,11 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.KafkaActionHeaderProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaActionProperty
-  = KafkaActionProperty {clientProperties :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html>
+    KafkaActionProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties>
+                         clientProperties :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn>
                          destinationArn :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-headers>
                          headers :: (Prelude.Maybe [KafkaActionHeaderProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key>
                          key :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition>
                          partition :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic>
                          topic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaActionProperty ::
@@ -20,7 +28,7 @@ mkKafkaActionProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> KafkaActionProperty
 mkKafkaActionProperty clientProperties destinationArn topic
   = KafkaActionProperty
-      {clientProperties = clientProperties,
+      {haddock_workaround_ = (), clientProperties = clientProperties,
        destinationArn = destinationArn, topic = topic,
        headers = Prelude.Nothing, key = Prelude.Nothing,
        partition = Prelude.Nothing}

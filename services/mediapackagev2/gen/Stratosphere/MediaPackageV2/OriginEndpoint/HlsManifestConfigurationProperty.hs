@@ -11,20 +11,31 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.StartTagPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsManifestConfigurationProperty
-  = HlsManifestConfigurationProperty {childManifestName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html>
+    HlsManifestConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-childmanifestname>
+                                      childManifestName :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-filterconfiguration>
                                       filterConfiguration :: (Prelude.Maybe FilterConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-manifestname>
                                       manifestName :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-manifestwindowseconds>
                                       manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-programdatetimeintervalseconds>
                                       programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-sctehls>
                                       scteHls :: (Prelude.Maybe ScteHlsProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-starttag>
                                       startTag :: (Prelude.Maybe StartTagProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-url>
                                       url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestConfigurationProperty ::
   Value Prelude.Text -> HlsManifestConfigurationProperty
 mkHlsManifestConfigurationProperty manifestName
   = HlsManifestConfigurationProperty
-      {manifestName = manifestName, childManifestName = Prelude.Nothing,
+      {haddock_workaround_ = (), manifestName = manifestName,
+       childManifestName = Prelude.Nothing,
        filterConfiguration = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,

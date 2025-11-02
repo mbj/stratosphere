@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationDetailsProperty
-  = DestinationDetailsProperty {status :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html>
+    DestinationDetailsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html#cfn-customerprofiles-eventstream-destinationdetails-status>
+                                status :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html#cfn-customerprofiles-eventstream-destinationdetails-uri>
                                 uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationDetailsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DestinationDetailsProperty
 mkDestinationDetailsProperty status uri
-  = DestinationDetailsProperty {status = status, uri = uri}
+  = DestinationDetailsProperty
+      {haddock_workaround_ = (), status = status, uri = uri}
 instance ToResourceProperties DestinationDetailsProperty where
   toResourceProperties DestinationDetailsProperty {..}
     = ResourceProperties

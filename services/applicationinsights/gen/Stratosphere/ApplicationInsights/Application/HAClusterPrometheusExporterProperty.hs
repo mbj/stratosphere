@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HAClusterPrometheusExporterProperty
-  = HAClusterPrometheusExporterProperty {prometheusPort :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html>
+    HAClusterPrometheusExporterProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html#cfn-applicationinsights-application-haclusterprometheusexporter-prometheusport>
+                                         prometheusPort :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHAClusterPrometheusExporterProperty ::
   HAClusterPrometheusExporterProperty
 mkHAClusterPrometheusExporterProperty
   = HAClusterPrometheusExporterProperty
-      {prometheusPort = Prelude.Nothing}
+      {haddock_workaround_ = (), prometheusPort = Prelude.Nothing}
 instance ToResourceProperties HAClusterPrometheusExporterProperty where
   toResourceProperties HAClusterPrometheusExporterProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON HAClusterPrometheusExporterProperty where
               [(JSON..=) "PrometheusPort" Prelude.<$> prometheusPort]))
 instance Property "PrometheusPort" HAClusterPrometheusExporterProperty where
   type PropertyType "PrometheusPort" HAClusterPrometheusExporterProperty = Value Prelude.Text
-  set newValue HAClusterPrometheusExporterProperty {}
+  set newValue HAClusterPrometheusExporterProperty {..}
     = HAClusterPrometheusExporterProperty
         {prometheusPort = Prelude.pure newValue, ..}

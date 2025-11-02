@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.Backup.LogicallyAirGappedBackupVault.Notifica
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogicallyAirGappedBackupVault
-  = LogicallyAirGappedBackupVault {accessPolicy :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html>
+    LogicallyAirGappedBackupVault {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-accesspolicy>
+                                   accessPolicy :: (Prelude.Maybe JSON.Object),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-backupvaultname>
                                    backupVaultName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-backupvaulttags>
                                    backupVaultTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-maxretentiondays>
                                    maxRetentionDays :: (Value Prelude.Integer),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-minretentiondays>
                                    minRetentionDays :: (Value Prelude.Integer),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-notifications>
                                    notifications :: (Prelude.Maybe NotificationObjectTypeProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaultstate>
                                    vaultState :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaulttype>
                                    vaultType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicallyAirGappedBackupVault ::
@@ -27,7 +37,7 @@ mkLogicallyAirGappedBackupVault
   maxRetentionDays
   minRetentionDays
   = LogicallyAirGappedBackupVault
-      {backupVaultName = backupVaultName,
+      {haddock_workaround_ = (), backupVaultName = backupVaultName,
        maxRetentionDays = maxRetentionDays,
        minRetentionDays = minRetentionDays,
        accessPolicy = Prelude.Nothing, backupVaultTags = Prelude.Nothing,

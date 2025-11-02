@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.InstancesDistrib
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateProperty as Exports
 import Stratosphere.ResourceProperties
 data MixedInstancesPolicyProperty
-  = MixedInstancesPolicyProperty {instancesDistribution :: (Prelude.Maybe InstancesDistributionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html>
+    MixedInstancesPolicyProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html#cfn-autoscaling-autoscalinggroup-mixedinstancespolicy-instancesdistribution>
+                                  instancesDistribution :: (Prelude.Maybe InstancesDistributionProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html#cfn-autoscaling-autoscalinggroup-mixedinstancespolicy-launchtemplate>
                                   launchTemplate :: LaunchTemplateProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMixedInstancesPolicyProperty ::
   LaunchTemplateProperty -> MixedInstancesPolicyProperty
 mkMixedInstancesPolicyProperty launchTemplate
   = MixedInstancesPolicyProperty
-      {launchTemplate = launchTemplate,
+      {haddock_workaround_ = (), launchTemplate = launchTemplate,
        instancesDistribution = Prelude.Nothing}
 instance ToResourceProperties MixedInstancesPolicyProperty where
   toResourceProperties MixedInstancesPolicyProperty {..}

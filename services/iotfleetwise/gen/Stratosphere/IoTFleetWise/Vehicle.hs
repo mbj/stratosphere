@@ -8,11 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Vehicle
-  = Vehicle {associationBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html>
+    Vehicle {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-associationbehavior>
+             associationBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-attributes>
              attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-decodermanifestarn>
              decoderManifestArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-modelmanifestarn>
              modelManifestArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVehicle ::
@@ -20,7 +28,7 @@ mkVehicle ::
   -> Value Prelude.Text -> Value Prelude.Text -> Vehicle
 mkVehicle decoderManifestArn modelManifestArn name
   = Vehicle
-      {decoderManifestArn = decoderManifestArn,
+      {haddock_workaround_ = (), decoderManifestArn = decoderManifestArn,
        modelManifestArn = modelManifestArn, name = name,
        associationBehavior = Prelude.Nothing,
        attributes = Prelude.Nothing, tags = Prelude.Nothing}

@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotPriorityProperty
-  = SlotPriorityProperty {priority :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html>
+    SlotPriorityProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-priority>
+                          priority :: (Value Prelude.Integer),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html#cfn-lex-bot-slotpriority-slotname>
                           slotName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotPriorityProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> SlotPriorityProperty
 mkSlotPriorityProperty priority slotName
-  = SlotPriorityProperty {priority = priority, slotName = slotName}
+  = SlotPriorityProperty
+      {haddock_workaround_ = (), priority = priority,
+       slotName = slotName}
 instance ToResourceProperties SlotPriorityProperty where
   toResourceProperties SlotPriorityProperty {..}
     = ResourceProperties

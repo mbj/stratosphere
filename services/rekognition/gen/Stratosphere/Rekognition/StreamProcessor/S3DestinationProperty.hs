@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationProperty
-  = S3DestinationProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html>
+    S3DestinationProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html#cfn-rekognition-streamprocessor-s3destination-bucketname>
+                           bucketName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html#cfn-rekognition-streamprocessor-s3destination-objectkeyprefix>
                            objectKeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationProperty ::
   Value Prelude.Text -> S3DestinationProperty
 mkS3DestinationProperty bucketName
   = S3DestinationProperty
-      {bucketName = bucketName, objectKeyPrefix = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = bucketName,
+       objectKeyPrefix = Prelude.Nothing}
 instance ToResourceProperties S3DestinationProperty where
   toResourceProperties S3DestinationProperty {..}
     = ResourceProperties

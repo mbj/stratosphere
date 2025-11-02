@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.DeployAsApplic
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ZeppelinMonitoringConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ZeppelinApplicationConfigurationProperty
-  = ZeppelinApplicationConfigurationProperty {catalogConfiguration :: (Prelude.Maybe CatalogConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html>
+    ZeppelinApplicationConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-catalogconfiguration>
+                                              catalogConfiguration :: (Prelude.Maybe CatalogConfigurationProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-customartifactsconfiguration>
                                               customArtifactsConfiguration :: (Prelude.Maybe [CustomArtifactConfigurationProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-deployasapplicationconfiguration>
                                               deployAsApplicationConfiguration :: (Prelude.Maybe DeployAsApplicationConfigurationProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html#cfn-kinesisanalyticsv2-application-zeppelinapplicationconfiguration-monitoringconfiguration>
                                               monitoringConfiguration :: (Prelude.Maybe ZeppelinMonitoringConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZeppelinApplicationConfigurationProperty ::
   ZeppelinApplicationConfigurationProperty
 mkZeppelinApplicationConfigurationProperty
   = ZeppelinApplicationConfigurationProperty
-      {catalogConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), catalogConfiguration = Prelude.Nothing,
        customArtifactsConfiguration = Prelude.Nothing,
        deployAsApplicationConfiguration = Prelude.Nothing,
        monitoringConfiguration = Prelude.Nothing}

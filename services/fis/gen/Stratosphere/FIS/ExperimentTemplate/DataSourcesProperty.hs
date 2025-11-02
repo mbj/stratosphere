@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.CloudWatchDashboardProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourcesProperty
-  = DataSourcesProperty {cloudWatchDashboards :: (Prelude.Maybe [CloudWatchDashboardProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html>
+    DataSourcesProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html#cfn-fis-experimenttemplate-datasources-cloudwatchdashboards>
+                         cloudWatchDashboards :: (Prelude.Maybe [CloudWatchDashboardProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourcesProperty :: DataSourcesProperty
 mkDataSourcesProperty
-  = DataSourcesProperty {cloudWatchDashboards = Prelude.Nothing}
+  = DataSourcesProperty
+      {haddock_workaround_ = (), cloudWatchDashboards = Prelude.Nothing}
 instance ToResourceProperties DataSourcesProperty where
   toResourceProperties DataSourcesProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON DataSourcesProperty where
                  Prelude.<$> cloudWatchDashboards]))
 instance Property "CloudWatchDashboards" DataSourcesProperty where
   type PropertyType "CloudWatchDashboards" DataSourcesProperty = [CloudWatchDashboardProperty]
-  set newValue DataSourcesProperty {}
+  set newValue DataSourcesProperty {..}
     = DataSourcesProperty
         {cloudWatchDashboards = Prelude.pure newValue, ..}

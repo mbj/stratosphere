@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeItemProperty
-  = AttributeItemProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html>
+    AttributeItemProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html#cfn-customerprofiles-calculatedattributedefinition-attributeitem-name>
+                           name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeItemProperty ::
   Value Prelude.Text -> AttributeItemProperty
-mkAttributeItemProperty name = AttributeItemProperty {name = name}
+mkAttributeItemProperty name
+  = AttributeItemProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties AttributeItemProperty where
   toResourceProperties AttributeItemProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON AttributeItemProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" AttributeItemProperty where
   type PropertyType "Name" AttributeItemProperty = Value Prelude.Text
-  set newValue AttributeItemProperty {}
+  set newValue AttributeItemProperty {..}
     = AttributeItemProperty {name = newValue, ..}

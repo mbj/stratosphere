@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolUserToGroupAttachment
-  = UserPoolUserToGroupAttachment {groupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html>
+    UserPoolUserToGroupAttachment {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname>
+                                   groupName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid>
                                    userPoolId :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username>
                                    username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUserToGroupAttachment ::
@@ -17,8 +22,8 @@ mkUserPoolUserToGroupAttachment ::
      -> Value Prelude.Text -> UserPoolUserToGroupAttachment
 mkUserPoolUserToGroupAttachment groupName userPoolId username
   = UserPoolUserToGroupAttachment
-      {groupName = groupName, userPoolId = userPoolId,
-       username = username}
+      {haddock_workaround_ = (), groupName = groupName,
+       userPoolId = userPoolId, username = username}
 instance ToResourceProperties UserPoolUserToGroupAttachment where
   toResourceProperties UserPoolUserToGroupAttachment {..}
     = ResourceProperties

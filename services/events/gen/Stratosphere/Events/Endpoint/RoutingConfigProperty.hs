@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.FailoverConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data RoutingConfigProperty
-  = RoutingConfigProperty {failoverConfig :: FailoverConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html>
+    RoutingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html#cfn-events-endpoint-routingconfig-failoverconfig>
+                           failoverConfig :: FailoverConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingConfigProperty ::
   FailoverConfigProperty -> RoutingConfigProperty
 mkRoutingConfigProperty failoverConfig
-  = RoutingConfigProperty {failoverConfig = failoverConfig}
+  = RoutingConfigProperty
+      {haddock_workaround_ = (), failoverConfig = failoverConfig}
 instance ToResourceProperties RoutingConfigProperty where
   toResourceProperties RoutingConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RoutingConfigProperty where
     = JSON.object ["FailoverConfig" JSON..= failoverConfig]
 instance Property "FailoverConfig" RoutingConfigProperty where
   type PropertyType "FailoverConfig" RoutingConfigProperty = FailoverConfigProperty
-  set newValue RoutingConfigProperty {}
+  set newValue RoutingConfigProperty {..}
     = RoutingConfigProperty {failoverConfig = newValue, ..}

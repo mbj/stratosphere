@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedDataProtectionMetricsProperty
-  = AdvancedDataProtectionMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advanceddataprotectionmetrics.html>
+    AdvancedDataProtectionMetricsProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advanceddataprotectionmetrics.html#cfn-s3-storagelens-advanceddataprotectionmetrics-isenabled>
+                                           isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedDataProtectionMetricsProperty ::
   AdvancedDataProtectionMetricsProperty
 mkAdvancedDataProtectionMetricsProperty
   = AdvancedDataProtectionMetricsProperty
-      {isEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (), isEnabled = Prelude.Nothing}
 instance ToResourceProperties AdvancedDataProtectionMetricsProperty where
   toResourceProperties AdvancedDataProtectionMetricsProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON AdvancedDataProtectionMetricsProperty where
            (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled]))
 instance Property "IsEnabled" AdvancedDataProtectionMetricsProperty where
   type PropertyType "IsEnabled" AdvancedDataProtectionMetricsProperty = Value Prelude.Bool
-  set newValue AdvancedDataProtectionMetricsProperty {}
+  set newValue AdvancedDataProtectionMetricsProperty {..}
     = AdvancedDataProtectionMetricsProperty
         {isEnabled = Prelude.pure newValue, ..}

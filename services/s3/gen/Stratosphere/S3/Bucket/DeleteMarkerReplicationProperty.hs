@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeleteMarkerReplicationProperty
-  = DeleteMarkerReplicationProperty {status :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html>
+    DeleteMarkerReplicationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status>
+                                     status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeleteMarkerReplicationProperty ::
   DeleteMarkerReplicationProperty
 mkDeleteMarkerReplicationProperty
-  = DeleteMarkerReplicationProperty {status = Prelude.Nothing}
+  = DeleteMarkerReplicationProperty
+      {haddock_workaround_ = (), status = Prelude.Nothing}
 instance ToResourceProperties DeleteMarkerReplicationProperty where
   toResourceProperties DeleteMarkerReplicationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DeleteMarkerReplicationProperty where
            (Prelude.catMaybes [(JSON..=) "Status" Prelude.<$> status]))
 instance Property "Status" DeleteMarkerReplicationProperty where
   type PropertyType "Status" DeleteMarkerReplicationProperty = Value Prelude.Text
-  set newValue DeleteMarkerReplicationProperty {}
+  set newValue DeleteMarkerReplicationProperty {..}
     = DeleteMarkerReplicationProperty
         {status = Prelude.pure newValue, ..}

@@ -10,23 +10,37 @@ import {-# SOURCE #-} Stratosphere.SSM.MaintenanceWindowTask.NotificationConfigP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowRunCommandParametersProperty
-  = MaintenanceWindowRunCommandParametersProperty {cloudWatchOutputConfig :: (Prelude.Maybe CloudWatchOutputConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html>
+    MaintenanceWindowRunCommandParametersProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-cloudwatchoutputconfig>
+                                                   cloudWatchOutputConfig :: (Prelude.Maybe CloudWatchOutputConfigProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment>
                                                    comment :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash>
                                                    documentHash :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype>
                                                    documentHashType :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documentversion>
                                                    documentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig>
                                                    notificationConfig :: (Prelude.Maybe NotificationConfigProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname>
                                                    outputS3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix>
                                                    outputS3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters>
                                                    parameters :: (Prelude.Maybe JSON.Object),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn>
                                                    serviceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds>
                                                    timeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowRunCommandParametersProperty ::
   MaintenanceWindowRunCommandParametersProperty
 mkMaintenanceWindowRunCommandParametersProperty
   = MaintenanceWindowRunCommandParametersProperty
-      {cloudWatchOutputConfig = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cloudWatchOutputConfig = Prelude.Nothing,
        comment = Prelude.Nothing, documentHash = Prelude.Nothing,
        documentHashType = Prelude.Nothing,
        documentVersion = Prelude.Nothing,

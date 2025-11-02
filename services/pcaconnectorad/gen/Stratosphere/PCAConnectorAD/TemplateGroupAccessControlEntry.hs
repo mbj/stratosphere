@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.TemplateGroupAccessControlEntr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateGroupAccessControlEntry
-  = TemplateGroupAccessControlEntry {accessRights :: AccessRightsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html>
+    TemplateGroupAccessControlEntry {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-accessrights>
+                                     accessRights :: AccessRightsProperty,
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-groupdisplayname>
                                      groupDisplayName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-groupsecurityidentifier>
                                      groupSecurityIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-templatearn>
                                      templateArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateGroupAccessControlEntry ::
@@ -19,7 +25,8 @@ mkTemplateGroupAccessControlEntry ::
   -> Value Prelude.Text -> TemplateGroupAccessControlEntry
 mkTemplateGroupAccessControlEntry accessRights groupDisplayName
   = TemplateGroupAccessControlEntry
-      {accessRights = accessRights, groupDisplayName = groupDisplayName,
+      {haddock_workaround_ = (), accessRights = accessRights,
+       groupDisplayName = groupDisplayName,
        groupSecurityIdentifier = Prelude.Nothing,
        templateArn = Prelude.Nothing}
 instance ToResourceProperties TemplateGroupAccessControlEntry where

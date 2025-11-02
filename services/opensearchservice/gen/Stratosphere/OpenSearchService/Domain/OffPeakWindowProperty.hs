@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.WindowStartTimeProperty as Exports
 import Stratosphere.ResourceProperties
 data OffPeakWindowProperty
-  = OffPeakWindowProperty {windowStartTime :: (Prelude.Maybe WindowStartTimeProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html>
+    OffPeakWindowProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html#cfn-opensearchservice-domain-offpeakwindow-windowstarttime>
+                           windowStartTime :: (Prelude.Maybe WindowStartTimeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOffPeakWindowProperty :: OffPeakWindowProperty
 mkOffPeakWindowProperty
-  = OffPeakWindowProperty {windowStartTime = Prelude.Nothing}
+  = OffPeakWindowProperty
+      {haddock_workaround_ = (), windowStartTime = Prelude.Nothing}
 instance ToResourceProperties OffPeakWindowProperty where
   toResourceProperties OffPeakWindowProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON OffPeakWindowProperty where
               [(JSON..=) "WindowStartTime" Prelude.<$> windowStartTime]))
 instance Property "WindowStartTime" OffPeakWindowProperty where
   type PropertyType "WindowStartTime" OffPeakWindowProperty = WindowStartTimeProperty
-  set newValue OffPeakWindowProperty {}
+  set newValue OffPeakWindowProperty {..}
     = OffPeakWindowProperty
         {windowStartTime = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageTransitionProperty
-  = StageTransitionProperty {reason :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html>
+    StageTransitionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html#cfn-codepipeline-pipeline-stagetransition-reason>
+                             reason :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html#cfn-codepipeline-pipeline-stagetransition-stagename>
                              stageName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageTransitionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> StageTransitionProperty
 mkStageTransitionProperty reason stageName
-  = StageTransitionProperty {reason = reason, stageName = stageName}
+  = StageTransitionProperty
+      {haddock_workaround_ = (), reason = reason, stageName = stageName}
 instance ToResourceProperties StageTransitionProperty where
   toResourceProperties StageTransitionProperty {..}
     = ResourceProperties

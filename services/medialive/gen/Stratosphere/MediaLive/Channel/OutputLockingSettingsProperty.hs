@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EpochLockingSettingsPropert
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.PipelineLockingSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputLockingSettingsProperty
-  = OutputLockingSettingsProperty {epochLockingSettings :: (Prelude.Maybe EpochLockingSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html>
+    OutputLockingSettingsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html#cfn-medialive-channel-outputlockingsettings-epochlockingsettings>
+                                   epochLockingSettings :: (Prelude.Maybe EpochLockingSettingsProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html#cfn-medialive-channel-outputlockingsettings-pipelinelockingsettings>
                                    pipelineLockingSettings :: (Prelude.Maybe PipelineLockingSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputLockingSettingsProperty :: OutputLockingSettingsProperty
 mkOutputLockingSettingsProperty
   = OutputLockingSettingsProperty
-      {epochLockingSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), epochLockingSettings = Prelude.Nothing,
        pipelineLockingSettings = Prelude.Nothing}
 instance ToResourceProperties OutputLockingSettingsProperty where
   toResourceProperties OutputLockingSettingsProperty {..}

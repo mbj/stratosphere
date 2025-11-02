@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DiskIopsConfigurationProperty
-  = DiskIopsConfigurationProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>
+    DiskIopsConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration-iops>
+                                   iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration-mode>
                                    mode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDiskIopsConfigurationProperty :: DiskIopsConfigurationProperty
 mkDiskIopsConfigurationProperty
   = DiskIopsConfigurationProperty
-      {iops = Prelude.Nothing, mode = Prelude.Nothing}
+      {haddock_workaround_ = (), iops = Prelude.Nothing,
+       mode = Prelude.Nothing}
 instance ToResourceProperties DiskIopsConfigurationProperty where
   toResourceProperties DiskIopsConfigurationProperty {..}
     = ResourceProperties

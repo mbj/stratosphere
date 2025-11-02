@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Cognito.LogDeliveryConfiguration.LogConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogDeliveryConfiguration
-  = LogDeliveryConfiguration {logConfigurations :: (Prelude.Maybe [LogConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html>
+    LogDeliveryConfiguration {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfigurations>
+                              logConfigurations :: (Prelude.Maybe [LogConfigurationProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html#cfn-cognito-logdeliveryconfiguration-userpoolid>
                               userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfiguration ::
   Value Prelude.Text -> LogDeliveryConfiguration
 mkLogDeliveryConfiguration userPoolId
   = LogDeliveryConfiguration
-      {userPoolId = userPoolId, logConfigurations = Prelude.Nothing}
+      {haddock_workaround_ = (), userPoolId = userPoolId,
+       logConfigurations = Prelude.Nothing}
 instance ToResourceProperties LogDeliveryConfiguration where
   toResourceProperties LogDeliveryConfiguration {..}
     = ResourceProperties

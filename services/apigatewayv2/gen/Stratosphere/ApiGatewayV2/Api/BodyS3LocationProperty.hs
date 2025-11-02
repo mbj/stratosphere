@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BodyS3LocationProperty
-  = BodyS3LocationProperty {bucket :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html>
+    BodyS3LocationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-bucket>
+                            bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-etag>
                             etag :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-key>
                             key :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-version>
                             version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyS3LocationProperty :: BodyS3LocationProperty
 mkBodyS3LocationProperty
   = BodyS3LocationProperty
-      {bucket = Prelude.Nothing, etag = Prelude.Nothing,
-       key = Prelude.Nothing, version = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = Prelude.Nothing,
+       etag = Prelude.Nothing, key = Prelude.Nothing,
+       version = Prelude.Nothing}
 instance ToResourceProperties BodyS3LocationProperty where
   toResourceProperties BodyS3LocationProperty {..}
     = ResourceProperties

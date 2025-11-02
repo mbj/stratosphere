@@ -8,18 +8,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityProviderDetailsProperty
-  = IdentityProviderDetailsProperty {directoryId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html>
+    IdentityProviderDetailsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-directoryid>
+                                     directoryId :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-function>
                                      function :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-invocationrole>
                                      invocationRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-sftpauthenticationmethods>
                                      sftpAuthenticationMethods :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-url>
                                      url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProviderDetailsProperty ::
   IdentityProviderDetailsProperty
 mkIdentityProviderDetailsProperty
   = IdentityProviderDetailsProperty
-      {directoryId = Prelude.Nothing, function = Prelude.Nothing,
-       invocationRole = Prelude.Nothing,
+      {haddock_workaround_ = (), directoryId = Prelude.Nothing,
+       function = Prelude.Nothing, invocationRole = Prelude.Nothing,
        sftpAuthenticationMethods = Prelude.Nothing, url = Prelude.Nothing}
 instance ToResourceProperties IdentityProviderDetailsProperty where
   toResourceProperties IdentityProviderDetailsProperty {..}

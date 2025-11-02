@@ -14,28 +14,46 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PolicyDetailsProperty
-  = PolicyDetailsProperty {actions :: (Prelude.Maybe [ActionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html>
+    PolicyDetailsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions>
+                           actions :: (Prelude.Maybe [ActionProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-copytags>
                            copyTags :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-createinterval>
                            createInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-crossregioncopytargets>
                            crossRegionCopyTargets :: (Prelude.Maybe CrossRegionCopyTargetsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource>
                            eventSource :: (Prelude.Maybe EventSourceProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-exclusions>
                            exclusions :: (Prelude.Maybe ExclusionsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-extenddeletion>
                            extendDeletion :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters>
                            parameters :: (Prelude.Maybe ParametersProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policylanguage>
                            policyLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype>
                            policyType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcelocations>
                            resourceLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetype>
                            resourceType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes>
                            resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-retaininterval>
                            retainInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules>
                            schedules :: (Prelude.Maybe [ScheduleProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags>
                            targetTags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyDetailsProperty :: PolicyDetailsProperty
 mkPolicyDetailsProperty
   = PolicyDetailsProperty
-      {actions = Prelude.Nothing, copyTags = Prelude.Nothing,
-       createInterval = Prelude.Nothing,
+      {haddock_workaround_ = (), actions = Prelude.Nothing,
+       copyTags = Prelude.Nothing, createInterval = Prelude.Nothing,
        crossRegionCopyTargets = Prelude.Nothing,
        eventSource = Prelude.Nothing, exclusions = Prelude.Nothing,
        extendDeletion = Prelude.Nothing, parameters = Prelude.Nothing,

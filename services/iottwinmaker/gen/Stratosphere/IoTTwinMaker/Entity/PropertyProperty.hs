@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.DataValueProperty as Expo
 import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.DefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data PropertyProperty
-  = PropertyProperty {definition :: (Prelude.Maybe DefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html>
+    PropertyProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html#cfn-iottwinmaker-entity-property-definition>
+                      definition :: (Prelude.Maybe DefinitionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html#cfn-iottwinmaker-entity-property-value>
                       value :: (Prelude.Maybe DataValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyProperty :: PropertyProperty
 mkPropertyProperty
   = PropertyProperty
-      {definition = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), definition = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties PropertyProperty where
   toResourceProperties PropertyProperty {..}
     = ResourceProperties

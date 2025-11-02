@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionedPrefixProperty
-  = PartitionedPrefixProperty {partitionDateSource :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-partitionedprefix.html>
+    PartitionedPrefixProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-partitionedprefix.html#cfn-s3-bucket-partitionedprefix-partitiondatesource>
+                               partitionDateSource :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionedPrefixProperty :: PartitionedPrefixProperty
 mkPartitionedPrefixProperty
-  = PartitionedPrefixProperty {partitionDateSource = Prelude.Nothing}
+  = PartitionedPrefixProperty
+      {haddock_workaround_ = (), partitionDateSource = Prelude.Nothing}
 instance ToResourceProperties PartitionedPrefixProperty where
   toResourceProperties PartitionedPrefixProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON PartitionedPrefixProperty where
               [(JSON..=) "PartitionDateSource" Prelude.<$> partitionDateSource]))
 instance Property "PartitionDateSource" PartitionedPrefixProperty where
   type PropertyType "PartitionDateSource" PartitionedPrefixProperty = Value Prelude.Text
-  set newValue PartitionedPrefixProperty {}
+  set newValue PartitionedPrefixProperty {..}
     = PartitionedPrefixProperty
         {partitionDateSource = Prelude.pure newValue, ..}

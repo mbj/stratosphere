@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MinimumHealthyHostsPerZoneProperty
-  = MinimumHealthyHostsPerZoneProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html>
+    MinimumHealthyHostsPerZoneProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html#cfn-codedeploy-deploymentconfig-minimumhealthyhostsperzone-type>
+                                        type' :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html#cfn-codedeploy-deploymentconfig-minimumhealthyhostsperzone-value>
                                         value :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMinimumHealthyHostsPerZoneProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> MinimumHealthyHostsPerZoneProperty
 mkMinimumHealthyHostsPerZoneProperty type' value
-  = MinimumHealthyHostsPerZoneProperty {type' = type', value = value}
+  = MinimumHealthyHostsPerZoneProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties MinimumHealthyHostsPerZoneProperty where
   toResourceProperties MinimumHealthyHostsPerZoneProperty {..}
     = ResourceProperties

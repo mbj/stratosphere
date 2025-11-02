@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextS3LocationProperty
-  = TextS3LocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-texts3location.html>
+    TextS3LocationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-texts3location.html#cfn-bedrock-prompt-texts3location-bucket>
+                            bucket :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-texts3location.html#cfn-bedrock-prompt-texts3location-key>
                             key :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-texts3location.html#cfn-bedrock-prompt-texts3location-version>
                             version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextS3LocationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TextS3LocationProperty
 mkTextS3LocationProperty bucket key
   = TextS3LocationProperty
-      {bucket = bucket, key = key, version = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket, key = key,
+       version = Prelude.Nothing}
 instance ToResourceProperties TextS3LocationProperty where
   toResourceProperties TextS3LocationProperty {..}
     = ResourceProperties

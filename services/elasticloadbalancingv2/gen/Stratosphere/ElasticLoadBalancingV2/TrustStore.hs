@@ -8,16 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TrustStore
-  = TrustStore {caCertificatesBundleS3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html>
+    TrustStore {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html#cfn-elasticloadbalancingv2-truststore-cacertificatesbundles3bucket>
+                caCertificatesBundleS3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html#cfn-elasticloadbalancingv2-truststore-cacertificatesbundles3key>
                 caCertificatesBundleS3Key :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html#cfn-elasticloadbalancingv2-truststore-cacertificatesbundles3objectversion>
                 caCertificatesBundleS3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html#cfn-elasticloadbalancingv2-truststore-name>
                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html#cfn-elasticloadbalancingv2-truststore-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrustStore :: TrustStore
 mkTrustStore
   = TrustStore
-      {caCertificatesBundleS3Bucket = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       caCertificatesBundleS3Bucket = Prelude.Nothing,
        caCertificatesBundleS3Key = Prelude.Nothing,
        caCertificatesBundleS3ObjectVersion = Prelude.Nothing,
        name = Prelude.Nothing, tags = Prelude.Nothing}

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.EventProperty as Exports
 import Stratosphere.ResourceProperties
 data OnEnterProperty
-  = OnEnterProperty {events :: (Prelude.Maybe [EventProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html>
+    OnEnterProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events>
+                     events :: (Prelude.Maybe [EventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnEnterProperty :: OnEnterProperty
-mkOnEnterProperty = OnEnterProperty {events = Prelude.Nothing}
+mkOnEnterProperty
+  = OnEnterProperty
+      {haddock_workaround_ = (), events = Prelude.Nothing}
 instance ToResourceProperties OnEnterProperty where
   toResourceProperties OnEnterProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON OnEnterProperty where
            (Prelude.catMaybes [(JSON..=) "Events" Prelude.<$> events]))
 instance Property "Events" OnEnterProperty where
   type PropertyType "Events" OnEnterProperty = [EventProperty]
-  set newValue OnEnterProperty {}
+  set newValue OnEnterProperty {..}
     = OnEnterProperty {events = Prelude.pure newValue, ..}

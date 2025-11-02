@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockerDeclarationProperty
-  = BlockerDeclarationProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html>
+    BlockerDeclarationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-name>
+                                name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockerDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BlockerDeclarationProperty
 mkBlockerDeclarationProperty name type'
-  = BlockerDeclarationProperty {name = name, type' = type'}
+  = BlockerDeclarationProperty
+      {haddock_workaround_ = (), name = name, type' = type'}
 instance ToResourceProperties BlockerDeclarationProperty where
   toResourceProperties BlockerDeclarationProperty {..}
     = ResourceProperties

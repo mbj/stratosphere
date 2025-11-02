@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NielsenNaesIiNwProperty
-  = NielsenNaesIiNwProperty {checkDigitString :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html>
+    NielsenNaesIiNwProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-checkdigitstring>
+                             checkDigitString :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-sid>
                              sid :: (Prelude.Maybe (Value Prelude.Double)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html#cfn-medialive-channel-nielsennaesiinw-timezone>
                              timezone :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenNaesIiNwProperty :: NielsenNaesIiNwProperty
 mkNielsenNaesIiNwProperty
   = NielsenNaesIiNwProperty
-      {checkDigitString = Prelude.Nothing, sid = Prelude.Nothing,
-       timezone = Prelude.Nothing}
+      {haddock_workaround_ = (), checkDigitString = Prelude.Nothing,
+       sid = Prelude.Nothing, timezone = Prelude.Nothing}
 instance ToResourceProperties NielsenNaesIiNwProperty where
   toResourceProperties NielsenNaesIiNwProperty {..}
     = ResourceProperties

@@ -10,18 +10,28 @@ import {-# SOURCE #-} Stratosphere.Glue.Database.PrincipalPrivilegesProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseInputProperty
-  = DatabaseInputProperty {createTableDefaultPermissions :: (Prelude.Maybe [PrincipalPrivilegesProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html>
+    DatabaseInputProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions>
+                           createTableDefaultPermissions :: (Prelude.Maybe [PrincipalPrivilegesProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-federateddatabase>
                            federatedDatabase :: (Prelude.Maybe FederatedDatabaseProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri>
                            locationUri :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters>
                            parameters :: (Prelude.Maybe JSON.Object),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase>
                            targetDatabase :: (Prelude.Maybe DatabaseIdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseInputProperty :: DatabaseInputProperty
 mkDatabaseInputProperty
   = DatabaseInputProperty
-      {createTableDefaultPermissions = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       createTableDefaultPermissions = Prelude.Nothing,
        description = Prelude.Nothing, federatedDatabase = Prelude.Nothing,
        locationUri = Prelude.Nothing, name = Prelude.Nothing,
        parameters = Prelude.Nothing, targetDatabase = Prelude.Nothing}

@@ -15,18 +15,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Connector
-  = Connector {capacity :: CapacityProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html>
+    Connector {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-capacity>
+               capacity :: CapacityProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration>
                connectorConfiguration :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectordescription>
                connectorDescription :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorname>
                connectorName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkacluster>
                kafkaCluster :: KafkaClusterProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication>
                kafkaClusterClientAuthentication :: KafkaClusterClientAuthenticationProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaclusterencryptionintransit>
                kafkaClusterEncryptionInTransit :: KafkaClusterEncryptionInTransitProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-kafkaconnectversion>
                kafkaConnectVersion :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery>
                logDelivery :: (Prelude.Maybe LogDeliveryProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-plugins>
                plugins :: [PluginProperty],
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-serviceexecutionrolearn>
                serviceExecutionRoleArn :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration>
                workerConfiguration :: (Prelude.Maybe WorkerConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
@@ -49,7 +64,7 @@ mkConnector
   plugins
   serviceExecutionRoleArn
   = Connector
-      {capacity = capacity,
+      {haddock_workaround_ = (), capacity = capacity,
        connectorConfiguration = connectorConfiguration,
        connectorName = connectorName, kafkaCluster = kafkaCluster,
        kafkaClusterClientAuthentication = kafkaClusterClientAuthentication,

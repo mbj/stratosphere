@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskPropertiesMapProperty
-  = TaskPropertiesMapProperty {operatorPropertyKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html>
+    TaskPropertiesMapProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey>
+                               operatorPropertyKey :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property>
                                property :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskPropertiesMapProperty ::
@@ -15,7 +19,8 @@ mkTaskPropertiesMapProperty ::
   -> Value Prelude.Text -> TaskPropertiesMapProperty
 mkTaskPropertiesMapProperty operatorPropertyKey property
   = TaskPropertiesMapProperty
-      {operatorPropertyKey = operatorPropertyKey, property = property}
+      {haddock_workaround_ = (),
+       operatorPropertyKey = operatorPropertyKey, property = property}
 instance ToResourceProperties TaskPropertiesMapProperty where
   toResourceProperties TaskPropertiesMapProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomHeaderProperty
-  = CustomHeaderProperty {header :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html>
+    CustomHeaderProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-header>
+                          header :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-override>
                           override :: (Value Prelude.Bool),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html#cfn-cloudfront-responseheaderspolicy-customheader-value>
                           value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHeaderProperty ::
@@ -16,7 +21,8 @@ mkCustomHeaderProperty ::
   -> Value Prelude.Bool -> Value Prelude.Text -> CustomHeaderProperty
 mkCustomHeaderProperty header override value
   = CustomHeaderProperty
-      {header = header, override = override, value = value}
+      {haddock_workaround_ = (), header = header, override = override,
+       value = value}
 instance ToResourceProperties CustomHeaderProperty where
   toResourceProperties CustomHeaderProperty {..}
     = ResourceProperties

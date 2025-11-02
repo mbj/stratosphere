@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateOverridesRequ
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateSpecificationRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data FleetLaunchTemplateConfigRequestProperty
-  = FleetLaunchTemplateConfigRequestProperty {launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationRequestProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html>
+    FleetLaunchTemplateConfigRequestProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification>
+                                              launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationRequestProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides>
                                               overrides :: (Prelude.Maybe [FleetLaunchTemplateOverridesRequestProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateConfigRequestProperty ::
   FleetLaunchTemplateConfigRequestProperty
 mkFleetLaunchTemplateConfigRequestProperty
   = FleetLaunchTemplateConfigRequestProperty
-      {launchTemplateSpecification = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       launchTemplateSpecification = Prelude.Nothing,
        overrides = Prelude.Nothing}
 instance ToResourceProperties FleetLaunchTemplateConfigRequestProperty where
   toResourceProperties FleetLaunchTemplateConfigRequestProperty {..}

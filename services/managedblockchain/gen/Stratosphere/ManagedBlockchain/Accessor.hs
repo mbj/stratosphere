@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Accessor
-  = Accessor {accessorType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html>
+    Accessor {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html#cfn-managedblockchain-accessor-accessortype>
+              accessorType :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html#cfn-managedblockchain-accessor-networktype>
               networkType :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html#cfn-managedblockchain-accessor-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessor :: Value Prelude.Text -> Accessor
 mkAccessor accessorType
   = Accessor
-      {accessorType = accessorType, networkType = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), accessorType = accessorType,
+       networkType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Accessor where
   toResourceProperties Accessor {..}
     = ResourceProperties

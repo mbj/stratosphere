@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfigurationValidationPolicyProperty
-  = DeploymentConfigurationValidationPolicyProperty {timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html>
+    DeploymentConfigurationValidationPolicyProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html#cfn-greengrassv2-deployment-deploymentconfigurationvalidationpolicy-timeoutinseconds>
+                                                     timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigurationValidationPolicyProperty ::
   DeploymentConfigurationValidationPolicyProperty
 mkDeploymentConfigurationValidationPolicyProperty
   = DeploymentConfigurationValidationPolicyProperty
-      {timeoutInSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), timeoutInSeconds = Prelude.Nothing}
 instance ToResourceProperties DeploymentConfigurationValidationPolicyProperty where
   toResourceProperties
     DeploymentConfigurationValidationPolicyProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON DeploymentConfigurationValidationPolicyProperty where
               [(JSON..=) "TimeoutInSeconds" Prelude.<$> timeoutInSeconds]))
 instance Property "TimeoutInSeconds" DeploymentConfigurationValidationPolicyProperty where
   type PropertyType "TimeoutInSeconds" DeploymentConfigurationValidationPolicyProperty = Value Prelude.Integer
-  set newValue DeploymentConfigurationValidationPolicyProperty {}
+  set newValue DeploymentConfigurationValidationPolicyProperty {..}
     = DeploymentConfigurationValidationPolicyProperty
         {timeoutInSeconds = Prelude.pure newValue, ..}

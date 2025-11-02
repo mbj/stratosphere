@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPNGatewayRoutePropagation
-  = VPNGatewayRoutePropagation {routeTableIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html>
+    VPNGatewayRoutePropagation {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html#cfn-ec2-vpngatewayroutepropagation-routetableids>
+                                routeTableIds :: (ValueList Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html#cfn-ec2-vpngatewayroutepropagation-vpngatewayid>
                                 vpnGatewayId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNGatewayRoutePropagation ::
@@ -15,7 +19,8 @@ mkVPNGatewayRoutePropagation ::
   -> Value Prelude.Text -> VPNGatewayRoutePropagation
 mkVPNGatewayRoutePropagation routeTableIds vpnGatewayId
   = VPNGatewayRoutePropagation
-      {routeTableIds = routeTableIds, vpnGatewayId = vpnGatewayId}
+      {haddock_workaround_ = (), routeTableIds = routeTableIds,
+       vpnGatewayId = vpnGatewayId}
 instance ToResourceProperties VPNGatewayRoutePropagation where
   toResourceProperties VPNGatewayRoutePropagation {..}
     = ResourceProperties

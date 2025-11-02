@@ -10,14 +10,19 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.RuleBasedPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolutionTechniquesProperty
-  = ResolutionTechniquesProperty {providerProperties :: (Prelude.Maybe ProviderPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html>
+    ResolutionTechniquesProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-providerproperties>
+                                  providerProperties :: (Prelude.Maybe ProviderPropertiesProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-resolutiontype>
                                   resolutionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-rulebasedproperties>
                                   ruleBasedProperties :: (Prelude.Maybe RuleBasedPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolutionTechniquesProperty :: ResolutionTechniquesProperty
 mkResolutionTechniquesProperty
   = ResolutionTechniquesProperty
-      {providerProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), providerProperties = Prelude.Nothing,
        resolutionType = Prelude.Nothing,
        ruleBasedProperties = Prelude.Nothing}
 instance ToResourceProperties ResolutionTechniquesProperty where

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WorkSpacesWeb.UserSettings.CookieSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data CookieSynchronizationConfigurationProperty
-  = CookieSynchronizationConfigurationProperty {allowlist :: [CookieSpecificationProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html>
+    CookieSynchronizationConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration-allowlist>
+                                                allowlist :: [CookieSpecificationProperty],
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration-blocklist>
                                                 blocklist :: (Prelude.Maybe [CookieSpecificationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCookieSynchronizationConfigurationProperty ::
@@ -16,7 +20,8 @@ mkCookieSynchronizationConfigurationProperty ::
   -> CookieSynchronizationConfigurationProperty
 mkCookieSynchronizationConfigurationProperty allowlist
   = CookieSynchronizationConfigurationProperty
-      {allowlist = allowlist, blocklist = Prelude.Nothing}
+      {haddock_workaround_ = (), allowlist = allowlist,
+       blocklist = Prelude.Nothing}
 instance ToResourceProperties CookieSynchronizationConfigurationProperty where
   toResourceProperties
     CookieSynchronizationConfigurationProperty {..}

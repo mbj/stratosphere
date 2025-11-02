@@ -11,16 +11,21 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.Configu
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleListProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAssociationAnalysisRulePolicyV1Property
-  = ConfiguredTableAssociationAnalysisRulePolicyV1Property {aggregation :: (Prelude.Maybe ConfiguredTableAssociationAnalysisRuleAggregationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html>
+    ConfiguredTableAssociationAnalysisRulePolicyV1Property {haddock_workaround_ :: (),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1-aggregation>
+                                                            aggregation :: (Prelude.Maybe ConfiguredTableAssociationAnalysisRuleAggregationProperty),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1-custom>
                                                             custom :: (Prelude.Maybe ConfiguredTableAssociationAnalysisRuleCustomProperty),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1-list>
                                                             list :: (Prelude.Maybe ConfiguredTableAssociationAnalysisRuleListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociationAnalysisRulePolicyV1Property ::
   ConfiguredTableAssociationAnalysisRulePolicyV1Property
 mkConfiguredTableAssociationAnalysisRulePolicyV1Property
   = ConfiguredTableAssociationAnalysisRulePolicyV1Property
-      {aggregation = Prelude.Nothing, custom = Prelude.Nothing,
-       list = Prelude.Nothing}
+      {haddock_workaround_ = (), aggregation = Prelude.Nothing,
+       custom = Prelude.Nothing, list = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTableAssociationAnalysisRulePolicyV1Property where
   toResourceProperties
     ConfiguredTableAssociationAnalysisRulePolicyV1Property {..}

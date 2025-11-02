@@ -9,18 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VirtualGateway
-  = VirtualGateway {meshName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html>
+    VirtualGateway {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname>
+                    meshName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner>
                     meshOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec>
                     spec :: VirtualGatewaySpecProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags>
                     tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname>
                     virtualGatewayName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGateway ::
   Value Prelude.Text -> VirtualGatewaySpecProperty -> VirtualGateway
 mkVirtualGateway meshName spec
   = VirtualGateway
-      {meshName = meshName, spec = spec, meshOwner = Prelude.Nothing,
-       tags = Prelude.Nothing, virtualGatewayName = Prelude.Nothing}
+      {haddock_workaround_ = (), meshName = meshName, spec = spec,
+       meshOwner = Prelude.Nothing, tags = Prelude.Nothing,
+       virtualGatewayName = Prelude.Nothing}
 instance ToResourceProperties VirtualGateway where
   toResourceProperties VirtualGateway {..}
     = ResourceProperties

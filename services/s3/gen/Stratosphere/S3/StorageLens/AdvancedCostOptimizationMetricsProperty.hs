@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedCostOptimizationMetricsProperty
-  = AdvancedCostOptimizationMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html>
+    AdvancedCostOptimizationMetricsProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html#cfn-s3-storagelens-advancedcostoptimizationmetrics-isenabled>
+                                             isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedCostOptimizationMetricsProperty ::
   AdvancedCostOptimizationMetricsProperty
 mkAdvancedCostOptimizationMetricsProperty
   = AdvancedCostOptimizationMetricsProperty
-      {isEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (), isEnabled = Prelude.Nothing}
 instance ToResourceProperties AdvancedCostOptimizationMetricsProperty where
   toResourceProperties AdvancedCostOptimizationMetricsProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON AdvancedCostOptimizationMetricsProperty where
            (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled]))
 instance Property "IsEnabled" AdvancedCostOptimizationMetricsProperty where
   type PropertyType "IsEnabled" AdvancedCostOptimizationMetricsProperty = Value Prelude.Bool
-  set newValue AdvancedCostOptimizationMetricsProperty {}
+  set newValue AdvancedCostOptimizationMetricsProperty {..}
     = AdvancedCostOptimizationMetricsProperty
         {isEnabled = Prelude.pure newValue, ..}

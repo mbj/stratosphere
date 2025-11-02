@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerMountPointProperty
-  = ContainerMountPointProperty {accessLevel :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html>
+    ContainerMountPointProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html#cfn-gamelift-containergroupdefinition-containermountpoint-accesslevel>
+                                 accessLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html#cfn-gamelift-containergroupdefinition-containermountpoint-containerpath>
                                  containerPath :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html#cfn-gamelift-containergroupdefinition-containermountpoint-instancepath>
                                  instancePath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerMountPointProperty ::
   Value Prelude.Text -> ContainerMountPointProperty
 mkContainerMountPointProperty instancePath
   = ContainerMountPointProperty
-      {instancePath = instancePath, accessLevel = Prelude.Nothing,
-       containerPath = Prelude.Nothing}
+      {haddock_workaround_ = (), instancePath = instancePath,
+       accessLevel = Prelude.Nothing, containerPath = Prelude.Nothing}
 instance ToResourceProperties ContainerMountPointProperty where
   toResourceProperties ContainerMountPointProperty {..}
     = ResourceProperties

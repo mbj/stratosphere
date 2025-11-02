@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeprecateRuleProperty
-  = DeprecateRuleProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html>
+    DeprecateRuleProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-count>
+                           count :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-interval>
                            interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html#cfn-dlm-lifecyclepolicy-deprecaterule-intervalunit>
                            intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeprecateRuleProperty :: DeprecateRuleProperty
 mkDeprecateRuleProperty
   = DeprecateRuleProperty
-      {count = Prelude.Nothing, interval = Prelude.Nothing,
-       intervalUnit = Prelude.Nothing}
+      {haddock_workaround_ = (), count = Prelude.Nothing,
+       interval = Prelude.Nothing, intervalUnit = Prelude.Nothing}
 instance ToResourceProperties DeprecateRuleProperty where
   toResourceProperties DeprecateRuleProperty {..}
     = ResourceProperties

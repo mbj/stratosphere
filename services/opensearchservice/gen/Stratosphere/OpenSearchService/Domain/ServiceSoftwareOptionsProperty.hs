@@ -8,19 +8,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceSoftwareOptionsProperty
-  = ServiceSoftwareOptionsProperty {automatedUpdateDate :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html>
+    ServiceSoftwareOptionsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-automatedupdatedate>
+                                    automatedUpdateDate :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-cancellable>
                                     cancellable :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-currentversion>
                                     currentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-description>
                                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-newversion>
                                     newVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-optionaldeployment>
                                     optionalDeployment :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-updateavailable>
                                     updateAvailable :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html#cfn-opensearchservice-domain-servicesoftwareoptions-updatestatus>
                                     updateStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceSoftwareOptionsProperty :: ServiceSoftwareOptionsProperty
 mkServiceSoftwareOptionsProperty
   = ServiceSoftwareOptionsProperty
-      {automatedUpdateDate = Prelude.Nothing,
+      {haddock_workaround_ = (), automatedUpdateDate = Prelude.Nothing,
        cancellable = Prelude.Nothing, currentVersion = Prelude.Nothing,
        description = Prelude.Nothing, newVersion = Prelude.Nothing,
        optionalDeployment = Prelude.Nothing,

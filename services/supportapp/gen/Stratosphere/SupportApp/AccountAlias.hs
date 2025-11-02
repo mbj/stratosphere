@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAlias
-  = AccountAlias {accountAlias :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html>
+    AccountAlias {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html#cfn-supportapp-accountalias-accountalias>
+                  accountAlias :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAlias :: Value Prelude.Text -> AccountAlias
 mkAccountAlias accountAlias
-  = AccountAlias {accountAlias = accountAlias}
+  = AccountAlias
+      {haddock_workaround_ = (), accountAlias = accountAlias}
 instance ToResourceProperties AccountAlias where
   toResourceProperties AccountAlias {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON AccountAlias where
     = JSON.object ["AccountAlias" JSON..= accountAlias]
 instance Property "AccountAlias" AccountAlias where
   type PropertyType "AccountAlias" AccountAlias = Value Prelude.Text
-  set newValue AccountAlias {}
+  set newValue AccountAlias {..}
     = AccountAlias {accountAlias = newValue, ..}

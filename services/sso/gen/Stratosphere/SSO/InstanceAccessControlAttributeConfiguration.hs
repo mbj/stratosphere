@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.SSO.InstanceAccessControlAttributeConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceAccessControlAttributeConfiguration
-  = InstanceAccessControlAttributeConfiguration {accessControlAttributes :: (Prelude.Maybe [AccessControlAttributeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html>
+    InstanceAccessControlAttributeConfiguration {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes>
+                                                 accessControlAttributes :: (Prelude.Maybe [AccessControlAttributeProperty]),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn>
                                                  instanceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceAccessControlAttributeConfiguration ::
   Value Prelude.Text -> InstanceAccessControlAttributeConfiguration
 mkInstanceAccessControlAttributeConfiguration instanceArn
   = InstanceAccessControlAttributeConfiguration
-      {instanceArn = instanceArn,
+      {haddock_workaround_ = (), instanceArn = instanceArn,
        accessControlAttributes = Prelude.Nothing}
 instance ToResourceProperties InstanceAccessControlAttributeConfiguration where
   toResourceProperties

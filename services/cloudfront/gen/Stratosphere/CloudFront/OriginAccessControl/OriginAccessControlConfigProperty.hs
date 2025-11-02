@@ -8,10 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginAccessControlConfigProperty
-  = OriginAccessControlConfigProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html>
+    OriginAccessControlConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-description>
+                                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-name>
                                        name :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-originaccesscontrolorigintype>
                                        originAccessControlOriginType :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-signingbehavior>
                                        signingBehavior :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-signingprotocol>
                                        signingProtocol :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginAccessControlConfigProperty ::
@@ -25,7 +32,7 @@ mkOriginAccessControlConfigProperty
   signingBehavior
   signingProtocol
   = OriginAccessControlConfigProperty
-      {name = name,
+      {haddock_workaround_ = (), name = name,
        originAccessControlOriginType = originAccessControlOriginType,
        signingBehavior = signingBehavior,
        signingProtocol = signingProtocol, description = Prelude.Nothing}

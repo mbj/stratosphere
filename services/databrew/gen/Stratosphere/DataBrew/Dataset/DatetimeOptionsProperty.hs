@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatetimeOptionsProperty
-  = DatetimeOptionsProperty {format :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html>
+    DatetimeOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format>
+                             format :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode>
                              localeCode :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset>
                              timezoneOffset :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatetimeOptionsProperty ::
   Value Prelude.Text -> DatetimeOptionsProperty
 mkDatetimeOptionsProperty format
   = DatetimeOptionsProperty
-      {format = format, localeCode = Prelude.Nothing,
-       timezoneOffset = Prelude.Nothing}
+      {haddock_workaround_ = (), format = format,
+       localeCode = Prelude.Nothing, timezoneOffset = Prelude.Nothing}
 instance ToResourceProperties DatetimeOptionsProperty where
   toResourceProperties DatetimeOptionsProperty {..}
     = ResourceProperties

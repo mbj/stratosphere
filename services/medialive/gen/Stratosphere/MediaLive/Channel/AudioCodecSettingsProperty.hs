@@ -14,19 +14,28 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.PassThroughSettingsProperty
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.WavSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioCodecSettingsProperty
-  = AudioCodecSettingsProperty {aacSettings :: (Prelude.Maybe AacSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html>
+    AudioCodecSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-aacsettings>
+                                aacSettings :: (Prelude.Maybe AacSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-ac3settings>
                                 ac3Settings :: (Prelude.Maybe Ac3SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3atmossettings>
                                 eac3AtmosSettings :: (Prelude.Maybe Eac3AtmosSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-eac3settings>
                                 eac3Settings :: (Prelude.Maybe Eac3SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-mp2settings>
                                 mp2Settings :: (Prelude.Maybe Mp2SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-passthroughsettings>
                                 passThroughSettings :: (Prelude.Maybe PassThroughSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html#cfn-medialive-channel-audiocodecsettings-wavsettings>
                                 wavSettings :: (Prelude.Maybe WavSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioCodecSettingsProperty :: AudioCodecSettingsProperty
 mkAudioCodecSettingsProperty
   = AudioCodecSettingsProperty
-      {aacSettings = Prelude.Nothing, ac3Settings = Prelude.Nothing,
-       eac3AtmosSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), aacSettings = Prelude.Nothing,
+       ac3Settings = Prelude.Nothing, eac3AtmosSettings = Prelude.Nothing,
        eac3Settings = Prelude.Nothing, mp2Settings = Prelude.Nothing,
        passThroughSettings = Prelude.Nothing,
        wavSettings = Prelude.Nothing}

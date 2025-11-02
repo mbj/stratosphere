@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.Route53.HealthCheck.HealthCheckConfigProperty
 import {-# SOURCE #-} Stratosphere.Route53.HealthCheck.HealthCheckTagProperty as Exports
 import Stratosphere.ResourceProperties
 data HealthCheck
-  = HealthCheck {healthCheckConfig :: HealthCheckConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html>
+    HealthCheck {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig>
+                 healthCheckConfig :: HealthCheckConfigProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags>
                  healthCheckTags :: (Prelude.Maybe [HealthCheckTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheck :: HealthCheckConfigProperty -> HealthCheck
 mkHealthCheck healthCheckConfig
   = HealthCheck
-      {healthCheckConfig = healthCheckConfig,
+      {haddock_workaround_ = (), healthCheckConfig = healthCheckConfig,
        healthCheckTags = Prelude.Nothing}
 instance ToResourceProperties HealthCheck where
   toResourceProperties HealthCheck {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectFleetProperty
-  = ProjectFleetProperty {fleetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfleet.html>
+    ProjectFleetProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfleet.html#cfn-codebuild-project-projectfleet-fleetarn>
+                          fleetArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectFleetProperty :: ProjectFleetProperty
 mkProjectFleetProperty
-  = ProjectFleetProperty {fleetArn = Prelude.Nothing}
+  = ProjectFleetProperty
+      {haddock_workaround_ = (), fleetArn = Prelude.Nothing}
 instance ToResourceProperties ProjectFleetProperty where
   toResourceProperties ProjectFleetProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ProjectFleetProperty where
            (Prelude.catMaybes [(JSON..=) "FleetArn" Prelude.<$> fleetArn]))
 instance Property "FleetArn" ProjectFleetProperty where
   type PropertyType "FleetArn" ProjectFleetProperty = Value Prelude.Text
-  set newValue ProjectFleetProperty {}
+  set newValue ProjectFleetProperty {..}
     = ProjectFleetProperty {fleetArn = Prelude.pure newValue, ..}

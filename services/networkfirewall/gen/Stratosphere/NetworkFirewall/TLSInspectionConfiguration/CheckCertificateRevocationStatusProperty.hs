@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CheckCertificateRevocationStatusProperty
-  = CheckCertificateRevocationStatusProperty {revokedStatusAction :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html>
+    CheckCertificateRevocationStatusProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html#cfn-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus-revokedstatusaction>
+                                              revokedStatusAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html#cfn-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus-unknownstatusaction>
                                               unknownStatusAction :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCheckCertificateRevocationStatusProperty ::
   CheckCertificateRevocationStatusProperty
 mkCheckCertificateRevocationStatusProperty
   = CheckCertificateRevocationStatusProperty
-      {revokedStatusAction = Prelude.Nothing,
+      {haddock_workaround_ = (), revokedStatusAction = Prelude.Nothing,
        unknownStatusAction = Prelude.Nothing}
 instance ToResourceProperties CheckCertificateRevocationStatusProperty where
   toResourceProperties CheckCertificateRevocationStatusProperty {..}

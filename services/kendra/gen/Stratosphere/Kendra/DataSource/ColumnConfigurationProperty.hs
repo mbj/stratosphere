@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnConfigurationProperty
-  = ColumnConfigurationProperty {changeDetectingColumns :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html>
+    ColumnConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns>
+                                 changeDetectingColumns :: (ValueList Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname>
                                  documentDataColumnName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname>
                                  documentIdColumnName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname>
                                  documentTitleColumnName :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings>
                                  fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnConfigurationProperty ::
@@ -24,7 +31,8 @@ mkColumnConfigurationProperty
   documentDataColumnName
   documentIdColumnName
   = ColumnConfigurationProperty
-      {changeDetectingColumns = changeDetectingColumns,
+      {haddock_workaround_ = (),
+       changeDetectingColumns = changeDetectingColumns,
        documentDataColumnName = documentDataColumnName,
        documentIdColumnName = documentIdColumnName,
        documentTitleColumnName = Prelude.Nothing,

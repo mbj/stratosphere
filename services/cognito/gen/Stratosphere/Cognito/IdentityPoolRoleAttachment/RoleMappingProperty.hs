@@ -8,15 +8,22 @@ import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.RulesConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoleMappingProperty
-  = RoleMappingProperty {ambiguousRoleResolution :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html>
+    RoleMappingProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-ambiguousroleresolution>
+                         ambiguousRoleResolution :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-identityprovider>
                          identityProvider :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration>
                          rulesConfiguration :: (Prelude.Maybe RulesConfigurationTypeProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleMappingProperty :: Value Prelude.Text -> RoleMappingProperty
 mkRoleMappingProperty type'
   = RoleMappingProperty
-      {type' = type', ambiguousRoleResolution = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       ambiguousRoleResolution = Prelude.Nothing,
        identityProvider = Prelude.Nothing,
        rulesConfiguration = Prelude.Nothing}
 instance ToResourceProperties RoleMappingProperty where

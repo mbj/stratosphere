@@ -9,20 +9,30 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.CompositeComponentPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Entity
-  = Entity {components :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentProperty)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html>
+    Entity {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-components>
+            components :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentProperty)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-compositecomponents>
             compositeComponents :: (Prelude.Maybe (Prelude.Map Prelude.Text CompositeComponentProperty)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-entityid>
             entityId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-entityname>
             entityName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-parententityid>
             parentEntityId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-tags>
             tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-workspaceid>
             workspaceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntity :: Value Prelude.Text -> Value Prelude.Text -> Entity
 mkEntity entityName workspaceId
   = Entity
-      {entityName = entityName, workspaceId = workspaceId,
-       components = Prelude.Nothing,
+      {haddock_workaround_ = (), entityName = entityName,
+       workspaceId = workspaceId, components = Prelude.Nothing,
        compositeComponents = Prelude.Nothing,
        description = Prelude.Nothing, entityId = Prelude.Nothing,
        parentEntityId = Prelude.Nothing, tags = Prelude.Nothing}

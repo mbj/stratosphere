@@ -8,15 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DeliverySource
-  = DeliverySource {logType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html>
+    DeliverySource {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-logtype>
+                    logType :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-resourcearn>
                     resourceArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliverySource :: Value Prelude.Text -> DeliverySource
 mkDeliverySource name
   = DeliverySource
-      {name = name, logType = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, logType = Prelude.Nothing,
        resourceArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DeliverySource where
   toResourceProperties DeliverySource {..}

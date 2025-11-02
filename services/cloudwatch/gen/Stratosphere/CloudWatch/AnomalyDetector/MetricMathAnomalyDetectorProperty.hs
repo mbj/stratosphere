@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 data MetricMathAnomalyDetectorProperty
-  = MetricMathAnomalyDetectorProperty {metricDataQueries :: (Prelude.Maybe [MetricDataQueryProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html>
+    MetricMathAnomalyDetectorProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector-metricdataqueries>
+                                       metricDataQueries :: (Prelude.Maybe [MetricDataQueryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricMathAnomalyDetectorProperty ::
   MetricMathAnomalyDetectorProperty
 mkMetricMathAnomalyDetectorProperty
   = MetricMathAnomalyDetectorProperty
-      {metricDataQueries = Prelude.Nothing}
+      {haddock_workaround_ = (), metricDataQueries = Prelude.Nothing}
 instance ToResourceProperties MetricMathAnomalyDetectorProperty where
   toResourceProperties MetricMathAnomalyDetectorProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON MetricMathAnomalyDetectorProperty where
               [(JSON..=) "MetricDataQueries" Prelude.<$> metricDataQueries]))
 instance Property "MetricDataQueries" MetricMathAnomalyDetectorProperty where
   type PropertyType "MetricDataQueries" MetricMathAnomalyDetectorProperty = [MetricDataQueryProperty]
-  set newValue MetricMathAnomalyDetectorProperty {}
+  set newValue MetricMathAnomalyDetectorProperty {..}
     = MetricMathAnomalyDetectorProperty
         {metricDataQueries = Prelude.pure newValue, ..}

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxOpenZFS.NFSProperty as Exports
 import Stratosphere.ResourceProperties
 data ProtocolProperty
-  = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html>
+    ProtocolProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html#cfn-datasync-locationfsxopenzfs-protocol-nfs>
+                      nFS :: (Prelude.Maybe NFSProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolProperty :: ProtocolProperty
-mkProtocolProperty = ProtocolProperty {nFS = Prelude.Nothing}
+mkProtocolProperty
+  = ProtocolProperty
+      {haddock_workaround_ = (), nFS = Prelude.Nothing}
 instance ToResourceProperties ProtocolProperty where
   toResourceProperties ProtocolProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON ProtocolProperty where
            (Prelude.catMaybes [(JSON..=) "NFS" Prelude.<$> nFS]))
 instance Property "NFS" ProtocolProperty where
   type PropertyType "NFS" ProtocolProperty = NFSProperty
-  set newValue ProtocolProperty {}
+  set newValue ProtocolProperty {..}
     = ProtocolProperty {nFS = Prelude.pure newValue, ..}

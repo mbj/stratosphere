@@ -7,13 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Permission
-  = Permission {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>
+    Permission {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action>
+                action :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken>
                 eventSourceToken :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname>
                 functionName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionurlauthtype>
                 functionUrlAuthType :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal>
                 principal :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principalorgid>
                 principalOrgID :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount>
                 sourceAccount :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn>
                 sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermission ::
@@ -21,8 +31,9 @@ mkPermission ::
   -> Value Prelude.Text -> Value Prelude.Text -> Permission
 mkPermission action functionName principal
   = Permission
-      {action = action, functionName = functionName,
-       principal = principal, eventSourceToken = Prelude.Nothing,
+      {haddock_workaround_ = (), action = action,
+       functionName = functionName, principal = principal,
+       eventSourceToken = Prelude.Nothing,
        functionUrlAuthType = Prelude.Nothing,
        principalOrgID = Prelude.Nothing, sourceAccount = Prelude.Nothing,
        sourceArn = Prelude.Nothing}

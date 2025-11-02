@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Datastore
-  = Datastore {datastoreName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html>
+    Datastore {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-datastorename>
+               datastoreName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-kmskeyarn>
                kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html#cfn-healthimaging-datastore-tags>
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastore :: Datastore
 mkDatastore
   = Datastore
-      {datastoreName = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), datastoreName = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Datastore where
   toResourceProperties Datastore {..}
     = ResourceProperties

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceConfigurationProperty
-  = SourceConfigurationProperty {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html>
+    SourceConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-applicationname>
+                                 applicationName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-templatename>
                                  templateName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty ::
@@ -15,7 +19,8 @@ mkSourceConfigurationProperty ::
   -> Value Prelude.Text -> SourceConfigurationProperty
 mkSourceConfigurationProperty applicationName templateName
   = SourceConfigurationProperty
-      {applicationName = applicationName, templateName = templateName}
+      {haddock_workaround_ = (), applicationName = applicationName,
+       templateName = templateName}
 instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}
     = ResourceProperties

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayListenerTlsFileCertificateProperty
-  = VirtualGatewayListenerTlsFileCertificateProperty {certificateChain :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html>
+    VirtualGatewayListenerTlsFileCertificateProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-certificatechain>
+                                                      certificateChain :: (Value Prelude.Text),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-privatekey>
                                                       privateKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsFileCertificateProperty ::
@@ -19,7 +23,8 @@ mkVirtualGatewayListenerTlsFileCertificateProperty
   certificateChain
   privateKey
   = VirtualGatewayListenerTlsFileCertificateProperty
-      {certificateChain = certificateChain, privateKey = privateKey}
+      {haddock_workaround_ = (), certificateChain = certificateChain,
+       privateKey = privateKey}
 instance ToResourceProperties VirtualGatewayListenerTlsFileCertificateProperty where
   toResourceProperties
     VirtualGatewayListenerTlsFileCertificateProperty {..}

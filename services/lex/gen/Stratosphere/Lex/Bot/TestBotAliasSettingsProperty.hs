@@ -11,15 +11,22 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SentimentAnalysisSettingsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TestBotAliasSettingsProperty
-  = TestBotAliasSettingsProperty {botAliasLocaleSettings :: (Prelude.Maybe [BotAliasLocaleSettingsItemProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html>
+    TestBotAliasSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-botaliaslocalesettings>
+                                  botAliasLocaleSettings :: (Prelude.Maybe [BotAliasLocaleSettingsItemProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-conversationlogsettings>
                                   conversationLogSettings :: (Prelude.Maybe ConversationLogSettingsProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-description>
                                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html#cfn-lex-bot-testbotaliassettings-sentimentanalysissettings>
                                   sentimentAnalysisSettings :: (Prelude.Maybe SentimentAnalysisSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTestBotAliasSettingsProperty :: TestBotAliasSettingsProperty
 mkTestBotAliasSettingsProperty
   = TestBotAliasSettingsProperty
-      {botAliasLocaleSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       botAliasLocaleSettings = Prelude.Nothing,
        conversationLogSettings = Prelude.Nothing,
        description = Prelude.Nothing,
        sentimentAnalysisSettings = Prelude.Nothing}

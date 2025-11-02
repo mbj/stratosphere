@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryOptionsProperty
-  = DeliveryOptionsProperty {sendingPoolName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html>
+    DeliveryOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html#cfn-pinpointemail-configurationset-deliveryoptions-sendingpoolname>
+                             sendingPoolName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryOptionsProperty :: DeliveryOptionsProperty
 mkDeliveryOptionsProperty
-  = DeliveryOptionsProperty {sendingPoolName = Prelude.Nothing}
+  = DeliveryOptionsProperty
+      {haddock_workaround_ = (), sendingPoolName = Prelude.Nothing}
 instance ToResourceProperties DeliveryOptionsProperty where
   toResourceProperties DeliveryOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DeliveryOptionsProperty where
               [(JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName]))
 instance Property "SendingPoolName" DeliveryOptionsProperty where
   type PropertyType "SendingPoolName" DeliveryOptionsProperty = Value Prelude.Text
-  set newValue DeliveryOptionsProperty {}
+  set newValue DeliveryOptionsProperty {..}
     = DeliveryOptionsProperty
         {sendingPoolName = Prelude.pure newValue, ..}

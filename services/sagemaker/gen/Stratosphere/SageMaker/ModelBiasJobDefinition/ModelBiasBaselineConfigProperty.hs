@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelBiasJobDefinition.ConstraintsR
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelBiasBaselineConfigProperty
-  = ModelBiasBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html>
+    ModelBiasBaselineConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname>
+                                     baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource>
                                      constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelBiasBaselineConfigProperty ::
   ModelBiasBaselineConfigProperty
 mkModelBiasBaselineConfigProperty
   = ModelBiasBaselineConfigProperty
-      {baseliningJobName = Prelude.Nothing,
+      {haddock_workaround_ = (), baseliningJobName = Prelude.Nothing,
        constraintsResource = Prelude.Nothing}
 instance ToResourceProperties ModelBiasBaselineConfigProperty where
   toResourceProperties ModelBiasBaselineConfigProperty {..}

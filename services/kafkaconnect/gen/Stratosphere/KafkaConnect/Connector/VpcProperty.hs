@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcProperty
-  = VpcProperty {securityGroups :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html>
+    VpcProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-securitygroups>
+                 securityGroups :: (ValueList Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html#cfn-kafkaconnect-connector-vpc-subnets>
                  subnets :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcProperty ::
   ValueList Prelude.Text -> ValueList Prelude.Text -> VpcProperty
 mkVpcProperty securityGroups subnets
-  = VpcProperty {securityGroups = securityGroups, subnets = subnets}
+  = VpcProperty
+      {haddock_workaround_ = (), securityGroups = securityGroups,
+       subnets = subnets}
 instance ToResourceProperties VpcProperty where
   toResourceProperties VpcProperty {..}
     = ResourceProperties

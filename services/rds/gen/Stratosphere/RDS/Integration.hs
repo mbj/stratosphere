@@ -8,20 +8,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Integration
-  = Integration {additionalEncryptionContext :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html>
+    Integration {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-additionalencryptioncontext>
+                 additionalEncryptionContext :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-datafilter>
                  dataFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-integrationname>
                  integrationName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-kmskeyid>
                  kMSKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-sourcearn>
                  sourceArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-targetarn>
                  targetArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegration ::
   Value Prelude.Text -> Value Prelude.Text -> Integration
 mkIntegration sourceArn targetArn
   = Integration
-      {sourceArn = sourceArn, targetArn = targetArn,
+      {haddock_workaround_ = (), sourceArn = sourceArn,
+       targetArn = targetArn,
        additionalEncryptionContext = Prelude.Nothing,
        dataFilter = Prelude.Nothing, description = Prelude.Nothing,
        integrationName = Prelude.Nothing, kMSKeyId = Prelude.Nothing,

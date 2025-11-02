@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceDataProperty
-  = SourceDataProperty {acmPcaArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html>
+    SourceDataProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html#cfn-rolesanywhere-trustanchor-sourcedata-acmpcaarn>
+                        acmPcaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html#cfn-rolesanywhere-trustanchor-sourcedata-x509certificatedata>
                         x509CertificateData :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceDataProperty :: SourceDataProperty
 mkSourceDataProperty
   = SourceDataProperty
-      {acmPcaArn = Prelude.Nothing,
+      {haddock_workaround_ = (), acmPcaArn = Prelude.Nothing,
        x509CertificateData = Prelude.Nothing}
 instance ToResourceProperties SourceDataProperty where
   toResourceProperties SourceDataProperty {..}

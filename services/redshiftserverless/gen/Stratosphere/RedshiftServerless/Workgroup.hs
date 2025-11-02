@@ -9,23 +9,36 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Workgroup
-  = Workgroup {baseCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html>
+    Workgroup {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-basecapacity>
+               baseCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-configparameters>
                configParameters :: (Prelude.Maybe [ConfigParameterProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-enhancedvpcrouting>
                enhancedVpcRouting :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-maxcapacity>
                maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-namespacename>
                namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-port>
                port :: (Prelude.Maybe (Value Prelude.Integer)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-publiclyaccessible>
                publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-securitygroupids>
                securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-subnetids>
                subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-workgroupname>
                workgroupName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkgroup :: Value Prelude.Text -> Workgroup
 mkWorkgroup workgroupName
   = Workgroup
-      {workgroupName = workgroupName, baseCapacity = Prelude.Nothing,
-       configParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), workgroupName = workgroupName,
+       baseCapacity = Prelude.Nothing, configParameters = Prelude.Nothing,
        enhancedVpcRouting = Prelude.Nothing,
        maxCapacity = Prelude.Nothing, namespaceName = Prelude.Nothing,
        port = Prelude.Nothing, publiclyAccessible = Prelude.Nothing,

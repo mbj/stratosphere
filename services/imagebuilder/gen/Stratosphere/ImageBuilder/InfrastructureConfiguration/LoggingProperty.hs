@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.S3LogsProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
-  = LoggingProperty {s3Logs :: (Prelude.Maybe S3LogsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html>
+    LoggingProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs>
+                     s3Logs :: (Prelude.Maybe S3LogsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
-mkLoggingProperty = LoggingProperty {s3Logs = Prelude.Nothing}
+mkLoggingProperty
+  = LoggingProperty
+      {haddock_workaround_ = (), s3Logs = Prelude.Nothing}
 instance ToResourceProperties LoggingProperty where
   toResourceProperties LoggingProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON LoggingProperty where
            (Prelude.catMaybes [(JSON..=) "S3Logs" Prelude.<$> s3Logs]))
 instance Property "S3Logs" LoggingProperty where
   type PropertyType "S3Logs" LoggingProperty = S3LogsProperty
-  set newValue LoggingProperty {}
+  set newValue LoggingProperty {..}
     = LoggingProperty {s3Logs = Prelude.pure newValue, ..}

@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.DashboardOptionsProperty
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.GuardianOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data VdmOptionsProperty
-  = VdmOptionsProperty {dashboardOptions :: (Prelude.Maybe DashboardOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html>
+    VdmOptionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-dashboardoptions>
+                        dashboardOptions :: (Prelude.Maybe DashboardOptionsProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-guardianoptions>
                         guardianOptions :: (Prelude.Maybe GuardianOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVdmOptionsProperty :: VdmOptionsProperty
 mkVdmOptionsProperty
   = VdmOptionsProperty
-      {dashboardOptions = Prelude.Nothing,
+      {haddock_workaround_ = (), dashboardOptions = Prelude.Nothing,
        guardianOptions = Prelude.Nothing}
 instance ToResourceProperties VdmOptionsProperty where
   toResourceProperties VdmOptionsProperty {..}

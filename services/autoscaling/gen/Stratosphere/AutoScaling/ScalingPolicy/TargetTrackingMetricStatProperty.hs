@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.MetricProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingMetricStatProperty
-  = TargetTrackingMetricStatProperty {metric :: MetricProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html>
+    TargetTrackingMetricStatProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-metric>
+                                      metric :: MetricProperty,
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-period>
                                       period :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-stat>
                                       stat :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-unit>
                                       unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingMetricStatProperty ::
@@ -19,8 +25,8 @@ mkTargetTrackingMetricStatProperty ::
   -> Value Prelude.Text -> TargetTrackingMetricStatProperty
 mkTargetTrackingMetricStatProperty metric stat
   = TargetTrackingMetricStatProperty
-      {metric = metric, stat = stat, period = Prelude.Nothing,
-       unit = Prelude.Nothing}
+      {haddock_workaround_ = (), metric = metric, stat = stat,
+       period = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties TargetTrackingMetricStatProperty where
   toResourceProperties TargetTrackingMetricStatProperty {..}
     = ResourceProperties

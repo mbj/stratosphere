@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WordConfigProperty
-  = WordConfigProperty {text :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html>
+    WordConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html#cfn-bedrock-guardrail-wordconfig-text>
+                        text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWordConfigProperty :: Value Prelude.Text -> WordConfigProperty
-mkWordConfigProperty text = WordConfigProperty {text = text}
+mkWordConfigProperty text
+  = WordConfigProperty {haddock_workaround_ = (), text = text}
 instance ToResourceProperties WordConfigProperty where
   toResourceProperties WordConfigProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON WordConfigProperty where
   toJSON WordConfigProperty {..} = JSON.object ["Text" JSON..= text]
 instance Property "Text" WordConfigProperty where
   type PropertyType "Text" WordConfigProperty = Value Prelude.Text
-  set newValue WordConfigProperty {}
+  set newValue WordConfigProperty {..}
     = WordConfigProperty {text = newValue, ..}

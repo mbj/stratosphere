@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationObjectProperty
-  = ConfigurationObjectProperty {classification :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html>
+    ConfigurationObjectProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html#cfn-emrserverless-application-configurationobject-classification>
+                                 classification :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html#cfn-emrserverless-application-configurationobject-configurations>
                                  configurations :: (Prelude.Maybe [ConfigurationObjectProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html#cfn-emrserverless-application-configurationobject-properties>
                                  properties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationObjectProperty ::
   Value Prelude.Text -> ConfigurationObjectProperty
 mkConfigurationObjectProperty classification
   = ConfigurationObjectProperty
-      {classification = classification, configurations = Prelude.Nothing,
-       properties = Prelude.Nothing}
+      {haddock_workaround_ = (), classification = classification,
+       configurations = Prelude.Nothing, properties = Prelude.Nothing}
 instance ToResourceProperties ConfigurationObjectProperty where
   toResourceProperties ConfigurationObjectProperty {..}
     = ResourceProperties

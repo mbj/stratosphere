@@ -7,29 +7,46 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OptionsProperty
-  = OptionsProperty {atime :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html>
+    OptionsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime>
+                     atime :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond>
                      bytesPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid>
                      gid :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel>
                      logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime>
                      mtime :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-objecttags>
                      objectTags :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode>
                      overwriteMode :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions>
                      posixPermissions :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles>
                      preserveDeletedFiles :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices>
                      preserveDevices :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags>
                      securityDescriptorCopyFlags :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing>
                      taskQueueing :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode>
                      transferMode :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid>
                      uid :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode>
                      verifyMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
 mkOptionsProperty
   = OptionsProperty
-      {atime = Prelude.Nothing, bytesPerSecond = Prelude.Nothing,
-       gid = Prelude.Nothing, logLevel = Prelude.Nothing,
-       mtime = Prelude.Nothing, objectTags = Prelude.Nothing,
-       overwriteMode = Prelude.Nothing,
+      {haddock_workaround_ = (), atime = Prelude.Nothing,
+       bytesPerSecond = Prelude.Nothing, gid = Prelude.Nothing,
+       logLevel = Prelude.Nothing, mtime = Prelude.Nothing,
+       objectTags = Prelude.Nothing, overwriteMode = Prelude.Nothing,
        posixPermissions = Prelude.Nothing,
        preserveDeletedFiles = Prelude.Nothing,
        preserveDevices = Prelude.Nothing,

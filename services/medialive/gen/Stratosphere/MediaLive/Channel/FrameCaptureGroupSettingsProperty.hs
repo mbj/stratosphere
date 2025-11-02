@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureCdnSettingsProp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty as Exports
 import Stratosphere.ResourceProperties
 data FrameCaptureGroupSettingsProperty
-  = FrameCaptureGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html>
+    FrameCaptureGroupSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html#cfn-medialive-channel-framecapturegroupsettings-destination>
+                                       destination :: (Prelude.Maybe OutputLocationRefProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html#cfn-medialive-channel-framecapturegroupsettings-framecapturecdnsettings>
                                        frameCaptureCdnSettings :: (Prelude.Maybe FrameCaptureCdnSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureGroupSettingsProperty ::
   FrameCaptureGroupSettingsProperty
 mkFrameCaptureGroupSettingsProperty
   = FrameCaptureGroupSettingsProperty
-      {destination = Prelude.Nothing,
+      {haddock_workaround_ = (), destination = Prelude.Nothing,
        frameCaptureCdnSettings = Prelude.Nothing}
 instance ToResourceProperties FrameCaptureGroupSettingsProperty where
   toResourceProperties FrameCaptureGroupSettingsProperty {..}

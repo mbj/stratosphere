@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WeeklySettingProperty
-  = WeeklySettingProperty {dayOfWeek :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-weeklysetting.html>
+    WeeklySettingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-weeklysetting.html#cfn-ssmcontacts-rotation-weeklysetting-dayofweek>
+                           dayOfWeek :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-weeklysetting.html#cfn-ssmcontacts-rotation-weeklysetting-handofftime>
                            handOffTime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWeeklySettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> WeeklySettingProperty
 mkWeeklySettingProperty dayOfWeek handOffTime
   = WeeklySettingProperty
-      {dayOfWeek = dayOfWeek, handOffTime = handOffTime}
+      {haddock_workaround_ = (), dayOfWeek = dayOfWeek,
+       handOffTime = handOffTime}
 instance ToResourceProperties WeeklySettingProperty where
   toResourceProperties WeeklySettingProperty {..}
     = ResourceProperties

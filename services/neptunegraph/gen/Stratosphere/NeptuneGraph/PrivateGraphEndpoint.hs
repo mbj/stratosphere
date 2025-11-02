@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateGraphEndpoint
-  = PrivateGraphEndpoint {graphIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html>
+    PrivateGraphEndpoint {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-graphidentifier>
+                          graphIdentifier :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-securitygroupids>
                           securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-subnetids>
                           subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-vpcid>
                           vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateGraphEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> PrivateGraphEndpoint
 mkPrivateGraphEndpoint graphIdentifier vpcId
   = PrivateGraphEndpoint
-      {graphIdentifier = graphIdentifier, vpcId = vpcId,
-       securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
+      {haddock_workaround_ = (), graphIdentifier = graphIdentifier,
+       vpcId = vpcId, securityGroupIds = Prelude.Nothing,
+       subnetIds = Prelude.Nothing}
 instance ToResourceProperties PrivateGraphEndpoint where
   toResourceProperties PrivateGraphEndpoint {..}
     = ResourceProperties

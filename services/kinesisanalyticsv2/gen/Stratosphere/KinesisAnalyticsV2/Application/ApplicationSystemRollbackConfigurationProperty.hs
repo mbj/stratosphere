@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationSystemRollbackConfigurationProperty
-  = ApplicationSystemRollbackConfigurationProperty {rollbackEnabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html>
+    ApplicationSystemRollbackConfigurationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration-rollbackenabled>
+                                                    rollbackEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSystemRollbackConfigurationProperty ::
   Value Prelude.Bool
   -> ApplicationSystemRollbackConfigurationProperty
 mkApplicationSystemRollbackConfigurationProperty rollbackEnabled
   = ApplicationSystemRollbackConfigurationProperty
-      {rollbackEnabled = rollbackEnabled}
+      {haddock_workaround_ = (), rollbackEnabled = rollbackEnabled}
 instance ToResourceProperties ApplicationSystemRollbackConfigurationProperty where
   toResourceProperties
     ApplicationSystemRollbackConfigurationProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON ApplicationSystemRollbackConfigurationProperty where
     = JSON.object ["RollbackEnabled" JSON..= rollbackEnabled]
 instance Property "RollbackEnabled" ApplicationSystemRollbackConfigurationProperty where
   type PropertyType "RollbackEnabled" ApplicationSystemRollbackConfigurationProperty = Value Prelude.Bool
-  set newValue ApplicationSystemRollbackConfigurationProperty {}
+  set newValue ApplicationSystemRollbackConfigurationProperty {..}
     = ApplicationSystemRollbackConfigurationProperty
         {rollbackEnabled = newValue, ..}

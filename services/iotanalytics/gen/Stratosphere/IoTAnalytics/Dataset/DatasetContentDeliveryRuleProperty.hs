@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DatasetContentDeliveryRu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetContentDeliveryRuleProperty
-  = DatasetContentDeliveryRuleProperty {destination :: DatasetContentDeliveryRuleDestinationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html>
+    DatasetContentDeliveryRuleProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-destination>
+                                        destination :: DatasetContentDeliveryRuleDestinationProperty,
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html#cfn-iotanalytics-dataset-datasetcontentdeliveryrule-entryname>
                                         entryName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentDeliveryRuleProperty ::
@@ -17,7 +21,8 @@ mkDatasetContentDeliveryRuleProperty ::
   -> DatasetContentDeliveryRuleProperty
 mkDatasetContentDeliveryRuleProperty destination
   = DatasetContentDeliveryRuleProperty
-      {destination = destination, entryName = Prelude.Nothing}
+      {haddock_workaround_ = (), destination = destination,
+       entryName = Prelude.Nothing}
 instance ToResourceProperties DatasetContentDeliveryRuleProperty where
   toResourceProperties DatasetContentDeliveryRuleProperty {..}
     = ResourceProperties

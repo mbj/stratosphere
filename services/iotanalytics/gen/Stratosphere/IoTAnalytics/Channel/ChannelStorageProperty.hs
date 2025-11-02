@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Channel.CustomerManagedS3Property as Exports
 import Stratosphere.ResourceProperties
 data ChannelStorageProperty
-  = ChannelStorageProperty {customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html>
+    ChannelStorageProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html#cfn-iotanalytics-channel-channelstorage-customermanageds3>
+                            customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html#cfn-iotanalytics-channel-channelstorage-servicemanageds3>
                             serviceManagedS3 :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelStorageProperty :: ChannelStorageProperty
 mkChannelStorageProperty
   = ChannelStorageProperty
-      {customerManagedS3 = Prelude.Nothing,
+      {haddock_workaround_ = (), customerManagedS3 = Prelude.Nothing,
        serviceManagedS3 = Prelude.Nothing}
 instance ToResourceProperties ChannelStorageProperty where
   toResourceProperties ChannelStorageProperty {..}

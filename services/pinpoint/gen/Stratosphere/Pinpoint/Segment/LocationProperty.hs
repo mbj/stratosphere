@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.GPSPointProperty as Exports
 import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.SetDimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data LocationProperty
-  = LocationProperty {country :: (Prelude.Maybe SetDimensionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location.html>
+    LocationProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location.html#cfn-pinpoint-segment-segmentdimensions-location-country>
+                      country :: (Prelude.Maybe SetDimensionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location.html#cfn-pinpoint-segment-segmentdimensions-location-gpspoint>
                       gPSPoint :: (Prelude.Maybe GPSPointProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty :: LocationProperty
 mkLocationProperty
   = LocationProperty
-      {country = Prelude.Nothing, gPSPoint = Prelude.Nothing}
+      {haddock_workaround_ = (), country = Prelude.Nothing,
+       gPSPoint = Prelude.Nothing}
 instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties

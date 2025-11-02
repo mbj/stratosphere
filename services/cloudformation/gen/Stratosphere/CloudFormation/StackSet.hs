@@ -13,26 +13,44 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StackSet
-  = StackSet {administrationRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html>
+    StackSet {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn>
+              administrationRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment>
               autoDeployment :: (Prelude.Maybe AutoDeploymentProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas>
               callAs :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities>
               capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename>
               executionRoleName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-managedexecution>
               managedExecution :: (Prelude.Maybe ManagedExecutionProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences>
               operationPreferences :: (Prelude.Maybe OperationPreferencesProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters>
               parameters :: (Prelude.Maybe [ParameterProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel>
               permissionModel :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup>
               stackInstancesGroup :: (Prelude.Maybe [StackInstancesProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname>
               stackSetName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags>
               tags :: (Prelude.Maybe [Tag]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody>
               templateBody :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl>
               templateURL :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackSet :: Value Prelude.Text -> Value Prelude.Text -> StackSet
 mkStackSet permissionModel stackSetName
   = StackSet
-      {permissionModel = permissionModel, stackSetName = stackSetName,
+      {haddock_workaround_ = (), permissionModel = permissionModel,
+       stackSetName = stackSetName,
        administrationRoleARN = Prelude.Nothing,
        autoDeployment = Prelude.Nothing, callAs = Prelude.Nothing,
        capabilities = Prelude.Nothing, description = Prelude.Nothing,

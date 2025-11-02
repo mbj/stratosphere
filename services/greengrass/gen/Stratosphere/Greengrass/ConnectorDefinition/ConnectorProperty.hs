@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectorProperty
-  = ConnectorProperty {connectorArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html>
+    ConnectorProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-connectorarn>
+                       connectorArn :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-id>
                        id :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-parameters>
                        parameters :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ConnectorProperty
 mkConnectorProperty connectorArn id
   = ConnectorProperty
-      {connectorArn = connectorArn, id = id,
+      {haddock_workaround_ = (), connectorArn = connectorArn, id = id,
        parameters = Prelude.Nothing}
 instance ToResourceProperties ConnectorProperty where
   toResourceProperties ConnectorProperty {..}

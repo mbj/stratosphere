@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomImageProperty
-  = CustomImageProperty {appImageConfigName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html>
+    CustomImageProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-appimageconfigname>
+                         appImageConfigName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-imagename>
                          imageName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customimage.html#cfn-sagemaker-space-customimage-imageversionnumber>
                          imageVersionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomImageProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomImageProperty
 mkCustomImageProperty appImageConfigName imageName
   = CustomImageProperty
-      {appImageConfigName = appImageConfigName, imageName = imageName,
-       imageVersionNumber = Prelude.Nothing}
+      {haddock_workaround_ = (), appImageConfigName = appImageConfigName,
+       imageName = imageName, imageVersionNumber = Prelude.Nothing}
 instance ToResourceProperties CustomImageProperty where
   toResourceProperties CustomImageProperty {..}
     = ResourceProperties

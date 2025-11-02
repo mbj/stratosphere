@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AncillarySourceSettingsProperty
-  = AncillarySourceSettingsProperty {sourceAncillaryChannelNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html>
+    AncillarySourceSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html#cfn-medialive-channel-ancillarysourcesettings-sourceancillarychannelnumber>
+                                     sourceAncillaryChannelNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAncillarySourceSettingsProperty ::
   AncillarySourceSettingsProperty
 mkAncillarySourceSettingsProperty
   = AncillarySourceSettingsProperty
-      {sourceAncillaryChannelNumber = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       sourceAncillaryChannelNumber = Prelude.Nothing}
 instance ToResourceProperties AncillarySourceSettingsProperty where
   toResourceProperties AncillarySourceSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON AncillarySourceSettingsProperty where
                  Prelude.<$> sourceAncillaryChannelNumber]))
 instance Property "SourceAncillaryChannelNumber" AncillarySourceSettingsProperty where
   type PropertyType "SourceAncillaryChannelNumber" AncillarySourceSettingsProperty = Value Prelude.Integer
-  set newValue AncillarySourceSettingsProperty {}
+  set newValue AncillarySourceSettingsProperty {..}
     = AncillarySourceSettingsProperty
         {sourceAncillaryChannelNumber = Prelude.pure newValue, ..}

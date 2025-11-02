@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyTemplate
-  = PolicyTemplate {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html>
+    PolicyTemplate {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-policystoreid>
                     policyStoreId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-statement>
                     statement :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> PolicyTemplate
 mkPolicyTemplate policyStoreId statement
   = PolicyTemplate
-      {policyStoreId = policyStoreId, statement = statement,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), policyStoreId = policyStoreId,
+       statement = statement, description = Prelude.Nothing}
 instance ToResourceProperties PolicyTemplate where
   toResourceProperties PolicyTemplate {..}
     = ResourceProperties

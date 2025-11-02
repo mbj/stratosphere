@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentReportS3ConfigurationProperty
-  = ExperimentReportS3ConfigurationProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimentreports3configuration.html>
+    ExperimentReportS3ConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimentreports3configuration.html#cfn-fis-experimenttemplate-experimentreports3configuration-bucketname>
+                                             bucketName :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimentreports3configuration.html#cfn-fis-experimenttemplate-experimentreports3configuration-prefix>
                                              prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentReportS3ConfigurationProperty ::
   Value Prelude.Text -> ExperimentReportS3ConfigurationProperty
 mkExperimentReportS3ConfigurationProperty bucketName
   = ExperimentReportS3ConfigurationProperty
-      {bucketName = bucketName, prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = bucketName,
+       prefix = Prelude.Nothing}
 instance ToResourceProperties ExperimentReportS3ConfigurationProperty where
   toResourceProperties ExperimentReportS3ConfigurationProperty {..}
     = ResourceProperties

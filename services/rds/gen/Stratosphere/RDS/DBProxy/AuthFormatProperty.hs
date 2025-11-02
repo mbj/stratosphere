@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthFormatProperty
-  = AuthFormatProperty {authScheme :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html>
+    AuthFormatProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme>
+                        authScheme :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-clientpasswordauthtype>
                         clientPasswordAuthType :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth>
                         iAMAuth :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn>
                         secretArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthFormatProperty :: AuthFormatProperty
 mkAuthFormatProperty
   = AuthFormatProperty
-      {authScheme = Prelude.Nothing,
+      {haddock_workaround_ = (), authScheme = Prelude.Nothing,
        clientPasswordAuthType = Prelude.Nothing,
        description = Prelude.Nothing, iAMAuth = Prelude.Nothing,
        secretArn = Prelude.Nothing}

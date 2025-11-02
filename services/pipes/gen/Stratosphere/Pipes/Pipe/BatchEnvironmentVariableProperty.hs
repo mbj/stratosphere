@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchEnvironmentVariableProperty
-  = BatchEnvironmentVariableProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html>
+    BatchEnvironmentVariableProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html#cfn-pipes-pipe-batchenvironmentvariable-name>
+                                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html#cfn-pipes-pipe-batchenvironmentvariable-value>
                                       value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchEnvironmentVariableProperty ::
   BatchEnvironmentVariableProperty
 mkBatchEnvironmentVariableProperty
   = BatchEnvironmentVariableProperty
-      {name = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties BatchEnvironmentVariableProperty where
   toResourceProperties BatchEnvironmentVariableProperty {..}
     = ResourceProperties

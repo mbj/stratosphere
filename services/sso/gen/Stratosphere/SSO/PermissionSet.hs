@@ -10,22 +10,34 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PermissionSet
-  = PermissionSet {customerManagedPolicyReferences :: (Prelude.Maybe [CustomerManagedPolicyReferenceProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html>
+    PermissionSet {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-customermanagedpolicyreferences>
+                   customerManagedPolicyReferences :: (Prelude.Maybe [CustomerManagedPolicyReferenceProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy>
                    inlinePolicy :: (Prelude.Maybe JSON.Object),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn>
                    instanceArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies>
                    managedPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary>
                    permissionsBoundary :: (Prelude.Maybe PermissionsBoundaryProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype>
                    relayStateType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration>
                    sessionDuration :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissionSet ::
   Value Prelude.Text -> Value Prelude.Text -> PermissionSet
 mkPermissionSet instanceArn name
   = PermissionSet
-      {instanceArn = instanceArn, name = name,
+      {haddock_workaround_ = (), instanceArn = instanceArn, name = name,
        customerManagedPolicyReferences = Prelude.Nothing,
        description = Prelude.Nothing, inlinePolicy = Prelude.Nothing,
        managedPolicies = Prelude.Nothing,

@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.Insight.DateRangeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateFilterProperty
-  = DateFilterProperty {dateRange :: (Prelude.Maybe DateRangeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-datefilter.html>
+    DateFilterProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-datefilter.html#cfn-securityhub-insight-datefilter-daterange>
+                        dateRange :: (Prelude.Maybe DateRangeProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-datefilter.html#cfn-securityhub-insight-datefilter-end>
                         end :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-datefilter.html#cfn-securityhub-insight-datefilter-start>
                         start :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateFilterProperty :: DateFilterProperty
 mkDateFilterProperty
   = DateFilterProperty
-      {dateRange = Prelude.Nothing, end = Prelude.Nothing,
-       start = Prelude.Nothing}
+      {haddock_workaround_ = (), dateRange = Prelude.Nothing,
+       end = Prelude.Nothing, start = Prelude.Nothing}
 instance ToResourceProperties DateFilterProperty where
   toResourceProperties DateFilterProperty {..}
     = ResourceProperties

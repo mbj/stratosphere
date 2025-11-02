@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegrationOverridesProperty
-  = IntegrationOverridesProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html>
+    IntegrationOverridesProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-description>
+                                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-integrationmethod>
                                   integrationMethod :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-payloadformatversion>
                                   payloadFormatVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html#cfn-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides-timeoutinmillis>
                                   timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationOverridesProperty :: IntegrationOverridesProperty
 mkIntegrationOverridesProperty
   = IntegrationOverridesProperty
-      {description = Prelude.Nothing,
+      {haddock_workaround_ = (), description = Prelude.Nothing,
        integrationMethod = Prelude.Nothing,
        payloadFormatVersion = Prelude.Nothing,
        timeoutInMillis = Prelude.Nothing}

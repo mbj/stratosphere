@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Scheduler.Schedule.SageMakerPipelineParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data SageMakerPipelineParametersProperty
-  = SageMakerPipelineParametersProperty {pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameters.html>
+    SageMakerPipelineParametersProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameters.html#cfn-scheduler-schedule-sagemakerpipelineparameters-pipelineparameterlist>
+                                         pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSageMakerPipelineParametersProperty ::
   SageMakerPipelineParametersProperty
 mkSageMakerPipelineParametersProperty
   = SageMakerPipelineParametersProperty
-      {pipelineParameterList = Prelude.Nothing}
+      {haddock_workaround_ = (), pipelineParameterList = Prelude.Nothing}
 instance ToResourceProperties SageMakerPipelineParametersProperty where
   toResourceProperties SageMakerPipelineParametersProperty {..}
     = ResourceProperties
@@ -33,6 +36,6 @@ instance JSON.ToJSON SageMakerPipelineParametersProperty where
                  Prelude.<$> pipelineParameterList]))
 instance Property "PipelineParameterList" SageMakerPipelineParametersProperty where
   type PropertyType "PipelineParameterList" SageMakerPipelineParametersProperty = [SageMakerPipelineParameterProperty]
-  set newValue SageMakerPipelineParametersProperty {}
+  set newValue SageMakerPipelineParametersProperty {..}
     = SageMakerPipelineParametersProperty
         {pipelineParameterList = Prelude.pure newValue, ..}

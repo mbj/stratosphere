@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.ASK.Skill.SkillPackageProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Skill
-  = Skill {authenticationConfiguration :: AuthenticationConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html>
+    Skill {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-authenticationconfiguration>
+           authenticationConfiguration :: AuthenticationConfigurationProperty,
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-skillpackage>
            skillPackage :: SkillPackageProperty,
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-vendorid>
            vendorId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSkill ::
@@ -18,7 +23,8 @@ mkSkill ::
   -> SkillPackageProperty -> Value Prelude.Text -> Skill
 mkSkill authenticationConfiguration skillPackage vendorId
   = Skill
-      {authenticationConfiguration = authenticationConfiguration,
+      {haddock_workaround_ = (),
+       authenticationConfiguration = authenticationConfiguration,
        skillPackage = skillPackage, vendorId = vendorId}
 instance ToResourceProperties Skill where
   toResourceProperties Skill {..}

@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.Deadline.StorageProfile.FileSystemLocationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageProfile
-  = StorageProfile {displayName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html>
+    StorageProfile {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html#cfn-deadline-storageprofile-displayname>
+                    displayName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html#cfn-deadline-storageprofile-farmid>
                     farmId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html#cfn-deadline-storageprofile-filesystemlocations>
                     fileSystemLocations :: (Prelude.Maybe [FileSystemLocationProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html#cfn-deadline-storageprofile-osfamily>
                     osFamily :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageProfile ::
@@ -18,7 +24,8 @@ mkStorageProfile ::
   -> Value Prelude.Text -> Value Prelude.Text -> StorageProfile
 mkStorageProfile displayName farmId osFamily
   = StorageProfile
-      {displayName = displayName, farmId = farmId, osFamily = osFamily,
+      {haddock_workaround_ = (), displayName = displayName,
+       farmId = farmId, osFamily = osFamily,
        fileSystemLocations = Prelude.Nothing}
 instance ToResourceProperties StorageProfile where
   toResourceProperties StorageProfile {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WeightedTargetGroupProperty
-  = WeightedTargetGroupProperty {targetGroupIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-weightedtargetgroup.html>
+    WeightedTargetGroupProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-weightedtargetgroup.html#cfn-vpclattice-rule-weightedtargetgroup-targetgroupidentifier>
+                                 targetGroupIdentifier :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-weightedtargetgroup.html#cfn-vpclattice-rule-weightedtargetgroup-weight>
                                  weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWeightedTargetGroupProperty ::
   Value Prelude.Text -> WeightedTargetGroupProperty
 mkWeightedTargetGroupProperty targetGroupIdentifier
   = WeightedTargetGroupProperty
-      {targetGroupIdentifier = targetGroupIdentifier,
+      {haddock_workaround_ = (),
+       targetGroupIdentifier = targetGroupIdentifier,
        weight = Prelude.Nothing}
 instance ToResourceProperties WeightedTargetGroupProperty where
   toResourceProperties WeightedTargetGroupProperty {..}

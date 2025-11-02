@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.Connect.PredefinedAttribute.ValuesProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredefinedAttribute
-  = PredefinedAttribute {instanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html>
+    PredefinedAttribute {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-instancearn>
+                         instanceArn :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-values>
                          values :: ValuesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredefinedAttribute ::
@@ -17,7 +22,8 @@ mkPredefinedAttribute ::
   -> Value Prelude.Text -> ValuesProperty -> PredefinedAttribute
 mkPredefinedAttribute instanceArn name values
   = PredefinedAttribute
-      {instanceArn = instanceArn, name = name, values = values}
+      {haddock_workaround_ = (), instanceArn = instanceArn, name = name,
+       values = values}
 instance ToResourceProperties PredefinedAttribute where
   toResourceProperties PredefinedAttribute {..}
     = ResourceProperties

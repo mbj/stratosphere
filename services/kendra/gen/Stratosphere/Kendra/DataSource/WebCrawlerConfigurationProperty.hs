@@ -11,21 +11,33 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerUrlsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerConfigurationProperty
-  = WebCrawlerConfigurationProperty {authenticationConfiguration :: (Prelude.Maybe WebCrawlerAuthenticationConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html>
+    WebCrawlerConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-authenticationconfiguration>
+                                     authenticationConfiguration :: (Prelude.Maybe WebCrawlerAuthenticationConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-crawldepth>
                                      crawlDepth :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-maxcontentsizeperpageinmegabytes>
                                      maxContentSizePerPageInMegaBytes :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-maxlinksperpage>
                                      maxLinksPerPage :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-maxurlsperminutecrawlrate>
                                      maxUrlsPerMinuteCrawlRate :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-proxyconfiguration>
                                      proxyConfiguration :: (Prelude.Maybe ProxyConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-urlexclusionpatterns>
                                      urlExclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-urlinclusionpatterns>
                                      urlInclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html#cfn-kendra-datasource-webcrawlerconfiguration-urls>
                                      urls :: WebCrawlerUrlsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerConfigurationProperty ::
   WebCrawlerUrlsProperty -> WebCrawlerConfigurationProperty
 mkWebCrawlerConfigurationProperty urls
   = WebCrawlerConfigurationProperty
-      {urls = urls, authenticationConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), urls = urls,
+       authenticationConfiguration = Prelude.Nothing,
        crawlDepth = Prelude.Nothing,
        maxContentSizePerPageInMegaBytes = Prelude.Nothing,
        maxLinksPerPage = Prelude.Nothing,

@@ -9,11 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FargateProfile
-  = FargateProfile {clusterName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html>
+    FargateProfile {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername>
+                    clusterName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename>
                     fargateProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn>
                     podExecutionRoleArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors>
                     selectors :: [SelectorProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets>
                     subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFargateProfile ::
@@ -21,7 +29,7 @@ mkFargateProfile ::
   -> Value Prelude.Text -> [SelectorProperty] -> FargateProfile
 mkFargateProfile clusterName podExecutionRoleArn selectors
   = FargateProfile
-      {clusterName = clusterName,
+      {haddock_workaround_ = (), clusterName = clusterName,
        podExecutionRoleArn = podExecutionRoleArn, selectors = selectors,
        fargateProfileName = Prelude.Nothing, subnets = Prelude.Nothing,
        tags = Prelude.Nothing}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocationProperty
-  = LocationProperty {cidrList :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html>
+    LocationProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-cidrlist>
+                      cidrList :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html#cfn-route53-cidrcollection-location-locationname>
                       locationName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationProperty
 mkLocationProperty cidrList locationName
   = LocationProperty
-      {cidrList = cidrList, locationName = locationName}
+      {haddock_workaround_ = (), cidrList = cidrList,
+       locationName = locationName}
 instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties

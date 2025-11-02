@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaximumAllowedResourcesProperty
-  = MaximumAllowedResourcesProperty {cpu :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html>
+    MaximumAllowedResourcesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-cpu>
+                                     cpu :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-disk>
                                      disk :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html#cfn-emrserverless-application-maximumallowedresources-memory>
                                      memory :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumAllowedResourcesProperty ::
@@ -17,7 +22,8 @@ mkMaximumAllowedResourcesProperty ::
   -> Value Prelude.Text -> MaximumAllowedResourcesProperty
 mkMaximumAllowedResourcesProperty cpu memory
   = MaximumAllowedResourcesProperty
-      {cpu = cpu, memory = memory, disk = Prelude.Nothing}
+      {haddock_workaround_ = (), cpu = cpu, memory = memory,
+       disk = Prelude.Nothing}
 instance ToResourceProperties MaximumAllowedResourcesProperty where
   toResourceProperties MaximumAllowedResourcesProperty {..}
     = ResourceProperties

@@ -9,36 +9,64 @@ import {-# SOURCE #-} Stratosphere.MWAA.Environment.NetworkConfigurationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Environment
-  = Environment {airflowConfigurationOptions :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html>
+    Environment {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions>
+                 airflowConfigurationOptions :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion>
                  airflowVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path>
                  dagS3Path :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-endpointmanagement>
                  endpointManagement :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass>
                  environmentClass :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn>
                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey>
                  kmsKey :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration>
                  loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxwebservers>
                  maxWebservers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers>
                  maxWorkers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minwebservers>
                  minWebservers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers>
                  minWorkers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration>
                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion>
                  pluginsS3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path>
                  pluginsS3Path :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion>
                  requirementsS3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path>
                  requirementsS3Path :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers>
                  schedulers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn>
                  sourceBucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-startupscripts3objectversion>
                  startupScriptS3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-startupscripts3path>
                  startupScriptS3Path :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags>
                  tags :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode>
                  webserverAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart>
                  weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment name
   = Environment
-      {name = name, airflowConfigurationOptions = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       airflowConfigurationOptions = Prelude.Nothing,
        airflowVersion = Prelude.Nothing, dagS3Path = Prelude.Nothing,
        endpointManagement = Prelude.Nothing,
        environmentClass = Prelude.Nothing,

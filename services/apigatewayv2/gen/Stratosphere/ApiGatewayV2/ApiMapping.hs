@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiMapping
-  = ApiMapping {apiId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html>
+    ApiMapping {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid>
+                apiId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey>
                 apiMappingKey :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname>
                 domainName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage>
                 stage :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiMapping ::
@@ -17,8 +23,8 @@ mkApiMapping ::
   -> Value Prelude.Text -> Value Prelude.Text -> ApiMapping
 mkApiMapping apiId domainName stage
   = ApiMapping
-      {apiId = apiId, domainName = domainName, stage = stage,
-       apiMappingKey = Prelude.Nothing}
+      {haddock_workaround_ = (), apiId = apiId, domainName = domainName,
+       stage = stage, apiMappingKey = Prelude.Nothing}
 instance ToResourceProperties ApiMapping where
   toResourceProperties ApiMapping {..}
     = ResourceProperties

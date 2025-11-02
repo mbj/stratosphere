@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginCustomHeaderProperty
-  = OriginCustomHeaderProperty {headerName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html>
+    OriginCustomHeaderProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername>
+                                headerName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue>
                                 headerValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginCustomHeaderProperty ::
@@ -15,7 +19,8 @@ mkOriginCustomHeaderProperty ::
   -> Value Prelude.Text -> OriginCustomHeaderProperty
 mkOriginCustomHeaderProperty headerName headerValue
   = OriginCustomHeaderProperty
-      {headerName = headerName, headerValue = headerValue}
+      {haddock_workaround_ = (), headerName = headerName,
+       headerValue = headerValue}
 instance ToResourceProperties OriginCustomHeaderProperty where
   toResourceProperties OriginCustomHeaderProperty {..}
     = ResourceProperties

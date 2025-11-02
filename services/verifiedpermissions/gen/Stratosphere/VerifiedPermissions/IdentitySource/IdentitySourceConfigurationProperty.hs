@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.CognitoUse
 import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data IdentitySourceConfigurationProperty
-  = IdentitySourceConfigurationProperty {cognitoUserPoolConfiguration :: (Prelude.Maybe CognitoUserPoolConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html>
+    IdentitySourceConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-cognitouserpoolconfiguration>
+                                         cognitoUserPoolConfiguration :: (Prelude.Maybe CognitoUserPoolConfigurationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html#cfn-verifiedpermissions-identitysource-identitysourceconfiguration-openidconnectconfiguration>
                                          openIdConnectConfiguration :: (Prelude.Maybe OpenIdConnectConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentitySourceConfigurationProperty ::
   IdentitySourceConfigurationProperty
 mkIdentitySourceConfigurationProperty
   = IdentitySourceConfigurationProperty
-      {cognitoUserPoolConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cognitoUserPoolConfiguration = Prelude.Nothing,
        openIdConnectConfiguration = Prelude.Nothing}
 instance ToResourceProperties IdentitySourceConfigurationProperty where
   toResourceProperties IdentitySourceConfigurationProperty {..}

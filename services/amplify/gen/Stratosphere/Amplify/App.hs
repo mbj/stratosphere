@@ -13,27 +13,46 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data App
-  = App {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html>
+    App {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken>
+         accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig>
          autoBranchCreationConfig :: (Prelude.Maybe AutoBranchCreationConfigProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig>
          basicAuthConfig :: (Prelude.Maybe BasicAuthConfigProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec>
          buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-cacheconfig>
          cacheConfig :: (Prelude.Maybe CacheConfigProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders>
          customHeaders :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules>
          customRules :: (Prelude.Maybe [CustomRuleProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion>
          enableBranchAutoDeletion :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables>
          environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole>
          iAMServiceRole :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken>
          oauthToken :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-platform>
          platform :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository>
          repository :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags>
          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApp :: Value Prelude.Text -> App
 mkApp name
   = App
-      {name = name, accessToken = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       accessToken = Prelude.Nothing,
        autoBranchCreationConfig = Prelude.Nothing,
        basicAuthConfig = Prelude.Nothing, buildSpec = Prelude.Nothing,
        cacheConfig = Prelude.Nothing, customHeaders = Prelude.Nothing,

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.CustomPlugin.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomPluginLocationProperty
-  = CustomPluginLocationProperty {s3Location :: S3LocationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html>
+    CustomPluginLocationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html#cfn-kafkaconnect-customplugin-custompluginlocation-s3location>
+                                  s3Location :: S3LocationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginLocationProperty ::
   S3LocationProperty -> CustomPluginLocationProperty
 mkCustomPluginLocationProperty s3Location
-  = CustomPluginLocationProperty {s3Location = s3Location}
+  = CustomPluginLocationProperty
+      {haddock_workaround_ = (), s3Location = s3Location}
 instance ToResourceProperties CustomPluginLocationProperty where
   toResourceProperties CustomPluginLocationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CustomPluginLocationProperty where
     = JSON.object ["S3Location" JSON..= s3Location]
 instance Property "S3Location" CustomPluginLocationProperty where
   type PropertyType "S3Location" CustomPluginLocationProperty = S3LocationProperty
-  set newValue CustomPluginLocationProperty {}
+  set newValue CustomPluginLocationProperty {..}
     = CustomPluginLocationProperty {s3Location = newValue, ..}

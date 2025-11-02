@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditNotificati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAuditConfiguration
-  = AccountAuditConfiguration {accountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html>
+    AccountAuditConfiguration {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid>
+                               accountId :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations>
                                auditCheckConfigurations :: AuditCheckConfigurationsProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations>
                                auditNotificationTargetConfigurations :: (Prelude.Maybe AuditNotificationTargetConfigurationsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn>
                                roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAuditConfiguration ::
@@ -24,7 +30,7 @@ mkAccountAuditConfiguration
   auditCheckConfigurations
   roleArn
   = AccountAuditConfiguration
-      {accountId = accountId,
+      {haddock_workaround_ = (), accountId = accountId,
        auditCheckConfigurations = auditCheckConfigurations,
        roleArn = roleArn,
        auditNotificationTargetConfigurations = Prelude.Nothing}

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.Monitorin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringOutputConfigProperty
-  = MonitoringOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html>
+    MonitoringOutputConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid>
+                                    kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs>
                                     monitoringOutputs :: [MonitoringOutputProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputConfigProperty ::
   [MonitoringOutputProperty] -> MonitoringOutputConfigProperty
 mkMonitoringOutputConfigProperty monitoringOutputs
   = MonitoringOutputConfigProperty
-      {monitoringOutputs = monitoringOutputs, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), monitoringOutputs = monitoringOutputs,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties MonitoringOutputConfigProperty where
   toResourceProperties MonitoringOutputConfigProperty {..}
     = ResourceProperties

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.CpuPerformanceFactorRequestProperty as Exports
 import Stratosphere.ResourceProperties
 data BaselinePerformanceFactorsRequestProperty
-  = BaselinePerformanceFactorsRequestProperty {cpu :: (Prelude.Maybe CpuPerformanceFactorRequestProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineperformancefactorsrequest.html>
+    BaselinePerformanceFactorsRequestProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineperformancefactorsrequest.html#cfn-autoscaling-autoscalinggroup-baselineperformancefactorsrequest-cpu>
+                                               cpu :: (Prelude.Maybe CpuPerformanceFactorRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselinePerformanceFactorsRequestProperty ::
   BaselinePerformanceFactorsRequestProperty
 mkBaselinePerformanceFactorsRequestProperty
-  = BaselinePerformanceFactorsRequestProperty {cpu = Prelude.Nothing}
+  = BaselinePerformanceFactorsRequestProperty
+      {haddock_workaround_ = (), cpu = Prelude.Nothing}
 instance ToResourceProperties BaselinePerformanceFactorsRequestProperty where
   toResourceProperties BaselinePerformanceFactorsRequestProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON BaselinePerformanceFactorsRequestProperty where
            (Prelude.catMaybes [(JSON..=) "Cpu" Prelude.<$> cpu]))
 instance Property "Cpu" BaselinePerformanceFactorsRequestProperty where
   type PropertyType "Cpu" BaselinePerformanceFactorsRequestProperty = CpuPerformanceFactorRequestProperty
-  set newValue BaselinePerformanceFactorsRequestProperty {}
+  set newValue BaselinePerformanceFactorsRequestProperty {..}
     = BaselinePerformanceFactorsRequestProperty
         {cpu = Prelude.pure newValue, ..}

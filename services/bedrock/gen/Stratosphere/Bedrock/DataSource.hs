@@ -10,12 +10,21 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.VectorIngestionConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSource
-  = DataSource {dataDeletionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html>
+    DataSource {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-datadeletionpolicy>
+                dataDeletionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-datasourceconfiguration>
                 dataSourceConfiguration :: DataSourceConfigurationProperty,
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-knowledgebaseid>
                 knowledgeBaseId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-serversideencryptionconfiguration>
                 serverSideEncryptionConfiguration :: (Prelude.Maybe ServerSideEncryptionConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-vectoringestionconfiguration>
                 vectorIngestionConfiguration :: (Prelude.Maybe VectorIngestionConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
@@ -23,7 +32,8 @@ mkDataSource ::
   -> Value Prelude.Text -> Value Prelude.Text -> DataSource
 mkDataSource dataSourceConfiguration knowledgeBaseId name
   = DataSource
-      {dataSourceConfiguration = dataSourceConfiguration,
+      {haddock_workaround_ = (),
+       dataSourceConfiguration = dataSourceConfiguration,
        knowledgeBaseId = knowledgeBaseId, name = name,
        dataDeletionPolicy = Prelude.Nothing,
        description = Prelude.Nothing,

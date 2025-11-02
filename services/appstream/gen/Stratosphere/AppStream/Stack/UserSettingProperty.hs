@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserSettingProperty
-  = UserSettingProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html>
+    UserSettingProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-action>
+                         action :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-maximumlength>
                          maximumLength :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission>
                          permission :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserSettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> UserSettingProperty
 mkUserSettingProperty action permission
   = UserSettingProperty
-      {action = action, permission = permission,
-       maximumLength = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action,
+       permission = permission, maximumLength = Prelude.Nothing}
 instance ToResourceProperties UserSettingProperty where
   toResourceProperties UserSettingProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmMetricProperty
-  = AlarmMetricProperty {alarmMetricName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html>
+    AlarmMetricProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname>
+                         alarmMetricName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmMetricProperty :: Value Prelude.Text -> AlarmMetricProperty
 mkAlarmMetricProperty alarmMetricName
-  = AlarmMetricProperty {alarmMetricName = alarmMetricName}
+  = AlarmMetricProperty
+      {haddock_workaround_ = (), alarmMetricName = alarmMetricName}
 instance ToResourceProperties AlarmMetricProperty where
   toResourceProperties AlarmMetricProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON AlarmMetricProperty where
     = JSON.object ["AlarmMetricName" JSON..= alarmMetricName]
 instance Property "AlarmMetricName" AlarmMetricProperty where
   type PropertyType "AlarmMetricName" AlarmMetricProperty = Value Prelude.Text
-  set newValue AlarmMetricProperty {}
+  set newValue AlarmMetricProperty {..}
     = AlarmMetricProperty {alarmMetricName = newValue, ..}

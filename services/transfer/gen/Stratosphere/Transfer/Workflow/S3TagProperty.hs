@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3TagProperty
-  = S3TagProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3tag.html>
+    S3TagProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3tag.html#cfn-transfer-workflow-s3tag-key>
+                   key :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3tag.html#cfn-transfer-workflow-s3tag-value>
                    value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3TagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3TagProperty
 mkS3TagProperty key value
-  = S3TagProperty {key = key, value = value}
+  = S3TagProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties S3TagProperty where
   toResourceProperties S3TagProperty {..}
     = ResourceProperties

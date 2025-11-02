@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DvbSubSourceSettingsProperty
-  = DvbSubSourceSettingsProperty {ocrLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubsourcesettings.html>
+    DvbSubSourceSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubsourcesettings.html#cfn-medialive-channel-dvbsubsourcesettings-ocrlanguage>
+                                  ocrLanguage :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubsourcesettings.html#cfn-medialive-channel-dvbsubsourcesettings-pid>
                                   pid :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbSubSourceSettingsProperty :: DvbSubSourceSettingsProperty
 mkDvbSubSourceSettingsProperty
   = DvbSubSourceSettingsProperty
-      {ocrLanguage = Prelude.Nothing, pid = Prelude.Nothing}
+      {haddock_workaround_ = (), ocrLanguage = Prelude.Nothing,
+       pid = Prelude.Nothing}
 instance ToResourceProperties DvbSubSourceSettingsProperty where
   toResourceProperties DvbSubSourceSettingsProperty {..}
     = ResourceProperties

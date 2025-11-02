@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkBandwidthGbpsProperty
-  = NetworkBandwidthGbpsProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html>
+    NetworkBandwidthGbpsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html#cfn-ec2-launchtemplate-networkbandwidthgbps-max>
+                                  max :: (Prelude.Maybe (Value Prelude.Double)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html#cfn-ec2-launchtemplate-networkbandwidthgbps-min>
                                   min :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkBandwidthGbpsProperty :: NetworkBandwidthGbpsProperty
 mkNetworkBandwidthGbpsProperty
   = NetworkBandwidthGbpsProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties NetworkBandwidthGbpsProperty where
   toResourceProperties NetworkBandwidthGbpsProperty {..}
     = ResourceProperties

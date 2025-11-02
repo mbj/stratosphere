@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitPushFilterProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitConfigurationProperty
-  = GitConfigurationProperty {pullRequest :: (Prelude.Maybe [GitPullRequestFilterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html>
+    GitConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-pullrequest>
+                              pullRequest :: (Prelude.Maybe [GitPullRequestFilterProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-push>
                               push :: (Prelude.Maybe [GitPushFilterProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-sourceactionname>
                               sourceActionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitConfigurationProperty ::
   Value Prelude.Text -> GitConfigurationProperty
 mkGitConfigurationProperty sourceActionName
   = GitConfigurationProperty
-      {sourceActionName = sourceActionName,
+      {haddock_workaround_ = (), sourceActionName = sourceActionName,
        pullRequest = Prelude.Nothing, push = Prelude.Nothing}
 instance ToResourceProperties GitConfigurationProperty where
   toResourceProperties GitConfigurationProperty {..}

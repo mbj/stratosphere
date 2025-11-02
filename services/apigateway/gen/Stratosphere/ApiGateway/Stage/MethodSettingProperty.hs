@@ -7,21 +7,33 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MethodSettingProperty
-  = MethodSettingProperty {cacheDataEncrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html>
+    MethodSettingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted>
+                           cacheDataEncrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds>
                            cacheTtlInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled>
                            cachingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled>
                            dataTraceEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod>
                            httpMethod :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel>
                            loggingLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled>
                            metricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath>
                            resourcePath :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit>
                            throttlingBurstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit>
                            throttlingRateLimit :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMethodSettingProperty :: MethodSettingProperty
 mkMethodSettingProperty
   = MethodSettingProperty
-      {cacheDataEncrypted = Prelude.Nothing,
+      {haddock_workaround_ = (), cacheDataEncrypted = Prelude.Nothing,
        cacheTtlInSeconds = Prelude.Nothing,
        cachingEnabled = Prelude.Nothing,
        dataTraceEnabled = Prelude.Nothing, httpMethod = Prelude.Nothing,

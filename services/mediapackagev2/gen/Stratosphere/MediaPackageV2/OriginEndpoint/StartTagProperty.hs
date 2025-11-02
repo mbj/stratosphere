@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StartTagProperty
-  = StartTagProperty {precise :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html>
+    StartTagProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html#cfn-mediapackagev2-originendpoint-starttag-precise>
+                      precise :: (Prelude.Maybe (Value Prelude.Bool)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html#cfn-mediapackagev2-originendpoint-starttag-timeoffset>
                       timeOffset :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStartTagProperty :: Value Prelude.Double -> StartTagProperty
 mkStartTagProperty timeOffset
   = StartTagProperty
-      {timeOffset = timeOffset, precise = Prelude.Nothing}
+      {haddock_workaround_ = (), timeOffset = timeOffset,
+       precise = Prelude.Nothing}
 instance ToResourceProperties StartTagProperty where
   toResourceProperties StartTagProperty {..}
     = ResourceProperties

@@ -12,18 +12,27 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.DetailedStatusCodesMetricsProp
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.StorageLensGroupLevelProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountLevelProperty
-  = AccountLevelProperty {activityMetrics :: (Prelude.Maybe ActivityMetricsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html>
+    AccountLevelProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics>
+                          activityMetrics :: (Prelude.Maybe ActivityMetricsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advancedcostoptimizationmetrics>
                           advancedCostOptimizationMetrics :: (Prelude.Maybe AdvancedCostOptimizationMetricsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advanceddataprotectionmetrics>
                           advancedDataProtectionMetrics :: (Prelude.Maybe AdvancedDataProtectionMetricsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel>
                           bucketLevel :: BucketLevelProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics>
                           detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-storagelensgrouplevel>
                           storageLensGroupLevel :: (Prelude.Maybe StorageLensGroupLevelProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountLevelProperty ::
   BucketLevelProperty -> AccountLevelProperty
 mkAccountLevelProperty bucketLevel
   = AccountLevelProperty
-      {bucketLevel = bucketLevel, activityMetrics = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketLevel = bucketLevel,
+       activityMetrics = Prelude.Nothing,
        advancedCostOptimizationMetrics = Prelude.Nothing,
        advancedDataProtectionMetrics = Prelude.Nothing,
        detailedStatusCodesMetrics = Prelude.Nothing,

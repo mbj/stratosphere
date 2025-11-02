@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSeedUrlConfigurationProperty
-  = WebCrawlerSeedUrlConfigurationProperty {seedUrls :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html>
+    WebCrawlerSeedUrlConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html#cfn-kendra-datasource-webcrawlerseedurlconfiguration-seedurls>
+                                            seedUrls :: (ValueList Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html#cfn-kendra-datasource-webcrawlerseedurlconfiguration-webcrawlermode>
                                             webCrawlerMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerSeedUrlConfigurationProperty ::
   ValueList Prelude.Text -> WebCrawlerSeedUrlConfigurationProperty
 mkWebCrawlerSeedUrlConfigurationProperty seedUrls
   = WebCrawlerSeedUrlConfigurationProperty
-      {seedUrls = seedUrls, webCrawlerMode = Prelude.Nothing}
+      {haddock_workaround_ = (), seedUrls = seedUrls,
+       webCrawlerMode = Prelude.Nothing}
 instance ToResourceProperties WebCrawlerSeedUrlConfigurationProperty where
   toResourceProperties WebCrawlerSeedUrlConfigurationProperty {..}
     = ResourceProperties

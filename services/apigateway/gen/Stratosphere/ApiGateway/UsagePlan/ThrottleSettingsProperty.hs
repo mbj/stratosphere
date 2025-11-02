@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThrottleSettingsProperty
-  = ThrottleSettingsProperty {burstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html>
+    ThrottleSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit>
+                              burstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit>
                               rateLimit :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThrottleSettingsProperty :: ThrottleSettingsProperty
 mkThrottleSettingsProperty
   = ThrottleSettingsProperty
-      {burstLimit = Prelude.Nothing, rateLimit = Prelude.Nothing}
+      {haddock_workaround_ = (), burstLimit = Prelude.Nothing,
+       rateLimit = Prelude.Nothing}
 instance ToResourceProperties ThrottleSettingsProperty where
   toResourceProperties ThrottleSettingsProperty {..}
     = ResourceProperties

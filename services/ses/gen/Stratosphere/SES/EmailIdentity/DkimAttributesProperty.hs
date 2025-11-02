@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DkimAttributesProperty
-  = DkimAttributesProperty {signingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimattributes.html>
+    DkimAttributesProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimattributes.html#cfn-ses-emailidentity-dkimattributes-signingenabled>
+                            signingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDkimAttributesProperty :: DkimAttributesProperty
 mkDkimAttributesProperty
-  = DkimAttributesProperty {signingEnabled = Prelude.Nothing}
+  = DkimAttributesProperty
+      {haddock_workaround_ = (), signingEnabled = Prelude.Nothing}
 instance ToResourceProperties DkimAttributesProperty where
   toResourceProperties DkimAttributesProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DkimAttributesProperty where
               [(JSON..=) "SigningEnabled" Prelude.<$> signingEnabled]))
 instance Property "SigningEnabled" DkimAttributesProperty where
   type PropertyType "SigningEnabled" DkimAttributesProperty = Value Prelude.Bool
-  set newValue DkimAttributesProperty {}
+  set newValue DkimAttributesProperty {..}
     = DkimAttributesProperty
         {signingEnabled = Prelude.pure newValue, ..}

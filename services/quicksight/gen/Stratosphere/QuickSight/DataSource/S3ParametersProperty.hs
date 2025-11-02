@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.ManifestFileLocationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ParametersProperty
-  = S3ParametersProperty {manifestFileLocation :: ManifestFileLocationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html>
+    S3ParametersProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation>
+                          manifestFileLocation :: ManifestFileLocationProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-rolearn>
                           roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ParametersProperty ::
   ManifestFileLocationProperty -> S3ParametersProperty
 mkS3ParametersProperty manifestFileLocation
   = S3ParametersProperty
-      {manifestFileLocation = manifestFileLocation,
+      {haddock_workaround_ = (),
+       manifestFileLocation = manifestFileLocation,
        roleArn = Prelude.Nothing}
 instance ToResourceProperties S3ParametersProperty where
   toResourceProperties S3ParametersProperty {..}

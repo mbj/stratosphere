@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BodyConfigProperty
-  = BodyConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html>
+    BodyConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-alignment>
+                        alignment :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-body>
                         body :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html#cfn-pinpoint-inapptemplate-bodyconfig-textcolor>
                         textColor :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyConfigProperty :: BodyConfigProperty
 mkBodyConfigProperty
   = BodyConfigProperty
-      {alignment = Prelude.Nothing, body = Prelude.Nothing,
-       textColor = Prelude.Nothing}
+      {haddock_workaround_ = (), alignment = Prelude.Nothing,
+       body = Prelude.Nothing, textColor = Prelude.Nothing}
 instance ToResourceProperties BodyConfigProperty where
   toResourceProperties BodyConfigProperty {..}
     = ResourceProperties

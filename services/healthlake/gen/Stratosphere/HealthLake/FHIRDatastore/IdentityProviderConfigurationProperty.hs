@@ -8,16 +8,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityProviderConfigurationProperty
-  = IdentityProviderConfigurationProperty {authorizationStrategy :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>
+    IdentityProviderConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-authorizationstrategy>
+                                           authorizationStrategy :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-finegrainedauthorizationenabled>
                                            fineGrainedAuthorizationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-idplambdaarn>
                                            idpLambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-metadata>
                                            metadata :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProviderConfigurationProperty ::
   Value Prelude.Text -> IdentityProviderConfigurationProperty
 mkIdentityProviderConfigurationProperty authorizationStrategy
   = IdentityProviderConfigurationProperty
-      {authorizationStrategy = authorizationStrategy,
+      {haddock_workaround_ = (),
+       authorizationStrategy = authorizationStrategy,
        fineGrainedAuthorizationEnabled = Prelude.Nothing,
        idpLambdaArn = Prelude.Nothing, metadata = Prelude.Nothing}
 instance ToResourceProperties IdentityProviderConfigurationProperty where

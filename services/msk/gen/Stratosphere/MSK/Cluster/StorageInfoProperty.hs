@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.EBSStorageInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageInfoProperty
-  = StorageInfoProperty {eBSStorageInfo :: (Prelude.Maybe EBSStorageInfoProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html>
+    StorageInfoProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html#cfn-msk-cluster-storageinfo-ebsstorageinfo>
+                         eBSStorageInfo :: (Prelude.Maybe EBSStorageInfoProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageInfoProperty :: StorageInfoProperty
 mkStorageInfoProperty
-  = StorageInfoProperty {eBSStorageInfo = Prelude.Nothing}
+  = StorageInfoProperty
+      {haddock_workaround_ = (), eBSStorageInfo = Prelude.Nothing}
 instance ToResourceProperties StorageInfoProperty where
   toResourceProperties StorageInfoProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON StorageInfoProperty where
               [(JSON..=) "EBSStorageInfo" Prelude.<$> eBSStorageInfo]))
 instance Property "EBSStorageInfo" StorageInfoProperty where
   type PropertyType "EBSStorageInfo" StorageInfoProperty = EBSStorageInfoProperty
-  set newValue StorageInfoProperty {}
+  set newValue StorageInfoProperty {..}
     = StorageInfoProperty {eBSStorageInfo = Prelude.pure newValue, ..}

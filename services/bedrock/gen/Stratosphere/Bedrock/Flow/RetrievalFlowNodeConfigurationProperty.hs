@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.RetrievalFlowNodeServiceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data RetrievalFlowNodeConfigurationProperty
-  = RetrievalFlowNodeConfigurationProperty {serviceConfiguration :: RetrievalFlowNodeServiceConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-retrievalflownodeconfiguration.html>
+    RetrievalFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-retrievalflownodeconfiguration.html#cfn-bedrock-flow-retrievalflownodeconfiguration-serviceconfiguration>
+                                            serviceConfiguration :: RetrievalFlowNodeServiceConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetrievalFlowNodeConfigurationProperty ::
   RetrievalFlowNodeServiceConfigurationProperty
   -> RetrievalFlowNodeConfigurationProperty
 mkRetrievalFlowNodeConfigurationProperty serviceConfiguration
   = RetrievalFlowNodeConfigurationProperty
-      {serviceConfiguration = serviceConfiguration}
+      {haddock_workaround_ = (),
+       serviceConfiguration = serviceConfiguration}
 instance ToResourceProperties RetrievalFlowNodeConfigurationProperty where
   toResourceProperties RetrievalFlowNodeConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON RetrievalFlowNodeConfigurationProperty where
     = JSON.object ["ServiceConfiguration" JSON..= serviceConfiguration]
 instance Property "ServiceConfiguration" RetrievalFlowNodeConfigurationProperty where
   type PropertyType "ServiceConfiguration" RetrievalFlowNodeConfigurationProperty = RetrievalFlowNodeServiceConfigurationProperty
-  set newValue RetrievalFlowNodeConfigurationProperty {}
+  set newValue RetrievalFlowNodeConfigurationProperty {..}
     = RetrievalFlowNodeConfigurationProperty
         {serviceConfiguration = newValue, ..}

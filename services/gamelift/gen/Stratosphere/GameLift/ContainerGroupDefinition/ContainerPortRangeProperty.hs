@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerPortRangeProperty
-  = ContainerPortRangeProperty {fromPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>
+    ContainerPortRangeProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-fromport>
+                                fromPort :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-protocol>
                                 protocol :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html#cfn-gamelift-containergroupdefinition-containerportrange-toport>
                                 toPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerPortRangeProperty ::
@@ -17,7 +22,8 @@ mkContainerPortRangeProperty ::
      -> Value Prelude.Integer -> ContainerPortRangeProperty
 mkContainerPortRangeProperty fromPort protocol toPort
   = ContainerPortRangeProperty
-      {fromPort = fromPort, protocol = protocol, toPort = toPort}
+      {haddock_workaround_ = (), fromPort = fromPort,
+       protocol = protocol, toPort = toPort}
 instance ToResourceProperties ContainerPortRangeProperty where
   toResourceProperties ContainerPortRangeProperty {..}
     = ResourceProperties

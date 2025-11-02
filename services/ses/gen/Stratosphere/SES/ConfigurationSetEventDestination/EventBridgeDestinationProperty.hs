@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeDestinationProperty
-  = EventBridgeDestinationProperty {eventBusArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html>
+    EventBridgeDestinationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html#cfn-ses-configurationseteventdestination-eventbridgedestination-eventbusarn>
+                                    eventBusArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeDestinationProperty ::
   Value Prelude.Text -> EventBridgeDestinationProperty
 mkEventBridgeDestinationProperty eventBusArn
-  = EventBridgeDestinationProperty {eventBusArn = eventBusArn}
+  = EventBridgeDestinationProperty
+      {haddock_workaround_ = (), eventBusArn = eventBusArn}
 instance ToResourceProperties EventBridgeDestinationProperty where
   toResourceProperties EventBridgeDestinationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON EventBridgeDestinationProperty where
     = JSON.object ["EventBusArn" JSON..= eventBusArn]
 instance Property "EventBusArn" EventBridgeDestinationProperty where
   type PropertyType "EventBusArn" EventBridgeDestinationProperty = Value Prelude.Text
-  set newValue EventBridgeDestinationProperty {}
+  set newValue EventBridgeDestinationProperty {..}
     = EventBridgeDestinationProperty {eventBusArn = newValue, ..}

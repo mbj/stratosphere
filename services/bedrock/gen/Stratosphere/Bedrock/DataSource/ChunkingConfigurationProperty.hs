@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.SemanticChunkingConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChunkingConfigurationProperty
-  = ChunkingConfigurationProperty {chunkingStrategy :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html>
+    ChunkingConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-chunkingstrategy>
+                                   chunkingStrategy :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-fixedsizechunkingconfiguration>
                                    fixedSizeChunkingConfiguration :: (Prelude.Maybe FixedSizeChunkingConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-hierarchicalchunkingconfiguration>
                                    hierarchicalChunkingConfiguration :: (Prelude.Maybe HierarchicalChunkingConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-semanticchunkingconfiguration>
                                    semanticChunkingConfiguration :: (Prelude.Maybe SemanticChunkingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChunkingConfigurationProperty ::
   Value Prelude.Text -> ChunkingConfigurationProperty
 mkChunkingConfigurationProperty chunkingStrategy
   = ChunkingConfigurationProperty
-      {chunkingStrategy = chunkingStrategy,
+      {haddock_workaround_ = (), chunkingStrategy = chunkingStrategy,
        fixedSizeChunkingConfiguration = Prelude.Nothing,
        hierarchicalChunkingConfiguration = Prelude.Nothing,
        semanticChunkingConfiguration = Prelude.Nothing}

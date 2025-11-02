@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateTargetFilterProperty
-  = ExperimentTemplateTargetFilterProperty {path :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html>
+    ExperimentTemplateTargetFilterProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path>
+                                            path :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values>
                                             values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateTargetFilterProperty ::
@@ -16,7 +20,7 @@ mkExperimentTemplateTargetFilterProperty ::
   -> ValueList Prelude.Text -> ExperimentTemplateTargetFilterProperty
 mkExperimentTemplateTargetFilterProperty path values
   = ExperimentTemplateTargetFilterProperty
-      {path = path, values = values}
+      {haddock_workaround_ = (), path = path, values = values}
 instance ToResourceProperties ExperimentTemplateTargetFilterProperty where
   toResourceProperties ExperimentTemplateTargetFilterProperty {..}
     = ResourceProperties

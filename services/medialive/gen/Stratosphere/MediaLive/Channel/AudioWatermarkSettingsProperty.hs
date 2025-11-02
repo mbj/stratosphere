@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.NielsenWatermarksSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioWatermarkSettingsProperty
-  = AudioWatermarkSettingsProperty {nielsenWatermarksSettings :: (Prelude.Maybe NielsenWatermarksSettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html>
+    AudioWatermarkSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html#cfn-medialive-channel-audiowatermarksettings-nielsenwatermarkssettings>
+                                    nielsenWatermarksSettings :: (Prelude.Maybe NielsenWatermarksSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioWatermarkSettingsProperty :: AudioWatermarkSettingsProperty
 mkAudioWatermarkSettingsProperty
   = AudioWatermarkSettingsProperty
-      {nielsenWatermarksSettings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       nielsenWatermarksSettings = Prelude.Nothing}
 instance ToResourceProperties AudioWatermarkSettingsProperty where
   toResourceProperties AudioWatermarkSettingsProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON AudioWatermarkSettingsProperty where
                  Prelude.<$> nielsenWatermarksSettings]))
 instance Property "NielsenWatermarksSettings" AudioWatermarkSettingsProperty where
   type PropertyType "NielsenWatermarksSettings" AudioWatermarkSettingsProperty = NielsenWatermarksSettingsProperty
-  set newValue AudioWatermarkSettingsProperty {}
+  set newValue AudioWatermarkSettingsProperty {..}
     = AudioWatermarkSettingsProperty
         {nielsenWatermarksSettings = Prelude.pure newValue, ..}

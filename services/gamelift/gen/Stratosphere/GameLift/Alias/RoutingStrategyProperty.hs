@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingStrategyProperty
-  = RoutingStrategyProperty {fleetId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html>
+    RoutingStrategyProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid>
+                             fleetId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message>
                              message :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingStrategyProperty ::
   Value Prelude.Text -> RoutingStrategyProperty
 mkRoutingStrategyProperty type'
   = RoutingStrategyProperty
-      {type' = type', fleetId = Prelude.Nothing,
-       message = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       fleetId = Prelude.Nothing, message = Prelude.Nothing}
 instance ToResourceProperties RoutingStrategyProperty where
   toResourceProperties RoutingStrategyProperty {..}
     = ResourceProperties

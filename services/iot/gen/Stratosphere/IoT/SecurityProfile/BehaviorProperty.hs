@@ -9,17 +9,25 @@ import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.MetricDimensionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BehaviorProperty
-  = BehaviorProperty {criteria :: (Prelude.Maybe BehaviorCriteriaProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html>
+    BehaviorProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria>
+                      criteria :: (Prelude.Maybe BehaviorCriteriaProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-exportmetric>
                       exportMetric :: (Prelude.Maybe (Value Prelude.Bool)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric>
                       metric :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension>
                       metricDimension :: (Prelude.Maybe MetricDimensionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts>
                       suppressAlerts :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorProperty :: Value Prelude.Text -> BehaviorProperty
 mkBehaviorProperty name
   = BehaviorProperty
-      {name = name, criteria = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, criteria = Prelude.Nothing,
        exportMetric = Prelude.Nothing, metric = Prelude.Nothing,
        metricDimension = Prelude.Nothing,
        suppressAlerts = Prelude.Nothing}

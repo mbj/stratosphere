@@ -12,27 +12,41 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.SectionalElementPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Form
-  = Form {appId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html>
+    Form {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-appid>
+          appId :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-cta>
           cta :: (Prelude.Maybe FormCTAProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-datatype>
           dataType :: (Prelude.Maybe FormDataTypeConfigProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-environmentname>
           environmentName :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-fields>
           fields :: (Prelude.Maybe (Prelude.Map Prelude.Text FieldConfigProperty)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-formactiontype>
           formActionType :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-labeldecorator>
           labelDecorator :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-name>
           name :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-schemaversion>
           schemaVersion :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-sectionalelements>
           sectionalElements :: (Prelude.Maybe (Prelude.Map Prelude.Text SectionalElementProperty)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-style>
           style :: (Prelude.Maybe FormStyleProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html#cfn-amplifyuibuilder-form-tags>
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForm :: Form
 mkForm
   = Form
-      {appId = Prelude.Nothing, cta = Prelude.Nothing,
-       dataType = Prelude.Nothing, environmentName = Prelude.Nothing,
-       fields = Prelude.Nothing, formActionType = Prelude.Nothing,
-       labelDecorator = Prelude.Nothing, name = Prelude.Nothing,
-       schemaVersion = Prelude.Nothing,
+      {haddock_workaround_ = (), appId = Prelude.Nothing,
+       cta = Prelude.Nothing, dataType = Prelude.Nothing,
+       environmentName = Prelude.Nothing, fields = Prelude.Nothing,
+       formActionType = Prelude.Nothing, labelDecorator = Prelude.Nothing,
+       name = Prelude.Nothing, schemaVersion = Prelude.Nothing,
        sectionalElements = Prelude.Nothing, style = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Form where

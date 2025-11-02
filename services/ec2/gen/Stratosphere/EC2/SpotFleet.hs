@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotFleetRequestConfigDataProperty as Exports
 import Stratosphere.ResourceProperties
 data SpotFleet
-  = SpotFleet {spotFleetRequestConfigData :: SpotFleetRequestConfigDataProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html>
+    SpotFleet {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata>
+               spotFleetRequestConfigData :: SpotFleetRequestConfigDataProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleet :: SpotFleetRequestConfigDataProperty -> SpotFleet
 mkSpotFleet spotFleetRequestConfigData
   = SpotFleet
-      {spotFleetRequestConfigData = spotFleetRequestConfigData}
+      {haddock_workaround_ = (),
+       spotFleetRequestConfigData = spotFleetRequestConfigData}
 instance ToResourceProperties SpotFleet where
   toResourceProperties SpotFleet {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON SpotFleet where
         ["SpotFleetRequestConfigData" JSON..= spotFleetRequestConfigData]
 instance Property "SpotFleetRequestConfigData" SpotFleet where
   type PropertyType "SpotFleetRequestConfigData" SpotFleet = SpotFleetRequestConfigDataProperty
-  set newValue SpotFleet {}
+  set newValue SpotFleet {..}
     = SpotFleet {spotFleetRequestConfigData = newValue, ..}

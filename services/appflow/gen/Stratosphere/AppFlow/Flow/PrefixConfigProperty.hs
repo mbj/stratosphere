@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrefixConfigProperty
-  = PrefixConfigProperty {pathPrefixHierarchy :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html>
+    PrefixConfigProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-pathprefixhierarchy>
+                          pathPrefixHierarchy :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat>
                           prefixFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype>
                           prefixType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixConfigProperty :: PrefixConfigProperty
 mkPrefixConfigProperty
   = PrefixConfigProperty
-      {pathPrefixHierarchy = Prelude.Nothing,
+      {haddock_workaround_ = (), pathPrefixHierarchy = Prelude.Nothing,
        prefixFormat = Prelude.Nothing, prefixType = Prelude.Nothing}
 instance ToResourceProperties PrefixConfigProperty where
   toResourceProperties PrefixConfigProperty {..}

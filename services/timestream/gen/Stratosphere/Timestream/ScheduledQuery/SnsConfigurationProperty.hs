@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsConfigurationProperty
-  = SnsConfigurationProperty {topicArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html>
+    SnsConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html#cfn-timestream-scheduledquery-snsconfiguration-topicarn>
+                              topicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsConfigurationProperty ::
   Value Prelude.Text -> SnsConfigurationProperty
 mkSnsConfigurationProperty topicArn
-  = SnsConfigurationProperty {topicArn = topicArn}
+  = SnsConfigurationProperty
+      {haddock_workaround_ = (), topicArn = topicArn}
 instance ToResourceProperties SnsConfigurationProperty where
   toResourceProperties SnsConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON SnsConfigurationProperty where
     = JSON.object ["TopicArn" JSON..= topicArn]
 instance Property "TopicArn" SnsConfigurationProperty where
   type PropertyType "TopicArn" SnsConfigurationProperty = Value Prelude.Text
-  set newValue SnsConfigurationProperty {}
+  set newValue SnsConfigurationProperty {..}
     = SnsConfigurationProperty {topicArn = newValue, ..}

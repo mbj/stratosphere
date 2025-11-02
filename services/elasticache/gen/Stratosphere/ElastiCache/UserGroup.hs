@@ -8,9 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data UserGroup
-  = UserGroup {engine :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html>
+    UserGroup {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine>
+               engine :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid>
                userGroupId :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids>
                userIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserGroup ::
@@ -18,7 +24,8 @@ mkUserGroup ::
   -> Value Prelude.Text -> ValueList Prelude.Text -> UserGroup
 mkUserGroup engine userGroupId userIds
   = UserGroup
-      {engine = engine, userGroupId = userGroupId, userIds = userIds,
+      {haddock_workaround_ = (), engine = engine,
+       userGroupId = userGroupId, userIds = userIds,
        tags = Prelude.Nothing}
 instance ToResourceProperties UserGroup where
   toResourceProperties UserGroup {..}

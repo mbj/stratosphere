@@ -13,20 +13,31 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.VpcInterfaceProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Flow
-  = Flow {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html>
+    Flow {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone>
+          availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-maintenance>
           maintenance :: (Prelude.Maybe MaintenanceProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-mediastreams>
           mediaStreams :: (Prelude.Maybe [MediaStreamProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source>
           source :: SourceProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig>
           sourceFailoverConfig :: (Prelude.Maybe FailoverConfigProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcemonitoringconfig>
           sourceMonitoringConfig :: (Prelude.Maybe SourceMonitoringConfigProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces>
           vpcInterfaces :: (Prelude.Maybe [VpcInterfaceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlow :: Value Prelude.Text -> SourceProperty -> Flow
 mkFlow name source
   = Flow
-      {name = name, source = source, availabilityZone = Prelude.Nothing,
-       maintenance = Prelude.Nothing, mediaStreams = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, source = source,
+       availabilityZone = Prelude.Nothing, maintenance = Prelude.Nothing,
+       mediaStreams = Prelude.Nothing,
        sourceFailoverConfig = Prelude.Nothing,
        sourceMonitoringConfig = Prelude.Nothing,
        vpcInterfaces = Prelude.Nothing}

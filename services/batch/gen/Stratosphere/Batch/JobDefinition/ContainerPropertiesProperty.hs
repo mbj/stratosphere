@@ -21,36 +21,62 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerPropertiesProperty
-  = ContainerPropertiesProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html>
+    ContainerPropertiesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command>
+                                 command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment>
                                  environment :: (Prelude.Maybe [EnvironmentProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ephemeralstorage>
                                  ephemeralStorage :: (Prelude.Maybe EphemeralStorageProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn>
                                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration>
                                  fargatePlatformConfiguration :: (Prelude.Maybe FargatePlatformConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image>
                                  image :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype>
                                  instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-jobrolearn>
                                  jobRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters>
                                  linuxParameters :: (Prelude.Maybe LinuxParametersProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration>
                                  logConfiguration :: (Prelude.Maybe LogConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory>
                                  memory :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints>
                                  mountPoints :: (Prelude.Maybe [MountPointsProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration>
                                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged>
                                  privileged :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem>
                                  readonlyRootFilesystem :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-repositorycredentials>
                                  repositoryCredentials :: (Prelude.Maybe RepositoryCredentialsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements>
                                  resourceRequirements :: (Prelude.Maybe [ResourceRequirementProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-runtimeplatform>
                                  runtimePlatform :: (Prelude.Maybe RuntimePlatformProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets>
                                  secrets :: (Prelude.Maybe [SecretProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits>
                                  ulimits :: (Prelude.Maybe [UlimitProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user>
                                  user :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus>
                                  vcpus :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes>
                                  volumes :: (Prelude.Maybe [VolumesProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerPropertiesProperty ::
   Value Prelude.Text -> ContainerPropertiesProperty
 mkContainerPropertiesProperty image
   = ContainerPropertiesProperty
-      {image = image, command = Prelude.Nothing,
-       environment = Prelude.Nothing, ephemeralStorage = Prelude.Nothing,
+      {haddock_workaround_ = (), image = image,
+       command = Prelude.Nothing, environment = Prelude.Nothing,
+       ephemeralStorage = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing,
        fargatePlatformConfiguration = Prelude.Nothing,
        instanceType = Prelude.Nothing, jobRoleArn = Prelude.Nothing,

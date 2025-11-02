@@ -8,12 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompositeComponentTypeProperty
-  = CompositeComponentTypeProperty {componentTypeId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-compositecomponenttype.html>
+    CompositeComponentTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-compositecomponenttype.html#cfn-iottwinmaker-componenttype-compositecomponenttype-componenttypeid>
+                                    componentTypeId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompositeComponentTypeProperty :: CompositeComponentTypeProperty
 mkCompositeComponentTypeProperty
   = CompositeComponentTypeProperty
-      {componentTypeId = Prelude.Nothing}
+      {haddock_workaround_ = (), componentTypeId = Prelude.Nothing}
 instance ToResourceProperties CompositeComponentTypeProperty where
   toResourceProperties CompositeComponentTypeProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON CompositeComponentTypeProperty where
               [(JSON..=) "ComponentTypeId" Prelude.<$> componentTypeId]))
 instance Property "ComponentTypeId" CompositeComponentTypeProperty where
   type PropertyType "ComponentTypeId" CompositeComponentTypeProperty = Value Prelude.Text
-  set newValue CompositeComponentTypeProperty {}
+  set newValue CompositeComponentTypeProperty {..}
     = CompositeComponentTypeProperty
         {componentTypeId = Prelude.pure newValue, ..}

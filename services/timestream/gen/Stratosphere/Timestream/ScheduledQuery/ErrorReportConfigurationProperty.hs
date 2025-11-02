@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ErrorReportConfigurationProperty
-  = ErrorReportConfigurationProperty {s3Configuration :: S3ConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html>
+    ErrorReportConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html#cfn-timestream-scheduledquery-errorreportconfiguration-s3configuration>
+                                      s3Configuration :: S3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorReportConfigurationProperty ::
   S3ConfigurationProperty -> ErrorReportConfigurationProperty
 mkErrorReportConfigurationProperty s3Configuration
   = ErrorReportConfigurationProperty
-      {s3Configuration = s3Configuration}
+      {haddock_workaround_ = (), s3Configuration = s3Configuration}
 instance ToResourceProperties ErrorReportConfigurationProperty where
   toResourceProperties ErrorReportConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON ErrorReportConfigurationProperty where
     = JSON.object ["S3Configuration" JSON..= s3Configuration]
 instance Property "S3Configuration" ErrorReportConfigurationProperty where
   type PropertyType "S3Configuration" ErrorReportConfigurationProperty = S3ConfigurationProperty
-  set newValue ErrorReportConfigurationProperty {}
+  set newValue ErrorReportConfigurationProperty {..}
     = ErrorReportConfigurationProperty {s3Configuration = newValue, ..}

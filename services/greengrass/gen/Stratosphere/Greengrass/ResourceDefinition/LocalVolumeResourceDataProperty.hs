@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.GroupOwnerSetti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalVolumeResourceDataProperty
-  = LocalVolumeResourceDataProperty {destinationPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html>
+    LocalVolumeResourceDataProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-destinationpath>
+                                     destinationPath :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-groupownersetting>
                                      groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html#cfn-greengrass-resourcedefinition-localvolumeresourcedata-sourcepath>
                                      sourcePath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalVolumeResourceDataProperty ::
@@ -18,8 +23,8 @@ mkLocalVolumeResourceDataProperty ::
   -> Value Prelude.Text -> LocalVolumeResourceDataProperty
 mkLocalVolumeResourceDataProperty destinationPath sourcePath
   = LocalVolumeResourceDataProperty
-      {destinationPath = destinationPath, sourcePath = sourcePath,
-       groupOwnerSetting = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationPath = destinationPath,
+       sourcePath = sourcePath, groupOwnerSetting = Prelude.Nothing}
 instance ToResourceProperties LocalVolumeResourceDataProperty where
   toResourceProperties LocalVolumeResourceDataProperty {..}
     = ResourceProperties

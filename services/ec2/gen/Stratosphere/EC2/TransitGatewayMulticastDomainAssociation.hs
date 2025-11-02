@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayMulticastDomainAssociation
-  = TransitGatewayMulticastDomainAssociation {subnetId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html>
+    TransitGatewayMulticastDomainAssociation {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid>
+                                              subnetId :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid>
                                               transitGatewayAttachmentId :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid>
                                               transitGatewayMulticastDomainId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastDomainAssociation ::
@@ -21,7 +26,7 @@ mkTransitGatewayMulticastDomainAssociation
   transitGatewayAttachmentId
   transitGatewayMulticastDomainId
   = TransitGatewayMulticastDomainAssociation
-      {subnetId = subnetId,
+      {haddock_workaround_ = (), subnetId = subnetId,
        transitGatewayAttachmentId = transitGatewayAttachmentId,
        transitGatewayMulticastDomainId = transitGatewayMulticastDomainId}
 instance ToResourceProperties TransitGatewayMulticastDomainAssociation where

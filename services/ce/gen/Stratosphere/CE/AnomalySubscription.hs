@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.CE.AnomalySubscription.SubscriberProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalySubscription
-  = AnomalySubscription {frequency :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html>
+    AnomalySubscription {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-frequency>
+                         frequency :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-monitorarnlist>
                          monitorArnList :: (ValueList Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-resourcetags>
                          resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscribers>
                          subscribers :: [SubscriberProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscriptionname>
                          subscriptionName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-threshold>
                          threshold :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-thresholdexpression>
                          thresholdExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalySubscription ::
@@ -28,8 +37,9 @@ mkAnomalySubscription
   subscribers
   subscriptionName
   = AnomalySubscription
-      {frequency = frequency, monitorArnList = monitorArnList,
-       subscribers = subscribers, subscriptionName = subscriptionName,
+      {haddock_workaround_ = (), frequency = frequency,
+       monitorArnList = monitorArnList, subscribers = subscribers,
+       subscriptionName = subscriptionName,
        resourceTags = Prelude.Nothing, threshold = Prelude.Nothing,
        thresholdExpression = Prelude.Nothing}
 instance ToResourceProperties AnomalySubscription where

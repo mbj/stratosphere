@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationTargetItemProperty
-  = NotificationTargetItemProperty {snsTopicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html>
+    NotificationTargetItemProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn>
+                                    snsTopicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationTargetItemProperty :: NotificationTargetItemProperty
 mkNotificationTargetItemProperty
-  = NotificationTargetItemProperty {snsTopicArn = Prelude.Nothing}
+  = NotificationTargetItemProperty
+      {haddock_workaround_ = (), snsTopicArn = Prelude.Nothing}
 instance ToResourceProperties NotificationTargetItemProperty where
   toResourceProperties NotificationTargetItemProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON NotificationTargetItemProperty where
               [(JSON..=) "SnsTopicArn" Prelude.<$> snsTopicArn]))
 instance Property "SnsTopicArn" NotificationTargetItemProperty where
   type PropertyType "SnsTopicArn" NotificationTargetItemProperty = Value Prelude.Text
-  set newValue NotificationTargetItemProperty {}
+  set newValue NotificationTargetItemProperty {..}
     = NotificationTargetItemProperty
         {snsTopicArn = Prelude.pure newValue, ..}

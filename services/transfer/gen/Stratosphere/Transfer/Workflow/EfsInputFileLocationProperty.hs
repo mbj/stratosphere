@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EfsInputFileLocationProperty
-  = EfsInputFileLocationProperty {fileSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-efsinputfilelocation.html>
+    EfsInputFileLocationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-efsinputfilelocation.html#cfn-transfer-workflow-efsinputfilelocation-filesystemid>
+                                  fileSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-efsinputfilelocation.html#cfn-transfer-workflow-efsinputfilelocation-path>
                                   path :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEfsInputFileLocationProperty :: EfsInputFileLocationProperty
 mkEfsInputFileLocationProperty
   = EfsInputFileLocationProperty
-      {fileSystemId = Prelude.Nothing, path = Prelude.Nothing}
+      {haddock_workaround_ = (), fileSystemId = Prelude.Nothing,
+       path = Prelude.Nothing}
 instance ToResourceProperties EfsInputFileLocationProperty where
   toResourceProperties EfsInputFileLocationProperty {..}
     = ResourceProperties

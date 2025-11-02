@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.DifferentialPrivac
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleCustomProperty
-  = AnalysisRuleCustomProperty {additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html>
+    AnalysisRuleCustomProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-additionalanalyses>
+                                additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalyses>
                                 allowedAnalyses :: (ValueList Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalysisproviders>
                                 allowedAnalysisProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-differentialprivacy>
                                 differentialPrivacy :: (Prelude.Maybe DifferentialPrivacyProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-disallowedoutputcolumns>
                                 disallowedOutputColumns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRuleCustomProperty ::
   ValueList Prelude.Text -> AnalysisRuleCustomProperty
 mkAnalysisRuleCustomProperty allowedAnalyses
   = AnalysisRuleCustomProperty
-      {allowedAnalyses = allowedAnalyses,
+      {haddock_workaround_ = (), allowedAnalyses = allowedAnalyses,
        additionalAnalyses = Prelude.Nothing,
        allowedAnalysisProviders = Prelude.Nothing,
        differentialPrivacy = Prelude.Nothing,

@@ -9,20 +9,29 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.N
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotifyConfigurationTypeProperty
-  = NotifyConfigurationTypeProperty {blockEmail :: (Prelude.Maybe NotifyEmailTypeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html>
+    NotifyConfigurationTypeProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-blockemail>
+                                     blockEmail :: (Prelude.Maybe NotifyEmailTypeProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-from>
                                      from :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-mfaemail>
                                      mfaEmail :: (Prelude.Maybe NotifyEmailTypeProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-noactionemail>
                                      noActionEmail :: (Prelude.Maybe NotifyEmailTypeProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-replyto>
                                      replyTo :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-sourcearn>
                                      sourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotifyConfigurationTypeProperty ::
   Value Prelude.Text -> NotifyConfigurationTypeProperty
 mkNotifyConfigurationTypeProperty sourceArn
   = NotifyConfigurationTypeProperty
-      {sourceArn = sourceArn, blockEmail = Prelude.Nothing,
-       from = Prelude.Nothing, mfaEmail = Prelude.Nothing,
-       noActionEmail = Prelude.Nothing, replyTo = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceArn = sourceArn,
+       blockEmail = Prelude.Nothing, from = Prelude.Nothing,
+       mfaEmail = Prelude.Nothing, noActionEmail = Prelude.Nothing,
+       replyTo = Prelude.Nothing}
 instance ToResourceProperties NotifyConfigurationTypeProperty where
   toResourceProperties NotifyConfigurationTypeProperty {..}
     = ResourceProperties

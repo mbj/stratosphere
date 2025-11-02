@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.IoTThingsGraph.FlowTemplate.DefinitionDocumen
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowTemplate
-  = FlowTemplate {compatibleNamespaceVersion :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html>
+    FlowTemplate {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-compatiblenamespaceversion>
+                  compatibleNamespaceVersion :: (Prelude.Maybe (Value Prelude.Double)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html#cfn-iotthingsgraph-flowtemplate-definition>
                   definition :: DefinitionDocumentProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowTemplate :: DefinitionDocumentProperty -> FlowTemplate
 mkFlowTemplate definition
   = FlowTemplate
-      {definition = definition,
+      {haddock_workaround_ = (), definition = definition,
        compatibleNamespaceVersion = Prelude.Nothing}
 instance ToResourceProperties FlowTemplate where
   toResourceProperties FlowTemplate {..}

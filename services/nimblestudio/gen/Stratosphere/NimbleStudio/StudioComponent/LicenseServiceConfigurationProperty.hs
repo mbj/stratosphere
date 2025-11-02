@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LicenseServiceConfigurationProperty
-  = LicenseServiceConfigurationProperty {endpoint :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html>
+    LicenseServiceConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint>
+                                         endpoint :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLicenseServiceConfigurationProperty ::
   LicenseServiceConfigurationProperty
 mkLicenseServiceConfigurationProperty
-  = LicenseServiceConfigurationProperty {endpoint = Prelude.Nothing}
+  = LicenseServiceConfigurationProperty
+      {haddock_workaround_ = (), endpoint = Prelude.Nothing}
 instance ToResourceProperties LicenseServiceConfigurationProperty where
   toResourceProperties LicenseServiceConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON LicenseServiceConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Endpoint" Prelude.<$> endpoint]))
 instance Property "Endpoint" LicenseServiceConfigurationProperty where
   type PropertyType "Endpoint" LicenseServiceConfigurationProperty = Value Prelude.Text
-  set newValue LicenseServiceConfigurationProperty {}
+  set newValue LicenseServiceConfigurationProperty {..}
     = LicenseServiceConfigurationProperty
         {endpoint = Prelude.pure newValue, ..}

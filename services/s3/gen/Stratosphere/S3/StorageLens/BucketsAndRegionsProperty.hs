@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BucketsAndRegionsProperty
-  = BucketsAndRegionsProperty {buckets :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html>
+    BucketsAndRegionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets>
+                               buckets :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions>
                                regions :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketsAndRegionsProperty :: BucketsAndRegionsProperty
 mkBucketsAndRegionsProperty
   = BucketsAndRegionsProperty
-      {buckets = Prelude.Nothing, regions = Prelude.Nothing}
+      {haddock_workaround_ = (), buckets = Prelude.Nothing,
+       regions = Prelude.Nothing}
 instance ToResourceProperties BucketsAndRegionsProperty where
   toResourceProperties BucketsAndRegionsProperty {..}
     = ResourceProperties

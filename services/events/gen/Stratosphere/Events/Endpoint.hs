@@ -10,20 +10,29 @@ import {-# SOURCE #-} Stratosphere.Events.Endpoint.RoutingConfigProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Endpoint
-  = Endpoint {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html>
+    Endpoint {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-eventbuses>
               eventBuses :: [EndpointEventBusProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-replicationconfig>
               replicationConfig :: (Prelude.Maybe ReplicationConfigProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-rolearn>
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html#cfn-events-endpoint-routingconfig>
               routingConfig :: RoutingConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint ::
   [EndpointEventBusProperty] -> RoutingConfigProperty -> Endpoint
 mkEndpoint eventBuses routingConfig
   = Endpoint
-      {eventBuses = eventBuses, routingConfig = routingConfig,
-       description = Prelude.Nothing, name = Prelude.Nothing,
-       replicationConfig = Prelude.Nothing, roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), eventBuses = eventBuses,
+       routingConfig = routingConfig, description = Prelude.Nothing,
+       name = Prelude.Nothing, replicationConfig = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties

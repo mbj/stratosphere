@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.PublicKey.PublicKeyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data PublicKey
-  = PublicKey {publicKeyConfig :: PublicKeyConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html>
+    PublicKey {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig>
+               publicKeyConfig :: PublicKeyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicKey :: PublicKeyConfigProperty -> PublicKey
 mkPublicKey publicKeyConfig
-  = PublicKey {publicKeyConfig = publicKeyConfig}
+  = PublicKey
+      {haddock_workaround_ = (), publicKeyConfig = publicKeyConfig}
 instance ToResourceProperties PublicKey where
   toResourceProperties PublicKey {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON PublicKey where
     = JSON.object ["PublicKeyConfig" JSON..= publicKeyConfig]
 instance Property "PublicKeyConfig" PublicKey where
   type PropertyType "PublicKeyConfig" PublicKey = PublicKeyConfigProperty
-  set newValue PublicKey {}
+  set newValue PublicKey {..}
     = PublicKey {publicKeyConfig = newValue, ..}

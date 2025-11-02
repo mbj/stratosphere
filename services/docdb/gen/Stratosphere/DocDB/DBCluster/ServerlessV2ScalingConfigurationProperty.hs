@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerlessV2ScalingConfigurationProperty
-  = ServerlessV2ScalingConfigurationProperty {maxCapacity :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html>
+    ServerlessV2ScalingConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html#cfn-docdb-dbcluster-serverlessv2scalingconfiguration-maxcapacity>
+                                              maxCapacity :: (Value Prelude.Double),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html#cfn-docdb-dbcluster-serverlessv2scalingconfiguration-mincapacity>
                                               minCapacity :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessV2ScalingConfigurationProperty ::
@@ -16,7 +20,8 @@ mkServerlessV2ScalingConfigurationProperty ::
   -> Value Prelude.Double -> ServerlessV2ScalingConfigurationProperty
 mkServerlessV2ScalingConfigurationProperty maxCapacity minCapacity
   = ServerlessV2ScalingConfigurationProperty
-      {maxCapacity = maxCapacity, minCapacity = minCapacity}
+      {haddock_workaround_ = (), maxCapacity = maxCapacity,
+       minCapacity = minCapacity}
 instance ToResourceProperties ServerlessV2ScalingConfigurationProperty where
   toResourceProperties ServerlessV2ScalingConfigurationProperty {..}
     = ResourceProperties

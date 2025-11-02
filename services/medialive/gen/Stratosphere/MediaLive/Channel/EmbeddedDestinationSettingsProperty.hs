@@ -6,12 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EmbeddedDestinationSettingsProperty
-  = EmbeddedDestinationSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddeddestinationsettings.html>
+    EmbeddedDestinationSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddedDestinationSettingsProperty ::
   EmbeddedDestinationSettingsProperty
 mkEmbeddedDestinationSettingsProperty
-  = EmbeddedDestinationSettingsProperty {}
+  = EmbeddedDestinationSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties EmbeddedDestinationSettingsProperty where
   toResourceProperties EmbeddedDestinationSettingsProperty {}
     = ResourceProperties

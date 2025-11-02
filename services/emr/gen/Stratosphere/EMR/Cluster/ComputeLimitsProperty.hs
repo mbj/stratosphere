@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeLimitsProperty
-  = ComputeLimitsProperty {maximumCapacityUnits :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html>
+    ComputeLimitsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcapacityunits>
+                           maximumCapacityUnits :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits>
                            maximumCoreCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits>
                            maximumOnDemandCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-minimumcapacityunits>
                            minimumCapacityUnits :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype>
                            unitType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeLimitsProperty ::
@@ -22,7 +29,8 @@ mkComputeLimitsProperty
   minimumCapacityUnits
   unitType
   = ComputeLimitsProperty
-      {maximumCapacityUnits = maximumCapacityUnits,
+      {haddock_workaround_ = (),
+       maximumCapacityUnits = maximumCapacityUnits,
        minimumCapacityUnits = minimumCapacityUnits, unitType = unitType,
        maximumCoreCapacityUnits = Prelude.Nothing,
        maximumOnDemandCapacityUnits = Prelude.Nothing}

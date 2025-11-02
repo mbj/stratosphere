@@ -8,24 +8,35 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.RelationshipValueP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataValueProperty
-  = DataValueProperty {booleanValue :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html>
+    DataValueProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-booleanvalue>
+                       booleanValue :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-doublevalue>
                        doubleValue :: (Prelude.Maybe (Value Prelude.Double)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-expression>
                        expression :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-integervalue>
                        integerValue :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-listvalue>
                        listValue :: (Prelude.Maybe [DataValueProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-longvalue>
                        longValue :: (Prelude.Maybe (Value Prelude.Double)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-mapvalue>
                        mapValue :: (Prelude.Maybe (Prelude.Map Prelude.Text DataValueProperty)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-relationshipvalue>
                        relationshipValue :: (Prelude.Maybe RelationshipValueProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datavalue.html#cfn-iottwinmaker-componenttype-datavalue-stringvalue>
                        stringValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataValueProperty :: DataValueProperty
 mkDataValueProperty
   = DataValueProperty
-      {booleanValue = Prelude.Nothing, doubleValue = Prelude.Nothing,
-       expression = Prelude.Nothing, integerValue = Prelude.Nothing,
-       listValue = Prelude.Nothing, longValue = Prelude.Nothing,
-       mapValue = Prelude.Nothing, relationshipValue = Prelude.Nothing,
-       stringValue = Prelude.Nothing}
+      {haddock_workaround_ = (), booleanValue = Prelude.Nothing,
+       doubleValue = Prelude.Nothing, expression = Prelude.Nothing,
+       integerValue = Prelude.Nothing, listValue = Prelude.Nothing,
+       longValue = Prelude.Nothing, mapValue = Prelude.Nothing,
+       relationshipValue = Prelude.Nothing, stringValue = Prelude.Nothing}
 instance ToResourceProperties DataValueProperty where
   toResourceProperties DataValueProperty {..}
     = ResourceProperties

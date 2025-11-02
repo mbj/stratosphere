@@ -10,16 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayMulticastDomain
-  = TransitGatewayMulticastDomain {options :: (Prelude.Maybe OptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html>
+    TransitGatewayMulticastDomain {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options>
+                                   options :: (Prelude.Maybe OptionsProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags>
                                    tags :: (Prelude.Maybe [Tag]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid>
                                    transitGatewayId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastDomain ::
   Value Prelude.Text -> TransitGatewayMulticastDomain
 mkTransitGatewayMulticastDomain transitGatewayId
   = TransitGatewayMulticastDomain
-      {transitGatewayId = transitGatewayId, options = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), transitGatewayId = transitGatewayId,
+       options = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayMulticastDomain where
   toResourceProperties TransitGatewayMulticastDomain {..}
     = ResourceProperties

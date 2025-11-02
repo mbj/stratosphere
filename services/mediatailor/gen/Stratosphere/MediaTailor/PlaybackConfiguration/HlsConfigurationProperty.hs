@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsConfigurationProperty
-  = HlsConfigurationProperty {manifestEndpointPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>
+    HlsConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html#cfn-mediatailor-playbackconfiguration-hlsconfiguration-manifestendpointprefix>
+                              manifestEndpointPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsConfigurationProperty :: HlsConfigurationProperty
 mkHlsConfigurationProperty
   = HlsConfigurationProperty
-      {manifestEndpointPrefix = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       manifestEndpointPrefix = Prelude.Nothing}
 instance ToResourceProperties HlsConfigurationProperty where
   toResourceProperties HlsConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON HlsConfigurationProperty where
                  Prelude.<$> manifestEndpointPrefix]))
 instance Property "ManifestEndpointPrefix" HlsConfigurationProperty where
   type PropertyType "ManifestEndpointPrefix" HlsConfigurationProperty = Value Prelude.Text
-  set newValue HlsConfigurationProperty {}
+  set newValue HlsConfigurationProperty {..}
     = HlsConfigurationProperty
         {manifestEndpointPrefix = Prelude.pure newValue, ..}

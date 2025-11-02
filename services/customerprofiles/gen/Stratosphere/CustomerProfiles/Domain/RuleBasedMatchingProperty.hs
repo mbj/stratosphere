@@ -12,20 +12,31 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.MatchingRuleProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleBasedMatchingProperty
-  = RuleBasedMatchingProperty {attributeTypesSelector :: (Prelude.Maybe AttributeTypesSelectorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html>
+    RuleBasedMatchingProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-attributetypesselector>
+                               attributeTypesSelector :: (Prelude.Maybe AttributeTypesSelectorProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-conflictresolution>
                                conflictResolution :: (Prelude.Maybe ConflictResolutionProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-enabled>
                                enabled :: (Value Prelude.Bool),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-exportingconfig>
                                exportingConfig :: (Prelude.Maybe ExportingConfigProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-matchingrules>
                                matchingRules :: (Prelude.Maybe [MatchingRuleProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-maxallowedrulelevelformatching>
                                maxAllowedRuleLevelForMatching :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-maxallowedrulelevelformerging>
                                maxAllowedRuleLevelForMerging :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html#cfn-customerprofiles-domain-rulebasedmatching-status>
                                status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleBasedMatchingProperty ::
   Value Prelude.Bool -> RuleBasedMatchingProperty
 mkRuleBasedMatchingProperty enabled
   = RuleBasedMatchingProperty
-      {enabled = enabled, attributeTypesSelector = Prelude.Nothing,
+      {haddock_workaround_ = (), enabled = enabled,
+       attributeTypesSelector = Prelude.Nothing,
        conflictResolution = Prelude.Nothing,
        exportingConfig = Prelude.Nothing, matchingRules = Prelude.Nothing,
        maxAllowedRuleLevelForMatching = Prelude.Nothing,

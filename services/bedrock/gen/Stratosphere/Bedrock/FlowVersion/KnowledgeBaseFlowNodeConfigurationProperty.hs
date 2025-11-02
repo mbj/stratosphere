@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.GuardrailConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KnowledgeBaseFlowNodeConfigurationProperty
-  = KnowledgeBaseFlowNodeConfigurationProperty {guardrailConfiguration :: (Prelude.Maybe GuardrailConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html>
+    KnowledgeBaseFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-guardrailconfiguration>
+                                                guardrailConfiguration :: (Prelude.Maybe GuardrailConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-knowledgebaseid>
                                                 knowledgeBaseId :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-modelid>
                                                 modelId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBaseFlowNodeConfigurationProperty ::
   Value Prelude.Text -> KnowledgeBaseFlowNodeConfigurationProperty
 mkKnowledgeBaseFlowNodeConfigurationProperty knowledgeBaseId
   = KnowledgeBaseFlowNodeConfigurationProperty
-      {knowledgeBaseId = knowledgeBaseId,
+      {haddock_workaround_ = (), knowledgeBaseId = knowledgeBaseId,
        guardrailConfiguration = Prelude.Nothing,
        modelId = Prelude.Nothing}
 instance ToResourceProperties KnowledgeBaseFlowNodeConfigurationProperty where

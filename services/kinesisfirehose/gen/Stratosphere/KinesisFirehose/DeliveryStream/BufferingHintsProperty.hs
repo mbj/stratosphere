@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BufferingHintsProperty
-  = BufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html>
+    BufferingHintsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds>
+                            intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs>
                             sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBufferingHintsProperty :: BufferingHintsProperty
 mkBufferingHintsProperty
   = BufferingHintsProperty
-      {intervalInSeconds = Prelude.Nothing, sizeInMBs = Prelude.Nothing}
+      {haddock_workaround_ = (), intervalInSeconds = Prelude.Nothing,
+       sizeInMBs = Prelude.Nothing}
 instance ToResourceProperties BufferingHintsProperty where
   toResourceProperties BufferingHintsProperty {..}
     = ResourceProperties

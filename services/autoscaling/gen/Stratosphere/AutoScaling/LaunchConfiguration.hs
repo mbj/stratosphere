@@ -9,31 +9,53 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.LaunchConfiguration.MetadataOptio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchConfiguration
-  = LaunchConfiguration {associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html>
+    LaunchConfiguration {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-associatepublicipaddress>
+                         associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-blockdevicemappings>
                          blockDeviceMappings :: (Prelude.Maybe [BlockDeviceMappingProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-classiclinkvpcid>
                          classicLinkVPCId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-classiclinkvpcsecuritygroups>
                          classicLinkVPCSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-ebsoptimized>
                          ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-iaminstanceprofile>
                          iamInstanceProfile :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-imageid>
                          imageId :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instanceid>
                          instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instancemonitoring>
                          instanceMonitoring :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-instancetype>
                          instanceType :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-kernelid>
                          kernelId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-keyname>
                          keyName :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-launchconfigurationname>
                          launchConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-metadataoptions>
                          metadataOptions :: (Prelude.Maybe MetadataOptionsProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-placementtenancy>
                          placementTenancy :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-ramdiskid>
                          ramDiskId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-securitygroups>
                          securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-spotprice>
                          spotPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-userdata>
                          userData :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchConfiguration ::
   Value Prelude.Text -> Value Prelude.Text -> LaunchConfiguration
 mkLaunchConfiguration imageId instanceType
   = LaunchConfiguration
-      {imageId = imageId, instanceType = instanceType,
+      {haddock_workaround_ = (), imageId = imageId,
+       instanceType = instanceType,
        associatePublicIpAddress = Prelude.Nothing,
        blockDeviceMappings = Prelude.Nothing,
        classicLinkVPCId = Prelude.Nothing,

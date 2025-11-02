@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListener
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayLoggingProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewaySpecProperty
-  = VirtualGatewaySpecProperty {backendDefaults :: (Prelude.Maybe VirtualGatewayBackendDefaultsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html>
+    VirtualGatewaySpecProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults>
+                                backendDefaults :: (Prelude.Maybe VirtualGatewayBackendDefaultsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners>
                                 listeners :: [VirtualGatewayListenerProperty],
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging>
                                 logging :: (Prelude.Maybe VirtualGatewayLoggingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewaySpecProperty ::
   [VirtualGatewayListenerProperty] -> VirtualGatewaySpecProperty
 mkVirtualGatewaySpecProperty listeners
   = VirtualGatewaySpecProperty
-      {listeners = listeners, backendDefaults = Prelude.Nothing,
-       logging = Prelude.Nothing}
+      {haddock_workaround_ = (), listeners = listeners,
+       backendDefaults = Prelude.Nothing, logging = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewaySpecProperty where
   toResourceProperties VirtualGatewaySpecProperty {..}
     = ResourceProperties

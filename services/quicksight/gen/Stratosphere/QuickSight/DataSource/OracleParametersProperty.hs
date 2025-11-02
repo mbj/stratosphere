@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OracleParametersProperty
-  = OracleParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html>
+    OracleParametersProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database>
+                              database :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host>
                               host :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port>
                               port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOracleParametersProperty ::
@@ -17,7 +22,8 @@ mkOracleParametersProperty ::
      -> Value Prelude.Double -> OracleParametersProperty
 mkOracleParametersProperty database host port
   = OracleParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties OracleParametersProperty where
   toResourceProperties OracleParametersProperty {..}
     = ResourceProperties

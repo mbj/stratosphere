@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SimulationSoftwareSuiteProperty
-  = SimulationSoftwareSuiteProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html>
+    SimulationSoftwareSuiteProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name>
+                                     name :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version>
                                      version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulationSoftwareSuiteProperty ::
   Value Prelude.Text -> SimulationSoftwareSuiteProperty
 mkSimulationSoftwareSuiteProperty name
   = SimulationSoftwareSuiteProperty
-      {name = name, version = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, version = Prelude.Nothing}
 instance ToResourceProperties SimulationSoftwareSuiteProperty where
   toResourceProperties SimulationSoftwareSuiteProperty {..}
     = ResourceProperties

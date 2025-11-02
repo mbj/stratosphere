@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualServiceBackendProperty as Exports
 import Stratosphere.ResourceProperties
 data BackendProperty
-  = BackendProperty {virtualService :: (Prelude.Maybe VirtualServiceBackendProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html>
+    BackendProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html#cfn-appmesh-virtualnode-backend-virtualservice>
+                     virtualService :: (Prelude.Maybe VirtualServiceBackendProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendProperty :: BackendProperty
 mkBackendProperty
-  = BackendProperty {virtualService = Prelude.Nothing}
+  = BackendProperty
+      {haddock_workaround_ = (), virtualService = Prelude.Nothing}
 instance ToResourceProperties BackendProperty where
   toResourceProperties BackendProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON BackendProperty where
               [(JSON..=) "VirtualService" Prelude.<$> virtualService]))
 instance Property "VirtualService" BackendProperty where
   type PropertyType "VirtualService" BackendProperty = VirtualServiceBackendProperty
-  set newValue BackendProperty {}
+  set newValue BackendProperty {..}
     = BackendProperty {virtualService = Prelude.pure newValue, ..}

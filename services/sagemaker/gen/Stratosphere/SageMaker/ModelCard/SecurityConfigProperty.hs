@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityConfigProperty
-  = SecurityConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-securityconfig.html>
+    SecurityConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-securityconfig.html#cfn-sagemaker-modelcard-securityconfig-kmskeyid>
+                            kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfigProperty :: SecurityConfigProperty
 mkSecurityConfigProperty
-  = SecurityConfigProperty {kmsKeyId = Prelude.Nothing}
+  = SecurityConfigProperty
+      {haddock_workaround_ = (), kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties SecurityConfigProperty where
   toResourceProperties SecurityConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SecurityConfigProperty where
            (Prelude.catMaybes [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId]))
 instance Property "KmsKeyId" SecurityConfigProperty where
   type PropertyType "KmsKeyId" SecurityConfigProperty = Value Prelude.Text
-  set newValue SecurityConfigProperty {}
+  set newValue SecurityConfigProperty {..}
     = SecurityConfigProperty {kmsKeyId = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LFTagProperty
-  = LFTagProperty {tagKey :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html>
+    LFTagProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html#cfn-lakeformation-principalpermissions-lftag-tagkey>
+                   tagKey :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html#cfn-lakeformation-principalpermissions-lftag-tagvalues>
                    tagValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagProperty :: LFTagProperty
 mkLFTagProperty
   = LFTagProperty
-      {tagKey = Prelude.Nothing, tagValues = Prelude.Nothing}
+      {haddock_workaround_ = (), tagKey = Prelude.Nothing,
+       tagValues = Prelude.Nothing}
 instance ToResourceProperties LFTagProperty where
   toResourceProperties LFTagProperty {..}
     = ResourceProperties

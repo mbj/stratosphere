@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.PropertyGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data EnvironmentPropertiesProperty
-  = EnvironmentPropertiesProperty {propertyGroups :: (Prelude.Maybe [PropertyGroupProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html>
+    EnvironmentPropertiesProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html#cfn-kinesisanalyticsv2-application-environmentproperties-propertygroups>
+                                   propertyGroups :: (Prelude.Maybe [PropertyGroupProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentPropertiesProperty :: EnvironmentPropertiesProperty
 mkEnvironmentPropertiesProperty
-  = EnvironmentPropertiesProperty {propertyGroups = Prelude.Nothing}
+  = EnvironmentPropertiesProperty
+      {haddock_workaround_ = (), propertyGroups = Prelude.Nothing}
 instance ToResourceProperties EnvironmentPropertiesProperty where
   toResourceProperties EnvironmentPropertiesProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON EnvironmentPropertiesProperty where
               [(JSON..=) "PropertyGroups" Prelude.<$> propertyGroups]))
 instance Property "PropertyGroups" EnvironmentPropertiesProperty where
   type PropertyType "PropertyGroups" EnvironmentPropertiesProperty = [PropertyGroupProperty]
-  set newValue EnvironmentPropertiesProperty {}
+  set newValue EnvironmentPropertiesProperty {..}
     = EnvironmentPropertiesProperty
         {propertyGroups = Prelude.pure newValue, ..}

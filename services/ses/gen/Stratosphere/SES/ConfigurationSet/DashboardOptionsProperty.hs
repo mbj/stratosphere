@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashboardOptionsProperty
-  = DashboardOptionsProperty {engagementMetrics :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html>
+    DashboardOptionsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html#cfn-ses-configurationset-dashboardoptions-engagementmetrics>
+                              engagementMetrics :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardOptionsProperty ::
   Value Prelude.Text -> DashboardOptionsProperty
 mkDashboardOptionsProperty engagementMetrics
-  = DashboardOptionsProperty {engagementMetrics = engagementMetrics}
+  = DashboardOptionsProperty
+      {haddock_workaround_ = (), engagementMetrics = engagementMetrics}
 instance ToResourceProperties DashboardOptionsProperty where
   toResourceProperties DashboardOptionsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON DashboardOptionsProperty where
     = JSON.object ["EngagementMetrics" JSON..= engagementMetrics]
 instance Property "EngagementMetrics" DashboardOptionsProperty where
   type PropertyType "EngagementMetrics" DashboardOptionsProperty = Value Prelude.Text
-  set newValue DashboardOptionsProperty {}
+  set newValue DashboardOptionsProperty {..}
     = DashboardOptionsProperty {engagementMetrics = newValue, ..}

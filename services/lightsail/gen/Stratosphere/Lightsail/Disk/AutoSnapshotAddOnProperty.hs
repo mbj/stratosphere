@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoSnapshotAddOnProperty
-  = AutoSnapshotAddOnProperty {snapshotTimeOfDay :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-autosnapshotaddon.html>
+    AutoSnapshotAddOnProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-autosnapshotaddon.html#cfn-lightsail-disk-autosnapshotaddon-snapshottimeofday>
+                               snapshotTimeOfDay :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoSnapshotAddOnProperty :: AutoSnapshotAddOnProperty
 mkAutoSnapshotAddOnProperty
-  = AutoSnapshotAddOnProperty {snapshotTimeOfDay = Prelude.Nothing}
+  = AutoSnapshotAddOnProperty
+      {haddock_workaround_ = (), snapshotTimeOfDay = Prelude.Nothing}
 instance ToResourceProperties AutoSnapshotAddOnProperty where
   toResourceProperties AutoSnapshotAddOnProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AutoSnapshotAddOnProperty where
               [(JSON..=) "SnapshotTimeOfDay" Prelude.<$> snapshotTimeOfDay]))
 instance Property "SnapshotTimeOfDay" AutoSnapshotAddOnProperty where
   type PropertyType "SnapshotTimeOfDay" AutoSnapshotAddOnProperty = Value Prelude.Text
-  set newValue AutoSnapshotAddOnProperty {}
+  set newValue AutoSnapshotAddOnProperty {..}
     = AutoSnapshotAddOnProperty
         {snapshotTimeOfDay = Prelude.pure newValue, ..}

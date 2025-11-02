@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobAbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data IoTJobAbortConfigProperty
-  = IoTJobAbortConfigProperty {criteriaList :: [IoTJobAbortCriteriaProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html>
+    IoTJobAbortConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html#cfn-greengrassv2-deployment-iotjobabortconfig-criterialist>
+                               criteriaList :: [IoTJobAbortCriteriaProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobAbortConfigProperty ::
   [IoTJobAbortCriteriaProperty] -> IoTJobAbortConfigProperty
 mkIoTJobAbortConfigProperty criteriaList
-  = IoTJobAbortConfigProperty {criteriaList = criteriaList}
+  = IoTJobAbortConfigProperty
+      {haddock_workaround_ = (), criteriaList = criteriaList}
 instance ToResourceProperties IoTJobAbortConfigProperty where
   toResourceProperties IoTJobAbortConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IoTJobAbortConfigProperty where
     = JSON.object ["CriteriaList" JSON..= criteriaList]
 instance Property "CriteriaList" IoTJobAbortConfigProperty where
   type PropertyType "CriteriaList" IoTJobAbortConfigProperty = [IoTJobAbortCriteriaProperty]
-  set newValue IoTJobAbortConfigProperty {}
+  set newValue IoTJobAbortConfigProperty {..}
     = IoTJobAbortConfigProperty {criteriaList = newValue, ..}

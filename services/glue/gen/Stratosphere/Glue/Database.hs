@@ -8,16 +8,21 @@ import {-# SOURCE #-} Stratosphere.Glue.Database.DatabaseInputProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Database
-  = Database {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html>
+    Database {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-catalogid>
+              catalogId :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databaseinput>
               databaseInput :: DatabaseInputProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databasename>
               databaseName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabase ::
   Value Prelude.Text -> DatabaseInputProperty -> Database
 mkDatabase catalogId databaseInput
   = Database
-      {catalogId = catalogId, databaseInput = databaseInput,
-       databaseName = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = catalogId,
+       databaseInput = databaseInput, databaseName = Prelude.Nothing}
 instance ToResourceProperties Database where
   toResourceProperties Database {..}
     = ResourceProperties

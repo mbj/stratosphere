@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BurnRateConfigurationProperty
-  = BurnRateConfigurationProperty {lookBackWindowMinutes :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>
+    BurnRateConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html#cfn-applicationsignals-servicelevelobjective-burnrateconfiguration-lookbackwindowminutes>
+                                   lookBackWindowMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBurnRateConfigurationProperty ::
   Value Prelude.Integer -> BurnRateConfigurationProperty
 mkBurnRateConfigurationProperty lookBackWindowMinutes
   = BurnRateConfigurationProperty
-      {lookBackWindowMinutes = lookBackWindowMinutes}
+      {haddock_workaround_ = (),
+       lookBackWindowMinutes = lookBackWindowMinutes}
 instance ToResourceProperties BurnRateConfigurationProperty where
   toResourceProperties BurnRateConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON BurnRateConfigurationProperty where
         ["LookBackWindowMinutes" JSON..= lookBackWindowMinutes]
 instance Property "LookBackWindowMinutes" BurnRateConfigurationProperty where
   type PropertyType "LookBackWindowMinutes" BurnRateConfigurationProperty = Value Prelude.Integer
-  set newValue BurnRateConfigurationProperty {}
+  set newValue BurnRateConfigurationProperty {..}
     = BurnRateConfigurationProperty
         {lookBackWindowMinutes = newValue, ..}

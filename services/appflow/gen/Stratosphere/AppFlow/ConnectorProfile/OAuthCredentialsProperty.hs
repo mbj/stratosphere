@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorOAuthReques
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuthCredentialsProperty
-  = OAuthCredentialsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html>
+    OAuthCredentialsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-accesstoken>
+                              accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-clientid>
                               clientId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-clientsecret>
                               clientSecret :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-connectoroauthrequest>
                               connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html#cfn-appflow-connectorprofile-oauthcredentials-refreshtoken>
                               refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthCredentialsProperty :: OAuthCredentialsProperty
 mkOAuthCredentialsProperty
   = OAuthCredentialsProperty
-      {accessToken = Prelude.Nothing, clientId = Prelude.Nothing,
-       clientSecret = Prelude.Nothing,
+      {haddock_workaround_ = (), accessToken = Prelude.Nothing,
+       clientId = Prelude.Nothing, clientSecret = Prelude.Nothing,
        connectorOAuthRequest = Prelude.Nothing,
        refreshToken = Prelude.Nothing}
 instance ToResourceProperties OAuthCredentialsProperty where

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupToWeightProperty
-  = GroupToWeightProperty {groupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html>
+    GroupToWeightProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html#cfn-evidently-launch-grouptoweight-groupname>
+                           groupName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html#cfn-evidently-launch-grouptoweight-splitweight>
                            splitWeight :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupToWeightProperty ::
@@ -15,7 +19,8 @@ mkGroupToWeightProperty ::
   -> Value Prelude.Integer -> GroupToWeightProperty
 mkGroupToWeightProperty groupName splitWeight
   = GroupToWeightProperty
-      {groupName = groupName, splitWeight = splitWeight}
+      {haddock_workaround_ = (), groupName = groupName,
+       splitWeight = splitWeight}
 instance ToResourceProperties GroupToWeightProperty where
   toResourceProperties GroupToWeightProperty {..}
     = ResourceProperties

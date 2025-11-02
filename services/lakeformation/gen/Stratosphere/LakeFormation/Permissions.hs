@@ -9,17 +9,23 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.ResourceProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Permissions
-  = Permissions {dataLakePrincipal :: DataLakePrincipalProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html>
+    Permissions {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-datalakeprincipal>
+                 dataLakePrincipal :: DataLakePrincipalProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissions>
                  permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-permissionswithgrantoption>
                  permissionsWithGrantOption :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html#cfn-lakeformation-permissions-resource>
                  resource :: ResourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissions ::
   DataLakePrincipalProperty -> ResourceProperty -> Permissions
 mkPermissions dataLakePrincipal resource
   = Permissions
-      {dataLakePrincipal = dataLakePrincipal, resource = resource,
-       permissions = Prelude.Nothing,
+      {haddock_workaround_ = (), dataLakePrincipal = dataLakePrincipal,
+       resource = resource, permissions = Prelude.Nothing,
        permissionsWithGrantOption = Prelude.Nothing}
 instance ToResourceProperties Permissions where
   toResourceProperties Permissions {..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynatraceConnectorProfilePropertiesProperty
-  = DynatraceConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html>
+    DynatraceConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl>
+                                                 instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynatraceConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> DynatraceConnectorProfilePropertiesProperty
 mkDynatraceConnectorProfilePropertiesProperty instanceUrl
   = DynatraceConnectorProfilePropertiesProperty
-      {instanceUrl = instanceUrl}
+      {haddock_workaround_ = (), instanceUrl = instanceUrl}
 instance ToResourceProperties DynatraceConnectorProfilePropertiesProperty where
   toResourceProperties
     DynatraceConnectorProfilePropertiesProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON DynatraceConnectorProfilePropertiesProperty where
     = JSON.object ["InstanceUrl" JSON..= instanceUrl]
 instance Property "InstanceUrl" DynatraceConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" DynatraceConnectorProfilePropertiesProperty = Value Prelude.Text
-  set newValue DynatraceConnectorProfilePropertiesProperty {}
+  set newValue DynatraceConnectorProfilePropertiesProperty {..}
     = DynatraceConnectorProfilePropertiesProperty
         {instanceUrl = newValue, ..}

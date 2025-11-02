@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PublicDnsNamespace
-  = PublicDnsNamespace {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html>
+    PublicDnsNamespace {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description>
+                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-properties>
                         properties :: (Prelude.Maybe PropertiesProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicDnsNamespace :: Value Prelude.Text -> PublicDnsNamespace
 mkPublicDnsNamespace name
   = PublicDnsNamespace
-      {name = name, description = Prelude.Nothing,
-       properties = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing, properties = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties PublicDnsNamespace where
   toResourceProperties PublicDnsNamespace {..}
     = ResourceProperties

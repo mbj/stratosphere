@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoProperty
-  = VideoProperty {bitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html>
+    VideoProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html#cfn-ivs-encoderconfiguration-video-bitrate>
+                   bitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html#cfn-ivs-encoderconfiguration-video-framerate>
                    framerate :: (Prelude.Maybe (Value Prelude.Double)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html#cfn-ivs-encoderconfiguration-video-height>
                    height :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html#cfn-ivs-encoderconfiguration-video-width>
                    width :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoProperty :: VideoProperty
 mkVideoProperty
   = VideoProperty
-      {bitrate = Prelude.Nothing, framerate = Prelude.Nothing,
-       height = Prelude.Nothing, width = Prelude.Nothing}
+      {haddock_workaround_ = (), bitrate = Prelude.Nothing,
+       framerate = Prelude.Nothing, height = Prelude.Nothing,
+       width = Prelude.Nothing}
 instance ToResourceProperties VideoProperty where
   toResourceProperties VideoProperty {..}
     = ResourceProperties

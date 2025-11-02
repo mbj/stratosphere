@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsEncryptionProperty
-  = HlsEncryptionProperty {constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html>
+    HlsEncryptionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector>
+                           constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod>
                            encryptionMethod :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider>
                            spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsEncryptionProperty ::
   SpekeKeyProviderProperty -> HlsEncryptionProperty
 mkHlsEncryptionProperty spekeKeyProvider
   = HlsEncryptionProperty
-      {spekeKeyProvider = spekeKeyProvider,
+      {haddock_workaround_ = (), spekeKeyProvider = spekeKeyProvider,
        constantInitializationVector = Prelude.Nothing,
        encryptionMethod = Prelude.Nothing}
 instance ToResourceProperties HlsEncryptionProperty where

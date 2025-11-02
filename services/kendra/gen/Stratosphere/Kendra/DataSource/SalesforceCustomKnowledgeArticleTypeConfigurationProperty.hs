@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceCustomKnowledgeArticleTypeConfigurationProperty
-  = SalesforceCustomKnowledgeArticleTypeConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html>
+    SalesforceCustomKnowledgeArticleTypeConfigurationProperty {haddock_workaround_ :: (),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documentdatafieldname>
+                                                               documentDataFieldName :: (Value Prelude.Text),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documenttitlefieldname>
                                                                documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings>
                                                                fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name>
                                                                name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceCustomKnowledgeArticleTypeConfigurationProperty ::
@@ -23,7 +29,8 @@ mkSalesforceCustomKnowledgeArticleTypeConfigurationProperty
   documentDataFieldName
   name
   = SalesforceCustomKnowledgeArticleTypeConfigurationProperty
-      {documentDataFieldName = documentDataFieldName, name = name,
+      {haddock_workaround_ = (),
+       documentDataFieldName = documentDataFieldName, name = name,
        documentTitleFieldName = Prelude.Nothing,
        fieldMappings = Prelude.Nothing}
 instance ToResourceProperties SalesforceCustomKnowledgeArticleTypeConfigurationProperty where

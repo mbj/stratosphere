@@ -12,19 +12,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ServiceLevelObjective
-  = ServiceLevelObjective {burnRateConfigurations :: (Prelude.Maybe [BurnRateConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html>
+    ServiceLevelObjective {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-burnrateconfigurations>
+                           burnRateConfigurations :: (Prelude.Maybe [BurnRateConfigurationProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-goal>
                            goal :: (Prelude.Maybe GoalProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-name>
                            name :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli>
                            requestBasedSli :: (Prelude.Maybe RequestBasedSliProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-sli>
                            sli :: (Prelude.Maybe SliProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-tags>
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceLevelObjective ::
   Value Prelude.Text -> ServiceLevelObjective
 mkServiceLevelObjective name
   = ServiceLevelObjective
-      {name = name, burnRateConfigurations = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       burnRateConfigurations = Prelude.Nothing,
        description = Prelude.Nothing, goal = Prelude.Nothing,
        requestBasedSli = Prelude.Nothing, sli = Prelude.Nothing,
        tags = Prelude.Nothing}

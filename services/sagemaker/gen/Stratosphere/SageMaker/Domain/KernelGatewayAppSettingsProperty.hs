@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.ResourceSpecProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KernelGatewayAppSettingsProperty
-  = KernelGatewayAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html>
+    KernelGatewayAppSettingsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages>
+                                      customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec>
                                       defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-lifecycleconfigarns>
                                       lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayAppSettingsProperty ::
   KernelGatewayAppSettingsProperty
 mkKernelGatewayAppSettingsProperty
   = KernelGatewayAppSettingsProperty
-      {customImages = Prelude.Nothing,
+      {haddock_workaround_ = (), customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}
 instance ToResourceProperties KernelGatewayAppSettingsProperty where

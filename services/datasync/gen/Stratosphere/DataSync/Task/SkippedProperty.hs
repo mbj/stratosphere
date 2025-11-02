@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SkippedProperty
-  = SkippedProperty {reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-skipped.html>
+    SkippedProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-skipped.html#cfn-datasync-task-skipped-reportlevel>
+                     reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSkippedProperty :: SkippedProperty
-mkSkippedProperty = SkippedProperty {reportLevel = Prelude.Nothing}
+mkSkippedProperty
+  = SkippedProperty
+      {haddock_workaround_ = (), reportLevel = Prelude.Nothing}
 instance ToResourceProperties SkippedProperty where
   toResourceProperties SkippedProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON SkippedProperty where
               [(JSON..=) "ReportLevel" Prelude.<$> reportLevel]))
 instance Property "ReportLevel" SkippedProperty where
   type PropertyType "ReportLevel" SkippedProperty = Value Prelude.Text
-  set newValue SkippedProperty {}
+  set newValue SkippedProperty {..}
     = SkippedProperty {reportLevel = Prelude.pure newValue, ..}

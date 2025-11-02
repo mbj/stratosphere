@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.PartitionInputProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Partition
-  = Partition {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html>
+    Partition {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-catalogid>
+               catalogId :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-databasename>
                databaseName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-partitioninput>
                partitionInput :: PartitionInputProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html#cfn-glue-partition-tablename>
                tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartition ::
@@ -19,8 +25,9 @@ mkPartition ::
      -> PartitionInputProperty -> Value Prelude.Text -> Partition
 mkPartition catalogId databaseName partitionInput tableName
   = Partition
-      {catalogId = catalogId, databaseName = databaseName,
-       partitionInput = partitionInput, tableName = tableName}
+      {haddock_workaround_ = (), catalogId = catalogId,
+       databaseName = databaseName, partitionInput = partitionInput,
+       tableName = tableName}
 instance ToResourceProperties Partition where
   toResourceProperties Partition {..}
     = ResourceProperties

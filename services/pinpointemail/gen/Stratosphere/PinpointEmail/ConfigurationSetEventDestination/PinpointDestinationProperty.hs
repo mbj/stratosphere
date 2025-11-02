@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PinpointDestinationProperty
-  = PinpointDestinationProperty {applicationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-pinpointdestination.html>
+    PinpointDestinationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-pinpointdestination.html#cfn-pinpointemail-configurationseteventdestination-pinpointdestination-applicationarn>
+                                 applicationArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPinpointDestinationProperty :: PinpointDestinationProperty
 mkPinpointDestinationProperty
-  = PinpointDestinationProperty {applicationArn = Prelude.Nothing}
+  = PinpointDestinationProperty
+      {haddock_workaround_ = (), applicationArn = Prelude.Nothing}
 instance ToResourceProperties PinpointDestinationProperty where
   toResourceProperties PinpointDestinationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON PinpointDestinationProperty where
               [(JSON..=) "ApplicationArn" Prelude.<$> applicationArn]))
 instance Property "ApplicationArn" PinpointDestinationProperty where
   type PropertyType "ApplicationArn" PinpointDestinationProperty = Value Prelude.Text
-  set newValue PinpointDestinationProperty {}
+  set newValue PinpointDestinationProperty {..}
     = PinpointDestinationProperty
         {applicationArn = Prelude.pure newValue, ..}

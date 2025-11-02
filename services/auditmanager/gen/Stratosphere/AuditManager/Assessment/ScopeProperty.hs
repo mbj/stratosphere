@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AuditManager.Assessment.AWSAccountProperty as
 import {-# SOURCE #-} Stratosphere.AuditManager.Assessment.AWSServiceProperty as Exports
 import Stratosphere.ResourceProperties
 data ScopeProperty
-  = ScopeProperty {awsAccounts :: (Prelude.Maybe [AWSAccountProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html>
+    ScopeProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts>
+                   awsAccounts :: (Prelude.Maybe [AWSAccountProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices>
                    awsServices :: (Prelude.Maybe [AWSServiceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeProperty :: ScopeProperty
 mkScopeProperty
   = ScopeProperty
-      {awsAccounts = Prelude.Nothing, awsServices = Prelude.Nothing}
+      {haddock_workaround_ = (), awsAccounts = Prelude.Nothing,
+       awsServices = Prelude.Nothing}
 instance ToResourceProperties ScopeProperty where
   toResourceProperties ScopeProperty {..}
     = ResourceProperties

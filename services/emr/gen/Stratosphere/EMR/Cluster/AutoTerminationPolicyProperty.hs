@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoTerminationPolicyProperty
-  = AutoTerminationPolicyProperty {idleTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html>
+    AutoTerminationPolicyProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html#cfn-elasticmapreduce-cluster-autoterminationpolicy-idletimeout>
+                                   idleTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoTerminationPolicyProperty :: AutoTerminationPolicyProperty
 mkAutoTerminationPolicyProperty
-  = AutoTerminationPolicyProperty {idleTimeout = Prelude.Nothing}
+  = AutoTerminationPolicyProperty
+      {haddock_workaround_ = (), idleTimeout = Prelude.Nothing}
 instance ToResourceProperties AutoTerminationPolicyProperty where
   toResourceProperties AutoTerminationPolicyProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AutoTerminationPolicyProperty where
               [(JSON..=) "IdleTimeout" Prelude.<$> idleTimeout]))
 instance Property "IdleTimeout" AutoTerminationPolicyProperty where
   type PropertyType "IdleTimeout" AutoTerminationPolicyProperty = Value Prelude.Integer
-  set newValue AutoTerminationPolicyProperty {}
+  set newValue AutoTerminationPolicyProperty {..}
     = AutoTerminationPolicyProperty
         {idleTimeout = Prelude.pure newValue, ..}

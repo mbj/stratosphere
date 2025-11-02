@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsDestinationProperty
-  = SnsDestinationProperty {topicARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html>
+    SnsDestinationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html#cfn-ses-configurationseteventdestination-snsdestination-topicarn>
+                            topicARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsDestinationProperty ::
   Value Prelude.Text -> SnsDestinationProperty
 mkSnsDestinationProperty topicARN
-  = SnsDestinationProperty {topicARN = topicARN}
+  = SnsDestinationProperty
+      {haddock_workaround_ = (), topicARN = topicARN}
 instance ToResourceProperties SnsDestinationProperty where
   toResourceProperties SnsDestinationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON SnsDestinationProperty where
     = JSON.object ["TopicARN" JSON..= topicARN]
 instance Property "TopicARN" SnsDestinationProperty where
   type PropertyType "TopicARN" SnsDestinationProperty = Value Prelude.Text
-  set newValue SnsDestinationProperty {}
+  set newValue SnsDestinationProperty {..}
     = SnsDestinationProperty {topicARN = newValue, ..}

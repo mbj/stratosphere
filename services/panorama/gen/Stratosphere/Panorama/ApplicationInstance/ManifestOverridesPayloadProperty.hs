@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManifestOverridesPayloadProperty
-  = ManifestOverridesPayloadProperty {payloadData :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html>
+    ManifestOverridesPayloadProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html#cfn-panorama-applicationinstance-manifestoverridespayload-payloaddata>
+                                      payloadData :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestOverridesPayloadProperty ::
   ManifestOverridesPayloadProperty
 mkManifestOverridesPayloadProperty
-  = ManifestOverridesPayloadProperty {payloadData = Prelude.Nothing}
+  = ManifestOverridesPayloadProperty
+      {haddock_workaround_ = (), payloadData = Prelude.Nothing}
 instance ToResourceProperties ManifestOverridesPayloadProperty where
   toResourceProperties ManifestOverridesPayloadProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON ManifestOverridesPayloadProperty where
               [(JSON..=) "PayloadData" Prelude.<$> payloadData]))
 instance Property "PayloadData" ManifestOverridesPayloadProperty where
   type PropertyType "PayloadData" ManifestOverridesPayloadProperty = Value Prelude.Text
-  set newValue ManifestOverridesPayloadProperty {}
+  set newValue ManifestOverridesPayloadProperty {..}
     = ManifestOverridesPayloadProperty
         {payloadData = Prelude.pure newValue, ..}

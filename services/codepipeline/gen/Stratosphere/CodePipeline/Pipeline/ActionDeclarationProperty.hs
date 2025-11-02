@@ -11,17 +11,31 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.OutputArtifactProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionDeclarationProperty
-  = ActionDeclarationProperty {actionTypeId :: ActionTypeIdProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html>
+    ActionDeclarationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-actiontypeid>
+                               actionTypeId :: ActionTypeIdProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-commands>
                                commands :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-configuration>
                                configuration :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-inputartifacts>
                                inputArtifacts :: (Prelude.Maybe [InputArtifactProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-name>
                                name :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-namespace>
                                namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-outputartifacts>
                                outputArtifacts :: (Prelude.Maybe [OutputArtifactProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-outputvariables>
                                outputVariables :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-region>
                                region :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-rolearn>
                                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-runorder>
                                runOrder :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-timeoutinminutes>
                                timeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionDeclarationProperty ::
@@ -29,10 +43,10 @@ mkActionDeclarationProperty ::
   -> Value Prelude.Text -> ActionDeclarationProperty
 mkActionDeclarationProperty actionTypeId name
   = ActionDeclarationProperty
-      {actionTypeId = actionTypeId, name = name,
-       commands = Prelude.Nothing, configuration = Prelude.Nothing,
-       inputArtifacts = Prelude.Nothing, namespace = Prelude.Nothing,
-       outputArtifacts = Prelude.Nothing,
+      {haddock_workaround_ = (), actionTypeId = actionTypeId,
+       name = name, commands = Prelude.Nothing,
+       configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
+       namespace = Prelude.Nothing, outputArtifacts = Prelude.Nothing,
        outputVariables = Prelude.Nothing, region = Prelude.Nothing,
        roleArn = Prelude.Nothing, runOrder = Prelude.Nothing,
        timeoutInMinutes = Prelude.Nothing}

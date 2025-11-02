@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxOpenZFS.MountOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data NFSProperty
-  = NFSProperty {mountOptions :: MountOptionsProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html>
+    NFSProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html#cfn-datasync-locationfsxopenzfs-nfs-mountoptions>
+                 mountOptions :: MountOptionsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNFSProperty :: MountOptionsProperty -> NFSProperty
 mkNFSProperty mountOptions
-  = NFSProperty {mountOptions = mountOptions}
+  = NFSProperty
+      {haddock_workaround_ = (), mountOptions = mountOptions}
 instance ToResourceProperties NFSProperty where
   toResourceProperties NFSProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON NFSProperty where
     = JSON.object ["MountOptions" JSON..= mountOptions]
 instance Property "MountOptions" NFSProperty where
   type PropertyType "MountOptions" NFSProperty = MountOptionsProperty
-  set newValue NFSProperty {}
+  set newValue NFSProperty {..}
     = NFSProperty {mountOptions = newValue, ..}

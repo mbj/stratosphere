@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3InputFileLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data S3FileLocationProperty
-  = S3FileLocationProperty {s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html>
+    S3FileLocationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html#cfn-transfer-workflow-s3filelocation-s3filelocation>
+                            s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3FileLocationProperty :: S3FileLocationProperty
 mkS3FileLocationProperty
-  = S3FileLocationProperty {s3FileLocation = Prelude.Nothing}
+  = S3FileLocationProperty
+      {haddock_workaround_ = (), s3FileLocation = Prelude.Nothing}
 instance ToResourceProperties S3FileLocationProperty where
   toResourceProperties S3FileLocationProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON S3FileLocationProperty where
               [(JSON..=) "S3FileLocation" Prelude.<$> s3FileLocation]))
 instance Property "S3FileLocation" S3FileLocationProperty where
   type PropertyType "S3FileLocation" S3FileLocationProperty = S3InputFileLocationProperty
-  set newValue S3FileLocationProperty {}
+  set newValue S3FileLocationProperty {..}
     = S3FileLocationProperty
         {s3FileLocation = Prelude.pure newValue, ..}

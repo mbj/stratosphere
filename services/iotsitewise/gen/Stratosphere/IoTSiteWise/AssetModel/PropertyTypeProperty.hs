@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TransformProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyTypeProperty
-  = PropertyTypeProperty {attribute :: (Prelude.Maybe AttributeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html>
+    PropertyTypeProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute>
+                          attribute :: (Prelude.Maybe AttributeProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric>
                           metric :: (Prelude.Maybe MetricProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform>
                           transform :: (Prelude.Maybe TransformProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename>
                           typeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyTypeProperty ::
   Value Prelude.Text -> PropertyTypeProperty
 mkPropertyTypeProperty typeName
   = PropertyTypeProperty
-      {typeName = typeName, attribute = Prelude.Nothing,
-       metric = Prelude.Nothing, transform = Prelude.Nothing}
+      {haddock_workaround_ = (), typeName = typeName,
+       attribute = Prelude.Nothing, metric = Prelude.Nothing,
+       transform = Prelude.Nothing}
 instance ToResourceProperties PropertyTypeProperty where
   toResourceProperties PropertyTypeProperty {..}
     = ResourceProperties

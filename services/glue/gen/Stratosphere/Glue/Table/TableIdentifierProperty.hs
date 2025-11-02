@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableIdentifierProperty
-  = TableIdentifierProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html>
+    TableIdentifierProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid>
+                             catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename>
                              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-region>
                              region :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableIdentifierProperty :: TableIdentifierProperty
 mkTableIdentifierProperty
   = TableIdentifierProperty
-      {catalogId = Prelude.Nothing, databaseName = Prelude.Nothing,
-       name = Prelude.Nothing, region = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = Prelude.Nothing,
+       databaseName = Prelude.Nothing, name = Prelude.Nothing,
+       region = Prelude.Nothing}
 instance ToResourceProperties TableIdentifierProperty where
   toResourceProperties TableIdentifierProperty {..}
     = ResourceProperties

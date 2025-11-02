@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CmafIngestOutputSettingsProperty
-  = CmafIngestOutputSettingsProperty {nameModifier :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html>
+    CmafIngestOutputSettingsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html#cfn-medialive-channel-cmafingestoutputsettings-namemodifier>
+                                      nameModifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafIngestOutputSettingsProperty ::
   CmafIngestOutputSettingsProperty
 mkCmafIngestOutputSettingsProperty
-  = CmafIngestOutputSettingsProperty {nameModifier = Prelude.Nothing}
+  = CmafIngestOutputSettingsProperty
+      {haddock_workaround_ = (), nameModifier = Prelude.Nothing}
 instance ToResourceProperties CmafIngestOutputSettingsProperty where
   toResourceProperties CmafIngestOutputSettingsProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON CmafIngestOutputSettingsProperty where
               [(JSON..=) "NameModifier" Prelude.<$> nameModifier]))
 instance Property "NameModifier" CmafIngestOutputSettingsProperty where
   type PropertyType "NameModifier" CmafIngestOutputSettingsProperty = Value Prelude.Text
-  set newValue CmafIngestOutputSettingsProperty {}
+  set newValue CmafIngestOutputSettingsProperty {..}
     = CmafIngestOutputSettingsProperty
         {nameModifier = Prelude.pure newValue, ..}

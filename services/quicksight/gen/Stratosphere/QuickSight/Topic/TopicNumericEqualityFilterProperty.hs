@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicSingularFilterConstantP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicNumericEqualityFilterProperty
-  = TopicNumericEqualityFilterProperty {aggregation :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericequalityfilter.html>
+    TopicNumericEqualityFilterProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericequalityfilter.html#cfn-quicksight-topic-topicnumericequalityfilter-aggregation>
+                                        aggregation :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericequalityfilter.html#cfn-quicksight-topic-topicnumericequalityfilter-constant>
                                         constant :: (Prelude.Maybe TopicSingularFilterConstantProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicNumericEqualityFilterProperty ::
   TopicNumericEqualityFilterProperty
 mkTopicNumericEqualityFilterProperty
   = TopicNumericEqualityFilterProperty
-      {aggregation = Prelude.Nothing, constant = Prelude.Nothing}
+      {haddock_workaround_ = (), aggregation = Prelude.Nothing,
+       constant = Prelude.Nothing}
 instance ToResourceProperties TopicNumericEqualityFilterProperty where
   toResourceProperties TopicNumericEqualityFilterProperty {..}
     = ResourceProperties

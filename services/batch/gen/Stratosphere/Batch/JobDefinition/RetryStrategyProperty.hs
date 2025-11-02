@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EvaluateOnExitProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetryStrategyProperty
-  = RetryStrategyProperty {attempts :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html>
+    RetryStrategyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts>
+                           attempts :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit>
                            evaluateOnExit :: (Prelude.Maybe [EvaluateOnExitProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryStrategyProperty :: RetryStrategyProperty
 mkRetryStrategyProperty
   = RetryStrategyProperty
-      {attempts = Prelude.Nothing, evaluateOnExit = Prelude.Nothing}
+      {haddock_workaround_ = (), attempts = Prelude.Nothing,
+       evaluateOnExit = Prelude.Nothing}
 instance ToResourceProperties RetryStrategyProperty where
   toResourceProperties RetryStrategyProperty {..}
     = ResourceProperties

@@ -8,10 +8,17 @@ import {-# SOURCE #-} Stratosphere.LaunchWizard.Deployment.TagsProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Deployment
-  = Deployment {deploymentPatternName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html>
+    Deployment {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html#cfn-launchwizard-deployment-deploymentpatternname>
+                deploymentPatternName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html#cfn-launchwizard-deployment-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html#cfn-launchwizard-deployment-specifications>
                 specifications :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html#cfn-launchwizard-deployment-tags>
                 tags :: (Prelude.Maybe [TagsProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html#cfn-launchwizard-deployment-workloadname>
                 workloadName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment ::
@@ -21,7 +28,8 @@ mkDeployment ::
         -> Value Prelude.Text -> Deployment
 mkDeployment deploymentPatternName name specifications workloadName
   = Deployment
-      {deploymentPatternName = deploymentPatternName, name = name,
+      {haddock_workaround_ = (),
+       deploymentPatternName = deploymentPatternName, name = name,
        specifications = specifications, workloadName = workloadName,
        tags = Prelude.Nothing}
 instance ToResourceProperties Deployment where

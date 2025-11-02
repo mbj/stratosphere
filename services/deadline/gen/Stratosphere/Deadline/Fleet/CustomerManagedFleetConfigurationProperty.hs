@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.CustomerManagedWorkerCapabilit
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerManagedFleetConfigurationProperty
-  = CustomerManagedFleetConfigurationProperty {mode :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html>
+    CustomerManagedFleetConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-mode>
+                                               mode :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-storageprofileid>
                                                storageProfileId :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-workercapabilities>
                                                workerCapabilities :: CustomerManagedWorkerCapabilitiesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedFleetConfigurationProperty ::
@@ -19,7 +24,8 @@ mkCustomerManagedFleetConfigurationProperty ::
      -> CustomerManagedFleetConfigurationProperty
 mkCustomerManagedFleetConfigurationProperty mode workerCapabilities
   = CustomerManagedFleetConfigurationProperty
-      {mode = mode, workerCapabilities = workerCapabilities,
+      {haddock_workaround_ = (), mode = mode,
+       workerCapabilities = workerCapabilities,
        storageProfileId = Prelude.Nothing}
 instance ToResourceProperties CustomerManagedFleetConfigurationProperty where
   toResourceProperties CustomerManagedFleetConfigurationProperty {..}

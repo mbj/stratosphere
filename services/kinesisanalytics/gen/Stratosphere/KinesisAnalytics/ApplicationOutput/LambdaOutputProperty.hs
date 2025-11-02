@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaOutputProperty
-  = LambdaOutputProperty {resourceARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html>
+    LambdaOutputProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html#cfn-kinesisanalytics-applicationoutput-lambdaoutput-resourcearn>
+                          resourceARN :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html#cfn-kinesisanalytics-applicationoutput-lambdaoutput-rolearn>
                           roleARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaOutputProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LambdaOutputProperty
 mkLambdaOutputProperty resourceARN roleARN
   = LambdaOutputProperty
-      {resourceARN = resourceARN, roleARN = roleARN}
+      {haddock_workaround_ = (), resourceARN = resourceARN,
+       roleARN = roleARN}
 instance ToResourceProperties LambdaOutputProperty where
   toResourceProperties LambdaOutputProperty {..}
     = ResourceProperties

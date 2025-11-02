@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPAMPoolCidr
-  = IPAMPoolCidr {cidr :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html>
+    IPAMPoolCidr {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html#cfn-ec2-ipampoolcidr-cidr>
+                  cidr :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html#cfn-ec2-ipampoolcidr-ipampoolid>
                   ipamPoolId :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html#cfn-ec2-ipampoolcidr-netmasklength>
                   netmaskLength :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMPoolCidr :: Value Prelude.Text -> IPAMPoolCidr
 mkIPAMPoolCidr ipamPoolId
   = IPAMPoolCidr
-      {ipamPoolId = ipamPoolId, cidr = Prelude.Nothing,
-       netmaskLength = Prelude.Nothing}
+      {haddock_workaround_ = (), ipamPoolId = ipamPoolId,
+       cidr = Prelude.Nothing, netmaskLength = Prelude.Nothing}
 instance ToResourceProperties IPAMPoolCidr where
   toResourceProperties IPAMPoolCidr {..}
     = ResourceProperties

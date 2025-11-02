@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.LFTagPairPropert
 import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.ResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data TagAssociation
-  = TagAssociation {lFTags :: [LFTagPairProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html>
+    TagAssociation {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html#cfn-lakeformation-tagassociation-lftags>
+                    lFTags :: [LFTagPairProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html#cfn-lakeformation-tagassociation-resource>
                     resource :: ResourceProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagAssociation ::
   [LFTagPairProperty] -> ResourceProperty -> TagAssociation
 mkTagAssociation lFTags resource
-  = TagAssociation {lFTags = lFTags, resource = resource}
+  = TagAssociation
+      {haddock_workaround_ = (), lFTags = lFTags, resource = resource}
 instance ToResourceProperties TagAssociation where
   toResourceProperties TagAssociation {..}
     = ResourceProperties

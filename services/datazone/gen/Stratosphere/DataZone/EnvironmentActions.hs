@@ -8,18 +8,26 @@ import {-# SOURCE #-} Stratosphere.DataZone.EnvironmentActions.AwsConsoleLinkPar
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentActions
-  = EnvironmentActions {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html>
+    EnvironmentActions {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-description>
+                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-domainidentifier>
                         domainIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-environmentidentifier>
                         environmentIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-identifier>
                         identifier :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-parameters>
                         parameters :: (Prelude.Maybe AwsConsoleLinkParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentActions :: Value Prelude.Text -> EnvironmentActions
 mkEnvironmentActions name
   = EnvironmentActions
-      {name = name, description = Prelude.Nothing,
-       domainIdentifier = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing, domainIdentifier = Prelude.Nothing,
        environmentIdentifier = Prelude.Nothing,
        identifier = Prelude.Nothing, parameters = Prelude.Nothing}
 instance ToResourceProperties EnvironmentActions where

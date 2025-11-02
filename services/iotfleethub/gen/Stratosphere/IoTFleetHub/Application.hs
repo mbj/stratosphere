@@ -8,17 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Application
-  = Application {applicationDescription :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html>
+    Application {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription>
+                 applicationDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname>
                  applicationName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn>
                  roleArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text -> Value Prelude.Text -> Application
 mkApplication applicationName roleArn
   = Application
-      {applicationName = applicationName, roleArn = roleArn,
-       applicationDescription = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), applicationName = applicationName,
+       roleArn = roleArn, applicationDescription = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties

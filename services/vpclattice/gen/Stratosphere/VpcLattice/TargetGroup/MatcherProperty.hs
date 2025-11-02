@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatcherProperty
-  = MatcherProperty {httpCode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-matcher.html>
+    MatcherProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-matcher.html#cfn-vpclattice-targetgroup-matcher-httpcode>
+                     httpCode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatcherProperty :: Value Prelude.Text -> MatcherProperty
-mkMatcherProperty httpCode = MatcherProperty {httpCode = httpCode}
+mkMatcherProperty httpCode
+  = MatcherProperty {haddock_workaround_ = (), httpCode = httpCode}
 instance ToResourceProperties MatcherProperty where
   toResourceProperties MatcherProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON MatcherProperty where
     = JSON.object ["HttpCode" JSON..= httpCode]
 instance Property "HttpCode" MatcherProperty where
   type PropertyType "HttpCode" MatcherProperty = Value Prelude.Text
-  set newValue MatcherProperty {}
+  set newValue MatcherProperty {..}
     = MatcherProperty {httpCode = newValue, ..}

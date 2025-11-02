@@ -12,19 +12,29 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ElicitationCodeHookInvocationSettingP
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data SlotCaptureSettingProperty
-  = SlotCaptureSettingProperty {captureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html>
+    SlotCaptureSettingProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-captureconditional>
+                                captureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-capturenextstep>
                                 captureNextStep :: (Prelude.Maybe DialogStateProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-captureresponse>
                                 captureResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-codehook>
                                 codeHook :: (Prelude.Maybe DialogCodeHookInvocationSettingProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-elicitationcodehook>
                                 elicitationCodeHook :: (Prelude.Maybe ElicitationCodeHookInvocationSettingProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-failureconditional>
                                 failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-failurenextstep>
                                 failureNextStep :: (Prelude.Maybe DialogStateProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html#cfn-lex-bot-slotcapturesetting-failureresponse>
                                 failureResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotCaptureSettingProperty :: SlotCaptureSettingProperty
 mkSlotCaptureSettingProperty
   = SlotCaptureSettingProperty
-      {captureConditional = Prelude.Nothing,
+      {haddock_workaround_ = (), captureConditional = Prelude.Nothing,
        captureNextStep = Prelude.Nothing,
        captureResponse = Prelude.Nothing, codeHook = Prelude.Nothing,
        elicitationCodeHook = Prelude.Nothing,

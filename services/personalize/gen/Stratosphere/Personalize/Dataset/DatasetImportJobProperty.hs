@@ -9,16 +9,24 @@ import {-# SOURCE #-} Stratosphere.Personalize.Dataset.DataSourceProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetImportJobProperty
-  = DatasetImportJobProperty {dataSource :: (Prelude.Maybe DataSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html>
+    DatasetImportJobProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasource>
+                              dataSource :: (Prelude.Maybe DataSourceProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetarn>
                               datasetArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-datasetimportjobarn>
                               datasetImportJobArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-jobname>
                               jobName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html#cfn-personalize-dataset-datasetimportjob-rolearn>
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetImportJobProperty :: DatasetImportJobProperty
 mkDatasetImportJobProperty
   = DatasetImportJobProperty
-      {dataSource = Prelude.Nothing, datasetArn = Prelude.Nothing,
+      {haddock_workaround_ = (), dataSource = Prelude.Nothing,
+       datasetArn = Prelude.Nothing,
        datasetImportJobArn = Prelude.Nothing, jobName = Prelude.Nothing,
        roleArn = Prelude.Nothing}
 instance ToResourceProperties DatasetImportJobProperty where

@@ -12,19 +12,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SecurityProfile
-  = SecurityProfile {additionalMetricsToRetainV2 :: (Prelude.Maybe [MetricToRetainProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html>
+    SecurityProfile {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2>
+                     additionalMetricsToRetainV2 :: (Prelude.Maybe [MetricToRetainProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets>
                      alertTargets :: (Prelude.Maybe (Prelude.Map Prelude.Text AlertTargetProperty)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors>
                      behaviors :: (Prelude.Maybe [BehaviorProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-metricsexportconfig>
                      metricsExportConfig :: (Prelude.Maybe MetricsExportConfigProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription>
                      securityProfileDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename>
                      securityProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags>
                      tags :: (Prelude.Maybe [Tag]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns>
                      targetArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityProfile :: SecurityProfile
 mkSecurityProfile
   = SecurityProfile
-      {additionalMetricsToRetainV2 = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       additionalMetricsToRetainV2 = Prelude.Nothing,
        alertTargets = Prelude.Nothing, behaviors = Prelude.Nothing,
        metricsExportConfig = Prelude.Nothing,
        securityProfileDescription = Prelude.Nothing,

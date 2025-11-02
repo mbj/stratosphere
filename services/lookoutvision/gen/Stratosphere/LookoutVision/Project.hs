@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Project
-  = Project {projectName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html>
+    Project {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname>
+             projectName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Project
-mkProject projectName = Project {projectName = projectName}
+mkProject projectName
+  = Project {haddock_workaround_ = (), projectName = projectName}
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
@@ -22,4 +26,4 @@ instance JSON.ToJSON Project where
     = JSON.object ["ProjectName" JSON..= projectName]
 instance Property "ProjectName" Project where
   type PropertyType "ProjectName" Project = Value Prelude.Text
-  set newValue Project {} = Project {projectName = newValue, ..}
+  set newValue Project {..} = Project {projectName = newValue, ..}

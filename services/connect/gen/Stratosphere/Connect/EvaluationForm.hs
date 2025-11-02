@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EvaluationForm
-  = EvaluationForm {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html>
+    EvaluationForm {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-instancearn>
                     instanceArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-items>
                     items :: [EvaluationFormBaseItemProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-scoringstrategy>
                     scoringStrategy :: (Prelude.Maybe ScoringStrategyProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-status>
                     status :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-tags>
                     tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title>
                     title :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationForm ::
@@ -24,9 +33,10 @@ mkEvaluationForm ::
      -> Value Prelude.Text -> Value Prelude.Text -> EvaluationForm
 mkEvaluationForm instanceArn items status title
   = EvaluationForm
-      {instanceArn = instanceArn, items = items, status = status,
-       title = title, description = Prelude.Nothing,
-       scoringStrategy = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       items = items, status = status, title = title,
+       description = Prelude.Nothing, scoringStrategy = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EvaluationForm where
   toResourceProperties EvaluationForm {..}
     = ResourceProperties

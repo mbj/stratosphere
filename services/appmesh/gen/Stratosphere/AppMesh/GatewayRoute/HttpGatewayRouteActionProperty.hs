@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteTargetProper
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteRewriteProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpGatewayRouteActionProperty
-  = HttpGatewayRouteActionProperty {rewrite :: (Prelude.Maybe HttpGatewayRouteRewriteProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html>
+    HttpGatewayRouteActionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-rewrite>
+                                    rewrite :: (Prelude.Maybe HttpGatewayRouteRewriteProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target>
                                     target :: GatewayRouteTargetProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteActionProperty ::
   GatewayRouteTargetProperty -> HttpGatewayRouteActionProperty
 mkHttpGatewayRouteActionProperty target
   = HttpGatewayRouteActionProperty
-      {target = target, rewrite = Prelude.Nothing}
+      {haddock_workaround_ = (), target = target,
+       rewrite = Prelude.Nothing}
 instance ToResourceProperties HttpGatewayRouteActionProperty where
   toResourceProperties HttpGatewayRouteActionProperty {..}
     = ResourceProperties

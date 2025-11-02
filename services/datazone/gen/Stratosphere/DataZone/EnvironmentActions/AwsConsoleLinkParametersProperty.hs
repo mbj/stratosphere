@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsConsoleLinkParametersProperty
-  = AwsConsoleLinkParametersProperty {uri :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentactions-awsconsolelinkparameters.html>
+    AwsConsoleLinkParametersProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentactions-awsconsolelinkparameters.html#cfn-datazone-environmentactions-awsconsolelinkparameters-uri>
+                                      uri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsConsoleLinkParametersProperty ::
   AwsConsoleLinkParametersProperty
 mkAwsConsoleLinkParametersProperty
-  = AwsConsoleLinkParametersProperty {uri = Prelude.Nothing}
+  = AwsConsoleLinkParametersProperty
+      {haddock_workaround_ = (), uri = Prelude.Nothing}
 instance ToResourceProperties AwsConsoleLinkParametersProperty where
   toResourceProperties AwsConsoleLinkParametersProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AwsConsoleLinkParametersProperty where
            (Prelude.catMaybes [(JSON..=) "Uri" Prelude.<$> uri]))
 instance Property "Uri" AwsConsoleLinkParametersProperty where
   type PropertyType "Uri" AwsConsoleLinkParametersProperty = Value Prelude.Text
-  set newValue AwsConsoleLinkParametersProperty {}
+  set newValue AwsConsoleLinkParametersProperty {..}
     = AwsConsoleLinkParametersProperty
         {uri = Prelude.pure newValue, ..}

@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicPolicy
-  = TopicPolicy {policyDocument :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html>
+    TopicPolicy {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html#cfn-sns-topicpolicy-policydocument>
+                 policyDocument :: JSON.Object,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html#cfn-sns-topicpolicy-topics>
                  topics :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicPolicy ::
   JSON.Object -> ValueList Prelude.Text -> TopicPolicy
 mkTopicPolicy policyDocument topics
-  = TopicPolicy {policyDocument = policyDocument, topics = topics}
+  = TopicPolicy
+      {haddock_workaround_ = (), policyDocument = policyDocument,
+       topics = topics}
 instance ToResourceProperties TopicPolicy where
   toResourceProperties TopicPolicy {..}
     = ResourceProperties

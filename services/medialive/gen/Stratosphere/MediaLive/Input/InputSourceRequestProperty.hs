@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputSourceRequestProperty
-  = InputSourceRequestProperty {passwordParam :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html>
+    InputSourceRequestProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-passwordparam>
+                                passwordParam :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-url>
                                 url :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html#cfn-medialive-input-inputsourcerequest-username>
                                 username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSourceRequestProperty :: InputSourceRequestProperty
 mkInputSourceRequestProperty
   = InputSourceRequestProperty
-      {passwordParam = Prelude.Nothing, url = Prelude.Nothing,
-       username = Prelude.Nothing}
+      {haddock_workaround_ = (), passwordParam = Prelude.Nothing,
+       url = Prelude.Nothing, username = Prelude.Nothing}
 instance ToResourceProperties InputSourceRequestProperty where
   toResourceProperties InputSourceRequestProperty {..}
     = ResourceProperties

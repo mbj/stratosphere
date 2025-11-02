@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.ApplicationPolicyProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationPoliciesProperty
-  = ApplicationPoliciesProperty {critical :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html>
+    ApplicationPoliciesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html#cfn-pcaconnectorad-template-applicationpolicies-critical>
+                                 critical :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html#cfn-pcaconnectorad-template-applicationpolicies-policies>
                                  policies :: [ApplicationPolicyProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationPoliciesProperty ::
   [ApplicationPolicyProperty] -> ApplicationPoliciesProperty
 mkApplicationPoliciesProperty policies
   = ApplicationPoliciesProperty
-      {policies = policies, critical = Prelude.Nothing}
+      {haddock_workaround_ = (), policies = policies,
+       critical = Prelude.Nothing}
 instance ToResourceProperties ApplicationPoliciesProperty where
   toResourceProperties ApplicationPoliciesProperty {..}
     = ResourceProperties

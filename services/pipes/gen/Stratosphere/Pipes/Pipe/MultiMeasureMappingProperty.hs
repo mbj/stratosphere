@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.MultiMeasureAttributeMappingProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiMeasureMappingProperty
-  = MultiMeasureMappingProperty {multiMeasureAttributeMappings :: [MultiMeasureAttributeMappingProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html>
+    MultiMeasureMappingProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html#cfn-pipes-pipe-multimeasuremapping-multimeasureattributemappings>
+                                 multiMeasureAttributeMappings :: [MultiMeasureAttributeMappingProperty],
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html#cfn-pipes-pipe-multimeasuremapping-multimeasurename>
                                  multiMeasureName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureMappingProperty ::
@@ -19,7 +23,8 @@ mkMultiMeasureMappingProperty
   multiMeasureAttributeMappings
   multiMeasureName
   = MultiMeasureMappingProperty
-      {multiMeasureAttributeMappings = multiMeasureAttributeMappings,
+      {haddock_workaround_ = (),
+       multiMeasureAttributeMappings = multiMeasureAttributeMappings,
        multiMeasureName = multiMeasureName}
 instance ToResourceProperties MultiMeasureMappingProperty where
   toResourceProperties MultiMeasureMappingProperty {..}

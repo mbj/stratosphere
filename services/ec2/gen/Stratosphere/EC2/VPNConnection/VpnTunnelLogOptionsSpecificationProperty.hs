@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.VPNConnection.CloudwatchLogOptionsSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data VpnTunnelLogOptionsSpecificationProperty
-  = VpnTunnelLogOptionsSpecificationProperty {cloudwatchLogOptions :: (Prelude.Maybe CloudwatchLogOptionsSpecificationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html>
+    VpnTunnelLogOptionsSpecificationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html#cfn-ec2-vpnconnection-vpntunnellogoptionsspecification-cloudwatchlogoptions>
+                                              cloudwatchLogOptions :: (Prelude.Maybe CloudwatchLogOptionsSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpnTunnelLogOptionsSpecificationProperty ::
   VpnTunnelLogOptionsSpecificationProperty
 mkVpnTunnelLogOptionsSpecificationProperty
   = VpnTunnelLogOptionsSpecificationProperty
-      {cloudwatchLogOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), cloudwatchLogOptions = Prelude.Nothing}
 instance ToResourceProperties VpnTunnelLogOptionsSpecificationProperty where
   toResourceProperties VpnTunnelLogOptionsSpecificationProperty {..}
     = ResourceProperties
@@ -33,6 +36,6 @@ instance JSON.ToJSON VpnTunnelLogOptionsSpecificationProperty where
                  Prelude.<$> cloudwatchLogOptions]))
 instance Property "CloudwatchLogOptions" VpnTunnelLogOptionsSpecificationProperty where
   type PropertyType "CloudwatchLogOptions" VpnTunnelLogOptionsSpecificationProperty = CloudwatchLogOptionsSpecificationProperty
-  set newValue VpnTunnelLogOptionsSpecificationProperty {}
+  set newValue VpnTunnelLogOptionsSpecificationProperty {..}
     = VpnTunnelLogOptionsSpecificationProperty
         {cloudwatchLogOptions = Prelude.pure newValue, ..}

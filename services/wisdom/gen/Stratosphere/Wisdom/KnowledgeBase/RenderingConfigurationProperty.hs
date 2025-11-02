@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenderingConfigurationProperty
-  = RenderingConfigurationProperty {templateUri :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html>
+    RenderingConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html#cfn-wisdom-knowledgebase-renderingconfiguration-templateuri>
+                                    templateUri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRenderingConfigurationProperty :: RenderingConfigurationProperty
 mkRenderingConfigurationProperty
-  = RenderingConfigurationProperty {templateUri = Prelude.Nothing}
+  = RenderingConfigurationProperty
+      {haddock_workaround_ = (), templateUri = Prelude.Nothing}
 instance ToResourceProperties RenderingConfigurationProperty where
   toResourceProperties RenderingConfigurationProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON RenderingConfigurationProperty where
               [(JSON..=) "TemplateUri" Prelude.<$> templateUri]))
 instance Property "TemplateUri" RenderingConfigurationProperty where
   type PropertyType "TemplateUri" RenderingConfigurationProperty = Value Prelude.Text
-  set newValue RenderingConfigurationProperty {}
+  set newValue RenderingConfigurationProperty {..}
     = RenderingConfigurationProperty
         {templateUri = Prelude.pure newValue, ..}

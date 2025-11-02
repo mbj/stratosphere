@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.Encryptio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpekeKeyProviderProperty
-  = SpekeKeyProviderProperty {encryptionContractConfiguration :: (Prelude.Maybe EncryptionContractConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html>
+    SpekeKeyProviderProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-encryptioncontractconfiguration>
+                              encryptionContractConfiguration :: (Prelude.Maybe EncryptionContractConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids>
                               systemIds :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url>
                               url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpekeKeyProviderProperty ::
@@ -20,7 +26,8 @@ mkSpekeKeyProviderProperty ::
      -> Value Prelude.Text -> SpekeKeyProviderProperty
 mkSpekeKeyProviderProperty roleArn systemIds url
   = SpekeKeyProviderProperty
-      {roleArn = roleArn, systemIds = systemIds, url = url,
+      {haddock_workaround_ = (), roleArn = roleArn,
+       systemIds = systemIds, url = url,
        encryptionContractConfiguration = Prelude.Nothing}
 instance ToResourceProperties SpekeKeyProviderProperty where
   toResourceProperties SpekeKeyProviderProperty {..}

@@ -7,37 +7,65 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftSettingsProperty
-  = RedshiftSettingsProperty {acceptAnyDate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html>
+    RedshiftSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-acceptanydate>
+                              acceptAnyDate :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-afterconnectscript>
                               afterConnectScript :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-bucketfolder>
                               bucketFolder :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-bucketname>
                               bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-casesensitivenames>
                               caseSensitiveNames :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-compupdate>
                               compUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-connectiontimeout>
                               connectionTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-dateformat>
                               dateFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-emptyasnull>
                               emptyAsNull :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-encryptionmode>
                               encryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-explicitids>
                               explicitIds :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-filetransferuploadstreams>
                               fileTransferUploadStreams :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-loadtimeout>
                               loadTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-mapbooleanasboolean>
                               mapBooleanAsBoolean :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-maxfilesize>
                               maxFileSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-removequotes>
                               removeQuotes :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-replacechars>
                               replaceChars :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-replaceinvalidchars>
                               replaceInvalidChars :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-secretsmanageraccessrolearn>
                               secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-secretsmanagersecretid>
                               secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-serversideencryptionkmskeyid>
                               serverSideEncryptionKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-serviceaccessrolearn>
                               serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-timeformat>
                               timeFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-trimblanks>
                               trimBlanks :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-truncatecolumns>
                               truncateColumns :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html#cfn-dms-endpoint-redshiftsettings-writebuffersize>
                               writeBufferSize :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftSettingsProperty :: RedshiftSettingsProperty
 mkRedshiftSettingsProperty
   = RedshiftSettingsProperty
-      {acceptAnyDate = Prelude.Nothing,
+      {haddock_workaround_ = (), acceptAnyDate = Prelude.Nothing,
        afterConnectScript = Prelude.Nothing,
        bucketFolder = Prelude.Nothing, bucketName = Prelude.Nothing,
        caseSensitiveNames = Prelude.Nothing, compUpdate = Prelude.Nothing,

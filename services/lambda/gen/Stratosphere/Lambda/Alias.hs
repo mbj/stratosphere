@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.Lambda.Alias.ProvisionedConcurrencyConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Alias
-  = Alias {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html>
+    Alias {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-description>
+           description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionname>
            functionName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion>
            functionVersion :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name>
            name :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-provisionedconcurrencyconfig>
            provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig>
            routingConfig :: (Prelude.Maybe AliasRoutingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias ::
@@ -21,8 +29,9 @@ mkAlias ::
   -> Value Prelude.Text -> Value Prelude.Text -> Alias
 mkAlias functionName functionVersion name
   = Alias
-      {functionName = functionName, functionVersion = functionVersion,
-       name = name, description = Prelude.Nothing,
+      {haddock_workaround_ = (), functionName = functionName,
+       functionVersion = functionVersion, name = name,
+       description = Prelude.Nothing,
        provisionedConcurrencyConfig = Prelude.Nothing,
        routingConfig = Prelude.Nothing}
 instance ToResourceProperties Alias where

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceManagedEBSVolumeConfigurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceVolumeConfigurationProperty
-  = ServiceVolumeConfigurationProperty {managedEBSVolume :: (Prelude.Maybe ServiceManagedEBSVolumeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html>
+    ServiceVolumeConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html#cfn-ecs-service-servicevolumeconfiguration-managedebsvolume>
+                                        managedEBSVolume :: (Prelude.Maybe ServiceManagedEBSVolumeConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html#cfn-ecs-service-servicevolumeconfiguration-name>
                                         name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceVolumeConfigurationProperty ::
   Value Prelude.Text -> ServiceVolumeConfigurationProperty
 mkServiceVolumeConfigurationProperty name
   = ServiceVolumeConfigurationProperty
-      {name = name, managedEBSVolume = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       managedEBSVolume = Prelude.Nothing}
 instance ToResourceProperties ServiceVolumeConfigurationProperty where
   toResourceProperties ServiceVolumeConfigurationProperty {..}
     = ResourceProperties

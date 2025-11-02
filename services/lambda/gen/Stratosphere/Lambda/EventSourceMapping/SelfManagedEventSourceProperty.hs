@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.EndpointsProperty as Exports
 import Stratosphere.ResourceProperties
 data SelfManagedEventSourceProperty
-  = SelfManagedEventSourceProperty {endpoints :: (Prelude.Maybe EndpointsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html>
+    SelfManagedEventSourceProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints>
+                                    endpoints :: (Prelude.Maybe EndpointsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedEventSourceProperty :: SelfManagedEventSourceProperty
 mkSelfManagedEventSourceProperty
-  = SelfManagedEventSourceProperty {endpoints = Prelude.Nothing}
+  = SelfManagedEventSourceProperty
+      {haddock_workaround_ = (), endpoints = Prelude.Nothing}
 instance ToResourceProperties SelfManagedEventSourceProperty where
   toResourceProperties SelfManagedEventSourceProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON SelfManagedEventSourceProperty where
            (Prelude.catMaybes [(JSON..=) "Endpoints" Prelude.<$> endpoints]))
 instance Property "Endpoints" SelfManagedEventSourceProperty where
   type PropertyType "Endpoints" SelfManagedEventSourceProperty = EndpointsProperty
-  set newValue SelfManagedEventSourceProperty {}
+  set newValue SelfManagedEventSourceProperty {..}
     = SelfManagedEventSourceProperty
         {endpoints = Prelude.pure newValue, ..}

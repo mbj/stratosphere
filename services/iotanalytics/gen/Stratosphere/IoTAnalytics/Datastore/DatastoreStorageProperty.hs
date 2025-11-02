@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3Prope
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorageProperty as Exports
 import Stratosphere.ResourceProperties
 data DatastoreStorageProperty
-  = DatastoreStorageProperty {customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html>
+    DatastoreStorageProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-customermanageds3>
+                              customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-iotsitewisemultilayerstorage>
                               iotSiteWiseMultiLayerStorage :: (Prelude.Maybe IotSiteWiseMultiLayerStorageProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3>
                               serviceManagedS3 :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastoreStorageProperty :: DatastoreStorageProperty
 mkDatastoreStorageProperty
   = DatastoreStorageProperty
-      {customerManagedS3 = Prelude.Nothing,
+      {haddock_workaround_ = (), customerManagedS3 = Prelude.Nothing,
        iotSiteWiseMultiLayerStorage = Prelude.Nothing,
        serviceManagedS3 = Prelude.Nothing}
 instance ToResourceProperties DatastoreStorageProperty where

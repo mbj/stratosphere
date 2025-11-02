@@ -9,18 +9,25 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.RelationshipProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataTypeProperty
-  = DataTypeProperty {allowedValues :: (Prelude.Maybe [DataValueProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html>
+    DataTypeProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-allowedvalues>
+                      allowedValues :: (Prelude.Maybe [DataValueProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-nestedtype>
                       nestedType :: (Prelude.Maybe DataTypeProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-relationship>
                       relationship :: (Prelude.Maybe RelationshipProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-type>
                       type' :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html#cfn-iottwinmaker-componenttype-datatype-unitofmeasure>
                       unitOfMeasure :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataTypeProperty :: Value Prelude.Text -> DataTypeProperty
 mkDataTypeProperty type'
   = DataTypeProperty
-      {type' = type', allowedValues = Prelude.Nothing,
-       nestedType = Prelude.Nothing, relationship = Prelude.Nothing,
-       unitOfMeasure = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       allowedValues = Prelude.Nothing, nestedType = Prelude.Nothing,
+       relationship = Prelude.Nothing, unitOfMeasure = Prelude.Nothing}
 instance ToResourceProperties DataTypeProperty where
   toResourceProperties DataTypeProperty {..}
     = ResourceProperties

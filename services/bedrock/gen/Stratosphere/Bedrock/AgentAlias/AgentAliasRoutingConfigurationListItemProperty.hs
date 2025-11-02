@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentAliasRoutingConfigurationListItemProperty
-  = AgentAliasRoutingConfigurationListItemProperty {agentVersion :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html>
+    AgentAliasRoutingConfigurationListItemProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html#cfn-bedrock-agentalias-agentaliasroutingconfigurationlistitem-agentversion>
+                                                    agentVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentAliasRoutingConfigurationListItemProperty ::
   Value Prelude.Text
   -> AgentAliasRoutingConfigurationListItemProperty
 mkAgentAliasRoutingConfigurationListItemProperty agentVersion
   = AgentAliasRoutingConfigurationListItemProperty
-      {agentVersion = agentVersion}
+      {haddock_workaround_ = (), agentVersion = agentVersion}
 instance ToResourceProperties AgentAliasRoutingConfigurationListItemProperty where
   toResourceProperties
     AgentAliasRoutingConfigurationListItemProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON AgentAliasRoutingConfigurationListItemProperty where
     = JSON.object ["AgentVersion" JSON..= agentVersion]
 instance Property "AgentVersion" AgentAliasRoutingConfigurationListItemProperty where
   type PropertyType "AgentVersion" AgentAliasRoutingConfigurationListItemProperty = Value Prelude.Text
-  set newValue AgentAliasRoutingConfigurationListItemProperty {}
+  set newValue AgentAliasRoutingConfigurationListItemProperty {..}
     = AgentAliasRoutingConfigurationListItemProperty
         {agentVersion = newValue, ..}

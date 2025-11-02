@@ -25,38 +25,59 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.VeevaConnectorProfil
 import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ZendeskConnectorProfileCredentialsProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorProfileCredentialsProperty
-  = ConnectorProfileCredentialsProperty {amplitude :: (Prelude.Maybe AmplitudeConnectorProfileCredentialsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html>
+    ConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude>
+                                         amplitude :: (Prelude.Maybe AmplitudeConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-customconnector>
                                          customConnector :: (Prelude.Maybe CustomConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog>
                                          datadog :: (Prelude.Maybe DatadogConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace>
                                          dynatrace :: (Prelude.Maybe DynatraceConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics>
                                          googleAnalytics :: (Prelude.Maybe GoogleAnalyticsConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus>
                                          inforNexus :: (Prelude.Maybe InforNexusConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo>
                                          marketo :: (Prelude.Maybe MarketoConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-pardot>
                                          pardot :: (Prelude.Maybe PardotConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift>
                                          redshift :: (Prelude.Maybe RedshiftConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-sapodata>
                                          sAPOData :: (Prelude.Maybe SAPODataConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce>
                                          salesforce :: (Prelude.Maybe SalesforceConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow>
                                          serviceNow :: (Prelude.Maybe ServiceNowConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular>
                                          singular :: (Prelude.Maybe SingularConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack>
                                          slack :: (Prelude.Maybe SlackConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake>
                                          snowflake :: (Prelude.Maybe SnowflakeConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro>
                                          trendmicro :: (Prelude.Maybe TrendmicroConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva>
                                          veeva :: (Prelude.Maybe VeevaConnectorProfileCredentialsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk>
                                          zendesk :: (Prelude.Maybe ZendeskConnectorProfileCredentialsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfileCredentialsProperty ::
   ConnectorProfileCredentialsProperty
 mkConnectorProfileCredentialsProperty
   = ConnectorProfileCredentialsProperty
-      {amplitude = Prelude.Nothing, customConnector = Prelude.Nothing,
-       datadog = Prelude.Nothing, dynatrace = Prelude.Nothing,
-       googleAnalytics = Prelude.Nothing, inforNexus = Prelude.Nothing,
-       marketo = Prelude.Nothing, pardot = Prelude.Nothing,
-       redshift = Prelude.Nothing, sAPOData = Prelude.Nothing,
-       salesforce = Prelude.Nothing, serviceNow = Prelude.Nothing,
-       singular = Prelude.Nothing, slack = Prelude.Nothing,
-       snowflake = Prelude.Nothing, trendmicro = Prelude.Nothing,
-       veeva = Prelude.Nothing, zendesk = Prelude.Nothing}
+      {haddock_workaround_ = (), amplitude = Prelude.Nothing,
+       customConnector = Prelude.Nothing, datadog = Prelude.Nothing,
+       dynatrace = Prelude.Nothing, googleAnalytics = Prelude.Nothing,
+       inforNexus = Prelude.Nothing, marketo = Prelude.Nothing,
+       pardot = Prelude.Nothing, redshift = Prelude.Nothing,
+       sAPOData = Prelude.Nothing, salesforce = Prelude.Nothing,
+       serviceNow = Prelude.Nothing, singular = Prelude.Nothing,
+       slack = Prelude.Nothing, snowflake = Prelude.Nothing,
+       trendmicro = Prelude.Nothing, veeva = Prelude.Nothing,
+       zendesk = Prelude.Nothing}
 instance ToResourceProperties ConnectorProfileCredentialsProperty where
   toResourceProperties ConnectorProfileCredentialsProperty {..}
     = ResourceProperties

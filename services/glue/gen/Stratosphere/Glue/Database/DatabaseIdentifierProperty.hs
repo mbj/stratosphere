@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseIdentifierProperty
-  = DatabaseIdentifierProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html>
+    DatabaseIdentifierProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid>
+                                catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename>
                                 databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-region>
                                 region :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseIdentifierProperty :: DatabaseIdentifierProperty
 mkDatabaseIdentifierProperty
   = DatabaseIdentifierProperty
-      {catalogId = Prelude.Nothing, databaseName = Prelude.Nothing,
-       region = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = Prelude.Nothing,
+       databaseName = Prelude.Nothing, region = Prelude.Nothing}
 instance ToResourceProperties DatabaseIdentifierProperty where
   toResourceProperties DatabaseIdentifierProperty {..}
     = ResourceProperties

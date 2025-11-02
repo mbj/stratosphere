@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.SourcePriorityProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FailoverConfigProperty
-  = FailoverConfigProperty {failoverMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html>
+    FailoverConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-failovermode>
+                            failoverMode :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow>
                             recoveryWindow :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-sourcepriority>
                             sourcePriority :: (Prelude.Maybe SourcePriorityProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-state>
                             state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConfigProperty :: FailoverConfigProperty
 mkFailoverConfigProperty
   = FailoverConfigProperty
-      {failoverMode = Prelude.Nothing, recoveryWindow = Prelude.Nothing,
-       sourcePriority = Prelude.Nothing, state = Prelude.Nothing}
+      {haddock_workaround_ = (), failoverMode = Prelude.Nothing,
+       recoveryWindow = Prelude.Nothing, sourcePriority = Prelude.Nothing,
+       state = Prelude.Nothing}
 instance ToResourceProperties FailoverConfigProperty where
   toResourceProperties FailoverConfigProperty {..}
     = ResourceProperties

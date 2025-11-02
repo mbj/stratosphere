@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SharingConfigProperty
-  = SharingConfigProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetwork-sharingconfig.html>
+    SharingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetwork-sharingconfig.html#cfn-vpclattice-servicenetwork-sharingconfig-enabled>
+                           enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharingConfigProperty ::
   Value Prelude.Bool -> SharingConfigProperty
 mkSharingConfigProperty enabled
-  = SharingConfigProperty {enabled = enabled}
+  = SharingConfigProperty
+      {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties SharingConfigProperty where
   toResourceProperties SharingConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON SharingConfigProperty where
     = JSON.object ["enabled" JSON..= enabled]
 instance Property "enabled" SharingConfigProperty where
   type PropertyType "enabled" SharingConfigProperty = Value Prelude.Bool
-  set newValue SharingConfigProperty {}
+  set newValue SharingConfigProperty {..}
     = SharingConfigProperty {enabled = newValue, ..}

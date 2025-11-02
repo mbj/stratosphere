@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameOptionsProperty
-  = FrameOptionsProperty {frameOption :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html>
+    FrameOptionsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html#cfn-cloudfront-responseheaderspolicy-frameoptions-frameoption>
+                          frameOption :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html#cfn-cloudfront-responseheaderspolicy-frameoptions-override>
                           override :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameOptionsProperty ::
   Value Prelude.Text -> Value Prelude.Bool -> FrameOptionsProperty
 mkFrameOptionsProperty frameOption override
   = FrameOptionsProperty
-      {frameOption = frameOption, override = override}
+      {haddock_workaround_ = (), frameOption = frameOption,
+       override = override}
 instance ToResourceProperties FrameOptionsProperty where
   toResourceProperties FrameOptionsProperty {..}
     = ResourceProperties

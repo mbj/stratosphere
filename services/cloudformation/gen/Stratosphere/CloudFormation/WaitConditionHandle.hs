@@ -5,10 +5,12 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WaitConditionHandle
-  = WaitConditionHandle {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html>
+    WaitConditionHandle {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitConditionHandle :: WaitConditionHandle
-mkWaitConditionHandle = WaitConditionHandle {}
+mkWaitConditionHandle
+  = WaitConditionHandle {haddock_workaround_ = ()}
 instance ToResourceProperties WaitConditionHandle where
   toResourceProperties WaitConditionHandle {}
     = ResourceProperties

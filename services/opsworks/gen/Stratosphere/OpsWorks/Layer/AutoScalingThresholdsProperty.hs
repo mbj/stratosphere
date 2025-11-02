@@ -7,17 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingThresholdsProperty
-  = AutoScalingThresholdsProperty {cpuThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html>
+    AutoScalingThresholdsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-cputhreshold>
+                                   cpuThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-ignoremetricstime>
                                    ignoreMetricsTime :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-instancecount>
                                    instanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-loadthreshold>
                                    loadThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-memorythreshold>
                                    memoryThreshold :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html#cfn-opsworks-layer-loadbasedautoscaling-autoscalingthresholds-thresholdwaittime>
                                    thresholdsWaitTime :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingThresholdsProperty :: AutoScalingThresholdsProperty
 mkAutoScalingThresholdsProperty
   = AutoScalingThresholdsProperty
-      {cpuThreshold = Prelude.Nothing,
+      {haddock_workaround_ = (), cpuThreshold = Prelude.Nothing,
        ignoreMetricsTime = Prelude.Nothing,
        instanceCount = Prelude.Nothing, loadThreshold = Prelude.Nothing,
        memoryThreshold = Prelude.Nothing,

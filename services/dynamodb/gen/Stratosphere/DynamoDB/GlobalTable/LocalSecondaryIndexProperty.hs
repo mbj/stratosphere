@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ProjectionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalSecondaryIndexProperty
-  = LocalSecondaryIndexProperty {indexName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html>
+    LocalSecondaryIndexProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname>
+                                 indexName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema>
                                  keySchema :: [KeySchemaProperty],
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection>
                                  projection :: ProjectionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalSecondaryIndexProperty ::
@@ -20,8 +25,8 @@ mkLocalSecondaryIndexProperty ::
      -> ProjectionProperty -> LocalSecondaryIndexProperty
 mkLocalSecondaryIndexProperty indexName keySchema projection
   = LocalSecondaryIndexProperty
-      {indexName = indexName, keySchema = keySchema,
-       projection = projection}
+      {haddock_workaround_ = (), indexName = indexName,
+       keySchema = keySchema, projection = projection}
 instance ToResourceProperties LocalSecondaryIndexProperty where
   toResourceProperties LocalSecondaryIndexProperty {..}
     = ResourceProperties

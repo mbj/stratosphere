@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Cluster.ClusterOrchestratorEksConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OrchestratorProperty
-  = OrchestratorProperty {eks :: ClusterOrchestratorEksConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html>
+    OrchestratorProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html#cfn-sagemaker-cluster-orchestrator-eks>
+                          eks :: ClusterOrchestratorEksConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrchestratorProperty ::
   ClusterOrchestratorEksConfigProperty -> OrchestratorProperty
-mkOrchestratorProperty eks = OrchestratorProperty {eks = eks}
+mkOrchestratorProperty eks
+  = OrchestratorProperty {haddock_workaround_ = (), eks = eks}
 instance ToResourceProperties OrchestratorProperty where
   toResourceProperties OrchestratorProperty {..}
     = ResourceProperties
@@ -21,5 +25,5 @@ instance JSON.ToJSON OrchestratorProperty where
   toJSON OrchestratorProperty {..} = JSON.object ["Eks" JSON..= eks]
 instance Property "Eks" OrchestratorProperty where
   type PropertyType "Eks" OrchestratorProperty = ClusterOrchestratorEksConfigProperty
-  set newValue OrchestratorProperty {}
+  set newValue OrchestratorProperty {..}
     = OrchestratorProperty {eks = newValue, ..}

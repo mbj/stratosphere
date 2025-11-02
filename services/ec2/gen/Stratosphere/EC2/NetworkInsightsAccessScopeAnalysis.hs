@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data NetworkInsightsAccessScopeAnalysis
-  = NetworkInsightsAccessScopeAnalysis {networkInsightsAccessScopeId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html>
+    NetworkInsightsAccessScopeAnalysis {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html#cfn-ec2-networkinsightsaccessscopeanalysis-networkinsightsaccessscopeid>
+                                        networkInsightsAccessScopeId :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html#cfn-ec2-networkinsightsaccessscopeanalysis-tags>
                                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsAccessScopeAnalysis ::
   Value Prelude.Text -> NetworkInsightsAccessScopeAnalysis
 mkNetworkInsightsAccessScopeAnalysis networkInsightsAccessScopeId
   = NetworkInsightsAccessScopeAnalysis
-      {networkInsightsAccessScopeId = networkInsightsAccessScopeId,
+      {haddock_workaround_ = (),
+       networkInsightsAccessScopeId = networkInsightsAccessScopeId,
        tags = Prelude.Nothing}
 instance ToResourceProperties NetworkInsightsAccessScopeAnalysis where
   toResourceProperties NetworkInsightsAccessScopeAnalysis {..}

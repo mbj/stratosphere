@@ -12,16 +12,24 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec601SettingsProperty as E
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec709SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data H265ColorSpaceSettingsProperty
-  = H265ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html>
+    H265ColorSpaceSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-colorspacepassthroughsettings>
+                                    colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-dolbyvision81settings>
                                     dolbyVision81Settings :: (Prelude.Maybe DolbyVision81SettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hdr10settings>
                                     hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-rec601settings>
                                     rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-rec709settings>
                                     rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkH265ColorSpaceSettingsProperty :: H265ColorSpaceSettingsProperty
 mkH265ColorSpaceSettingsProperty
   = H265ColorSpaceSettingsProperty
-      {colorSpacePassthroughSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       colorSpacePassthroughSettings = Prelude.Nothing,
        dolbyVision81Settings = Prelude.Nothing,
        hdr10Settings = Prelude.Nothing, rec601Settings = Prelude.Nothing,
        rec709Settings = Prelude.Nothing}

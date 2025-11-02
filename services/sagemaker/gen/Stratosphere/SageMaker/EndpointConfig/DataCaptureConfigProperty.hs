@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.CaptureOptionPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCaptureConfigProperty
-  = DataCaptureConfigProperty {captureContentTypeHeader :: (Prelude.Maybe CaptureContentTypeHeaderProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>
+    DataCaptureConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader>
+                               captureContentTypeHeader :: (Prelude.Maybe CaptureContentTypeHeaderProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-captureoptions>
                                captureOptions :: [CaptureOptionProperty],
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-destinations3uri>
                                destinationS3Uri :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-enablecapture>
                                enableCapture :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-initialsamplingpercentage>
                                initialSamplingPercentage :: (Value Prelude.Integer),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-kmskeyid>
                                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCaptureConfigProperty ::
@@ -26,7 +34,7 @@ mkDataCaptureConfigProperty
   destinationS3Uri
   initialSamplingPercentage
   = DataCaptureConfigProperty
-      {captureOptions = captureOptions,
+      {haddock_workaround_ = (), captureOptions = captureOptions,
        destinationS3Uri = destinationS3Uri,
        initialSamplingPercentage = initialSamplingPercentage,
        captureContentTypeHeader = Prelude.Nothing,

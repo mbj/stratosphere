@@ -9,11 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Rotation
-  = Rotation {contactIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html>
+    Rotation {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-contactids>
+              contactIds :: (ValueList Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-recurrence>
               recurrence :: RecurrenceSettingsProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-starttime>
               startTime :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-tags>
               tags :: (Prelude.Maybe [Tag]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html#cfn-ssmcontacts-rotation-timezoneid>
               timeZoneId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRotation ::
@@ -23,9 +31,9 @@ mkRotation ::
         -> Value Prelude.Text -> Value Prelude.Text -> Rotation
 mkRotation contactIds name recurrence startTime timeZoneId
   = Rotation
-      {contactIds = contactIds, name = name, recurrence = recurrence,
-       startTime = startTime, timeZoneId = timeZoneId,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), contactIds = contactIds, name = name,
+       recurrence = recurrence, startTime = startTime,
+       timeZoneId = timeZoneId, tags = Prelude.Nothing}
 instance ToResourceProperties Rotation where
   toResourceProperties Rotation {..}
     = ResourceProperties

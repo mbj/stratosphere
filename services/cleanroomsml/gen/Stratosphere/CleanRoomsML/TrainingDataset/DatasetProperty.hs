@@ -8,13 +8,19 @@ import {-# SOURCE #-} Stratosphere.CleanRoomsML.TrainingDataset.DatasetInputConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetProperty
-  = DatasetProperty {inputConfig :: DatasetInputConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html>
+    DatasetProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html#cfn-cleanroomsml-trainingdataset-dataset-inputconfig>
+                     inputConfig :: DatasetInputConfigProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html#cfn-cleanroomsml-trainingdataset-dataset-type>
                      type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetProperty ::
   DatasetInputConfigProperty -> Value Prelude.Text -> DatasetProperty
 mkDatasetProperty inputConfig type'
-  = DatasetProperty {inputConfig = inputConfig, type' = type'}
+  = DatasetProperty
+      {haddock_workaround_ = (), inputConfig = inputConfig,
+       type' = type'}
 instance ToResourceProperties DatasetProperty where
   toResourceProperties DatasetProperty {..}
     = ResourceProperties

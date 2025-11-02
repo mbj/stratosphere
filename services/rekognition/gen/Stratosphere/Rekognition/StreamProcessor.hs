@@ -16,26 +16,41 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StreamProcessor
-  = StreamProcessor {boundingBoxRegionsOfInterest :: (Prelude.Maybe [BoundingBoxProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html>
+    StreamProcessor {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-boundingboxregionsofinterest>
+                     boundingBoxRegionsOfInterest :: (Prelude.Maybe [BoundingBoxProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-connectedhomesettings>
                      connectedHomeSettings :: (Prelude.Maybe ConnectedHomeSettingsProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-datasharingpreference>
                      dataSharingPreference :: (Prelude.Maybe DataSharingPreferenceProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-facesearchsettings>
                      faceSearchSettings :: (Prelude.Maybe FaceSearchSettingsProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisdatastream>
                      kinesisDataStream :: (Prelude.Maybe KinesisDataStreamProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kinesisvideostream>
                      kinesisVideoStream :: KinesisVideoStreamProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-kmskeyid>
                      kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-name>
                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-notificationchannel>
                      notificationChannel :: (Prelude.Maybe NotificationChannelProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-polygonregionsofinterest>
                      polygonRegionsOfInterest :: (Prelude.Maybe JSON.Object),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-rolearn>
                      roleArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-s3destination>
                      s3Destination :: (Prelude.Maybe S3DestinationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html#cfn-rekognition-streamprocessor-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamProcessor ::
   KinesisVideoStreamProperty -> Value Prelude.Text -> StreamProcessor
 mkStreamProcessor kinesisVideoStream roleArn
   = StreamProcessor
-      {kinesisVideoStream = kinesisVideoStream, roleArn = roleArn,
-       boundingBoxRegionsOfInterest = Prelude.Nothing,
+      {haddock_workaround_ = (), kinesisVideoStream = kinesisVideoStream,
+       roleArn = roleArn, boundingBoxRegionsOfInterest = Prelude.Nothing,
        connectedHomeSettings = Prelude.Nothing,
        dataSharingPreference = Prelude.Nothing,
        faceSearchSettings = Prelude.Nothing,

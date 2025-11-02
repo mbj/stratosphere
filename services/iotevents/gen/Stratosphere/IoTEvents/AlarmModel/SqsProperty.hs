@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.PayloadProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqsProperty
-  = SqsProperty {payload :: (Prelude.Maybe PayloadProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html>
+    SqsProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-payload>
+                 payload :: (Prelude.Maybe PayloadProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-queueurl>
                  queueUrl :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-sqs.html#cfn-iotevents-alarmmodel-sqs-usebase64>
                  useBase64 :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsProperty :: Value Prelude.Text -> SqsProperty
 mkSqsProperty queueUrl
   = SqsProperty
-      {queueUrl = queueUrl, payload = Prelude.Nothing,
-       useBase64 = Prelude.Nothing}
+      {haddock_workaround_ = (), queueUrl = queueUrl,
+       payload = Prelude.Nothing, useBase64 = Prelude.Nothing}
 instance ToResourceProperties SqsProperty where
   toResourceProperties SqsProperty {..}
     = ResourceProperties

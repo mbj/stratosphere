@@ -11,25 +11,41 @@ import {-# SOURCE #-} Stratosphere.FSx.Volume.TieringPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OntapConfigurationProperty
-  = OntapConfigurationProperty {aggregateConfiguration :: (Prelude.Maybe AggregateConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html>
+    OntapConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-aggregateconfiguration>
+                                aggregateConfiguration :: (Prelude.Maybe AggregateConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-copytagstobackups>
                                 copyTagsToBackups :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-junctionpath>
                                 junctionPath :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-ontapvolumetype>
                                 ontapVolumeType :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-securitystyle>
                                 securityStyle :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinbytes>
                                 sizeInBytes :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes>
                                 sizeInMegabytes :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snaplockconfiguration>
                                 snaplockConfiguration :: (Prelude.Maybe SnaplockConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snapshotpolicy>
                                 snapshotPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storageefficiencyenabled>
                                 storageEfficiencyEnabled :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storagevirtualmachineid>
                                 storageVirtualMachineId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-tieringpolicy>
                                 tieringPolicy :: (Prelude.Maybe TieringPolicyProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-volumestyle>
                                 volumeStyle :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOntapConfigurationProperty ::
   Value Prelude.Text -> OntapConfigurationProperty
 mkOntapConfigurationProperty storageVirtualMachineId
   = OntapConfigurationProperty
-      {storageVirtualMachineId = storageVirtualMachineId,
+      {haddock_workaround_ = (),
+       storageVirtualMachineId = storageVirtualMachineId,
        aggregateConfiguration = Prelude.Nothing,
        copyTagsToBackups = Prelude.Nothing,
        junctionPath = Prelude.Nothing, ontapVolumeType = Prelude.Nothing,

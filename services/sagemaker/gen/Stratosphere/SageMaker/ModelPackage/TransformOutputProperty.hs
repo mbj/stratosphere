@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformOutputProperty
-  = TransformOutputProperty {accept :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html>
+    TransformOutputProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html#cfn-sagemaker-modelpackage-transformoutput-accept>
+                             accept :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html#cfn-sagemaker-modelpackage-transformoutput-assemblewith>
                              assembleWith :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html#cfn-sagemaker-modelpackage-transformoutput-kmskeyid>
                              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html#cfn-sagemaker-modelpackage-transformoutput-s3outputpath>
                              s3OutputPath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformOutputProperty ::
   Value Prelude.Text -> TransformOutputProperty
 mkTransformOutputProperty s3OutputPath
   = TransformOutputProperty
-      {s3OutputPath = s3OutputPath, accept = Prelude.Nothing,
-       assembleWith = Prelude.Nothing, kmsKeyId = Prelude.Nothing}
+      {haddock_workaround_ = (), s3OutputPath = s3OutputPath,
+       accept = Prelude.Nothing, assembleWith = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties TransformOutputProperty where
   toResourceProperties TransformOutputProperty {..}
     = ResourceProperties

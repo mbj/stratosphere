@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.GlobalAccelerator.Listener.PortRangeProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Listener
-  = Listener {acceleratorArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html>
+    Listener {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn>
+              acceleratorArn :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity>
               clientAffinity :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges>
               portRanges :: [PortRangeProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol>
               protocol :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListener ::
@@ -18,8 +24,9 @@ mkListener ::
   -> [PortRangeProperty] -> Value Prelude.Text -> Listener
 mkListener acceleratorArn portRanges protocol
   = Listener
-      {acceleratorArn = acceleratorArn, portRanges = portRanges,
-       protocol = protocol, clientAffinity = Prelude.Nothing}
+      {haddock_workaround_ = (), acceleratorArn = acceleratorArn,
+       portRanges = portRanges, protocol = protocol,
+       clientAffinity = Prelude.Nothing}
 instance ToResourceProperties Listener where
   toResourceProperties Listener {..}
     = ResourceProperties

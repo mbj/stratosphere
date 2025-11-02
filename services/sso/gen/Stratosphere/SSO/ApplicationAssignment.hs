@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationAssignment
-  = ApplicationAssignment {applicationArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html>
+    ApplicationAssignment {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html#cfn-sso-applicationassignment-applicationarn>
+                           applicationArn :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html#cfn-sso-applicationassignment-principalid>
                            principalId :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html#cfn-sso-applicationassignment-principaltype>
                            principalType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationAssignment ::
@@ -17,8 +22,8 @@ mkApplicationAssignment ::
      -> Value Prelude.Text -> ApplicationAssignment
 mkApplicationAssignment applicationArn principalId principalType
   = ApplicationAssignment
-      {applicationArn = applicationArn, principalId = principalId,
-       principalType = principalType}
+      {haddock_workaround_ = (), applicationArn = applicationArn,
+       principalId = principalId, principalType = principalType}
 instance ToResourceProperties ApplicationAssignment where
   toResourceProperties ApplicationAssignment {..}
     = ResourceProperties

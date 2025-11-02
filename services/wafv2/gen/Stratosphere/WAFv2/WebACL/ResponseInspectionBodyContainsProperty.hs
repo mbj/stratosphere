@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseInspectionBodyContainsProperty
-  = ResponseInspectionBodyContainsProperty {failureStrings :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html>
+    ResponseInspectionBodyContainsProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html#cfn-wafv2-webacl-responseinspectionbodycontains-failurestrings>
+                                            failureStrings :: (ValueList Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html#cfn-wafv2-webacl-responseinspectionbodycontains-successstrings>
                                             successStrings :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionBodyContainsProperty ::
@@ -18,7 +22,8 @@ mkResponseInspectionBodyContainsProperty
   failureStrings
   successStrings
   = ResponseInspectionBodyContainsProperty
-      {failureStrings = failureStrings, successStrings = successStrings}
+      {haddock_workaround_ = (), failureStrings = failureStrings,
+       successStrings = successStrings}
 instance ToResourceProperties ResponseInspectionBodyContainsProperty where
   toResourceProperties ResponseInspectionBodyContainsProperty {..}
     = ResourceProperties

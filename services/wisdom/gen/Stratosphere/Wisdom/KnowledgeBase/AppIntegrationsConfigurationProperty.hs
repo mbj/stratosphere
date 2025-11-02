@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppIntegrationsConfigurationProperty
-  = AppIntegrationsConfigurationProperty {appIntegrationArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html>
+    AppIntegrationsConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html#cfn-wisdom-knowledgebase-appintegrationsconfiguration-appintegrationarn>
+                                          appIntegrationArn :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html#cfn-wisdom-knowledgebase-appintegrationsconfiguration-objectfields>
                                           objectFields :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppIntegrationsConfigurationProperty ::
   Value Prelude.Text -> AppIntegrationsConfigurationProperty
 mkAppIntegrationsConfigurationProperty appIntegrationArn
   = AppIntegrationsConfigurationProperty
-      {appIntegrationArn = appIntegrationArn,
+      {haddock_workaround_ = (), appIntegrationArn = appIntegrationArn,
        objectFields = Prelude.Nothing}
 instance ToResourceProperties AppIntegrationsConfigurationProperty where
   toResourceProperties AppIntegrationsConfigurationProperty {..}

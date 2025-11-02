@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreationInfoProperty
-  = CreationInfoProperty {ownerGid :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html>
+    CreationInfoProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid>
+                          ownerGid :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid>
                           ownerUid :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions>
                           permissions :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreationInfoProperty ::
@@ -16,8 +21,8 @@ mkCreationInfoProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> CreationInfoProperty
 mkCreationInfoProperty ownerGid ownerUid permissions
   = CreationInfoProperty
-      {ownerGid = ownerGid, ownerUid = ownerUid,
-       permissions = permissions}
+      {haddock_workaround_ = (), ownerGid = ownerGid,
+       ownerUid = ownerUid, permissions = permissions}
 instance ToResourceProperties CreationInfoProperty where
   toResourceProperties CreationInfoProperty {..}
     = ResourceProperties

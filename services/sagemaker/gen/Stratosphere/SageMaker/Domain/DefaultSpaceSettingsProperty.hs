@@ -14,20 +14,30 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.KernelGatewayAppSettingsProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultSpaceSettingsProperty
-  = DefaultSpaceSettingsProperty {customFileSystemConfigs :: (Prelude.Maybe [CustomFileSystemConfigProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html>
+    DefaultSpaceSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customfilesystemconfigs>
+                                  customFileSystemConfigs :: (Prelude.Maybe [CustomFileSystemConfigProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customposixuserconfig>
                                   customPosixUserConfig :: (Prelude.Maybe CustomPosixUserConfigProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-executionrole>
                                   executionRole :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterlabappsettings>
                                   jupyterLabAppSettings :: (Prelude.Maybe JupyterLabAppSettingsProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterserverappsettings>
                                   jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-kernelgatewayappsettings>
                                   kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-securitygroups>
                                   securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-spacestoragesettings>
                                   spaceStorageSettings :: (Prelude.Maybe DefaultSpaceStorageSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultSpaceSettingsProperty ::
   Value Prelude.Text -> DefaultSpaceSettingsProperty
 mkDefaultSpaceSettingsProperty executionRole
   = DefaultSpaceSettingsProperty
-      {executionRole = executionRole,
+      {haddock_workaround_ = (), executionRole = executionRole,
        customFileSystemConfigs = Prelude.Nothing,
        customPosixUserConfig = Prelude.Nothing,
        jupyterLabAppSettings = Prelude.Nothing,

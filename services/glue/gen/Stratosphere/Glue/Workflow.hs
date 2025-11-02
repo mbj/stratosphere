@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Workflow
-  = Workflow {defaultRunProperties :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html>
+    Workflow {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-defaultrunproperties>
+              defaultRunProperties :: (Prelude.Maybe JSON.Object),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-maxconcurrentruns>
               maxConcurrentRuns :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-name>
               name :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html#cfn-glue-workflow-tags>
               tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: Workflow
 mkWorkflow
   = Workflow
-      {defaultRunProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultRunProperties = Prelude.Nothing,
        description = Prelude.Nothing, maxConcurrentRuns = Prelude.Nothing,
        name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Workflow where

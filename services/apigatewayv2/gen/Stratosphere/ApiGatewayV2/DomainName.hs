@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.DomainName.MutualTlsAuthenticati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DomainName
-  = DomainName {domainName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html>
+    DomainName {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname>
+                domainName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations>
                 domainNameConfigurations :: (Prelude.Maybe [DomainNameConfigurationProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication>
                 mutualTlsAuthentication :: (Prelude.Maybe MutualTlsAuthenticationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags>
                 tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName :: Value Prelude.Text -> DomainName
 mkDomainName domainName
   = DomainName
-      {domainName = domainName,
+      {haddock_workaround_ = (), domainName = domainName,
        domainNameConfigurations = Prelude.Nothing,
        mutualTlsAuthentication = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DomainName where

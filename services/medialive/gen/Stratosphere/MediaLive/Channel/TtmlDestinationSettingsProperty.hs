@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TtmlDestinationSettingsProperty
-  = TtmlDestinationSettingsProperty {styleControl :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html>
+    TtmlDestinationSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html#cfn-medialive-channel-ttmldestinationsettings-stylecontrol>
+                                     styleControl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTtmlDestinationSettingsProperty ::
   TtmlDestinationSettingsProperty
 mkTtmlDestinationSettingsProperty
-  = TtmlDestinationSettingsProperty {styleControl = Prelude.Nothing}
+  = TtmlDestinationSettingsProperty
+      {haddock_workaround_ = (), styleControl = Prelude.Nothing}
 instance ToResourceProperties TtmlDestinationSettingsProperty where
   toResourceProperties TtmlDestinationSettingsProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON TtmlDestinationSettingsProperty where
               [(JSON..=) "StyleControl" Prelude.<$> styleControl]))
 instance Property "StyleControl" TtmlDestinationSettingsProperty where
   type PropertyType "StyleControl" TtmlDestinationSettingsProperty = Value Prelude.Text
-  set newValue TtmlDestinationSettingsProperty {}
+  set newValue TtmlDestinationSettingsProperty {..}
     = TtmlDestinationSettingsProperty
         {styleControl = Prelude.pure newValue, ..}

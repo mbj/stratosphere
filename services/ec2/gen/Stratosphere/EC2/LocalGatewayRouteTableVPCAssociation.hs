@@ -9,8 +9,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocalGatewayRouteTableVPCAssociation
-  = LocalGatewayRouteTableVPCAssociation {localGatewayRouteTableId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html>
+    LocalGatewayRouteTableVPCAssociation {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid>
+                                          localGatewayRouteTableId :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags>
                                           tags :: (Prelude.Maybe [Tag]),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid>
                                           vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTableVPCAssociation ::
@@ -20,8 +25,9 @@ mkLocalGatewayRouteTableVPCAssociation
   localGatewayRouteTableId
   vpcId
   = LocalGatewayRouteTableVPCAssociation
-      {localGatewayRouteTableId = localGatewayRouteTableId,
-       vpcId = vpcId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       localGatewayRouteTableId = localGatewayRouteTableId, vpcId = vpcId,
+       tags = Prelude.Nothing}
 instance ToResourceProperties LocalGatewayRouteTableVPCAssociation where
   toResourceProperties LocalGatewayRouteTableVPCAssociation {..}
     = ResourceProperties

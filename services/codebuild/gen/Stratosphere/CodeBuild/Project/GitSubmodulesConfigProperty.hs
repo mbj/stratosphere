@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitSubmodulesConfigProperty
-  = GitSubmodulesConfigProperty {fetchSubmodules :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html>
+    GitSubmodulesConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html#cfn-codebuild-project-gitsubmodulesconfig-fetchsubmodules>
+                                 fetchSubmodules :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitSubmodulesConfigProperty ::
   Value Prelude.Bool -> GitSubmodulesConfigProperty
 mkGitSubmodulesConfigProperty fetchSubmodules
-  = GitSubmodulesConfigProperty {fetchSubmodules = fetchSubmodules}
+  = GitSubmodulesConfigProperty
+      {haddock_workaround_ = (), fetchSubmodules = fetchSubmodules}
 instance ToResourceProperties GitSubmodulesConfigProperty where
   toResourceProperties GitSubmodulesConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON GitSubmodulesConfigProperty where
     = JSON.object ["FetchSubmodules" JSON..= fetchSubmodules]
 instance Property "FetchSubmodules" GitSubmodulesConfigProperty where
   type PropertyType "FetchSubmodules" GitSubmodulesConfigProperty = Value Prelude.Bool
-  set newValue GitSubmodulesConfigProperty {}
+  set newValue GitSubmodulesConfigProperty {..}
     = GitSubmodulesConfigProperty {fetchSubmodules = newValue, ..}

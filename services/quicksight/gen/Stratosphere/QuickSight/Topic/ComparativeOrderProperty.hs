@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComparativeOrderProperty
-  = ComparativeOrderProperty {specifedOrder :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html>
+    ComparativeOrderProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html#cfn-quicksight-topic-comparativeorder-specifedorder>
+                              specifedOrder :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html#cfn-quicksight-topic-comparativeorder-treatundefinedspecifiedvalues>
                               treatUndefinedSpecifiedValues :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html#cfn-quicksight-topic-comparativeorder-useordering>
                               useOrdering :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComparativeOrderProperty :: ComparativeOrderProperty
 mkComparativeOrderProperty
   = ComparativeOrderProperty
-      {specifedOrder = Prelude.Nothing,
+      {haddock_workaround_ = (), specifedOrder = Prelude.Nothing,
        treatUndefinedSpecifiedValues = Prelude.Nothing,
        useOrdering = Prelude.Nothing}
 instance ToResourceProperties ComparativeOrderProperty where

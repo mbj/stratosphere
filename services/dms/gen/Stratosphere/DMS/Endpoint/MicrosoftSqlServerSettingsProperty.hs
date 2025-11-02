@@ -8,29 +8,48 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MicrosoftSqlServerSettingsProperty
-  = MicrosoftSqlServerSettingsProperty {bcpPacketSize :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html>
+    MicrosoftSqlServerSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-bcppacketsize>
+                                        bcpPacketSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-controltablesfilegroup>
                                         controlTablesFileGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-databasename>
                                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-forceloblookup>
                                         forceLobLookup :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-password>
                                         password :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-port>
                                         port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-querysinglealwaysonnode>
                                         querySingleAlwaysOnNode :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-readbackuponly>
                                         readBackupOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-safeguardpolicy>
                                         safeguardPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-secretsmanageraccessrolearn>
                                         secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-secretsmanagersecretid>
                                         secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-servername>
                                         serverName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-tlogaccessmode>
                                         tlogAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-trimspaceinchar>
                                         trimSpaceInChar :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-usebcpfullload>
                                         useBcpFullLoad :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-usethirdpartybackupdevice>
                                         useThirdPartyBackupDevice :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html#cfn-dms-endpoint-microsoftsqlserversettings-username>
                                         username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftSqlServerSettingsProperty ::
   MicrosoftSqlServerSettingsProperty
 mkMicrosoftSqlServerSettingsProperty
   = MicrosoftSqlServerSettingsProperty
-      {bcpPacketSize = Prelude.Nothing,
+      {haddock_workaround_ = (), bcpPacketSize = Prelude.Nothing,
        controlTablesFileGroup = Prelude.Nothing,
        databaseName = Prelude.Nothing, forceLobLookup = Prelude.Nothing,
        password = Prelude.Nothing, port = Prelude.Nothing,

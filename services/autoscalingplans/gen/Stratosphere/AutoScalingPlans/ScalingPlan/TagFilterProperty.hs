@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagFilterProperty
-  = TagFilterProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html>
+    TagFilterProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-key>
+                       key :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-values>
                        values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagFilterProperty :: Value Prelude.Text -> TagFilterProperty
 mkTagFilterProperty key
-  = TagFilterProperty {key = key, values = Prelude.Nothing}
+  = TagFilterProperty
+      {haddock_workaround_ = (), key = key, values = Prelude.Nothing}
 instance ToResourceProperties TagFilterProperty where
   toResourceProperties TagFilterProperty {..}
     = ResourceProperties

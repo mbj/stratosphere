@@ -23,31 +23,54 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Table
-  = Table {attributeDefinitions :: (Prelude.Maybe [AttributeDefinitionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html>
+    Table {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedefinitions>
+           attributeDefinitions :: (Prelude.Maybe [AttributeDefinitionProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode>
            billingMode :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification>
            contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-deletionprotectionenabled>
            deletionProtectionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-globalsecondaryindexes>
            globalSecondaryIndexes :: (Prelude.Maybe [GlobalSecondaryIndexProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-importsourcespecification>
            importSourceSpecification :: (Prelude.Maybe ImportSourceSpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema>
            keySchema :: [KeySchemaProperty],
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-kinesisstreamspecification>
            kinesisStreamSpecification :: (Prelude.Maybe KinesisStreamSpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes>
            localSecondaryIndexes :: (Prelude.Maybe [LocalSecondaryIndexProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ondemandthroughput>
            onDemandThroughput :: (Prelude.Maybe OnDemandThroughputProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification>
            pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput>
            provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-resourcepolicy>
            resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification>
            sSESpecification :: (Prelude.Maybe SSESpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification>
            streamSpecification :: (Prelude.Maybe StreamSpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tableclass>
            tableClass :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename>
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags>
            tags :: (Prelude.Maybe [Tag]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification>
            timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput>
            warmThroughput :: (Prelude.Maybe WarmThroughputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTable :: [KeySchemaProperty] -> Table
 mkTable keySchema
   = Table
-      {keySchema = keySchema, attributeDefinitions = Prelude.Nothing,
+      {haddock_workaround_ = (), keySchema = keySchema,
+       attributeDefinitions = Prelude.Nothing,
        billingMode = Prelude.Nothing,
        contributorInsightsSpecification = Prelude.Nothing,
        deletionProtectionEnabled = Prelude.Nothing,

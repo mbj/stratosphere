@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortalProperty
-  = PortalProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html>
+    PortalProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id>
+                    id :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortalProperty :: PortalProperty
-mkPortalProperty = PortalProperty {id = Prelude.Nothing}
+mkPortalProperty
+  = PortalProperty {haddock_workaround_ = (), id = Prelude.Nothing}
 instance ToResourceProperties PortalProperty where
   toResourceProperties PortalProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON PortalProperty where
            (Prelude.catMaybes [(JSON..=) "id" Prelude.<$> id]))
 instance Property "id" PortalProperty where
   type PropertyType "id" PortalProperty = Value Prelude.Text
-  set newValue PortalProperty {}
+  set newValue PortalProperty {..}
     = PortalProperty {id = Prelude.pure newValue, ..}

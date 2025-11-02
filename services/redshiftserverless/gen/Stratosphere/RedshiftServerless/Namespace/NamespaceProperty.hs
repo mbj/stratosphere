@@ -7,24 +7,40 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamespaceProperty
-  = NamespaceProperty {adminPasswordSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>
+    NamespaceProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretarn>
+                       adminPasswordSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretkmskeyid>
                        adminPasswordSecretKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminusername>
                        adminUsername :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-creationdate>
                        creationDate :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-dbname>
                        dbName :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-defaultiamrolearn>
                        defaultIamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-iamroles>
                        iamRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-kmskeyid>
                        kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-logexports>
                        logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-namespacearn>
                        namespaceArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-namespaceid>
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-namespacename>
                        namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-status>
                        status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespaceProperty :: NamespaceProperty
 mkNamespaceProperty
   = NamespaceProperty
-      {adminPasswordSecretArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       adminPasswordSecretArn = Prelude.Nothing,
        adminPasswordSecretKmsKeyId = Prelude.Nothing,
        adminUsername = Prelude.Nothing, creationDate = Prelude.Nothing,
        dbName = Prelude.Nothing, defaultIamRoleArn = Prelude.Nothing,

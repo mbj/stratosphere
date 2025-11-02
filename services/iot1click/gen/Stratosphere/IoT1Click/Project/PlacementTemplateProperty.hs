@@ -6,13 +6,17 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data PlacementTemplateProperty
-  = PlacementTemplateProperty {defaultAttributes :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-placementtemplate.html>
+    PlacementTemplateProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-placementtemplate.html#cfn-iot1click-project-placementtemplate-defaultattributes>
+                               defaultAttributes :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-placementtemplate.html#cfn-iot1click-project-placementtemplate-devicetemplates>
                                deviceTemplates :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementTemplateProperty :: PlacementTemplateProperty
 mkPlacementTemplateProperty
   = PlacementTemplateProperty
-      {defaultAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultAttributes = Prelude.Nothing,
        deviceTemplates = Prelude.Nothing}
 instance ToResourceProperties PlacementTemplateProperty where
   toResourceProperties PlacementTemplateProperty {..}

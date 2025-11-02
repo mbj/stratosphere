@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceleratorCountRequestProperty
-  = AcceleratorCountRequestProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratorcountrequest.html>
+    AcceleratorCountRequestProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratorcountrequest.html#cfn-ec2-spotfleet-acceleratorcountrequest-max>
+                                     max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratorcountrequest.html#cfn-ec2-spotfleet-acceleratorcountrequest-min>
                                      min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorCountRequestProperty ::
   AcceleratorCountRequestProperty
 mkAcceleratorCountRequestProperty
   = AcceleratorCountRequestProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties AcceleratorCountRequestProperty where
   toResourceProperties AcceleratorCountRequestProperty {..}
     = ResourceProperties

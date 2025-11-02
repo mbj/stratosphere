@@ -12,17 +12,31 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.TargetCapacitySpecificationReque
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EC2Fleet
-  = EC2Fleet {context :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html>
+    EC2Fleet {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context>
+              context :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy>
               excessCapacityTerminationPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs>
               launchTemplateConfigs :: [FleetLaunchTemplateConfigRequestProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions>
               onDemandOptions :: (Prelude.Maybe OnDemandOptionsRequestProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances>
               replaceUnhealthyInstances :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions>
               spotOptions :: (Prelude.Maybe SpotOptionsRequestProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications>
               tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification>
               targetCapacitySpecification :: TargetCapacitySpecificationRequestProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration>
               terminateInstancesWithExpiration :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type>
               type' :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom>
               validFrom :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil>
               validUntil :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEC2Fleet ::
@@ -30,7 +44,8 @@ mkEC2Fleet ::
   -> TargetCapacitySpecificationRequestProperty -> EC2Fleet
 mkEC2Fleet launchTemplateConfigs targetCapacitySpecification
   = EC2Fleet
-      {launchTemplateConfigs = launchTemplateConfigs,
+      {haddock_workaround_ = (),
+       launchTemplateConfigs = launchTemplateConfigs,
        targetCapacitySpecification = targetCapacitySpecification,
        context = Prelude.Nothing,
        excessCapacityTerminationPolicy = Prelude.Nothing,

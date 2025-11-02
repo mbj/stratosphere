@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedBackupSettingResourceTypeProperty
-  = AdvancedBackupSettingResourceTypeProperty {backupOptions :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html>
+    AdvancedBackupSettingResourceTypeProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions>
+                                               backupOptions :: JSON.Object,
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype>
                                                resourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedBackupSettingResourceTypeProperty ::
@@ -18,7 +22,8 @@ mkAdvancedBackupSettingResourceTypeProperty
   backupOptions
   resourceType
   = AdvancedBackupSettingResourceTypeProperty
-      {backupOptions = backupOptions, resourceType = resourceType}
+      {haddock_workaround_ = (), backupOptions = backupOptions,
+       resourceType = resourceType}
 instance ToResourceProperties AdvancedBackupSettingResourceTypeProperty where
   toResourceProperties AdvancedBackupSettingResourceTypeProperty {..}
     = ResourceProperties

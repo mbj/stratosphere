@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualRouterServiceProviderProperty
-  = VirtualRouterServiceProviderProperty {virtualRouterName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html>
+    VirtualRouterServiceProviderProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html#cfn-appmesh-virtualservice-virtualrouterserviceprovider-virtualroutername>
+                                          virtualRouterName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterServiceProviderProperty ::
   Value Prelude.Text -> VirtualRouterServiceProviderProperty
 mkVirtualRouterServiceProviderProperty virtualRouterName
   = VirtualRouterServiceProviderProperty
-      {virtualRouterName = virtualRouterName}
+      {haddock_workaround_ = (), virtualRouterName = virtualRouterName}
 instance ToResourceProperties VirtualRouterServiceProviderProperty where
   toResourceProperties VirtualRouterServiceProviderProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON VirtualRouterServiceProviderProperty where
     = JSON.object ["VirtualRouterName" JSON..= virtualRouterName]
 instance Property "VirtualRouterName" VirtualRouterServiceProviderProperty where
   type PropertyType "VirtualRouterName" VirtualRouterServiceProviderProperty = Value Prelude.Text
-  set newValue VirtualRouterServiceProviderProperty {}
+  set newValue VirtualRouterServiceProviderProperty {..}
     = VirtualRouterServiceProviderProperty
         {virtualRouterName = newValue, ..}

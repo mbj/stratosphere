@@ -9,7 +9,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DatabaseSourceAuthenticationConfigurationProperty
-  = DatabaseSourceAuthenticationConfigurationProperty {secretsManagerConfiguration :: SecretsManagerConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html>
+    DatabaseSourceAuthenticationConfigurationProperty {haddock_workaround_ :: (),
+                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html#cfn-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration-secretsmanagerconfiguration>
+                                                       secretsManagerConfiguration :: SecretsManagerConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseSourceAuthenticationConfigurationProperty ::
   SecretsManagerConfigurationProperty
@@ -17,7 +20,8 @@ mkDatabaseSourceAuthenticationConfigurationProperty ::
 mkDatabaseSourceAuthenticationConfigurationProperty
   secretsManagerConfiguration
   = DatabaseSourceAuthenticationConfigurationProperty
-      {secretsManagerConfiguration = secretsManagerConfiguration}
+      {haddock_workaround_ = (),
+       secretsManagerConfiguration = secretsManagerConfiguration}
 instance ToResourceProperties DatabaseSourceAuthenticationConfigurationProperty where
   toResourceProperties
     DatabaseSourceAuthenticationConfigurationProperty {..}
@@ -32,6 +36,6 @@ instance JSON.ToJSON DatabaseSourceAuthenticationConfigurationProperty where
         ["SecretsManagerConfiguration" JSON..= secretsManagerConfiguration]
 instance Property "SecretsManagerConfiguration" DatabaseSourceAuthenticationConfigurationProperty where
   type PropertyType "SecretsManagerConfiguration" DatabaseSourceAuthenticationConfigurationProperty = SecretsManagerConfigurationProperty
-  set newValue DatabaseSourceAuthenticationConfigurationProperty {}
+  set newValue DatabaseSourceAuthenticationConfigurationProperty {..}
     = DatabaseSourceAuthenticationConfigurationProperty
         {secretsManagerConfiguration = newValue, ..}

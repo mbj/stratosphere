@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyValueProperty
-  = KeyValueProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-keyvalue.html>
+    KeyValueProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-keyvalue.html#cfn-elasticmapreduce-cluster-keyvalue-key>
+                      key :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-keyvalue.html#cfn-elasticmapreduce-cluster-keyvalue-value>
                       value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValueProperty :: KeyValueProperty
 mkKeyValueProperty
-  = KeyValueProperty {key = Prelude.Nothing, value = Prelude.Nothing}
+  = KeyValueProperty
+      {haddock_workaround_ = (), key = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties KeyValueProperty where
   toResourceProperties KeyValueProperty {..}
     = ResourceProperties

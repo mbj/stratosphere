@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmsOutboundConfigProperty
-  = SmsOutboundConfigProperty {connectSourcePhoneNumberArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundconfig.html>
+    SmsOutboundConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundconfig.html#cfn-connectcampaignsv2-campaign-smsoutboundconfig-connectsourcephonenumberarn>
+                               connectSourcePhoneNumberArn :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundconfig.html#cfn-connectcampaignsv2-campaign-smsoutboundconfig-wisdomtemplatearn>
                                wisdomTemplateArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsOutboundConfigProperty ::
@@ -17,7 +21,8 @@ mkSmsOutboundConfigProperty
   connectSourcePhoneNumberArn
   wisdomTemplateArn
   = SmsOutboundConfigProperty
-      {connectSourcePhoneNumberArn = connectSourcePhoneNumberArn,
+      {haddock_workaround_ = (),
+       connectSourcePhoneNumberArn = connectSourcePhoneNumberArn,
        wisdomTemplateArn = wisdomTemplateArn}
 instance ToResourceProperties SmsOutboundConfigProperty where
   toResourceProperties SmsOutboundConfigProperty {..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.RunCommandTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data RunCommandParametersProperty
-  = RunCommandParametersProperty {runCommandTargets :: [RunCommandTargetProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html>
+    RunCommandParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets>
+                                  runCommandTargets :: [RunCommandTargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunCommandParametersProperty ::
   [RunCommandTargetProperty] -> RunCommandParametersProperty
 mkRunCommandParametersProperty runCommandTargets
   = RunCommandParametersProperty
-      {runCommandTargets = runCommandTargets}
+      {haddock_workaround_ = (), runCommandTargets = runCommandTargets}
 instance ToResourceProperties RunCommandParametersProperty where
   toResourceProperties RunCommandParametersProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON RunCommandParametersProperty where
     = JSON.object ["RunCommandTargets" JSON..= runCommandTargets]
 instance Property "RunCommandTargets" RunCommandParametersProperty where
   type PropertyType "RunCommandTargets" RunCommandParametersProperty = [RunCommandTargetProperty]
-  set newValue RunCommandParametersProperty {}
+  set newValue RunCommandParametersProperty {..}
     = RunCommandParametersProperty {runCommandTargets = newValue, ..}

@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SetVariableProperty
-  = SetVariableProperty {value :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html>
+    SetVariableProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value>
+                         value :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename>
                          variableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSetVariableProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SetVariableProperty
 mkSetVariableProperty value variableName
-  = SetVariableProperty {value = value, variableName = variableName}
+  = SetVariableProperty
+      {haddock_workaround_ = (), value = value,
+       variableName = variableName}
 instance ToResourceProperties SetVariableProperty where
   toResourceProperties SetVariableProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcknowledgeFlowProperty
-  = AcknowledgeFlowProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-acknowledgeflow.html>
+    AcknowledgeFlowProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-acknowledgeflow.html#cfn-iotevents-alarmmodel-acknowledgeflow-enabled>
+                             enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcknowledgeFlowProperty :: AcknowledgeFlowProperty
 mkAcknowledgeFlowProperty
-  = AcknowledgeFlowProperty {enabled = Prelude.Nothing}
+  = AcknowledgeFlowProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties AcknowledgeFlowProperty where
   toResourceProperties AcknowledgeFlowProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON AcknowledgeFlowProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" AcknowledgeFlowProperty where
   type PropertyType "Enabled" AcknowledgeFlowProperty = Value Prelude.Bool
-  set newValue AcknowledgeFlowProperty {}
+  set newValue AcknowledgeFlowProperty {..}
     = AcknowledgeFlowProperty {enabled = Prelude.pure newValue, ..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequiredClaimProperty
-  = RequiredClaimProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html>
+    RequiredClaimProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-key>
+                           key :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html#cfn-eks-identityproviderconfig-requiredclaim-value>
                            value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequiredClaimProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RequiredClaimProperty
 mkRequiredClaimProperty key value
-  = RequiredClaimProperty {key = key, value = value}
+  = RequiredClaimProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties RequiredClaimProperty where
   toResourceProperties RequiredClaimProperty {..}
     = ResourceProperties

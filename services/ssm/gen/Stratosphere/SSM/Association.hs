@@ -9,28 +9,48 @@ import {-# SOURCE #-} Stratosphere.SSM.Association.TargetProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Association
-  = Association {applyOnlyAtCronInterval :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html>
+    Association {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval>
+                 applyOnlyAtCronInterval :: (Prelude.Maybe (Value Prelude.Bool)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname>
                  associationName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername>
                  automationTargetParameterName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames>
                  calendarNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity>
                  complianceSeverity :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion>
                  documentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid>
                  instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency>
                  maxConcurrency :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors>
                  maxErrors :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation>
                  outputLocation :: (Prelude.Maybe InstanceAssociationOutputLocationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters>
                  parameters :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression>
                  scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleoffset>
                  scheduleOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance>
                  syncCompliance :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets>
                  targets :: (Prelude.Maybe [TargetProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds>
                  waitForSuccessTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociation :: Value Prelude.Text -> Association
 mkAssociation name
   = Association
-      {name = name, applyOnlyAtCronInterval = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       applyOnlyAtCronInterval = Prelude.Nothing,
        associationName = Prelude.Nothing,
        automationTargetParameterName = Prelude.Nothing,
        calendarNames = Prelude.Nothing,

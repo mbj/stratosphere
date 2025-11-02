@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationTopicNameConfigurationProperty
-  = ReplicationTopicNameConfigurationProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfiguration.html>
+    ReplicationTopicNameConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfiguration.html#cfn-msk-replicator-replicationtopicnameconfiguration-type>
+                                               type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTopicNameConfigurationProperty ::
   ReplicationTopicNameConfigurationProperty
 mkReplicationTopicNameConfigurationProperty
   = ReplicationTopicNameConfigurationProperty
-      {type' = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties ReplicationTopicNameConfigurationProperty where
   toResourceProperties ReplicationTopicNameConfigurationProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON ReplicationTopicNameConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" ReplicationTopicNameConfigurationProperty where
   type PropertyType "Type" ReplicationTopicNameConfigurationProperty = Value Prelude.Text
-  set newValue ReplicationTopicNameConfigurationProperty {}
+  set newValue ReplicationTopicNameConfigurationProperty {..}
     = ReplicationTopicNameConfigurationProperty
         {type' = Prelude.pure newValue, ..}

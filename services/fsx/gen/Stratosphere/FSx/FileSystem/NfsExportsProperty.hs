@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.ClientConfigurationsProperty as Exports
 import Stratosphere.ResourceProperties
 data NfsExportsProperty
-  = NfsExportsProperty {clientConfigurations :: (Prelude.Maybe [ClientConfigurationsProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>
+    NfsExportsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations>
+                        clientConfigurations :: (Prelude.Maybe [ClientConfigurationsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNfsExportsProperty :: NfsExportsProperty
 mkNfsExportsProperty
-  = NfsExportsProperty {clientConfigurations = Prelude.Nothing}
+  = NfsExportsProperty
+      {haddock_workaround_ = (), clientConfigurations = Prelude.Nothing}
 instance ToResourceProperties NfsExportsProperty where
   toResourceProperties NfsExportsProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON NfsExportsProperty where
                  Prelude.<$> clientConfigurations]))
 instance Property "ClientConfigurations" NfsExportsProperty where
   type PropertyType "ClientConfigurations" NfsExportsProperty = [ClientConfigurationsProperty]
-  set newValue NfsExportsProperty {}
+  set newValue NfsExportsProperty {..}
     = NfsExportsProperty
         {clientConfigurations = Prelude.pure newValue, ..}

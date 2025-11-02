@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonOpenSearchServerlessRetryOptionsProperty
-  = AmazonOpenSearchServerlessRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html>
+    AmazonOpenSearchServerlessRetryOptionsProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions-durationinseconds>
+                                                    durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonOpenSearchServerlessRetryOptionsProperty ::
   AmazonOpenSearchServerlessRetryOptionsProperty
 mkAmazonOpenSearchServerlessRetryOptionsProperty
   = AmazonOpenSearchServerlessRetryOptionsProperty
-      {durationInSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), durationInSeconds = Prelude.Nothing}
 instance ToResourceProperties AmazonOpenSearchServerlessRetryOptionsProperty where
   toResourceProperties
     AmazonOpenSearchServerlessRetryOptionsProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON AmazonOpenSearchServerlessRetryOptionsProperty where
               [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
 instance Property "DurationInSeconds" AmazonOpenSearchServerlessRetryOptionsProperty where
   type PropertyType "DurationInSeconds" AmazonOpenSearchServerlessRetryOptionsProperty = Value Prelude.Integer
-  set newValue AmazonOpenSearchServerlessRetryOptionsProperty {}
+  set newValue AmazonOpenSearchServerlessRetryOptionsProperty {..}
     = AmazonOpenSearchServerlessRetryOptionsProperty
         {durationInSeconds = Prelude.pure newValue, ..}

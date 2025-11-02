@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.Fleet.FleetProxyRuleProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProxyConfigurationProperty
-  = ProxyConfigurationProperty {defaultBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html>
+    ProxyConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html#cfn-codebuild-fleet-proxyconfiguration-defaultbehavior>
+                                defaultBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html#cfn-codebuild-fleet-proxyconfiguration-orderedproxyrules>
                                 orderedProxyRules :: (Prelude.Maybe [FleetProxyRuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProxyConfigurationProperty :: ProxyConfigurationProperty
 mkProxyConfigurationProperty
   = ProxyConfigurationProperty
-      {defaultBehavior = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultBehavior = Prelude.Nothing,
        orderedProxyRules = Prelude.Nothing}
 instance ToResourceProperties ProxyConfigurationProperty where
   toResourceProperties ProxyConfigurationProperty {..}

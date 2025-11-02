@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigProperty
-  = S3ConfigProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-s3config.html>
+    S3ConfigProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-s3config.html#cfn-internetmonitor-monitor-s3config-bucketname>
+                      bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-s3config.html#cfn-internetmonitor-monitor-s3config-bucketprefix>
                       bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-s3config.html#cfn-internetmonitor-monitor-s3config-logdeliverystatus>
                       logDeliveryStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty :: S3ConfigProperty
 mkS3ConfigProperty
   = S3ConfigProperty
-      {bucketName = Prelude.Nothing, bucketPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketName = Prelude.Nothing,
+       bucketPrefix = Prelude.Nothing,
        logDeliveryStatus = Prelude.Nothing}
 instance ToResourceProperties S3ConfigProperty where
   toResourceProperties S3ConfigProperty {..}

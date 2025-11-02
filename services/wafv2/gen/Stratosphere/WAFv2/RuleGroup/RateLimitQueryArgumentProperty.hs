@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.TextTransformationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateLimitQueryArgumentProperty
-  = RateLimitQueryArgumentProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitqueryargument.html>
+    RateLimitQueryArgumentProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitqueryargument.html#cfn-wafv2-rulegroup-ratelimitqueryargument-name>
+                                    name :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitqueryargument.html#cfn-wafv2-rulegroup-ratelimitqueryargument-texttransformations>
                                     textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitQueryArgumentProperty ::
@@ -17,7 +21,8 @@ mkRateLimitQueryArgumentProperty ::
   -> [TextTransformationProperty] -> RateLimitQueryArgumentProperty
 mkRateLimitQueryArgumentProperty name textTransformations
   = RateLimitQueryArgumentProperty
-      {name = name, textTransformations = textTransformations}
+      {haddock_workaround_ = (), name = name,
+       textTransformations = textTransformations}
 instance ToResourceProperties RateLimitQueryArgumentProperty where
   toResourceProperties RateLimitQueryArgumentProperty {..}
     = ResourceProperties

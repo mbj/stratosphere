@@ -11,26 +11,41 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ImageBuilder
-  = ImageBuilder {accessEndpoints :: (Prelude.Maybe [AccessEndpointProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html>
+    ImageBuilder {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-accessendpoints>
+                  accessEndpoints :: (Prelude.Maybe [AccessEndpointProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion>
                   appstreamAgentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname>
                   displayName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-domainjoininfo>
                   domainJoinInfo :: (Prelude.Maybe DomainJoinInfoProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess>
                   enableDefaultInternetAccess :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn>
                   iamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn>
                   imageArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename>
                   imageName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype>
                   instanceType :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags>
                   tags :: (Prelude.Maybe [Tag]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig>
                   vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageBuilder ::
   Value Prelude.Text -> Value Prelude.Text -> ImageBuilder
 mkImageBuilder instanceType name
   = ImageBuilder
-      {instanceType = instanceType, name = name,
-       accessEndpoints = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceType = instanceType,
+       name = name, accessEndpoints = Prelude.Nothing,
        appstreamAgentVersion = Prelude.Nothing,
        description = Prelude.Nothing, displayName = Prelude.Nothing,
        domainJoinInfo = Prelude.Nothing,

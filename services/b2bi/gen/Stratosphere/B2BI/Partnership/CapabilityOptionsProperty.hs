@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.OutboundEdiOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data CapabilityOptionsProperty
-  = CapabilityOptionsProperty {outboundEdi :: (Prelude.Maybe OutboundEdiOptionsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html>
+    CapabilityOptionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-outboundedi>
+                               outboundEdi :: (Prelude.Maybe OutboundEdiOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapabilityOptionsProperty :: CapabilityOptionsProperty
 mkCapabilityOptionsProperty
-  = CapabilityOptionsProperty {outboundEdi = Prelude.Nothing}
+  = CapabilityOptionsProperty
+      {haddock_workaround_ = (), outboundEdi = Prelude.Nothing}
 instance ToResourceProperties CapabilityOptionsProperty where
   toResourceProperties CapabilityOptionsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON CapabilityOptionsProperty where
               [(JSON..=) "OutboundEdi" Prelude.<$> outboundEdi]))
 instance Property "OutboundEdi" CapabilityOptionsProperty where
   type PropertyType "OutboundEdi" CapabilityOptionsProperty = OutboundEdiOptionsProperty
-  set newValue CapabilityOptionsProperty {}
+  set newValue CapabilityOptionsProperty {..}
     = CapabilityOptionsProperty
         {outboundEdi = Prelude.pure newValue, ..}

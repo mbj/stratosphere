@@ -9,17 +9,23 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.RepublishActionHeadersProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepublishActionProperty
-  = RepublishActionProperty {headers :: (Prelude.Maybe RepublishActionHeadersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html>
+    RepublishActionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-headers>
+                             headers :: (Prelude.Maybe RepublishActionHeadersProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos>
                              qos :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn>
                              roleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic>
                              topic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepublishActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RepublishActionProperty
 mkRepublishActionProperty roleArn topic
   = RepublishActionProperty
-      {roleArn = roleArn, topic = topic, headers = Prelude.Nothing,
-       qos = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = roleArn, topic = topic,
+       headers = Prelude.Nothing, qos = Prelude.Nothing}
 instance ToResourceProperties RepublishActionProperty where
   toResourceProperties RepublishActionProperty {..}
     = ResourceProperties

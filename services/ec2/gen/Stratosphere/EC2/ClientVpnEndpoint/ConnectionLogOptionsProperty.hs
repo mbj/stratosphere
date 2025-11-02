@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionLogOptionsProperty
-  = ConnectionLogOptionsProperty {cloudwatchLogGroup :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html>
+    ConnectionLogOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup>
+                                  cloudwatchLogGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream>
                                   cloudwatchLogStream :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled>
                                   enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionLogOptionsProperty ::
   Value Prelude.Bool -> ConnectionLogOptionsProperty
 mkConnectionLogOptionsProperty enabled
   = ConnectionLogOptionsProperty
-      {enabled = enabled, cloudwatchLogGroup = Prelude.Nothing,
+      {haddock_workaround_ = (), enabled = enabled,
+       cloudwatchLogGroup = Prelude.Nothing,
        cloudwatchLogStream = Prelude.Nothing}
 instance ToResourceProperties ConnectionLogOptionsProperty where
   toResourceProperties ConnectionLogOptionsProperty {..}

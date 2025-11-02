@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceProfileModelSourceProperty
-  = InferenceProfileModelSourceProperty {copyFrom :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html>
+    InferenceProfileModelSourceProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilemodelsource-copyfrom>
+                                         copyFrom :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceProfileModelSourceProperty ::
   Value Prelude.Text -> InferenceProfileModelSourceProperty
 mkInferenceProfileModelSourceProperty copyFrom
-  = InferenceProfileModelSourceProperty {copyFrom = copyFrom}
+  = InferenceProfileModelSourceProperty
+      {haddock_workaround_ = (), copyFrom = copyFrom}
 instance ToResourceProperties InferenceProfileModelSourceProperty where
   toResourceProperties InferenceProfileModelSourceProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON InferenceProfileModelSourceProperty where
     = JSON.object ["CopyFrom" JSON..= copyFrom]
 instance Property "CopyFrom" InferenceProfileModelSourceProperty where
   type PropertyType "CopyFrom" InferenceProfileModelSourceProperty = Value Prelude.Text
-  set newValue InferenceProfileModelSourceProperty {}
+  set newValue InferenceProfileModelSourceProperty {..}
     = InferenceProfileModelSourceProperty {copyFrom = newValue, ..}

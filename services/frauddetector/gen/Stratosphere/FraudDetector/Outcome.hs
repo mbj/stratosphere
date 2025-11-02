@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Outcome
-  = Outcome {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html>
+    Outcome {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description>
+             description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutcome :: Value Prelude.Text -> Outcome
 mkOutcome name
   = Outcome
-      {name = name, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Outcome where
   toResourceProperties Outcome {..}
     = ResourceProperties

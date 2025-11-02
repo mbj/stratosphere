@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.B2BI.Capability.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EdiConfigurationProperty
-  = EdiConfigurationProperty {capabilityDirection :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html>
+    EdiConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-capabilitydirection>
+                              capabilityDirection :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-inputlocation>
                               inputLocation :: S3LocationProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-outputlocation>
                               outputLocation :: S3LocationProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-transformerid>
                               transformerId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-type>
                               type' :: EdiTypeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiConfigurationProperty ::
@@ -27,9 +34,9 @@ mkEdiConfigurationProperty
   transformerId
   type'
   = EdiConfigurationProperty
-      {inputLocation = inputLocation, outputLocation = outputLocation,
-       transformerId = transformerId, type' = type',
-       capabilityDirection = Prelude.Nothing}
+      {haddock_workaround_ = (), inputLocation = inputLocation,
+       outputLocation = outputLocation, transformerId = transformerId,
+       type' = type', capabilityDirection = Prelude.Nothing}
 instance ToResourceProperties EdiConfigurationProperty where
   toResourceProperties EdiConfigurationProperty {..}
     = ResourceProperties

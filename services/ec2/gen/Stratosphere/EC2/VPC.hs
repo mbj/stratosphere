@@ -8,18 +8,28 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VPC
-  = VPC {cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html>
+    VPC {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-cidrblock>
+         cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-enablednshostnames>
          enableDnsHostnames :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-enablednssupport>
          enableDnsSupport :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-instancetenancy>
          instanceTenancy :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-ipv4ipampoolid>
          ipv4IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-ipv4netmasklength>
          ipv4NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-tags>
          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPC :: VPC
 mkVPC
   = VPC
-      {cidrBlock = Prelude.Nothing, enableDnsHostnames = Prelude.Nothing,
+      {haddock_workaround_ = (), cidrBlock = Prelude.Nothing,
+       enableDnsHostnames = Prelude.Nothing,
        enableDnsSupport = Prelude.Nothing,
        instanceTenancy = Prelude.Nothing,
        ipv4IpamPoolId = Prelude.Nothing,

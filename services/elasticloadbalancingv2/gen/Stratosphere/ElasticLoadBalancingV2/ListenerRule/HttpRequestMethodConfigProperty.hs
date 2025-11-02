@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRequestMethodConfigProperty
-  = HttpRequestMethodConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html>
+    HttpRequestMethodConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html#cfn-elasticloadbalancingv2-listenerrule-httprequestmethodconfig-values>
+                                     values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRequestMethodConfigProperty ::
   HttpRequestMethodConfigProperty
 mkHttpRequestMethodConfigProperty
-  = HttpRequestMethodConfigProperty {values = Prelude.Nothing}
+  = HttpRequestMethodConfigProperty
+      {haddock_workaround_ = (), values = Prelude.Nothing}
 instance ToResourceProperties HttpRequestMethodConfigProperty where
   toResourceProperties HttpRequestMethodConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON HttpRequestMethodConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" HttpRequestMethodConfigProperty where
   type PropertyType "Values" HttpRequestMethodConfigProperty = ValueList Prelude.Text
-  set newValue HttpRequestMethodConfigProperty {}
+  set newValue HttpRequestMethodConfigProperty {..}
     = HttpRequestMethodConfigProperty
         {values = Prelude.pure newValue, ..}

@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenSearchActionProperty
-  = OpenSearchActionProperty {endpoint :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html>
+    OpenSearchActionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-endpoint>
+                              endpoint :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-id>
                               id :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-index>
                               index :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html#cfn-iot-topicrule-opensearchaction-type>
                               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchActionProperty ::
@@ -21,8 +28,8 @@ mkOpenSearchActionProperty ::
            -> Value Prelude.Text -> OpenSearchActionProperty
 mkOpenSearchActionProperty endpoint id index roleArn type'
   = OpenSearchActionProperty
-      {endpoint = endpoint, id = id, index = index, roleArn = roleArn,
-       type' = type'}
+      {haddock_workaround_ = (), endpoint = endpoint, id = id,
+       index = index, roleArn = roleArn, type' = type'}
 instance ToResourceProperties OpenSearchActionProperty where
   toResourceProperties OpenSearchActionProperty {..}
     = ResourceProperties

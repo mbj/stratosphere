@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderProperty
-  = HeaderProperty {destination :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html>
+    HeaderProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-destination>
+                    destination :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-destinationport>
                     destinationPort :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-direction>
                     direction :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-protocol>
                     protocol :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-source>
                     source :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-sourceport>
                     sourcePort :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderProperty ::
@@ -28,9 +36,9 @@ mkHeaderProperty
   source
   sourcePort
   = HeaderProperty
-      {destination = destination, destinationPort = destinationPort,
-       direction = direction, protocol = protocol, source = source,
-       sourcePort = sourcePort}
+      {haddock_workaround_ = (), destination = destination,
+       destinationPort = destinationPort, direction = direction,
+       protocol = protocol, source = source, sourcePort = sourcePort}
 instance ToResourceProperties HeaderProperty where
   toResourceProperties HeaderProperty {..}
     = ResourceProperties

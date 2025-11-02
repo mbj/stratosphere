@@ -11,16 +11,22 @@ import {-# SOURCE #-} Stratosphere.BillingConductor.CustomLineItem.LineItemFilte
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemChargeDetailsProperty
-  = CustomLineItemChargeDetailsProperty {flat :: (Prelude.Maybe CustomLineItemFlatChargeDetailsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html>
+    CustomLineItemChargeDetailsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-flat>
+                                         flat :: (Prelude.Maybe CustomLineItemFlatChargeDetailsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-lineitemfilters>
                                          lineItemFilters :: (Prelude.Maybe [LineItemFilterProperty]),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-percentage>
                                          percentage :: (Prelude.Maybe CustomLineItemPercentageChargeDetailsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html#cfn-billingconductor-customlineitem-customlineitemchargedetails-type>
                                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemChargeDetailsProperty ::
   Value Prelude.Text -> CustomLineItemChargeDetailsProperty
 mkCustomLineItemChargeDetailsProperty type'
   = CustomLineItemChargeDetailsProperty
-      {type' = type', flat = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type', flat = Prelude.Nothing,
        lineItemFilters = Prelude.Nothing, percentage = Prelude.Nothing}
 instance ToResourceProperties CustomLineItemChargeDetailsProperty where
   toResourceProperties CustomLineItemChargeDetailsProperty {..}

@@ -11,12 +11,21 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.AccessContro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CorsConfigProperty
-  = CorsConfigProperty {accessControlAllowCredentials :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html>
+    CorsConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolallowcredentials>
+                        accessControlAllowCredentials :: (Value Prelude.Bool),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolallowheaders>
                         accessControlAllowHeaders :: AccessControlAllowHeadersProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolallowmethods>
                         accessControlAllowMethods :: AccessControlAllowMethodsProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolalloworigins>
                         accessControlAllowOrigins :: AccessControlAllowOriginsProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolexposeheaders>
                         accessControlExposeHeaders :: (Prelude.Maybe AccessControlExposeHeadersProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-accesscontrolmaxagesec>
                         accessControlMaxAgeSec :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html#cfn-cloudfront-responseheaderspolicy-corsconfig-originoverride>
                         originOverride :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsConfigProperty ::
@@ -32,7 +41,8 @@ mkCorsConfigProperty
   accessControlAllowOrigins
   originOverride
   = CorsConfigProperty
-      {accessControlAllowCredentials = accessControlAllowCredentials,
+      {haddock_workaround_ = (),
+       accessControlAllowCredentials = accessControlAllowCredentials,
        accessControlAllowHeaders = accessControlAllowHeaders,
        accessControlAllowMethods = accessControlAllowMethods,
        accessControlAllowOrigins = accessControlAllowOrigins,

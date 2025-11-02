@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientConfigurationsProperty
-  = ClientConfigurationsProperty {clients :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html>
+    ClientConfigurationsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html#cfn-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations-clients>
+                                  clients :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html#cfn-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations-options>
                                   options :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientConfigurationsProperty ::
@@ -15,7 +19,7 @@ mkClientConfigurationsProperty ::
   -> ValueList Prelude.Text -> ClientConfigurationsProperty
 mkClientConfigurationsProperty clients options
   = ClientConfigurationsProperty
-      {clients = clients, options = options}
+      {haddock_workaround_ = (), clients = clients, options = options}
 instance ToResourceProperties ClientConfigurationsProperty where
   toResourceProperties ClientConfigurationsProperty {..}
     = ResourceProperties

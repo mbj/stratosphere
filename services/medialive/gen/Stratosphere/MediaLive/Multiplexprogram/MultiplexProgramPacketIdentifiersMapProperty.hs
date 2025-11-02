@@ -8,31 +8,46 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexProgramPacketIdentifiersMapProperty
-  = MultiplexProgramPacketIdentifiersMapProperty {audioPids :: (Prelude.Maybe (ValueList Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html>
+    MultiplexProgramPacketIdentifiersMapProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-audiopids>
+                                                  audioPids :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-dvbsubpids>
                                                   dvbSubPids :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-dvbteletextpid>
                                                   dvbTeletextPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-etvplatformpid>
                                                   etvPlatformPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-etvsignalpid>
                                                   etvSignalPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-klvdatapids>
                                                   klvDataPids :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-pcrpid>
                                                   pcrPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-pmtpid>
                                                   pmtPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-privatemetadatapid>
                                                   privateMetadataPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-scte27pids>
                                                   scte27Pids :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-scte35pid>
                                                   scte35Pid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-timedmetadatapid>
                                                   timedMetadataPid :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html#cfn-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap-videopid>
                                                   videoPid :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexProgramPacketIdentifiersMapProperty ::
   MultiplexProgramPacketIdentifiersMapProperty
 mkMultiplexProgramPacketIdentifiersMapProperty
   = MultiplexProgramPacketIdentifiersMapProperty
-      {audioPids = Prelude.Nothing, dvbSubPids = Prelude.Nothing,
-       dvbTeletextPid = Prelude.Nothing, etvPlatformPid = Prelude.Nothing,
-       etvSignalPid = Prelude.Nothing, klvDataPids = Prelude.Nothing,
-       pcrPid = Prelude.Nothing, pmtPid = Prelude.Nothing,
-       privateMetadataPid = Prelude.Nothing, scte27Pids = Prelude.Nothing,
-       scte35Pid = Prelude.Nothing, timedMetadataPid = Prelude.Nothing,
-       videoPid = Prelude.Nothing}
+      {haddock_workaround_ = (), audioPids = Prelude.Nothing,
+       dvbSubPids = Prelude.Nothing, dvbTeletextPid = Prelude.Nothing,
+       etvPlatformPid = Prelude.Nothing, etvSignalPid = Prelude.Nothing,
+       klvDataPids = Prelude.Nothing, pcrPid = Prelude.Nothing,
+       pmtPid = Prelude.Nothing, privateMetadataPid = Prelude.Nothing,
+       scte27Pids = Prelude.Nothing, scte35Pid = Prelude.Nothing,
+       timedMetadataPid = Prelude.Nothing, videoPid = Prelude.Nothing}
 instance ToResourceProperties MultiplexProgramPacketIdentifiersMapProperty where
   toResourceProperties
     MultiplexProgramPacketIdentifiersMapProperty {..}

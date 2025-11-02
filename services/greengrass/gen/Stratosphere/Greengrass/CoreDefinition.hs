@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Greengrass.CoreDefinition.CoreDefinitionVersi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreDefinition
-  = CoreDefinition {initialVersion :: (Prelude.Maybe CoreDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html>
+    CoreDefinition {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-initialversion>
+                    initialVersion :: (Prelude.Maybe CoreDefinitionVersionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-tags>
                     tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinition :: Value Prelude.Text -> CoreDefinition
 mkCoreDefinition name
   = CoreDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CoreDefinition where
   toResourceProperties CoreDefinition {..}
     = ResourceProperties

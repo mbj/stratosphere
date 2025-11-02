@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomErrorResponseProperty
-  = CustomErrorResponseProperty {errorCachingMinTTL :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html>
+    CustomErrorResponseProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl>
+                                 errorCachingMinTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode>
                                  errorCode :: (Value Prelude.Integer),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode>
                                  responseCode :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath>
                                  responsePagePath :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomErrorResponseProperty ::
   Value Prelude.Integer -> CustomErrorResponseProperty
 mkCustomErrorResponseProperty errorCode
   = CustomErrorResponseProperty
-      {errorCode = errorCode, errorCachingMinTTL = Prelude.Nothing,
+      {haddock_workaround_ = (), errorCode = errorCode,
+       errorCachingMinTTL = Prelude.Nothing,
        responseCode = Prelude.Nothing, responsePagePath = Prelude.Nothing}
 instance ToResourceProperties CustomErrorResponseProperty where
   toResourceProperties CustomErrorResponseProperty {..}

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Account
-  = Account {cloudWatchRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html>
+    Account {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn>
+             cloudWatchRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: Account
-mkAccount = Account {cloudWatchRoleArn = Prelude.Nothing}
+mkAccount
+  = Account
+      {haddock_workaround_ = (), cloudWatchRoleArn = Prelude.Nothing}
 instance ToResourceProperties Account where
   toResourceProperties Account {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON Account where
               [(JSON..=) "CloudWatchRoleArn" Prelude.<$> cloudWatchRoleArn]))
 instance Property "CloudWatchRoleArn" Account where
   type PropertyType "CloudWatchRoleArn" Account = Value Prelude.Text
-  set newValue Account {}
+  set newValue Account {..}
     = Account {cloudWatchRoleArn = Prelude.pure newValue, ..}

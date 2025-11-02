@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LayerVersionPermission
-  = LayerVersionPermission {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html>
+    LayerVersionPermission {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-action>
+                            action :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-layerversionarn>
                             layerVersionArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-organizationid>
                             organizationId :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-principal>
                             principal :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLayerVersionPermission ::
@@ -18,8 +24,9 @@ mkLayerVersionPermission ::
      -> Value Prelude.Text -> LayerVersionPermission
 mkLayerVersionPermission action layerVersionArn principal
   = LayerVersionPermission
-      {action = action, layerVersionArn = layerVersionArn,
-       principal = principal, organizationId = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action,
+       layerVersionArn = layerVersionArn, principal = principal,
+       organizationId = Prelude.Nothing}
 instance ToResourceProperties LayerVersionPermission where
   toResourceProperties LayerVersionPermission {..}
     = ResourceProperties

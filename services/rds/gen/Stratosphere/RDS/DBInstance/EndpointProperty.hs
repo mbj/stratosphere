@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointProperty
-  = EndpointProperty {address :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>
+    EndpointProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html#cfn-rds-dbinstance-endpoint-address>
+                      address :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html#cfn-rds-dbinstance-endpoint-hostedzoneid>
                       hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html#cfn-rds-dbinstance-endpoint-port>
                       port :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointProperty :: EndpointProperty
 mkEndpointProperty
   = EndpointProperty
-      {address = Prelude.Nothing, hostedZoneId = Prelude.Nothing,
-       port = Prelude.Nothing}
+      {haddock_workaround_ = (), address = Prelude.Nothing,
+       hostedZoneId = Prelude.Nothing, port = Prelude.Nothing}
 instance ToResourceProperties EndpointProperty where
   toResourceProperties EndpointProperty {..}
     = ResourceProperties

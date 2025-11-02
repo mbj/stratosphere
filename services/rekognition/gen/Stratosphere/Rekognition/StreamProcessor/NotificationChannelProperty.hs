@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationChannelProperty
-  = NotificationChannelProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html>
+    NotificationChannelProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html#cfn-rekognition-streamprocessor-notificationchannel-arn>
+                                 arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannelProperty ::
   Value Prelude.Text -> NotificationChannelProperty
 mkNotificationChannelProperty arn
-  = NotificationChannelProperty {arn = arn}
+  = NotificationChannelProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties NotificationChannelProperty where
   toResourceProperties NotificationChannelProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON NotificationChannelProperty where
     = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" NotificationChannelProperty where
   type PropertyType "Arn" NotificationChannelProperty = Value Prelude.Text
-  set newValue NotificationChannelProperty {}
+  set newValue NotificationChannelProperty {..}
     = NotificationChannelProperty {arn = newValue, ..}

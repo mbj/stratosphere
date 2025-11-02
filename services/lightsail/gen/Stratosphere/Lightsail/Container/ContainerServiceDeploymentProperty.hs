@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Container.ContainerProperty as Expo
 import {-# SOURCE #-} Stratosphere.Lightsail.Container.PublicEndpointProperty as Exports
 import Stratosphere.ResourceProperties
 data ContainerServiceDeploymentProperty
-  = ContainerServiceDeploymentProperty {containers :: (Prelude.Maybe [ContainerProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html>
+    ContainerServiceDeploymentProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-containers>
+                                        containers :: (Prelude.Maybe [ContainerProperty]),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html#cfn-lightsail-container-containerservicedeployment-publicendpoint>
                                         publicEndpoint :: (Prelude.Maybe PublicEndpointProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerServiceDeploymentProperty ::
   ContainerServiceDeploymentProperty
 mkContainerServiceDeploymentProperty
   = ContainerServiceDeploymentProperty
-      {containers = Prelude.Nothing, publicEndpoint = Prelude.Nothing}
+      {haddock_workaround_ = (), containers = Prelude.Nothing,
+       publicEndpoint = Prelude.Nothing}
 instance ToResourceProperties ContainerServiceDeploymentProperty where
   toResourceProperties ContainerServiceDeploymentProperty {..}
     = ResourceProperties

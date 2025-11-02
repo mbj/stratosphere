@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectSourceVersionProperty
-  = ProjectSourceVersionProperty {sourceIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html>
+    ProjectSourceVersionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceidentifier>
+                                  sourceIdentifier :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html#cfn-codebuild-project-projectsourceversion-sourceversion>
                                   sourceVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectSourceVersionProperty ::
   Value Prelude.Text -> ProjectSourceVersionProperty
 mkProjectSourceVersionProperty sourceIdentifier
   = ProjectSourceVersionProperty
-      {sourceIdentifier = sourceIdentifier,
+      {haddock_workaround_ = (), sourceIdentifier = sourceIdentifier,
        sourceVersion = Prelude.Nothing}
 instance ToResourceProperties ProjectSourceVersionProperty where
   toResourceProperties ProjectSourceVersionProperty {..}

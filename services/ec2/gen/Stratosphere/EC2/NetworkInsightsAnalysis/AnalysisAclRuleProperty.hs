@@ -9,19 +9,28 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.PortRangeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisAclRuleProperty
-  = AnalysisAclRuleProperty {cidr :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html>
+    AnalysisAclRuleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr>
+                             cidr :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress>
                              egress :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange>
                              portRange :: (Prelude.Maybe PortRangeProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol>
                              protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction>
                              ruleAction :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber>
                              ruleNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisAclRuleProperty :: AnalysisAclRuleProperty
 mkAnalysisAclRuleProperty
   = AnalysisAclRuleProperty
-      {cidr = Prelude.Nothing, egress = Prelude.Nothing,
-       portRange = Prelude.Nothing, protocol = Prelude.Nothing,
-       ruleAction = Prelude.Nothing, ruleNumber = Prelude.Nothing}
+      {haddock_workaround_ = (), cidr = Prelude.Nothing,
+       egress = Prelude.Nothing, portRange = Prelude.Nothing,
+       protocol = Prelude.Nothing, ruleAction = Prelude.Nothing,
+       ruleNumber = Prelude.Nothing}
 instance ToResourceProperties AnalysisAclRuleProperty where
   toResourceProperties AnalysisAclRuleProperty {..}
     = ResourceProperties

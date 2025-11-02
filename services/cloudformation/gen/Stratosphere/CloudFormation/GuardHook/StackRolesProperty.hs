@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackRolesProperty
-  = StackRolesProperty {exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackroles.html>
+    StackRolesProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackroles.html#cfn-cloudformation-guardhook-stackroles-exclude>
+                        exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackroles.html#cfn-cloudformation-guardhook-stackroles-include>
                         include :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackRolesProperty :: StackRolesProperty
 mkStackRolesProperty
   = StackRolesProperty
-      {exclude = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), exclude = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties StackRolesProperty where
   toResourceProperties StackRolesProperty {..}
     = ResourceProperties

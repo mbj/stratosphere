@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiGatewayProxyInputProperty
-  = ApiGatewayProxyInputProperty {endpointType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html>
+    ApiGatewayProxyInputProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html#cfn-refactorspaces-application-apigatewayproxyinput-endpointtype>
+                                  endpointType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html#cfn-refactorspaces-application-apigatewayproxyinput-stagename>
                                   stageName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiGatewayProxyInputProperty :: ApiGatewayProxyInputProperty
 mkApiGatewayProxyInputProperty
   = ApiGatewayProxyInputProperty
-      {endpointType = Prelude.Nothing, stageName = Prelude.Nothing}
+      {haddock_workaround_ = (), endpointType = Prelude.Nothing,
+       stageName = Prelude.Nothing}
 instance ToResourceProperties ApiGatewayProxyInputProperty where
   toResourceProperties ApiGatewayProxyInputProperty {..}
     = ResourceProperties

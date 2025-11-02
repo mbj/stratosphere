@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudwatchAlarmActionProperty
-  = CloudwatchAlarmActionProperty {alarmName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html>
+    CloudwatchAlarmActionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname>
+                                   alarmName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn>
                                    roleArn :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason>
                                    stateReason :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue>
                                    stateValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchAlarmActionProperty ::
@@ -23,8 +29,9 @@ mkCloudwatchAlarmActionProperty
   stateReason
   stateValue
   = CloudwatchAlarmActionProperty
-      {alarmName = alarmName, roleArn = roleArn,
-       stateReason = stateReason, stateValue = stateValue}
+      {haddock_workaround_ = (), alarmName = alarmName,
+       roleArn = roleArn, stateReason = stateReason,
+       stateValue = stateValue}
 instance ToResourceProperties CloudwatchAlarmActionProperty where
   toResourceProperties CloudwatchAlarmActionProperty {..}
     = ResourceProperties

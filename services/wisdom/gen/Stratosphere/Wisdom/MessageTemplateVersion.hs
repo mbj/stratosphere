@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MessageTemplateVersion
-  = MessageTemplateVersion {messageTemplateArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplateversion.html>
+    MessageTemplateVersion {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplateversion.html#cfn-wisdom-messagetemplateversion-messagetemplatearn>
+                            messageTemplateArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplateversion.html#cfn-wisdom-messagetemplateversion-messagetemplatecontentsha256>
                             messageTemplateContentSha256 :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageTemplateVersion ::
   Value Prelude.Text -> MessageTemplateVersion
 mkMessageTemplateVersion messageTemplateArn
   = MessageTemplateVersion
-      {messageTemplateArn = messageTemplateArn,
+      {haddock_workaround_ = (), messageTemplateArn = messageTemplateArn,
        messageTemplateContentSha256 = Prelude.Nothing}
 instance ToResourceProperties MessageTemplateVersion where
   toResourceProperties MessageTemplateVersion {..}

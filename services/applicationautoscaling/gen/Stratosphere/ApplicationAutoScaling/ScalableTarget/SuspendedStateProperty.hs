@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuspendedStateProperty
-  = SuspendedStateProperty {dynamicScalingInSuspended :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html>
+    SuspendedStateProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-dynamicscalinginsuspended>
+                            dynamicScalingInSuspended :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-dynamicscalingoutsuspended>
                             dynamicScalingOutSuspended :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html#cfn-applicationautoscaling-scalabletarget-suspendedstate-scheduledscalingsuspended>
                             scheduledScalingSuspended :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuspendedStateProperty :: SuspendedStateProperty
 mkSuspendedStateProperty
   = SuspendedStateProperty
-      {dynamicScalingInSuspended = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       dynamicScalingInSuspended = Prelude.Nothing,
        dynamicScalingOutSuspended = Prelude.Nothing,
        scheduledScalingSuspended = Prelude.Nothing}
 instance ToResourceProperties SuspendedStateProperty where

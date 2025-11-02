@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.SmsOutboundModePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmsChannelSubtypeConfigProperty
-  = SmsChannelSubtypeConfigProperty {capacity :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html>
+    SmsChannelSubtypeConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-capacity>
+                                     capacity :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-defaultoutboundconfig>
                                      defaultOutboundConfig :: SmsOutboundConfigProperty,
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-smschannelsubtypeconfig-outboundmode>
                                      outboundMode :: SmsOutboundModeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsChannelSubtypeConfigProperty ::
@@ -21,7 +26,8 @@ mkSmsChannelSubtypeConfigProperty
   defaultOutboundConfig
   outboundMode
   = SmsChannelSubtypeConfigProperty
-      {defaultOutboundConfig = defaultOutboundConfig,
+      {haddock_workaround_ = (),
+       defaultOutboundConfig = defaultOutboundConfig,
        outboundMode = outboundMode, capacity = Prelude.Nothing}
 instance ToResourceProperties SmsChannelSubtypeConfigProperty where
   toResourceProperties SmsChannelSubtypeConfigProperty {..}

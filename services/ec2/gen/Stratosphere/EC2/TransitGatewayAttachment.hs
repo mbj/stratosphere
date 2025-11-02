@@ -10,10 +10,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayAttachment
-  = TransitGatewayAttachment {options :: (Prelude.Maybe OptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html>
+    TransitGatewayAttachment {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-options>
+                              options :: (Prelude.Maybe OptionsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-subnetids>
                               subnetIds :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-tags>
                               tags :: (Prelude.Maybe [Tag]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-transitgatewayid>
                               transitGatewayId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-vpcid>
                               vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayAttachment ::
@@ -22,8 +29,9 @@ mkTransitGatewayAttachment ::
      -> Value Prelude.Text -> TransitGatewayAttachment
 mkTransitGatewayAttachment subnetIds transitGatewayId vpcId
   = TransitGatewayAttachment
-      {subnetIds = subnetIds, transitGatewayId = transitGatewayId,
-       vpcId = vpcId, options = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetIds = subnetIds,
+       transitGatewayId = transitGatewayId, vpcId = vpcId,
+       options = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayAttachment where
   toResourceProperties TransitGatewayAttachment {..}
     = ResourceProperties

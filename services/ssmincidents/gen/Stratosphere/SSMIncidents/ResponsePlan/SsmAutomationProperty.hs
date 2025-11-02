@@ -9,19 +9,27 @@ import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.SsmParameterPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SsmAutomationProperty
-  = SsmAutomationProperty {documentName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html>
+    SsmAutomationProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname>
+                           documentName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion>
                            documentVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-dynamicparameters>
                            dynamicParameters :: (Prelude.Maybe [DynamicSsmParameterProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters>
                            parameters :: (Prelude.Maybe [SsmParameterProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn>
                            roleArn :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount>
                            targetAccount :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmAutomationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SsmAutomationProperty
 mkSsmAutomationProperty documentName roleArn
   = SsmAutomationProperty
-      {documentName = documentName, roleArn = roleArn,
-       documentVersion = Prelude.Nothing,
+      {haddock_workaround_ = (), documentName = documentName,
+       roleArn = roleArn, documentVersion = Prelude.Nothing,
        dynamicParameters = Prelude.Nothing, parameters = Prelude.Nothing,
        targetAccount = Prelude.Nothing}
 instance ToResourceProperties SsmAutomationProperty where

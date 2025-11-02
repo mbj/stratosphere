@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RtmpOutputSettingsProperty
-  = RtmpOutputSettingsProperty {certificateMode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html>
+    RtmpOutputSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-certificatemode>
+                                certificateMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-connectionretryinterval>
                                 connectionRetryInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-destination>
                                 destination :: (Prelude.Maybe OutputLocationRefProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html#cfn-medialive-channel-rtmpoutputsettings-numretries>
                                 numRetries :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRtmpOutputSettingsProperty :: RtmpOutputSettingsProperty
 mkRtmpOutputSettingsProperty
   = RtmpOutputSettingsProperty
-      {certificateMode = Prelude.Nothing,
+      {haddock_workaround_ = (), certificateMode = Prelude.Nothing,
        connectionRetryInterval = Prelude.Nothing,
        destination = Prelude.Nothing, numRetries = Prelude.Nothing}
 instance ToResourceProperties RtmpOutputSettingsProperty where

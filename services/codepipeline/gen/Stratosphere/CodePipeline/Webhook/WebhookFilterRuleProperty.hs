@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebhookFilterRuleProperty
-  = WebhookFilterRuleProperty {jsonPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html>
+    WebhookFilterRuleProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-jsonpath>
+                               jsonPath :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-matchequals>
                                matchEquals :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhookFilterRuleProperty ::
   Value Prelude.Text -> WebhookFilterRuleProperty
 mkWebhookFilterRuleProperty jsonPath
   = WebhookFilterRuleProperty
-      {jsonPath = jsonPath, matchEquals = Prelude.Nothing}
+      {haddock_workaround_ = (), jsonPath = jsonPath,
+       matchEquals = Prelude.Nothing}
 instance ToResourceProperties WebhookFilterRuleProperty where
   toResourceProperties WebhookFilterRuleProperty {..}
     = ResourceProperties

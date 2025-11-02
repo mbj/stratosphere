@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefinitionDocumentProperty
-  = DefinitionDocumentProperty {language :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html>
+    DefinitionDocumentProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html#cfn-iotthingsgraph-flowtemplate-definitiondocument-language>
+                                language :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html#cfn-iotthingsgraph-flowtemplate-definitiondocument-text>
                                 text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionDocumentProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DefinitionDocumentProperty
 mkDefinitionDocumentProperty language text
-  = DefinitionDocumentProperty {language = language, text = text}
+  = DefinitionDocumentProperty
+      {haddock_workaround_ = (), language = language, text = text}
 instance ToResourceProperties DefinitionDocumentProperty where
   toResourceProperties DefinitionDocumentProperty {..}
     = ResourceProperties

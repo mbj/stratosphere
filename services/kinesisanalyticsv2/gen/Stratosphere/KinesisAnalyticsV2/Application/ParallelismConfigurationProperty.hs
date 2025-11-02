@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParallelismConfigurationProperty
-  = ParallelismConfigurationProperty {autoScalingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html>
+    ParallelismConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-autoscalingenabled>
+                                      autoScalingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-configurationtype>
                                       configurationType :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelism>
                                       parallelism :: (Prelude.Maybe (Value Prelude.Integer)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html#cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelismperkpu>
                                       parallelismPerKPU :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParallelismConfigurationProperty ::
   Value Prelude.Text -> ParallelismConfigurationProperty
 mkParallelismConfigurationProperty configurationType
   = ParallelismConfigurationProperty
-      {configurationType = configurationType,
+      {haddock_workaround_ = (), configurationType = configurationType,
        autoScalingEnabled = Prelude.Nothing,
        parallelism = Prelude.Nothing, parallelismPerKPU = Prelude.Nothing}
 instance ToResourceProperties ParallelismConfigurationProperty where

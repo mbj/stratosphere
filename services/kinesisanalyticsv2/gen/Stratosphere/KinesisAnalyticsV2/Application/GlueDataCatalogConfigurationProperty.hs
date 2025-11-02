@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueDataCatalogConfigurationProperty
-  = GlueDataCatalogConfigurationProperty {databaseARN :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html>
+    GlueDataCatalogConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html#cfn-kinesisanalyticsv2-application-gluedatacatalogconfiguration-databasearn>
+                                          databaseARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueDataCatalogConfigurationProperty ::
   GlueDataCatalogConfigurationProperty
 mkGlueDataCatalogConfigurationProperty
   = GlueDataCatalogConfigurationProperty
-      {databaseARN = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseARN = Prelude.Nothing}
 instance ToResourceProperties GlueDataCatalogConfigurationProperty where
   toResourceProperties GlueDataCatalogConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON GlueDataCatalogConfigurationProperty where
               [(JSON..=) "DatabaseARN" Prelude.<$> databaseARN]))
 instance Property "DatabaseARN" GlueDataCatalogConfigurationProperty where
   type PropertyType "DatabaseARN" GlueDataCatalogConfigurationProperty = Value Prelude.Text
-  set newValue GlueDataCatalogConfigurationProperty {}
+  set newValue GlueDataCatalogConfigurationProperty {..}
     = GlueDataCatalogConfigurationProperty
         {databaseARN = Prelude.pure newValue, ..}

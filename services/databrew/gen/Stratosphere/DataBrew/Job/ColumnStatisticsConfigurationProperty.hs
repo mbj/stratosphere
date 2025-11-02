@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.ColumnSelectorProperty as Export
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ColumnStatisticsConfigurationProperty
-  = ColumnStatisticsConfigurationProperty {selectors :: (Prelude.Maybe [ColumnSelectorProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html>
+    ColumnStatisticsConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors>
+                                           selectors :: (Prelude.Maybe [ColumnSelectorProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics>
                                            statistics :: StatisticsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnStatisticsConfigurationProperty ::
@@ -17,7 +21,8 @@ mkColumnStatisticsConfigurationProperty ::
   -> ColumnStatisticsConfigurationProperty
 mkColumnStatisticsConfigurationProperty statistics
   = ColumnStatisticsConfigurationProperty
-      {statistics = statistics, selectors = Prelude.Nothing}
+      {haddock_workaround_ = (), statistics = statistics,
+       selectors = Prelude.Nothing}
 instance ToResourceProperties ColumnStatisticsConfigurationProperty where
   toResourceProperties ColumnStatisticsConfigurationProperty {..}
     = ResourceProperties

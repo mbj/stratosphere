@@ -11,16 +11,24 @@ import {-# SOURCE #-} Stratosphere.Cognito.LogDeliveryConfiguration.S3Configurat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
-  = LogConfigurationProperty {cloudWatchLogsConfiguration :: (Prelude.Maybe CloudWatchLogsConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html>
+    LogConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-cloudwatchlogsconfiguration>
+                              cloudWatchLogsConfiguration :: (Prelude.Maybe CloudWatchLogsConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-eventsource>
                               eventSource :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-firehoseconfiguration>
                               firehoseConfiguration :: (Prelude.Maybe FirehoseConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-loglevel>
                               logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-s3configuration>
                               s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty :: LogConfigurationProperty
 mkLogConfigurationProperty
   = LogConfigurationProperty
-      {cloudWatchLogsConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cloudWatchLogsConfiguration = Prelude.Nothing,
        eventSource = Prelude.Nothing,
        firehoseConfiguration = Prelude.Nothing,
        logLevel = Prelude.Nothing, s3Configuration = Prelude.Nothing}

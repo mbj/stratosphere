@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WriteOnDemandThroughputSettingsProperty
-  = WriteOnDemandThroughputSettingsProperty {maxWriteRequestUnits :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html>
+    WriteOnDemandThroughputSettingsProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings-maxwriterequestunits>
+                                             maxWriteRequestUnits :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWriteOnDemandThroughputSettingsProperty ::
   WriteOnDemandThroughputSettingsProperty
 mkWriteOnDemandThroughputSettingsProperty
   = WriteOnDemandThroughputSettingsProperty
-      {maxWriteRequestUnits = Prelude.Nothing}
+      {haddock_workaround_ = (), maxWriteRequestUnits = Prelude.Nothing}
 instance ToResourceProperties WriteOnDemandThroughputSettingsProperty where
   toResourceProperties WriteOnDemandThroughputSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +36,6 @@ instance JSON.ToJSON WriteOnDemandThroughputSettingsProperty where
                  Prelude.<$> maxWriteRequestUnits]))
 instance Property "MaxWriteRequestUnits" WriteOnDemandThroughputSettingsProperty where
   type PropertyType "MaxWriteRequestUnits" WriteOnDemandThroughputSettingsProperty = Value Prelude.Integer
-  set newValue WriteOnDemandThroughputSettingsProperty {}
+  set newValue WriteOnDemandThroughputSettingsProperty {..}
     = WriteOnDemandThroughputSettingsProperty
         {maxWriteRequestUnits = Prelude.pure newValue, ..}

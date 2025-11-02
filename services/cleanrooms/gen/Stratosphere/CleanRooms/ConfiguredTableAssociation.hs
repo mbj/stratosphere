@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ConfiguredTableAssociation
-  = ConfiguredTableAssociation {configuredTableAssociationAnalysisRules :: (Prelude.Maybe [ConfiguredTableAssociationAnalysisRuleProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html>
+    ConfiguredTableAssociation {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrules>
+                                configuredTableAssociationAnalysisRules :: (Prelude.Maybe [ConfiguredTableAssociationAnalysisRuleProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-configuredtableidentifier>
                                 configuredTableIdentifier :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-description>
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-membershipidentifier>
                                 membershipIdentifier :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-name>
                                 name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-rolearn>
                                 roleArn :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-tags>
                                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAssociation ::
@@ -29,7 +38,8 @@ mkConfiguredTableAssociation
   name
   roleArn
   = ConfiguredTableAssociation
-      {configuredTableIdentifier = configuredTableIdentifier,
+      {haddock_workaround_ = (),
+       configuredTableIdentifier = configuredTableIdentifier,
        membershipIdentifier = membershipIdentifier, name = name,
        roleArn = roleArn,
        configuredTableAssociationAnalysisRules = Prelude.Nothing,

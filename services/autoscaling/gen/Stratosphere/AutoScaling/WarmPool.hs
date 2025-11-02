@@ -8,16 +8,24 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.WarmPool.InstanceReusePolicyPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WarmPool
-  = WarmPool {autoScalingGroupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html>
+    WarmPool {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname>
+              autoScalingGroupName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-instancereusepolicy>
               instanceReusePolicy :: (Prelude.Maybe InstanceReusePolicyProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity>
               maxGroupPreparedCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize>
               minSize :: (Prelude.Maybe (Value Prelude.Integer)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate>
               poolState :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWarmPool :: Value Prelude.Text -> WarmPool
 mkWarmPool autoScalingGroupName
   = WarmPool
-      {autoScalingGroupName = autoScalingGroupName,
+      {haddock_workaround_ = (),
+       autoScalingGroupName = autoScalingGroupName,
        instanceReusePolicy = Prelude.Nothing,
        maxGroupPreparedCapacity = Prelude.Nothing,
        minSize = Prelude.Nothing, poolState = Prelude.Nothing}

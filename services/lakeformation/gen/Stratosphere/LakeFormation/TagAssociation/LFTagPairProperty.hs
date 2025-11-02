@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LFTagPairProperty
-  = LFTagPairProperty {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html>
+    LFTagPairProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html#cfn-lakeformation-tagassociation-lftagpair-catalogid>
+                       catalogId :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html#cfn-lakeformation-tagassociation-lftagpair-tagkey>
                        tagKey :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html#cfn-lakeformation-tagassociation-lftagpair-tagvalues>
                        tagValues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagPairProperty ::
@@ -17,7 +22,8 @@ mkLFTagPairProperty ::
      -> ValueList Prelude.Text -> LFTagPairProperty
 mkLFTagPairProperty catalogId tagKey tagValues
   = LFTagPairProperty
-      {catalogId = catalogId, tagKey = tagKey, tagValues = tagValues}
+      {haddock_workaround_ = (), catalogId = catalogId, tagKey = tagKey,
+       tagValues = tagValues}
 instance ToResourceProperties LFTagPairProperty where
   toResourceProperties LFTagPairProperty {..}
     = ResourceProperties

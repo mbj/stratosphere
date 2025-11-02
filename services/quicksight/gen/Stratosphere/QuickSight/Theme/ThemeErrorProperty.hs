@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThemeErrorProperty
-  = ThemeErrorProperty {message :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html>
+    ThemeErrorProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html#cfn-quicksight-theme-themeerror-message>
+                        message :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html#cfn-quicksight-theme-themeerror-type>
                         type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeErrorProperty :: ThemeErrorProperty
 mkThemeErrorProperty
   = ThemeErrorProperty
-      {message = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), message = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties ThemeErrorProperty where
   toResourceProperties ThemeErrorProperty {..}
     = ResourceProperties

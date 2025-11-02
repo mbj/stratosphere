@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetStateMachineParametersProperty
-  = PipeTargetStateMachineParametersProperty {invocationType :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetstatemachineparameters.html>
+    PipeTargetStateMachineParametersProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetstatemachineparameters.html#cfn-pipes-pipe-pipetargetstatemachineparameters-invocationtype>
+                                              invocationType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetStateMachineParametersProperty ::
   PipeTargetStateMachineParametersProperty
 mkPipeTargetStateMachineParametersProperty
   = PipeTargetStateMachineParametersProperty
-      {invocationType = Prelude.Nothing}
+      {haddock_workaround_ = (), invocationType = Prelude.Nothing}
 instance ToResourceProperties PipeTargetStateMachineParametersProperty where
   toResourceProperties PipeTargetStateMachineParametersProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON PipeTargetStateMachineParametersProperty where
               [(JSON..=) "InvocationType" Prelude.<$> invocationType]))
 instance Property "InvocationType" PipeTargetStateMachineParametersProperty where
   type PropertyType "InvocationType" PipeTargetStateMachineParametersProperty = Value Prelude.Text
-  set newValue PipeTargetStateMachineParametersProperty {}
+  set newValue PipeTargetStateMachineParametersProperty {..}
     = PipeTargetStateMachineParametersProperty
         {invocationType = Prelude.pure newValue, ..}

@@ -12,21 +12,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data KnowledgeBase
-  = KnowledgeBase {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html>
+    KnowledgeBase {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-knowledgebasetype>
                    knowledgeBaseType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-renderingconfiguration>
                    renderingConfiguration :: (Prelude.Maybe RenderingConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-serversideencryptionconfiguration>
                    serverSideEncryptionConfiguration :: (Prelude.Maybe ServerSideEncryptionConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-sourceconfiguration>
                    sourceConfiguration :: (Prelude.Maybe SourceConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-tags>
                    tags :: (Prelude.Maybe [Tag]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-vectoringestionconfiguration>
                    vectorIngestionConfiguration :: (Prelude.Maybe VectorIngestionConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBase ::
   Value Prelude.Text -> Value Prelude.Text -> KnowledgeBase
 mkKnowledgeBase knowledgeBaseType name
   = KnowledgeBase
-      {knowledgeBaseType = knowledgeBaseType, name = name,
-       description = Prelude.Nothing,
+      {haddock_workaround_ = (), knowledgeBaseType = knowledgeBaseType,
+       name = name, description = Prelude.Nothing,
        renderingConfiguration = Prelude.Nothing,
        serverSideEncryptionConfiguration = Prelude.Nothing,
        sourceConfiguration = Prelude.Nothing, tags = Prelude.Nothing,

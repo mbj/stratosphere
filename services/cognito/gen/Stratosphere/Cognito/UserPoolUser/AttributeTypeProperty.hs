@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeTypeProperty
-  = AttributeTypeProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html>
+    AttributeTypeProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html#cfn-cognito-userpooluser-attributetype-name>
+                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html#cfn-cognito-userpooluser-attributetype-value>
                            value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeTypeProperty :: AttributeTypeProperty
 mkAttributeTypeProperty
   = AttributeTypeProperty
-      {name = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties AttributeTypeProperty where
   toResourceProperties AttributeTypeProperty {..}
     = ResourceProperties

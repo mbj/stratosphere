@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentConfig.TimeBasedLinearPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficRoutingConfigProperty
-  = TrafficRoutingConfigProperty {timeBasedCanary :: (Prelude.Maybe TimeBasedCanaryProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html>
+    TrafficRoutingConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig-timebasedcanary>
+                                  timeBasedCanary :: (Prelude.Maybe TimeBasedCanaryProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig-timebasedlinear>
                                   timeBasedLinear :: (Prelude.Maybe TimeBasedLinearProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig-type>
                                   type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRoutingConfigProperty ::
   Value Prelude.Text -> TrafficRoutingConfigProperty
 mkTrafficRoutingConfigProperty type'
   = TrafficRoutingConfigProperty
-      {type' = type', timeBasedCanary = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       timeBasedCanary = Prelude.Nothing,
        timeBasedLinear = Prelude.Nothing}
 instance ToResourceProperties TrafficRoutingConfigProperty where
   toResourceProperties TrafficRoutingConfigProperty {..}

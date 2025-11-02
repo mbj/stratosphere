@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PatchFilterGroupProperty
-  = PatchFilterGroupProperty {patchFilters :: (Prelude.Maybe [PatchFilterProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html>
+    PatchFilterGroupProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters>
+                              patchFilters :: (Prelude.Maybe [PatchFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchFilterGroupProperty :: PatchFilterGroupProperty
 mkPatchFilterGroupProperty
-  = PatchFilterGroupProperty {patchFilters = Prelude.Nothing}
+  = PatchFilterGroupProperty
+      {haddock_workaround_ = (), patchFilters = Prelude.Nothing}
 instance ToResourceProperties PatchFilterGroupProperty where
   toResourceProperties PatchFilterGroupProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON PatchFilterGroupProperty where
               [(JSON..=) "PatchFilters" Prelude.<$> patchFilters]))
 instance Property "PatchFilters" PatchFilterGroupProperty where
   type PropertyType "PatchFilters" PatchFilterGroupProperty = [PatchFilterProperty]
-  set newValue PatchFilterGroupProperty {}
+  set newValue PatchFilterGroupProperty {..}
     = PatchFilterGroupProperty
         {patchFilters = Prelude.pure newValue, ..}

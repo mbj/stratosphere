@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpotProvisioningSpecificationProperty
-  = SpotProvisioningSpecificationProperty {allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html>
+    SpotProvisioningSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy>
+                                           allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes>
                                            blockDurationMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutaction>
                                            timeoutAction :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutdurationminutes>
                                            timeoutDurationMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotProvisioningSpecificationProperty ::
@@ -20,7 +26,7 @@ mkSpotProvisioningSpecificationProperty
   timeoutAction
   timeoutDurationMinutes
   = SpotProvisioningSpecificationProperty
-      {timeoutAction = timeoutAction,
+      {haddock_workaround_ = (), timeoutAction = timeoutAction,
        timeoutDurationMinutes = timeoutDurationMinutes,
        allocationStrategy = Prelude.Nothing,
        blockDurationMinutes = Prelude.Nothing}

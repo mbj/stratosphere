@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFormationCollectionFilterProperty
-  = CloudFormationCollectionFilterProperty {stackNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html>
+    CloudFormationCollectionFilterProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames>
+                                            stackNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFormationCollectionFilterProperty ::
   CloudFormationCollectionFilterProperty
 mkCloudFormationCollectionFilterProperty
   = CloudFormationCollectionFilterProperty
-      {stackNames = Prelude.Nothing}
+      {haddock_workaround_ = (), stackNames = Prelude.Nothing}
 instance ToResourceProperties CloudFormationCollectionFilterProperty where
   toResourceProperties CloudFormationCollectionFilterProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON CloudFormationCollectionFilterProperty where
               [(JSON..=) "StackNames" Prelude.<$> stackNames]))
 instance Property "StackNames" CloudFormationCollectionFilterProperty where
   type PropertyType "StackNames" CloudFormationCollectionFilterProperty = ValueList Prelude.Text
-  set newValue CloudFormationCollectionFilterProperty {}
+  set newValue CloudFormationCollectionFilterProperty {..}
     = CloudFormationCollectionFilterProperty
         {stackNames = Prelude.pure newValue, ..}

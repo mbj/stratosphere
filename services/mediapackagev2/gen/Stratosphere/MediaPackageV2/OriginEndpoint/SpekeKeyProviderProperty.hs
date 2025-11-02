@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.EncryptionContr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpekeKeyProviderProperty
-  = SpekeKeyProviderProperty {drmSystems :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html>
+    SpekeKeyProviderProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-drmsystems>
+                              drmSystems :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-encryptioncontractconfiguration>
                               encryptionContractConfiguration :: EncryptionContractConfigurationProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-resourceid>
                               resourceId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-rolearn>
                               roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-url>
                               url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpekeKeyProviderProperty ::
@@ -28,7 +35,7 @@ mkSpekeKeyProviderProperty
   roleArn
   url
   = SpekeKeyProviderProperty
-      {drmSystems = drmSystems,
+      {haddock_workaround_ = (), drmSystems = drmSystems,
        encryptionContractConfiguration = encryptionContractConfiguration,
        resourceId = resourceId, roleArn = roleArn, url = url}
 instance ToResourceProperties SpekeKeyProviderProperty where

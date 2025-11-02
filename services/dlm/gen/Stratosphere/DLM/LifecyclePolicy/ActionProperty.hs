@@ -8,14 +8,20 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyActionProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionProperty
-  = ActionProperty {crossRegionCopy :: [CrossRegionCopyActionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy>
+                    crossRegionCopy :: [CrossRegionCopyActionProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name>
                     name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty ::
   [CrossRegionCopyActionProperty]
   -> Value Prelude.Text -> ActionProperty
 mkActionProperty crossRegionCopy name
-  = ActionProperty {crossRegionCopy = crossRegionCopy, name = name}
+  = ActionProperty
+      {haddock_workaround_ = (), crossRegionCopy = crossRegionCopy,
+       name = name}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties

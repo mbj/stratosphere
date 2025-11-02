@@ -9,11 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data GatewayRoute
-  = GatewayRoute {gatewayRouteName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html>
+    GatewayRoute {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename>
+                  gatewayRouteName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname>
                   meshName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner>
                   meshOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec>
                   spec :: GatewayRouteSpecProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags>
                   tags :: (Prelude.Maybe [Tag]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname>
                   virtualGatewayName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRoute ::
@@ -21,7 +29,7 @@ mkGatewayRoute ::
   -> GatewayRouteSpecProperty -> Value Prelude.Text -> GatewayRoute
 mkGatewayRoute meshName spec virtualGatewayName
   = GatewayRoute
-      {meshName = meshName, spec = spec,
+      {haddock_workaround_ = (), meshName = meshName, spec = spec,
        virtualGatewayName = virtualGatewayName,
        gatewayRouteName = Prelude.Nothing, meshOwner = Prelude.Nothing,
        tags = Prelude.Nothing}

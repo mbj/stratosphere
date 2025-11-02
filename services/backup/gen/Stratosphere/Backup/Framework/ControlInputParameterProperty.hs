@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ControlInputParameterProperty
-  = ControlInputParameterProperty {parameterName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html>
+    ControlInputParameterProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html#cfn-backup-framework-controlinputparameter-parametername>
+                                   parameterName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html#cfn-backup-framework-controlinputparameter-parametervalue>
                                    parameterValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkControlInputParameterProperty ::
@@ -15,7 +19,8 @@ mkControlInputParameterProperty ::
   -> Value Prelude.Text -> ControlInputParameterProperty
 mkControlInputParameterProperty parameterName parameterValue
   = ControlInputParameterProperty
-      {parameterName = parameterName, parameterValue = parameterValue}
+      {haddock_workaround_ = (), parameterName = parameterName,
+       parameterValue = parameterValue}
 instance ToResourceProperties ControlInputParameterProperty where
   toResourceProperties ControlInputParameterProperty {..}
     = ResourceProperties

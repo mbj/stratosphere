@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DBParameterGroup
-  = DBParameterGroup {description :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html>
+    DBParameterGroup {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-description>
+                      description :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-family>
                       family :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-parameters>
                       parameters :: JSON.Object,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBParameterGroup ::
@@ -19,8 +26,8 @@ mkDBParameterGroup ::
   -> Value Prelude.Text -> JSON.Object -> DBParameterGroup
 mkDBParameterGroup description family parameters
   = DBParameterGroup
-      {description = description, family = family,
-       parameters = parameters, name = Prelude.Nothing,
+      {haddock_workaround_ = (), description = description,
+       family = family, parameters = parameters, name = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties DBParameterGroup where
   toResourceProperties DBParameterGroup {..}

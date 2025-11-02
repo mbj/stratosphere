@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WindowsEventProperty
-  = WindowsEventProperty {eventLevels :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html>
+    WindowsEventProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels>
+                          eventLevels :: (ValueList Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname>
                           eventName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname>
                           logGroupName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset>
                           patternSet :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWindowsEventProperty ::
@@ -17,8 +23,9 @@ mkWindowsEventProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> WindowsEventProperty
 mkWindowsEventProperty eventLevels eventName logGroupName
   = WindowsEventProperty
-      {eventLevels = eventLevels, eventName = eventName,
-       logGroupName = logGroupName, patternSet = Prelude.Nothing}
+      {haddock_workaround_ = (), eventLevels = eventLevels,
+       eventName = eventName, logGroupName = logGroupName,
+       patternSet = Prelude.Nothing}
 instance ToResourceProperties WindowsEventProperty where
   toResourceProperties WindowsEventProperty {..}
     = ResourceProperties

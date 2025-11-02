@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectTlsCertificateAuthorityProperty
-  = ServiceConnectTlsCertificateAuthorityProperty {awsPcaAuthorityArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html>
+    ServiceConnectTlsCertificateAuthorityProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html#cfn-ecs-service-serviceconnecttlscertificateauthority-awspcaauthorityarn>
+                                                   awsPcaAuthorityArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectTlsCertificateAuthorityProperty ::
   ServiceConnectTlsCertificateAuthorityProperty
 mkServiceConnectTlsCertificateAuthorityProperty
   = ServiceConnectTlsCertificateAuthorityProperty
-      {awsPcaAuthorityArn = Prelude.Nothing}
+      {haddock_workaround_ = (), awsPcaAuthorityArn = Prelude.Nothing}
 instance ToResourceProperties ServiceConnectTlsCertificateAuthorityProperty where
   toResourceProperties
     ServiceConnectTlsCertificateAuthorityProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON ServiceConnectTlsCertificateAuthorityProperty where
               [(JSON..=) "AwsPcaAuthorityArn" Prelude.<$> awsPcaAuthorityArn]))
 instance Property "AwsPcaAuthorityArn" ServiceConnectTlsCertificateAuthorityProperty where
   type PropertyType "AwsPcaAuthorityArn" ServiceConnectTlsCertificateAuthorityProperty = Value Prelude.Text
-  set newValue ServiceConnectTlsCertificateAuthorityProperty {}
+  set newValue ServiceConnectTlsCertificateAuthorityProperty {..}
     = ServiceConnectTlsCertificateAuthorityProperty
         {awsPcaAuthorityArn = Prelude.pure newValue, ..}

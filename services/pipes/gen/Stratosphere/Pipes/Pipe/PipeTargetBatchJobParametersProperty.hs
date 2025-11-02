@@ -12,12 +12,21 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.BatchRetryStrategyProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetBatchJobParametersProperty
-  = PipeTargetBatchJobParametersProperty {arrayProperties :: (Prelude.Maybe BatchArrayPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html>
+    PipeTargetBatchJobParametersProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-arrayproperties>
+                                          arrayProperties :: (Prelude.Maybe BatchArrayPropertiesProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-containeroverrides>
                                           containerOverrides :: (Prelude.Maybe BatchContainerOverridesProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-dependson>
                                           dependsOn :: (Prelude.Maybe [BatchJobDependencyProperty]),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-jobdefinition>
                                           jobDefinition :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-jobname>
                                           jobName :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-parameters>
                                           parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html#cfn-pipes-pipe-pipetargetbatchjobparameters-retrystrategy>
                                           retryStrategy :: (Prelude.Maybe BatchRetryStrategyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetBatchJobParametersProperty ::
@@ -25,8 +34,8 @@ mkPipeTargetBatchJobParametersProperty ::
   -> Value Prelude.Text -> PipeTargetBatchJobParametersProperty
 mkPipeTargetBatchJobParametersProperty jobDefinition jobName
   = PipeTargetBatchJobParametersProperty
-      {jobDefinition = jobDefinition, jobName = jobName,
-       arrayProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), jobDefinition = jobDefinition,
+       jobName = jobName, arrayProperties = Prelude.Nothing,
        containerOverrides = Prelude.Nothing, dependsOn = Prelude.Nothing,
        parameters = Prelude.Nothing, retryStrategy = Prelude.Nothing}
 instance ToResourceProperties PipeTargetBatchJobParametersProperty where

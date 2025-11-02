@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.BatchTransformIn
 import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.EndpointInputProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringInputProperty
-  = MonitoringInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html>
+    MonitoringInputProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-batchtransforminput>
+                             batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput>
                              endpointInput :: (Prelude.Maybe EndpointInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringInputProperty :: MonitoringInputProperty
 mkMonitoringInputProperty
   = MonitoringInputProperty
-      {batchTransformInput = Prelude.Nothing,
+      {haddock_workaround_ = (), batchTransformInput = Prelude.Nothing,
        endpointInput = Prelude.Nothing}
 instance ToResourceProperties MonitoringInputProperty where
   toResourceProperties MonitoringInputProperty {..}

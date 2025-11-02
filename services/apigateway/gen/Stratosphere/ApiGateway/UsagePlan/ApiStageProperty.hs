@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.ApiGateway.UsagePlan.ThrottleSettingsProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApiStageProperty
-  = ApiStageProperty {apiId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html>
+    ApiStageProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid>
+                      apiId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage>
                       stage :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle>
                       throttle :: (Prelude.Maybe (Prelude.Map Prelude.Text ThrottleSettingsProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiStageProperty :: ApiStageProperty
 mkApiStageProperty
   = ApiStageProperty
-      {apiId = Prelude.Nothing, stage = Prelude.Nothing,
-       throttle = Prelude.Nothing}
+      {haddock_workaround_ = (), apiId = Prelude.Nothing,
+       stage = Prelude.Nothing, throttle = Prelude.Nothing}
 instance ToResourceProperties ApiStageProperty where
   toResourceProperties ApiStageProperty {..}
     = ResourceProperties

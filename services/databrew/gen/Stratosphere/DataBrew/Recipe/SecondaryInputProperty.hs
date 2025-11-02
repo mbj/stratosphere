@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.DataCatalogInputDefinitionPro
 import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data SecondaryInputProperty
-  = SecondaryInputProperty {dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html>
+    SecondaryInputProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-datacataloginputdefinition>
+                            dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-s3inputdefinition>
                             s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecondaryInputProperty :: SecondaryInputProperty
 mkSecondaryInputProperty
   = SecondaryInputProperty
-      {dataCatalogInputDefinition = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       dataCatalogInputDefinition = Prelude.Nothing,
        s3InputDefinition = Prelude.Nothing}
 instance ToResourceProperties SecondaryInputProperty where
   toResourceProperties SecondaryInputProperty {..}

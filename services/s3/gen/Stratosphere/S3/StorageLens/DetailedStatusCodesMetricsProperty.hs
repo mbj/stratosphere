@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DetailedStatusCodesMetricsProperty
-  = DetailedStatusCodesMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-detailedstatuscodesmetrics.html>
+    DetailedStatusCodesMetricsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-detailedstatuscodesmetrics.html#cfn-s3-storagelens-detailedstatuscodesmetrics-isenabled>
+                                        isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDetailedStatusCodesMetricsProperty ::
   DetailedStatusCodesMetricsProperty
 mkDetailedStatusCodesMetricsProperty
-  = DetailedStatusCodesMetricsProperty {isEnabled = Prelude.Nothing}
+  = DetailedStatusCodesMetricsProperty
+      {haddock_workaround_ = (), isEnabled = Prelude.Nothing}
 instance ToResourceProperties DetailedStatusCodesMetricsProperty where
   toResourceProperties DetailedStatusCodesMetricsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DetailedStatusCodesMetricsProperty where
            (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled]))
 instance Property "IsEnabled" DetailedStatusCodesMetricsProperty where
   type PropertyType "IsEnabled" DetailedStatusCodesMetricsProperty = Value Prelude.Bool
-  set newValue DetailedStatusCodesMetricsProperty {}
+  set newValue DetailedStatusCodesMetricsProperty {..}
     = DetailedStatusCodesMetricsProperty
         {isEnabled = Prelude.pure newValue, ..}

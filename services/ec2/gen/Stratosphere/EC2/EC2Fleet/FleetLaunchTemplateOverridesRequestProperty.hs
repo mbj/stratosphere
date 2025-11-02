@@ -10,20 +10,30 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.PlacementProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FleetLaunchTemplateOverridesRequestProperty
-  = FleetLaunchTemplateOverridesRequestProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html>
+    FleetLaunchTemplateOverridesRequestProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone>
+                                                 availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancerequirements>
                                                  instanceRequirements :: (Prelude.Maybe InstanceRequirementsRequestProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype>
                                                  instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice>
                                                  maxPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement>
                                                  placement :: (Prelude.Maybe PlacementProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority>
                                                  priority :: (Prelude.Maybe (Value Prelude.Double)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid>
                                                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity>
                                                  weightedCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateOverridesRequestProperty ::
   FleetLaunchTemplateOverridesRequestProperty
 mkFleetLaunchTemplateOverridesRequestProperty
   = FleetLaunchTemplateOverridesRequestProperty
-      {availabilityZone = Prelude.Nothing,
+      {haddock_workaround_ = (), availabilityZone = Prelude.Nothing,
        instanceRequirements = Prelude.Nothing,
        instanceType = Prelude.Nothing, maxPrice = Prelude.Nothing,
        placement = Prelude.Nothing, priority = Prelude.Nothing,

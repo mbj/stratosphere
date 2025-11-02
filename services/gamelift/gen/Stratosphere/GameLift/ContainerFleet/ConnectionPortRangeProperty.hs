@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionPortRangeProperty
-  = ConnectionPortRangeProperty {fromPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-connectionportrange.html>
+    ConnectionPortRangeProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-connectionportrange.html#cfn-gamelift-containerfleet-connectionportrange-fromport>
+                                 fromPort :: (Value Prelude.Integer),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-connectionportrange.html#cfn-gamelift-containerfleet-connectionportrange-toport>
                                  toPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionPortRangeProperty ::
@@ -15,7 +19,7 @@ mkConnectionPortRangeProperty ::
   -> Value Prelude.Integer -> ConnectionPortRangeProperty
 mkConnectionPortRangeProperty fromPort toPort
   = ConnectionPortRangeProperty
-      {fromPort = fromPort, toPort = toPort}
+      {haddock_workaround_ = (), fromPort = fromPort, toPort = toPort}
 instance ToResourceProperties ConnectionPortRangeProperty where
   toResourceProperties ConnectionPortRangeProperty {..}
     = ResourceProperties

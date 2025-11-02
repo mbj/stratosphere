@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.OpenSearchServerless.SecurityConfig.SamlConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityConfig
-  = SecurityConfig {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html>
+    SecurityConfig {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamidentitycenteroptions>
                     iamIdentityCenterOptions :: (Prelude.Maybe IamIdentityCenterConfigOptionsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-name>
                     name :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-samloptions>
                     samlOptions :: (Prelude.Maybe SamlConfigOptionsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-type>
                     type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfig :: SecurityConfig
 mkSecurityConfig
   = SecurityConfig
-      {description = Prelude.Nothing,
+      {haddock_workaround_ = (), description = Prelude.Nothing,
        iamIdentityCenterOptions = Prelude.Nothing, name = Prelude.Nothing,
        samlOptions = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties SecurityConfig where

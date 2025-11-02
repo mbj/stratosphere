@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.ExclusionRulesPr
 import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.FilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyDetailProperty
-  = PolicyDetailProperty {action :: ActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html>
+    PolicyDetailProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-action>
+                          action :: ActionProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-exclusionrules>
                           exclusionRules :: (Prelude.Maybe ExclusionRulesProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-filter>
                           filter :: FilterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyDetailProperty ::
   ActionProperty -> FilterProperty -> PolicyDetailProperty
 mkPolicyDetailProperty action filter
   = PolicyDetailProperty
-      {action = action, filter = filter,
+      {haddock_workaround_ = (), action = action, filter = filter,
        exclusionRules = Prelude.Nothing}
 instance ToResourceProperties PolicyDetailProperty where
   toResourceProperties PolicyDetailProperty {..}

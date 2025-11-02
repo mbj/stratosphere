@@ -16,25 +16,47 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Job
-  = Job {dataCatalogOutputs :: (Prelude.Maybe [DataCatalogOutputProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html>
+    Job {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs>
+         dataCatalogOutputs :: (Prelude.Maybe [DataCatalogOutputProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs>
          databaseOutputs :: (Prelude.Maybe [DatabaseOutputProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname>
          datasetName :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn>
          encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode>
          encryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample>
          jobSample :: (Prelude.Maybe JobSampleProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription>
          logSubscription :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity>
          maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries>
          maxRetries :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation>
          outputLocation :: (Prelude.Maybe OutputLocationProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs>
          outputs :: (Prelude.Maybe [OutputProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration>
          profileConfiguration :: (Prelude.Maybe ProfileConfigurationProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname>
          projectName :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe>
          recipe :: (Prelude.Maybe RecipeProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn>
          roleArn :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags>
          tags :: (Prelude.Maybe [Tag]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout>
          timeout :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type>
          type' :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-validationconfigurations>
          validationConfigurations :: (Prelude.Maybe [ValidationConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJob ::
@@ -42,8 +64,8 @@ mkJob ::
   -> Value Prelude.Text -> Value Prelude.Text -> Job
 mkJob name roleArn type'
   = Job
-      {name = name, roleArn = roleArn, type' = type',
-       dataCatalogOutputs = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, roleArn = roleArn,
+       type' = type', dataCatalogOutputs = Prelude.Nothing,
        databaseOutputs = Prelude.Nothing, datasetName = Prelude.Nothing,
        encryptionKeyArn = Prelude.Nothing,
        encryptionMode = Prelude.Nothing, jobSample = Prelude.Nothing,

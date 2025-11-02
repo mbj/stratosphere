@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.PasswordPolicyProperty as Ex
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.SignInPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PoliciesProperty
-  = PoliciesProperty {passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html>
+    PoliciesProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-passwordpolicy>
+                      passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-signinpolicy>
                       signInPolicy :: (Prelude.Maybe SignInPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty :: PoliciesProperty
 mkPoliciesProperty
   = PoliciesProperty
-      {passwordPolicy = Prelude.Nothing, signInPolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), passwordPolicy = Prelude.Nothing,
+       signInPolicy = Prelude.Nothing}
 instance ToResourceProperties PoliciesProperty where
   toResourceProperties PoliciesProperty {..}
     = ResourceProperties

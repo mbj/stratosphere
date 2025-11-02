@@ -9,13 +9,19 @@ import {-# SOURCE #-} Stratosphere.Events.Endpoint.PrimaryProperty as Exports
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.SecondaryProperty as Exports
 import Stratosphere.ResourceProperties
 data FailoverConfigProperty
-  = FailoverConfigProperty {primary :: PrimaryProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html>
+    FailoverConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-primary>
+                            primary :: PrimaryProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html#cfn-events-endpoint-failoverconfig-secondary>
                             secondary :: SecondaryProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConfigProperty ::
   PrimaryProperty -> SecondaryProperty -> FailoverConfigProperty
 mkFailoverConfigProperty primary secondary
-  = FailoverConfigProperty {primary = primary, secondary = secondary}
+  = FailoverConfigProperty
+      {haddock_workaround_ = (), primary = primary,
+       secondary = secondary}
 instance ToResourceProperties FailoverConfigProperty where
   toResourceProperties FailoverConfigProperty {..}
     = ResourceProperties

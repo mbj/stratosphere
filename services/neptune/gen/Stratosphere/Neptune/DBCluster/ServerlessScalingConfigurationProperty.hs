@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerlessScalingConfigurationProperty
-  = ServerlessScalingConfigurationProperty {maxCapacity :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html>
+    ServerlessScalingConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html#cfn-neptune-dbcluster-serverlessscalingconfiguration-maxcapacity>
+                                            maxCapacity :: (Value Prelude.Double),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html#cfn-neptune-dbcluster-serverlessscalingconfiguration-mincapacity>
                                             minCapacity :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessScalingConfigurationProperty ::
@@ -16,7 +20,8 @@ mkServerlessScalingConfigurationProperty ::
   -> Value Prelude.Double -> ServerlessScalingConfigurationProperty
 mkServerlessScalingConfigurationProperty maxCapacity minCapacity
   = ServerlessScalingConfigurationProperty
-      {maxCapacity = maxCapacity, minCapacity = minCapacity}
+      {haddock_workaround_ = (), maxCapacity = maxCapacity,
+       minCapacity = minCapacity}
 instance ToResourceProperties ServerlessScalingConfigurationProperty where
   toResourceProperties ServerlessScalingConfigurationProperty {..}
     = ResourceProperties

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty as Exports
 import Stratosphere.ResourceProperties
 data WorkerTypeSpecificationInputProperty
-  = WorkerTypeSpecificationInputProperty {imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html>
+    WorkerTypeSpecificationInputProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html#cfn-emrserverless-application-workertypespecificationinput-imageconfiguration>
+                                          imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerTypeSpecificationInputProperty ::
   WorkerTypeSpecificationInputProperty
 mkWorkerTypeSpecificationInputProperty
   = WorkerTypeSpecificationInputProperty
-      {imageConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), imageConfiguration = Prelude.Nothing}
 instance ToResourceProperties WorkerTypeSpecificationInputProperty where
   toResourceProperties WorkerTypeSpecificationInputProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON WorkerTypeSpecificationInputProperty where
               [(JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration]))
 instance Property "ImageConfiguration" WorkerTypeSpecificationInputProperty where
   type PropertyType "ImageConfiguration" WorkerTypeSpecificationInputProperty = ImageConfigurationInputProperty
-  set newValue WorkerTypeSpecificationInputProperty {}
+  set newValue WorkerTypeSpecificationInputProperty {..}
     = WorkerTypeSpecificationInputProperty
         {imageConfiguration = Prelude.pure newValue, ..}

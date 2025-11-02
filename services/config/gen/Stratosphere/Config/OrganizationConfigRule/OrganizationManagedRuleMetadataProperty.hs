@@ -8,21 +8,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationManagedRuleMetadataProperty
-  = OrganizationManagedRuleMetadataProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html>
+    OrganizationManagedRuleMetadataProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description>
+                                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters>
                                              inputParameters :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency>
                                              maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope>
                                              resourceIdScope :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope>
                                              resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier>
                                              ruleIdentifier :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope>
                                              tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope>
                                              tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationManagedRuleMetadataProperty ::
   Value Prelude.Text -> OrganizationManagedRuleMetadataProperty
 mkOrganizationManagedRuleMetadataProperty ruleIdentifier
   = OrganizationManagedRuleMetadataProperty
-      {ruleIdentifier = ruleIdentifier, description = Prelude.Nothing,
-       inputParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), ruleIdentifier = ruleIdentifier,
+       description = Prelude.Nothing, inputParameters = Prelude.Nothing,
        maximumExecutionFrequency = Prelude.Nothing,
        resourceIdScope = Prelude.Nothing,
        resourceTypesScope = Prelude.Nothing,

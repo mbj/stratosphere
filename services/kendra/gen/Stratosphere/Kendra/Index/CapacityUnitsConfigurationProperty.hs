@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityUnitsConfigurationProperty
-  = CapacityUnitsConfigurationProperty {queryCapacityUnits :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html>
+    CapacityUnitsConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits>
+                                        queryCapacityUnits :: (Value Prelude.Integer),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits>
                                         storageCapacityUnits :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityUnitsConfigurationProperty ::
@@ -18,7 +22,7 @@ mkCapacityUnitsConfigurationProperty
   queryCapacityUnits
   storageCapacityUnits
   = CapacityUnitsConfigurationProperty
-      {queryCapacityUnits = queryCapacityUnits,
+      {haddock_workaround_ = (), queryCapacityUnits = queryCapacityUnits,
        storageCapacityUnits = storageCapacityUnits}
 instance ToResourceProperties CapacityUnitsConfigurationProperty where
   toResourceProperties CapacityUnitsConfigurationProperty {..}

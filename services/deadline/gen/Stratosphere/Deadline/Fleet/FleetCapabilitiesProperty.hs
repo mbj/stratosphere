@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.FleetAmountCapabilityProperty 
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.FleetAttributeCapabilityProperty as Exports
 import Stratosphere.ResourceProperties
 data FleetCapabilitiesProperty
-  = FleetCapabilitiesProperty {amounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html>
+    FleetCapabilitiesProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html#cfn-deadline-fleet-fleetcapabilities-amounts>
+                               amounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html#cfn-deadline-fleet-fleetcapabilities-attributes>
                                attributes :: (Prelude.Maybe [FleetAttributeCapabilityProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetCapabilitiesProperty :: FleetCapabilitiesProperty
 mkFleetCapabilitiesProperty
   = FleetCapabilitiesProperty
-      {amounts = Prelude.Nothing, attributes = Prelude.Nothing}
+      {haddock_workaround_ = (), amounts = Prelude.Nothing,
+       attributes = Prelude.Nothing}
 instance ToResourceProperties FleetCapabilitiesProperty where
   toResourceProperties FleetCapabilitiesProperty {..}
     = ResourceProperties

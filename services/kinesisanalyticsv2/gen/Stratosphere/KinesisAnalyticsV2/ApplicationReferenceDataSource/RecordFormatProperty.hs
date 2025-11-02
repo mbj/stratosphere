@@ -8,14 +8,18 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordFormatProperty
-  = RecordFormatProperty {mappingParameters :: (Prelude.Maybe MappingParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html>
+    RecordFormatProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-mappingparameters>
+                          mappingParameters :: (Prelude.Maybe MappingParametersProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-recordformat-recordformattype>
                           recordFormatType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordFormatProperty ::
   Value Prelude.Text -> RecordFormatProperty
 mkRecordFormatProperty recordFormatType
   = RecordFormatProperty
-      {recordFormatType = recordFormatType,
+      {haddock_workaround_ = (), recordFormatType = recordFormatType,
        mappingParameters = Prelude.Nothing}
 instance ToResourceProperties RecordFormatProperty where
   toResourceProperties RecordFormatProperty {..}

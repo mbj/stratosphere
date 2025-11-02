@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.ExcelOptionsProperty as Expo
 import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.JsonOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data FormatOptionsProperty
-  = FormatOptionsProperty {csv :: (Prelude.Maybe CsvOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html>
+    FormatOptionsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv>
+                           csv :: (Prelude.Maybe CsvOptionsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel>
                            excel :: (Prelude.Maybe ExcelOptionsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json>
                            json :: (Prelude.Maybe JsonOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormatOptionsProperty :: FormatOptionsProperty
 mkFormatOptionsProperty
   = FormatOptionsProperty
-      {csv = Prelude.Nothing, excel = Prelude.Nothing,
-       json = Prelude.Nothing}
+      {haddock_workaround_ = (), csv = Prelude.Nothing,
+       excel = Prelude.Nothing, json = Prelude.Nothing}
 instance ToResourceProperties FormatOptionsProperty where
   toResourceProperties FormatOptionsProperty {..}
     = ResourceProperties

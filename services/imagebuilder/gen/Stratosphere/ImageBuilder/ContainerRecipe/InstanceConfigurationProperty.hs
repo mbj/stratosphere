@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ContainerRecipe.InstanceBlockDev
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceConfigurationProperty
-  = InstanceConfigurationProperty {blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html>
+    InstanceConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings>
+                                   blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image>
                                    image :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceConfigurationProperty :: InstanceConfigurationProperty
 mkInstanceConfigurationProperty
   = InstanceConfigurationProperty
-      {blockDeviceMappings = Prelude.Nothing, image = Prelude.Nothing}
+      {haddock_workaround_ = (), blockDeviceMappings = Prelude.Nothing,
+       image = Prelude.Nothing}
 instance ToResourceProperties InstanceConfigurationProperty where
   toResourceProperties InstanceConfigurationProperty {..}
     = ResourceProperties

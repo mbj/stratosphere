@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.InputFileLocationProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecryptStepDetailsProperty
-  = DecryptStepDetailsProperty {destinationFileLocation :: InputFileLocationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html>
+    DecryptStepDetailsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-destinationfilelocation>
+                                destinationFileLocation :: InputFileLocationProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-name>
                                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-overwriteexisting>
                                 overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-sourcefilelocation>
                                 sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDecryptStepDetailsProperty ::
@@ -20,7 +27,8 @@ mkDecryptStepDetailsProperty ::
   -> Value Prelude.Text -> DecryptStepDetailsProperty
 mkDecryptStepDetailsProperty destinationFileLocation type'
   = DecryptStepDetailsProperty
-      {destinationFileLocation = destinationFileLocation, type' = type',
+      {haddock_workaround_ = (),
+       destinationFileLocation = destinationFileLocation, type' = type',
        name = Prelude.Nothing, overwriteExisting = Prelude.Nothing,
        sourceFileLocation = Prelude.Nothing}
 instance ToResourceProperties DecryptStepDetailsProperty where

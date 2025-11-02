@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.BlockStorageProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageConfigProperty
-  = StorageConfigProperty {blockStorage :: (Prelude.Maybe BlockStorageProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html>
+    StorageConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html#cfn-eks-cluster-storageconfig-blockstorage>
+                           blockStorage :: (Prelude.Maybe BlockStorageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConfigProperty :: StorageConfigProperty
 mkStorageConfigProperty
-  = StorageConfigProperty {blockStorage = Prelude.Nothing}
+  = StorageConfigProperty
+      {haddock_workaround_ = (), blockStorage = Prelude.Nothing}
 instance ToResourceProperties StorageConfigProperty where
   toResourceProperties StorageConfigProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON StorageConfigProperty where
               [(JSON..=) "BlockStorage" Prelude.<$> blockStorage]))
 instance Property "BlockStorage" StorageConfigProperty where
   type PropertyType "BlockStorage" StorageConfigProperty = BlockStorageProperty
-  set newValue StorageConfigProperty {}
+  set newValue StorageConfigProperty {..}
     = StorageConfigProperty {blockStorage = Prelude.pure newValue, ..}

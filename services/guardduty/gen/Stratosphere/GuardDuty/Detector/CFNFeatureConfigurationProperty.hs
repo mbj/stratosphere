@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNFeatureAdditionalConfig
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNFeatureConfigurationProperty
-  = CFNFeatureConfigurationProperty {additionalConfiguration :: (Prelude.Maybe [CFNFeatureAdditionalConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html>
+    CFNFeatureConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html#cfn-guardduty-detector-cfnfeatureconfiguration-additionalconfiguration>
+                                     additionalConfiguration :: (Prelude.Maybe [CFNFeatureAdditionalConfigurationProperty]),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html#cfn-guardduty-detector-cfnfeatureconfiguration-name>
                                      name :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html#cfn-guardduty-detector-cfnfeatureconfiguration-status>
                                      status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNFeatureConfigurationProperty ::
@@ -18,7 +23,7 @@ mkCFNFeatureConfigurationProperty ::
   -> Value Prelude.Text -> CFNFeatureConfigurationProperty
 mkCFNFeatureConfigurationProperty name status
   = CFNFeatureConfigurationProperty
-      {name = name, status = status,
+      {haddock_workaround_ = (), name = name, status = status,
        additionalConfiguration = Prelude.Nothing}
 instance ToResourceProperties CFNFeatureConfigurationProperty where
   toResourceProperties CFNFeatureConfigurationProperty {..}

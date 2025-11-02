@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebACLAssociation
-  = WebACLAssociation {resourceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html>
+    WebACLAssociation {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn>
+                       resourceArn :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn>
                        webACLArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACLAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> WebACLAssociation
 mkWebACLAssociation resourceArn webACLArn
   = WebACLAssociation
-      {resourceArn = resourceArn, webACLArn = webACLArn}
+      {haddock_workaround_ = (), resourceArn = resourceArn,
+       webACLArn = webACLArn}
 instance ToResourceProperties WebACLAssociation where
   toResourceProperties WebACLAssociation {..}
     = ResourceProperties

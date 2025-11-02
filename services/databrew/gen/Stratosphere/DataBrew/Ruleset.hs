@@ -9,10 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Ruleset
-  = Ruleset {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html>
+    Ruleset {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-description>
+             description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-rules>
              rules :: [RuleProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html#cfn-databrew-ruleset-targetarn>
              targetArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleset ::
@@ -20,8 +27,9 @@ mkRuleset ::
   -> [RuleProperty] -> Value Prelude.Text -> Ruleset
 mkRuleset name rules targetArn
   = Ruleset
-      {name = name, rules = rules, targetArn = targetArn,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, rules = rules,
+       targetArn = targetArn, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Ruleset where
   toResourceProperties Ruleset {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuperuserParametersProperty
-  = SuperuserParametersProperty {emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html>
+    SuperuserParametersProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-emailaddress>
+                                 emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-firstname>
                                  firstName :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html#cfn-finspace-environment-superuserparameters-lastname>
                                  lastName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSuperuserParametersProperty :: SuperuserParametersProperty
 mkSuperuserParametersProperty
   = SuperuserParametersProperty
-      {emailAddress = Prelude.Nothing, firstName = Prelude.Nothing,
-       lastName = Prelude.Nothing}
+      {haddock_workaround_ = (), emailAddress = Prelude.Nothing,
+       firstName = Prelude.Nothing, lastName = Prelude.Nothing}
 instance ToResourceProperties SuperuserParametersProperty where
   toResourceProperties SuperuserParametersProperty {..}
     = ResourceProperties

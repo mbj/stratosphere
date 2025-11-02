@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HpoObjectiveProperty
-  = HpoObjectiveProperty {metricName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoobjective.html>
+    HpoObjectiveProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoobjective.html#cfn-personalize-solution-hpoobjective-metricname>
+                          metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoobjective.html#cfn-personalize-solution-hpoobjective-metricregex>
                           metricRegex :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoobjective.html#cfn-personalize-solution-hpoobjective-type>
                           type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHpoObjectiveProperty :: HpoObjectiveProperty
 mkHpoObjectiveProperty
   = HpoObjectiveProperty
-      {metricName = Prelude.Nothing, metricRegex = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), metricName = Prelude.Nothing,
+       metricRegex = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties HpoObjectiveProperty where
   toResourceProperties HpoObjectiveProperty {..}
     = ResourceProperties

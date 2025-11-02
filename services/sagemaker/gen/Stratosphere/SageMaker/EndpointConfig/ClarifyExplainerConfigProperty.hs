@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ClarifyShapConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClarifyExplainerConfigProperty
-  = ClarifyExplainerConfigProperty {enableExplanations :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html>
+    ClarifyExplainerConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html#cfn-sagemaker-endpointconfig-clarifyexplainerconfig-enableexplanations>
+                                    enableExplanations :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html#cfn-sagemaker-endpointconfig-clarifyexplainerconfig-inferenceconfig>
                                     inferenceConfig :: (Prelude.Maybe ClarifyInferenceConfigProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html#cfn-sagemaker-endpointconfig-clarifyexplainerconfig-shapconfig>
                                     shapConfig :: ClarifyShapConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyExplainerConfigProperty ::
   ClarifyShapConfigProperty -> ClarifyExplainerConfigProperty
 mkClarifyExplainerConfigProperty shapConfig
   = ClarifyExplainerConfigProperty
-      {shapConfig = shapConfig, enableExplanations = Prelude.Nothing,
+      {haddock_workaround_ = (), shapConfig = shapConfig,
+       enableExplanations = Prelude.Nothing,
        inferenceConfig = Prelude.Nothing}
 instance ToResourceProperties ClarifyExplainerConfigProperty where
   toResourceProperties ClarifyExplainerConfigProperty {..}

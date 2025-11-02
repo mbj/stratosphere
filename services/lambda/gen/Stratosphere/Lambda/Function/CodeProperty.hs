@@ -7,18 +7,27 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeProperty
-  = CodeProperty {imageUri :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html>
+    CodeProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri>
+                  imageUri :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket>
                   s3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key>
                   s3Key :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion>
                   s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-sourcekmskeyarn>
                   sourceKMSKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile>
                   zipFile :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: CodeProperty
 mkCodeProperty
   = CodeProperty
-      {imageUri = Prelude.Nothing, s3Bucket = Prelude.Nothing,
-       s3Key = Prelude.Nothing, s3ObjectVersion = Prelude.Nothing,
+      {haddock_workaround_ = (), imageUri = Prelude.Nothing,
+       s3Bucket = Prelude.Nothing, s3Key = Prelude.Nothing,
+       s3ObjectVersion = Prelude.Nothing,
        sourceKMSKeyArn = Prelude.Nothing, zipFile = Prelude.Nothing}
 instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}

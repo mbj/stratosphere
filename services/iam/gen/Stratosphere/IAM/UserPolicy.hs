@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPolicy
-  = UserPolicy {policyDocument :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html>
+    UserPolicy {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html#cfn-iam-userpolicy-policydocument>
+                policyDocument :: (Prelude.Maybe JSON.Object),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html#cfn-iam-userpolicy-policyname>
                 policyName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html#cfn-iam-userpolicy-username>
                 userName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPolicy ::
   Value Prelude.Text -> Value Prelude.Text -> UserPolicy
 mkUserPolicy policyName userName
   = UserPolicy
-      {policyName = policyName, userName = userName,
-       policyDocument = Prelude.Nothing}
+      {haddock_workaround_ = (), policyName = policyName,
+       userName = userName, policyDocument = Prelude.Nothing}
 instance ToResourceProperties UserPolicy where
   toResourceProperties UserPolicy {..}
     = ResourceProperties

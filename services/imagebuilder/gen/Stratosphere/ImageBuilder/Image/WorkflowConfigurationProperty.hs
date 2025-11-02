@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.WorkflowParameterProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkflowConfigurationProperty
-  = WorkflowConfigurationProperty {onFailure :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html>
+    WorkflowConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html#cfn-imagebuilder-image-workflowconfiguration-onfailure>
+                                   onFailure :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html#cfn-imagebuilder-image-workflowconfiguration-parallelgroup>
                                    parallelGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html#cfn-imagebuilder-image-workflowconfiguration-parameters>
                                    parameters :: (Prelude.Maybe [WorkflowParameterProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html#cfn-imagebuilder-image-workflowconfiguration-workflowarn>
                                    workflowArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowConfigurationProperty :: WorkflowConfigurationProperty
 mkWorkflowConfigurationProperty
   = WorkflowConfigurationProperty
-      {onFailure = Prelude.Nothing, parallelGroup = Prelude.Nothing,
-       parameters = Prelude.Nothing, workflowArn = Prelude.Nothing}
+      {haddock_workaround_ = (), onFailure = Prelude.Nothing,
+       parallelGroup = Prelude.Nothing, parameters = Prelude.Nothing,
+       workflowArn = Prelude.Nothing}
 instance ToResourceProperties WorkflowConfigurationProperty where
   toResourceProperties WorkflowConfigurationProperty {..}
     = ResourceProperties

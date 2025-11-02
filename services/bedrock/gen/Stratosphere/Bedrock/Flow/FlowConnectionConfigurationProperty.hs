@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowConditionalConnectionConfigu
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowDataConnectionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data FlowConnectionConfigurationProperty
-  = FlowConnectionConfigurationProperty {conditional :: (Prelude.Maybe FlowConditionalConnectionConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html>
+    FlowConnectionConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html#cfn-bedrock-flow-flowconnectionconfiguration-conditional>
+                                         conditional :: (Prelude.Maybe FlowConditionalConnectionConfigurationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowconnectionconfiguration.html#cfn-bedrock-flow-flowconnectionconfiguration-data>
                                          data' :: (Prelude.Maybe FlowDataConnectionConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowConnectionConfigurationProperty ::
   FlowConnectionConfigurationProperty
 mkFlowConnectionConfigurationProperty
   = FlowConnectionConfigurationProperty
-      {conditional = Prelude.Nothing, data' = Prelude.Nothing}
+      {haddock_workaround_ = (), conditional = Prelude.Nothing,
+       data' = Prelude.Nothing}
 instance ToResourceProperties FlowConnectionConfigurationProperty where
   toResourceProperties FlowConnectionConfigurationProperty {..}
     = ResourceProperties

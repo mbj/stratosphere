@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.HeaderMatchTypeProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderMatchProperty
-  = HeaderMatchProperty {caseSensitive :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html>
+    HeaderMatchProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html#cfn-vpclattice-rule-headermatch-casesensitive>
+                         caseSensitive :: (Prelude.Maybe (Value Prelude.Bool)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html#cfn-vpclattice-rule-headermatch-match>
                          match :: HeaderMatchTypeProperty,
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html#cfn-vpclattice-rule-headermatch-name>
                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderMatchProperty ::
@@ -17,7 +22,8 @@ mkHeaderMatchProperty ::
   -> Value Prelude.Text -> HeaderMatchProperty
 mkHeaderMatchProperty match name
   = HeaderMatchProperty
-      {match = match, name = name, caseSensitive = Prelude.Nothing}
+      {haddock_workaround_ = (), match = match, name = name,
+       caseSensitive = Prelude.Nothing}
 instance ToResourceProperties HeaderMatchProperty where
   toResourceProperties HeaderMatchProperty {..}
     = ResourceProperties

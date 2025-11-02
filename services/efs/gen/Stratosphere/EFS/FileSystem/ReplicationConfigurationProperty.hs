@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EFS.FileSystem.ReplicationDestinationProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {destinations :: (Prelude.Maybe [ReplicationDestinationProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html>
+    ReplicationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html#cfn-efs-filesystem-replicationconfiguration-destinations>
+                                      destinations :: (Prelude.Maybe [ReplicationDestinationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   ReplicationConfigurationProperty
 mkReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {destinations = Prelude.Nothing}
+  = ReplicationConfigurationProperty
+      {haddock_workaround_ = (), destinations = Prelude.Nothing}
 instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON ReplicationConfigurationProperty where
               [(JSON..=) "Destinations" Prelude.<$> destinations]))
 instance Property "Destinations" ReplicationConfigurationProperty where
   type PropertyType "Destinations" ReplicationConfigurationProperty = [ReplicationDestinationProperty]
-  set newValue ReplicationConfigurationProperty {}
+  set newValue ReplicationConfigurationProperty {..}
     = ReplicationConfigurationProperty
         {destinations = Prelude.pure newValue, ..}

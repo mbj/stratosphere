@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyValuePairProperty
-  = KeyValuePairProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html>
+    KeyValuePairProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name>
+                          name :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value>
                           value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValuePairProperty :: KeyValuePairProperty
 mkKeyValuePairProperty
   = KeyValuePairProperty
-      {name = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties KeyValuePairProperty where
   toResourceProperties KeyValuePairProperty {..}
     = ResourceProperties

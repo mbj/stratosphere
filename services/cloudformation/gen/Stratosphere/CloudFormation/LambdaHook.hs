@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.LambdaHook.TargetFiltersProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaHook
-  = LambdaHook {alias :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html>
+    LambdaHook {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-alias>
+                alias :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-executionrole>
                 executionRole :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-failuremode>
                 failureMode :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-hookstatus>
                 hookStatus :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-lambdafunction>
                 lambdaFunction :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-stackfilters>
                 stackFilters :: (Prelude.Maybe StackFiltersProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-targetfilters>
                 targetFilters :: (Prelude.Maybe TargetFiltersProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-targetoperations>
                 targetOperations :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaHook ::
@@ -32,9 +42,9 @@ mkLambdaHook
   lambdaFunction
   targetOperations
   = LambdaHook
-      {alias = alias, executionRole = executionRole,
-       failureMode = failureMode, hookStatus = hookStatus,
-       lambdaFunction = lambdaFunction,
+      {haddock_workaround_ = (), alias = alias,
+       executionRole = executionRole, failureMode = failureMode,
+       hookStatus = hookStatus, lambdaFunction = lambdaFunction,
        targetOperations = targetOperations,
        stackFilters = Prelude.Nothing, targetFilters = Prelude.Nothing}
 instance ToResourceProperties LambdaHook where

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioDolbyEDecodeProperty a
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioTrackProperty as Exports
 import Stratosphere.ResourceProperties
 data AudioTrackSelectionProperty
-  = AudioTrackSelectionProperty {dolbyEDecode :: (Prelude.Maybe AudioDolbyEDecodeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html>
+    AudioTrackSelectionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-dolbyedecode>
+                                 dolbyEDecode :: (Prelude.Maybe AudioDolbyEDecodeProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html#cfn-medialive-channel-audiotrackselection-tracks>
                                  tracks :: (Prelude.Maybe [AudioTrackProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioTrackSelectionProperty :: AudioTrackSelectionProperty
 mkAudioTrackSelectionProperty
   = AudioTrackSelectionProperty
-      {dolbyEDecode = Prelude.Nothing, tracks = Prelude.Nothing}
+      {haddock_workaround_ = (), dolbyEDecode = Prelude.Nothing,
+       tracks = Prelude.Nothing}
 instance ToResourceProperties AudioTrackSelectionProperty where
   toResourceProperties AudioTrackSelectionProperty {..}
     = ResourceProperties

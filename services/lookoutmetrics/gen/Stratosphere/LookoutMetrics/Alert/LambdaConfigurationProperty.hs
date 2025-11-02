@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaConfigurationProperty
-  = LambdaConfigurationProperty {lambdaArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html>
+    LambdaConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn>
+                                 lambdaArn :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn>
                                  roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConfigurationProperty ::
@@ -15,7 +19,8 @@ mkLambdaConfigurationProperty ::
   -> Value Prelude.Text -> LambdaConfigurationProperty
 mkLambdaConfigurationProperty lambdaArn roleArn
   = LambdaConfigurationProperty
-      {lambdaArn = lambdaArn, roleArn = roleArn}
+      {haddock_workaround_ = (), lambdaArn = lambdaArn,
+       roleArn = roleArn}
 instance ToResourceProperties LambdaConfigurationProperty where
   toResourceProperties LambdaConfigurationProperty {..}
     = ResourceProperties

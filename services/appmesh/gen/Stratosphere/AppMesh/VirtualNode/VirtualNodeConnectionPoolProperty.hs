@@ -11,17 +11,24 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualNodeHttpConnection
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualNodeTcpConnectionPoolProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualNodeConnectionPoolProperty
-  = VirtualNodeConnectionPoolProperty {gRPC :: (Prelude.Maybe VirtualNodeGrpcConnectionPoolProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html>
+    VirtualNodeConnectionPoolProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc>
+                                       gRPC :: (Prelude.Maybe VirtualNodeGrpcConnectionPoolProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http>
                                        hTTP :: (Prelude.Maybe VirtualNodeHttpConnectionPoolProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2>
                                        hTTP2 :: (Prelude.Maybe VirtualNodeHttp2ConnectionPoolProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp>
                                        tCP :: (Prelude.Maybe VirtualNodeTcpConnectionPoolProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeConnectionPoolProperty ::
   VirtualNodeConnectionPoolProperty
 mkVirtualNodeConnectionPoolProperty
   = VirtualNodeConnectionPoolProperty
-      {gRPC = Prelude.Nothing, hTTP = Prelude.Nothing,
-       hTTP2 = Prelude.Nothing, tCP = Prelude.Nothing}
+      {haddock_workaround_ = (), gRPC = Prelude.Nothing,
+       hTTP = Prelude.Nothing, hTTP2 = Prelude.Nothing,
+       tCP = Prelude.Nothing}
 instance ToResourceProperties VirtualNodeConnectionPoolProperty where
   toResourceProperties VirtualNodeConnectionPoolProperty {..}
     = ResourceProperties

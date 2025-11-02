@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RunAsProperty
-  = RunAsProperty {gid :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html>
+    RunAsProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html#cfn-greengrass-functiondefinitionversion-runas-gid>
+                   gid :: (Prelude.Maybe (Value Prelude.Integer)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html#cfn-greengrass-functiondefinitionversion-runas-uid>
                    uid :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunAsProperty :: RunAsProperty
 mkRunAsProperty
-  = RunAsProperty {gid = Prelude.Nothing, uid = Prelude.Nothing}
+  = RunAsProperty
+      {haddock_workaround_ = (), gid = Prelude.Nothing,
+       uid = Prelude.Nothing}
 instance ToResourceProperties RunAsProperty where
   toResourceProperties RunAsProperty {..}
     = ResourceProperties

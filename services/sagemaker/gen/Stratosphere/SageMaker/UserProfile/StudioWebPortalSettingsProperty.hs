@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StudioWebPortalSettingsProperty
-  = StudioWebPortalSettingsProperty {hiddenAppTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html>
+    StudioWebPortalSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddenapptypes>
+                                     hiddenAppTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddenmltools>
                                      hiddenMlTools :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioWebPortalSettingsProperty ::
   StudioWebPortalSettingsProperty
 mkStudioWebPortalSettingsProperty
   = StudioWebPortalSettingsProperty
-      {hiddenAppTypes = Prelude.Nothing, hiddenMlTools = Prelude.Nothing}
+      {haddock_workaround_ = (), hiddenAppTypes = Prelude.Nothing,
+       hiddenMlTools = Prelude.Nothing}
 instance ToResourceProperties StudioWebPortalSettingsProperty where
   toResourceProperties StudioWebPortalSettingsProperty {..}
     = ResourceProperties

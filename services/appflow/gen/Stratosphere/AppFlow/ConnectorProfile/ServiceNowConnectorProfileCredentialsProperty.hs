@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.OAuth2CredentialsPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowConnectorProfileCredentialsProperty
-  = ServiceNowConnectorProfileCredentialsProperty {oAuth2Credentials :: (Prelude.Maybe OAuth2CredentialsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html>
+    ServiceNowConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-oauth2credentials>
+                                                   oAuth2Credentials :: (Prelude.Maybe OAuth2CredentialsProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password>
                                                    password :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username>
                                                    username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowConnectorProfileCredentialsProperty ::
   ServiceNowConnectorProfileCredentialsProperty
 mkServiceNowConnectorProfileCredentialsProperty
   = ServiceNowConnectorProfileCredentialsProperty
-      {oAuth2Credentials = Prelude.Nothing, password = Prelude.Nothing,
-       username = Prelude.Nothing}
+      {haddock_workaround_ = (), oAuth2Credentials = Prelude.Nothing,
+       password = Prelude.Nothing, username = Prelude.Nothing}
 instance ToResourceProperties ServiceNowConnectorProfileCredentialsProperty where
   toResourceProperties
     ServiceNowConnectorProfileCredentialsProperty {..}

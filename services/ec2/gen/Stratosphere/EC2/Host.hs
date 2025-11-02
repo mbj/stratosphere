@@ -7,22 +7,33 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Host
-  = Host {assetId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html>
+    Host {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-assetid>
+          assetId :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement>
           autoPlacement :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone>
           availabilityZone :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostmaintenance>
           hostMaintenance :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostrecovery>
           hostRecovery :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancefamily>
           instanceFamily :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype>
           instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-outpostarn>
           outpostArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHost :: Value Prelude.Text -> Host
 mkHost availabilityZone
   = Host
-      {availabilityZone = availabilityZone, assetId = Prelude.Nothing,
-       autoPlacement = Prelude.Nothing, hostMaintenance = Prelude.Nothing,
-       hostRecovery = Prelude.Nothing, instanceFamily = Prelude.Nothing,
-       instanceType = Prelude.Nothing, outpostArn = Prelude.Nothing}
+      {haddock_workaround_ = (), availabilityZone = availabilityZone,
+       assetId = Prelude.Nothing, autoPlacement = Prelude.Nothing,
+       hostMaintenance = Prelude.Nothing, hostRecovery = Prelude.Nothing,
+       instanceFamily = Prelude.Nothing, instanceType = Prelude.Nothing,
+       outpostArn = Prelude.Nothing}
 instance ToResourceProperties Host where
   toResourceProperties Host {..}
     = ResourceProperties

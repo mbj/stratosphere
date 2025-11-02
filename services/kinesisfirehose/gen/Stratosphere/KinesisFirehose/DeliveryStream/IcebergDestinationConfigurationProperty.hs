@@ -15,14 +15,25 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IcebergDestinationConfigurationProperty
-  = IcebergDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html>
+    IcebergDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-bufferinghints>
+                                             bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-catalogconfiguration>
                                              catalogConfiguration :: CatalogConfigurationProperty,
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-cloudwatchloggingoptions>
                                              cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-destinationtableconfigurationlist>
                                              destinationTableConfigurationList :: (Prelude.Maybe [DestinationTableConfigurationProperty]),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-processingconfiguration>
                                              processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-retryoptions>
                                              retryOptions :: (Prelude.Maybe RetryOptionsProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-rolearn>
                                              roleARN :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3configuration>
                                              s3Configuration :: S3DestinationConfigurationProperty,
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3backupmode>
                                              s3BackupMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIcebergDestinationConfigurationProperty ::
@@ -35,7 +46,8 @@ mkIcebergDestinationConfigurationProperty
   roleARN
   s3Configuration
   = IcebergDestinationConfigurationProperty
-      {catalogConfiguration = catalogConfiguration, roleARN = roleARN,
+      {haddock_workaround_ = (),
+       catalogConfiguration = catalogConfiguration, roleARN = roleARN,
        s3Configuration = s3Configuration,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,

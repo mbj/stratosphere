@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IndexCapacityConfigurationProperty
-  = IndexCapacityConfigurationProperty {units :: (Prelude.Maybe (Value Prelude.Double))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexcapacityconfiguration.html>
+    IndexCapacityConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexcapacityconfiguration.html#cfn-qbusiness-index-indexcapacityconfiguration-units>
+                                        units :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIndexCapacityConfigurationProperty ::
   IndexCapacityConfigurationProperty
 mkIndexCapacityConfigurationProperty
-  = IndexCapacityConfigurationProperty {units = Prelude.Nothing}
+  = IndexCapacityConfigurationProperty
+      {haddock_workaround_ = (), units = Prelude.Nothing}
 instance ToResourceProperties IndexCapacityConfigurationProperty where
   toResourceProperties IndexCapacityConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON IndexCapacityConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Units" Prelude.<$> units]))
 instance Property "Units" IndexCapacityConfigurationProperty where
   type PropertyType "Units" IndexCapacityConfigurationProperty = Value Prelude.Double
-  set newValue IndexCapacityConfigurationProperty {}
+  set newValue IndexCapacityConfigurationProperty {..}
     = IndexCapacityConfigurationProperty
         {units = Prelude.pure newValue, ..}

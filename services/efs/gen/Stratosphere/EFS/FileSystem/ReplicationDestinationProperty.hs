@@ -8,18 +8,27 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationDestinationProperty
-  = ReplicationDestinationProperty {availabilityZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html>
+    ReplicationDestinationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-availabilityzonename>
+                                    availabilityZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-filesystemid>
                                     fileSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-kmskeyid>
                                     kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-region>
                                     region :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-rolearn>
                                     roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-status>
                                     status :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-statusmessage>
                                     statusMessage :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationDestinationProperty :: ReplicationDestinationProperty
 mkReplicationDestinationProperty
   = ReplicationDestinationProperty
-      {availabilityZoneName = Prelude.Nothing,
+      {haddock_workaround_ = (), availabilityZoneName = Prelude.Nothing,
        fileSystemId = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        region = Prelude.Nothing, roleArn = Prelude.Nothing,
        status = Prelude.Nothing, statusMessage = Prelude.Nothing}

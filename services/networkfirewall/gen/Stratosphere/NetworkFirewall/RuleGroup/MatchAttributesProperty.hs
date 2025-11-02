@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.TCPFlagFieldPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatchAttributesProperty
-  = MatchAttributesProperty {destinationPorts :: (Prelude.Maybe [PortRangeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html>
+    MatchAttributesProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports>
+                             destinationPorts :: (Prelude.Maybe [PortRangeProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations>
                              destinations :: (Prelude.Maybe [AddressProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols>
                              protocols :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports>
                              sourcePorts :: (Prelude.Maybe [PortRangeProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources>
                              sources :: (Prelude.Maybe [AddressProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags>
                              tCPFlags :: (Prelude.Maybe [TCPFlagFieldProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchAttributesProperty :: MatchAttributesProperty
 mkMatchAttributesProperty
   = MatchAttributesProperty
-      {destinationPorts = Prelude.Nothing,
+      {haddock_workaround_ = (), destinationPorts = Prelude.Nothing,
        destinations = Prelude.Nothing, protocols = Prelude.Nothing,
        sourcePorts = Prelude.Nothing, sources = Prelude.Nothing,
        tCPFlags = Prelude.Nothing}

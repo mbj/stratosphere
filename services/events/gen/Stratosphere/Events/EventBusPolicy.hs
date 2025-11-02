@@ -8,19 +8,28 @@ import {-# SOURCE #-} Stratosphere.Events.EventBusPolicy.ConditionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBusPolicy
-  = EventBusPolicy {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html>
+    EventBusPolicy {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action>
+                    action :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition>
                     condition :: (Prelude.Maybe ConditionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname>
                     eventBusName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal>
                     principal :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement>
                     statement :: (Prelude.Maybe JSON.Object),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid>
                     statementId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBusPolicy :: Value Prelude.Text -> EventBusPolicy
 mkEventBusPolicy statementId
   = EventBusPolicy
-      {statementId = statementId, action = Prelude.Nothing,
-       condition = Prelude.Nothing, eventBusName = Prelude.Nothing,
-       principal = Prelude.Nothing, statement = Prelude.Nothing}
+      {haddock_workaround_ = (), statementId = statementId,
+       action = Prelude.Nothing, condition = Prelude.Nothing,
+       eventBusName = Prelude.Nothing, principal = Prelude.Nothing,
+       statement = Prelude.Nothing}
 instance ToResourceProperties EventBusPolicy where
   toResourceProperties EventBusPolicy {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonFormatDescriptorProperty
-  = JsonFormatDescriptorProperty {charset :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html>
+    JsonFormatDescriptorProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset>
+                                  charset :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression>
                                   fileCompression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonFormatDescriptorProperty :: JsonFormatDescriptorProperty
 mkJsonFormatDescriptorProperty
   = JsonFormatDescriptorProperty
-      {charset = Prelude.Nothing, fileCompression = Prelude.Nothing}
+      {haddock_workaround_ = (), charset = Prelude.Nothing,
+       fileCompression = Prelude.Nothing}
 instance ToResourceProperties JsonFormatDescriptorProperty where
   toResourceProperties JsonFormatDescriptorProperty {..}
     = ResourceProperties

@@ -8,19 +8,30 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolUser.AttributeTypeProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolUser
-  = UserPoolUser {clientMetadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html>
+    UserPoolUser {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-clientmetadata>
+                  clientMetadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums>
                   desiredDeliveryMediums :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-forcealiascreation>
                   forceAliasCreation :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-messageaction>
                   messageAction :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userattributes>
                   userAttributes :: (Prelude.Maybe [AttributeTypeProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userpoolid>
                   userPoolId :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-username>
                   username :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata>
                   validationData :: (Prelude.Maybe [AttributeTypeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUser :: Value Prelude.Text -> UserPoolUser
 mkUserPoolUser userPoolId
   = UserPoolUser
-      {userPoolId = userPoolId, clientMetadata = Prelude.Nothing,
+      {haddock_workaround_ = (), userPoolId = userPoolId,
+       clientMetadata = Prelude.Nothing,
        desiredDeliveryMediums = Prelude.Nothing,
        forceAliasCreation = Prelude.Nothing,
        messageAction = Prelude.Nothing, userAttributes = Prelude.Nothing,

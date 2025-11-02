@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomHeadersConfigProperty
-  = CustomHeadersConfigProperty {items :: [CustomHeaderProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html>
+    CustomHeadersConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html#cfn-cloudfront-responseheaderspolicy-customheadersconfig-items>
+                                 items :: [CustomHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHeadersConfigProperty ::
   [CustomHeaderProperty] -> CustomHeadersConfigProperty
 mkCustomHeadersConfigProperty items
-  = CustomHeadersConfigProperty {items = items}
+  = CustomHeadersConfigProperty
+      {haddock_workaround_ = (), items = items}
 instance ToResourceProperties CustomHeadersConfigProperty where
   toResourceProperties CustomHeadersConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CustomHeadersConfigProperty where
     = JSON.object ["Items" JSON..= items]
 instance Property "Items" CustomHeadersConfigProperty where
   type PropertyType "Items" CustomHeadersConfigProperty = [CustomHeaderProperty]
-  set newValue CustomHeadersConfigProperty {}
+  set newValue CustomHeadersConfigProperty {..}
     = CustomHeadersConfigProperty {items = newValue, ..}

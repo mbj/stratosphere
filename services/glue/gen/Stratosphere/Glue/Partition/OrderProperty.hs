@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrderProperty
-  = OrderProperty {column :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html>
+    OrderProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column>
+                   column :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder>
                    sortOrder :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrderProperty :: Value Prelude.Text -> OrderProperty
 mkOrderProperty column
-  = OrderProperty {column = column, sortOrder = Prelude.Nothing}
+  = OrderProperty
+      {haddock_workaround_ = (), column = column,
+       sortOrder = Prelude.Nothing}
 instance ToResourceProperties OrderProperty where
   toResourceProperties OrderProperty {..}
     = ResourceProperties

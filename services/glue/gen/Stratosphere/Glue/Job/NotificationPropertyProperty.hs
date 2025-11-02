@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationPropertyProperty
-  = NotificationPropertyProperty {notifyDelayAfter :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html>
+    NotificationPropertyProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter>
+                                  notifyDelayAfter :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationPropertyProperty :: NotificationPropertyProperty
 mkNotificationPropertyProperty
-  = NotificationPropertyProperty {notifyDelayAfter = Prelude.Nothing}
+  = NotificationPropertyProperty
+      {haddock_workaround_ = (), notifyDelayAfter = Prelude.Nothing}
 instance ToResourceProperties NotificationPropertyProperty where
   toResourceProperties NotificationPropertyProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON NotificationPropertyProperty where
               [(JSON..=) "NotifyDelayAfter" Prelude.<$> notifyDelayAfter]))
 instance Property "NotifyDelayAfter" NotificationPropertyProperty where
   type PropertyType "NotifyDelayAfter" NotificationPropertyProperty = Value Prelude.Integer
-  set newValue NotificationPropertyProperty {}
+  set newValue NotificationPropertyProperty {..}
     = NotificationPropertyProperty
         {notifyDelayAfter = Prelude.pure newValue, ..}

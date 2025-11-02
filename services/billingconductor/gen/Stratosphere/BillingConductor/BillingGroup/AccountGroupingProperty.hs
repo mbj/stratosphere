@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountGroupingProperty
-  = AccountGroupingProperty {autoAssociate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html>
+    AccountGroupingProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-autoassociate>
+                             autoAssociate :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids>
                              linkedAccountIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountGroupingProperty ::
   ValueList Prelude.Text -> AccountGroupingProperty
 mkAccountGroupingProperty linkedAccountIds
   = AccountGroupingProperty
-      {linkedAccountIds = linkedAccountIds,
+      {haddock_workaround_ = (), linkedAccountIds = linkedAccountIds,
        autoAssociate = Prelude.Nothing}
 instance ToResourceProperties AccountGroupingProperty where
   toResourceProperties AccountGroupingProperty {..}

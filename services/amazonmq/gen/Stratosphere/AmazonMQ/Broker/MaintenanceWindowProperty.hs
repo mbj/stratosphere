@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowProperty
-  = MaintenanceWindowProperty {dayOfWeek :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html>
+    MaintenanceWindowProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-dayofweek>
+                               dayOfWeek :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-timeofday>
                                timeOfDay :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-timezone>
                                timeZone :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowProperty ::
@@ -17,7 +22,8 @@ mkMaintenanceWindowProperty ::
      -> Value Prelude.Text -> MaintenanceWindowProperty
 mkMaintenanceWindowProperty dayOfWeek timeOfDay timeZone
   = MaintenanceWindowProperty
-      {dayOfWeek = dayOfWeek, timeOfDay = timeOfDay, timeZone = timeZone}
+      {haddock_workaround_ = (), dayOfWeek = dayOfWeek,
+       timeOfDay = timeOfDay, timeZone = timeZone}
 instance ToResourceProperties MaintenanceWindowProperty where
   toResourceProperties MaintenanceWindowProperty {..}
     = ResourceProperties

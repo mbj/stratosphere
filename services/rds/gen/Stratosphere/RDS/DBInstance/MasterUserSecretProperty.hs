@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MasterUserSecretProperty
-  = MasterUserSecretProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html>
+    MasterUserSecretProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html#cfn-rds-dbinstance-masterusersecret-kmskeyid>
+                              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html#cfn-rds-dbinstance-masterusersecret-secretarn>
                               secretArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMasterUserSecretProperty :: MasterUserSecretProperty
 mkMasterUserSecretProperty
   = MasterUserSecretProperty
-      {kmsKeyId = Prelude.Nothing, secretArn = Prelude.Nothing}
+      {haddock_workaround_ = (), kmsKeyId = Prelude.Nothing,
+       secretArn = Prelude.Nothing}
 instance ToResourceProperties MasterUserSecretProperty where
   toResourceProperties MasterUserSecretProperty {..}
     = ResourceProperties

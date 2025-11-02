@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeletedProperty
-  = DeletedProperty {reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-deleted.html>
+    DeletedProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-deleted.html#cfn-datasync-task-deleted-reportlevel>
+                     reportLevel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeletedProperty :: DeletedProperty
-mkDeletedProperty = DeletedProperty {reportLevel = Prelude.Nothing}
+mkDeletedProperty
+  = DeletedProperty
+      {haddock_workaround_ = (), reportLevel = Prelude.Nothing}
 instance ToResourceProperties DeletedProperty where
   toResourceProperties DeletedProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON DeletedProperty where
               [(JSON..=) "ReportLevel" Prelude.<$> reportLevel]))
 instance Property "ReportLevel" DeletedProperty where
   type PropertyType "ReportLevel" DeletedProperty = Value Prelude.Text
-  set newValue DeletedProperty {}
+  set newValue DeletedProperty {..}
     = DeletedProperty {reportLevel = Prelude.pure newValue, ..}

@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagsProperty
-  = TagsProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html>
+    TagsProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html#cfn-appconfig-application-tags-key>
+                  key :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-application-tags.html#cfn-appconfig-application-tags-value>
                   value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagsProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TagsProperty
-mkTagsProperty key value = TagsProperty {key = key, value = value}
+mkTagsProperty key value
+  = TagsProperty {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties TagsProperty where
   toResourceProperties TagsProperty {..}
     = ResourceProperties

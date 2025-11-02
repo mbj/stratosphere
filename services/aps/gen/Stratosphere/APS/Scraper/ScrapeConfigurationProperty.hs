@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScrapeConfigurationProperty
-  = ScrapeConfigurationProperty {configurationBlob :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html>
+    ScrapeConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html#cfn-aps-scraper-scrapeconfiguration-configurationblob>
+                                 configurationBlob :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScrapeConfigurationProperty ::
   Value Prelude.Text -> ScrapeConfigurationProperty
 mkScrapeConfigurationProperty configurationBlob
   = ScrapeConfigurationProperty
-      {configurationBlob = configurationBlob}
+      {haddock_workaround_ = (), configurationBlob = configurationBlob}
 instance ToResourceProperties ScrapeConfigurationProperty where
   toResourceProperties ScrapeConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON ScrapeConfigurationProperty where
     = JSON.object ["ConfigurationBlob" JSON..= configurationBlob]
 instance Property "ConfigurationBlob" ScrapeConfigurationProperty where
   type PropertyType "ConfigurationBlob" ScrapeConfigurationProperty = Value Prelude.Text
-  set newValue ScrapeConfigurationProperty {}
+  set newValue ScrapeConfigurationProperty {..}
     = ScrapeConfigurationProperty {configurationBlob = newValue, ..}

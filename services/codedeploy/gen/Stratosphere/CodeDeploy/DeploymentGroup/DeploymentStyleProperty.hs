@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentStyleProperty
-  = DeploymentStyleProperty {deploymentOption :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html>
+    DeploymentStyleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymentoption>
+                             deploymentOption :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html#cfn-codedeploy-deploymentgroup-deploymentstyle-deploymenttype>
                              deploymentType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentStyleProperty :: DeploymentStyleProperty
 mkDeploymentStyleProperty
   = DeploymentStyleProperty
-      {deploymentOption = Prelude.Nothing,
+      {haddock_workaround_ = (), deploymentOption = Prelude.Nothing,
        deploymentType = Prelude.Nothing}
 instance ToResourceProperties DeploymentStyleProperty where
   toResourceProperties DeploymentStyleProperty {..}

@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeProperty
-  = VolumeProperty {configuredAtLaunch :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html>
+    VolumeProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-configuredatlaunch>
+                    configuredAtLaunch :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration>
                     dockerVolumeConfiguration :: (Prelude.Maybe DockerVolumeConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration>
                     eFSVolumeConfiguration :: (Prelude.Maybe EFSVolumeConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-fsxwindowsfileservervolumeconfiguration>
                     fSxWindowsFileServerVolumeConfiguration :: (Prelude.Maybe FSxWindowsFileServerVolumeConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-host>
                     host :: (Prelude.Maybe HostVolumePropertiesProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-name>
                     name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeProperty :: VolumeProperty
 mkVolumeProperty
   = VolumeProperty
-      {configuredAtLaunch = Prelude.Nothing,
+      {haddock_workaround_ = (), configuredAtLaunch = Prelude.Nothing,
        dockerVolumeConfiguration = Prelude.Nothing,
        eFSVolumeConfiguration = Prelude.Nothing,
        fSxWindowsFileServerVolumeConfiguration = Prelude.Nothing,

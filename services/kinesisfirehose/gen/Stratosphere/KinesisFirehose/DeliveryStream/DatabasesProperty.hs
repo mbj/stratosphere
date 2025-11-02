@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabasesProperty
-  = DatabasesProperty {exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html>
+    DatabasesProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html#cfn-kinesisfirehose-deliverystream-databases-exclude>
+                       exclude :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html#cfn-kinesisfirehose-deliverystream-databases-include>
                        include :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabasesProperty :: DatabasesProperty
 mkDatabasesProperty
   = DatabasesProperty
-      {exclude = Prelude.Nothing, include = Prelude.Nothing}
+      {haddock_workaround_ = (), exclude = Prelude.Nothing,
+       include = Prelude.Nothing}
 instance ToResourceProperties DatabasesProperty where
   toResourceProperties DatabasesProperty {..}
     = ResourceProperties

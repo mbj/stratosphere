@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ContactList
-  = ContactList {contactListName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html>
+    ContactList {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname>
+                 contactListName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics>
                  topics :: (Prelude.Maybe [TopicProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContactList :: ContactList
 mkContactList
   = ContactList
-      {contactListName = Prelude.Nothing, description = Prelude.Nothing,
-       tags = Prelude.Nothing, topics = Prelude.Nothing}
+      {haddock_workaround_ = (), contactListName = Prelude.Nothing,
+       description = Prelude.Nothing, tags = Prelude.Nothing,
+       topics = Prelude.Nothing}
 instance ToResourceProperties ContactList where
   toResourceProperties ContactList {..}
     = ResourceProperties

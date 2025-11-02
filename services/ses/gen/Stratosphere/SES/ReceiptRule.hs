@@ -8,14 +8,20 @@ import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReceiptRule
-  = ReceiptRule {after :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html>
+    ReceiptRule {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-after>
+                 after :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rule>
                  rule :: RuleProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html#cfn-ses-receiptrule-rulesetname>
                  ruleSetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReceiptRule :: RuleProperty -> Value Prelude.Text -> ReceiptRule
 mkReceiptRule rule ruleSetName
   = ReceiptRule
-      {rule = rule, ruleSetName = ruleSetName, after = Prelude.Nothing}
+      {haddock_workaround_ = (), rule = rule, ruleSetName = ruleSetName,
+       after = Prelude.Nothing}
 instance ToResourceProperties ReceiptRule where
   toResourceProperties ReceiptRule {..}
     = ResourceProperties

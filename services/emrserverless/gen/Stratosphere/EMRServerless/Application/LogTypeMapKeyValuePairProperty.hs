@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogTypeMapKeyValuePairProperty
-  = LogTypeMapKeyValuePairProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>
+    LogTypeMapKeyValuePairProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html#cfn-emrserverless-application-logtypemapkeyvaluepair-key>
+                                    key :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html#cfn-emrserverless-application-logtypemapkeyvaluepair-value>
                                     value :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogTypeMapKeyValuePairProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> LogTypeMapKeyValuePairProperty
 mkLogTypeMapKeyValuePairProperty key value
-  = LogTypeMapKeyValuePairProperty {key = key, value = value}
+  = LogTypeMapKeyValuePairProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties LogTypeMapKeyValuePairProperty where
   toResourceProperties LogTypeMapKeyValuePairProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceAccessConfigurationProperty
-  = SourceAccessConfigurationProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html>
+    SourceAccessConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type>
+                                       type' :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri>
                                        uRI :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAccessConfigurationProperty ::
   SourceAccessConfigurationProperty
 mkSourceAccessConfigurationProperty
   = SourceAccessConfigurationProperty
-      {type' = Prelude.Nothing, uRI = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = Prelude.Nothing,
+       uRI = Prelude.Nothing}
 instance ToResourceProperties SourceAccessConfigurationProperty where
   toResourceProperties SourceAccessConfigurationProperty {..}
     = ResourceProperties

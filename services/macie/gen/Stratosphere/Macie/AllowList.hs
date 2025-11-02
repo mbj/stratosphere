@@ -9,16 +9,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AllowList
-  = AllowList {criteria :: CriteriaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html>
+    AllowList {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html#cfn-macie-allowlist-criteria>
+               criteria :: CriteriaProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html#cfn-macie-allowlist-description>
                description :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html#cfn-macie-allowlist-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html#cfn-macie-allowlist-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowList :: CriteriaProperty -> Value Prelude.Text -> AllowList
 mkAllowList criteria name
   = AllowList
-      {criteria = criteria, name = name, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), criteria = criteria, name = name,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AllowList where
   toResourceProperties AllowList {..}
     = ResourceProperties

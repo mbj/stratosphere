@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TlsValidationContextFileT
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TlsValidationContextSdsTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerTlsValidationContextTrustProperty
-  = ListenerTlsValidationContextTrustProperty {file :: (Prelude.Maybe TlsValidationContextFileTrustProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html>
+    ListenerTlsValidationContextTrustProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-listenertlsvalidationcontexttrust-file>
+                                               file :: (Prelude.Maybe TlsValidationContextFileTrustProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-listenertlsvalidationcontexttrust-sds>
                                                sDS :: (Prelude.Maybe TlsValidationContextSdsTrustProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsValidationContextTrustProperty ::
   ListenerTlsValidationContextTrustProperty
 mkListenerTlsValidationContextTrustProperty
   = ListenerTlsValidationContextTrustProperty
-      {file = Prelude.Nothing, sDS = Prelude.Nothing}
+      {haddock_workaround_ = (), file = Prelude.Nothing,
+       sDS = Prelude.Nothing}
 instance ToResourceProperties ListenerTlsValidationContextTrustProperty where
   toResourceProperties ListenerTlsValidationContextTrustProperty {..}
     = ResourceProperties

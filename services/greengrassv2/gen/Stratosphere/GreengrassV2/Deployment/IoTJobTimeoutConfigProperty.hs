@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IoTJobTimeoutConfigProperty
-  = IoTJobTimeoutConfigProperty {inProgressTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html>
+    IoTJobTimeoutConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html#cfn-greengrassv2-deployment-iotjobtimeoutconfig-inprogresstimeoutinminutes>
+                                 inProgressTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobTimeoutConfigProperty :: IoTJobTimeoutConfigProperty
 mkIoTJobTimeoutConfigProperty
   = IoTJobTimeoutConfigProperty
-      {inProgressTimeoutInMinutes = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       inProgressTimeoutInMinutes = Prelude.Nothing}
 instance ToResourceProperties IoTJobTimeoutConfigProperty where
   toResourceProperties IoTJobTimeoutConfigProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON IoTJobTimeoutConfigProperty where
                  Prelude.<$> inProgressTimeoutInMinutes]))
 instance Property "InProgressTimeoutInMinutes" IoTJobTimeoutConfigProperty where
   type PropertyType "InProgressTimeoutInMinutes" IoTJobTimeoutConfigProperty = Value Prelude.Integer
-  set newValue IoTJobTimeoutConfigProperty {}
+  set newValue IoTJobTimeoutConfigProperty {..}
     = IoTJobTimeoutConfigProperty
         {inProgressTimeoutInMinutes = Prelude.pure newValue, ..}

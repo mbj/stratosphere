@@ -9,21 +9,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CACertificate
-  = CACertificate {autoRegistrationStatus :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html>
+    CACertificate {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-autoregistrationstatus>
+                   autoRegistrationStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-cacertificatepem>
                    cACertificatePem :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-certificatemode>
                    certificateMode :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-registrationconfig>
                    registrationConfig :: (Prelude.Maybe RegistrationConfigProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-removeautoregistration>
                    removeAutoRegistration :: (Prelude.Maybe (Value Prelude.Bool)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-status>
                    status :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-tags>
                    tags :: (Prelude.Maybe [Tag]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html#cfn-iot-cacertificate-verificationcertificatepem>
                    verificationCertificatePem :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCACertificate ::
   Value Prelude.Text -> Value Prelude.Text -> CACertificate
 mkCACertificate cACertificatePem status
   = CACertificate
-      {cACertificatePem = cACertificatePem, status = status,
-       autoRegistrationStatus = Prelude.Nothing,
+      {haddock_workaround_ = (), cACertificatePem = cACertificatePem,
+       status = status, autoRegistrationStatus = Prelude.Nothing,
        certificateMode = Prelude.Nothing,
        registrationConfig = Prelude.Nothing,
        removeAutoRegistration = Prelude.Nothing, tags = Prelude.Nothing,

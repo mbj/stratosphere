@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseSourceVPCConfigurationProperty
-  = DatabaseSourceVPCConfigurationProperty {vpcEndpointServiceName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html>
+    DatabaseSourceVPCConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html#cfn-kinesisfirehose-deliverystream-databasesourcevpcconfiguration-vpcendpointservicename>
+                                            vpcEndpointServiceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseSourceVPCConfigurationProperty ::
   Value Prelude.Text -> DatabaseSourceVPCConfigurationProperty
 mkDatabaseSourceVPCConfigurationProperty vpcEndpointServiceName
   = DatabaseSourceVPCConfigurationProperty
-      {vpcEndpointServiceName = vpcEndpointServiceName}
+      {haddock_workaround_ = (),
+       vpcEndpointServiceName = vpcEndpointServiceName}
 instance ToResourceProperties DatabaseSourceVPCConfigurationProperty where
   toResourceProperties DatabaseSourceVPCConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DatabaseSourceVPCConfigurationProperty where
         ["VpcEndpointServiceName" JSON..= vpcEndpointServiceName]
 instance Property "VpcEndpointServiceName" DatabaseSourceVPCConfigurationProperty where
   type PropertyType "VpcEndpointServiceName" DatabaseSourceVPCConfigurationProperty = Value Prelude.Text
-  set newValue DatabaseSourceVPCConfigurationProperty {}
+  set newValue DatabaseSourceVPCConfigurationProperty {..}
     = DatabaseSourceVPCConfigurationProperty
         {vpcEndpointServiceName = newValue, ..}

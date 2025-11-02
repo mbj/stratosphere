@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoSelectorPidProperty
-  = VideoSelectorPidProperty {pid :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorpid.html>
+    VideoSelectorPidProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorpid.html#cfn-medialive-channel-videoselectorpid-pid>
+                              pid :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorPidProperty :: VideoSelectorPidProperty
 mkVideoSelectorPidProperty
-  = VideoSelectorPidProperty {pid = Prelude.Nothing}
+  = VideoSelectorPidProperty
+      {haddock_workaround_ = (), pid = Prelude.Nothing}
 instance ToResourceProperties VideoSelectorPidProperty where
   toResourceProperties VideoSelectorPidProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON VideoSelectorPidProperty where
            (Prelude.catMaybes [(JSON..=) "Pid" Prelude.<$> pid]))
 instance Property "Pid" VideoSelectorPidProperty where
   type PropertyType "Pid" VideoSelectorPidProperty = Value Prelude.Integer
-  set newValue VideoSelectorPidProperty {}
+  set newValue VideoSelectorPidProperty {..}
     = VideoSelectorPidProperty {pid = Prelude.pure newValue, ..}

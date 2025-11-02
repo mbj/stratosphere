@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppFlow.Connector.LambdaConnectorProvisioningConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ConnectorProvisioningConfigProperty
-  = ConnectorProvisioningConfigProperty {lambda :: (Prelude.Maybe LambdaConnectorProvisioningConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html>
+    ConnectorProvisioningConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html#cfn-appflow-connector-connectorprovisioningconfig-lambda>
+                                         lambda :: (Prelude.Maybe LambdaConnectorProvisioningConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProvisioningConfigProperty ::
   ConnectorProvisioningConfigProperty
 mkConnectorProvisioningConfigProperty
-  = ConnectorProvisioningConfigProperty {lambda = Prelude.Nothing}
+  = ConnectorProvisioningConfigProperty
+      {haddock_workaround_ = (), lambda = Prelude.Nothing}
 instance ToResourceProperties ConnectorProvisioningConfigProperty where
   toResourceProperties ConnectorProvisioningConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ConnectorProvisioningConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Lambda" Prelude.<$> lambda]))
 instance Property "Lambda" ConnectorProvisioningConfigProperty where
   type PropertyType "Lambda" ConnectorProvisioningConfigProperty = LambdaConnectorProvisioningConfigProperty
-  set newValue ConnectorProvisioningConfigProperty {}
+  set newValue ConnectorProvisioningConfigProperty {..}
     = ConnectorProvisioningConfigProperty
         {lambda = Prelude.pure newValue, ..}

@@ -10,22 +10,35 @@ import {-# SOURCE #-} Stratosphere.ElastiCache.GlobalReplicationGroup.RegionalCo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlobalReplicationGroup
-  = GlobalReplicationGroup {automaticFailoverEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html>
+    GlobalReplicationGroup {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled>
+                            automaticFailoverEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype>
                             cacheNodeType :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname>
                             cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engine>
                             engine :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion>
                             engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount>
                             globalNodeGroupCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription>
                             globalReplicationGroupDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix>
                             globalReplicationGroupIdSuffix :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members>
                             members :: [GlobalReplicationGroupMemberProperty],
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations>
                             regionalConfigurations :: (Prelude.Maybe [RegionalConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalReplicationGroup ::
   [GlobalReplicationGroupMemberProperty] -> GlobalReplicationGroup
 mkGlobalReplicationGroup members
   = GlobalReplicationGroup
-      {members = members, automaticFailoverEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), members = members,
+       automaticFailoverEnabled = Prelude.Nothing,
        cacheNodeType = Prelude.Nothing,
        cacheParameterGroupName = Prelude.Nothing,
        engine = Prelude.Nothing, engineVersion = Prelude.Nothing,

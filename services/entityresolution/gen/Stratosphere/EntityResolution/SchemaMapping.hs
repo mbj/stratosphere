@@ -9,9 +9,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SchemaMapping
-  = SchemaMapping {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html>
+    SchemaMapping {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html#cfn-entityresolution-schemamapping-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html#cfn-entityresolution-schemamapping-mappedinputfields>
                    mappedInputFields :: [SchemaInputAttributeProperty],
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html#cfn-entityresolution-schemamapping-schemaname>
                    schemaName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html#cfn-entityresolution-schemamapping-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaMapping ::
@@ -19,8 +25,9 @@ mkSchemaMapping ::
   -> Value Prelude.Text -> SchemaMapping
 mkSchemaMapping mappedInputFields schemaName
   = SchemaMapping
-      {mappedInputFields = mappedInputFields, schemaName = schemaName,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), mappedInputFields = mappedInputFields,
+       schemaName = schemaName, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SchemaMapping where
   toResourceProperties SchemaMapping {..}
     = ResourceProperties

@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsVpcConfigurationProperty
-  = AwsVpcConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html>
+    AwsVpcConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-assignpublicip>
+                                 assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-securitygroups>
                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html#cfn-events-rule-awsvpcconfiguration-subnets>
                                  subnets :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsVpcConfigurationProperty ::
   ValueList Prelude.Text -> AwsVpcConfigurationProperty
 mkAwsVpcConfigurationProperty subnets
   = AwsVpcConfigurationProperty
-      {subnets = subnets, assignPublicIp = Prelude.Nothing,
-       securityGroups = Prelude.Nothing}
+      {haddock_workaround_ = (), subnets = subnets,
+       assignPublicIp = Prelude.Nothing, securityGroups = Prelude.Nothing}
 instance ToResourceProperties AwsVpcConfigurationProperty where
   toResourceProperties AwsVpcConfigurationProperty {..}
     = ResourceProperties

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.KeyUsageFlagsProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyUsageProperty
-  = KeyUsageProperty {critical :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusage.html>
+    KeyUsageProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusage.html#cfn-pcaconnectorad-template-keyusage-critical>
+                      critical :: (Prelude.Maybe (Value Prelude.Bool)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusage.html#cfn-pcaconnectorad-template-keyusage-usageflags>
                       usageFlags :: KeyUsageFlagsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyUsageProperty :: KeyUsageFlagsProperty -> KeyUsageProperty
 mkKeyUsageProperty usageFlags
   = KeyUsageProperty
-      {usageFlags = usageFlags, critical = Prelude.Nothing}
+      {haddock_workaround_ = (), usageFlags = usageFlags,
+       critical = Prelude.Nothing}
 instance ToResourceProperties KeyUsageProperty where
   toResourceProperties KeyUsageProperty {..}
     = ResourceProperties

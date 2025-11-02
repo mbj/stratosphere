@@ -9,15 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PublicRepository
-  = PublicRepository {repositoryCatalogData :: (Prelude.Maybe RepositoryCatalogDataProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html>
+    PublicRepository {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorycatalogdata>
+                      repositoryCatalogData :: (Prelude.Maybe RepositoryCatalogDataProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositoryname>
                       repositoryName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-repositorypolicytext>
                       repositoryPolicyText :: (Prelude.Maybe JSON.Object),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html#cfn-ecr-publicrepository-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicRepository :: PublicRepository
 mkPublicRepository
   = PublicRepository
-      {repositoryCatalogData = Prelude.Nothing,
+      {haddock_workaround_ = (), repositoryCatalogData = Prelude.Nothing,
        repositoryName = Prelude.Nothing,
        repositoryPolicyText = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties PublicRepository where

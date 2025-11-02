@@ -7,24 +7,35 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AacSettingsProperty
-  = AacSettingsProperty {bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html>
+    AacSettingsProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-bitrate>
+                         bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-codingmode>
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-inputtype>
                          inputType :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-profile>
                          profile :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-ratecontrolmode>
                          rateControlMode :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-rawformat>
                          rawFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-samplerate>
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-spec>
                          spec :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html#cfn-medialive-channel-aacsettings-vbrquality>
                          vbrQuality :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAacSettingsProperty :: AacSettingsProperty
 mkAacSettingsProperty
   = AacSettingsProperty
-      {bitrate = Prelude.Nothing, codingMode = Prelude.Nothing,
-       inputType = Prelude.Nothing, profile = Prelude.Nothing,
-       rateControlMode = Prelude.Nothing, rawFormat = Prelude.Nothing,
-       sampleRate = Prelude.Nothing, spec = Prelude.Nothing,
-       vbrQuality = Prelude.Nothing}
+      {haddock_workaround_ = (), bitrate = Prelude.Nothing,
+       codingMode = Prelude.Nothing, inputType = Prelude.Nothing,
+       profile = Prelude.Nothing, rateControlMode = Prelude.Nothing,
+       rawFormat = Prelude.Nothing, sampleRate = Prelude.Nothing,
+       spec = Prelude.Nothing, vbrQuality = Prelude.Nothing}
 instance ToResourceProperties AacSettingsProperty where
   toResourceProperties AacSettingsProperty {..}
     = ResourceProperties

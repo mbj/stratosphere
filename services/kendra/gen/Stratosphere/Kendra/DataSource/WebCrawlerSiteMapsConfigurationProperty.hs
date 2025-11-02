@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSiteMapsConfigurationProperty
-  = WebCrawlerSiteMapsConfigurationProperty {siteMaps :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html>
+    WebCrawlerSiteMapsConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html#cfn-kendra-datasource-webcrawlersitemapsconfiguration-sitemaps>
+                                             siteMaps :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerSiteMapsConfigurationProperty ::
   ValueList Prelude.Text -> WebCrawlerSiteMapsConfigurationProperty
 mkWebCrawlerSiteMapsConfigurationProperty siteMaps
-  = WebCrawlerSiteMapsConfigurationProperty {siteMaps = siteMaps}
+  = WebCrawlerSiteMapsConfigurationProperty
+      {haddock_workaround_ = (), siteMaps = siteMaps}
 instance ToResourceProperties WebCrawlerSiteMapsConfigurationProperty where
   toResourceProperties WebCrawlerSiteMapsConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON WebCrawlerSiteMapsConfigurationProperty where
     = JSON.object ["SiteMaps" JSON..= siteMaps]
 instance Property "SiteMaps" WebCrawlerSiteMapsConfigurationProperty where
   type PropertyType "SiteMaps" WebCrawlerSiteMapsConfigurationProperty = ValueList Prelude.Text
-  set newValue WebCrawlerSiteMapsConfigurationProperty {}
+  set newValue WebCrawlerSiteMapsConfigurationProperty {..}
     = WebCrawlerSiteMapsConfigurationProperty {siteMaps = newValue, ..}

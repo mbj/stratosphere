@@ -11,11 +11,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SafetyRule
-  = SafetyRule {assertionRule :: (Prelude.Maybe AssertionRuleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html>
+    SafetyRule {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule>
+                assertionRule :: (Prelude.Maybe AssertionRuleProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn>
                 controlPanelArn :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule>
                 gatingRule :: (Prelude.Maybe GatingRuleProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig>
                 ruleConfig :: RuleConfigProperty,
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSafetyRule ::
@@ -23,9 +31,10 @@ mkSafetyRule ::
   -> Value Prelude.Text -> RuleConfigProperty -> SafetyRule
 mkSafetyRule controlPanelArn name ruleConfig
   = SafetyRule
-      {controlPanelArn = controlPanelArn, name = name,
-       ruleConfig = ruleConfig, assertionRule = Prelude.Nothing,
-       gatingRule = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), controlPanelArn = controlPanelArn,
+       name = name, ruleConfig = ruleConfig,
+       assertionRule = Prelude.Nothing, gatingRule = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SafetyRule where
   toResourceProperties SafetyRule {..}
     = ResourceProperties

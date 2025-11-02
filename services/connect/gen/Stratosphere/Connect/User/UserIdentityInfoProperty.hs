@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserIdentityInfoProperty
-  = UserIdentityInfoProperty {email :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>
+    UserIdentityInfoProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-email>
+                              email :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-firstname>
                               firstName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-lastname>
                               lastName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-mobile>
                               mobile :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-secondaryemail>
                               secondaryEmail :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserIdentityInfoProperty :: UserIdentityInfoProperty
 mkUserIdentityInfoProperty
   = UserIdentityInfoProperty
-      {email = Prelude.Nothing, firstName = Prelude.Nothing,
-       lastName = Prelude.Nothing, mobile = Prelude.Nothing,
-       secondaryEmail = Prelude.Nothing}
+      {haddock_workaround_ = (), email = Prelude.Nothing,
+       firstName = Prelude.Nothing, lastName = Prelude.Nothing,
+       mobile = Prelude.Nothing, secondaryEmail = Prelude.Nothing}
 instance ToResourceProperties UserIdentityInfoProperty where
   toResourceProperties UserIdentityInfoProperty {..}
     = ResourceProperties

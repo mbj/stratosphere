@@ -7,17 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPatternProperty
-  = CustomPatternProperty {keywordRegex :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html>
+    CustomPatternProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html#cfn-workspacesweb-dataprotectionsettings-custompattern-keywordregex>
+                           keywordRegex :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html#cfn-workspacesweb-dataprotectionsettings-custompattern-patterndescription>
                            patternDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html#cfn-workspacesweb-dataprotectionsettings-custompattern-patternname>
                            patternName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html#cfn-workspacesweb-dataprotectionsettings-custompattern-patternregex>
                            patternRegex :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPatternProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomPatternProperty
 mkCustomPatternProperty patternName patternRegex
   = CustomPatternProperty
-      {patternName = patternName, patternRegex = patternRegex,
-       keywordRegex = Prelude.Nothing,
+      {haddock_workaround_ = (), patternName = patternName,
+       patternRegex = patternRegex, keywordRegex = Prelude.Nothing,
        patternDescription = Prelude.Nothing}
 instance ToResourceProperties CustomPatternProperty where
   toResourceProperties CustomPatternProperty {..}

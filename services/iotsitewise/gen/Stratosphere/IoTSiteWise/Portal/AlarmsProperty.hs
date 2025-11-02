@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmsProperty
-  = AlarmsProperty {alarmRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html>
+    AlarmsProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html#cfn-iotsitewise-portal-alarms-alarmrolearn>
+                    alarmRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html#cfn-iotsitewise-portal-alarms-notificationlambdaarn>
                     notificationLambdaArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmsProperty :: AlarmsProperty
 mkAlarmsProperty
   = AlarmsProperty
-      {alarmRoleArn = Prelude.Nothing,
+      {haddock_workaround_ = (), alarmRoleArn = Prelude.Nothing,
        notificationLambdaArn = Prelude.Nothing}
 instance ToResourceProperties AlarmsProperty where
   toResourceProperties AlarmsProperty {..}

@@ -8,18 +8,28 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Tracker
-  = Tracker {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html>
+    Tracker {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description>
+             description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-eventbridgeenabled>
              eventBridgeEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyenablegeospatialqueries>
              kmsKeyEnableGeospatialQueries :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid>
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-positionfiltering>
              positionFiltering :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername>
              trackerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTracker :: Value Prelude.Text -> Tracker
 mkTracker trackerName
   = Tracker
-      {trackerName = trackerName, description = Prelude.Nothing,
+      {haddock_workaround_ = (), trackerName = trackerName,
+       description = Prelude.Nothing,
        eventBridgeEnabled = Prelude.Nothing,
        kmsKeyEnableGeospatialQueries = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, positionFiltering = Prelude.Nothing,

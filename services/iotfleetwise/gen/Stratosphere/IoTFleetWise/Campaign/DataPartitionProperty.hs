@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.DataPartitionUploadOpti
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPartitionProperty
-  = DataPartitionProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html>
+    DataPartitionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-id>
+                           id :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-storageoptions>
                            storageOptions :: DataPartitionStorageOptionsProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html#cfn-iotfleetwise-campaign-datapartition-uploadoptions>
                            uploadOptions :: (Prelude.Maybe DataPartitionUploadOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPartitionProperty ::
@@ -18,8 +23,8 @@ mkDataPartitionProperty ::
   -> DataPartitionStorageOptionsProperty -> DataPartitionProperty
 mkDataPartitionProperty id storageOptions
   = DataPartitionProperty
-      {id = id, storageOptions = storageOptions,
-       uploadOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), id = id,
+       storageOptions = storageOptions, uploadOptions = Prelude.Nothing}
 instance ToResourceProperties DataPartitionProperty where
   toResourceProperties DataPartitionProperty {..}
     = ResourceProperties

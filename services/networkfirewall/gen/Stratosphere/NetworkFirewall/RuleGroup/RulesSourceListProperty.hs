@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RulesSourceListProperty
-  = RulesSourceListProperty {generatedRulesType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html>
+    RulesSourceListProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype>
+                             generatedRulesType :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes>
                              targetTypes :: (ValueList Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets>
                              targets :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesSourceListProperty ::
@@ -17,7 +22,7 @@ mkRulesSourceListProperty ::
      -> ValueList Prelude.Text -> RulesSourceListProperty
 mkRulesSourceListProperty generatedRulesType targetTypes targets
   = RulesSourceListProperty
-      {generatedRulesType = generatedRulesType,
+      {haddock_workaround_ = (), generatedRulesType = generatedRulesType,
        targetTypes = targetTypes, targets = targets}
 instance ToResourceProperties RulesSourceListProperty where
   toResourceProperties RulesSourceListProperty {..}

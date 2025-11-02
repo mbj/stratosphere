@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.TextTransformationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqliMatchStatementProperty
-  = SqliMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html>
+    SqliMatchStatementProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch>
+                                fieldToMatch :: FieldToMatchProperty,
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-sensitivitylevel>
                                 sensitivityLevel :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations>
                                 textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSqliMatchStatementProperty ::
@@ -19,7 +24,7 @@ mkSqliMatchStatementProperty ::
   -> [TextTransformationProperty] -> SqliMatchStatementProperty
 mkSqliMatchStatementProperty fieldToMatch textTransformations
   = SqliMatchStatementProperty
-      {fieldToMatch = fieldToMatch,
+      {haddock_workaround_ = (), fieldToMatch = fieldToMatch,
        textTransformations = textTransformations,
        sensitivityLevel = Prelude.Nothing}
 instance ToResourceProperties SqliMatchStatementProperty where

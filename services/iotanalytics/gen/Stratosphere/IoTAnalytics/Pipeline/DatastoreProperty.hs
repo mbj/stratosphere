@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatastoreProperty
-  = DatastoreProperty {datastoreName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html>
+    DatastoreProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-datastorename>
+                       datastoreName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html#cfn-iotanalytics-pipeline-datastore-name>
                        name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastoreProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DatastoreProperty
 mkDatastoreProperty datastoreName name
-  = DatastoreProperty {datastoreName = datastoreName, name = name}
+  = DatastoreProperty
+      {haddock_workaround_ = (), datastoreName = datastoreName,
+       name = name}
 instance ToResourceProperties DatastoreProperty where
   toResourceProperties DatastoreProperty {..}
     = ResourceProperties

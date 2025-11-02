@@ -10,26 +10,40 @@ import {-# SOURCE #-} Stratosphere.Glue.Table.TableIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableInputProperty
-  = TableInputProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html>
+    TableInputProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description>
+                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name>
                         name :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner>
                         owner :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters>
                         parameters :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys>
                         partitionKeys :: (Prelude.Maybe [ColumnProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention>
                         retention :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor>
                         storageDescriptor :: (Prelude.Maybe StorageDescriptorProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype>
                         tableType :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable>
                         targetTable :: (Prelude.Maybe TableIdentifierProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext>
                         viewExpandedText :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext>
                         viewOriginalText :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableInputProperty :: TableInputProperty
 mkTableInputProperty
   = TableInputProperty
-      {description = Prelude.Nothing, name = Prelude.Nothing,
-       owner = Prelude.Nothing, parameters = Prelude.Nothing,
-       partitionKeys = Prelude.Nothing, retention = Prelude.Nothing,
-       storageDescriptor = Prelude.Nothing, tableType = Prelude.Nothing,
-       targetTable = Prelude.Nothing, viewExpandedText = Prelude.Nothing,
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       name = Prelude.Nothing, owner = Prelude.Nothing,
+       parameters = Prelude.Nothing, partitionKeys = Prelude.Nothing,
+       retention = Prelude.Nothing, storageDescriptor = Prelude.Nothing,
+       tableType = Prelude.Nothing, targetTable = Prelude.Nothing,
+       viewExpandedText = Prelude.Nothing,
        viewOriginalText = Prelude.Nothing}
 instance ToResourceProperties TableInputProperty where
   toResourceProperties TableInputProperty {..}

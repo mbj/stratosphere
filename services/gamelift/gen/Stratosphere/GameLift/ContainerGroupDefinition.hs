@@ -11,15 +11,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ContainerGroupDefinition
-  = ContainerGroupDefinition {containerGroupType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html>
+    ContainerGroupDefinition {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containergrouptype>
+                              containerGroupType :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition>
                               gameServerContainerDefinition :: (Prelude.Maybe GameServerContainerDefinitionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem>
                               operatingSystem :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-sourceversionnumber>
                               sourceVersionNumber :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinitions>
                               supportContainerDefinitions :: (Prelude.Maybe [SupportContainerDefinitionProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags>
                               tags :: (Prelude.Maybe [Tag]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimitmebibytes>
                               totalMemoryLimitMebibytes :: (Value Prelude.Integer),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit>
                               totalVcpuLimit :: (Value Prelude.Double),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-versiondescription>
                               versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerGroupDefinition ::
@@ -33,7 +45,8 @@ mkContainerGroupDefinition
   totalMemoryLimitMebibytes
   totalVcpuLimit
   = ContainerGroupDefinition
-      {name = name, operatingSystem = operatingSystem,
+      {haddock_workaround_ = (), name = name,
+       operatingSystem = operatingSystem,
        totalMemoryLimitMebibytes = totalMemoryLimitMebibytes,
        totalVcpuLimit = totalVcpuLimit,
        containerGroupType = Prelude.Nothing,

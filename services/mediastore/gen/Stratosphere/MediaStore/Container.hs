@@ -10,18 +10,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Container
-  = Container {accessLoggingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html>
+    Container {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-accessloggingenabled>
+               accessLoggingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-containername>
                containerName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-corspolicy>
                corsPolicy :: (Prelude.Maybe [CorsRuleProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-lifecyclepolicy>
                lifecyclePolicy :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-metricpolicy>
                metricPolicy :: (Prelude.Maybe MetricPolicyProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-policy>
                policy :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainer :: Value Prelude.Text -> Container
 mkContainer containerName
   = Container
-      {containerName = containerName,
+      {haddock_workaround_ = (), containerName = containerName,
        accessLoggingEnabled = Prelude.Nothing,
        corsPolicy = Prelude.Nothing, lifecyclePolicy = Prelude.Nothing,
        metricPolicy = Prelude.Nothing, policy = Prelude.Nothing,

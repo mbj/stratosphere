@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupMemberProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupMembersProperty
-  = OriginGroupMembersProperty {items :: [OriginGroupMemberProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html>
+    OriginGroupMembersProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items>
+                                items :: [OriginGroupMemberProperty],
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity>
                                 quantity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupMembersProperty ::
   [OriginGroupMemberProperty]
   -> Value Prelude.Integer -> OriginGroupMembersProperty
 mkOriginGroupMembersProperty items quantity
-  = OriginGroupMembersProperty {items = items, quantity = quantity}
+  = OriginGroupMembersProperty
+      {haddock_workaround_ = (), items = items, quantity = quantity}
 instance ToResourceProperties OriginGroupMembersProperty where
   toResourceProperties OriginGroupMembersProperty {..}
     = ResourceProperties

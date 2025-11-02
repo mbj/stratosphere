@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Preset
-  = Preset {category :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html>
+    Preset {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html#cfn-mediaconvert-preset-category>
+            category :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html#cfn-mediaconvert-preset-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html#cfn-mediaconvert-preset-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html#cfn-mediaconvert-preset-settingsjson>
             settingsJson :: JSON.Object,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html#cfn-mediaconvert-preset-tags>
             tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPreset :: JSON.Object -> Preset
 mkPreset settingsJson
   = Preset
-      {settingsJson = settingsJson, category = Prelude.Nothing,
-       description = Prelude.Nothing, name = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), settingsJson = settingsJson,
+       category = Prelude.Nothing, description = Prelude.Nothing,
+       name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Preset where
   toResourceProperties Preset {..}
     = ResourceProperties

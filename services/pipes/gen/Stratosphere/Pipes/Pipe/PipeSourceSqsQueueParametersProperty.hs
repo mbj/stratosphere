@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeSourceSqsQueueParametersProperty
-  = PipeSourceSqsQueueParametersProperty {batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcesqsqueueparameters.html>
+    PipeSourceSqsQueueParametersProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcesqsqueueparameters.html#cfn-pipes-pipe-pipesourcesqsqueueparameters-batchsize>
+                                          batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcesqsqueueparameters.html#cfn-pipes-pipe-pipesourcesqsqueueparameters-maximumbatchingwindowinseconds>
                                           maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceSqsQueueParametersProperty ::
   PipeSourceSqsQueueParametersProperty
 mkPipeSourceSqsQueueParametersProperty
   = PipeSourceSqsQueueParametersProperty
-      {batchSize = Prelude.Nothing,
+      {haddock_workaround_ = (), batchSize = Prelude.Nothing,
        maximumBatchingWindowInSeconds = Prelude.Nothing}
 instance ToResourceProperties PipeSourceSqsQueueParametersProperty where
   toResourceProperties PipeSourceSqsQueueParametersProperty {..}

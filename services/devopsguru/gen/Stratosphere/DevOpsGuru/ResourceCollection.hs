@@ -7,13 +7,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.ResourceCollectionFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceCollection
-  = ResourceCollection {resourceCollectionFilter :: ResourceCollectionFilterProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html>
+    ResourceCollection {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter>
+                        resourceCollectionFilter :: ResourceCollectionFilterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollection ::
   ResourceCollectionFilterProperty -> ResourceCollection
 mkResourceCollection resourceCollectionFilter
   = ResourceCollection
-      {resourceCollectionFilter = resourceCollectionFilter}
+      {haddock_workaround_ = (),
+       resourceCollectionFilter = resourceCollectionFilter}
 instance ToResourceProperties ResourceCollection where
   toResourceProperties ResourceCollection {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON ResourceCollection where
         ["ResourceCollectionFilter" JSON..= resourceCollectionFilter]
 instance Property "ResourceCollectionFilter" ResourceCollection where
   type PropertyType "ResourceCollectionFilter" ResourceCollection = ResourceCollectionFilterProperty
-  set newValue ResourceCollection {}
+  set newValue ResourceCollection {..}
     = ResourceCollection {resourceCollectionFilter = newValue, ..}

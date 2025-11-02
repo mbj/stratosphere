@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Alias
-  = Alias {aliasName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html>
+    Alias {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname>
+           aliasName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid>
            targetKeyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias :: Value Prelude.Text -> Value Prelude.Text -> Alias
 mkAlias aliasName targetKeyId
-  = Alias {aliasName = aliasName, targetKeyId = targetKeyId}
+  = Alias
+      {haddock_workaround_ = (), aliasName = aliasName,
+       targetKeyId = targetKeyId}
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties

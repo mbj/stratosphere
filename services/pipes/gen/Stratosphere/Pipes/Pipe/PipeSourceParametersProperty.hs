@@ -15,19 +15,30 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeSourceSelfManagedKafkaParamete
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeSourceSqsQueueParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data PipeSourceParametersProperty
-  = PipeSourceParametersProperty {activeMQBrokerParameters :: (Prelude.Maybe PipeSourceActiveMQBrokerParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html>
+    PipeSourceParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-activemqbrokerparameters>
+                                  activeMQBrokerParameters :: (Prelude.Maybe PipeSourceActiveMQBrokerParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-dynamodbstreamparameters>
                                   dynamoDBStreamParameters :: (Prelude.Maybe PipeSourceDynamoDBStreamParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-filtercriteria>
                                   filterCriteria :: (Prelude.Maybe FilterCriteriaProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-kinesisstreamparameters>
                                   kinesisStreamParameters :: (Prelude.Maybe PipeSourceKinesisStreamParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-managedstreamingkafkaparameters>
                                   managedStreamingKafkaParameters :: (Prelude.Maybe PipeSourceManagedStreamingKafkaParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-rabbitmqbrokerparameters>
                                   rabbitMQBrokerParameters :: (Prelude.Maybe PipeSourceRabbitMQBrokerParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-selfmanagedkafkaparameters>
                                   selfManagedKafkaParameters :: (Prelude.Maybe PipeSourceSelfManagedKafkaParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html#cfn-pipes-pipe-pipesourceparameters-sqsqueueparameters>
                                   sqsQueueParameters :: (Prelude.Maybe PipeSourceSqsQueueParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceParametersProperty :: PipeSourceParametersProperty
 mkPipeSourceParametersProperty
   = PipeSourceParametersProperty
-      {activeMQBrokerParameters = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       activeMQBrokerParameters = Prelude.Nothing,
        dynamoDBStreamParameters = Prelude.Nothing,
        filterCriteria = Prelude.Nothing,
        kinesisStreamParameters = Prelude.Nothing,

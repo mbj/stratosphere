@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupProfile
-  = GroupProfile {domainIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html>
+    GroupProfile {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-domainidentifier>
+                  domainIdentifier :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-groupidentifier>
                   groupIdentifier :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-status>
                   status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupProfile ::
   Value Prelude.Text -> Value Prelude.Text -> GroupProfile
 mkGroupProfile domainIdentifier groupIdentifier
   = GroupProfile
-      {domainIdentifier = domainIdentifier,
+      {haddock_workaround_ = (), domainIdentifier = domainIdentifier,
        groupIdentifier = groupIdentifier, status = Prelude.Nothing}
 instance ToResourceProperties GroupProfile where
   toResourceProperties GroupProfile {..}

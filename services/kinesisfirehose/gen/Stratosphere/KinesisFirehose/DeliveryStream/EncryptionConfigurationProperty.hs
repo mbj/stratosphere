@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.KMSEncryptionC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {kMSEncryptionConfig :: (Prelude.Maybe KMSEncryptionConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig>
+                                     kMSEncryptionConfig :: (Prelude.Maybe KMSEncryptionConfigProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig>
                                      noEncryptionConfig :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty
   = EncryptionConfigurationProperty
-      {kMSEncryptionConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), kMSEncryptionConfig = Prelude.Nothing,
        noEncryptionConfig = Prelude.Nothing}
 instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}

@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceBlogToIndexFieldMappingProperty
-  = ConfluenceBlogToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html>
+    ConfluenceBlogToIndexFieldMappingProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datasourcefieldname>
+                                               dataSourceFieldName :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datefieldformat>
                                                dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-indexfieldname>
                                                indexFieldName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceBlogToIndexFieldMappingProperty ::
@@ -19,7 +24,8 @@ mkConfluenceBlogToIndexFieldMappingProperty
   dataSourceFieldName
   indexFieldName
   = ConfluenceBlogToIndexFieldMappingProperty
-      {dataSourceFieldName = dataSourceFieldName,
+      {haddock_workaround_ = (),
+       dataSourceFieldName = dataSourceFieldName,
        indexFieldName = indexFieldName, dateFieldFormat = Prelude.Nothing}
 instance ToResourceProperties ConfluenceBlogToIndexFieldMappingProperty where
   toResourceProperties ConfluenceBlogToIndexFieldMappingProperty {..}

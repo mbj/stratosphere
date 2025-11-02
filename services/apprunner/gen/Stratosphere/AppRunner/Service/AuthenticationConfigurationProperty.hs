@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthenticationConfigurationProperty
-  = AuthenticationConfigurationProperty {accessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html>
+    AuthenticationConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn>
+                                         accessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn>
                                          connectionArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationConfigurationProperty ::
   AuthenticationConfigurationProperty
 mkAuthenticationConfigurationProperty
   = AuthenticationConfigurationProperty
-      {accessRoleArn = Prelude.Nothing, connectionArn = Prelude.Nothing}
+      {haddock_workaround_ = (), accessRoleArn = Prelude.Nothing,
+       connectionArn = Prelude.Nothing}
 instance ToResourceProperties AuthenticationConfigurationProperty where
   toResourceProperties AuthenticationConfigurationProperty {..}
     = ResourceProperties

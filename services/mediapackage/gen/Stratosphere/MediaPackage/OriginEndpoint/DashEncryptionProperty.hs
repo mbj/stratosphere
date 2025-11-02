@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.SpekeKeyProviderP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashEncryptionProperty
-  = DashEncryptionProperty {keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html>
+    DashEncryptionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds>
+                            keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider>
                             spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashEncryptionProperty ::
   SpekeKeyProviderProperty -> DashEncryptionProperty
 mkDashEncryptionProperty spekeKeyProvider
   = DashEncryptionProperty
-      {spekeKeyProvider = spekeKeyProvider,
+      {haddock_workaround_ = (), spekeKeyProvider = spekeKeyProvider,
        keyRotationIntervalSeconds = Prelude.Nothing}
 instance ToResourceProperties DashEncryptionProperty where
   toResourceProperties DashEncryptionProperty {..}

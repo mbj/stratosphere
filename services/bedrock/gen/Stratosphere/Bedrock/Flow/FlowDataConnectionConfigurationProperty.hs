@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowDataConnectionConfigurationProperty
-  = FlowDataConnectionConfigurationProperty {sourceOutput :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdataconnectionconfiguration.html>
+    FlowDataConnectionConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdataconnectionconfiguration.html#cfn-bedrock-flow-flowdataconnectionconfiguration-sourceoutput>
+                                             sourceOutput :: (Value Prelude.Text),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdataconnectionconfiguration.html#cfn-bedrock-flow-flowdataconnectionconfiguration-targetinput>
                                              targetInput :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowDataConnectionConfigurationProperty ::
@@ -16,7 +20,8 @@ mkFlowDataConnectionConfigurationProperty ::
   -> Value Prelude.Text -> FlowDataConnectionConfigurationProperty
 mkFlowDataConnectionConfigurationProperty sourceOutput targetInput
   = FlowDataConnectionConfigurationProperty
-      {sourceOutput = sourceOutput, targetInput = targetInput}
+      {haddock_workaround_ = (), sourceOutput = sourceOutput,
+       targetInput = targetInput}
 instance ToResourceProperties FlowDataConnectionConfigurationProperty where
   toResourceProperties FlowDataConnectionConfigurationProperty {..}
     = ResourceProperties

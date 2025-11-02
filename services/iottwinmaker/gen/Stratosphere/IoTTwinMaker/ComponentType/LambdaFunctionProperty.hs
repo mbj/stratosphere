@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaFunctionProperty
-  = LambdaFunctionProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html>
+    LambdaFunctionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html#cfn-iottwinmaker-componenttype-lambdafunction-arn>
+                            arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionProperty ::
   Value Prelude.Text -> LambdaFunctionProperty
-mkLambdaFunctionProperty arn = LambdaFunctionProperty {arn = arn}
+mkLambdaFunctionProperty arn
+  = LambdaFunctionProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties LambdaFunctionProperty where
   toResourceProperties LambdaFunctionProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON LambdaFunctionProperty where
     = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" LambdaFunctionProperty where
   type PropertyType "Arn" LambdaFunctionProperty = Value Prelude.Text
-  set newValue LambdaFunctionProperty {}
+  set newValue LambdaFunctionProperty {..}
     = LambdaFunctionProperty {arn = newValue, ..}

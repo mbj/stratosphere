@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DvbSdtSettingsProperty
-  = DvbSdtSettingsProperty {outputSdt :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html>
+    DvbSdtSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-outputsdt>
+                            outputSdt :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-repinterval>
                             repInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-servicename>
                             serviceName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html#cfn-medialive-channel-dvbsdtsettings-serviceprovidername>
                             serviceProviderName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbSdtSettingsProperty :: DvbSdtSettingsProperty
 mkDvbSdtSettingsProperty
   = DvbSdtSettingsProperty
-      {outputSdt = Prelude.Nothing, repInterval = Prelude.Nothing,
-       serviceName = Prelude.Nothing,
+      {haddock_workaround_ = (), outputSdt = Prelude.Nothing,
+       repInterval = Prelude.Nothing, serviceName = Prelude.Nothing,
        serviceProviderName = Prelude.Nothing}
 instance ToResourceProperties DvbSdtSettingsProperty where
   toResourceProperties DvbSdtSettingsProperty {..}

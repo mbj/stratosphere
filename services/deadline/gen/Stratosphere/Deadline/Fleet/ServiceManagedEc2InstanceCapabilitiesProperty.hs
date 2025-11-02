@@ -14,15 +14,27 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.VCpuCountRangeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceManagedEc2InstanceCapabilitiesProperty
-  = ServiceManagedEc2InstanceCapabilitiesProperty {acceleratorCapabilities :: (Prelude.Maybe AcceleratorCapabilitiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html>
+    ServiceManagedEc2InstanceCapabilitiesProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-acceleratorcapabilities>
+                                                   acceleratorCapabilities :: (Prelude.Maybe AcceleratorCapabilitiesProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-allowedinstancetypes>
                                                    allowedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-cpuarchitecturetype>
                                                    cpuArchitectureType :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-customamounts>
                                                    customAmounts :: (Prelude.Maybe [FleetAmountCapabilityProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-customattributes>
                                                    customAttributes :: (Prelude.Maybe [FleetAttributeCapabilityProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-excludedinstancetypes>
                                                    excludedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-memorymib>
                                                    memoryMiB :: MemoryMiBRangeProperty,
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-osfamily>
                                                    osFamily :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-rootebsvolume>
                                                    rootEbsVolume :: (Prelude.Maybe Ec2EbsVolumeProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-vcpucount>
                                                    vCpuCount :: VCpuCountRangeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceManagedEc2InstanceCapabilitiesProperty ::
@@ -37,7 +49,8 @@ mkServiceManagedEc2InstanceCapabilitiesProperty
   osFamily
   vCpuCount
   = ServiceManagedEc2InstanceCapabilitiesProperty
-      {cpuArchitectureType = cpuArchitectureType, memoryMiB = memoryMiB,
+      {haddock_workaround_ = (),
+       cpuArchitectureType = cpuArchitectureType, memoryMiB = memoryMiB,
        osFamily = osFamily, vCpuCount = vCpuCount,
        acceleratorCapabilities = Prelude.Nothing,
        allowedInstanceTypes = Prelude.Nothing,

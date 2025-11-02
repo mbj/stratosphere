@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.EMR.Step.HadoopJarStepConfigProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Step
-  = Step {actionOnFailure :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html>
+    Step {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-actiononfailure>
+          actionOnFailure :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-hadoopjarstep>
           hadoopJarStep :: HadoopJarStepConfigProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-jobflowid>
           jobFlowId :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-name>
           name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStep ::
@@ -19,8 +25,8 @@ mkStep ::
      -> Value Prelude.Text -> Value Prelude.Text -> Step
 mkStep actionOnFailure hadoopJarStep jobFlowId name
   = Step
-      {actionOnFailure = actionOnFailure, hadoopJarStep = hadoopJarStep,
-       jobFlowId = jobFlowId, name = name}
+      {haddock_workaround_ = (), actionOnFailure = actionOnFailure,
+       hadoopJarStep = hadoopJarStep, jobFlowId = jobFlowId, name = name}
 instance ToResourceProperties Step where
   toResourceProperties Step {..}
     = ResourceProperties

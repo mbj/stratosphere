@@ -12,10 +12,17 @@ import {-# SOURCE #-} Stratosphere.CloudFront.CachePolicy.QueryStringsConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParametersInCacheKeyAndForwardedToOriginProperty
-  = ParametersInCacheKeyAndForwardedToOriginProperty {cookiesConfig :: CookiesConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html>
+    ParametersInCacheKeyAndForwardedToOriginProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig>
+                                                      cookiesConfig :: CookiesConfigProperty,
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli>
                                                       enableAcceptEncodingBrotli :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip>
                                                       enableAcceptEncodingGzip :: (Value Prelude.Bool),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig>
                                                       headersConfig :: HeadersConfigProperty,
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig>
                                                       queryStringsConfig :: QueryStringsConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersInCacheKeyAndForwardedToOriginProperty ::
@@ -30,7 +37,7 @@ mkParametersInCacheKeyAndForwardedToOriginProperty
   headersConfig
   queryStringsConfig
   = ParametersInCacheKeyAndForwardedToOriginProperty
-      {cookiesConfig = cookiesConfig,
+      {haddock_workaround_ = (), cookiesConfig = cookiesConfig,
        enableAcceptEncodingGzip = enableAcceptEncodingGzip,
        headersConfig = headersConfig,
        queryStringsConfig = queryStringsConfig,

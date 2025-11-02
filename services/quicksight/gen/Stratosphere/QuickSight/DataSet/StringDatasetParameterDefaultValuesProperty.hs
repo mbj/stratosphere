@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StringDatasetParameterDefaultValuesProperty
-  = StringDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html>
+    StringDatasetParameterDefaultValuesProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html#cfn-quicksight-dataset-stringdatasetparameterdefaultvalues-staticvalues>
+                                                 staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStringDatasetParameterDefaultValuesProperty ::
   StringDatasetParameterDefaultValuesProperty
 mkStringDatasetParameterDefaultValuesProperty
   = StringDatasetParameterDefaultValuesProperty
-      {staticValues = Prelude.Nothing}
+      {haddock_workaround_ = (), staticValues = Prelude.Nothing}
 instance ToResourceProperties StringDatasetParameterDefaultValuesProperty where
   toResourceProperties
     StringDatasetParameterDefaultValuesProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON StringDatasetParameterDefaultValuesProperty where
               [(JSON..=) "StaticValues" Prelude.<$> staticValues]))
 instance Property "StaticValues" StringDatasetParameterDefaultValuesProperty where
   type PropertyType "StaticValues" StringDatasetParameterDefaultValuesProperty = ValueList Prelude.Text
-  set newValue StringDatasetParameterDefaultValuesProperty {}
+  set newValue StringDatasetParameterDefaultValuesProperty {..}
     = StringDatasetParameterDefaultValuesProperty
         {staticValues = Prelude.pure newValue, ..}

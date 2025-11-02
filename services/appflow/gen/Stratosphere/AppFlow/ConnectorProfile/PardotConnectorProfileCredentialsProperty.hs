@@ -9,16 +9,22 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorOAuthReques
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PardotConnectorProfileCredentialsProperty
-  = PardotConnectorProfileCredentialsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html>
+    PardotConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-accesstoken>
+                                               accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-clientcredentialsarn>
                                                clientCredentialsArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-connectoroauthrequest>
                                                connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html#cfn-appflow-connectorprofile-pardotconnectorprofilecredentials-refreshtoken>
                                                refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotConnectorProfileCredentialsProperty ::
   PardotConnectorProfileCredentialsProperty
 mkPardotConnectorProfileCredentialsProperty
   = PardotConnectorProfileCredentialsProperty
-      {accessToken = Prelude.Nothing,
+      {haddock_workaround_ = (), accessToken = Prelude.Nothing,
        clientCredentialsArn = Prelude.Nothing,
        connectorOAuthRequest = Prelude.Nothing,
        refreshToken = Prelude.Nothing}

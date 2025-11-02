@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionBasedCollectionSchemeProperty
-  = ConditionBasedCollectionSchemeProperty {conditionLanguageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html>
+    ConditionBasedCollectionSchemeProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html#cfn-iotfleetwise-campaign-conditionbasedcollectionscheme-conditionlanguageversion>
+                                            conditionLanguageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html#cfn-iotfleetwise-campaign-conditionbasedcollectionscheme-expression>
                                             expression :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html#cfn-iotfleetwise-campaign-conditionbasedcollectionscheme-minimumtriggerintervalms>
                                             minimumTriggerIntervalMs :: (Prelude.Maybe (Value Prelude.Double)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html#cfn-iotfleetwise-campaign-conditionbasedcollectionscheme-triggermode>
                                             triggerMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionBasedCollectionSchemeProperty ::
   Value Prelude.Text -> ConditionBasedCollectionSchemeProperty
 mkConditionBasedCollectionSchemeProperty expression
   = ConditionBasedCollectionSchemeProperty
-      {expression = expression,
+      {haddock_workaround_ = (), expression = expression,
        conditionLanguageVersion = Prelude.Nothing,
        minimumTriggerIntervalMs = Prelude.Nothing,
        triggerMode = Prelude.Nothing}

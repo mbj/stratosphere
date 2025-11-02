@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationProperty
-  = ApplicationProperty {applicationPermissions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html>
+    ApplicationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-applicationpermissions>
+                         applicationPermissions :: (ValueList Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-namespace>
                          namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> ApplicationProperty
 mkApplicationProperty applicationPermissions namespace
   = ApplicationProperty
-      {applicationPermissions = applicationPermissions,
+      {haddock_workaround_ = (),
+       applicationPermissions = applicationPermissions,
        namespace = namespace}
 instance ToResourceProperties ApplicationProperty where
   toResourceProperties ApplicationProperty {..}

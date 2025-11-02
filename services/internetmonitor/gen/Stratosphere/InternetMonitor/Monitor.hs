@@ -10,23 +10,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Monitor
-  = Monitor {healthEventsConfig :: (Prelude.Maybe HealthEventsConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html>
+    Monitor {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-healtheventsconfig>
+             healthEventsConfig :: (Prelude.Maybe HealthEventsConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-includelinkedaccounts>
              includeLinkedAccounts :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery>
              internetMeasurementsLogDelivery :: (Prelude.Maybe InternetMeasurementsLogDeliveryProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-linkedaccountid>
              linkedAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-maxcitynetworkstomonitor>
              maxCityNetworksToMonitor :: (Prelude.Maybe (Value Prelude.Integer)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-monitorname>
              monitorName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-resources>
              resources :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-resourcestoadd>
              resourcesToAdd :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-resourcestoremove>
              resourcesToRemove :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-status>
              status :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-trafficpercentagetomonitor>
              trafficPercentageToMonitor :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitor :: Value Prelude.Text -> Monitor
 mkMonitor monitorName
   = Monitor
-      {monitorName = monitorName, healthEventsConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), monitorName = monitorName,
+       healthEventsConfig = Prelude.Nothing,
        includeLinkedAccounts = Prelude.Nothing,
        internetMeasurementsLogDelivery = Prelude.Nothing,
        linkedAccountId = Prelude.Nothing,

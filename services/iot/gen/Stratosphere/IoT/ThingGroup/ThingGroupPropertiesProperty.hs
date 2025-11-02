@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.IoT.ThingGroup.AttributePayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThingGroupPropertiesProperty
-  = ThingGroupPropertiesProperty {attributePayload :: (Prelude.Maybe AttributePayloadProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html>
+    ThingGroupPropertiesProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html#cfn-iot-thinggroup-thinggroupproperties-attributepayload>
+                                  attributePayload :: (Prelude.Maybe AttributePayloadProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html#cfn-iot-thinggroup-thinggroupproperties-thinggroupdescription>
                                   thingGroupDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThingGroupPropertiesProperty :: ThingGroupPropertiesProperty
 mkThingGroupPropertiesProperty
   = ThingGroupPropertiesProperty
-      {attributePayload = Prelude.Nothing,
+      {haddock_workaround_ = (), attributePayload = Prelude.Nothing,
        thingGroupDescription = Prelude.Nothing}
 instance ToResourceProperties ThingGroupPropertiesProperty where
   toResourceProperties ThingGroupPropertiesProperty {..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingMetricDimensionProperty
-  = TargetTrackingMetricDimensionProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html>
+    TargetTrackingMetricDimensionProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetricdimension-name>
+                                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html#cfn-applicationautoscaling-scalingpolicy-targettrackingmetricdimension-value>
                                            value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingMetricDimensionProperty ::
   TargetTrackingMetricDimensionProperty
 mkTargetTrackingMetricDimensionProperty
   = TargetTrackingMetricDimensionProperty
-      {name = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties TargetTrackingMetricDimensionProperty where
   toResourceProperties TargetTrackingMetricDimensionProperty {..}
     = ResourceProperties

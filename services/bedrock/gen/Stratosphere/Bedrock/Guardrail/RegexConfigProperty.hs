@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegexConfigProperty
-  = RegexConfigProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html>
+    RegexConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-action>
+                         action :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-description>
                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-pattern>
                          pattern :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexConfigProperty ::
@@ -17,8 +23,8 @@ mkRegexConfigProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> RegexConfigProperty
 mkRegexConfigProperty action name pattern
   = RegexConfigProperty
-      {action = action, name = name, pattern = pattern,
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action, name = name,
+       pattern = pattern, description = Prelude.Nothing}
 instance ToResourceProperties RegexConfigProperty where
   toResourceProperties RegexConfigProperty {..}
     = ResourceProperties

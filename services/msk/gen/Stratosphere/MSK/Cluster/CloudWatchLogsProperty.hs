@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsProperty
-  = CloudWatchLogsProperty {enabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html>
+    CloudWatchLogsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-enabled>
+                            enabled :: (Value Prelude.Bool),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup>
                             logGroup :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsProperty ::
   Value Prelude.Bool -> CloudWatchLogsProperty
 mkCloudWatchLogsProperty enabled
   = CloudWatchLogsProperty
-      {enabled = enabled, logGroup = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       logGroup = Prelude.Nothing}
 instance ToResourceProperties CloudWatchLogsProperty where
   toResourceProperties CloudWatchLogsProperty {..}
     = ResourceProperties

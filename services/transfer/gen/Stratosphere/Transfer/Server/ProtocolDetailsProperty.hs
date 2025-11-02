@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProtocolDetailsProperty
-  = ProtocolDetailsProperty {as2Transports :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html>
+    ProtocolDetailsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-as2transports>
+                             as2Transports :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-passiveip>
                              passiveIp :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-setstatoption>
                              setStatOption :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-tlssessionresumptionmode>
                              tlsSessionResumptionMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolDetailsProperty :: ProtocolDetailsProperty
 mkProtocolDetailsProperty
   = ProtocolDetailsProperty
-      {as2Transports = Prelude.Nothing, passiveIp = Prelude.Nothing,
-       setStatOption = Prelude.Nothing,
+      {haddock_workaround_ = (), as2Transports = Prelude.Nothing,
+       passiveIp = Prelude.Nothing, setStatOption = Prelude.Nothing,
        tlsSessionResumptionMode = Prelude.Nothing}
 instance ToResourceProperties ProtocolDetailsProperty where
   toResourceProperties ProtocolDetailsProperty {..}

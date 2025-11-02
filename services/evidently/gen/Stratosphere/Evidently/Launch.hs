@@ -12,14 +12,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Launch
-  = Launch {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html>
+    Launch {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-description>
+            description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-executionstatus>
             executionStatus :: (Prelude.Maybe ExecutionStatusObjectProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-groups>
             groups :: [LaunchGroupObjectProperty],
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-metricmonitors>
             metricMonitors :: (Prelude.Maybe [MetricDefinitionObjectProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-name>
             name :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project>
             project :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-randomizationsalt>
             randomizationSalt :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig>
             scheduledSplitsConfig :: [StepConfigProperty],
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-tags>
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunch ::
@@ -28,8 +39,8 @@ mkLaunch ::
      -> Value Prelude.Text -> [StepConfigProperty] -> Launch
 mkLaunch groups name project scheduledSplitsConfig
   = Launch
-      {groups = groups, name = name, project = project,
-       scheduledSplitsConfig = scheduledSplitsConfig,
+      {haddock_workaround_ = (), groups = groups, name = name,
+       project = project, scheduledSplitsConfig = scheduledSplitsConfig,
        description = Prelude.Nothing, executionStatus = Prelude.Nothing,
        metricMonitors = Prelude.Nothing,
        randomizationSalt = Prelude.Nothing, tags = Prelude.Nothing}

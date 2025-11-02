@@ -7,17 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomRuleProperty
-  = CustomRuleProperty {condition :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html>
+    CustomRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition>
+                        condition :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source>
                         source :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status>
                         status :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target>
                         target :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomRuleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomRuleProperty
 mkCustomRuleProperty source target
   = CustomRuleProperty
-      {source = source, target = target, condition = Prelude.Nothing,
-       status = Prelude.Nothing}
+      {haddock_workaround_ = (), source = source, target = target,
+       condition = Prelude.Nothing, status = Prelude.Nothing}
 instance ToResourceProperties CustomRuleProperty where
   toResourceProperties CustomRuleProperty {..}
     = ResourceProperties

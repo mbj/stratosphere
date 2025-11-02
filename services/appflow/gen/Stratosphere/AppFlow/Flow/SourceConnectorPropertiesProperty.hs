@@ -24,37 +24,56 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.VeevaSourcePropertiesProperty as
 import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ZendeskSourcePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceConnectorPropertiesProperty
-  = SourceConnectorPropertiesProperty {amplitude :: (Prelude.Maybe AmplitudeSourcePropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html>
+    SourceConnectorPropertiesProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude>
+                                       amplitude :: (Prelude.Maybe AmplitudeSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-customconnector>
                                        customConnector :: (Prelude.Maybe CustomConnectorSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog>
                                        datadog :: (Prelude.Maybe DatadogSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace>
                                        dynatrace :: (Prelude.Maybe DynatraceSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics>
                                        googleAnalytics :: (Prelude.Maybe GoogleAnalyticsSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus>
                                        inforNexus :: (Prelude.Maybe InforNexusSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo>
                                        marketo :: (Prelude.Maybe MarketoSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-pardot>
                                        pardot :: (Prelude.Maybe PardotSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3>
                                        s3 :: (Prelude.Maybe S3SourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-sapodata>
                                        sAPOData :: (Prelude.Maybe SAPODataSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce>
                                        salesforce :: (Prelude.Maybe SalesforceSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow>
                                        serviceNow :: (Prelude.Maybe ServiceNowSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular>
                                        singular :: (Prelude.Maybe SingularSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack>
                                        slack :: (Prelude.Maybe SlackSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro>
                                        trendmicro :: (Prelude.Maybe TrendmicroSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva>
                                        veeva :: (Prelude.Maybe VeevaSourcePropertiesProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk>
                                        zendesk :: (Prelude.Maybe ZendeskSourcePropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectorPropertiesProperty ::
   SourceConnectorPropertiesProperty
 mkSourceConnectorPropertiesProperty
   = SourceConnectorPropertiesProperty
-      {amplitude = Prelude.Nothing, customConnector = Prelude.Nothing,
-       datadog = Prelude.Nothing, dynatrace = Prelude.Nothing,
-       googleAnalytics = Prelude.Nothing, inforNexus = Prelude.Nothing,
-       marketo = Prelude.Nothing, pardot = Prelude.Nothing,
-       s3 = Prelude.Nothing, sAPOData = Prelude.Nothing,
-       salesforce = Prelude.Nothing, serviceNow = Prelude.Nothing,
-       singular = Prelude.Nothing, slack = Prelude.Nothing,
-       trendmicro = Prelude.Nothing, veeva = Prelude.Nothing,
-       zendesk = Prelude.Nothing}
+      {haddock_workaround_ = (), amplitude = Prelude.Nothing,
+       customConnector = Prelude.Nothing, datadog = Prelude.Nothing,
+       dynatrace = Prelude.Nothing, googleAnalytics = Prelude.Nothing,
+       inforNexus = Prelude.Nothing, marketo = Prelude.Nothing,
+       pardot = Prelude.Nothing, s3 = Prelude.Nothing,
+       sAPOData = Prelude.Nothing, salesforce = Prelude.Nothing,
+       serviceNow = Prelude.Nothing, singular = Prelude.Nothing,
+       slack = Prelude.Nothing, trendmicro = Prelude.Nothing,
+       veeva = Prelude.Nothing, zendesk = Prelude.Nothing}
 instance ToResourceProperties SourceConnectorPropertiesProperty where
   toResourceProperties SourceConnectorPropertiesProperty {..}
     = ResourceProperties

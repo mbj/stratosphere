@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenderingEngineProperty
-  = RenderingEngineProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html>
+    RenderingEngineProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version>
                              version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRenderingEngineProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RenderingEngineProperty
 mkRenderingEngineProperty name version
-  = RenderingEngineProperty {name = name, version = version}
+  = RenderingEngineProperty
+      {haddock_workaround_ = (), name = name, version = version}
 instance ToResourceProperties RenderingEngineProperty where
   toResourceProperties RenderingEngineProperty {..}
     = ResourceProperties

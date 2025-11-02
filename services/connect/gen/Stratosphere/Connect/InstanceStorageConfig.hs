@@ -11,12 +11,21 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.S3ConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceStorageConfig
-  = InstanceStorageConfig {instanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html>
+    InstanceStorageConfig {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-instancearn>
+                           instanceArn :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisfirehoseconfig>
                            kinesisFirehoseConfig :: (Prelude.Maybe KinesisFirehoseConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisstreamconfig>
                            kinesisStreamConfig :: (Prelude.Maybe KinesisStreamConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig>
                            kinesisVideoStreamConfig :: (Prelude.Maybe KinesisVideoStreamConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-resourcetype>
                            resourceType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-s3config>
                            s3Config :: (Prelude.Maybe S3ConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-storagetype>
                            storageType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceStorageConfig ::
@@ -25,8 +34,9 @@ mkInstanceStorageConfig ::
      -> Value Prelude.Text -> InstanceStorageConfig
 mkInstanceStorageConfig instanceArn resourceType storageType
   = InstanceStorageConfig
-      {instanceArn = instanceArn, resourceType = resourceType,
-       storageType = storageType, kinesisFirehoseConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       resourceType = resourceType, storageType = storageType,
+       kinesisFirehoseConfig = Prelude.Nothing,
        kinesisStreamConfig = Prelude.Nothing,
        kinesisVideoStreamConfig = Prelude.Nothing,
        s3Config = Prelude.Nothing}

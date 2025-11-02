@@ -22,28 +22,48 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DeliveryStream
-  = DeliveryStream {amazonOpenSearchServerlessDestinationConfiguration :: (Prelude.Maybe AmazonOpenSearchServerlessDestinationConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html>
+    DeliveryStream {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration>
+                    amazonOpenSearchServerlessDestinationConfiguration :: (Prelude.Maybe AmazonOpenSearchServerlessDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration>
                     amazonopensearchserviceDestinationConfiguration :: (Prelude.Maybe AmazonopensearchserviceDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-databasesourceconfiguration>
                     databaseSourceConfiguration :: (Prelude.Maybe DatabaseSourceConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput>
                     deliveryStreamEncryptionConfigurationInput :: (Prelude.Maybe DeliveryStreamEncryptionConfigurationInputProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname>
                     deliveryStreamName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype>
                     deliveryStreamType :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration>
                     elasticsearchDestinationConfiguration :: (Prelude.Maybe ElasticsearchDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration>
                     extendedS3DestinationConfiguration :: (Prelude.Maybe ExtendedS3DestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration>
                     httpEndpointDestinationConfiguration :: (Prelude.Maybe HttpEndpointDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration>
                     icebergDestinationConfiguration :: (Prelude.Maybe IcebergDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration>
                     kinesisStreamSourceConfiguration :: (Prelude.Maybe KinesisStreamSourceConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration>
                     mSKSourceConfiguration :: (Prelude.Maybe MSKSourceConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration>
                     redshiftDestinationConfiguration :: (Prelude.Maybe RedshiftDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration>
                     s3DestinationConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration>
                     snowflakeDestinationConfiguration :: (Prelude.Maybe SnowflakeDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration>
                     splunkDestinationConfiguration :: (Prelude.Maybe SplunkDestinationConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryStream :: DeliveryStream
 mkDeliveryStream
   = DeliveryStream
-      {amazonOpenSearchServerlessDestinationConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       amazonOpenSearchServerlessDestinationConfiguration = Prelude.Nothing,
        amazonopensearchserviceDestinationConfiguration = Prelude.Nothing,
        databaseSourceConfiguration = Prelude.Nothing,
        deliveryStreamEncryptionConfigurationInput = Prelude.Nothing,

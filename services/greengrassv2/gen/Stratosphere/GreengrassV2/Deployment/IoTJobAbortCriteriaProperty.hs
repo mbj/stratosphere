@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IoTJobAbortCriteriaProperty
-  = IoTJobAbortCriteriaProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html>
+    IoTJobAbortCriteriaProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html#cfn-greengrassv2-deployment-iotjobabortcriteria-action>
+                                 action :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html#cfn-greengrassv2-deployment-iotjobabortcriteria-failuretype>
                                  failureType :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html#cfn-greengrassv2-deployment-iotjobabortcriteria-minnumberofexecutedthings>
                                  minNumberOfExecutedThings :: (Value Prelude.Integer),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html#cfn-greengrassv2-deployment-iotjobabortcriteria-thresholdpercentage>
                                  thresholdPercentage :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobAbortCriteriaProperty ::
@@ -23,7 +29,8 @@ mkIoTJobAbortCriteriaProperty
   minNumberOfExecutedThings
   thresholdPercentage
   = IoTJobAbortCriteriaProperty
-      {action = action, failureType = failureType,
+      {haddock_workaround_ = (), action = action,
+       failureType = failureType,
        minNumberOfExecutedThings = minNumberOfExecutedThings,
        thresholdPercentage = thresholdPercentage}
 instance ToResourceProperties IoTJobAbortCriteriaProperty where

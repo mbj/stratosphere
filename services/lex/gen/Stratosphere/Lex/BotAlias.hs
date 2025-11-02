@@ -11,20 +11,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data BotAlias
-  = BotAlias {botAliasLocaleSettings :: (Prelude.Maybe [BotAliasLocaleSettingsItemProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html>
+    BotAlias {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliaslocalesettings>
+              botAliasLocaleSettings :: (Prelude.Maybe [BotAliasLocaleSettingsItemProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliasname>
               botAliasName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliastags>
               botAliasTags :: (Prelude.Maybe [Tag]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botid>
               botId :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botversion>
               botVersion :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-conversationlogsettings>
               conversationLogSettings :: (Prelude.Maybe ConversationLogSettingsProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-description>
               description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-sentimentanalysissettings>
               sentimentAnalysisSettings :: (Prelude.Maybe SentimentAnalysisSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAlias :: Value Prelude.Text -> Value Prelude.Text -> BotAlias
 mkBotAlias botAliasName botId
   = BotAlias
-      {botAliasName = botAliasName, botId = botId,
-       botAliasLocaleSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), botAliasName = botAliasName,
+       botId = botId, botAliasLocaleSettings = Prelude.Nothing,
        botAliasTags = Prelude.Nothing, botVersion = Prelude.Nothing,
        conversationLogSettings = Prelude.Nothing,
        description = Prelude.Nothing,

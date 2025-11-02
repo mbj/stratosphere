@@ -7,26 +7,43 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiplexM2tsSettingsProperty
-  = MultiplexM2tsSettingsProperty {absentInputAudioBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html>
+    MultiplexM2tsSettingsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-absentinputaudiobehavior>
+                                   absentInputAudioBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-arib>
                                    arib :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-audiobuffermodel>
                                    audioBufferModel :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-audioframesperpes>
                                    audioFramesPerPes :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-audiostreamtype>
                                    audioStreamType :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-ccdescriptor>
                                    ccDescriptor :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-ebif>
                                    ebif :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-esrateinpes>
                                    esRateInPes :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-klv>
                                    klv :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-nielsenid3behavior>
                                    nielsenId3Behavior :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-pcrcontrol>
                                    pcrControl :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-pcrperiod>
                                    pcrPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-scte35control>
                                    scte35Control :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html#cfn-medialive-channel-multiplexm2tssettings-scte35prerollpullupmilliseconds>
                                    scte35PrerollPullupMilliseconds :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexM2tsSettingsProperty :: MultiplexM2tsSettingsProperty
 mkMultiplexM2tsSettingsProperty
   = MultiplexM2tsSettingsProperty
-      {absentInputAudioBehavior = Prelude.Nothing,
-       arib = Prelude.Nothing, audioBufferModel = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       absentInputAudioBehavior = Prelude.Nothing, arib = Prelude.Nothing,
+       audioBufferModel = Prelude.Nothing,
        audioFramesPerPes = Prelude.Nothing,
        audioStreamType = Prelude.Nothing, ccDescriptor = Prelude.Nothing,
        ebif = Prelude.Nothing, esRateInPes = Prelude.Nothing,

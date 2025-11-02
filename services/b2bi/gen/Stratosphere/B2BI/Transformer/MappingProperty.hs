@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MappingProperty
-  = MappingProperty {template :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mapping.html>
+    MappingProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mapping.html#cfn-b2bi-transformer-mapping-template>
+                     template :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mapping.html#cfn-b2bi-transformer-mapping-templatelanguage>
                      templateLanguage :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingProperty :: Value Prelude.Text -> MappingProperty
 mkMappingProperty templateLanguage
   = MappingProperty
-      {templateLanguage = templateLanguage, template = Prelude.Nothing}
+      {haddock_workaround_ = (), templateLanguage = templateLanguage,
+       template = Prelude.Nothing}
 instance ToResourceProperties MappingProperty where
   toResourceProperties MappingProperty {..}
     = ResourceProperties

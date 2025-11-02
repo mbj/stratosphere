@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckProperty
-  = HealthCheckProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html>
+    HealthCheckProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command>
+                         command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval>
                          interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries>
                          retries :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod>
                          startPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout>
                          timeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckProperty :: HealthCheckProperty
 mkHealthCheckProperty
   = HealthCheckProperty
-      {command = Prelude.Nothing, interval = Prelude.Nothing,
-       retries = Prelude.Nothing, startPeriod = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), command = Prelude.Nothing,
+       interval = Prelude.Nothing, retries = Prelude.Nothing,
+       startPeriod = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties HealthCheckProperty where
   toResourceProperties HealthCheckProperty {..}
     = ResourceProperties

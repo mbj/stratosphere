@@ -8,18 +8,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VerificationMessageTemplateProperty
-  = VerificationMessageTemplateProperty {defaultEmailOption :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html>
+    VerificationMessageTemplateProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-defaultemailoption>
+                                         defaultEmailOption :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailmessage>
                                          emailMessage :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailmessagebylink>
                                          emailMessageByLink :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailsubject>
                                          emailSubject :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-emailsubjectbylink>
                                          emailSubjectByLink :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html#cfn-cognito-userpool-verificationmessagetemplate-smsmessage>
                                          smsMessage :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVerificationMessageTemplateProperty ::
   VerificationMessageTemplateProperty
 mkVerificationMessageTemplateProperty
   = VerificationMessageTemplateProperty
-      {defaultEmailOption = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultEmailOption = Prelude.Nothing,
        emailMessage = Prelude.Nothing,
        emailMessageByLink = Prelude.Nothing,
        emailSubject = Prelude.Nothing,

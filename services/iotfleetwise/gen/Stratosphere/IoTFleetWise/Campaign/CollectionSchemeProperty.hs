@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.ConditionBasedCollectio
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.TimeBasedCollectionSchemeProperty as Exports
 import Stratosphere.ResourceProperties
 data CollectionSchemeProperty
-  = CollectionSchemeProperty {conditionBasedCollectionScheme :: (Prelude.Maybe ConditionBasedCollectionSchemeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html>
+    CollectionSchemeProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html#cfn-iotfleetwise-campaign-collectionscheme-conditionbasedcollectionscheme>
+                              conditionBasedCollectionScheme :: (Prelude.Maybe ConditionBasedCollectionSchemeProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html#cfn-iotfleetwise-campaign-collectionscheme-timebasedcollectionscheme>
                               timeBasedCollectionScheme :: (Prelude.Maybe TimeBasedCollectionSchemeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCollectionSchemeProperty :: CollectionSchemeProperty
 mkCollectionSchemeProperty
   = CollectionSchemeProperty
-      {conditionBasedCollectionScheme = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       conditionBasedCollectionScheme = Prelude.Nothing,
        timeBasedCollectionScheme = Prelude.Nothing}
 instance ToResourceProperties CollectionSchemeProperty where
   toResourceProperties CollectionSchemeProperty {..}

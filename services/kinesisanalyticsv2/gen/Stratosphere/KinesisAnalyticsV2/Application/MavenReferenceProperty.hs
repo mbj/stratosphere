@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MavenReferenceProperty
-  = MavenReferenceProperty {artifactId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html>
+    MavenReferenceProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-artifactid>
+                            artifactId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-groupid>
                             groupId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html#cfn-kinesisanalyticsv2-application-mavenreference-version>
                             version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMavenReferenceProperty ::
@@ -17,7 +22,8 @@ mkMavenReferenceProperty ::
      -> Value Prelude.Text -> MavenReferenceProperty
 mkMavenReferenceProperty artifactId groupId version
   = MavenReferenceProperty
-      {artifactId = artifactId, groupId = groupId, version = version}
+      {haddock_workaround_ = (), artifactId = artifactId,
+       groupId = groupId, version = version}
 instance ToResourceProperties MavenReferenceProperty where
   toResourceProperties MavenReferenceProperty {..}
     = ResourceProperties

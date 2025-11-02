@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LevelTwoProperty
-  = LevelTwoProperty {hierarchyLevelArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html>
+    LevelTwoProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html#cfn-connect-userhierarchystructure-leveltwo-hierarchylevelarn>
+                      hierarchyLevelArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html#cfn-connect-userhierarchystructure-leveltwo-hierarchylevelid>
                       hierarchyLevelId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html#cfn-connect-userhierarchystructure-leveltwo-name>
                       name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLevelTwoProperty :: Value Prelude.Text -> LevelTwoProperty
 mkLevelTwoProperty name
   = LevelTwoProperty
-      {name = name, hierarchyLevelArn = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       hierarchyLevelArn = Prelude.Nothing,
        hierarchyLevelId = Prelude.Nothing}
 instance ToResourceProperties LevelTwoProperty where
   toResourceProperties LevelTwoProperty {..}

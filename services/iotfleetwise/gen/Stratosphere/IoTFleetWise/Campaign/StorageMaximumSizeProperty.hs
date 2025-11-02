@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageMaximumSizeProperty
-  = StorageMaximumSizeProperty {unit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html>
+    StorageMaximumSizeProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html#cfn-iotfleetwise-campaign-storagemaximumsize-unit>
+                                unit :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html#cfn-iotfleetwise-campaign-storagemaximumsize-value>
                                 value :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageMaximumSizeProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> StorageMaximumSizeProperty
 mkStorageMaximumSizeProperty unit value
-  = StorageMaximumSizeProperty {unit = unit, value = value}
+  = StorageMaximumSizeProperty
+      {haddock_workaround_ = (), unit = unit, value = value}
 instance ToResourceProperties StorageMaximumSizeProperty where
   toResourceProperties StorageMaximumSizeProperty {..}
     = ResourceProperties

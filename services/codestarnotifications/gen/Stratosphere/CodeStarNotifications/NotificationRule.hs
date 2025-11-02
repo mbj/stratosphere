@@ -8,15 +8,27 @@ import {-# SOURCE #-} Stratosphere.CodeStarNotifications.NotificationRule.Target
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationRule
-  = NotificationRule {createdBy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html>
+    NotificationRule {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-createdby>
+                      createdBy :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype>
                       detailType :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeid>
                       eventTypeId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids>
                       eventTypeIds :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource>
                       resource :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status>
                       status :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags>
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targetaddress>
                       targetAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets>
                       targets :: [TargetProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationRule ::
@@ -26,11 +38,11 @@ mkNotificationRule ::
         -> Value Prelude.Text -> [TargetProperty] -> NotificationRule
 mkNotificationRule detailType eventTypeIds name resource targets
   = NotificationRule
-      {detailType = detailType, eventTypeIds = eventTypeIds, name = name,
-       resource = resource, targets = targets,
-       createdBy = Prelude.Nothing, eventTypeId = Prelude.Nothing,
-       status = Prelude.Nothing, tags = Prelude.Nothing,
-       targetAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), detailType = detailType,
+       eventTypeIds = eventTypeIds, name = name, resource = resource,
+       targets = targets, createdBy = Prelude.Nothing,
+       eventTypeId = Prelude.Nothing, status = Prelude.Nothing,
+       tags = Prelude.Nothing, targetAddress = Prelude.Nothing}
 instance ToResourceProperties NotificationRule where
   toResourceProperties NotificationRule {..}
     = ResourceProperties

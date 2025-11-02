@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticalThresholdProperty
-  = StatisticalThresholdProperty {statistic :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html>
+    StatisticalThresholdProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic>
+                                  statistic :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticalThresholdProperty :: StatisticalThresholdProperty
 mkStatisticalThresholdProperty
-  = StatisticalThresholdProperty {statistic = Prelude.Nothing}
+  = StatisticalThresholdProperty
+      {haddock_workaround_ = (), statistic = Prelude.Nothing}
 instance ToResourceProperties StatisticalThresholdProperty where
   toResourceProperties StatisticalThresholdProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON StatisticalThresholdProperty where
            (Prelude.catMaybes [(JSON..=) "Statistic" Prelude.<$> statistic]))
 instance Property "Statistic" StatisticalThresholdProperty where
   type PropertyType "Statistic" StatisticalThresholdProperty = Value Prelude.Text
-  set newValue StatisticalThresholdProperty {}
+  set newValue StatisticalThresholdProperty {..}
     = StatisticalThresholdProperty
         {statistic = Prelude.pure newValue, ..}

@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StillWaitingResponseSpecificationProperty
-  = StillWaitingResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html>
+    StillWaitingResponseSpecificationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-allowinterrupt>
+                                               allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-frequencyinseconds>
                                                frequencyInSeconds :: (Value Prelude.Integer),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-messagegroupslist>
                                                messageGroupsList :: [MessageGroupProperty],
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html#cfn-lex-bot-stillwaitingresponsespecification-timeoutinseconds>
                                                timeoutInSeconds :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStillWaitingResponseSpecificationProperty ::
@@ -24,7 +30,7 @@ mkStillWaitingResponseSpecificationProperty
   messageGroupsList
   timeoutInSeconds
   = StillWaitingResponseSpecificationProperty
-      {frequencyInSeconds = frequencyInSeconds,
+      {haddock_workaround_ = (), frequencyInSeconds = frequencyInSeconds,
        messageGroupsList = messageGroupsList,
        timeoutInSeconds = timeoutInSeconds,
        allowInterrupt = Prelude.Nothing}

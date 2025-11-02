@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleGroupProperty
-  = RuleGroupProperty {patchRules :: (Prelude.Maybe [RuleProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html>
+    RuleGroupProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules>
+                       patchRules :: (Prelude.Maybe [RuleProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RuleGroupProperty
 mkRuleGroupProperty
-  = RuleGroupProperty {patchRules = Prelude.Nothing}
+  = RuleGroupProperty
+      {haddock_workaround_ = (), patchRules = Prelude.Nothing}
 instance ToResourceProperties RuleGroupProperty where
   toResourceProperties RuleGroupProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON RuleGroupProperty where
               [(JSON..=) "PatchRules" Prelude.<$> patchRules]))
 instance Property "PatchRules" RuleGroupProperty where
   type PropertyType "PatchRules" RuleGroupProperty = [RuleProperty]
-  set newValue RuleGroupProperty {}
+  set newValue RuleGroupProperty {..}
     = RuleGroupProperty {patchRules = Prelude.pure newValue, ..}

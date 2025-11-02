@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.CoordinatesProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoProximityLocationProperty
-  = GeoProximityLocationProperty {aWSRegion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html>
+    GeoProximityLocationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html#cfn-route53-geoproximitylocation-awsregion>
+                                  aWSRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html#cfn-route53-geoproximitylocation-bias>
                                   bias :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html#cfn-route53-geoproximitylocation-coordinates>
                                   coordinates :: (Prelude.Maybe CoordinatesProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html#cfn-route53-geoproximitylocation-LocalZoneGroup>
                                   localZoneGroup :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoProximityLocationProperty :: GeoProximityLocationProperty
 mkGeoProximityLocationProperty
   = GeoProximityLocationProperty
-      {aWSRegion = Prelude.Nothing, bias = Prelude.Nothing,
-       coordinates = Prelude.Nothing, localZoneGroup = Prelude.Nothing}
+      {haddock_workaround_ = (), aWSRegion = Prelude.Nothing,
+       bias = Prelude.Nothing, coordinates = Prelude.Nothing,
+       localZoneGroup = Prelude.Nothing}
 instance ToResourceProperties GeoProximityLocationProperty where
   toResourceProperties GeoProximityLocationProperty {..}
     = ResourceProperties

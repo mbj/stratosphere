@@ -11,22 +11,35 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.PropertyGroupPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentType
-  = ComponentType {componentTypeId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html>
+    ComponentType {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-componenttypeid>
+                   componentTypeId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-compositecomponenttypes>
                    compositeComponentTypes :: (Prelude.Maybe (Prelude.Map Prelude.Text CompositeComponentTypeProperty)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-extendsfrom>
                    extendsFrom :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-functions>
                    functions :: (Prelude.Maybe (Prelude.Map Prelude.Text FunctionProperty)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-issingleton>
                    isSingleton :: (Prelude.Maybe (Value Prelude.Bool)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-propertydefinitions>
                    propertyDefinitions :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyDefinitionProperty)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-propertygroups>
                    propertyGroups :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyGroupProperty)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-tags>
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-workspaceid>
                    workspaceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentType ::
   Value Prelude.Text -> Value Prelude.Text -> ComponentType
 mkComponentType componentTypeId workspaceId
   = ComponentType
-      {componentTypeId = componentTypeId, workspaceId = workspaceId,
+      {haddock_workaround_ = (), componentTypeId = componentTypeId,
+       workspaceId = workspaceId,
        compositeComponentTypes = Prelude.Nothing,
        description = Prelude.Nothing, extendsFrom = Prelude.Nothing,
        functions = Prelude.Nothing, isSingleton = Prelude.Nothing,

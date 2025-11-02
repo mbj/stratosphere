@@ -8,14 +8,19 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DriftCheckModelDataQualityProperty
-  = DriftCheckModelDataQualityProperty {constraints :: (Prelude.Maybe MetricsSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html>
+    DriftCheckModelDataQualityProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html#cfn-sagemaker-modelpackage-driftcheckmodeldataquality-constraints>
+                                        constraints :: (Prelude.Maybe MetricsSourceProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html#cfn-sagemaker-modelpackage-driftcheckmodeldataquality-statistics>
                                         statistics :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckModelDataQualityProperty ::
   DriftCheckModelDataQualityProperty
 mkDriftCheckModelDataQualityProperty
   = DriftCheckModelDataQualityProperty
-      {constraints = Prelude.Nothing, statistics = Prelude.Nothing}
+      {haddock_workaround_ = (), constraints = Prelude.Nothing,
+       statistics = Prelude.Nothing}
 instance ToResourceProperties DriftCheckModelDataQualityProperty where
   toResourceProperties DriftCheckModelDataQualityProperty {..}
     = ResourceProperties

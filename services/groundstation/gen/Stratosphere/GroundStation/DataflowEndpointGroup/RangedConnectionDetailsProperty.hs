@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.RangedSoc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangedConnectionDetailsProperty
-  = RangedConnectionDetailsProperty {mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html>
+    RangedConnectionDetailsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-mtu>
+                                     mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-socketaddress>
                                      socketAddress :: (Prelude.Maybe RangedSocketAddressProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRangedConnectionDetailsProperty ::
   RangedConnectionDetailsProperty
 mkRangedConnectionDetailsProperty
   = RangedConnectionDetailsProperty
-      {mtu = Prelude.Nothing, socketAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), mtu = Prelude.Nothing,
+       socketAddress = Prelude.Nothing}
 instance ToResourceProperties RangedConnectionDetailsProperty where
   toResourceProperties RangedConnectionDetailsProperty {..}
     = ResourceProperties

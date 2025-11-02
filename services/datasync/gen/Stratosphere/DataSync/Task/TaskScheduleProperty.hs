@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskScheduleProperty
-  = TaskScheduleProperty {scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html>
+    TaskScheduleProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression>
+                          scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-status>
                           status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskScheduleProperty :: TaskScheduleProperty
 mkTaskScheduleProperty
   = TaskScheduleProperty
-      {scheduleExpression = Prelude.Nothing, status = Prelude.Nothing}
+      {haddock_workaround_ = (), scheduleExpression = Prelude.Nothing,
+       status = Prelude.Nothing}
 instance ToResourceProperties TaskScheduleProperty where
   toResourceProperties TaskScheduleProperty {..}
     = ResourceProperties

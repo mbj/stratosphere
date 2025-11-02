@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.ScheduledTriggerPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data TriggerPropertiesProperty
-  = TriggerPropertiesProperty {scheduled :: (Prelude.Maybe ScheduledTriggerPropertiesProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html>
+    TriggerPropertiesProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled>
+                               scheduled :: (Prelude.Maybe ScheduledTriggerPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerPropertiesProperty :: TriggerPropertiesProperty
 mkTriggerPropertiesProperty
-  = TriggerPropertiesProperty {scheduled = Prelude.Nothing}
+  = TriggerPropertiesProperty
+      {haddock_workaround_ = (), scheduled = Prelude.Nothing}
 instance ToResourceProperties TriggerPropertiesProperty where
   toResourceProperties TriggerPropertiesProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON TriggerPropertiesProperty where
            (Prelude.catMaybes [(JSON..=) "Scheduled" Prelude.<$> scheduled]))
 instance Property "Scheduled" TriggerPropertiesProperty where
   type PropertyType "Scheduled" TriggerPropertiesProperty = ScheduledTriggerPropertiesProperty
-  set newValue TriggerPropertiesProperty {}
+  set newValue TriggerPropertiesProperty {..}
     = TriggerPropertiesProperty {scheduled = Prelude.pure newValue, ..}

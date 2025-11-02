@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CidrRoutingConfigProperty
-  = CidrRoutingConfigProperty {collectionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrroutingconfig.html>
+    CidrRoutingConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrroutingconfig.html#cfn-route53-cidrroutingconfig-collectionid>
+                               collectionId :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrroutingconfig.html#cfn-route53-cidrroutingconfig-locationname>
                                locationName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCidrRoutingConfigProperty ::
@@ -15,7 +19,8 @@ mkCidrRoutingConfigProperty ::
   -> Value Prelude.Text -> CidrRoutingConfigProperty
 mkCidrRoutingConfigProperty collectionId locationName
   = CidrRoutingConfigProperty
-      {collectionId = collectionId, locationName = locationName}
+      {haddock_workaround_ = (), collectionId = collectionId,
+       locationName = locationName}
 instance ToResourceProperties CidrRoutingConfigProperty where
   toResourceProperties CidrRoutingConfigProperty {..}
     = ResourceProperties

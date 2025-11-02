@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoRollbackConfigurationProperty
-  = AutoRollbackConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html>
+    AutoRollbackConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration-enabled>
+                                       enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration-events>
                                        events :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoRollbackConfigurationProperty ::
   AutoRollbackConfigurationProperty
 mkAutoRollbackConfigurationProperty
   = AutoRollbackConfigurationProperty
-      {enabled = Prelude.Nothing, events = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       events = Prelude.Nothing}
 instance ToResourceProperties AutoRollbackConfigurationProperty where
   toResourceProperties AutoRollbackConfigurationProperty {..}
     = ResourceProperties

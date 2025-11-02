@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Phase1EncryptionAlgorithmsRequestListValueProperty
-  = Phase1EncryptionAlgorithmsRequestListValueProperty {value :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html>
+    Phase1EncryptionAlgorithmsRequestListValueProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html#cfn-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue-value>
+                                                        value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPhase1EncryptionAlgorithmsRequestListValueProperty ::
   Phase1EncryptionAlgorithmsRequestListValueProperty
 mkPhase1EncryptionAlgorithmsRequestListValueProperty
   = Phase1EncryptionAlgorithmsRequestListValueProperty
-      {value = Prelude.Nothing}
+      {haddock_workaround_ = (), value = Prelude.Nothing}
 instance ToResourceProperties Phase1EncryptionAlgorithmsRequestListValueProperty where
   toResourceProperties
     Phase1EncryptionAlgorithmsRequestListValueProperty {..}
@@ -30,6 +33,8 @@ instance JSON.ToJSON Phase1EncryptionAlgorithmsRequestListValueProperty where
            (Prelude.catMaybes [(JSON..=) "Value" Prelude.<$> value]))
 instance Property "Value" Phase1EncryptionAlgorithmsRequestListValueProperty where
   type PropertyType "Value" Phase1EncryptionAlgorithmsRequestListValueProperty = Value Prelude.Text
-  set newValue Phase1EncryptionAlgorithmsRequestListValueProperty {}
+  set
+    newValue
+    Phase1EncryptionAlgorithmsRequestListValueProperty {..}
     = Phase1EncryptionAlgorithmsRequestListValueProperty
         {value = Prelude.pure newValue, ..}

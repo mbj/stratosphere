@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChannelTargetInfoProperty
-  = ChannelTargetInfoProperty {channelId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html>
+    ChannelTargetInfoProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html#cfn-ssmcontacts-plan-channeltargetinfo-channelid>
+                               channelId :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html#cfn-ssmcontacts-plan-channeltargetinfo-retryintervalinminutes>
                                retryIntervalInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelTargetInfoProperty ::
@@ -15,7 +19,7 @@ mkChannelTargetInfoProperty ::
   -> Value Prelude.Integer -> ChannelTargetInfoProperty
 mkChannelTargetInfoProperty channelId retryIntervalInMinutes
   = ChannelTargetInfoProperty
-      {channelId = channelId,
+      {haddock_workaround_ = (), channelId = channelId,
        retryIntervalInMinutes = retryIntervalInMinutes}
 instance ToResourceProperties ChannelTargetInfoProperty where
   toResourceProperties ChannelTargetInfoProperty {..}

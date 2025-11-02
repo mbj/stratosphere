@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {encryptionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptionconfiguration.html#cfn-ecr-repositorycreationtemplate-encryptionconfiguration-encryptiontype>
+                                     encryptionType :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptionconfiguration.html#cfn-ecr-repositorycreationtemplate-encryptionconfiguration-kmskey>
                                      kmsKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   Value Prelude.Text -> EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty encryptionType
   = EncryptionConfigurationProperty
-      {encryptionType = encryptionType, kmsKey = Prelude.Nothing}
+      {haddock_workaround_ = (), encryptionType = encryptionType,
+       kmsKey = Prelude.Nothing}
 instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties

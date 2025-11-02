@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedirectAllRequestsToProperty
-  = RedirectAllRequestsToProperty {hostName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectallrequeststo.html>
+    RedirectAllRequestsToProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectallrequeststo.html#cfn-s3-bucket-redirectallrequeststo-hostname>
+                                   hostName :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectallrequeststo.html#cfn-s3-bucket-redirectallrequeststo-protocol>
                                    protocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedirectAllRequestsToProperty ::
   Value Prelude.Text -> RedirectAllRequestsToProperty
 mkRedirectAllRequestsToProperty hostName
   = RedirectAllRequestsToProperty
-      {hostName = hostName, protocol = Prelude.Nothing}
+      {haddock_workaround_ = (), hostName = hostName,
+       protocol = Prelude.Nothing}
 instance ToResourceProperties RedirectAllRequestsToProperty where
   toResourceProperties RedirectAllRequestsToProperty {..}
     = ResourceProperties

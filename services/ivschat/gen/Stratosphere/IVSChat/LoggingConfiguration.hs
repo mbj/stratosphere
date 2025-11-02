@@ -9,15 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LoggingConfiguration
-  = LoggingConfiguration {destinationConfiguration :: DestinationConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html>
+    LoggingConfiguration {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html#cfn-ivschat-loggingconfiguration-destinationconfiguration>
+                          destinationConfiguration :: DestinationConfigurationProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html#cfn-ivschat-loggingconfiguration-name>
                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html#cfn-ivschat-loggingconfiguration-tags>
                           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::
   DestinationConfigurationProperty -> LoggingConfiguration
 mkLoggingConfiguration destinationConfiguration
   = LoggingConfiguration
-      {destinationConfiguration = destinationConfiguration,
+      {haddock_workaround_ = (),
+       destinationConfiguration = destinationConfiguration,
        name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LoggingConfiguration where
   toResourceProperties LoggingConfiguration {..}

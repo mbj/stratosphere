@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SseConfigProperty
-  = SseConfigProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-sseconfig.html>
+    SseConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-sseconfig.html#cfn-omics-variantstore-sseconfig-keyarn>
+                       keyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-sseconfig.html#cfn-omics-variantstore-sseconfig-type>
                        type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSseConfigProperty :: Value Prelude.Text -> SseConfigProperty
 mkSseConfigProperty type'
-  = SseConfigProperty {type' = type', keyArn = Prelude.Nothing}
+  = SseConfigProperty
+      {haddock_workaround_ = (), type' = type', keyArn = Prelude.Nothing}
 instance ToResourceProperties SseConfigProperty where
   toResourceProperties SseConfigProperty {..}
     = ResourceProperties

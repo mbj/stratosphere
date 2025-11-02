@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiModelConfigProperty
-  = MultiModelConfigProperty {modelCacheSetting :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>
+    MultiModelConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html#cfn-sagemaker-model-containerdefinition-multimodelconfig-modelcachesetting>
+                              modelCacheSetting :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiModelConfigProperty :: MultiModelConfigProperty
 mkMultiModelConfigProperty
-  = MultiModelConfigProperty {modelCacheSetting = Prelude.Nothing}
+  = MultiModelConfigProperty
+      {haddock_workaround_ = (), modelCacheSetting = Prelude.Nothing}
 instance ToResourceProperties MultiModelConfigProperty where
   toResourceProperties MultiModelConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON MultiModelConfigProperty where
               [(JSON..=) "ModelCacheSetting" Prelude.<$> modelCacheSetting]))
 instance Property "ModelCacheSetting" MultiModelConfigProperty where
   type PropertyType "ModelCacheSetting" MultiModelConfigProperty = Value Prelude.Text
-  set newValue MultiModelConfigProperty {}
+  set newValue MultiModelConfigProperty {..}
     = MultiModelConfigProperty
         {modelCacheSetting = Prelude.pure newValue, ..}

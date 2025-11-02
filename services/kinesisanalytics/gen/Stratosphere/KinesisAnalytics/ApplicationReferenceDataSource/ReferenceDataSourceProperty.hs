@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.ApplicationReferenceDataSour
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceDataSourceProperty
-  = ReferenceDataSourceProperty {referenceSchema :: ReferenceSchemaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html>
+    ReferenceDataSourceProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource-referenceschema>
+                                 referenceSchema :: ReferenceSchemaProperty,
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource-s3referencedatasource>
                                  s3ReferenceDataSource :: (Prelude.Maybe S3ReferenceDataSourceProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource-tablename>
                                  tableName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceDataSourceProperty ::
   ReferenceSchemaProperty -> ReferenceDataSourceProperty
 mkReferenceDataSourceProperty referenceSchema
   = ReferenceDataSourceProperty
-      {referenceSchema = referenceSchema,
+      {haddock_workaround_ = (), referenceSchema = referenceSchema,
        s3ReferenceDataSource = Prelude.Nothing,
        tableName = Prelude.Nothing}
 instance ToResourceProperties ReferenceDataSourceProperty where

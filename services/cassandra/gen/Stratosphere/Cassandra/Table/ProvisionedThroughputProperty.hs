@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedThroughputProperty
-  = ProvisionedThroughputProperty {readCapacityUnits :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html>
+    ProvisionedThroughputProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits>
+                                   readCapacityUnits :: (Value Prelude.Integer),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits>
                                    writeCapacityUnits :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedThroughputProperty ::
@@ -17,7 +21,7 @@ mkProvisionedThroughputProperty
   readCapacityUnits
   writeCapacityUnits
   = ProvisionedThroughputProperty
-      {readCapacityUnits = readCapacityUnits,
+      {haddock_workaround_ = (), readCapacityUnits = readCapacityUnits,
        writeCapacityUnits = writeCapacityUnits}
 instance ToResourceProperties ProvisionedThroughputProperty where
   toResourceProperties ProvisionedThroughputProperty {..}

@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.FlowTimeoutsPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatefulEngineOptionsProperty
-  = StatefulEngineOptionsProperty {flowTimeouts :: (Prelude.Maybe FlowTimeoutsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html>
+    StatefulEngineOptionsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-flowtimeouts>
+                                   flowTimeouts :: (Prelude.Maybe FlowTimeoutsProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-ruleorder>
                                    ruleOrder :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-streamexceptionpolicy>
                                    streamExceptionPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulEngineOptionsProperty :: StatefulEngineOptionsProperty
 mkStatefulEngineOptionsProperty
   = StatefulEngineOptionsProperty
-      {flowTimeouts = Prelude.Nothing, ruleOrder = Prelude.Nothing,
+      {haddock_workaround_ = (), flowTimeouts = Prelude.Nothing,
+       ruleOrder = Prelude.Nothing,
        streamExceptionPolicy = Prelude.Nothing}
 instance ToResourceProperties StatefulEngineOptionsProperty where
   toResourceProperties StatefulEngineOptionsProperty {..}

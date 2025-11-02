@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MasterUserOptionsProperty
-  = MasterUserOptionsProperty {masterUserARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html>
+    MasterUserOptionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html#cfn-opensearchservice-domain-masteruseroptions-masteruserarn>
+                               masterUserARN :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html#cfn-opensearchservice-domain-masteruseroptions-masterusername>
                                masterUserName :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html#cfn-opensearchservice-domain-masteruseroptions-masteruserpassword>
                                masterUserPassword :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMasterUserOptionsProperty :: MasterUserOptionsProperty
 mkMasterUserOptionsProperty
   = MasterUserOptionsProperty
-      {masterUserARN = Prelude.Nothing, masterUserName = Prelude.Nothing,
+      {haddock_workaround_ = (), masterUserARN = Prelude.Nothing,
+       masterUserName = Prelude.Nothing,
        masterUserPassword = Prelude.Nothing}
 instance ToResourceProperties MasterUserOptionsProperty where
   toResourceProperties MasterUserOptionsProperty {..}

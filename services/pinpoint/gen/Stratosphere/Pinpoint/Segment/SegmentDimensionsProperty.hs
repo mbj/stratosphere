@@ -10,19 +10,28 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.DemographicProperty as Expor
 import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data SegmentDimensionsProperty
-  = SegmentDimensionsProperty {attributes :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html>
+    SegmentDimensionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-attributes>
+                               attributes :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-behavior>
                                behavior :: (Prelude.Maybe BehaviorProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-demographic>
                                demographic :: (Prelude.Maybe DemographicProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-location>
                                location :: (Prelude.Maybe LocationProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-metrics>
                                metrics :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html#cfn-pinpoint-segment-segmentdimensions-userattributes>
                                userAttributes :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentDimensionsProperty :: SegmentDimensionsProperty
 mkSegmentDimensionsProperty
   = SegmentDimensionsProperty
-      {attributes = Prelude.Nothing, behavior = Prelude.Nothing,
-       demographic = Prelude.Nothing, location = Prelude.Nothing,
-       metrics = Prelude.Nothing, userAttributes = Prelude.Nothing}
+      {haddock_workaround_ = (), attributes = Prelude.Nothing,
+       behavior = Prelude.Nothing, demographic = Prelude.Nothing,
+       location = Prelude.Nothing, metrics = Prelude.Nothing,
+       userAttributes = Prelude.Nothing}
 instance ToResourceProperties SegmentDimensionsProperty where
   toResourceProperties SegmentDimensionsProperty {..}
     = ResourceProperties

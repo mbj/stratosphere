@@ -11,25 +11,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TaskTemplate
-  = TaskTemplate {clientToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html>
+    TaskTemplate {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-clienttoken>
+                  clientToken :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-constraints>
                   constraints :: (Prelude.Maybe ConstraintsProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-contactflowarn>
                   contactFlowArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-defaults>
                   defaults :: (Prelude.Maybe [DefaultFieldValueProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-fields>
                   fields :: (Prelude.Maybe [FieldProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-instancearn>
                   instanceArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-name>
                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-status>
                   status :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskTemplate :: Value Prelude.Text -> TaskTemplate
 mkTaskTemplate instanceArn
   = TaskTemplate
-      {instanceArn = instanceArn, clientToken = Prelude.Nothing,
-       constraints = Prelude.Nothing, contactFlowArn = Prelude.Nothing,
-       defaults = Prelude.Nothing, description = Prelude.Nothing,
-       fields = Prelude.Nothing, name = Prelude.Nothing,
-       status = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       clientToken = Prelude.Nothing, constraints = Prelude.Nothing,
+       contactFlowArn = Prelude.Nothing, defaults = Prelude.Nothing,
+       description = Prelude.Nothing, fields = Prelude.Nothing,
+       name = Prelude.Nothing, status = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties TaskTemplate where
   toResourceProperties TaskTemplate {..}
     = ResourceProperties

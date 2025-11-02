@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.CapacityReservat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityReservationSpecificationProperty
-  = CapacityReservationSpecificationProperty {capacityReservationPreference :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html>
+    CapacityReservationSpecificationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification-capacityreservationpreference>
+                                              capacityReservationPreference :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification-capacityreservationtarget>
                                               capacityReservationTarget :: (Prelude.Maybe CapacityReservationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationSpecificationProperty ::
@@ -17,7 +21,8 @@ mkCapacityReservationSpecificationProperty ::
 mkCapacityReservationSpecificationProperty
   capacityReservationPreference
   = CapacityReservationSpecificationProperty
-      {capacityReservationPreference = capacityReservationPreference,
+      {haddock_workaround_ = (),
+       capacityReservationPreference = capacityReservationPreference,
        capacityReservationTarget = Prelude.Nothing}
 instance ToResourceProperties CapacityReservationSpecificationProperty where
   toResourceProperties CapacityReservationSpecificationProperty {..}

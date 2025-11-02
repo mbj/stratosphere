@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterProperty
-  = ParameterProperty {parameterKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html>
+    ParameterProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey>
+                       parameterKey :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue>
                        parameterValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ParameterProperty
 mkParameterProperty parameterKey parameterValue
   = ParameterProperty
-      {parameterKey = parameterKey, parameterValue = parameterValue}
+      {haddock_workaround_ = (), parameterKey = parameterKey,
+       parameterValue = parameterValue}
 instance ToResourceProperties ParameterProperty where
   toResourceProperties ParameterProperty {..}
     = ResourceProperties

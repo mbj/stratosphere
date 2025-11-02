@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseConfigurationProperty
-  = FirehoseConfigurationProperty {streamArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-firehoseconfiguration.html>
+    FirehoseConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-firehoseconfiguration.html#cfn-cognito-logdeliveryconfiguration-firehoseconfiguration-streamarn>
+                                   streamArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseConfigurationProperty :: FirehoseConfigurationProperty
 mkFirehoseConfigurationProperty
-  = FirehoseConfigurationProperty {streamArn = Prelude.Nothing}
+  = FirehoseConfigurationProperty
+      {haddock_workaround_ = (), streamArn = Prelude.Nothing}
 instance ToResourceProperties FirehoseConfigurationProperty where
   toResourceProperties FirehoseConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON FirehoseConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "StreamArn" Prelude.<$> streamArn]))
 instance Property "StreamArn" FirehoseConfigurationProperty where
   type PropertyType "StreamArn" FirehoseConfigurationProperty = Value Prelude.Text
-  set newValue FirehoseConfigurationProperty {}
+  set newValue FirehoseConfigurationProperty {..}
     = FirehoseConfigurationProperty
         {streamArn = Prelude.pure newValue, ..}

@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.MetricDimensionP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomizedLoadMetricSpecificationProperty
-  = CustomizedLoadMetricSpecificationProperty {dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html>
+    CustomizedLoadMetricSpecificationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-dimensions>
+                                               dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-metricname>
                                                metricName :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-namespace>
                                                namespace :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-statistic>
                                                statistic :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-unit>
                                                unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomizedLoadMetricSpecificationProperty ::
@@ -24,9 +31,9 @@ mkCustomizedLoadMetricSpecificationProperty
   namespace
   statistic
   = CustomizedLoadMetricSpecificationProperty
-      {metricName = metricName, namespace = namespace,
-       statistic = statistic, dimensions = Prelude.Nothing,
-       unit = Prelude.Nothing}
+      {haddock_workaround_ = (), metricName = metricName,
+       namespace = namespace, statistic = statistic,
+       dimensions = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties CustomizedLoadMetricSpecificationProperty where
   toResourceProperties CustomizedLoadMetricSpecificationProperty {..}
     = ResourceProperties

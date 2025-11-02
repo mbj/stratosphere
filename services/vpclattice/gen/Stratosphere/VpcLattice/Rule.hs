@@ -10,21 +10,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Rule
-  = Rule {action :: ActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html>
+    Rule {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-action>
+          action :: ActionProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-listeneridentifier>
           listenerIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-match>
           match :: MatchProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-name>
           name :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-priority>
           priority :: (Value Prelude.Integer),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-serviceidentifier>
           serviceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html#cfn-vpclattice-rule-tags>
           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRule ::
   ActionProperty -> MatchProperty -> Value Prelude.Integer -> Rule
 mkRule action match priority
   = Rule
-      {action = action, match = match, priority = priority,
-       listenerIdentifier = Prelude.Nothing, name = Prelude.Nothing,
-       serviceIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action, match = match,
+       priority = priority, listenerIdentifier = Prelude.Nothing,
+       name = Prelude.Nothing, serviceIdentifier = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}
     = ResourceProperties

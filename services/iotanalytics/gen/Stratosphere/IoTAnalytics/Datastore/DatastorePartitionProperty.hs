@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.PartitionProperty as E
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.TimestampPartitionProperty as Exports
 import Stratosphere.ResourceProperties
 data DatastorePartitionProperty
-  = DatastorePartitionProperty {partition :: (Prelude.Maybe PartitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html>
+    DatastorePartitionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html#cfn-iotanalytics-datastore-datastorepartition-partition>
+                                partition :: (Prelude.Maybe PartitionProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html#cfn-iotanalytics-datastore-datastorepartition-timestamppartition>
                                 timestampPartition :: (Prelude.Maybe TimestampPartitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastorePartitionProperty :: DatastorePartitionProperty
 mkDatastorePartitionProperty
   = DatastorePartitionProperty
-      {partition = Prelude.Nothing, timestampPartition = Prelude.Nothing}
+      {haddock_workaround_ = (), partition = Prelude.Nothing,
+       timestampPartition = Prelude.Nothing}
 instance ToResourceProperties DatastorePartitionProperty where
   toResourceProperties DatastorePartitionProperty {..}
     = ResourceProperties

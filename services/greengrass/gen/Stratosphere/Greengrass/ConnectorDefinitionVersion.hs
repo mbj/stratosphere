@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ConnectorDefinitionVersion.Connect
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectorDefinitionVersion
-  = ConnectorDefinitionVersion {connectorDefinitionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html>
+    ConnectorDefinitionVersion {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html#cfn-greengrass-connectordefinitionversion-connectordefinitionid>
+                                connectorDefinitionId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html#cfn-greengrass-connectordefinitionversion-connectors>
                                 connectors :: [ConnectorProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinitionVersion ::
@@ -17,7 +21,8 @@ mkConnectorDefinitionVersion ::
   -> [ConnectorProperty] -> ConnectorDefinitionVersion
 mkConnectorDefinitionVersion connectorDefinitionId connectors
   = ConnectorDefinitionVersion
-      {connectorDefinitionId = connectorDefinitionId,
+      {haddock_workaround_ = (),
+       connectorDefinitionId = connectorDefinitionId,
        connectors = connectors}
 instance ToResourceProperties ConnectorDefinitionVersion where
   toResourceProperties ConnectorDefinitionVersion {..}

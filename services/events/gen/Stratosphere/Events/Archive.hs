@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Archive
-  = Archive {archiveName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html>
+    Archive {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename>
+             archiveName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description>
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern>
              eventPattern :: (Prelude.Maybe JSON.Object),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays>
              retentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn>
              sourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchive :: Value Prelude.Text -> Archive
 mkArchive sourceArn
   = Archive
-      {sourceArn = sourceArn, archiveName = Prelude.Nothing,
-       description = Prelude.Nothing, eventPattern = Prelude.Nothing,
-       retentionDays = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceArn = sourceArn,
+       archiveName = Prelude.Nothing, description = Prelude.Nothing,
+       eventPattern = Prelude.Nothing, retentionDays = Prelude.Nothing}
 instance ToResourceProperties Archive where
   toResourceProperties Archive {..}
     = ResourceProperties

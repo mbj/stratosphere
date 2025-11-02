@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.Budgets.Budget.NotificationWithSubscribersPro
 import {-# SOURCE #-} Stratosphere.Budgets.Budget.ResourceTagProperty as Exports
 import Stratosphere.ResourceProperties
 data Budget
-  = Budget {budget :: BudgetDataProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html>
+    Budget {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-budget>
+            budget :: BudgetDataProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers>
             notificationsWithSubscribers :: (Prelude.Maybe [NotificationWithSubscribersProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags>
             resourceTags :: (Prelude.Maybe [ResourceTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBudget :: BudgetDataProperty -> Budget
 mkBudget budget
   = Budget
-      {budget = budget, notificationsWithSubscribers = Prelude.Nothing,
+      {haddock_workaround_ = (), budget = budget,
+       notificationsWithSubscribers = Prelude.Nothing,
        resourceTags = Prelude.Nothing}
 instance ToResourceProperties Budget where
   toResourceProperties Budget {..}

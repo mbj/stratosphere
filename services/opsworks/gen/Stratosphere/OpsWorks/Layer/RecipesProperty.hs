@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecipesProperty
-  = RecipesProperty {configure :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html>
+    RecipesProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-configure>
+                     configure :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-deploy>
                      deploy :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-setup>
                      setup :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-shutdown>
                      shutdown :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-undeploy>
                      undeploy :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipesProperty :: RecipesProperty
 mkRecipesProperty
   = RecipesProperty
-      {configure = Prelude.Nothing, deploy = Prelude.Nothing,
-       setup = Prelude.Nothing, shutdown = Prelude.Nothing,
-       undeploy = Prelude.Nothing}
+      {haddock_workaround_ = (), configure = Prelude.Nothing,
+       deploy = Prelude.Nothing, setup = Prelude.Nothing,
+       shutdown = Prelude.Nothing, undeploy = Prelude.Nothing}
 instance ToResourceProperties RecipesProperty where
   toResourceProperties RecipesProperty {..}
     = ResourceProperties

@@ -7,17 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CorsProperty
-  = CorsProperty {allowCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html>
+    CorsProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowcredentials>
+                  allowCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowheaders>
                   allowHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowmethods>
                   allowMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-alloworigins>
                   allowOrigins :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-exposeheaders>
                   exposeHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-maxage>
                   maxAge :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsProperty :: CorsProperty
 mkCorsProperty
   = CorsProperty
-      {allowCredentials = Prelude.Nothing,
+      {haddock_workaround_ = (), allowCredentials = Prelude.Nothing,
        allowHeaders = Prelude.Nothing, allowMethods = Prelude.Nothing,
        allowOrigins = Prelude.Nothing, exposeHeaders = Prelude.Nothing,
        maxAge = Prelude.Nothing}

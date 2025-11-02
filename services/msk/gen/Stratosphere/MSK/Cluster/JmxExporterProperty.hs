@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JmxExporterProperty
-  = JmxExporterProperty {enabledInBroker :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html>
+    JmxExporterProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html#cfn-msk-cluster-jmxexporter-enabledinbroker>
+                         enabledInBroker :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJmxExporterProperty :: Value Prelude.Bool -> JmxExporterProperty
 mkJmxExporterProperty enabledInBroker
-  = JmxExporterProperty {enabledInBroker = enabledInBroker}
+  = JmxExporterProperty
+      {haddock_workaround_ = (), enabledInBroker = enabledInBroker}
 instance ToResourceProperties JmxExporterProperty where
   toResourceProperties JmxExporterProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON JmxExporterProperty where
     = JSON.object ["EnabledInBroker" JSON..= enabledInBroker]
 instance Property "EnabledInBroker" JmxExporterProperty where
   type PropertyType "EnabledInBroker" JmxExporterProperty = Value Prelude.Bool
-  set newValue JmxExporterProperty {}
+  set newValue JmxExporterProperty {..}
     = JmxExporterProperty {enabledInBroker = newValue, ..}

@@ -13,29 +13,45 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.SkewedInfoProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageDescriptorProperty
-  = StorageDescriptorProperty {bucketColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html>
+    StorageDescriptorProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns>
+                               bucketColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns>
                                columns :: (Prelude.Maybe [ColumnProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed>
                                compressed :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat>
                                inputFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location>
                                location :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets>
                                numberOfBuckets :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat>
                                outputFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters>
                                parameters :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference>
                                schemaReference :: (Prelude.Maybe SchemaReferenceProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo>
                                serdeInfo :: (Prelude.Maybe SerdeInfoProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo>
                                skewedInfo :: (Prelude.Maybe SkewedInfoProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns>
                                sortColumns :: (Prelude.Maybe [OrderProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories>
                                storedAsSubDirectories :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageDescriptorProperty :: StorageDescriptorProperty
 mkStorageDescriptorProperty
   = StorageDescriptorProperty
-      {bucketColumns = Prelude.Nothing, columns = Prelude.Nothing,
-       compressed = Prelude.Nothing, inputFormat = Prelude.Nothing,
-       location = Prelude.Nothing, numberOfBuckets = Prelude.Nothing,
-       outputFormat = Prelude.Nothing, parameters = Prelude.Nothing,
-       schemaReference = Prelude.Nothing, serdeInfo = Prelude.Nothing,
-       skewedInfo = Prelude.Nothing, sortColumns = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketColumns = Prelude.Nothing,
+       columns = Prelude.Nothing, compressed = Prelude.Nothing,
+       inputFormat = Prelude.Nothing, location = Prelude.Nothing,
+       numberOfBuckets = Prelude.Nothing, outputFormat = Prelude.Nothing,
+       parameters = Prelude.Nothing, schemaReference = Prelude.Nothing,
+       serdeInfo = Prelude.Nothing, skewedInfo = Prelude.Nothing,
+       sortColumns = Prelude.Nothing,
        storedAsSubDirectories = Prelude.Nothing}
 instance ToResourceProperties StorageDescriptorProperty where
   toResourceProperties StorageDescriptorProperty {..}

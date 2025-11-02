@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThingPrincipalAttachment
-  = ThingPrincipalAttachment {principal :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html>
+    ThingPrincipalAttachment {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal>
+                              principal :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname>
                               thingName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThingPrincipalAttachment ::
@@ -15,7 +19,8 @@ mkThingPrincipalAttachment ::
   -> Value Prelude.Text -> ThingPrincipalAttachment
 mkThingPrincipalAttachment principal thingName
   = ThingPrincipalAttachment
-      {principal = principal, thingName = thingName}
+      {haddock_workaround_ = (), principal = principal,
+       thingName = thingName}
 instance ToResourceProperties ThingPrincipalAttachment where
   toResourceProperties ThingPrincipalAttachment {..}
     = ResourceProperties

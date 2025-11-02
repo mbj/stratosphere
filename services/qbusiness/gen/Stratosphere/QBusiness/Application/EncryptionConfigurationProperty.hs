@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-encryptionconfiguration.html#cfn-qbusiness-application-encryptionconfiguration-kmskeyid>
+                                     kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {kmsKeyId = Prelude.Nothing}
+  = EncryptionConfigurationProperty
+      {haddock_workaround_ = (), kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON EncryptionConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId]))
 instance Property "KmsKeyId" EncryptionConfigurationProperty where
   type PropertyType "KmsKeyId" EncryptionConfigurationProperty = Value Prelude.Text
-  set newValue EncryptionConfigurationProperty {}
+  set newValue EncryptionConfigurationProperty {..}
     = EncryptionConfigurationProperty
         {kmsKeyId = Prelude.pure newValue, ..}

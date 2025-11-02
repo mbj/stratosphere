@@ -9,15 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Package
-  = Package {packageName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html>
+    Package {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-packagename>
+             packageName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-storagelocation>
              storageLocation :: (Prelude.Maybe StorageLocationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html#cfn-panorama-package-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPackage :: Value Prelude.Text -> Package
 mkPackage packageName
   = Package
-      {packageName = packageName, storageLocation = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), packageName = packageName,
+       storageLocation = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Package where
   toResourceProperties Package {..}
     = ResourceProperties

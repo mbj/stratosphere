@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationForChannelProperty
-  = LogConfigurationForChannelProperty {logTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html>
+    LogConfigurationForChannelProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html#cfn-mediatailor-channel-logconfigurationforchannel-logtypes>
+                                        logTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationForChannelProperty ::
   LogConfigurationForChannelProperty
 mkLogConfigurationForChannelProperty
-  = LogConfigurationForChannelProperty {logTypes = Prelude.Nothing}
+  = LogConfigurationForChannelProperty
+      {haddock_workaround_ = (), logTypes = Prelude.Nothing}
 instance ToResourceProperties LogConfigurationForChannelProperty where
   toResourceProperties LogConfigurationForChannelProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON LogConfigurationForChannelProperty where
            (Prelude.catMaybes [(JSON..=) "LogTypes" Prelude.<$> logTypes]))
 instance Property "LogTypes" LogConfigurationForChannelProperty where
   type PropertyType "LogTypes" LogConfigurationForChannelProperty = ValueList Prelude.Text
-  set newValue LogConfigurationForChannelProperty {}
+  set newValue LogConfigurationForChannelProperty {..}
     = LogConfigurationForChannelProperty
         {logTypes = Prelude.pure newValue, ..}

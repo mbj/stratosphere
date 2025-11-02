@@ -9,13 +9,23 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.LifecyclePolicy.ResourceSelectio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecyclePolicy
-  = LifecyclePolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html>
+    LifecyclePolicy {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-description>
+                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-executionrole>
                      executionRole :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-policydetails>
                      policyDetails :: [PolicyDetailProperty],
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-resourceselection>
                      resourceSelection :: ResourceSelectionProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-resourcetype>
                      resourceType :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-status>
                      status :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-tags>
                      tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicy ::
@@ -31,8 +41,8 @@ mkLifecyclePolicy
   resourceSelection
   resourceType
   = LifecyclePolicy
-      {executionRole = executionRole, name = name,
-       policyDetails = policyDetails,
+      {haddock_workaround_ = (), executionRole = executionRole,
+       name = name, policyDetails = policyDetails,
        resourceSelection = resourceSelection, resourceType = resourceType,
        description = Prelude.Nothing, status = Prelude.Nothing,
        tags = Prelude.Nothing}

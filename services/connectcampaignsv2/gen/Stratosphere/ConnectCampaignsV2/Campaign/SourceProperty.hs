@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceProperty
-  = SourceProperty {customerProfilesSegmentArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html>
+    SourceProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html#cfn-connectcampaignsv2-campaign-source-customerprofilessegmentarn>
+                    customerProfilesSegmentArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: Value Prelude.Text -> SourceProperty
 mkSourceProperty customerProfilesSegmentArn
   = SourceProperty
-      {customerProfilesSegmentArn = customerProfilesSegmentArn}
+      {haddock_workaround_ = (),
+       customerProfilesSegmentArn = customerProfilesSegmentArn}
 instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SourceProperty where
         ["CustomerProfilesSegmentArn" JSON..= customerProfilesSegmentArn]
 instance Property "CustomerProfilesSegmentArn" SourceProperty where
   type PropertyType "CustomerProfilesSegmentArn" SourceProperty = Value Prelude.Text
-  set newValue SourceProperty {}
+  set newValue SourceProperty {..}
     = SourceProperty {customerProfilesSegmentArn = newValue, ..}

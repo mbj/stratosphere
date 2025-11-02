@@ -11,8 +11,13 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionPropertiesProperty
-  = EvaluationFormSingleSelectQuestionPropertiesProperty {automation :: (Prelude.Maybe EvaluationFormSingleSelectQuestionAutomationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html>
+    EvaluationFormSingleSelectQuestionPropertiesProperty {haddock_workaround_ :: (),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-automation>
+                                                          automation :: (Prelude.Maybe EvaluationFormSingleSelectQuestionAutomationProperty),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-displayas>
                                                           displayAs :: (Prelude.Maybe (Value Prelude.Text)),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html#cfn-connect-evaluationform-evaluationformsingleselectquestionproperties-options>
                                                           options :: [EvaluationFormSingleSelectQuestionOptionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionPropertiesProperty ::
@@ -20,8 +25,8 @@ mkEvaluationFormSingleSelectQuestionPropertiesProperty ::
   -> EvaluationFormSingleSelectQuestionPropertiesProperty
 mkEvaluationFormSingleSelectQuestionPropertiesProperty options
   = EvaluationFormSingleSelectQuestionPropertiesProperty
-      {options = options, automation = Prelude.Nothing,
-       displayAs = Prelude.Nothing}
+      {haddock_workaround_ = (), options = options,
+       automation = Prelude.Nothing, displayAs = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionPropertiesProperty where
   toResourceProperties
     EvaluationFormSingleSelectQuestionPropertiesProperty {..}

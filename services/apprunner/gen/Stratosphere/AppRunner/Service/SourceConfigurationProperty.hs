@@ -11,15 +11,22 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.ImageRepositoryProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceConfigurationProperty
-  = SourceConfigurationProperty {authenticationConfiguration :: (Prelude.Maybe AuthenticationConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html>
+    SourceConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration>
+                                 authenticationConfiguration :: (Prelude.Maybe AuthenticationConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled>
                                  autoDeploymentsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository>
                                  codeRepository :: (Prelude.Maybe CodeRepositoryProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository>
                                  imageRepository :: (Prelude.Maybe ImageRepositoryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty :: SourceConfigurationProperty
 mkSourceConfigurationProperty
   = SourceConfigurationProperty
-      {authenticationConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       authenticationConfiguration = Prelude.Nothing,
        autoDeploymentsEnabled = Prelude.Nothing,
        codeRepository = Prelude.Nothing,
        imageRepository = Prelude.Nothing}

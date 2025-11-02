@@ -10,19 +10,35 @@ import {-# SOURCE #-} Stratosphere.SSM.MaintenanceWindowTask.TaskInvocationParam
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowTask
-  = MaintenanceWindowTask {cutoffBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html>
+    MaintenanceWindowTask {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-cutoffbehavior>
+                           cutoffBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-logginginfo>
                            loggingInfo :: (Prelude.Maybe LoggingInfoProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency>
                            maxConcurrency :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxerrors>
                            maxErrors :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-priority>
                            priority :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-servicerolearn>
                            serviceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-targets>
                            targets :: (Prelude.Maybe [TargetProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskarn>
                            taskArn :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters>
                            taskInvocationParameters :: (Prelude.Maybe TaskInvocationParametersProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskparameters>
                            taskParameters :: (Prelude.Maybe JSON.Object),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-tasktype>
                            taskType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-windowid>
                            windowId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowTask ::
@@ -32,12 +48,12 @@ mkMaintenanceWindowTask ::
         -> Value Prelude.Text -> MaintenanceWindowTask
 mkMaintenanceWindowTask priority taskArn taskType windowId
   = MaintenanceWindowTask
-      {priority = priority, taskArn = taskArn, taskType = taskType,
-       windowId = windowId, cutoffBehavior = Prelude.Nothing,
-       description = Prelude.Nothing, loggingInfo = Prelude.Nothing,
-       maxConcurrency = Prelude.Nothing, maxErrors = Prelude.Nothing,
-       name = Prelude.Nothing, serviceRoleArn = Prelude.Nothing,
-       targets = Prelude.Nothing,
+      {haddock_workaround_ = (), priority = priority, taskArn = taskArn,
+       taskType = taskType, windowId = windowId,
+       cutoffBehavior = Prelude.Nothing, description = Prelude.Nothing,
+       loggingInfo = Prelude.Nothing, maxConcurrency = Prelude.Nothing,
+       maxErrors = Prelude.Nothing, name = Prelude.Nothing,
+       serviceRoleArn = Prelude.Nothing, targets = Prelude.Nothing,
        taskInvocationParameters = Prelude.Nothing,
        taskParameters = Prelude.Nothing}
 instance ToResourceProperties MaintenanceWindowTask where

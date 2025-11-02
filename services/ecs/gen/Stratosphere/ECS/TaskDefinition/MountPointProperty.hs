@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MountPointProperty
-  = MountPointProperty {containerPath :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html>
+    MountPointProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html#cfn-ecs-taskdefinition-mountpoint-containerpath>
+                        containerPath :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html#cfn-ecs-taskdefinition-mountpoint-readonly>
                         readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html#cfn-ecs-taskdefinition-mountpoint-sourcevolume>
                         sourceVolume :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMountPointProperty :: MountPointProperty
 mkMountPointProperty
   = MountPointProperty
-      {containerPath = Prelude.Nothing, readOnly = Prelude.Nothing,
-       sourceVolume = Prelude.Nothing}
+      {haddock_workaround_ = (), containerPath = Prelude.Nothing,
+       readOnly = Prelude.Nothing, sourceVolume = Prelude.Nothing}
 instance ToResourceProperties MountPointProperty where
   toResourceProperties MountPointProperty {..}
     = ResourceProperties

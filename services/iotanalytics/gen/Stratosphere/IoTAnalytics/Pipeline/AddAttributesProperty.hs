@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AddAttributesProperty
-  = AddAttributesProperty {attributes :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html>
+    AddAttributesProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-attributes>
+                           attributes :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-name>
                            name :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html#cfn-iotanalytics-pipeline-addattributes-next>
                            next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAddAttributesProperty ::
@@ -16,7 +21,8 @@ mkAddAttributesProperty ::
   -> Value Prelude.Text -> AddAttributesProperty
 mkAddAttributesProperty attributes name
   = AddAttributesProperty
-      {attributes = attributes, name = name, next = Prelude.Nothing}
+      {haddock_workaround_ = (), attributes = attributes, name = name,
+       next = Prelude.Nothing}
 instance ToResourceProperties AddAttributesProperty where
   toResourceProperties AddAttributesProperty {..}
     = ResourceProperties

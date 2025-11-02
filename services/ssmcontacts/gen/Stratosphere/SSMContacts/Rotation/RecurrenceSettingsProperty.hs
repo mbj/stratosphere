@@ -11,11 +11,19 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Rotation.WeeklySettingProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecurrenceSettingsProperty
-  = RecurrenceSettingsProperty {dailySettings :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html>
+    RecurrenceSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-dailysettings>
+                                dailySettings :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-monthlysettings>
                                 monthlySettings :: (Prelude.Maybe [MonthlySettingProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-numberofoncalls>
                                 numberOfOnCalls :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-recurrencemultiplier>
                                 recurrenceMultiplier :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-shiftcoverages>
                                 shiftCoverages :: (Prelude.Maybe [ShiftCoverageProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html#cfn-ssmcontacts-rotation-recurrencesettings-weeklysettings>
                                 weeklySettings :: (Prelude.Maybe [WeeklySettingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecurrenceSettingsProperty ::
@@ -23,7 +31,7 @@ mkRecurrenceSettingsProperty ::
   -> Value Prelude.Integer -> RecurrenceSettingsProperty
 mkRecurrenceSettingsProperty numberOfOnCalls recurrenceMultiplier
   = RecurrenceSettingsProperty
-      {numberOfOnCalls = numberOfOnCalls,
+      {haddock_workaround_ = (), numberOfOnCalls = numberOfOnCalls,
        recurrenceMultiplier = recurrenceMultiplier,
        dailySettings = Prelude.Nothing, monthlySettings = Prelude.Nothing,
        shiftCoverages = Prelude.Nothing, weeklySettings = Prelude.Nothing}

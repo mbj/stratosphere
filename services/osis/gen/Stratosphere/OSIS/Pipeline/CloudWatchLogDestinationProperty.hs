@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogDestinationProperty
-  = CloudWatchLogDestinationProperty {logGroup :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html>
+    CloudWatchLogDestinationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html#cfn-osis-pipeline-cloudwatchlogdestination-loggroup>
+                                      logGroup :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogDestinationProperty ::
   Value Prelude.Text -> CloudWatchLogDestinationProperty
 mkCloudWatchLogDestinationProperty logGroup
-  = CloudWatchLogDestinationProperty {logGroup = logGroup}
+  = CloudWatchLogDestinationProperty
+      {haddock_workaround_ = (), logGroup = logGroup}
 instance ToResourceProperties CloudWatchLogDestinationProperty where
   toResourceProperties CloudWatchLogDestinationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CloudWatchLogDestinationProperty where
     = JSON.object ["LogGroup" JSON..= logGroup]
 instance Property "LogGroup" CloudWatchLogDestinationProperty where
   type PropertyType "LogGroup" CloudWatchLogDestinationProperty = Value Prelude.Text
-  set newValue CloudWatchLogDestinationProperty {}
+  set newValue CloudWatchLogDestinationProperty {..}
     = CloudWatchLogDestinationProperty {logGroup = newValue, ..}

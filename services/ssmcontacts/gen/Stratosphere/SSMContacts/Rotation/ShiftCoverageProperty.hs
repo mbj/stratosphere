@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Rotation.CoverageTimeProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShiftCoverageProperty
-  = ShiftCoverageProperty {coverageTimes :: [CoverageTimeProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-shiftcoverage.html>
+    ShiftCoverageProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-shiftcoverage.html#cfn-ssmcontacts-rotation-shiftcoverage-coveragetimes>
+                           coverageTimes :: [CoverageTimeProperty],
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-shiftcoverage.html#cfn-ssmcontacts-rotation-shiftcoverage-dayofweek>
                            dayOfWeek :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkShiftCoverageProperty ::
@@ -16,7 +20,8 @@ mkShiftCoverageProperty ::
   -> Value Prelude.Text -> ShiftCoverageProperty
 mkShiftCoverageProperty coverageTimes dayOfWeek
   = ShiftCoverageProperty
-      {coverageTimes = coverageTimes, dayOfWeek = dayOfWeek}
+      {haddock_workaround_ = (), coverageTimes = coverageTimes,
+       dayOfWeek = dayOfWeek}
 instance ToResourceProperties ShiftCoverageProperty where
   toResourceProperties ShiftCoverageProperty {..}
     = ResourceProperties

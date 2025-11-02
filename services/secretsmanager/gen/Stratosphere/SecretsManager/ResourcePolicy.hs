@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourcePolicy
-  = ResourcePolicy {blockPublicPolicy :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html>
+    ResourcePolicy {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy>
+                    blockPublicPolicy :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy>
                     resourcePolicy :: JSON.Object,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid>
                     secretId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::
   JSON.Object -> Value Prelude.Text -> ResourcePolicy
 mkResourcePolicy resourcePolicy secretId
   = ResourcePolicy
-      {resourcePolicy = resourcePolicy, secretId = secretId,
-       blockPublicPolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), resourcePolicy = resourcePolicy,
+       secretId = secretId, blockPublicPolicy = Prelude.Nothing}
 instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties

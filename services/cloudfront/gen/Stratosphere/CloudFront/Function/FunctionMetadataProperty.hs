@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionMetadataProperty
-  = FunctionMetadataProperty {functionARN :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html>
+    FunctionMetadataProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn>
+                              functionARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionMetadataProperty :: FunctionMetadataProperty
 mkFunctionMetadataProperty
-  = FunctionMetadataProperty {functionARN = Prelude.Nothing}
+  = FunctionMetadataProperty
+      {haddock_workaround_ = (), functionARN = Prelude.Nothing}
 instance ToResourceProperties FunctionMetadataProperty where
   toResourceProperties FunctionMetadataProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON FunctionMetadataProperty where
               [(JSON..=) "FunctionARN" Prelude.<$> functionARN]))
 instance Property "FunctionARN" FunctionMetadataProperty where
   type PropertyType "FunctionARN" FunctionMetadataProperty = Value Prelude.Text
-  set newValue FunctionMetadataProperty {}
+  set newValue FunctionMetadataProperty {..}
     = FunctionMetadataProperty
         {functionARN = Prelude.pure newValue, ..}

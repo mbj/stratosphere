@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelfManagedKafkaEventSourceConfigProperty
-  = SelfManagedKafkaEventSourceConfigProperty {consumerGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html>
+    SelfManagedKafkaEventSourceConfigProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-consumergroupid>
+                                               consumerGroupId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedKafkaEventSourceConfigProperty ::
   SelfManagedKafkaEventSourceConfigProperty
 mkSelfManagedKafkaEventSourceConfigProperty
   = SelfManagedKafkaEventSourceConfigProperty
-      {consumerGroupId = Prelude.Nothing}
+      {haddock_workaround_ = (), consumerGroupId = Prelude.Nothing}
 instance ToResourceProperties SelfManagedKafkaEventSourceConfigProperty where
   toResourceProperties SelfManagedKafkaEventSourceConfigProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON SelfManagedKafkaEventSourceConfigProperty where
               [(JSON..=) "ConsumerGroupId" Prelude.<$> consumerGroupId]))
 instance Property "ConsumerGroupId" SelfManagedKafkaEventSourceConfigProperty where
   type PropertyType "ConsumerGroupId" SelfManagedKafkaEventSourceConfigProperty = Value Prelude.Text
-  set newValue SelfManagedKafkaEventSourceConfigProperty {}
+  set newValue SelfManagedKafkaEventSourceConfigProperty {..}
     = SelfManagedKafkaEventSourceConfigProperty
         {consumerGroupId = Prelude.pure newValue, ..}

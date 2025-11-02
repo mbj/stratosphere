@@ -9,16 +9,22 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.ElasticLoadBalancingProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KubernetesNetworkConfigProperty
-  = KubernetesNetworkConfigProperty {elasticLoadBalancing :: (Prelude.Maybe ElasticLoadBalancingProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html>
+    KubernetesNetworkConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-elasticloadbalancing>
+                                     elasticLoadBalancing :: (Prelude.Maybe ElasticLoadBalancingProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-ipfamily>
                                      ipFamily :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr>
                                      serviceIpv4Cidr :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv6cidr>
                                      serviceIpv6Cidr :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKubernetesNetworkConfigProperty ::
   KubernetesNetworkConfigProperty
 mkKubernetesNetworkConfigProperty
   = KubernetesNetworkConfigProperty
-      {elasticLoadBalancing = Prelude.Nothing,
+      {haddock_workaround_ = (), elasticLoadBalancing = Prelude.Nothing,
        ipFamily = Prelude.Nothing, serviceIpv4Cidr = Prelude.Nothing,
        serviceIpv6Cidr = Prelude.Nothing}
 instance ToResourceProperties KubernetesNetworkConfigProperty where

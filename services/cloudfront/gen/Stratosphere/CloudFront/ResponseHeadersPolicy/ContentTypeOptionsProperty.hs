@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContentTypeOptionsProperty
-  = ContentTypeOptionsProperty {override :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html>
+    ContentTypeOptionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html#cfn-cloudfront-responseheaderspolicy-contenttypeoptions-override>
+                                override :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContentTypeOptionsProperty ::
   Value Prelude.Bool -> ContentTypeOptionsProperty
 mkContentTypeOptionsProperty override
-  = ContentTypeOptionsProperty {override = override}
+  = ContentTypeOptionsProperty
+      {haddock_workaround_ = (), override = override}
 instance ToResourceProperties ContentTypeOptionsProperty where
   toResourceProperties ContentTypeOptionsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ContentTypeOptionsProperty where
     = JSON.object ["Override" JSON..= override]
 instance Property "Override" ContentTypeOptionsProperty where
   type PropertyType "Override" ContentTypeOptionsProperty = Value Prelude.Bool
-  set newValue ContentTypeOptionsProperty {}
+  set newValue ContentTypeOptionsProperty {..}
     = ContentTypeOptionsProperty {override = newValue, ..}

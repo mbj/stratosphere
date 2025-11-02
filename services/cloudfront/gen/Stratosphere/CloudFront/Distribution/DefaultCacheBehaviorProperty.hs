@@ -11,24 +11,45 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.LambdaFunctionAssocia
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultCacheBehaviorProperty
-  = DefaultCacheBehaviorProperty {allowedMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html>
+    DefaultCacheBehaviorProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods>
+                                  allowedMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid>
                                   cachePolicyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods>
                                   cachedMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress>
                                   compress :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl>
                                   defaultTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid>
                                   fieldLevelEncryptionId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues>
                                   forwardedValues :: (Prelude.Maybe ForwardedValuesProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations>
                                   functionAssociations :: (Prelude.Maybe [FunctionAssociationProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations>
                                   lambdaFunctionAssociations :: (Prelude.Maybe [LambdaFunctionAssociationProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl>
                                   maxTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl>
                                   minTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid>
                                   originRequestPolicyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn>
                                   realtimeLogConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-responseheaderspolicyid>
                                   responseHeadersPolicyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming>
                                   smoothStreaming :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid>
                                   targetOriginId :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups>
                                   trustedKeyGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners>
                                   trustedSigners :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy>
                                   viewerProtocolPolicy :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultCacheBehaviorProperty ::
@@ -36,7 +57,7 @@ mkDefaultCacheBehaviorProperty ::
   -> Value Prelude.Text -> DefaultCacheBehaviorProperty
 mkDefaultCacheBehaviorProperty targetOriginId viewerProtocolPolicy
   = DefaultCacheBehaviorProperty
-      {targetOriginId = targetOriginId,
+      {haddock_workaround_ = (), targetOriginId = targetOriginId,
        viewerProtocolPolicy = viewerProtocolPolicy,
        allowedMethods = Prelude.Nothing, cachePolicyId = Prelude.Nothing,
        cachedMethods = Prelude.Nothing, compress = Prelude.Nothing,

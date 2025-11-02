@@ -11,15 +11,27 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Cluster.VpcConfigProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterInstanceGroupProperty
-  = ClusterInstanceGroupProperty {currentCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html>
+    ClusterInstanceGroupProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-currentcount>
+                                  currentCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-executionrole>
                                   executionRole :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancecount>
                                   instanceCount :: (Value Prelude.Integer),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancegroupname>
                                   instanceGroupName :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancestorageconfigs>
                                   instanceStorageConfigs :: (Prelude.Maybe [ClusterInstanceStorageConfigProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancetype>
                                   instanceType :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-lifecycleconfig>
                                   lifeCycleConfig :: ClusterLifeCycleConfigProperty,
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-onstartdeephealthchecks>
                                   onStartDeepHealthChecks :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-overridevpcconfig>
                                   overrideVpcConfig :: (Prelude.Maybe VpcConfigProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-threadspercore>
                                   threadsPerCore :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterInstanceGroupProperty ::
@@ -35,7 +47,8 @@ mkClusterInstanceGroupProperty
   instanceType
   lifeCycleConfig
   = ClusterInstanceGroupProperty
-      {executionRole = executionRole, instanceCount = instanceCount,
+      {haddock_workaround_ = (), executionRole = executionRole,
+       instanceCount = instanceCount,
        instanceGroupName = instanceGroupName, instanceType = instanceType,
        lifeCycleConfig = lifeCycleConfig, currentCount = Prelude.Nothing,
        instanceStorageConfigs = Prelude.Nothing,

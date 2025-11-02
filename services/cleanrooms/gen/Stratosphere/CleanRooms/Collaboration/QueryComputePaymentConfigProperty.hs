@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryComputePaymentConfigProperty
-  = QueryComputePaymentConfigProperty {isResponsible :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>
+    QueryComputePaymentConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html#cfn-cleanrooms-collaboration-querycomputepaymentconfig-isresponsible>
+                                       isResponsible :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryComputePaymentConfigProperty ::
   Value Prelude.Bool -> QueryComputePaymentConfigProperty
 mkQueryComputePaymentConfigProperty isResponsible
-  = QueryComputePaymentConfigProperty {isResponsible = isResponsible}
+  = QueryComputePaymentConfigProperty
+      {haddock_workaround_ = (), isResponsible = isResponsible}
 instance ToResourceProperties QueryComputePaymentConfigProperty where
   toResourceProperties QueryComputePaymentConfigProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON QueryComputePaymentConfigProperty where
     = JSON.object ["IsResponsible" JSON..= isResponsible]
 instance Property "IsResponsible" QueryComputePaymentConfigProperty where
   type PropertyType "IsResponsible" QueryComputePaymentConfigProperty = Value Prelude.Bool
-  set newValue QueryComputePaymentConfigProperty {}
+  set newValue QueryComputePaymentConfigProperty {..}
     = QueryComputePaymentConfigProperty {isResponsible = newValue, ..}

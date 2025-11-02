@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelAccessConfigPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ModelDataSourceProperty
-  = S3ModelDataSourceProperty {compressionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html>
+    S3ModelDataSourceProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-compressiontype>
+                               compressionType :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-modelaccessconfig>
                                modelAccessConfig :: (Prelude.Maybe ModelAccessConfigProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-s3datatype>
                                s3DataType :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html#cfn-sagemaker-modelpackage-s3modeldatasource-s3uri>
                                s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ModelDataSourceProperty ::
@@ -20,8 +26,9 @@ mkS3ModelDataSourceProperty ::
      -> Value Prelude.Text -> S3ModelDataSourceProperty
 mkS3ModelDataSourceProperty compressionType s3DataType s3Uri
   = S3ModelDataSourceProperty
-      {compressionType = compressionType, s3DataType = s3DataType,
-       s3Uri = s3Uri, modelAccessConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), compressionType = compressionType,
+       s3DataType = s3DataType, s3Uri = s3Uri,
+       modelAccessConfig = Prelude.Nothing}
 instance ToResourceProperties S3ModelDataSourceProperty where
   toResourceProperties S3ModelDataSourceProperty {..}
     = ResourceProperties

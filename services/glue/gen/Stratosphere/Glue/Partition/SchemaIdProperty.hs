@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaIdProperty
-  = SchemaIdProperty {registryName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html>
+    SchemaIdProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname>
+                      registryName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn>
                       schemaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname>
                       schemaName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaIdProperty :: SchemaIdProperty
 mkSchemaIdProperty
   = SchemaIdProperty
-      {registryName = Prelude.Nothing, schemaArn = Prelude.Nothing,
-       schemaName = Prelude.Nothing}
+      {haddock_workaround_ = (), registryName = Prelude.Nothing,
+       schemaArn = Prelude.Nothing, schemaName = Prelude.Nothing}
 instance ToResourceProperties SchemaIdProperty where
   toResourceProperties SchemaIdProperty {..}
     = ResourceProperties

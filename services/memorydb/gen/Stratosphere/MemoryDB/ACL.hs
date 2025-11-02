@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ACL
-  = ACL {aCLName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html>
+    ACL {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-aclname>
+         aCLName :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-tags>
          tags :: (Prelude.Maybe [Tag]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html#cfn-memorydb-acl-usernames>
          userNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkACL :: Value Prelude.Text -> ACL
 mkACL aCLName
   = ACL
-      {aCLName = aCLName, tags = Prelude.Nothing,
-       userNames = Prelude.Nothing}
+      {haddock_workaround_ = (), aCLName = aCLName,
+       tags = Prelude.Nothing, userNames = Prelude.Nothing}
 instance ToResourceProperties ACL where
   toResourceProperties ACL {..}
     = ResourceProperties

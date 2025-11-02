@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterClientAuthenticationProperty
-  = KafkaClusterClientAuthenticationProperty {authenticationType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html>
+    KafkaClusterClientAuthenticationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html#cfn-kafkaconnect-connector-kafkaclusterclientauthentication-authenticationtype>
+                                              authenticationType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterClientAuthenticationProperty ::
   Value Prelude.Text -> KafkaClusterClientAuthenticationProperty
 mkKafkaClusterClientAuthenticationProperty authenticationType
   = KafkaClusterClientAuthenticationProperty
-      {authenticationType = authenticationType}
+      {haddock_workaround_ = (), authenticationType = authenticationType}
 instance ToResourceProperties KafkaClusterClientAuthenticationProperty where
   toResourceProperties KafkaClusterClientAuthenticationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON KafkaClusterClientAuthenticationProperty where
     = JSON.object ["AuthenticationType" JSON..= authenticationType]
 instance Property "AuthenticationType" KafkaClusterClientAuthenticationProperty where
   type PropertyType "AuthenticationType" KafkaClusterClientAuthenticationProperty = Value Prelude.Text
-  set newValue KafkaClusterClientAuthenticationProperty {}
+  set newValue KafkaClusterClientAuthenticationProperty {..}
     = KafkaClusterClientAuthenticationProperty
         {authenticationType = newValue, ..}

@@ -8,12 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseLogDestinationProperty
-  = FirehoseLogDestinationProperty {deliveryStreamArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-firehoselogdestination.html>
+    FirehoseLogDestinationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-firehoselogdestination.html#cfn-pipes-pipe-firehoselogdestination-deliverystreamarn>
+                                    deliveryStreamArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseLogDestinationProperty :: FirehoseLogDestinationProperty
 mkFirehoseLogDestinationProperty
   = FirehoseLogDestinationProperty
-      {deliveryStreamArn = Prelude.Nothing}
+      {haddock_workaround_ = (), deliveryStreamArn = Prelude.Nothing}
 instance ToResourceProperties FirehoseLogDestinationProperty where
   toResourceProperties FirehoseLogDestinationProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON FirehoseLogDestinationProperty where
               [(JSON..=) "DeliveryStreamArn" Prelude.<$> deliveryStreamArn]))
 instance Property "DeliveryStreamArn" FirehoseLogDestinationProperty where
   type PropertyType "DeliveryStreamArn" FirehoseLogDestinationProperty = Value Prelude.Text
-  set newValue FirehoseLogDestinationProperty {}
+  set newValue FirehoseLogDestinationProperty {..}
     = FirehoseLogDestinationProperty
         {deliveryStreamArn = Prelude.pure newValue, ..}

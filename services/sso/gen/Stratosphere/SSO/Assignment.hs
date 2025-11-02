@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Assignment
-  = Assignment {instanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html>
+    Assignment {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn>
+                instanceArn :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn>
                 permissionSetArn :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid>
                 principalId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype>
                 principalType :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid>
                 targetId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype>
                 targetType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssignment ::
@@ -28,9 +36,10 @@ mkAssignment
   targetId
   targetType
   = Assignment
-      {instanceArn = instanceArn, permissionSetArn = permissionSetArn,
-       principalId = principalId, principalType = principalType,
-       targetId = targetId, targetType = targetType}
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       permissionSetArn = permissionSetArn, principalId = principalId,
+       principalType = principalType, targetId = targetId,
+       targetType = targetType}
 instance ToResourceProperties Assignment where
   toResourceProperties Assignment {..}
     = ResourceProperties

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamicSsmParameterValueProperty
-  = DynamicSsmParameterValueProperty {variable :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html>
+    DynamicSsmParameterValueProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html#cfn-ssmincidents-responseplan-dynamicssmparametervalue-variable>
+                                      variable :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicSsmParameterValueProperty ::
   DynamicSsmParameterValueProperty
 mkDynamicSsmParameterValueProperty
-  = DynamicSsmParameterValueProperty {variable = Prelude.Nothing}
+  = DynamicSsmParameterValueProperty
+      {haddock_workaround_ = (), variable = Prelude.Nothing}
 instance ToResourceProperties DynamicSsmParameterValueProperty where
   toResourceProperties DynamicSsmParameterValueProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DynamicSsmParameterValueProperty where
            (Prelude.catMaybes [(JSON..=) "Variable" Prelude.<$> variable]))
 instance Property "Variable" DynamicSsmParameterValueProperty where
   type PropertyType "Variable" DynamicSsmParameterValueProperty = Value Prelude.Text
-  set newValue DynamicSsmParameterValueProperty {}
+  set newValue DynamicSsmParameterValueProperty {..}
     = DynamicSsmParameterValueProperty
         {variable = Prelude.pure newValue, ..}

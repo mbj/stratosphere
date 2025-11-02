@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupVault.NotificationObjectTypeProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupVault
-  = BackupVault {accessPolicy :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html>
+    BackupVault {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy>
+                 accessPolicy :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname>
                  backupVaultName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags>
                  backupVaultTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn>
                  encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-lockconfiguration>
                  lockConfiguration :: (Prelude.Maybe LockConfigurationTypeProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications>
                  notifications :: (Prelude.Maybe NotificationObjectTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupVault :: Value Prelude.Text -> BackupVault
 mkBackupVault backupVaultName
   = BackupVault
-      {backupVaultName = backupVaultName, accessPolicy = Prelude.Nothing,
-       backupVaultTags = Prelude.Nothing,
+      {haddock_workaround_ = (), backupVaultName = backupVaultName,
+       accessPolicy = Prelude.Nothing, backupVaultTags = Prelude.Nothing,
        encryptionKeyArn = Prelude.Nothing,
        lockConfiguration = Prelude.Nothing,
        notifications = Prelude.Nothing}

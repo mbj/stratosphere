@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ColorCorrectionProperty as Exports
 import Stratosphere.ResourceProperties
 data ColorCorrectionSettingsProperty
-  = ColorCorrectionSettingsProperty {globalColorCorrections :: (Prelude.Maybe [ColorCorrectionProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html>
+    ColorCorrectionSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html#cfn-medialive-channel-colorcorrectionsettings-globalcolorcorrections>
+                                     globalColorCorrections :: (Prelude.Maybe [ColorCorrectionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColorCorrectionSettingsProperty ::
   ColorCorrectionSettingsProperty
 mkColorCorrectionSettingsProperty
   = ColorCorrectionSettingsProperty
-      {globalColorCorrections = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       globalColorCorrections = Prelude.Nothing}
 instance ToResourceProperties ColorCorrectionSettingsProperty where
   toResourceProperties ColorCorrectionSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON ColorCorrectionSettingsProperty where
                  Prelude.<$> globalColorCorrections]))
 instance Property "GlobalColorCorrections" ColorCorrectionSettingsProperty where
   type PropertyType "GlobalColorCorrections" ColorCorrectionSettingsProperty = [ColorCorrectionProperty]
-  set newValue ColorCorrectionSettingsProperty {}
+  set newValue ColorCorrectionSettingsProperty {..}
     = ColorCorrectionSettingsProperty
         {globalColorCorrections = Prelude.pure newValue, ..}

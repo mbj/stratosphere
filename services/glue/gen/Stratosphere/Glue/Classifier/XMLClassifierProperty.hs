@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data XMLClassifierProperty
-  = XMLClassifierProperty {classification :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html>
+    XMLClassifierProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification>
+                           classification :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name>
                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag>
                            rowTag :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXMLClassifierProperty ::
   Value Prelude.Text -> Value Prelude.Text -> XMLClassifierProperty
 mkXMLClassifierProperty classification rowTag
   = XMLClassifierProperty
-      {classification = classification, rowTag = rowTag,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), classification = classification,
+       rowTag = rowTag, name = Prelude.Nothing}
 instance ToResourceProperties XMLClassifierProperty where
   toResourceProperties XMLClassifierProperty {..}
     = ResourceProperties

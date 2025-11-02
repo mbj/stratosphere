@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeltaTimeSessionWindowConfigurationProperty
-  = DeltaTimeSessionWindowConfigurationProperty {timeoutInMinutes :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html>
+    DeltaTimeSessionWindowConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html#cfn-iotanalytics-dataset-deltatimesessionwindowconfiguration-timeoutinminutes>
+                                                 timeoutInMinutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTimeSessionWindowConfigurationProperty ::
   Value Prelude.Integer
   -> DeltaTimeSessionWindowConfigurationProperty
 mkDeltaTimeSessionWindowConfigurationProperty timeoutInMinutes
   = DeltaTimeSessionWindowConfigurationProperty
-      {timeoutInMinutes = timeoutInMinutes}
+      {haddock_workaround_ = (), timeoutInMinutes = timeoutInMinutes}
 instance ToResourceProperties DeltaTimeSessionWindowConfigurationProperty where
   toResourceProperties
     DeltaTimeSessionWindowConfigurationProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON DeltaTimeSessionWindowConfigurationProperty where
     = JSON.object ["TimeoutInMinutes" JSON..= timeoutInMinutes]
 instance Property "TimeoutInMinutes" DeltaTimeSessionWindowConfigurationProperty where
   type PropertyType "TimeoutInMinutes" DeltaTimeSessionWindowConfigurationProperty = Value Prelude.Integer
-  set newValue DeltaTimeSessionWindowConfigurationProperty {}
+  set newValue DeltaTimeSessionWindowConfigurationProperty {..}
     = DeltaTimeSessionWindowConfigurationProperty
         {timeoutInMinutes = newValue, ..}

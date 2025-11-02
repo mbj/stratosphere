@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonopensearchserviceRetryOptionsProperty
-  = AmazonopensearchserviceRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html>
+    AmazonopensearchserviceRetryOptionsProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions-durationinseconds>
+                                                 durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonopensearchserviceRetryOptionsProperty ::
   AmazonopensearchserviceRetryOptionsProperty
 mkAmazonopensearchserviceRetryOptionsProperty
   = AmazonopensearchserviceRetryOptionsProperty
-      {durationInSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), durationInSeconds = Prelude.Nothing}
 instance ToResourceProperties AmazonopensearchserviceRetryOptionsProperty where
   toResourceProperties
     AmazonopensearchserviceRetryOptionsProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON AmazonopensearchserviceRetryOptionsProperty where
               [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
 instance Property "DurationInSeconds" AmazonopensearchserviceRetryOptionsProperty where
   type PropertyType "DurationInSeconds" AmazonopensearchserviceRetryOptionsProperty = Value Prelude.Integer
-  set newValue AmazonopensearchserviceRetryOptionsProperty {}
+  set newValue AmazonopensearchserviceRetryOptionsProperty {..}
     = AmazonopensearchserviceRetryOptionsProperty
         {durationInSeconds = Prelude.pure newValue, ..}

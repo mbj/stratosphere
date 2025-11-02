@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GameSessionQueueDestinationProperty
-  = GameSessionQueueDestinationProperty {destinationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-gamesessionqueuedestination.html>
+    GameSessionQueueDestinationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-gamesessionqueuedestination.html#cfn-gamelift-gamesessionqueue-gamesessionqueuedestination-destinationarn>
+                                         destinationArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGameSessionQueueDestinationProperty ::
   GameSessionQueueDestinationProperty
 mkGameSessionQueueDestinationProperty
   = GameSessionQueueDestinationProperty
-      {destinationArn = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationArn = Prelude.Nothing}
 instance ToResourceProperties GameSessionQueueDestinationProperty where
   toResourceProperties GameSessionQueueDestinationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON GameSessionQueueDestinationProperty where
               [(JSON..=) "DestinationArn" Prelude.<$> destinationArn]))
 instance Property "DestinationArn" GameSessionQueueDestinationProperty where
   type PropertyType "DestinationArn" GameSessionQueueDestinationProperty = Value Prelude.Text
-  set newValue GameSessionQueueDestinationProperty {}
+  set newValue GameSessionQueueDestinationProperty {..}
     = GameSessionQueueDestinationProperty
         {destinationArn = Prelude.pure newValue, ..}

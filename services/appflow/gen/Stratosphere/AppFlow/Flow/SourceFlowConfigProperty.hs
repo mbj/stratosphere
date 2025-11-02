@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.SourceConnectorPropertiesPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceFlowConfigProperty
-  = SourceFlowConfigProperty {apiVersion :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html>
+    SourceFlowConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-apiversion>
+                              apiVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename>
                               connectorProfileName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype>
                               connectorType :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig>
                               incrementalPullConfig :: (Prelude.Maybe IncrementalPullConfigProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties>
                               sourceConnectorProperties :: SourceConnectorPropertiesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceFlowConfigProperty ::
@@ -21,7 +28,7 @@ mkSourceFlowConfigProperty ::
   -> SourceConnectorPropertiesProperty -> SourceFlowConfigProperty
 mkSourceFlowConfigProperty connectorType sourceConnectorProperties
   = SourceFlowConfigProperty
-      {connectorType = connectorType,
+      {haddock_workaround_ = (), connectorType = connectorType,
        sourceConnectorProperties = sourceConnectorProperties,
        apiVersion = Prelude.Nothing,
        connectorProfileName = Prelude.Nothing,

@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Dataset.FilterExpressionProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetParameterProperty
-  = DatasetParameterProperty {createColumn :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html>
+    DatasetParameterProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn>
+                              createColumn :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions>
                               datetimeOptions :: (Prelude.Maybe DatetimeOptionsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter>
                               filter :: (Prelude.Maybe FilterExpressionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type>
                               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetParameterProperty ::
@@ -21,8 +28,9 @@ mkDatasetParameterProperty ::
   -> Value Prelude.Text -> DatasetParameterProperty
 mkDatasetParameterProperty name type'
   = DatasetParameterProperty
-      {name = name, type' = type', createColumn = Prelude.Nothing,
-       datetimeOptions = Prelude.Nothing, filter = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, type' = type',
+       createColumn = Prelude.Nothing, datetimeOptions = Prelude.Nothing,
+       filter = Prelude.Nothing}
 instance ToResourceProperties DatasetParameterProperty where
   toResourceProperties DatasetParameterProperty {..}
     = ResourceProperties

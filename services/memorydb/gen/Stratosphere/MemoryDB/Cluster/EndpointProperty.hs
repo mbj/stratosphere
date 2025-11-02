@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointProperty
-  = EndpointProperty {address :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html>
+    EndpointProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-address>
+                      address :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html#cfn-memorydb-cluster-endpoint-port>
                       port :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointProperty :: EndpointProperty
 mkEndpointProperty
   = EndpointProperty
-      {address = Prelude.Nothing, port = Prelude.Nothing}
+      {haddock_workaround_ = (), address = Prelude.Nothing,
+       port = Prelude.Nothing}
 instance ToResourceProperties EndpointProperty where
   toResourceProperties EndpointProperty {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModuleDefaultVersion
-  = ModuleDefaultVersion {arn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html>
+    ModuleDefaultVersion {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn>
+                          arn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename>
                           moduleName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid>
                           versionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModuleDefaultVersion :: ModuleDefaultVersion
 mkModuleDefaultVersion
   = ModuleDefaultVersion
-      {arn = Prelude.Nothing, moduleName = Prelude.Nothing,
-       versionId = Prelude.Nothing}
+      {haddock_workaround_ = (), arn = Prelude.Nothing,
+       moduleName = Prelude.Nothing, versionId = Prelude.Nothing}
 instance ToResourceProperties ModuleDefaultVersion where
   toResourceProperties ModuleDefaultVersion {..}
     = ResourceProperties

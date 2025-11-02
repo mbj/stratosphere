@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.RecordSetProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordSetGroup
-  = RecordSetGroup {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html>
+    RecordSetGroup {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-comment>
+                    comment :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzoneid>
                     hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-hostedzonename>
                     hostedZoneName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-recordsets>
                     recordSets :: (Prelude.Maybe [RecordSetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordSetGroup :: RecordSetGroup
 mkRecordSetGroup
   = RecordSetGroup
-      {comment = Prelude.Nothing, hostedZoneId = Prelude.Nothing,
-       hostedZoneName = Prelude.Nothing, recordSets = Prelude.Nothing}
+      {haddock_workaround_ = (), comment = Prelude.Nothing,
+       hostedZoneId = Prelude.Nothing, hostedZoneName = Prelude.Nothing,
+       recordSets = Prelude.Nothing}
 instance ToResourceProperties RecordSetGroup where
   toResourceProperties RecordSetGroup {..}
     = ResourceProperties

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterOperationProperty
-  = FilterOperationProperty {conditionExpression :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>
+    FilterOperationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression>
+                             conditionExpression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterOperationProperty ::
   Value Prelude.Text -> FilterOperationProperty
 mkFilterOperationProperty conditionExpression
   = FilterOperationProperty
-      {conditionExpression = conditionExpression}
+      {haddock_workaround_ = (),
+       conditionExpression = conditionExpression}
 instance ToResourceProperties FilterOperationProperty where
   toResourceProperties FilterOperationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON FilterOperationProperty where
     = JSON.object ["ConditionExpression" JSON..= conditionExpression]
 instance Property "ConditionExpression" FilterOperationProperty where
   type PropertyType "ConditionExpression" FilterOperationProperty = Value Prelude.Text
-  set newValue FilterOperationProperty {}
+  set newValue FilterOperationProperty {..}
     = FilterOperationProperty {conditionExpression = newValue, ..}

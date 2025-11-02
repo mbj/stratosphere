@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsLogSource
-  = AwsLogSource {accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html>
+    AwsLogSource {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html#cfn-securitylake-awslogsource-accounts>
+                  accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html#cfn-securitylake-awslogsource-datalakearn>
                   dataLakeArn :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html#cfn-securitylake-awslogsource-sourcename>
                   sourceName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html#cfn-securitylake-awslogsource-sourceversion>
                   sourceVersion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsLogSource ::
@@ -17,8 +23,9 @@ mkAwsLogSource ::
   -> Value Prelude.Text -> Value Prelude.Text -> AwsLogSource
 mkAwsLogSource dataLakeArn sourceName sourceVersion
   = AwsLogSource
-      {dataLakeArn = dataLakeArn, sourceName = sourceName,
-       sourceVersion = sourceVersion, accounts = Prelude.Nothing}
+      {haddock_workaround_ = (), dataLakeArn = dataLakeArn,
+       sourceName = sourceName, sourceVersion = sourceVersion,
+       accounts = Prelude.Nothing}
 instance ToResourceProperties AwsLogSource where
   toResourceProperties AwsLogSource {..}
     = ResourceProperties

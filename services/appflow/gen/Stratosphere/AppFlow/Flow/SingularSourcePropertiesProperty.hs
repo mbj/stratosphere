@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingularSourcePropertiesProperty
-  = SingularSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html>
+    SingularSourcePropertiesProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object>
+                                      object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingularSourcePropertiesProperty ::
   Value Prelude.Text -> SingularSourcePropertiesProperty
 mkSingularSourcePropertiesProperty object
-  = SingularSourcePropertiesProperty {object = object}
+  = SingularSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties SingularSourcePropertiesProperty where
   toResourceProperties SingularSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON SingularSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" SingularSourcePropertiesProperty where
   type PropertyType "Object" SingularSourcePropertiesProperty = Value Prelude.Text
-  set newValue SingularSourcePropertiesProperty {}
+  set newValue SingularSourcePropertiesProperty {..}
     = SingularSourcePropertiesProperty {object = newValue, ..}

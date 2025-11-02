@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.CsvOutputOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputFormatOptionsProperty
-  = OutputFormatOptionsProperty {csv :: (Prelude.Maybe CsvOutputOptionsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html>
+    OutputFormatOptionsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv>
+                                 csv :: (Prelude.Maybe CsvOutputOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFormatOptionsProperty :: OutputFormatOptionsProperty
 mkOutputFormatOptionsProperty
-  = OutputFormatOptionsProperty {csv = Prelude.Nothing}
+  = OutputFormatOptionsProperty
+      {haddock_workaround_ = (), csv = Prelude.Nothing}
 instance ToResourceProperties OutputFormatOptionsProperty where
   toResourceProperties OutputFormatOptionsProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON OutputFormatOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Csv" Prelude.<$> csv]))
 instance Property "Csv" OutputFormatOptionsProperty where
   type PropertyType "Csv" OutputFormatOptionsProperty = CsvOutputOptionsProperty
-  set newValue OutputFormatOptionsProperty {}
+  set newValue OutputFormatOptionsProperty {..}
     = OutputFormatOptionsProperty {csv = Prelude.pure newValue, ..}

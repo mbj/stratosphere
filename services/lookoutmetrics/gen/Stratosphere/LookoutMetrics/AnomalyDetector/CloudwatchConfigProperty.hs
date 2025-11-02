@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudwatchConfigProperty
-  = CloudwatchConfigProperty {roleArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html>
+    CloudwatchConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn>
+                              roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchConfigProperty ::
   Value Prelude.Text -> CloudwatchConfigProperty
 mkCloudwatchConfigProperty roleArn
-  = CloudwatchConfigProperty {roleArn = roleArn}
+  = CloudwatchConfigProperty
+      {haddock_workaround_ = (), roleArn = roleArn}
 instance ToResourceProperties CloudwatchConfigProperty where
   toResourceProperties CloudwatchConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CloudwatchConfigProperty where
     = JSON.object ["RoleArn" JSON..= roleArn]
 instance Property "RoleArn" CloudwatchConfigProperty where
   type PropertyType "RoleArn" CloudwatchConfigProperty = Value Prelude.Text
-  set newValue CloudwatchConfigProperty {}
+  set newValue CloudwatchConfigProperty {..}
     = CloudwatchConfigProperty {roleArn = newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedExecutionProperty
-  = ManagedExecutionProperty {active :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html>
+    ManagedExecutionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html#cfn-cloudformation-stackset-managedexecution-active>
+                              active :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedExecutionProperty :: ManagedExecutionProperty
 mkManagedExecutionProperty
-  = ManagedExecutionProperty {active = Prelude.Nothing}
+  = ManagedExecutionProperty
+      {haddock_workaround_ = (), active = Prelude.Nothing}
 instance ToResourceProperties ManagedExecutionProperty where
   toResourceProperties ManagedExecutionProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ManagedExecutionProperty where
            (Prelude.catMaybes [(JSON..=) "Active" Prelude.<$> active]))
 instance Property "Active" ManagedExecutionProperty where
   type PropertyType "Active" ManagedExecutionProperty = Value Prelude.Bool
-  set newValue ManagedExecutionProperty {}
+  set newValue ManagedExecutionProperty {..}
     = ManagedExecutionProperty {active = Prelude.pure newValue, ..}

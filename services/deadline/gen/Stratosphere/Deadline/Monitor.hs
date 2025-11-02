@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Monitor
-  = Monitor {displayName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html>
+    Monitor {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-displayname>
+             displayName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-identitycenterinstancearn>
              identityCenterInstanceArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-rolearn>
              roleArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-subdomain>
              subdomain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitor ::
@@ -18,7 +24,7 @@ mkMonitor ::
      -> Value Prelude.Text -> Value Prelude.Text -> Monitor
 mkMonitor displayName identityCenterInstanceArn roleArn subdomain
   = Monitor
-      {displayName = displayName,
+      {haddock_workaround_ = (), displayName = displayName,
        identityCenterInstanceArn = identityCenterInstanceArn,
        roleArn = roleArn, subdomain = subdomain}
 instance ToResourceProperties Monitor where

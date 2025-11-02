@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.ComponentConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentMonitoringSettingProperty
-  = ComponentMonitoringSettingProperty {componentARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html>
+    ComponentMonitoringSettingProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn>
+                                        componentARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode>
                                         componentConfigurationMode :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname>
                                         componentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration>
                                         customComponentConfiguration :: (Prelude.Maybe ComponentConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration>
                                         defaultOverwriteComponentConfiguration :: (Prelude.Maybe ComponentConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier>
                                         tier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentMonitoringSettingProperty ::
@@ -23,7 +31,8 @@ mkComponentMonitoringSettingProperty
   componentConfigurationMode
   tier
   = ComponentMonitoringSettingProperty
-      {componentConfigurationMode = componentConfigurationMode,
+      {haddock_workaround_ = (),
+       componentConfigurationMode = componentConfigurationMode,
        tier = tier, componentARN = Prelude.Nothing,
        componentName = Prelude.Nothing,
        customComponentConfiguration = Prelude.Nothing,

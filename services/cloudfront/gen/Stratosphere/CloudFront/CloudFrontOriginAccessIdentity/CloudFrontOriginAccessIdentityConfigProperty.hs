@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFrontOriginAccessIdentityConfigProperty
-  = CloudFrontOriginAccessIdentityConfigProperty {comment :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html>
+    CloudFrontOriginAccessIdentityConfigProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment>
+                                                  comment :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFrontOriginAccessIdentityConfigProperty ::
   Value Prelude.Text -> CloudFrontOriginAccessIdentityConfigProperty
 mkCloudFrontOriginAccessIdentityConfigProperty comment
-  = CloudFrontOriginAccessIdentityConfigProperty {comment = comment}
+  = CloudFrontOriginAccessIdentityConfigProperty
+      {haddock_workaround_ = (), comment = comment}
 instance ToResourceProperties CloudFrontOriginAccessIdentityConfigProperty where
   toResourceProperties
     CloudFrontOriginAccessIdentityConfigProperty {..}
@@ -26,6 +30,6 @@ instance JSON.ToJSON CloudFrontOriginAccessIdentityConfigProperty where
     = JSON.object ["Comment" JSON..= comment]
 instance Property "Comment" CloudFrontOriginAccessIdentityConfigProperty where
   type PropertyType "Comment" CloudFrontOriginAccessIdentityConfigProperty = Value Prelude.Text
-  set newValue CloudFrontOriginAccessIdentityConfigProperty {}
+  set newValue CloudFrontOriginAccessIdentityConfigProperty {..}
     = CloudFrontOriginAccessIdentityConfigProperty
         {comment = newValue, ..}

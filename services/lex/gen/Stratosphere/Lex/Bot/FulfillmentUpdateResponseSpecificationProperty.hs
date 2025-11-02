@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FulfillmentUpdateResponseSpecificationProperty
-  = FulfillmentUpdateResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html>
+    FulfillmentUpdateResponseSpecificationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-allowinterrupt>
+                                                    allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-frequencyinseconds>
                                                     frequencyInSeconds :: (Value Prelude.Integer),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html#cfn-lex-bot-fulfillmentupdateresponsespecification-messagegroups>
                                                     messageGroups :: [MessageGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentUpdateResponseSpecificationProperty ::
@@ -21,7 +26,7 @@ mkFulfillmentUpdateResponseSpecificationProperty
   frequencyInSeconds
   messageGroups
   = FulfillmentUpdateResponseSpecificationProperty
-      {frequencyInSeconds = frequencyInSeconds,
+      {haddock_workaround_ = (), frequencyInSeconds = frequencyInSeconds,
        messageGroups = messageGroups, allowInterrupt = Prelude.Nothing}
 instance ToResourceProperties FulfillmentUpdateResponseSpecificationProperty where
   toResourceProperties

@@ -8,14 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.MembershipQueryComputePaymentConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data MembershipPaymentConfigurationProperty
-  = MembershipPaymentConfigurationProperty {queryCompute :: MembershipQueryComputePaymentConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html>
+    MembershipPaymentConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-querycompute>
+                                            queryCompute :: MembershipQueryComputePaymentConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipPaymentConfigurationProperty ::
   MembershipQueryComputePaymentConfigProperty
   -> MembershipPaymentConfigurationProperty
 mkMembershipPaymentConfigurationProperty queryCompute
   = MembershipPaymentConfigurationProperty
-      {queryCompute = queryCompute}
+      {haddock_workaround_ = (), queryCompute = queryCompute}
 instance ToResourceProperties MembershipPaymentConfigurationProperty where
   toResourceProperties MembershipPaymentConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +30,6 @@ instance JSON.ToJSON MembershipPaymentConfigurationProperty where
     = JSON.object ["QueryCompute" JSON..= queryCompute]
 instance Property "QueryCompute" MembershipPaymentConfigurationProperty where
   type PropertyType "QueryCompute" MembershipPaymentConfigurationProperty = MembershipQueryComputePaymentConfigProperty
-  set newValue MembershipPaymentConfigurationProperty {}
+  set newValue MembershipPaymentConfigurationProperty {..}
     = MembershipPaymentConfigurationProperty
         {queryCompute = newValue, ..}

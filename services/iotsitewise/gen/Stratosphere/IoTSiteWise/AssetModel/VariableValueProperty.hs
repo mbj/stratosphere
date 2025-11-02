@@ -8,18 +8,27 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.PropertyPathDefinition
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VariableValueProperty
-  = VariableValueProperty {hierarchyExternalId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html>
+    VariableValueProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchyexternalid>
+                           hierarchyExternalId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchyid>
                            hierarchyId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid>
                            hierarchyLogicalId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertyexternalid>
                            propertyExternalId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertyid>
                            propertyId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid>
                            propertyLogicalId :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertypath>
                            propertyPath :: (Prelude.Maybe [PropertyPathDefinitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVariableValueProperty :: VariableValueProperty
 mkVariableValueProperty
   = VariableValueProperty
-      {hierarchyExternalId = Prelude.Nothing,
+      {haddock_workaround_ = (), hierarchyExternalId = Prelude.Nothing,
        hierarchyId = Prelude.Nothing,
        hierarchyLogicalId = Prelude.Nothing,
        propertyExternalId = Prelude.Nothing, propertyId = Prelude.Nothing,

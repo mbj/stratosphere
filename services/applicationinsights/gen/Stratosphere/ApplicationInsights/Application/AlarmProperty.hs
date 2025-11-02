@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmProperty
-  = AlarmProperty {alarmName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html>
+    AlarmProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname>
+                   alarmName :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity>
                    severity :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: Value Prelude.Text -> AlarmProperty
 mkAlarmProperty alarmName
-  = AlarmProperty {alarmName = alarmName, severity = Prelude.Nothing}
+  = AlarmProperty
+      {haddock_workaround_ = (), alarmName = alarmName,
+       severity = Prelude.Nothing}
 instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties

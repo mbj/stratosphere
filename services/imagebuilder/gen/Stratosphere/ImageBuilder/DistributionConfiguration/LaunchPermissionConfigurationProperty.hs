@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchPermissionConfigurationProperty
-  = LaunchPermissionConfigurationProperty {organizationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html>
+    LaunchPermissionConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-organizationarns>
+                                           organizationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-organizationalunitarns>
                                            organizationalUnitArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-usergroups>
                                            userGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchpermissionconfiguration-userids>
                                            userIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchPermissionConfigurationProperty ::
   LaunchPermissionConfigurationProperty
 mkLaunchPermissionConfigurationProperty
   = LaunchPermissionConfigurationProperty
-      {organizationArns = Prelude.Nothing,
+      {haddock_workaround_ = (), organizationArns = Prelude.Nothing,
        organizationalUnitArns = Prelude.Nothing,
        userGroups = Prelude.Nothing, userIds = Prelude.Nothing}
 instance ToResourceProperties LaunchPermissionConfigurationProperty where

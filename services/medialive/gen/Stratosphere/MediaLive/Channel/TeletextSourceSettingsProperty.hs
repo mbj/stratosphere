@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CaptionRectangleProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TeletextSourceSettingsProperty
-  = TeletextSourceSettingsProperty {outputRectangle :: (Prelude.Maybe CaptionRectangleProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html>
+    TeletextSourceSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html#cfn-medialive-channel-teletextsourcesettings-outputrectangle>
+                                    outputRectangle :: (Prelude.Maybe CaptionRectangleProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html#cfn-medialive-channel-teletextsourcesettings-pagenumber>
                                     pageNumber :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTeletextSourceSettingsProperty :: TeletextSourceSettingsProperty
 mkTeletextSourceSettingsProperty
   = TeletextSourceSettingsProperty
-      {outputRectangle = Prelude.Nothing, pageNumber = Prelude.Nothing}
+      {haddock_workaround_ = (), outputRectangle = Prelude.Nothing,
+       pageNumber = Prelude.Nothing}
 instance ToResourceProperties TeletextSourceSettingsProperty where
   toResourceProperties TeletextSourceSettingsProperty {..}
     = ResourceProperties

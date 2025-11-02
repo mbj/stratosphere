@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HierarchicalChunkingLevelConfigurationProperty
-  = HierarchicalChunkingLevelConfigurationProperty {maxTokens :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html>
+    HierarchicalChunkingLevelConfigurationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html#cfn-bedrock-datasource-hierarchicalchunkinglevelconfiguration-maxtokens>
+                                                    maxTokens :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHierarchicalChunkingLevelConfigurationProperty ::
   Value Prelude.Integer
   -> HierarchicalChunkingLevelConfigurationProperty
 mkHierarchicalChunkingLevelConfigurationProperty maxTokens
   = HierarchicalChunkingLevelConfigurationProperty
-      {maxTokens = maxTokens}
+      {haddock_workaround_ = (), maxTokens = maxTokens}
 instance ToResourceProperties HierarchicalChunkingLevelConfigurationProperty where
   toResourceProperties
     HierarchicalChunkingLevelConfigurationProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON HierarchicalChunkingLevelConfigurationProperty where
     = JSON.object ["MaxTokens" JSON..= maxTokens]
 instance Property "MaxTokens" HierarchicalChunkingLevelConfigurationProperty where
   type PropertyType "MaxTokens" HierarchicalChunkingLevelConfigurationProperty = Value Prelude.Integer
-  set newValue HierarchicalChunkingLevelConfigurationProperty {}
+  set newValue HierarchicalChunkingLevelConfigurationProperty {..}
     = HierarchicalChunkingLevelConfigurationProperty
         {maxTokens = newValue, ..}

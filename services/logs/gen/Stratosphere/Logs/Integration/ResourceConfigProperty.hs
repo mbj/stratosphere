@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Logs.Integration.OpenSearchResourceConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceConfigProperty
-  = ResourceConfigProperty {openSearchResourceConfig :: (Prelude.Maybe OpenSearchResourceConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html>
+    ResourceConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html#cfn-logs-integration-resourceconfig-opensearchresourceconfig>
+                            openSearchResourceConfig :: (Prelude.Maybe OpenSearchResourceConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceConfigProperty :: ResourceConfigProperty
 mkResourceConfigProperty
   = ResourceConfigProperty
-      {openSearchResourceConfig = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       openSearchResourceConfig = Prelude.Nothing}
 instance ToResourceProperties ResourceConfigProperty where
   toResourceProperties ResourceConfigProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON ResourceConfigProperty where
                  Prelude.<$> openSearchResourceConfig]))
 instance Property "OpenSearchResourceConfig" ResourceConfigProperty where
   type PropertyType "OpenSearchResourceConfig" ResourceConfigProperty = OpenSearchResourceConfigProperty
-  set newValue ResourceConfigProperty {}
+  set newValue ResourceConfigProperty {..}
     = ResourceConfigProperty
         {openSearchResourceConfig = Prelude.pure newValue, ..}

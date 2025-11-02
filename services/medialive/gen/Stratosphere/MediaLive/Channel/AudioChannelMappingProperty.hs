@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputChannelLevelProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioChannelMappingProperty
-  = AudioChannelMappingProperty {inputChannelLevels :: (Prelude.Maybe [InputChannelLevelProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html>
+    AudioChannelMappingProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-inputchannellevels>
+                                 inputChannelLevels :: (Prelude.Maybe [InputChannelLevelProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html#cfn-medialive-channel-audiochannelmapping-outputchannel>
                                  outputChannel :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioChannelMappingProperty :: AudioChannelMappingProperty
 mkAudioChannelMappingProperty
   = AudioChannelMappingProperty
-      {inputChannelLevels = Prelude.Nothing,
+      {haddock_workaround_ = (), inputChannelLevels = Prelude.Nothing,
        outputChannel = Prelude.Nothing}
 instance ToResourceProperties AudioChannelMappingProperty where
   toResourceProperties AudioChannelMappingProperty {..}

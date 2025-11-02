@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.IdentitySource.IdentitySo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentitySource
-  = IdentitySource {configuration :: IdentitySourceConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html>
+    IdentitySource {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-configuration>
+                    configuration :: IdentitySourceConfigurationProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-policystoreid>
                     policyStoreId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-principalentitytype>
                     principalEntityType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentitySource ::
@@ -17,7 +22,8 @@ mkIdentitySource ::
   -> Value Prelude.Text -> IdentitySource
 mkIdentitySource configuration policyStoreId
   = IdentitySource
-      {configuration = configuration, policyStoreId = policyStoreId,
+      {haddock_workaround_ = (), configuration = configuration,
+       policyStoreId = policyStoreId,
        principalEntityType = Prelude.Nothing}
 instance ToResourceProperties IdentitySource where
   toResourceProperties IdentitySource {..}

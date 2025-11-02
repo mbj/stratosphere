@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConformancePackInputParameterProperty
-  = ConformancePackInputParameterProperty {parameterName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html>
+    ConformancePackInputParameterProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername>
+                                           parameterName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue>
                                            parameterValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConformancePackInputParameterProperty ::
@@ -18,7 +22,8 @@ mkConformancePackInputParameterProperty
   parameterName
   parameterValue
   = ConformancePackInputParameterProperty
-      {parameterName = parameterName, parameterValue = parameterValue}
+      {haddock_workaround_ = (), parameterName = parameterName,
+       parameterValue = parameterValue}
 instance ToResourceProperties ConformancePackInputParameterProperty where
   toResourceProperties ConformancePackInputParameterProperty {..}
     = ResourceProperties

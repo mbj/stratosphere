@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpTimeoutProperty
-  = TcpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html>
+    TcpTimeoutProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html#cfn-appmesh-virtualnode-tcptimeout-idle>
+                        idle :: (Prelude.Maybe DurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpTimeoutProperty :: TcpTimeoutProperty
-mkTcpTimeoutProperty = TcpTimeoutProperty {idle = Prelude.Nothing}
+mkTcpTimeoutProperty
+  = TcpTimeoutProperty
+      {haddock_workaround_ = (), idle = Prelude.Nothing}
 instance ToResourceProperties TcpTimeoutProperty where
   toResourceProperties TcpTimeoutProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON TcpTimeoutProperty where
            (Prelude.catMaybes [(JSON..=) "Idle" Prelude.<$> idle]))
 instance Property "Idle" TcpTimeoutProperty where
   type PropertyType "Idle" TcpTimeoutProperty = DurationProperty
-  set newValue TcpTimeoutProperty {}
+  set newValue TcpTimeoutProperty {..}
     = TcpTimeoutProperty {idle = Prelude.pure newValue, ..}

@@ -8,17 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptModelInferenceConfigurationProperty
-  = PromptModelInferenceConfigurationProperty {maxTokens :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html>
+    PromptModelInferenceConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html#cfn-bedrock-promptversion-promptmodelinferenceconfiguration-maxtokens>
+                                               maxTokens :: (Prelude.Maybe (Value Prelude.Double)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html#cfn-bedrock-promptversion-promptmodelinferenceconfiguration-stopsequences>
                                                stopSequences :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html#cfn-bedrock-promptversion-promptmodelinferenceconfiguration-temperature>
                                                temperature :: (Prelude.Maybe (Value Prelude.Double)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html#cfn-bedrock-promptversion-promptmodelinferenceconfiguration-topp>
                                                topP :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptModelInferenceConfigurationProperty ::
   PromptModelInferenceConfigurationProperty
 mkPromptModelInferenceConfigurationProperty
   = PromptModelInferenceConfigurationProperty
-      {maxTokens = Prelude.Nothing, stopSequences = Prelude.Nothing,
-       temperature = Prelude.Nothing, topP = Prelude.Nothing}
+      {haddock_workaround_ = (), maxTokens = Prelude.Nothing,
+       stopSequences = Prelude.Nothing, temperature = Prelude.Nothing,
+       topP = Prelude.Nothing}
 instance ToResourceProperties PromptModelInferenceConfigurationProperty where
   toResourceProperties PromptModelInferenceConfigurationProperty {..}
     = ResourceProperties

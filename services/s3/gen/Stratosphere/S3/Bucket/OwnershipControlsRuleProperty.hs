@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OwnershipControlsRuleProperty
-  = OwnershipControlsRuleProperty {objectOwnership :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html>
+    OwnershipControlsRuleProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership>
+                                   objectOwnership :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOwnershipControlsRuleProperty :: OwnershipControlsRuleProperty
 mkOwnershipControlsRuleProperty
-  = OwnershipControlsRuleProperty {objectOwnership = Prelude.Nothing}
+  = OwnershipControlsRuleProperty
+      {haddock_workaround_ = (), objectOwnership = Prelude.Nothing}
 instance ToResourceProperties OwnershipControlsRuleProperty where
   toResourceProperties OwnershipControlsRuleProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON OwnershipControlsRuleProperty where
               [(JSON..=) "ObjectOwnership" Prelude.<$> objectOwnership]))
 instance Property "ObjectOwnership" OwnershipControlsRuleProperty where
   type PropertyType "ObjectOwnership" OwnershipControlsRuleProperty = Value Prelude.Text
-  set newValue OwnershipControlsRuleProperty {}
+  set newValue OwnershipControlsRuleProperty {..}
     = OwnershipControlsRuleProperty
         {objectOwnership = Prelude.pure newValue, ..}

@@ -10,23 +10,36 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.ComponentVersion.LambdaLinuxProc
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaExecutionParametersProperty
-  = LambdaExecutionParametersProperty {environmentVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html>
+    LambdaExecutionParametersProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables>
+                                       environmentVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources>
                                        eventSources :: (Prelude.Maybe [LambdaEventSourceProperty]),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs>
                                        execArgs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype>
                                        inputPayloadEncodingType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams>
                                        linuxProcessParams :: (Prelude.Maybe LambdaLinuxProcessParamsProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds>
                                        maxIdleTimeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount>
                                        maxInstancesCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize>
                                        maxQueueSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned>
                                        pinned :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds>
                                        statusTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds>
                                        timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaExecutionParametersProperty ::
   LambdaExecutionParametersProperty
 mkLambdaExecutionParametersProperty
   = LambdaExecutionParametersProperty
-      {environmentVariables = Prelude.Nothing,
+      {haddock_workaround_ = (), environmentVariables = Prelude.Nothing,
        eventSources = Prelude.Nothing, execArgs = Prelude.Nothing,
        inputPayloadEncodingType = Prelude.Nothing,
        linuxProcessParams = Prelude.Nothing,

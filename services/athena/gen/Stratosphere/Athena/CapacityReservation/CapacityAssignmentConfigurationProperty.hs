@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Athena.CapacityReservation.CapacityAssignmentProperty as Exports
 import Stratosphere.ResourceProperties
 data CapacityAssignmentConfigurationProperty
-  = CapacityAssignmentConfigurationProperty {capacityAssignments :: [CapacityAssignmentProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html>
+    CapacityAssignmentConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html#cfn-athena-capacityreservation-capacityassignmentconfiguration-capacityassignments>
+                                             capacityAssignments :: [CapacityAssignmentProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityAssignmentConfigurationProperty ::
   [CapacityAssignmentProperty]
   -> CapacityAssignmentConfigurationProperty
 mkCapacityAssignmentConfigurationProperty capacityAssignments
   = CapacityAssignmentConfigurationProperty
-      {capacityAssignments = capacityAssignments}
+      {haddock_workaround_ = (),
+       capacityAssignments = capacityAssignments}
 instance ToResourceProperties CapacityAssignmentConfigurationProperty where
   toResourceProperties CapacityAssignmentConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON CapacityAssignmentConfigurationProperty where
     = JSON.object ["CapacityAssignments" JSON..= capacityAssignments]
 instance Property "CapacityAssignments" CapacityAssignmentConfigurationProperty where
   type PropertyType "CapacityAssignments" CapacityAssignmentConfigurationProperty = [CapacityAssignmentProperty]
-  set newValue CapacityAssignmentConfigurationProperty {}
+  set newValue CapacityAssignmentConfigurationProperty {..}
     = CapacityAssignmentConfigurationProperty
         {capacityAssignments = newValue, ..}

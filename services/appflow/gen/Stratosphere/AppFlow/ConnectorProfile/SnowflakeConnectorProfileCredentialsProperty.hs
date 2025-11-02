@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeConnectorProfileCredentialsProperty
-  = SnowflakeConnectorProfileCredentialsProperty {password :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html>
+    SnowflakeConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password>
+                                                  password :: (Value Prelude.Text),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username>
                                                   username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeConnectorProfileCredentialsProperty ::
@@ -17,7 +21,8 @@ mkSnowflakeConnectorProfileCredentialsProperty ::
      -> SnowflakeConnectorProfileCredentialsProperty
 mkSnowflakeConnectorProfileCredentialsProperty password username
   = SnowflakeConnectorProfileCredentialsProperty
-      {password = password, username = username}
+      {haddock_workaround_ = (), password = password,
+       username = username}
 instance ToResourceProperties SnowflakeConnectorProfileCredentialsProperty where
   toResourceProperties
     SnowflakeConnectorProfileCredentialsProperty {..}

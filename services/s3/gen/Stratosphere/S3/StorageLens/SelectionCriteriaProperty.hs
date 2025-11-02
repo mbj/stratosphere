@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelectionCriteriaProperty
-  = SelectionCriteriaProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html>
+    SelectionCriteriaProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter>
+                               delimiter :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth>
                                maxDepth :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage>
                                minStorageBytesPercentage :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectionCriteriaProperty :: SelectionCriteriaProperty
 mkSelectionCriteriaProperty
   = SelectionCriteriaProperty
-      {delimiter = Prelude.Nothing, maxDepth = Prelude.Nothing,
+      {haddock_workaround_ = (), delimiter = Prelude.Nothing,
+       maxDepth = Prelude.Nothing,
        minStorageBytesPercentage = Prelude.Nothing}
 instance ToResourceProperties SelectionCriteriaProperty where
   toResourceProperties SelectionCriteriaProperty {..}

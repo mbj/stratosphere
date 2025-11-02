@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TeradataParametersProperty
-  = TeradataParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html>
+    TeradataParametersProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database>
+                                database :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host>
                                 host :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port>
                                 port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTeradataParametersProperty ::
@@ -17,7 +22,8 @@ mkTeradataParametersProperty ::
      -> Value Prelude.Double -> TeradataParametersProperty
 mkTeradataParametersProperty database host port
   = TeradataParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties TeradataParametersProperty where
   toResourceProperties TeradataParametersProperty {..}
     = ResourceProperties

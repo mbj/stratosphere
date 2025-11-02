@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDecodingSignalProperty
-  = CustomDecodingSignalProperty {id :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html>
+    CustomDecodingSignalProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html#cfn-iotfleetwise-decodermanifest-customdecodingsignal-id>
+                                  id :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDecodingSignalProperty ::
   Value Prelude.Text -> CustomDecodingSignalProperty
 mkCustomDecodingSignalProperty id
-  = CustomDecodingSignalProperty {id = id}
+  = CustomDecodingSignalProperty {haddock_workaround_ = (), id = id}
 instance ToResourceProperties CustomDecodingSignalProperty where
   toResourceProperties CustomDecodingSignalProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON CustomDecodingSignalProperty where
     = JSON.object ["Id" JSON..= id]
 instance Property "Id" CustomDecodingSignalProperty where
   type PropertyType "Id" CustomDecodingSignalProperty = Value Prelude.Text
-  set newValue CustomDecodingSignalProperty {}
+  set newValue CustomDecodingSignalProperty {..}
     = CustomDecodingSignalProperty {id = newValue, ..}

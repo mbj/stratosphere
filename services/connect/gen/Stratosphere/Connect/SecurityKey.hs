@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityKey
-  = SecurityKey {instanceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html>
+    SecurityKey {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html#cfn-connect-securitykey-instanceid>
+                 instanceId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html#cfn-connect-securitykey-key>
                  key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityKey ::
   Value Prelude.Text -> Value Prelude.Text -> SecurityKey
 mkSecurityKey instanceId key
-  = SecurityKey {instanceId = instanceId, key = key}
+  = SecurityKey
+      {haddock_workaround_ = (), instanceId = instanceId, key = key}
 instance ToResourceProperties SecurityKey where
   toResourceProperties SecurityKey {..}
     = ResourceProperties

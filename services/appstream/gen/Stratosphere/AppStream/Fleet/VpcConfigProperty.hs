@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigProperty
-  = VpcConfigProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html>
+    VpcConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-securitygroupids>
+                       securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-subnetids>
                        subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigProperty :: VpcConfigProperty
 mkVpcConfigProperty
   = VpcConfigProperty
-      {securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
+      {haddock_workaround_ = (), securityGroupIds = Prelude.Nothing,
+       subnetIds = Prelude.Nothing}
 instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties

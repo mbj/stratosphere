@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrokClassifierProperty
-  = GrokClassifierProperty {classification :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html>
+    GrokClassifierProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification>
+                            classification :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns>
                             customPatterns :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern>
                             grokPattern :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name>
                             name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrokClassifierProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GrokClassifierProperty
 mkGrokClassifierProperty classification grokPattern
   = GrokClassifierProperty
-      {classification = classification, grokPattern = grokPattern,
-       customPatterns = Prelude.Nothing, name = Prelude.Nothing}
+      {haddock_workaround_ = (), classification = classification,
+       grokPattern = grokPattern, customPatterns = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties GrokClassifierProperty where
   toResourceProperties GrokClassifierProperty {..}
     = ResourceProperties

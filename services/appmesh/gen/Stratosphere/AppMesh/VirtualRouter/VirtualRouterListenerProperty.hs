@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.PortMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualRouterListenerProperty
-  = VirtualRouterListenerProperty {portMapping :: PortMappingProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html>
+    VirtualRouterListenerProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html#cfn-appmesh-virtualrouter-virtualrouterlistener-portmapping>
+                                   portMapping :: PortMappingProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterListenerProperty ::
   PortMappingProperty -> VirtualRouterListenerProperty
 mkVirtualRouterListenerProperty portMapping
-  = VirtualRouterListenerProperty {portMapping = portMapping}
+  = VirtualRouterListenerProperty
+      {haddock_workaround_ = (), portMapping = portMapping}
 instance ToResourceProperties VirtualRouterListenerProperty where
   toResourceProperties VirtualRouterListenerProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON VirtualRouterListenerProperty where
     = JSON.object ["PortMapping" JSON..= portMapping]
 instance Property "PortMapping" VirtualRouterListenerProperty where
   type PropertyType "PortMapping" VirtualRouterListenerProperty = PortMappingProperty
-  set newValue VirtualRouterListenerProperty {}
+  set newValue VirtualRouterListenerProperty {..}
     = VirtualRouterListenerProperty {portMapping = newValue, ..}

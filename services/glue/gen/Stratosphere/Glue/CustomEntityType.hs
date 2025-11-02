@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomEntityType
-  = CustomEntityType {contextWords :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html>
+    CustomEntityType {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-contextwords>
+                      contextWords :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-regexstring>
                       regexString :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-tags>
                       tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomEntityType :: CustomEntityType
 mkCustomEntityType
   = CustomEntityType
-      {contextWords = Prelude.Nothing, name = Prelude.Nothing,
-       regexString = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), contextWords = Prelude.Nothing,
+       name = Prelude.Nothing, regexString = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties CustomEntityType where
   toResourceProperties CustomEntityType {..}
     = ResourceProperties

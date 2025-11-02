@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SerdeInfoProperty
-  = SerdeInfoProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html>
+    SerdeInfoProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name>
+                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters>
                        parameters :: (Prelude.Maybe JSON.Object),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary>
                        serializationLibrary :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSerdeInfoProperty :: SerdeInfoProperty
 mkSerdeInfoProperty
   = SerdeInfoProperty
-      {name = Prelude.Nothing, parameters = Prelude.Nothing,
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       parameters = Prelude.Nothing,
        serializationLibrary = Prelude.Nothing}
 instance ToResourceProperties SerdeInfoProperty where
   toResourceProperties SerdeInfoProperty {..}

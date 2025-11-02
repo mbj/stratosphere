@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.NielsenNaesIiNwProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NielsenWatermarksSettingsProperty
-  = NielsenWatermarksSettingsProperty {nielsenCbetSettings :: (Prelude.Maybe NielsenCBETProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html>
+    NielsenWatermarksSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsencbetsettings>
+                                       nielsenCbetSettings :: (Prelude.Maybe NielsenCBETProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsendistributiontype>
                                        nielsenDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsennaesiinwsettings>
                                        nielsenNaesIiNwSettings :: (Prelude.Maybe NielsenNaesIiNwProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenWatermarksSettingsProperty ::
   NielsenWatermarksSettingsProperty
 mkNielsenWatermarksSettingsProperty
   = NielsenWatermarksSettingsProperty
-      {nielsenCbetSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), nielsenCbetSettings = Prelude.Nothing,
        nielsenDistributionType = Prelude.Nothing,
        nielsenNaesIiNwSettings = Prelude.Nothing}
 instance ToResourceProperties NielsenWatermarksSettingsProperty where

@@ -11,17 +11,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FHIRDatastore
-  = FHIRDatastore {datastoreName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html>
+    FHIRDatastore {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastorename>
+                   datastoreName :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastoretypeversion>
                    datastoreTypeVersion :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration>
                    identityProviderConfiguration :: (Prelude.Maybe IdentityProviderConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-preloaddataconfig>
                    preloadDataConfig :: (Prelude.Maybe PreloadDataConfigProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-sseconfiguration>
                    sseConfiguration :: (Prelude.Maybe SseConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFHIRDatastore :: Value Prelude.Text -> FHIRDatastore
 mkFHIRDatastore datastoreTypeVersion
   = FHIRDatastore
-      {datastoreTypeVersion = datastoreTypeVersion,
+      {haddock_workaround_ = (),
+       datastoreTypeVersion = datastoreTypeVersion,
        datastoreName = Prelude.Nothing,
        identityProviderConfiguration = Prelude.Nothing,
        preloadDataConfig = Prelude.Nothing,

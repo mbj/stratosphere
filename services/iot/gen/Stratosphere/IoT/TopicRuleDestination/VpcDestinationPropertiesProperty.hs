@@ -8,17 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcDestinationPropertiesProperty
-  = VpcDestinationPropertiesProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html>
+    VpcDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn>
+                                      roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups>
                                       securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids>
                                       subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid>
                                       vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcDestinationPropertiesProperty ::
   VpcDestinationPropertiesProperty
 mkVpcDestinationPropertiesProperty
   = VpcDestinationPropertiesProperty
-      {roleArn = Prelude.Nothing, securityGroups = Prelude.Nothing,
-       subnetIds = Prelude.Nothing, vpcId = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = Prelude.Nothing,
+       securityGroups = Prelude.Nothing, subnetIds = Prelude.Nothing,
+       vpcId = Prelude.Nothing}
 instance ToResourceProperties VpcDestinationPropertiesProperty where
   toResourceProperties VpcDestinationPropertiesProperty {..}
     = ResourceProperties

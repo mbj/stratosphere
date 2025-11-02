@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HibernationOptionsProperty
-  = HibernationOptionsProperty {configured :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-hibernationoptions.html>
+    HibernationOptionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-hibernationoptions.html#cfn-ec2-launchtemplate-hibernationoptions-configured>
+                                configured :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHibernationOptionsProperty :: HibernationOptionsProperty
 mkHibernationOptionsProperty
-  = HibernationOptionsProperty {configured = Prelude.Nothing}
+  = HibernationOptionsProperty
+      {haddock_workaround_ = (), configured = Prelude.Nothing}
 instance ToResourceProperties HibernationOptionsProperty where
   toResourceProperties HibernationOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON HibernationOptionsProperty where
               [(JSON..=) "Configured" Prelude.<$> configured]))
 instance Property "Configured" HibernationOptionsProperty where
   type PropertyType "Configured" HibernationOptionsProperty = Value Prelude.Bool
-  set newValue HibernationOptionsProperty {}
+  set newValue HibernationOptionsProperty {..}
     = HibernationOptionsProperty
         {configured = Prelude.pure newValue, ..}

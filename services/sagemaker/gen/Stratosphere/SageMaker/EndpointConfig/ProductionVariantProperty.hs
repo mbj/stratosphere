@@ -11,25 +11,41 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ServerlessConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProductionVariantProperty
-  = ProductionVariantProperty {acceleratorType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html>
+    ProductionVariantProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype>
+                               acceleratorType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-containerstartuphealthchecktimeoutinseconds>
                                containerStartupHealthCheckTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-enablessmaccess>
                                enableSSMAccess :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount>
                                initialInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight>
                                initialVariantWeight :: (Prelude.Maybe (Value Prelude.Double)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype>
                                instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling>
                                managedInstanceScaling :: (Prelude.Maybe ManagedInstanceScalingProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modeldatadownloadtimeoutinseconds>
                                modelDataDownloadTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname>
                                modelName :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-routingconfig>
                                routingConfig :: (Prelude.Maybe RoutingConfigProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig>
                                serverlessConfig :: (Prelude.Maybe ServerlessConfigProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname>
                                variantName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-volumesizeingb>
                                volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProductionVariantProperty ::
   Value Prelude.Text -> ProductionVariantProperty
 mkProductionVariantProperty variantName
   = ProductionVariantProperty
-      {variantName = variantName, acceleratorType = Prelude.Nothing,
+      {haddock_workaround_ = (), variantName = variantName,
+       acceleratorType = Prelude.Nothing,
        containerStartupHealthCheckTimeoutInSeconds = Prelude.Nothing,
        enableSSMAccess = Prelude.Nothing,
        initialInstanceCount = Prelude.Nothing,

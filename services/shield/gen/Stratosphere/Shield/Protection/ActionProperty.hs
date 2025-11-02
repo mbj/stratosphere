@@ -6,12 +6,18 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {block :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html#cfn-shield-protection-action-block>
+                    block :: (Prelude.Maybe JSON.Object),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html#cfn-shield-protection-action-count>
                     count :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
-  = ActionProperty {block = Prelude.Nothing, count = Prelude.Nothing}
+  = ActionProperty
+      {haddock_workaround_ = (), block = Prelude.Nothing,
+       count = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIdConfigurationProperty
-  = OpenIdConfigurationProperty {audience :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-openidconfiguration.html>
+    OpenIdConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-openidconfiguration.html#cfn-pcaconnectorscep-connector-openidconfiguration-audience>
+                                 audience :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-openidconfiguration.html#cfn-pcaconnectorscep-connector-openidconfiguration-issuer>
                                  issuer :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-openidconfiguration.html#cfn-pcaconnectorscep-connector-openidconfiguration-subject>
                                  subject :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIdConfigurationProperty :: OpenIdConfigurationProperty
 mkOpenIdConfigurationProperty
   = OpenIdConfigurationProperty
-      {audience = Prelude.Nothing, issuer = Prelude.Nothing,
-       subject = Prelude.Nothing}
+      {haddock_workaround_ = (), audience = Prelude.Nothing,
+       issuer = Prelude.Nothing, subject = Prelude.Nothing}
 instance ToResourceProperties OpenIdConfigurationProperty where
   toResourceProperties OpenIdConfigurationProperty {..}
     = ResourceProperties

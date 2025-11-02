@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoutingConfigurationVersionProperty
-  = RoutingConfigurationVersionProperty {stateMachineVersionArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html>
+    RoutingConfigurationVersionProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html#cfn-stepfunctions-statemachinealias-routingconfigurationversion-statemachineversionarn>
+                                         stateMachineVersionArn :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html#cfn-stepfunctions-statemachinealias-routingconfigurationversion-weight>
                                          weight :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingConfigurationVersionProperty ::
@@ -16,7 +20,8 @@ mkRoutingConfigurationVersionProperty ::
   -> Value Prelude.Integer -> RoutingConfigurationVersionProperty
 mkRoutingConfigurationVersionProperty stateMachineVersionArn weight
   = RoutingConfigurationVersionProperty
-      {stateMachineVersionArn = stateMachineVersionArn, weight = weight}
+      {haddock_workaround_ = (),
+       stateMachineVersionArn = stateMachineVersionArn, weight = weight}
 instance ToResourceProperties RoutingConfigurationVersionProperty where
   toResourceProperties RoutingConfigurationVersionProperty {..}
     = ResourceProperties

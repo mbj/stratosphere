@@ -10,14 +10,19 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceStandardObjectAttachmentConfigurationProperty
-  = SalesforceStandardObjectAttachmentConfigurationProperty {documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html>
+    SalesforceStandardObjectAttachmentConfigurationProperty {haddock_workaround_ :: (),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname>
+                                                             documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings>
                                                              fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardObjectAttachmentConfigurationProperty ::
   SalesforceStandardObjectAttachmentConfigurationProperty
 mkSalesforceStandardObjectAttachmentConfigurationProperty
   = SalesforceStandardObjectAttachmentConfigurationProperty
-      {documentTitleFieldName = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       documentTitleFieldName = Prelude.Nothing,
        fieldMappings = Prelude.Nothing}
 instance ToResourceProperties SalesforceStandardObjectAttachmentConfigurationProperty where
   toResourceProperties

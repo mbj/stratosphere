@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MqttTopicConfigProperty
-  = MqttTopicConfigProperty {executionRoleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html>
+    MqttTopicConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html#cfn-iotfleetwise-campaign-mqtttopicconfig-executionrolearn>
+                             executionRoleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html#cfn-iotfleetwise-campaign-mqtttopicconfig-mqtttopicarn>
                              mqttTopicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMqttTopicConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MqttTopicConfigProperty
 mkMqttTopicConfigProperty executionRoleArn mqttTopicArn
   = MqttTopicConfigProperty
-      {executionRoleArn = executionRoleArn, mqttTopicArn = mqttTopicArn}
+      {haddock_workaround_ = (), executionRoleArn = executionRoleArn,
+       mqttTopicArn = mqttTopicArn}
 instance ToResourceProperties MqttTopicConfigProperty where
   toResourceProperties MqttTopicConfigProperty {..}
     = ResourceProperties

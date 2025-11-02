@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PostgreSqlParametersProperty
-  = PostgreSqlParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html>
+    PostgreSqlParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database>
+                                  database :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host>
                                   host :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port>
                                   port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPostgreSqlParametersProperty ::
@@ -17,7 +22,8 @@ mkPostgreSqlParametersProperty ::
      -> Value Prelude.Double -> PostgreSqlParametersProperty
 mkPostgreSqlParametersProperty database host port
   = PostgreSqlParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties PostgreSqlParametersProperty where
   toResourceProperties PostgreSqlParametersProperty {..}
     = ResourceProperties

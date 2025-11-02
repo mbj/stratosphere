@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data ReadOnlyFieldInfoProperty
-  = ReadOnlyFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html>
+    ReadOnlyFieldInfoProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html#cfn-connect-tasktemplate-readonlyfieldinfo-id>
+                               id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReadOnlyFieldInfoProperty ::
   FieldIdentifierProperty -> ReadOnlyFieldInfoProperty
 mkReadOnlyFieldInfoProperty id
-  = ReadOnlyFieldInfoProperty {id = id}
+  = ReadOnlyFieldInfoProperty {haddock_workaround_ = (), id = id}
 instance ToResourceProperties ReadOnlyFieldInfoProperty where
   toResourceProperties ReadOnlyFieldInfoProperty {..}
     = ResourceProperties
@@ -24,5 +27,5 @@ instance JSON.ToJSON ReadOnlyFieldInfoProperty where
     = JSON.object ["Id" JSON..= id]
 instance Property "Id" ReadOnlyFieldInfoProperty where
   type PropertyType "Id" ReadOnlyFieldInfoProperty = FieldIdentifierProperty
-  set newValue ReadOnlyFieldInfoProperty {}
+  set newValue ReadOnlyFieldInfoProperty {..}
     = ReadOnlyFieldInfoProperty {id = newValue, ..}

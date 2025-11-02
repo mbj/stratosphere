@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.SnsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {snsConfiguration :: SnsConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html>
+    NotificationConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html#cfn-timestream-scheduledquery-notificationconfiguration-snsconfiguration>
+                                       snsConfiguration :: SnsConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   SnsConfigurationProperty -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty snsConfiguration
   = NotificationConfigurationProperty
-      {snsConfiguration = snsConfiguration}
+      {haddock_workaround_ = (), snsConfiguration = snsConfiguration}
 instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON NotificationConfigurationProperty where
     = JSON.object ["SnsConfiguration" JSON..= snsConfiguration]
 instance Property "SnsConfiguration" NotificationConfigurationProperty where
   type PropertyType "SnsConfiguration" NotificationConfigurationProperty = SnsConfigurationProperty
-  set newValue NotificationConfigurationProperty {}
+  set newValue NotificationConfigurationProperty {..}
     = NotificationConfigurationProperty
         {snsConfiguration = newValue, ..}

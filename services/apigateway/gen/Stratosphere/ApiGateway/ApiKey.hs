@@ -9,22 +9,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ApiKey
-  = ApiKey {customerId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html>
+    ApiKey {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid>
+            customerId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled>
             enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid>
             generateDistinctId :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys>
             stageKeys :: (Prelude.Maybe [StageKeyProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags>
             tags :: (Prelude.Maybe [Tag]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value>
             value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKey :: ApiKey
 mkApiKey
   = ApiKey
-      {customerId = Prelude.Nothing, description = Prelude.Nothing,
-       enabled = Prelude.Nothing, generateDistinctId = Prelude.Nothing,
-       name = Prelude.Nothing, stageKeys = Prelude.Nothing,
-       tags = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), customerId = Prelude.Nothing,
+       description = Prelude.Nothing, enabled = Prelude.Nothing,
+       generateDistinctId = Prelude.Nothing, name = Prelude.Nothing,
+       stageKeys = Prelude.Nothing, tags = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties ApiKey where
   toResourceProperties ApiKey {..}
     = ResourceProperties

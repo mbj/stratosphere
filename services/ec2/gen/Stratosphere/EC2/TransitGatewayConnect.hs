@@ -9,8 +9,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayConnect
-  = TransitGatewayConnect {options :: TransitGatewayConnectOptionsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html>
+    TransitGatewayConnect {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options>
+                           options :: TransitGatewayConnectOptionsProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags>
                            tags :: (Prelude.Maybe [Tag]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid>
                            transportTransitGatewayAttachmentId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayConnect ::
@@ -18,7 +23,7 @@ mkTransitGatewayConnect ::
   -> Value Prelude.Text -> TransitGatewayConnect
 mkTransitGatewayConnect options transportTransitGatewayAttachmentId
   = TransitGatewayConnect
-      {options = options,
+      {haddock_workaround_ = (), options = options,
        transportTransitGatewayAttachmentId = transportTransitGatewayAttachmentId,
        tags = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayConnect where

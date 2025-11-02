@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataStorageProperty
-  = DataStorageProperty {maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html>
+    DataStorageProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html#cfn-elasticache-serverlesscache-datastorage-maximum>
+                         maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html#cfn-elasticache-serverlesscache-datastorage-minimum>
                          minimum :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html#cfn-elasticache-serverlesscache-datastorage-unit>
                          unit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataStorageProperty :: Value Prelude.Text -> DataStorageProperty
 mkDataStorageProperty unit
   = DataStorageProperty
-      {unit = unit, maximum = Prelude.Nothing, minimum = Prelude.Nothing}
+      {haddock_workaround_ = (), unit = unit, maximum = Prelude.Nothing,
+       minimum = Prelude.Nothing}
 instance ToResourceProperties DataStorageProperty where
   toResourceProperties DataStorageProperty {..}
     = ResourceProperties

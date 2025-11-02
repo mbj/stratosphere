@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionResourceTypeProperty
-  = ConditionResourceTypeProperty {conditionKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html>
+    ConditionResourceTypeProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey>
+                                   conditionKey :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype>
                                    conditionType :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue>
                                    conditionValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionResourceTypeProperty ::
@@ -20,8 +25,8 @@ mkConditionResourceTypeProperty
   conditionType
   conditionValue
   = ConditionResourceTypeProperty
-      {conditionKey = conditionKey, conditionType = conditionType,
-       conditionValue = conditionValue}
+      {haddock_workaround_ = (), conditionKey = conditionKey,
+       conditionType = conditionType, conditionValue = conditionValue}
 instance ToResourceProperties ConditionResourceTypeProperty where
   toResourceProperties ConditionResourceTypeProperty {..}
     = ResourceProperties

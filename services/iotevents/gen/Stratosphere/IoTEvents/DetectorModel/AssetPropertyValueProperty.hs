@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.AssetPropertyVariantP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyValueProperty
-  = AssetPropertyValueProperty {quality :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html>
+    AssetPropertyValueProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality>
+                                quality :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp>
                                 timestamp :: (Prelude.Maybe AssetPropertyTimestampProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value>
                                 value :: AssetPropertyVariantProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyValueProperty ::
   AssetPropertyVariantProperty -> AssetPropertyValueProperty
 mkAssetPropertyValueProperty value
   = AssetPropertyValueProperty
-      {value = value, quality = Prelude.Nothing,
-       timestamp = Prelude.Nothing}
+      {haddock_workaround_ = (), value = value,
+       quality = Prelude.Nothing, timestamp = Prelude.Nothing}
 instance ToResourceProperties AssetPropertyValueProperty where
   toResourceProperties AssetPropertyValueProperty {..}
     = ResourceProperties

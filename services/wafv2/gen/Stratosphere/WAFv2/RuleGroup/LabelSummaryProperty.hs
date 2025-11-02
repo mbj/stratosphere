@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelSummaryProperty
-  = LabelSummaryProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html>
+    LabelSummaryProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name>
+                          name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelSummaryProperty :: LabelSummaryProperty
 mkLabelSummaryProperty
-  = LabelSummaryProperty {name = Prelude.Nothing}
+  = LabelSummaryProperty
+      {haddock_workaround_ = (), name = Prelude.Nothing}
 instance ToResourceProperties LabelSummaryProperty where
   toResourceProperties LabelSummaryProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON LabelSummaryProperty where
            (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))
 instance Property "Name" LabelSummaryProperty where
   type PropertyType "Name" LabelSummaryProperty = Value Prelude.Text
-  set newValue LabelSummaryProperty {}
+  set newValue LabelSummaryProperty {..}
     = LabelSummaryProperty {name = Prelude.pure newValue, ..}

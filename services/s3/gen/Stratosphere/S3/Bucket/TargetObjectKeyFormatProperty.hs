@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.PartitionedPrefixProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetObjectKeyFormatProperty
-  = TargetObjectKeyFormatProperty {partitionedPrefix :: (Prelude.Maybe PartitionedPrefixProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html>
+    TargetObjectKeyFormatProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html#cfn-s3-bucket-targetobjectkeyformat-partitionedprefix>
+                                   partitionedPrefix :: (Prelude.Maybe PartitionedPrefixProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html#cfn-s3-bucket-targetobjectkeyformat-simpleprefix>
                                    simplePrefix :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetObjectKeyFormatProperty :: TargetObjectKeyFormatProperty
 mkTargetObjectKeyFormatProperty
   = TargetObjectKeyFormatProperty
-      {partitionedPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), partitionedPrefix = Prelude.Nothing,
        simplePrefix = Prelude.Nothing}
 instance ToResourceProperties TargetObjectKeyFormatProperty where
   toResourceProperties TargetObjectKeyFormatProperty {..}

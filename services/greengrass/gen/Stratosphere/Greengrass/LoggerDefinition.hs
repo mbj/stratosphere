@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinition.LoggerDefinitionV
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggerDefinition
-  = LoggerDefinition {initialVersion :: (Prelude.Maybe LoggerDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html>
+    LoggerDefinition {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-initialversion>
+                      initialVersion :: (Prelude.Maybe LoggerDefinitionVersionProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-tags>
                       tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinition :: Value Prelude.Text -> LoggerDefinition
 mkLoggerDefinition name
   = LoggerDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LoggerDefinition where
   toResourceProperties LoggerDefinition {..}
     = ResourceProperties

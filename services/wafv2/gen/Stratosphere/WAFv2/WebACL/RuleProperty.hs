@@ -14,14 +14,25 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.VisibilityConfigProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
-  = RuleProperty {action :: (Prelude.Maybe RuleActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html>
+    RuleProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action>
+                  action :: (Prelude.Maybe RuleActionProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-captchaconfig>
                   captchaConfig :: (Prelude.Maybe CaptchaConfigProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-challengeconfig>
                   challengeConfig :: (Prelude.Maybe ChallengeConfigProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction>
                   overrideAction :: (Prelude.Maybe OverrideActionProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority>
                   priority :: (Value Prelude.Integer),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels>
                   ruleLabels :: (Prelude.Maybe [LabelProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement>
                   statement :: StatementProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig>
                   visibilityConfig :: VisibilityConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty ::
@@ -30,9 +41,10 @@ mkRuleProperty ::
      -> StatementProperty -> VisibilityConfigProperty -> RuleProperty
 mkRuleProperty name priority statement visibilityConfig
   = RuleProperty
-      {name = name, priority = priority, statement = statement,
-       visibilityConfig = visibilityConfig, action = Prelude.Nothing,
-       captchaConfig = Prelude.Nothing, challengeConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, priority = priority,
+       statement = statement, visibilityConfig = visibilityConfig,
+       action = Prelude.Nothing, captchaConfig = Prelude.Nothing,
+       challengeConfig = Prelude.Nothing,
        overrideAction = Prelude.Nothing, ruleLabels = Prelude.Nothing}
 instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}

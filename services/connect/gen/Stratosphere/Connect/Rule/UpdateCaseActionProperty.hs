@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldProperty as Exports
 import Stratosphere.ResourceProperties
 data UpdateCaseActionProperty
-  = UpdateCaseActionProperty {fields :: [FieldProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html>
+    UpdateCaseActionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html#cfn-connect-rule-updatecaseaction-fields>
+                              fields :: [FieldProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateCaseActionProperty ::
   [FieldProperty] -> UpdateCaseActionProperty
 mkUpdateCaseActionProperty fields
-  = UpdateCaseActionProperty {fields = fields}
+  = UpdateCaseActionProperty
+      {haddock_workaround_ = (), fields = fields}
 instance ToResourceProperties UpdateCaseActionProperty where
   toResourceProperties UpdateCaseActionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON UpdateCaseActionProperty where
     = JSON.object ["Fields" JSON..= fields]
 instance Property "Fields" UpdateCaseActionProperty where
   type PropertyType "Fields" UpdateCaseActionProperty = [FieldProperty]
-  set newValue UpdateCaseActionProperty {}
+  set newValue UpdateCaseActionProperty {..}
     = UpdateCaseActionProperty {fields = newValue, ..}

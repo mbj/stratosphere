@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteRangeMatchProperty
-  = GatewayRouteRangeMatchProperty {end :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayrouterangematch.html>
+    GatewayRouteRangeMatchProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayrouterangematch.html#cfn-appmesh-gatewayroute-gatewayrouterangematch-end>
+                                    end :: (Value Prelude.Integer),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayrouterangematch.html#cfn-appmesh-gatewayroute-gatewayrouterangematch-start>
                                     start :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteRangeMatchProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> GatewayRouteRangeMatchProperty
 mkGatewayRouteRangeMatchProperty end start
-  = GatewayRouteRangeMatchProperty {end = end, start = start}
+  = GatewayRouteRangeMatchProperty
+      {haddock_workaround_ = (), end = end, start = start}
 instance ToResourceProperties GatewayRouteRangeMatchProperty where
   toResourceProperties GatewayRouteRangeMatchProperty {..}
     = ResourceProperties

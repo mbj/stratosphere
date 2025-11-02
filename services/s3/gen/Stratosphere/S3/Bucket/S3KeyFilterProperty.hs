@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.FilterRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data S3KeyFilterProperty
-  = S3KeyFilterProperty {rules :: [FilterRuleProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html>
+    S3KeyFilterProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html#cfn-s3-bucket-s3keyfilter-rules>
+                         rules :: [FilterRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3KeyFilterProperty ::
   [FilterRuleProperty] -> S3KeyFilterProperty
-mkS3KeyFilterProperty rules = S3KeyFilterProperty {rules = rules}
+mkS3KeyFilterProperty rules
+  = S3KeyFilterProperty {haddock_workaround_ = (), rules = rules}
 instance ToResourceProperties S3KeyFilterProperty where
   toResourceProperties S3KeyFilterProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON S3KeyFilterProperty where
     = JSON.object ["Rules" JSON..= rules]
 instance Property "Rules" S3KeyFilterProperty where
   type PropertyType "Rules" S3KeyFilterProperty = [FilterRuleProperty]
-  set newValue S3KeyFilterProperty {}
+  set newValue S3KeyFilterProperty {..}
     = S3KeyFilterProperty {rules = newValue, ..}

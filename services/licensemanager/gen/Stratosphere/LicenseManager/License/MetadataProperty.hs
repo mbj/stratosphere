@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetadataProperty
-  = MetadataProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html>
+    MetadataProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name>
+                      name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value>
                       value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetadataProperty
 mkMetadataProperty name value
-  = MetadataProperty {name = name, value = value}
+  = MetadataProperty
+      {haddock_workaround_ = (), name = name, value = value}
 instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties

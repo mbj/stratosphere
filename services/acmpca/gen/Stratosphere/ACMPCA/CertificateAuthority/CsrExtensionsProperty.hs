@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.AccessDescription
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.KeyUsageProperty as Exports
 import Stratosphere.ResourceProperties
 data CsrExtensionsProperty
-  = CsrExtensionsProperty {keyUsage :: (Prelude.Maybe KeyUsageProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html>
+    CsrExtensionsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage>
+                           keyUsage :: (Prelude.Maybe KeyUsageProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess>
                            subjectInformationAccess :: (Prelude.Maybe [AccessDescriptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCsrExtensionsProperty :: CsrExtensionsProperty
 mkCsrExtensionsProperty
   = CsrExtensionsProperty
-      {keyUsage = Prelude.Nothing,
+      {haddock_workaround_ = (), keyUsage = Prelude.Nothing,
        subjectInformationAccess = Prelude.Nothing}
 instance ToResourceProperties CsrExtensionsProperty where
   toResourceProperties CsrExtensionsProperty {..}

@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsConfigProperty
-  = CloudWatchLogsConfigProperty {groupName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html>
+    CloudWatchLogsConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-groupname>
+                                  groupName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-status>
                                   status :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-streamname>
                                   streamName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsConfigProperty ::
   Value Prelude.Text -> CloudWatchLogsConfigProperty
 mkCloudWatchLogsConfigProperty status
   = CloudWatchLogsConfigProperty
-      {status = status, groupName = Prelude.Nothing,
-       streamName = Prelude.Nothing}
+      {haddock_workaround_ = (), status = status,
+       groupName = Prelude.Nothing, streamName = Prelude.Nothing}
 instance ToResourceProperties CloudWatchLogsConfigProperty where
   toResourceProperties CloudWatchLogsConfigProperty {..}
     = ResourceProperties

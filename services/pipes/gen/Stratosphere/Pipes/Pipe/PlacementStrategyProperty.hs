@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlacementStrategyProperty
-  = PlacementStrategyProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-placementstrategy.html>
+    PlacementStrategyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-placementstrategy.html#cfn-pipes-pipe-placementstrategy-field>
+                               field :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-placementstrategy.html#cfn-pipes-pipe-placementstrategy-type>
                                type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementStrategyProperty :: PlacementStrategyProperty
 mkPlacementStrategyProperty
   = PlacementStrategyProperty
-      {field = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), field = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties PlacementStrategyProperty where
   toResourceProperties PlacementStrategyProperty {..}
     = ResourceProperties

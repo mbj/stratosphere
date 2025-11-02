@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCBlockPublicAccessOptions
-  = VPCBlockPublicAccessOptions {internetGatewayBlockMode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessoptions.html>
+    VPCBlockPublicAccessOptions {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessoptions.html#cfn-ec2-vpcblockpublicaccessoptions-internetgatewayblockmode>
+                                 internetGatewayBlockMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCBlockPublicAccessOptions ::
   Value Prelude.Text -> VPCBlockPublicAccessOptions
 mkVPCBlockPublicAccessOptions internetGatewayBlockMode
   = VPCBlockPublicAccessOptions
-      {internetGatewayBlockMode = internetGatewayBlockMode}
+      {haddock_workaround_ = (),
+       internetGatewayBlockMode = internetGatewayBlockMode}
 instance ToResourceProperties VPCBlockPublicAccessOptions where
   toResourceProperties VPCBlockPublicAccessOptions {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON VPCBlockPublicAccessOptions where
         ["InternetGatewayBlockMode" JSON..= internetGatewayBlockMode]
 instance Property "InternetGatewayBlockMode" VPCBlockPublicAccessOptions where
   type PropertyType "InternetGatewayBlockMode" VPCBlockPublicAccessOptions = Value Prelude.Text
-  set newValue VPCBlockPublicAccessOptions {}
+  set newValue VPCBlockPublicAccessOptions {..}
     = VPCBlockPublicAccessOptions
         {internetGatewayBlockMode = newValue, ..}

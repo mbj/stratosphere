@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthorizerConfigProperty
-  = AuthorizerConfigProperty {allowAuthorizerOverride :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html>
+    AuthorizerConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride>
+                              allowAuthorizerOverride :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername>
                               defaultAuthorizerName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizerConfigProperty :: AuthorizerConfigProperty
 mkAuthorizerConfigProperty
   = AuthorizerConfigProperty
-      {allowAuthorizerOverride = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       allowAuthorizerOverride = Prelude.Nothing,
        defaultAuthorizerName = Prelude.Nothing}
 instance ToResourceProperties AuthorizerConfigProperty where
   toResourceProperties AuthorizerConfigProperty {..}

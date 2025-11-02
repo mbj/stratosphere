@@ -9,19 +9,28 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.InstanceRequirementsRequestProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchTemplateOverridesProperty
-  = LaunchTemplateOverridesProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html>
+    LaunchTemplateOverridesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-availabilityzone>
+                                     availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancerequirements>
                                      instanceRequirements :: (Prelude.Maybe InstanceRequirementsRequestProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype>
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority>
                                      priority :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice>
                                      spotPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid>
                                      subnetId :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-weightedcapacity>
                                      weightedCapacity :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateOverridesProperty ::
   LaunchTemplateOverridesProperty
 mkLaunchTemplateOverridesProperty
   = LaunchTemplateOverridesProperty
-      {availabilityZone = Prelude.Nothing,
+      {haddock_workaround_ = (), availabilityZone = Prelude.Nothing,
        instanceRequirements = Prelude.Nothing,
        instanceType = Prelude.Nothing, priority = Prelude.Nothing,
        spotPrice = Prelude.Nothing, subnetId = Prelude.Nothing,

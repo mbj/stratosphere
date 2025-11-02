@@ -8,17 +8,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetCapacitySpecificationRequestProperty
-  = TargetCapacitySpecificationRequestProperty {defaultTargetCapacityType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html>
+    TargetCapacitySpecificationRequestProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype>
+                                                defaultTargetCapacityType :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-ondemandtargetcapacity>
                                                 onDemandTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-spottargetcapacity>
                                                 spotTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-targetcapacityunittype>
                                                 targetCapacityUnitType :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-totaltargetcapacity>
                                                 totalTargetCapacity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetCapacitySpecificationRequestProperty ::
   Value Prelude.Integer -> TargetCapacitySpecificationRequestProperty
 mkTargetCapacitySpecificationRequestProperty totalTargetCapacity
   = TargetCapacitySpecificationRequestProperty
-      {totalTargetCapacity = totalTargetCapacity,
+      {haddock_workaround_ = (),
+       totalTargetCapacity = totalTargetCapacity,
        defaultTargetCapacityType = Prelude.Nothing,
        onDemandTargetCapacity = Prelude.Nothing,
        spotTargetCapacity = Prelude.Nothing,

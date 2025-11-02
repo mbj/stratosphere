@@ -11,11 +11,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EventType
-  = EventType {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html>
+    EventType {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description>
+               description :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes>
                entityTypes :: [EntityTypeProperty],
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables>
                eventVariables :: [EventVariableProperty],
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels>
                labels :: [LabelProperty],
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventType ::
@@ -24,9 +32,9 @@ mkEventType ::
      -> [LabelProperty] -> Value Prelude.Text -> EventType
 mkEventType entityTypes eventVariables labels name
   = EventType
-      {entityTypes = entityTypes, eventVariables = eventVariables,
-       labels = labels, name = name, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), entityTypes = entityTypes,
+       eventVariables = eventVariables, labels = labels, name = name,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties EventType where
   toResourceProperties EventType {..}
     = ResourceProperties

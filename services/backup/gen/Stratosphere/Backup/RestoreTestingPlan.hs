@@ -9,12 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data RestoreTestingPlan
-  = RestoreTestingPlan {recoveryPointSelection :: RestoreTestingRecoveryPointSelectionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html>
+    RestoreTestingPlan {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-recoverypointselection>
+                        recoveryPointSelection :: RestoreTestingRecoveryPointSelectionProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-restoretestingplanname>
                         restoreTestingPlanName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-scheduleexpression>
                         scheduleExpression :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-scheduleexpressiontimezone>
                         scheduleExpressionTimezone :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-schedulestatus>
                         scheduleStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-startwindowhours>
                         startWindowHours :: (Prelude.Maybe (Value Prelude.Integer)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestoreTestingPlan ::
@@ -25,7 +34,8 @@ mkRestoreTestingPlan
   restoreTestingPlanName
   scheduleExpression
   = RestoreTestingPlan
-      {recoveryPointSelection = recoveryPointSelection,
+      {haddock_workaround_ = (),
+       recoveryPointSelection = recoveryPointSelection,
        restoreTestingPlanName = restoreTestingPlanName,
        scheduleExpression = scheduleExpression,
        scheduleExpressionTimezone = Prelude.Nothing,

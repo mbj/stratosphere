@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCGatewayAttachment
-  = VPCGatewayAttachment {internetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html>
+    VPCGatewayAttachment {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-internetgatewayid>
+                          internetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-vpcid>
                           vpcId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html#cfn-ec2-vpcgatewayattachment-vpngatewayid>
                           vpnGatewayId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCGatewayAttachment ::
   Value Prelude.Text -> VPCGatewayAttachment
 mkVPCGatewayAttachment vpcId
   = VPCGatewayAttachment
-      {vpcId = vpcId, internetGatewayId = Prelude.Nothing,
+      {haddock_workaround_ = (), vpcId = vpcId,
+       internetGatewayId = Prelude.Nothing,
        vpnGatewayId = Prelude.Nothing}
 instance ToResourceProperties VPCGatewayAttachment where
   toResourceProperties VPCGatewayAttachment {..}

@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Macro
-  = Macro {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html>
+    Macro {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-description>
+           description :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-functionname>
            functionName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname>
            logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn>
            logRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-name>
            name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMacro :: Value Prelude.Text -> Value Prelude.Text -> Macro
 mkMacro functionName name
   = Macro
-      {functionName = functionName, name = name,
-       description = Prelude.Nothing, logGroupName = Prelude.Nothing,
-       logRoleARN = Prelude.Nothing}
+      {haddock_workaround_ = (), functionName = functionName,
+       name = name, description = Prelude.Nothing,
+       logGroupName = Prelude.Nothing, logRoleARN = Prelude.Nothing}
 instance ToResourceProperties Macro where
   toResourceProperties Macro {..}
     = ResourceProperties

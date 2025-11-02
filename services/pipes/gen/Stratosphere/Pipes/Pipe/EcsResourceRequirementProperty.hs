@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsResourceRequirementProperty
-  = EcsResourceRequirementProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsresourcerequirement.html>
+    EcsResourceRequirementProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsresourcerequirement.html#cfn-pipes-pipe-ecsresourcerequirement-type>
+                                    type' :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsresourcerequirement.html#cfn-pipes-pipe-ecsresourcerequirement-value>
                                     value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsResourceRequirementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EcsResourceRequirementProperty
 mkEcsResourceRequirementProperty type' value
-  = EcsResourceRequirementProperty {type' = type', value = value}
+  = EcsResourceRequirementProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties EcsResourceRequirementProperty where
   toResourceProperties EcsResourceRequirementProperty {..}
     = ResourceProperties

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputLossFailoverSettingsProperty
-  = InputLossFailoverSettingsProperty {inputLossThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html>
+    InputLossFailoverSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html#cfn-medialive-channel-inputlossfailoversettings-inputlossthresholdmsec>
+                                       inputLossThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLossFailoverSettingsProperty ::
   InputLossFailoverSettingsProperty
 mkInputLossFailoverSettingsProperty
   = InputLossFailoverSettingsProperty
-      {inputLossThresholdMsec = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       inputLossThresholdMsec = Prelude.Nothing}
 instance ToResourceProperties InputLossFailoverSettingsProperty where
   toResourceProperties InputLossFailoverSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON InputLossFailoverSettingsProperty where
                  Prelude.<$> inputLossThresholdMsec]))
 instance Property "InputLossThresholdMsec" InputLossFailoverSettingsProperty where
   type PropertyType "InputLossThresholdMsec" InputLossFailoverSettingsProperty = Value Prelude.Integer
-  set newValue InputLossFailoverSettingsProperty {}
+  set newValue InputLossFailoverSettingsProperty {..}
     = InputLossFailoverSettingsProperty
         {inputLossThresholdMsec = Prelude.pure newValue, ..}

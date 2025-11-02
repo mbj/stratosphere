@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLocationResourceProperty
-  = DataLocationResourceProperty {catalogId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html>
+    DataLocationResourceProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html#cfn-lakeformation-principalpermissions-datalocationresource-catalogid>
+                                  catalogId :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html#cfn-lakeformation-principalpermissions-datalocationresource-resourcearn>
                                   resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLocationResourceProperty ::
@@ -15,7 +19,8 @@ mkDataLocationResourceProperty ::
   -> Value Prelude.Text -> DataLocationResourceProperty
 mkDataLocationResourceProperty catalogId resourceArn
   = DataLocationResourceProperty
-      {catalogId = catalogId, resourceArn = resourceArn}
+      {haddock_workaround_ = (), catalogId = catalogId,
+       resourceArn = resourceArn}
 instance ToResourceProperties DataLocationResourceProperty where
   toResourceProperties DataLocationResourceProperty {..}
     = ResourceProperties

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValuesProperty
-  = ValuesProperty {stringList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-values.html>
+    ValuesProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-values.html#cfn-connect-predefinedattribute-values-stringlist>
+                    stringList :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValuesProperty :: ValuesProperty
-mkValuesProperty = ValuesProperty {stringList = Prelude.Nothing}
+mkValuesProperty
+  = ValuesProperty
+      {haddock_workaround_ = (), stringList = Prelude.Nothing}
 instance ToResourceProperties ValuesProperty where
   toResourceProperties ValuesProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON ValuesProperty where
               [(JSON..=) "StringList" Prelude.<$> stringList]))
 instance Property "StringList" ValuesProperty where
   type PropertyType "StringList" ValuesProperty = ValueList Prelude.Text
-  set newValue ValuesProperty {}
+  set newValue ValuesProperty {..}
     = ValuesProperty {stringList = Prelude.pure newValue, ..}

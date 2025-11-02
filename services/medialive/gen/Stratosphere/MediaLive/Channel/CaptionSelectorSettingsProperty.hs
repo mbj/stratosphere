@@ -14,19 +14,29 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Scte27SourceSettingsPropert
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TeletextSourceSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data CaptionSelectorSettingsProperty
-  = CaptionSelectorSettingsProperty {ancillarySourceSettings :: (Prelude.Maybe AncillarySourceSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html>
+    CaptionSelectorSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-ancillarysourcesettings>
+                                     ancillarySourceSettings :: (Prelude.Maybe AncillarySourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-aribsourcesettings>
                                      aribSourceSettings :: (Prelude.Maybe AribSourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-dvbsubsourcesettings>
                                      dvbSubSourceSettings :: (Prelude.Maybe DvbSubSourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-embeddedsourcesettings>
                                      embeddedSourceSettings :: (Prelude.Maybe EmbeddedSourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-scte20sourcesettings>
                                      scte20SourceSettings :: (Prelude.Maybe Scte20SourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-scte27sourcesettings>
                                      scte27SourceSettings :: (Prelude.Maybe Scte27SourceSettingsProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-teletextsourcesettings>
                                      teletextSourceSettings :: (Prelude.Maybe TeletextSourceSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionSelectorSettingsProperty ::
   CaptionSelectorSettingsProperty
 mkCaptionSelectorSettingsProperty
   = CaptionSelectorSettingsProperty
-      {ancillarySourceSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       ancillarySourceSettings = Prelude.Nothing,
        aribSourceSettings = Prelude.Nothing,
        dvbSubSourceSettings = Prelude.Nothing,
        embeddedSourceSettings = Prelude.Nothing,

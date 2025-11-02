@@ -28,33 +28,57 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.StepFunctionsActionProperty as 
 import {-# SOURCE #-} Stratosphere.IoT.TopicRule.TimestreamActionProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {cloudwatchAlarm :: (Prelude.Maybe CloudwatchAlarmActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm>
+                    cloudwatchAlarm :: (Prelude.Maybe CloudwatchAlarmActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs>
                     cloudwatchLogs :: (Prelude.Maybe CloudwatchLogsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric>
                     cloudwatchMetric :: (Prelude.Maybe CloudwatchMetricActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb>
                     dynamoDB :: (Prelude.Maybe DynamoDBActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2>
                     dynamoDBv2 :: (Prelude.Maybe DynamoDBv2ActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch>
                     elasticsearch :: (Prelude.Maybe ElasticsearchActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose>
                     firehose :: (Prelude.Maybe FirehoseActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http>
                     http :: (Prelude.Maybe HttpActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics>
                     iotAnalytics :: (Prelude.Maybe IotAnalyticsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents>
                     iotEvents :: (Prelude.Maybe IotEventsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise>
                     iotSiteWise :: (Prelude.Maybe IotSiteWiseActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka>
                     kafka :: (Prelude.Maybe KafkaActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis>
                     kinesis :: (Prelude.Maybe KinesisActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda>
                     lambda :: (Prelude.Maybe LambdaActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-location>
                     location :: (Prelude.Maybe LocationActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-opensearch>
                     openSearch :: (Prelude.Maybe OpenSearchActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish>
                     republish :: (Prelude.Maybe RepublishActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3>
                     s3 :: (Prelude.Maybe S3ActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns>
                     sns :: (Prelude.Maybe SnsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs>
                     sqs :: (Prelude.Maybe SqsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions>
                     stepFunctions :: (Prelude.Maybe StepFunctionsActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream>
                     timestream :: (Prelude.Maybe TimestreamActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
-      {cloudwatchAlarm = Prelude.Nothing,
+      {haddock_workaround_ = (), cloudwatchAlarm = Prelude.Nothing,
        cloudwatchLogs = Prelude.Nothing,
        cloudwatchMetric = Prelude.Nothing, dynamoDB = Prelude.Nothing,
        dynamoDBv2 = Prelude.Nothing, elasticsearch = Prelude.Nothing,

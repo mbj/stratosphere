@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QAppsConfigurationProperty
-  = QAppsConfigurationProperty {qAppsControlMode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html>
+    QAppsConfigurationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html#cfn-qbusiness-application-qappsconfiguration-qappscontrolmode>
+                                qAppsControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQAppsConfigurationProperty ::
   Value Prelude.Text -> QAppsConfigurationProperty
 mkQAppsConfigurationProperty qAppsControlMode
-  = QAppsConfigurationProperty {qAppsControlMode = qAppsControlMode}
+  = QAppsConfigurationProperty
+      {haddock_workaround_ = (), qAppsControlMode = qAppsControlMode}
 instance ToResourceProperties QAppsConfigurationProperty where
   toResourceProperties QAppsConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON QAppsConfigurationProperty where
     = JSON.object ["QAppsControlMode" JSON..= qAppsControlMode]
 instance Property "QAppsControlMode" QAppsConfigurationProperty where
   type PropertyType "QAppsControlMode" QAppsConfigurationProperty = Value Prelude.Text
-  set newValue QAppsConfigurationProperty {}
+  set newValue QAppsConfigurationProperty {..}
     = QAppsConfigurationProperty {qAppsControlMode = newValue, ..}

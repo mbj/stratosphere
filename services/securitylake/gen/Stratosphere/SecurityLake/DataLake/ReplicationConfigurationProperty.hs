@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {regions :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-replicationconfiguration.html>
+    ReplicationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-replicationconfiguration.html#cfn-securitylake-datalake-replicationconfiguration-regions>
+                                      regions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-replicationconfiguration.html#cfn-securitylake-datalake-replicationconfiguration-rolearn>
                                       roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   ReplicationConfigurationProperty
 mkReplicationConfigurationProperty
   = ReplicationConfigurationProperty
-      {regions = Prelude.Nothing, roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), regions = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties

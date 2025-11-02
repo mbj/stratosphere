@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationCloudWatchLoggi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationCloudWatchLoggingOption
-  = ApplicationCloudWatchLoggingOption {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html>
+    ApplicationCloudWatchLoggingOption {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-applicationname>
+                                        applicationName :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption>
                                         cloudWatchLoggingOption :: CloudWatchLoggingOptionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationCloudWatchLoggingOption ::
@@ -20,7 +24,7 @@ mkApplicationCloudWatchLoggingOption
   applicationName
   cloudWatchLoggingOption
   = ApplicationCloudWatchLoggingOption
-      {applicationName = applicationName,
+      {haddock_workaround_ = (), applicationName = applicationName,
        cloudWatchLoggingOption = cloudWatchLoggingOption}
 instance ToResourceProperties ApplicationCloudWatchLoggingOption where
   toResourceProperties ApplicationCloudWatchLoggingOption {..}

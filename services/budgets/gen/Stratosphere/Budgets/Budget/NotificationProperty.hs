@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationProperty
-  = NotificationProperty {comparisonOperator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html>
+    NotificationProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator>
+                          comparisonOperator :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype>
                           notificationType :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold>
                           threshold :: (Value Prelude.Double),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype>
                           thresholdType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationProperty ::
@@ -21,7 +27,7 @@ mkNotificationProperty
   notificationType
   threshold
   = NotificationProperty
-      {comparisonOperator = comparisonOperator,
+      {haddock_workaround_ = (), comparisonOperator = comparisonOperator,
        notificationType = notificationType, threshold = threshold,
        thresholdType = Prelude.Nothing}
 instance ToResourceProperties NotificationProperty where

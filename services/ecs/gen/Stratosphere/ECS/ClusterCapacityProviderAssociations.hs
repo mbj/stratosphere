@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.ECS.ClusterCapacityProviderAssociations.Capac
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterCapacityProviderAssociations
-  = ClusterCapacityProviderAssociations {capacityProviders :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html>
+    ClusterCapacityProviderAssociations {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders>
+                                         capacityProviders :: (ValueList Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster>
                                          cluster :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy>
                                          defaultCapacityProviderStrategy :: [CapacityProviderStrategyProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterCapacityProviderAssociations ::
@@ -23,7 +28,8 @@ mkClusterCapacityProviderAssociations
   cluster
   defaultCapacityProviderStrategy
   = ClusterCapacityProviderAssociations
-      {capacityProviders = capacityProviders, cluster = cluster,
+      {haddock_workaround_ = (), capacityProviders = capacityProviders,
+       cluster = cluster,
        defaultCapacityProviderStrategy = defaultCapacityProviderStrategy}
 instance ToResourceProperties ClusterCapacityProviderAssociations where
   toResourceProperties ClusterCapacityProviderAssociations {..}

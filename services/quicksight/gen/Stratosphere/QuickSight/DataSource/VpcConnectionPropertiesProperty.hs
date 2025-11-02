@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConnectionPropertiesProperty
-  = VpcConnectionPropertiesProperty {vpcConnectionArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>
+    VpcConnectionPropertiesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn>
+                                     vpcConnectionArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectionPropertiesProperty ::
   Value Prelude.Text -> VpcConnectionPropertiesProperty
 mkVpcConnectionPropertiesProperty vpcConnectionArn
   = VpcConnectionPropertiesProperty
-      {vpcConnectionArn = vpcConnectionArn}
+      {haddock_workaround_ = (), vpcConnectionArn = vpcConnectionArn}
 instance ToResourceProperties VpcConnectionPropertiesProperty where
   toResourceProperties VpcConnectionPropertiesProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON VpcConnectionPropertiesProperty where
     = JSON.object ["VpcConnectionArn" JSON..= vpcConnectionArn]
 instance Property "VpcConnectionArn" VpcConnectionPropertiesProperty where
   type PropertyType "VpcConnectionArn" VpcConnectionPropertiesProperty = Value Prelude.Text
-  set newValue VpcConnectionPropertiesProperty {}
+  set newValue VpcConnectionPropertiesProperty {..}
     = VpcConnectionPropertiesProperty {vpcConnectionArn = newValue, ..}

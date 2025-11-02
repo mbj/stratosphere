@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FixedSizeChunkingConfigurationProperty
-  = FixedSizeChunkingConfigurationProperty {maxTokens :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-fixedsizechunkingconfiguration.html>
+    FixedSizeChunkingConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-fixedsizechunkingconfiguration.html#cfn-bedrock-datasource-fixedsizechunkingconfiguration-maxtokens>
+                                            maxTokens :: (Value Prelude.Integer),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-fixedsizechunkingconfiguration.html#cfn-bedrock-datasource-fixedsizechunkingconfiguration-overlappercentage>
                                             overlapPercentage :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFixedSizeChunkingConfigurationProperty ::
@@ -18,7 +22,8 @@ mkFixedSizeChunkingConfigurationProperty
   maxTokens
   overlapPercentage
   = FixedSizeChunkingConfigurationProperty
-      {maxTokens = maxTokens, overlapPercentage = overlapPercentage}
+      {haddock_workaround_ = (), maxTokens = maxTokens,
+       overlapPercentage = overlapPercentage}
 instance ToResourceProperties FixedSizeChunkingConfigurationProperty where
   toResourceProperties FixedSizeChunkingConfigurationProperty {..}
     = ResourceProperties

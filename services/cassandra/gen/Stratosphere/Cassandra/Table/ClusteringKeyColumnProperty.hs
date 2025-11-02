@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Cassandra.Table.ColumnProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusteringKeyColumnProperty
-  = ClusteringKeyColumnProperty {column :: ColumnProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html>
+    ClusteringKeyColumnProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column>
+                                 column :: ColumnProperty,
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby>
                                  orderBy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusteringKeyColumnProperty ::
   ColumnProperty -> ClusteringKeyColumnProperty
 mkClusteringKeyColumnProperty column
   = ClusteringKeyColumnProperty
-      {column = column, orderBy = Prelude.Nothing}
+      {haddock_workaround_ = (), column = column,
+       orderBy = Prelude.Nothing}
 instance ToResourceProperties ClusteringKeyColumnProperty where
   toResourceProperties ClusteringKeyColumnProperty {..}
     = ResourceProperties

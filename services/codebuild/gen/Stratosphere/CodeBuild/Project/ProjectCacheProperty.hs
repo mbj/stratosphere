@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectCacheProperty
-  = ProjectCacheProperty {location :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html>
+    ProjectCacheProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location>
+                          location :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes>
                           modes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type>
                           type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectCacheProperty ::
   Value Prelude.Text -> ProjectCacheProperty
 mkProjectCacheProperty type'
   = ProjectCacheProperty
-      {type' = type', location = Prelude.Nothing,
-       modes = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       location = Prelude.Nothing, modes = Prelude.Nothing}
 instance ToResourceProperties ProjectCacheProperty where
   toResourceProperties ProjectCacheProperty {..}
     = ResourceProperties

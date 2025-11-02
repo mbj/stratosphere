@@ -8,16 +8,21 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.DimensionProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricProperty
-  = MetricProperty {dimensions :: (Prelude.Maybe [DimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html>
+    MetricProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-dimensions>
+                    dimensions :: (Prelude.Maybe [DimensionProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-metricname>
                     metricName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html#cfn-cloudwatch-anomalydetector-metric-namespace>
                     namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetricProperty
 mkMetricProperty metricName namespace
   = MetricProperty
-      {metricName = metricName, namespace = namespace,
-       dimensions = Prelude.Nothing}
+      {haddock_workaround_ = (), metricName = metricName,
+       namespace = namespace, dimensions = Prelude.Nothing}
 instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties

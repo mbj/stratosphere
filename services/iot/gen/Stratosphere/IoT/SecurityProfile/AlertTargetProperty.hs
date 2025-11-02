@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlertTargetProperty
-  = AlertTargetProperty {alertTargetArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html>
+    AlertTargetProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn>
+                         alertTargetArn :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn>
                          roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlertTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AlertTargetProperty
 mkAlertTargetProperty alertTargetArn roleArn
   = AlertTargetProperty
-      {alertTargetArn = alertTargetArn, roleArn = roleArn}
+      {haddock_workaround_ = (), alertTargetArn = alertTargetArn,
+       roleArn = roleArn}
 instance ToResourceProperties AlertTargetProperty where
   toResourceProperties AlertTargetProperty {..}
     = ResourceProperties

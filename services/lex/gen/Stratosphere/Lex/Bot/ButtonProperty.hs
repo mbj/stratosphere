@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ButtonProperty
-  = ButtonProperty {text :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-button.html>
+    ButtonProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-button.html#cfn-lex-bot-button-text>
+                    text :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-button.html#cfn-lex-bot-button-value>
                     value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkButtonProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ButtonProperty
 mkButtonProperty text value
-  = ButtonProperty {text = text, value = value}
+  = ButtonProperty
+      {haddock_workaround_ = (), text = text, value = value}
 instance ToResourceProperties ButtonProperty where
   toResourceProperties ButtonProperty {..}
     = ResourceProperties

@@ -11,15 +11,22 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.EntityDetectorConfigurationPrope
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ProfileConfigurationProperty
-  = ProfileConfigurationProperty {columnStatisticsConfigurations :: (Prelude.Maybe [ColumnStatisticsConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html>
+    ProfileConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations>
+                                  columnStatisticsConfigurations :: (Prelude.Maybe [ColumnStatisticsConfigurationProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration>
                                   datasetStatisticsConfiguration :: (Prelude.Maybe StatisticsConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-entitydetectorconfiguration>
                                   entityDetectorConfiguration :: (Prelude.Maybe EntityDetectorConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns>
                                   profileColumns :: (Prelude.Maybe [ColumnSelectorProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProfileConfigurationProperty :: ProfileConfigurationProperty
 mkProfileConfigurationProperty
   = ProfileConfigurationProperty
-      {columnStatisticsConfigurations = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       columnStatisticsConfigurations = Prelude.Nothing,
        datasetStatisticsConfiguration = Prelude.Nothing,
        entityDetectorConfiguration = Prelude.Nothing,
        profileColumns = Prelude.Nothing}

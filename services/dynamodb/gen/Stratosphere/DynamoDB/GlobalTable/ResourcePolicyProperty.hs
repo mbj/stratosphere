@@ -6,11 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data ResourcePolicyProperty
-  = ResourcePolicyProperty {policyDocument :: JSON.Object}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-resourcepolicy.html>
+    ResourcePolicyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-resourcepolicy.html#cfn-dynamodb-globaltable-resourcepolicy-policydocument>
+                            policyDocument :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicyProperty :: JSON.Object -> ResourcePolicyProperty
 mkResourcePolicyProperty policyDocument
-  = ResourcePolicyProperty {policyDocument = policyDocument}
+  = ResourcePolicyProperty
+      {haddock_workaround_ = (), policyDocument = policyDocument}
 instance ToResourceProperties ResourcePolicyProperty where
   toResourceProperties ResourcePolicyProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON ResourcePolicyProperty where
     = JSON.object ["PolicyDocument" JSON..= policyDocument]
 instance Property "PolicyDocument" ResourcePolicyProperty where
   type PropertyType "PolicyDocument" ResourcePolicyProperty = JSON.Object
-  set newValue ResourcePolicyProperty {}
+  set newValue ResourcePolicyProperty {..}
     = ResourcePolicyProperty {policyDocument = newValue, ..}

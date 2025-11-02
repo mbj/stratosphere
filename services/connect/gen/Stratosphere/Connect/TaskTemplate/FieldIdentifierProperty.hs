@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldIdentifierProperty
-  = FieldIdentifierProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>
+    FieldIdentifierProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html#cfn-connect-tasktemplate-fieldidentifier-name>
+                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldIdentifierProperty ::
   Value Prelude.Text -> FieldIdentifierProperty
 mkFieldIdentifierProperty name
-  = FieldIdentifierProperty {name = name}
+  = FieldIdentifierProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties FieldIdentifierProperty where
   toResourceProperties FieldIdentifierProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON FieldIdentifierProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" FieldIdentifierProperty where
   type PropertyType "Name" FieldIdentifierProperty = Value Prelude.Text
-  set newValue FieldIdentifierProperty {}
+  set newValue FieldIdentifierProperty {..}
     = FieldIdentifierProperty {name = newValue, ..}

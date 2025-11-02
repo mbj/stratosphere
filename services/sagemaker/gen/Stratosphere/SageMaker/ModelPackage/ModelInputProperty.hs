@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelInputProperty
-  = ModelInputProperty {dataInputConfig :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html>
+    ModelInputProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html#cfn-sagemaker-modelpackage-modelinput-datainputconfig>
+                        dataInputConfig :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelInputProperty :: Value Prelude.Text -> ModelInputProperty
 mkModelInputProperty dataInputConfig
-  = ModelInputProperty {dataInputConfig = dataInputConfig}
+  = ModelInputProperty
+      {haddock_workaround_ = (), dataInputConfig = dataInputConfig}
 instance ToResourceProperties ModelInputProperty where
   toResourceProperties ModelInputProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ModelInputProperty where
     = JSON.object ["DataInputConfig" JSON..= dataInputConfig]
 instance Property "DataInputConfig" ModelInputProperty where
   type PropertyType "DataInputConfig" ModelInputProperty = Value Prelude.Text
-  set newValue ModelInputProperty {}
+  set newValue ModelInputProperty {..}
     = ModelInputProperty {dataInputConfig = newValue, ..}

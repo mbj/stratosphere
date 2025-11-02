@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.EncryptionAtRestProperty as Expor
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.EncryptionInTransitProperty as Exports
 import Stratosphere.ResourceProperties
 data EncryptionInfoProperty
-  = EncryptionInfoProperty {encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html>
+    EncryptionInfoProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html#cfn-msk-cluster-encryptioninfo-encryptionatrest>
+                            encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html#cfn-msk-cluster-encryptioninfo-encryptionintransit>
                             encryptionInTransit :: (Prelude.Maybe EncryptionInTransitProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionInfoProperty :: EncryptionInfoProperty
 mkEncryptionInfoProperty
   = EncryptionInfoProperty
-      {encryptionAtRest = Prelude.Nothing,
+      {haddock_workaround_ = (), encryptionAtRest = Prelude.Nothing,
        encryptionInTransit = Prelude.Nothing}
 instance ToResourceProperties EncryptionInfoProperty where
   toResourceProperties EncryptionInfoProperty {..}

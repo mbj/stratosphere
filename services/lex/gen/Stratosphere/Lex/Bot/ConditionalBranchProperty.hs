@@ -11,9 +11,15 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionalBranchProperty
-  = ConditionalBranchProperty {condition :: ConditionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html>
+    ConditionalBranchProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-condition>
+                               condition :: ConditionProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-name>
                                name :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-nextstep>
                                nextStep :: DialogStateProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html#cfn-lex-bot-conditionalbranch-response>
                                response :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalBranchProperty ::
@@ -22,8 +28,8 @@ mkConditionalBranchProperty ::
      -> DialogStateProperty -> ConditionalBranchProperty
 mkConditionalBranchProperty condition name nextStep
   = ConditionalBranchProperty
-      {condition = condition, name = name, nextStep = nextStep,
-       response = Prelude.Nothing}
+      {haddock_workaround_ = (), condition = condition, name = name,
+       nextStep = nextStep, response = Prelude.Nothing}
 instance ToResourceProperties ConditionalBranchProperty where
   toResourceProperties ConditionalBranchProperty {..}
     = ResourceProperties

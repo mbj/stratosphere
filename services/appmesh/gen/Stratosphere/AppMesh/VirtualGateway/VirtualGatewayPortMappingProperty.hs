@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayPortMappingProperty
-  = VirtualGatewayPortMappingProperty {port :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html>
+    VirtualGatewayPortMappingProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-port>
+                                       port :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-protocol>
                                        protocol :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayPortMappingProperty ::
@@ -16,7 +20,7 @@ mkVirtualGatewayPortMappingProperty ::
   -> Value Prelude.Text -> VirtualGatewayPortMappingProperty
 mkVirtualGatewayPortMappingProperty port protocol
   = VirtualGatewayPortMappingProperty
-      {port = port, protocol = protocol}
+      {haddock_workaround_ = (), port = port, protocol = protocol}
 instance ToResourceProperties VirtualGatewayPortMappingProperty where
   toResourceProperties VirtualGatewayPortMappingProperty {..}
     = ResourceProperties

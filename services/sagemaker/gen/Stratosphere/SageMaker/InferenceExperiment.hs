@@ -12,18 +12,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data InferenceExperiment
-  = InferenceExperiment {dataStorageConfig :: (Prelude.Maybe DataStorageConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html>
+    InferenceExperiment {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-datastorageconfig>
+                         dataStorageConfig :: (Prelude.Maybe DataStorageConfigProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-description>
                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-desiredstate>
                          desiredState :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-endpointname>
                          endpointName :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-kmskey>
                          kmsKey :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-modelvariants>
                          modelVariants :: [ModelVariantConfigProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-name>
                          name :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-rolearn>
                          roleArn :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-schedule>
                          schedule :: (Prelude.Maybe InferenceExperimentScheduleProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-shadowmodeconfig>
                          shadowModeConfig :: (Prelude.Maybe ShadowModeConfigProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-statusreason>
                          statusReason :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-tags>
                          tags :: (Prelude.Maybe [Tag]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html#cfn-sagemaker-inferenceexperiment-type>
                          type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceExperiment ::
@@ -33,12 +48,13 @@ mkInferenceExperiment ::
         -> Value Prelude.Text -> Value Prelude.Text -> InferenceExperiment
 mkInferenceExperiment endpointName modelVariants name roleArn type'
   = InferenceExperiment
-      {endpointName = endpointName, modelVariants = modelVariants,
-       name = name, roleArn = roleArn, type' = type',
-       dataStorageConfig = Prelude.Nothing, description = Prelude.Nothing,
-       desiredState = Prelude.Nothing, kmsKey = Prelude.Nothing,
-       schedule = Prelude.Nothing, shadowModeConfig = Prelude.Nothing,
-       statusReason = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), endpointName = endpointName,
+       modelVariants = modelVariants, name = name, roleArn = roleArn,
+       type' = type', dataStorageConfig = Prelude.Nothing,
+       description = Prelude.Nothing, desiredState = Prelude.Nothing,
+       kmsKey = Prelude.Nothing, schedule = Prelude.Nothing,
+       shadowModeConfig = Prelude.Nothing, statusReason = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties InferenceExperiment where
   toResourceProperties InferenceExperiment {..}
     = ResourceProperties

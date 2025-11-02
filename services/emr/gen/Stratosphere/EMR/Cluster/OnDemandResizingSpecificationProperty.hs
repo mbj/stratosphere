@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.OnDemandCapacityReservationOption
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandResizingSpecificationProperty
-  = OnDemandResizingSpecificationProperty {allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandresizingspecification.html>
+    OnDemandResizingSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandresizingspecification.html#cfn-elasticmapreduce-cluster-ondemandresizingspecification-allocationstrategy>
+                                           allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandresizingspecification.html#cfn-elasticmapreduce-cluster-ondemandresizingspecification-capacityreservationoptions>
                                            capacityReservationOptions :: (Prelude.Maybe OnDemandCapacityReservationOptionsProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandresizingspecification.html#cfn-elasticmapreduce-cluster-ondemandresizingspecification-timeoutdurationminutes>
                                            timeoutDurationMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandResizingSpecificationProperty ::
   OnDemandResizingSpecificationProperty
 mkOnDemandResizingSpecificationProperty
   = OnDemandResizingSpecificationProperty
-      {allocationStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), allocationStrategy = Prelude.Nothing,
        capacityReservationOptions = Prelude.Nothing,
        timeoutDurationMinutes = Prelude.Nothing}
 instance ToResourceProperties OnDemandResizingSpecificationProperty where

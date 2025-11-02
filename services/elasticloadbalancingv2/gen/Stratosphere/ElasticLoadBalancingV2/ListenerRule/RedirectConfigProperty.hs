@@ -7,20 +7,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedirectConfigProperty
-  = RedirectConfigProperty {host :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html>
+    RedirectConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-host>
+                            host :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-path>
                             path :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-port>
                             port :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-protocol>
                             protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-query>
                             query :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-statuscode>
                             statusCode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedirectConfigProperty ::
   Value Prelude.Text -> RedirectConfigProperty
 mkRedirectConfigProperty statusCode
   = RedirectConfigProperty
-      {statusCode = statusCode, host = Prelude.Nothing,
-       path = Prelude.Nothing, port = Prelude.Nothing,
-       protocol = Prelude.Nothing, query = Prelude.Nothing}
+      {haddock_workaround_ = (), statusCode = statusCode,
+       host = Prelude.Nothing, path = Prelude.Nothing,
+       port = Prelude.Nothing, protocol = Prelude.Nothing,
+       query = Prelude.Nothing}
 instance ToResourceProperties RedirectConfigProperty where
   toResourceProperties RedirectConfigProperty {..}
     = ResourceProperties

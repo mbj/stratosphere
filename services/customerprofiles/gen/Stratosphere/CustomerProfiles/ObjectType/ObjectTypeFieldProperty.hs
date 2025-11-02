@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectTypeFieldProperty
-  = ObjectTypeFieldProperty {contentType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html>
+    ObjectTypeFieldProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype>
+                             contentType :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source>
                              source :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target>
                              target :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectTypeFieldProperty :: ObjectTypeFieldProperty
 mkObjectTypeFieldProperty
   = ObjectTypeFieldProperty
-      {contentType = Prelude.Nothing, source = Prelude.Nothing,
-       target = Prelude.Nothing}
+      {haddock_workaround_ = (), contentType = Prelude.Nothing,
+       source = Prelude.Nothing, target = Prelude.Nothing}
 instance ToResourceProperties ObjectTypeFieldProperty where
   toResourceProperties ObjectTypeFieldProperty {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerManagedS3Property
-  = CustomerManagedS3Property {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html>
+    CustomerManagedS3Property {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-bucket>
+                               bucket :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-keyprefix>
                                keyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-rolearn>
                                roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedS3Property ::
@@ -16,7 +21,8 @@ mkCustomerManagedS3Property ::
   -> Value Prelude.Text -> CustomerManagedS3Property
 mkCustomerManagedS3Property bucket roleArn
   = CustomerManagedS3Property
-      {bucket = bucket, roleArn = roleArn, keyPrefix = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket, roleArn = roleArn,
+       keyPrefix = Prelude.Nothing}
 instance ToResourceProperties CustomerManagedS3Property where
   toResourceProperties CustomerManagedS3Property {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.QBusiness.WebExperience.OpenIDConnectProvider
 import {-# SOURCE #-} Stratosphere.QBusiness.WebExperience.SamlProviderConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data IdentityProviderConfigurationProperty
-  = IdentityProviderConfigurationProperty {openIDConnectConfiguration :: (Prelude.Maybe OpenIDConnectProviderConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html>
+    IdentityProviderConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html#cfn-qbusiness-webexperience-identityproviderconfiguration-openidconnectconfiguration>
+                                           openIDConnectConfiguration :: (Prelude.Maybe OpenIDConnectProviderConfigurationProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html#cfn-qbusiness-webexperience-identityproviderconfiguration-samlconfiguration>
                                            samlConfiguration :: (Prelude.Maybe SamlProviderConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProviderConfigurationProperty ::
   IdentityProviderConfigurationProperty
 mkIdentityProviderConfigurationProperty
   = IdentityProviderConfigurationProperty
-      {openIDConnectConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       openIDConnectConfiguration = Prelude.Nothing,
        samlConfiguration = Prelude.Nothing}
 instance ToResourceProperties IdentityProviderConfigurationProperty where
   toResourceProperties IdentityProviderConfigurationProperty {..}

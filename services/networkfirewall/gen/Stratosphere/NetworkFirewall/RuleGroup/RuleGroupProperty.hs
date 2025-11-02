@@ -10,16 +10,22 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.RulesSourceProperty
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.StatefulRuleOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleGroupProperty
-  = RuleGroupProperty {referenceSets :: (Prelude.Maybe ReferenceSetsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html>
+    RuleGroupProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-referencesets>
+                       referenceSets :: (Prelude.Maybe ReferenceSetsProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables>
                        ruleVariables :: (Prelude.Maybe RuleVariablesProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource>
                        rulesSource :: RulesSourceProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-statefulruleoptions>
                        statefulRuleOptions :: (Prelude.Maybe StatefulRuleOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RulesSourceProperty -> RuleGroupProperty
 mkRuleGroupProperty rulesSource
   = RuleGroupProperty
-      {rulesSource = rulesSource, referenceSets = Prelude.Nothing,
-       ruleVariables = Prelude.Nothing,
+      {haddock_workaround_ = (), rulesSource = rulesSource,
+       referenceSets = Prelude.Nothing, ruleVariables = Prelude.Nothing,
        statefulRuleOptions = Prelude.Nothing}
 instance ToResourceProperties RuleGroupProperty where
   toResourceProperties RuleGroupProperty {..}

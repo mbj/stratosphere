@@ -11,8 +11,13 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.SalesforceStandardKnowledge
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceKnowledgeArticleConfigurationProperty
-  = SalesforceKnowledgeArticleConfigurationProperty {customKnowledgeArticleTypeConfigurations :: (Prelude.Maybe [SalesforceCustomKnowledgeArticleTypeConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html>
+    SalesforceKnowledgeArticleConfigurationProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations>
+                                                     customKnowledgeArticleTypeConfigurations :: (Prelude.Maybe [SalesforceCustomKnowledgeArticleTypeConfigurationProperty]),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates>
                                                      includedStates :: (ValueList Prelude.Text),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration>
                                                      standardKnowledgeArticleTypeConfiguration :: (Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceKnowledgeArticleConfigurationProperty ::
@@ -20,7 +25,7 @@ mkSalesforceKnowledgeArticleConfigurationProperty ::
   -> SalesforceKnowledgeArticleConfigurationProperty
 mkSalesforceKnowledgeArticleConfigurationProperty includedStates
   = SalesforceKnowledgeArticleConfigurationProperty
-      {includedStates = includedStates,
+      {haddock_workaround_ = (), includedStates = includedStates,
        customKnowledgeArticleTypeConfigurations = Prelude.Nothing,
        standardKnowledgeArticleTypeConfiguration = Prelude.Nothing}
 instance ToResourceProperties SalesforceKnowledgeArticleConfigurationProperty where

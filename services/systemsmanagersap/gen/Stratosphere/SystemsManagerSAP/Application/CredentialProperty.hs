@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CredentialProperty
-  = CredentialProperty {credentialType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html>
+    CredentialProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html#cfn-systemsmanagersap-application-credential-credentialtype>
+                        credentialType :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html#cfn-systemsmanagersap-application-credential-databasename>
                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html#cfn-systemsmanagersap-application-credential-secretid>
                         secretId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCredentialProperty :: CredentialProperty
 mkCredentialProperty
   = CredentialProperty
-      {credentialType = Prelude.Nothing, databaseName = Prelude.Nothing,
-       secretId = Prelude.Nothing}
+      {haddock_workaround_ = (), credentialType = Prelude.Nothing,
+       databaseName = Prelude.Nothing, secretId = Prelude.Nothing}
 instance ToResourceProperties CredentialProperty where
   toResourceProperties CredentialProperty {..}
     = ResourceProperties

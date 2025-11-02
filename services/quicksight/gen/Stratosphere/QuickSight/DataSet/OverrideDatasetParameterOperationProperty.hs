@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.NewDefaultValuesProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OverrideDatasetParameterOperationProperty
-  = OverrideDatasetParameterOperationProperty {newDefaultValues :: (Prelude.Maybe NewDefaultValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html>
+    OverrideDatasetParameterOperationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html#cfn-quicksight-dataset-overridedatasetparameteroperation-newdefaultvalues>
+                                               newDefaultValues :: (Prelude.Maybe NewDefaultValuesProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html#cfn-quicksight-dataset-overridedatasetparameteroperation-newparametername>
                                                newParameterName :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html#cfn-quicksight-dataset-overridedatasetparameteroperation-parametername>
                                                parameterName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideDatasetParameterOperationProperty ::
   Value Prelude.Text -> OverrideDatasetParameterOperationProperty
 mkOverrideDatasetParameterOperationProperty parameterName
   = OverrideDatasetParameterOperationProperty
-      {parameterName = parameterName, newDefaultValues = Prelude.Nothing,
+      {haddock_workaround_ = (), parameterName = parameterName,
+       newDefaultValues = Prelude.Nothing,
        newParameterName = Prelude.Nothing}
 instance ToResourceProperties OverrideDatasetParameterOperationProperty where
   toResourceProperties OverrideDatasetParameterOperationProperty {..}

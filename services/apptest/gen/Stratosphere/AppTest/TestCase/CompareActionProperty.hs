@@ -8,12 +8,17 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.InputProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.OutputProperty as Exports
 import Stratosphere.ResourceProperties
 data CompareActionProperty
-  = CompareActionProperty {input :: InputProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html>
+    CompareActionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html#cfn-apptest-testcase-compareaction-input>
+                           input :: InputProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html#cfn-apptest-testcase-compareaction-output>
                            output :: (Prelude.Maybe OutputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompareActionProperty :: InputProperty -> CompareActionProperty
 mkCompareActionProperty input
-  = CompareActionProperty {input = input, output = Prelude.Nothing}
+  = CompareActionProperty
+      {haddock_workaround_ = (), input = input, output = Prelude.Nothing}
 instance ToResourceProperties CompareActionProperty where
   toResourceProperties CompareActionProperty {..}
     = ResourceProperties

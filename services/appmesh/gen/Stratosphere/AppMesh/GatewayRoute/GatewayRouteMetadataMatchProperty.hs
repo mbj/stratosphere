@@ -9,19 +9,26 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteRangeMatchPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteMetadataMatchProperty
-  = GatewayRouteMetadataMatchProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html>
+    GatewayRouteMetadataMatchProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-exact>
+                                       exact :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-prefix>
                                        prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-range>
                                        range :: (Prelude.Maybe GatewayRouteRangeMatchProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-regex>
                                        regex :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html#cfn-appmesh-gatewayroute-gatewayroutemetadatamatch-suffix>
                                        suffix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteMetadataMatchProperty ::
   GatewayRouteMetadataMatchProperty
 mkGatewayRouteMetadataMatchProperty
   = GatewayRouteMetadataMatchProperty
-      {exact = Prelude.Nothing, prefix = Prelude.Nothing,
-       range = Prelude.Nothing, regex = Prelude.Nothing,
-       suffix = Prelude.Nothing}
+      {haddock_workaround_ = (), exact = Prelude.Nothing,
+       prefix = Prelude.Nothing, range = Prelude.Nothing,
+       regex = Prelude.Nothing, suffix = Prelude.Nothing}
 instance ToResourceProperties GatewayRouteMetadataMatchProperty where
   toResourceProperties GatewayRouteMetadataMatchProperty {..}
     = ResourceProperties

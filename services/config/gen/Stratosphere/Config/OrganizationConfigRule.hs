@@ -11,17 +11,25 @@ import {-# SOURCE #-} Stratosphere.Config.OrganizationConfigRule.OrganizationMan
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationConfigRule
-  = OrganizationConfigRule {excludedAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html>
+    OrganizationConfigRule {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-excludedaccounts>
+                            excludedAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationconfigrulename>
                             organizationConfigRuleName :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustompolicyrulemetadata>
                             organizationCustomPolicyRuleMetadata :: (Prelude.Maybe OrganizationCustomPolicyRuleMetadataProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata>
                             organizationCustomRuleMetadata :: (Prelude.Maybe OrganizationCustomRuleMetadataProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata>
                             organizationManagedRuleMetadata :: (Prelude.Maybe OrganizationManagedRuleMetadataProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationConfigRule ::
   Value Prelude.Text -> OrganizationConfigRule
 mkOrganizationConfigRule organizationConfigRuleName
   = OrganizationConfigRule
-      {organizationConfigRuleName = organizationConfigRuleName,
+      {haddock_workaround_ = (),
+       organizationConfigRuleName = organizationConfigRuleName,
        excludedAccounts = Prelude.Nothing,
        organizationCustomPolicyRuleMetadata = Prelude.Nothing,
        organizationCustomRuleMetadata = Prelude.Nothing,

@@ -11,20 +11,32 @@ import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.ResultConfigurationProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkGroupConfigurationProperty
-  = WorkGroupConfigurationProperty {additionalConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html>
+    WorkGroupConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-additionalconfiguration>
+                                    additionalConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery>
                                     bytesScannedCutoffPerQuery :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-customercontentencryptionconfiguration>
                                     customerContentEncryptionConfiguration :: (Prelude.Maybe CustomerContentEncryptionConfigurationProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration>
                                     enforceWorkGroupConfiguration :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion>
                                     engineVersion :: (Prelude.Maybe EngineVersionProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole>
                                     executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled>
                                     publishCloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled>
                                     requesterPaysEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration>
                                     resultConfiguration :: (Prelude.Maybe ResultConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkGroupConfigurationProperty :: WorkGroupConfigurationProperty
 mkWorkGroupConfigurationProperty
   = WorkGroupConfigurationProperty
-      {additionalConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       additionalConfiguration = Prelude.Nothing,
        bytesScannedCutoffPerQuery = Prelude.Nothing,
        customerContentEncryptionConfiguration = Prelude.Nothing,
        enforceWorkGroupConfiguration = Prelude.Nothing,

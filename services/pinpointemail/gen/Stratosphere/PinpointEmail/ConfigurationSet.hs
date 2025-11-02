@@ -12,17 +12,26 @@ import {-# SOURCE #-} Stratosphere.PinpointEmail.ConfigurationSet.TrackingOption
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationSet
-  = ConfigurationSet {deliveryOptions :: (Prelude.Maybe DeliveryOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html>
+    ConfigurationSet {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-deliveryoptions>
+                      deliveryOptions :: (Prelude.Maybe DeliveryOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-reputationoptions>
                       reputationOptions :: (Prelude.Maybe ReputationOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-sendingoptions>
                       sendingOptions :: (Prelude.Maybe SendingOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-tags>
                       tags :: (Prelude.Maybe [TagsProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-trackingoptions>
                       trackingOptions :: (Prelude.Maybe TrackingOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSet :: Value Prelude.Text -> ConfigurationSet
 mkConfigurationSet name
   = ConfigurationSet
-      {name = name, deliveryOptions = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       deliveryOptions = Prelude.Nothing,
        reputationOptions = Prelude.Nothing,
        sendingOptions = Prelude.Nothing, tags = Prelude.Nothing,
        trackingOptions = Prelude.Nothing}

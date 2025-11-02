@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackUserAssociation
-  = StackUserAssociation {authenticationType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html>
+    StackUserAssociation {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-authenticationtype>
+                          authenticationType :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-sendemailnotification>
                           sendEmailNotification :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-stackname>
                           stackName :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-username>
                           userName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackUserAssociation ::
@@ -17,8 +23,9 @@ mkStackUserAssociation ::
   -> Value Prelude.Text -> Value Prelude.Text -> StackUserAssociation
 mkStackUserAssociation authenticationType stackName userName
   = StackUserAssociation
-      {authenticationType = authenticationType, stackName = stackName,
-       userName = userName, sendEmailNotification = Prelude.Nothing}
+      {haddock_workaround_ = (), authenticationType = authenticationType,
+       stackName = stackName, userName = userName,
+       sendEmailNotification = Prelude.Nothing}
 instance ToResourceProperties StackUserAssociation where
   toResourceProperties StackUserAssociation {..}
     = ResourceProperties

@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.SeedUrlProperty as Exports
 import Stratosphere.ResourceProperties
 data UrlConfigurationProperty
-  = UrlConfigurationProperty {seedUrls :: (Prelude.Maybe [SeedUrlProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-urlconfiguration.html>
+    UrlConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-urlconfiguration.html#cfn-wisdom-knowledgebase-urlconfiguration-seedurls>
+                              seedUrls :: (Prelude.Maybe [SeedUrlProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUrlConfigurationProperty :: UrlConfigurationProperty
 mkUrlConfigurationProperty
-  = UrlConfigurationProperty {seedUrls = Prelude.Nothing}
+  = UrlConfigurationProperty
+      {haddock_workaround_ = (), seedUrls = Prelude.Nothing}
 instance ToResourceProperties UrlConfigurationProperty where
   toResourceProperties UrlConfigurationProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON UrlConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "SeedUrls" Prelude.<$> seedUrls]))
 instance Property "SeedUrls" UrlConfigurationProperty where
   type PropertyType "SeedUrls" UrlConfigurationProperty = [SeedUrlProperty]
-  set newValue UrlConfigurationProperty {}
+  set newValue UrlConfigurationProperty {..}
     = UrlConfigurationProperty {seedUrls = Prelude.pure newValue, ..}

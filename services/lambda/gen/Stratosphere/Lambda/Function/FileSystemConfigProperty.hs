@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileSystemConfigProperty
-  = FileSystemConfigProperty {arn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html>
+    FileSystemConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn>
+                              arn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath>
                               localMountPath :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystemConfigProperty ::
@@ -15,7 +19,8 @@ mkFileSystemConfigProperty ::
   -> Value Prelude.Text -> FileSystemConfigProperty
 mkFileSystemConfigProperty arn localMountPath
   = FileSystemConfigProperty
-      {arn = arn, localMountPath = localMountPath}
+      {haddock_workaround_ = (), arn = arn,
+       localMountPath = localMountPath}
 instance ToResourceProperties FileSystemConfigProperty where
   toResourceProperties FileSystemConfigProperty {..}
     = ResourceProperties

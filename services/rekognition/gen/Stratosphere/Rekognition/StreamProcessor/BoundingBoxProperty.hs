@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BoundingBoxProperty
-  = BoundingBoxProperty {height :: (Value Prelude.Double),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html>
+    BoundingBoxProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-height>
+                         height :: (Value Prelude.Double),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-left>
                          left :: (Value Prelude.Double),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-top>
                          top :: (Value Prelude.Double),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html#cfn-rekognition-streamprocessor-boundingbox-width>
                          width :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBoundingBoxProperty ::
@@ -19,7 +25,8 @@ mkBoundingBoxProperty ::
         -> Value Prelude.Double -> BoundingBoxProperty
 mkBoundingBoxProperty height left top width
   = BoundingBoxProperty
-      {height = height, left = left, top = top, width = width}
+      {haddock_workaround_ = (), height = height, left = left, top = top,
+       width = width}
 instance ToResourceProperties BoundingBoxProperty where
   toResourceProperties BoundingBoxProperty {..}
     = ResourceProperties

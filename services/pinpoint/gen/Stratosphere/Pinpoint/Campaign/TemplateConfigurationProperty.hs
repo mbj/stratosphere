@@ -8,16 +8,23 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.TemplateProperty as Exports
 import Stratosphere.ResourceProperties
 data TemplateConfigurationProperty
-  = TemplateConfigurationProperty {emailTemplate :: (Prelude.Maybe TemplateProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html>
+    TemplateConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-emailtemplate>
+                                   emailTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-pushtemplate>
                                    pushTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-smstemplate>
                                    sMSTemplate :: (Prelude.Maybe TemplateProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html#cfn-pinpoint-campaign-templateconfiguration-voicetemplate>
                                    voiceTemplate :: (Prelude.Maybe TemplateProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateConfigurationProperty :: TemplateConfigurationProperty
 mkTemplateConfigurationProperty
   = TemplateConfigurationProperty
-      {emailTemplate = Prelude.Nothing, pushTemplate = Prelude.Nothing,
-       sMSTemplate = Prelude.Nothing, voiceTemplate = Prelude.Nothing}
+      {haddock_workaround_ = (), emailTemplate = Prelude.Nothing,
+       pushTemplate = Prelude.Nothing, sMSTemplate = Prelude.Nothing,
+       voiceTemplate = Prelude.Nothing}
 instance ToResourceProperties TemplateConfigurationProperty where
   toResourceProperties TemplateConfigurationProperty {..}
     = ResourceProperties

@@ -7,19 +7,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamedQuery
-  = NamedQuery {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html>
+    NamedQuery {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database>
+                database :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name>
                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring>
                 queryString :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup>
                 workGroup :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedQuery ::
   Value Prelude.Text -> Value Prelude.Text -> NamedQuery
 mkNamedQuery database queryString
   = NamedQuery
-      {database = database, queryString = queryString,
-       description = Prelude.Nothing, name = Prelude.Nothing,
-       workGroup = Prelude.Nothing}
+      {haddock_workaround_ = (), database = database,
+       queryString = queryString, description = Prelude.Nothing,
+       name = Prelude.Nothing, workGroup = Prelude.Nothing}
 instance ToResourceProperties NamedQuery where
   toResourceProperties NamedQuery {..}
     = ResourceProperties

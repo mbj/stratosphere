@@ -9,16 +9,24 @@ import {-# SOURCE #-} Stratosphere.ApiGateway.Deployment.StageDescriptionPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Deployment
-  = Deployment {deploymentCanarySettings :: (Prelude.Maybe DeploymentCanarySettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html>
+    Deployment {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-deploymentcanarysettings>
+                deploymentCanarySettings :: (Prelude.Maybe DeploymentCanarySettingsProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-restapiid>
                 restApiId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagedescription>
                 stageDescription :: (Prelude.Maybe StageDescriptionProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagename>
                 stageName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment :: Value Prelude.Text -> Deployment
 mkDeployment restApiId
   = Deployment
-      {restApiId = restApiId, deploymentCanarySettings = Prelude.Nothing,
+      {haddock_workaround_ = (), restApiId = restApiId,
+       deploymentCanarySettings = Prelude.Nothing,
        description = Prelude.Nothing, stageDescription = Prelude.Nothing,
        stageName = Prelude.Nothing}
 instance ToResourceProperties Deployment where

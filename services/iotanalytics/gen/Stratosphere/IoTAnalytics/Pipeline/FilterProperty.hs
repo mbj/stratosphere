@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {filter :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html>
+    FilterProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-filter>
+                    filter :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html#cfn-iotanalytics-pipeline-filter-next>
                     next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FilterProperty
 mkFilterProperty filter name
   = FilterProperty
-      {filter = filter, name = name, next = Prelude.Nothing}
+      {haddock_workaround_ = (), filter = filter, name = name,
+       next = Prelude.Nothing}
 instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties

@@ -11,23 +11,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IdentityPool
-  = IdentityPool {allowClassicFlow :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html>
+    IdentityPool {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowclassicflow>
+                  allowClassicFlow :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities>
                   allowUnauthenticatedIdentities :: (Value Prelude.Bool),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents>
                   cognitoEvents :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoidentityproviders>
                   cognitoIdentityProviders :: (Prelude.Maybe [CognitoIdentityProviderProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitostreams>
                   cognitoStreams :: (Prelude.Maybe CognitoStreamsProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-developerprovidername>
                   developerProviderName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname>
                   identityPoolName :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypooltags>
                   identityPoolTags :: (Prelude.Maybe [Tag]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns>
                   openIdConnectProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync>
                   pushSync :: (Prelude.Maybe PushSyncProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns>
                   samlProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders>
                   supportedLoginProviders :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPool :: Value Prelude.Bool -> IdentityPool
 mkIdentityPool allowUnauthenticatedIdentities
   = IdentityPool
-      {allowUnauthenticatedIdentities = allowUnauthenticatedIdentities,
+      {haddock_workaround_ = (),
+       allowUnauthenticatedIdentities = allowUnauthenticatedIdentities,
        allowClassicFlow = Prelude.Nothing,
        cognitoEvents = Prelude.Nothing,
        cognitoIdentityProviders = Prelude.Nothing,

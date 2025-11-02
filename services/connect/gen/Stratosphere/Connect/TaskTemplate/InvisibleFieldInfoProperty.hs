@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data InvisibleFieldInfoProperty
-  = InvisibleFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>
+    InvisibleFieldInfoProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html#cfn-connect-tasktemplate-invisiblefieldinfo-id>
+                                id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInvisibleFieldInfoProperty ::
   FieldIdentifierProperty -> InvisibleFieldInfoProperty
 mkInvisibleFieldInfoProperty id
-  = InvisibleFieldInfoProperty {id = id}
+  = InvisibleFieldInfoProperty {haddock_workaround_ = (), id = id}
 instance ToResourceProperties InvisibleFieldInfoProperty where
   toResourceProperties InvisibleFieldInfoProperty {..}
     = ResourceProperties
@@ -24,5 +27,5 @@ instance JSON.ToJSON InvisibleFieldInfoProperty where
     = JSON.object ["Id" JSON..= id]
 instance Property "Id" InvisibleFieldInfoProperty where
   type PropertyType "Id" InvisibleFieldInfoProperty = FieldIdentifierProperty
-  set newValue InvisibleFieldInfoProperty {}
+  set newValue InvisibleFieldInfoProperty {..}
     = InvisibleFieldInfoProperty {id = newValue, ..}

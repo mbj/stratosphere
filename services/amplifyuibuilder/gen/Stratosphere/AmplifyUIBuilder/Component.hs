@@ -13,26 +13,43 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.ComponentVariantPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Component
-  = Component {appId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html>
+    Component {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-appid>
+               appId :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-bindingproperties>
                bindingProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-children>
                children :: (Prelude.Maybe [ComponentChildProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-collectionproperties>
                collectionProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentDataConfigurationProperty)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-componenttype>
                componentType :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-environmentname>
                environmentName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-events>
                events :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentEventProperty)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-name>
                name :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-overrides>
                overrides :: (Prelude.Maybe JSON.Object),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-properties>
                properties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentPropertyProperty)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-schemaversion>
                schemaVersion :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-sourceid>
                sourceId :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-tags>
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#cfn-amplifyuibuilder-component-variants>
                variants :: (Prelude.Maybe [ComponentVariantProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponent :: Component
 mkComponent
   = Component
-      {appId = Prelude.Nothing, bindingProperties = Prelude.Nothing,
-       children = Prelude.Nothing, collectionProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), appId = Prelude.Nothing,
+       bindingProperties = Prelude.Nothing, children = Prelude.Nothing,
+       collectionProperties = Prelude.Nothing,
        componentType = Prelude.Nothing, environmentName = Prelude.Nothing,
        events = Prelude.Nothing, name = Prelude.Nothing,
        overrides = Prelude.Nothing, properties = Prelude.Nothing,

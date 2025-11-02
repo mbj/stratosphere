@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeName
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayTlsValidationContextProperty
-  = VirtualGatewayTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html>
+    VirtualGatewayTlsValidationContextProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-subjectalternativenames>
+                                                subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust>
                                                 trust :: VirtualGatewayTlsValidationContextTrustProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextProperty ::
@@ -17,7 +21,8 @@ mkVirtualGatewayTlsValidationContextProperty ::
   -> VirtualGatewayTlsValidationContextProperty
 mkVirtualGatewayTlsValidationContextProperty trust
   = VirtualGatewayTlsValidationContextProperty
-      {trust = trust, subjectAlternativeNames = Prelude.Nothing}
+      {haddock_workaround_ = (), trust = trust,
+       subjectAlternativeNames = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayTlsValidationContextProperty where
   toResourceProperties
     VirtualGatewayTlsValidationContextProperty {..}

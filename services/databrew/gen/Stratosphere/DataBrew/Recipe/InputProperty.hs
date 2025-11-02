@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.DataCatalogInputDefinitionPro
 import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InputProperty
-  = InputProperty {dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html>
+    InputProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html#cfn-databrew-recipe-input-datacataloginputdefinition>
+                   dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html#cfn-databrew-recipe-input-s3inputdefinition>
                    s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty :: InputProperty
 mkInputProperty
   = InputProperty
-      {dataCatalogInputDefinition = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       dataCatalogInputDefinition = Prelude.Nothing,
        s3InputDefinition = Prelude.Nothing}
 instance ToResourceProperties InputProperty where
   toResourceProperties InputProperty {..}

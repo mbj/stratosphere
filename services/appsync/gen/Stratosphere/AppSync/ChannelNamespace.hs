@@ -9,20 +9,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ChannelNamespace
-  = ChannelNamespace {apiId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html>
+    ChannelNamespace {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-apiid>
+                      apiId :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-codehandlers>
                       codeHandlers :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-codes3location>
                       codeS3Location :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-name>
                       name :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-publishauthmodes>
                       publishAuthModes :: (Prelude.Maybe [AuthModeProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-subscribeauthmodes>
                       subscribeAuthModes :: (Prelude.Maybe [AuthModeProperty]),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelNamespace ::
   Value Prelude.Text -> Value Prelude.Text -> ChannelNamespace
 mkChannelNamespace apiId name
   = ChannelNamespace
-      {apiId = apiId, name = name, codeHandlers = Prelude.Nothing,
-       codeS3Location = Prelude.Nothing,
+      {haddock_workaround_ = (), apiId = apiId, name = name,
+       codeHandlers = Prelude.Nothing, codeS3Location = Prelude.Nothing,
        publishAuthModes = Prelude.Nothing,
        subscribeAuthModes = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ChannelNamespace where

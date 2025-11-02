@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueOverrideMapProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntentOverrideProperty
-  = IntentOverrideProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html>
+    IntentOverrideProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html#cfn-lex-bot-intentoverride-name>
+                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html#cfn-lex-bot-intentoverride-slots>
                             slots :: (Prelude.Maybe [SlotValueOverrideMapProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentOverrideProperty :: IntentOverrideProperty
 mkIntentOverrideProperty
   = IntentOverrideProperty
-      {name = Prelude.Nothing, slots = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       slots = Prelude.Nothing}
 instance ToResourceProperties IntentOverrideProperty where
   toResourceProperties IntentOverrideProperty {..}
     = ResourceProperties

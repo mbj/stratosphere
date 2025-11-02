@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckCustomConfigProperty
-  = HealthCheckCustomConfigProperty {failureThreshold :: (Prelude.Maybe (Value Prelude.Double))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html>
+    HealthCheckCustomConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html#cfn-servicediscovery-service-healthcheckcustomconfig-failurethreshold>
+                                     failureThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckCustomConfigProperty ::
   HealthCheckCustomConfigProperty
 mkHealthCheckCustomConfigProperty
   = HealthCheckCustomConfigProperty
-      {failureThreshold = Prelude.Nothing}
+      {haddock_workaround_ = (), failureThreshold = Prelude.Nothing}
 instance ToResourceProperties HealthCheckCustomConfigProperty where
   toResourceProperties HealthCheckCustomConfigProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON HealthCheckCustomConfigProperty where
               [(JSON..=) "FailureThreshold" Prelude.<$> failureThreshold]))
 instance Property "FailureThreshold" HealthCheckCustomConfigProperty where
   type PropertyType "FailureThreshold" HealthCheckCustomConfigProperty = Value Prelude.Double
-  set newValue HealthCheckCustomConfigProperty {}
+  set newValue HealthCheckCustomConfigProperty {..}
     = HealthCheckCustomConfigProperty
         {failureThreshold = Prelude.pure newValue, ..}

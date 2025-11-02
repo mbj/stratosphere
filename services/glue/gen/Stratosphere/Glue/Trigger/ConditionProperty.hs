@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionProperty
-  = ConditionProperty {crawlState :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html>
+    ConditionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate>
+                       crawlState :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername>
                        crawlerName :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname>
                        jobName :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator>
                        logicalOperator :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state>
                        state :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty
-      {crawlState = Prelude.Nothing, crawlerName = Prelude.Nothing,
-       jobName = Prelude.Nothing, logicalOperator = Prelude.Nothing,
-       state = Prelude.Nothing}
+      {haddock_workaround_ = (), crawlState = Prelude.Nothing,
+       crawlerName = Prelude.Nothing, jobName = Prelude.Nothing,
+       logicalOperator = Prelude.Nothing, state = Prelude.Nothing}
 instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties

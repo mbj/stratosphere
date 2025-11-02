@@ -96,11 +96,11 @@ writeResourceTypeModule resourceTypeName Raw.ResourceType{..} = do
     (declarations, State{..})
       = genRecord
         Record
-        { awsType     = toText resourceTypeName
-        , builderName = "mk" <> recordName
-        , name        = recordName
-        , properties  = resourceTypeProperties
-        , ..
+        { awsType       = toText resourceTypeName
+        , builderName   = "mk" <> recordName
+        , name          = recordName
+        , properties    = resourceTypeProperties
+        , documentation = resourceTypeDocumentation
         }
 
     recordName = resourceTypeName.resource
@@ -163,10 +163,11 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
           (declarations, State{..})
             = genRecord
               Record
-              { awsType     = toText propertyTypeName
-              , builderName = "mk" <> typeName
-              , name        = typeName
-              , ..
+              { awsType       = toText propertyTypeName
+              , builderName   = "mk" <> typeName
+              , name          = typeName
+              , properties    = properties
+              , documentation = propertyTypeDocumentation
               }
 
     recordModuleBoot =
@@ -179,10 +180,11 @@ writePropertyTypeModule propertyTypeName propertyType@Raw.PropertyType{..} = do
           (declarations, State{..})
             = genRecordBoot
               Record
-              { awsType     = toText propertyTypeName
-              , builderName = "mk" <> typeName
-              , name        = typeName
-              , properties  = []
+              { awsType       = toText propertyTypeName
+              , builderName   = "mk" <> typeName
+              , name          = typeName
+              , properties    = []
+              , documentation = ""
               }
 
 renderImports :: GHC.ModuleNameStr -> Maybe Raw.ResourceTypeName -> Set Import -> [GHC.ImportDecl']

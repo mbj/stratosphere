@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeStarParametersProperty
-  = CodeStarParametersProperty {artifactPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html>
+    CodeStarParametersProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html#cfn-servicecatalog-cloudformationproduct-codestarparameters-artifactpath>
+                                artifactPath :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html#cfn-servicecatalog-cloudformationproduct-codestarparameters-branch>
                                 branch :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html#cfn-servicecatalog-cloudformationproduct-codestarparameters-connectionarn>
                                 connectionArn :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html#cfn-servicecatalog-cloudformationproduct-codestarparameters-repository>
                                 repository :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeStarParametersProperty ::
@@ -23,8 +29,9 @@ mkCodeStarParametersProperty
   connectionArn
   repository
   = CodeStarParametersProperty
-      {artifactPath = artifactPath, branch = branch,
-       connectionArn = connectionArn, repository = repository}
+      {haddock_workaround_ = (), artifactPath = artifactPath,
+       branch = branch, connectionArn = connectionArn,
+       repository = repository}
 instance ToResourceProperties CodeStarParametersProperty where
   toResourceProperties CodeStarParametersProperty {..}
     = ResourceProperties

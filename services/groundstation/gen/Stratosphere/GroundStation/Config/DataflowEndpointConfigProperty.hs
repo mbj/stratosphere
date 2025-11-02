@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataflowEndpointConfigProperty
-  = DataflowEndpointConfigProperty {dataflowEndpointName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html>
+    DataflowEndpointConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname>
+                                    dataflowEndpointName :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion>
                                     dataflowEndpointRegion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEndpointConfigProperty :: DataflowEndpointConfigProperty
 mkDataflowEndpointConfigProperty
   = DataflowEndpointConfigProperty
-      {dataflowEndpointName = Prelude.Nothing,
+      {haddock_workaround_ = (), dataflowEndpointName = Prelude.Nothing,
        dataflowEndpointRegion = Prelude.Nothing}
 instance ToResourceProperties DataflowEndpointConfigProperty where
   toResourceProperties DataflowEndpointConfigProperty {..}

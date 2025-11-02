@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FontProperty
-  = FontProperty {fontFamily :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html>
+    FontProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily>
+                  fontFamily :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFontProperty :: FontProperty
-mkFontProperty = FontProperty {fontFamily = Prelude.Nothing}
+mkFontProperty
+  = FontProperty
+      {haddock_workaround_ = (), fontFamily = Prelude.Nothing}
 instance ToResourceProperties FontProperty where
   toResourceProperties FontProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON FontProperty where
               [(JSON..=) "FontFamily" Prelude.<$> fontFamily]))
 instance Property "FontFamily" FontProperty where
   type PropertyType "FontFamily" FontProperty = Value Prelude.Text
-  set newValue FontProperty {}
+  set newValue FontProperty {..}
     = FontProperty {fontFamily = Prelude.pure newValue, ..}

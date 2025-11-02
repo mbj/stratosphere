@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseTableOutputOptionsProperty
-  = DatabaseTableOutputOptionsProperty {tableName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html>
+    DatabaseTableOutputOptionsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename>
+                                        tableName :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory>
                                         tempDirectory :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseTableOutputOptionsProperty ::
   Value Prelude.Text -> DatabaseTableOutputOptionsProperty
 mkDatabaseTableOutputOptionsProperty tableName
   = DatabaseTableOutputOptionsProperty
-      {tableName = tableName, tempDirectory = Prelude.Nothing}
+      {haddock_workaround_ = (), tableName = tableName,
+       tempDirectory = Prelude.Nothing}
 instance ToResourceProperties DatabaseTableOutputOptionsProperty where
   toResourceProperties DatabaseTableOutputOptionsProperty {..}
     = ResourceProperties

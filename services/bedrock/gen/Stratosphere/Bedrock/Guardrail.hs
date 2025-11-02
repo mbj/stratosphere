@@ -13,16 +13,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Guardrail
-  = Guardrail {blockedInputMessaging :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html>
+    Guardrail {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-blockedinputmessaging>
+               blockedInputMessaging :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-blockedoutputsmessaging>
                blockedOutputsMessaging :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contentpolicyconfig>
                contentPolicyConfig :: (Prelude.Maybe ContentPolicyConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig>
                contextualGroundingPolicyConfig :: (Prelude.Maybe ContextualGroundingPolicyConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-description>
                description :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-kmskeyarn>
                kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-sensitiveinformationpolicyconfig>
                sensitiveInformationPolicyConfig :: (Prelude.Maybe SensitiveInformationPolicyConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-topicpolicyconfig>
                topicPolicyConfig :: (Prelude.Maybe TopicPolicyConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-wordpolicyconfig>
                wordPolicyConfig :: (Prelude.Maybe WordPolicyConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGuardrail ::
@@ -30,7 +43,8 @@ mkGuardrail ::
   -> Value Prelude.Text -> Value Prelude.Text -> Guardrail
 mkGuardrail blockedInputMessaging blockedOutputsMessaging name
   = Guardrail
-      {blockedInputMessaging = blockedInputMessaging,
+      {haddock_workaround_ = (),
+       blockedInputMessaging = blockedInputMessaging,
        blockedOutputsMessaging = blockedOutputsMessaging, name = name,
        contentPolicyConfig = Prelude.Nothing,
        contextualGroundingPolicyConfig = Prelude.Nothing,

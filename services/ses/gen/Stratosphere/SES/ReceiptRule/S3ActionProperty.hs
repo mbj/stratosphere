@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ActionProperty
-  = S3ActionProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html>
+    S3ActionProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname>
+                      bucketName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-iamrolearn>
                       iamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-kmskeyarn>
                       kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-objectkeyprefix>
                       objectKeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-topicarn>
                       topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ActionProperty :: Value Prelude.Text -> S3ActionProperty
 mkS3ActionProperty bucketName
   = S3ActionProperty
-      {bucketName = bucketName, iamRoleArn = Prelude.Nothing,
-       kmsKeyArn = Prelude.Nothing, objectKeyPrefix = Prelude.Nothing,
-       topicArn = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketName = bucketName,
+       iamRoleArn = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
+       objectKeyPrefix = Prelude.Nothing, topicArn = Prelude.Nothing}
 instance ToResourceProperties S3ActionProperty where
   toResourceProperties S3ActionProperty {..}
     = ResourceProperties

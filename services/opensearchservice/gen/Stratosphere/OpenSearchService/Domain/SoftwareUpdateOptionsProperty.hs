@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SoftwareUpdateOptionsProperty
-  = SoftwareUpdateOptionsProperty {autoSoftwareUpdateEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html>
+    SoftwareUpdateOptionsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html#cfn-opensearchservice-domain-softwareupdateoptions-autosoftwareupdateenabled>
+                                   autoSoftwareUpdateEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSoftwareUpdateOptionsProperty :: SoftwareUpdateOptionsProperty
 mkSoftwareUpdateOptionsProperty
   = SoftwareUpdateOptionsProperty
-      {autoSoftwareUpdateEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       autoSoftwareUpdateEnabled = Prelude.Nothing}
 instance ToResourceProperties SoftwareUpdateOptionsProperty where
   toResourceProperties SoftwareUpdateOptionsProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON SoftwareUpdateOptionsProperty where
                  Prelude.<$> autoSoftwareUpdateEnabled]))
 instance Property "AutoSoftwareUpdateEnabled" SoftwareUpdateOptionsProperty where
   type PropertyType "AutoSoftwareUpdateEnabled" SoftwareUpdateOptionsProperty = Value Prelude.Bool
-  set newValue SoftwareUpdateOptionsProperty {}
+  set newValue SoftwareUpdateOptionsProperty {..}
     = SoftwareUpdateOptionsProperty
         {autoSoftwareUpdateEnabled = Prelude.pure newValue, ..}

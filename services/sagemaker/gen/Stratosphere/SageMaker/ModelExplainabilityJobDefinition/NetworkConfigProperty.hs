@@ -8,14 +8,20 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.Vp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigProperty
-  = NetworkConfigProperty {enableInterContainerTrafficEncryption :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html>
+    NetworkConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption>
+                           enableInterContainerTrafficEncryption :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation>
                            enableNetworkIsolation :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig>
                            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigProperty :: NetworkConfigProperty
 mkNetworkConfigProperty
   = NetworkConfigProperty
-      {enableInterContainerTrafficEncryption = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       enableInterContainerTrafficEncryption = Prelude.Nothing,
        enableNetworkIsolation = Prelude.Nothing,
        vpcConfig = Prelude.Nothing}
 instance ToResourceProperties NetworkConfigProperty where

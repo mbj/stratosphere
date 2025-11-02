@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextSdsTrustProperty
-  = VirtualGatewayTlsValidationContextSdsTrustProperty {secretName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html>
+    VirtualGatewayTlsValidationContextSdsTrustProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust-secretname>
+                                                        secretName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextSdsTrustProperty ::
   Value Prelude.Text
   -> VirtualGatewayTlsValidationContextSdsTrustProperty
 mkVirtualGatewayTlsValidationContextSdsTrustProperty secretName
   = VirtualGatewayTlsValidationContextSdsTrustProperty
-      {secretName = secretName}
+      {haddock_workaround_ = (), secretName = secretName}
 instance ToResourceProperties VirtualGatewayTlsValidationContextSdsTrustProperty where
   toResourceProperties
     VirtualGatewayTlsValidationContextSdsTrustProperty {..}
@@ -28,6 +31,8 @@ instance JSON.ToJSON VirtualGatewayTlsValidationContextSdsTrustProperty where
     = JSON.object ["SecretName" JSON..= secretName]
 instance Property "SecretName" VirtualGatewayTlsValidationContextSdsTrustProperty where
   type PropertyType "SecretName" VirtualGatewayTlsValidationContextSdsTrustProperty = Value Prelude.Text
-  set newValue VirtualGatewayTlsValidationContextSdsTrustProperty {}
+  set
+    newValue
+    VirtualGatewayTlsValidationContextSdsTrustProperty {..}
     = VirtualGatewayTlsValidationContextSdsTrustProperty
         {secretName = newValue, ..}

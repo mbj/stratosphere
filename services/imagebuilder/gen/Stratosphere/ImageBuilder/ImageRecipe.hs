@@ -10,14 +10,25 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.ImageRecipe.InstanceBlockDeviceM
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageRecipe
-  = ImageRecipe {additionalInstanceConfiguration :: (Prelude.Maybe AdditionalInstanceConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html>
+    ImageRecipe {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration>
+                 additionalInstanceConfiguration :: (Prelude.Maybe AdditionalInstanceConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings>
                  blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components>
                  components :: [ComponentConfigurationProperty],
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage>
                  parentImage :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags>
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version>
                  version :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory>
                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageRecipe ::
@@ -26,8 +37,8 @@ mkImageRecipe ::
      -> Value Prelude.Text -> Value Prelude.Text -> ImageRecipe
 mkImageRecipe components name parentImage version
   = ImageRecipe
-      {components = components, name = name, parentImage = parentImage,
-       version = version,
+      {haddock_workaround_ = (), components = components, name = name,
+       parentImage = parentImage, version = version,
        additionalInstanceConfiguration = Prelude.Nothing,
        blockDeviceMappings = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing,

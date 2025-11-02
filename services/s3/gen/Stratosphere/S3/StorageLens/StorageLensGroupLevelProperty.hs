@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.StorageLensGroupSelectionCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageLensGroupLevelProperty
-  = StorageLensGroupLevelProperty {storageLensGroupSelectionCriteria :: (Prelude.Maybe StorageLensGroupSelectionCriteriaProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgrouplevel.html>
+    StorageLensGroupLevelProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgrouplevel.html#cfn-s3-storagelens-storagelensgrouplevel-storagelensgroupselectioncriteria>
+                                   storageLensGroupSelectionCriteria :: (Prelude.Maybe StorageLensGroupSelectionCriteriaProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLensGroupLevelProperty :: StorageLensGroupLevelProperty
 mkStorageLensGroupLevelProperty
   = StorageLensGroupLevelProperty
-      {storageLensGroupSelectionCriteria = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       storageLensGroupSelectionCriteria = Prelude.Nothing}
 instance ToResourceProperties StorageLensGroupLevelProperty where
   toResourceProperties StorageLensGroupLevelProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON StorageLensGroupLevelProperty where
                  Prelude.<$> storageLensGroupSelectionCriteria]))
 instance Property "StorageLensGroupSelectionCriteria" StorageLensGroupLevelProperty where
   type PropertyType "StorageLensGroupSelectionCriteria" StorageLensGroupLevelProperty = StorageLensGroupSelectionCriteriaProperty
-  set newValue StorageLensGroupLevelProperty {}
+  set newValue StorageLensGroupLevelProperty {..}
     = StorageLensGroupLevelProperty
         {storageLensGroupSelectionCriteria = Prelude.pure newValue, ..}

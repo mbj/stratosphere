@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoMemberDefinitionProperty
-  = CognitoMemberDefinitionProperty {cognitoClientId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html>
+    CognitoMemberDefinitionProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid>
+                                     cognitoClientId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitousergroup>
                                      cognitoUserGroup :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitouserpool>
                                      cognitoUserPool :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoMemberDefinitionProperty ::
@@ -21,7 +26,7 @@ mkCognitoMemberDefinitionProperty
   cognitoUserGroup
   cognitoUserPool
   = CognitoMemberDefinitionProperty
-      {cognitoClientId = cognitoClientId,
+      {haddock_workaround_ = (), cognitoClientId = cognitoClientId,
        cognitoUserGroup = cognitoUserGroup,
        cognitoUserPool = cognitoUserPool}
 instance ToResourceProperties CognitoMemberDefinitionProperty where

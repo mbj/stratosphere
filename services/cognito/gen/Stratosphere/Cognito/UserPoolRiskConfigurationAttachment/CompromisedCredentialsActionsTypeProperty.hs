@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompromisedCredentialsActionsTypeProperty
-  = CompromisedCredentialsActionsTypeProperty {eventAction :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html>
+    CompromisedCredentialsActionsTypeProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype-eventaction>
+                                               eventAction :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompromisedCredentialsActionsTypeProperty ::
   Value Prelude.Text -> CompromisedCredentialsActionsTypeProperty
 mkCompromisedCredentialsActionsTypeProperty eventAction
   = CompromisedCredentialsActionsTypeProperty
-      {eventAction = eventAction}
+      {haddock_workaround_ = (), eventAction = eventAction}
 instance ToResourceProperties CompromisedCredentialsActionsTypeProperty where
   toResourceProperties CompromisedCredentialsActionsTypeProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON CompromisedCredentialsActionsTypeProperty where
     = JSON.object ["EventAction" JSON..= eventAction]
 instance Property "EventAction" CompromisedCredentialsActionsTypeProperty where
   type PropertyType "EventAction" CompromisedCredentialsActionsTypeProperty = Value Prelude.Text
-  set newValue CompromisedCredentialsActionsTypeProperty {}
+  set newValue CompromisedCredentialsActionsTypeProperty {..}
     = CompromisedCredentialsActionsTypeProperty
         {eventAction = newValue, ..}

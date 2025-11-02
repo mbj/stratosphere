@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.StorageDescriptorProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionInputProperty
-  = PartitionInputProperty {parameters :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html>
+    PartitionInputProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters>
+                            parameters :: (Prelude.Maybe JSON.Object),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor>
                             storageDescriptor :: (Prelude.Maybe StorageDescriptorProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values>
                             values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionInputProperty ::
   ValueList Prelude.Text -> PartitionInputProperty
 mkPartitionInputProperty values
   = PartitionInputProperty
-      {values = values, parameters = Prelude.Nothing,
-       storageDescriptor = Prelude.Nothing}
+      {haddock_workaround_ = (), values = values,
+       parameters = Prelude.Nothing, storageDescriptor = Prelude.Nothing}
 instance ToResourceProperties PartitionInputProperty where
   toResourceProperties PartitionInputProperty {..}
     = ResourceProperties

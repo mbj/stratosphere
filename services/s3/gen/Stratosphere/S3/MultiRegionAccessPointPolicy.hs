@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiRegionAccessPointPolicy
-  = MultiRegionAccessPointPolicy {mrapName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html>
+    MultiRegionAccessPointPolicy {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname>
+                                  mrapName :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy>
                                   policy :: JSON.Object}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiRegionAccessPointPolicy ::
   Value Prelude.Text -> JSON.Object -> MultiRegionAccessPointPolicy
 mkMultiRegionAccessPointPolicy mrapName policy
   = MultiRegionAccessPointPolicy
-      {mrapName = mrapName, policy = policy}
+      {haddock_workaround_ = (), mrapName = mrapName, policy = policy}
 instance ToResourceProperties MultiRegionAccessPointPolicy where
   toResourceProperties MultiRegionAccessPointPolicy {..}
     = ResourceProperties

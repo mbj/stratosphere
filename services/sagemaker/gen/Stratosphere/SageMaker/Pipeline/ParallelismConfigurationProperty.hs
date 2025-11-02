@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParallelismConfigurationProperty
-  = ParallelismConfigurationProperty {maxParallelExecutionSteps :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>
+    ParallelismConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html#cfn-sagemaker-pipeline-parallelismconfiguration-maxparallelexecutionsteps>
+                                      maxParallelExecutionSteps :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParallelismConfigurationProperty ::
   Value Prelude.Integer -> ParallelismConfigurationProperty
 mkParallelismConfigurationProperty maxParallelExecutionSteps
   = ParallelismConfigurationProperty
-      {maxParallelExecutionSteps = maxParallelExecutionSteps}
+      {haddock_workaround_ = (),
+       maxParallelExecutionSteps = maxParallelExecutionSteps}
 instance ToResourceProperties ParallelismConfigurationProperty where
   toResourceProperties ParallelismConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ParallelismConfigurationProperty where
         ["MaxParallelExecutionSteps" JSON..= maxParallelExecutionSteps]
 instance Property "MaxParallelExecutionSteps" ParallelismConfigurationProperty where
   type PropertyType "MaxParallelExecutionSteps" ParallelismConfigurationProperty = Value Prelude.Integer
-  set newValue ParallelismConfigurationProperty {}
+  set newValue ParallelismConfigurationProperty {..}
     = ParallelismConfigurationProperty
         {maxParallelExecutionSteps = newValue, ..}

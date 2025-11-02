@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultViewAssociation
-  = DefaultViewAssociation {viewArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html>
+    DefaultViewAssociation {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html#cfn-resourceexplorer2-defaultviewassociation-viewarn>
+                            viewArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultViewAssociation ::
   Value Prelude.Text -> DefaultViewAssociation
 mkDefaultViewAssociation viewArn
-  = DefaultViewAssociation {viewArn = viewArn}
+  = DefaultViewAssociation
+      {haddock_workaround_ = (), viewArn = viewArn}
 instance ToResourceProperties DefaultViewAssociation where
   toResourceProperties DefaultViewAssociation {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON DefaultViewAssociation where
     = JSON.object ["ViewArn" JSON..= viewArn]
 instance Property "ViewArn" DefaultViewAssociation where
   type PropertyType "ViewArn" DefaultViewAssociation = Value Prelude.Text
-  set newValue DefaultViewAssociation {}
+  set newValue DefaultViewAssociation {..}
     = DefaultViewAssociation {viewArn = newValue, ..}

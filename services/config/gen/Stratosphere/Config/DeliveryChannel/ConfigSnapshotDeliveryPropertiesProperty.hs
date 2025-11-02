@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigSnapshotDeliveryPropertiesProperty
-  = ConfigSnapshotDeliveryPropertiesProperty {deliveryFrequency :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html>
+    ConfigSnapshotDeliveryPropertiesProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency>
+                                              deliveryFrequency :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigSnapshotDeliveryPropertiesProperty ::
   ConfigSnapshotDeliveryPropertiesProperty
 mkConfigSnapshotDeliveryPropertiesProperty
   = ConfigSnapshotDeliveryPropertiesProperty
-      {deliveryFrequency = Prelude.Nothing}
+      {haddock_workaround_ = (), deliveryFrequency = Prelude.Nothing}
 instance ToResourceProperties ConfigSnapshotDeliveryPropertiesProperty where
   toResourceProperties ConfigSnapshotDeliveryPropertiesProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ConfigSnapshotDeliveryPropertiesProperty where
               [(JSON..=) "DeliveryFrequency" Prelude.<$> deliveryFrequency]))
 instance Property "DeliveryFrequency" ConfigSnapshotDeliveryPropertiesProperty where
   type PropertyType "DeliveryFrequency" ConfigSnapshotDeliveryPropertiesProperty = Value Prelude.Text
-  set newValue ConfigSnapshotDeliveryPropertiesProperty {}
+  set newValue ConfigSnapshotDeliveryPropertiesProperty {..}
     = ConfigSnapshotDeliveryPropertiesProperty
         {deliveryFrequency = Prelude.pure newValue, ..}

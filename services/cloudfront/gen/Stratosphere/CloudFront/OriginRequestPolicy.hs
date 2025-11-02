@@ -7,13 +7,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data OriginRequestPolicy
-  = OriginRequestPolicy {originRequestPolicyConfig :: OriginRequestPolicyConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html>
+    OriginRequestPolicy {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig>
+                         originRequestPolicyConfig :: OriginRequestPolicyConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginRequestPolicy ::
   OriginRequestPolicyConfigProperty -> OriginRequestPolicy
 mkOriginRequestPolicy originRequestPolicyConfig
   = OriginRequestPolicy
-      {originRequestPolicyConfig = originRequestPolicyConfig}
+      {haddock_workaround_ = (),
+       originRequestPolicyConfig = originRequestPolicyConfig}
 instance ToResourceProperties OriginRequestPolicy where
   toResourceProperties OriginRequestPolicy {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON OriginRequestPolicy where
         ["OriginRequestPolicyConfig" JSON..= originRequestPolicyConfig]
 instance Property "OriginRequestPolicyConfig" OriginRequestPolicy where
   type PropertyType "OriginRequestPolicyConfig" OriginRequestPolicy = OriginRequestPolicyConfigProperty
-  set newValue OriginRequestPolicy {}
+  set newValue OriginRequestPolicy {..}
     = OriginRequestPolicy {originRequestPolicyConfig = newValue, ..}

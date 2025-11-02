@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Deployment
-  = Deployment {apiId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html>
+    Deployment {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-apiid>
+                apiId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-stagename>
                 stageName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment :: Value Prelude.Text -> Deployment
 mkDeployment apiId
   = Deployment
-      {apiId = apiId, description = Prelude.Nothing,
-       stageName = Prelude.Nothing}
+      {haddock_workaround_ = (), apiId = apiId,
+       description = Prelude.Nothing, stageName = Prelude.Nothing}
 instance ToResourceProperties Deployment where
   toResourceProperties Deployment {..}
     = ResourceProperties

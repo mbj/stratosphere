@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedConcurrencyConfigurationProperty
-  = ProvisionedConcurrencyConfigurationProperty {provisionedConcurrentExecutions :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html>
+    ProvisionedConcurrencyConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-provisionedconcurrencyconfiguration.html#cfn-lambda-alias-provisionedconcurrencyconfiguration-provisionedconcurrentexecutions>
+                                                 provisionedConcurrentExecutions :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedConcurrencyConfigurationProperty ::
   Value Prelude.Integer
@@ -16,7 +19,8 @@ mkProvisionedConcurrencyConfigurationProperty ::
 mkProvisionedConcurrencyConfigurationProperty
   provisionedConcurrentExecutions
   = ProvisionedConcurrencyConfigurationProperty
-      {provisionedConcurrentExecutions = provisionedConcurrentExecutions}
+      {haddock_workaround_ = (),
+       provisionedConcurrentExecutions = provisionedConcurrentExecutions}
 instance ToResourceProperties ProvisionedConcurrencyConfigurationProperty where
   toResourceProperties
     ProvisionedConcurrencyConfigurationProperty {..}
@@ -32,6 +36,6 @@ instance JSON.ToJSON ProvisionedConcurrencyConfigurationProperty where
            JSON..= provisionedConcurrentExecutions]
 instance Property "ProvisionedConcurrentExecutions" ProvisionedConcurrencyConfigurationProperty where
   type PropertyType "ProvisionedConcurrentExecutions" ProvisionedConcurrencyConfigurationProperty = Value Prelude.Integer
-  set newValue ProvisionedConcurrencyConfigurationProperty {}
+  set newValue ProvisionedConcurrencyConfigurationProperty {..}
     = ProvisionedConcurrencyConfigurationProperty
         {provisionedConcurrentExecutions = newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PrivateDnsNamespace.SOAProperty as Exports
 import Stratosphere.ResourceProperties
 data PrivateDnsPropertiesMutableProperty
-  = PrivateDnsPropertiesMutableProperty {sOA :: (Prelude.Maybe SOAProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html>
+    PrivateDnsPropertiesMutableProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html#cfn-servicediscovery-privatednsnamespace-privatednspropertiesmutable-soa>
+                                         sOA :: (Prelude.Maybe SOAProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateDnsPropertiesMutableProperty ::
   PrivateDnsPropertiesMutableProperty
 mkPrivateDnsPropertiesMutableProperty
-  = PrivateDnsPropertiesMutableProperty {sOA = Prelude.Nothing}
+  = PrivateDnsPropertiesMutableProperty
+      {haddock_workaround_ = (), sOA = Prelude.Nothing}
 instance ToResourceProperties PrivateDnsPropertiesMutableProperty where
   toResourceProperties PrivateDnsPropertiesMutableProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON PrivateDnsPropertiesMutableProperty where
            (Prelude.catMaybes [(JSON..=) "SOA" Prelude.<$> sOA]))
 instance Property "SOA" PrivateDnsPropertiesMutableProperty where
   type PropertyType "SOA" PrivateDnsPropertiesMutableProperty = SOAProperty
-  set newValue PrivateDnsPropertiesMutableProperty {}
+  set newValue PrivateDnsPropertiesMutableProperty {..}
     = PrivateDnsPropertiesMutableProperty
         {sOA = Prelude.pure newValue, ..}

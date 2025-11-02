@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLakePrincipalProperty
-  = DataLakePrincipalProperty {dataLakePrincipalIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html>
+    DataLakePrincipalProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html#cfn-lakeformation-permissions-datalakeprincipal-datalakeprincipalidentifier>
+                               dataLakePrincipalIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLakePrincipalProperty :: DataLakePrincipalProperty
 mkDataLakePrincipalProperty
   = DataLakePrincipalProperty
-      {dataLakePrincipalIdentifier = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       dataLakePrincipalIdentifier = Prelude.Nothing}
 instance ToResourceProperties DataLakePrincipalProperty where
   toResourceProperties DataLakePrincipalProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON DataLakePrincipalProperty where
                  Prelude.<$> dataLakePrincipalIdentifier]))
 instance Property "DataLakePrincipalIdentifier" DataLakePrincipalProperty where
   type PropertyType "DataLakePrincipalIdentifier" DataLakePrincipalProperty = Value Prelude.Text
-  set newValue DataLakePrincipalProperty {}
+  set newValue DataLakePrincipalProperty {..}
     = DataLakePrincipalProperty
         {dataLakePrincipalIdentifier = Prelude.pure newValue, ..}

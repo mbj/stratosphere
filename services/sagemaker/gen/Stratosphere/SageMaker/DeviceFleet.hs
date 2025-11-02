@@ -9,10 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DeviceFleet
-  = DeviceFleet {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html>
+    DeviceFleet {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description>
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname>
                  deviceFleetName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig>
                  outputConfig :: EdgeOutputConfigProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn>
                  roleArn :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceFleet ::
@@ -20,9 +27,9 @@ mkDeviceFleet ::
   -> EdgeOutputConfigProperty -> Value Prelude.Text -> DeviceFleet
 mkDeviceFleet deviceFleetName outputConfig roleArn
   = DeviceFleet
-      {deviceFleetName = deviceFleetName, outputConfig = outputConfig,
-       roleArn = roleArn, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceFleetName = deviceFleetName,
+       outputConfig = outputConfig, roleArn = roleArn,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DeviceFleet where
   toResourceProperties DeviceFleet {..}
     = ResourceProperties

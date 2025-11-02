@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TieringPolicyProperty
-  = TieringPolicyProperty {coolingPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>
+    TieringPolicyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html#cfn-fsx-volume-ontapconfiguration-tieringpolicy-coolingperiod>
+                           coolingPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html#cfn-fsx-volume-ontapconfiguration-tieringpolicy-name>
                            name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTieringPolicyProperty :: TieringPolicyProperty
 mkTieringPolicyProperty
   = TieringPolicyProperty
-      {coolingPeriod = Prelude.Nothing, name = Prelude.Nothing}
+      {haddock_workaround_ = (), coolingPeriod = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties TieringPolicyProperty where
   toResourceProperties TieringPolicyProperty {..}
     = ResourceProperties

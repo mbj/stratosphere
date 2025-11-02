@@ -7,24 +7,38 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionProperty
-  = ConditionProperty {eq :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html>
+    ConditionProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-eq>
+                       eq :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-equals>
                        equals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-greaterthan>
                        greaterThan :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-greaterthanorequal>
                        greaterThanOrEqual :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-gt>
                        gt :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-gte>
                        gte :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-lessthan>
                        lessThan :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-lessthanorequal>
                        lessThanOrEqual :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-lt>
                        lt :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-lte>
                        lte :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-neq>
                        neq :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-notequals>
                        notEquals :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty
-      {eq = Prelude.Nothing, equals = Prelude.Nothing,
-       greaterThan = Prelude.Nothing,
+      {haddock_workaround_ = (), eq = Prelude.Nothing,
+       equals = Prelude.Nothing, greaterThan = Prelude.Nothing,
        greaterThanOrEqual = Prelude.Nothing, gt = Prelude.Nothing,
        gte = Prelude.Nothing, lessThan = Prelude.Nothing,
        lessThanOrEqual = Prelude.Nothing, lt = Prelude.Nothing,

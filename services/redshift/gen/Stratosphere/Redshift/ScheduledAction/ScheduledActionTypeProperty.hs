@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.Redshift.ScheduledAction.ResizeClusterMessage
 import {-# SOURCE #-} Stratosphere.Redshift.ScheduledAction.ResumeClusterMessageProperty as Exports
 import Stratosphere.ResourceProperties
 data ScheduledActionTypeProperty
-  = ScheduledActionTypeProperty {pauseCluster :: (Prelude.Maybe PauseClusterMessageProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html>
+    ScheduledActionTypeProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-pausecluster>
+                                 pauseCluster :: (Prelude.Maybe PauseClusterMessageProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resizecluster>
                                  resizeCluster :: (Prelude.Maybe ResizeClusterMessageProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html#cfn-redshift-scheduledaction-scheduledactiontype-resumecluster>
                                  resumeCluster :: (Prelude.Maybe ResumeClusterMessageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledActionTypeProperty :: ScheduledActionTypeProperty
 mkScheduledActionTypeProperty
   = ScheduledActionTypeProperty
-      {pauseCluster = Prelude.Nothing, resizeCluster = Prelude.Nothing,
-       resumeCluster = Prelude.Nothing}
+      {haddock_workaround_ = (), pauseCluster = Prelude.Nothing,
+       resizeCluster = Prelude.Nothing, resumeCluster = Prelude.Nothing}
 instance ToResourceProperties ScheduledActionTypeProperty where
   toResourceProperties ScheduledActionTypeProperty {..}
     = ResourceProperties

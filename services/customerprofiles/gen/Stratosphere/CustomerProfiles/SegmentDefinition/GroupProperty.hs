@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.SourceSegm
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupProperty
-  = GroupProperty {dimensions :: (Prelude.Maybe [DimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html>
+    GroupProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html#cfn-customerprofiles-segmentdefinition-group-dimensions>
+                   dimensions :: (Prelude.Maybe [DimensionProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html#cfn-customerprofiles-segmentdefinition-group-sourcesegments>
                    sourceSegments :: (Prelude.Maybe [SourceSegmentProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html#cfn-customerprofiles-segmentdefinition-group-sourcetype>
                    sourceType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html#cfn-customerprofiles-segmentdefinition-group-type>
                    type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupProperty :: GroupProperty
 mkGroupProperty
   = GroupProperty
-      {dimensions = Prelude.Nothing, sourceSegments = Prelude.Nothing,
-       sourceType = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing,
+       sourceSegments = Prelude.Nothing, sourceType = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties GroupProperty where
   toResourceProperties GroupProperty {..}
     = ResourceProperties

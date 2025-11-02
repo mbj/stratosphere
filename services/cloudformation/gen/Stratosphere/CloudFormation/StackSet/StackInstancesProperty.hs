@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.StackSet.ParameterProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackInstancesProperty
-  = StackInstancesProperty {deploymentTargets :: DeploymentTargetsProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html>
+    StackInstancesProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets>
+                            deploymentTargets :: DeploymentTargetsProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides>
                             parameterOverrides :: (Prelude.Maybe [ParameterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions>
                             regions :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStackInstancesProperty ::
@@ -19,8 +24,8 @@ mkStackInstancesProperty ::
   -> ValueList Prelude.Text -> StackInstancesProperty
 mkStackInstancesProperty deploymentTargets regions
   = StackInstancesProperty
-      {deploymentTargets = deploymentTargets, regions = regions,
-       parameterOverrides = Prelude.Nothing}
+      {haddock_workaround_ = (), deploymentTargets = deploymentTargets,
+       regions = regions, parameterOverrides = Prelude.Nothing}
 instance ToResourceProperties StackInstancesProperty where
   toResourceProperties StackInstancesProperty {..}
     = ResourceProperties

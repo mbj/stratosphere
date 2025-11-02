@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageGroupProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseSpecificationProperty
-  = ResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html>
+    ResponseSpecificationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-allowinterrupt>
+                                   allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html#cfn-lex-bot-responsespecification-messagegroupslist>
                                    messageGroupsList :: [MessageGroupProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseSpecificationProperty ::
   [MessageGroupProperty] -> ResponseSpecificationProperty
 mkResponseSpecificationProperty messageGroupsList
   = ResponseSpecificationProperty
-      {messageGroupsList = messageGroupsList,
+      {haddock_workaround_ = (), messageGroupsList = messageGroupsList,
        allowInterrupt = Prelude.Nothing}
 instance ToResourceProperties ResponseSpecificationProperty where
   toResourceProperties ResponseSpecificationProperty {..}

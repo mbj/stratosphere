@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SessionKeysAbpV10xProperty
-  = SessionKeysAbpV10xProperty {appSKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html>
+    SessionKeysAbpV10xProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey>
+                                appSKey :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey>
                                 nwkSKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionKeysAbpV10xProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SessionKeysAbpV10xProperty
 mkSessionKeysAbpV10xProperty appSKey nwkSKey
-  = SessionKeysAbpV10xProperty {appSKey = appSKey, nwkSKey = nwkSKey}
+  = SessionKeysAbpV10xProperty
+      {haddock_workaround_ = (), appSKey = appSKey, nwkSKey = nwkSKey}
 instance ToResourceProperties SessionKeysAbpV10xProperty where
   toResourceProperties SessionKeysAbpV10xProperty {..}
     = ResourceProperties

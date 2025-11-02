@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrequencyBandwidthProperty
-  = FrequencyBandwidthProperty {units :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html>
+    FrequencyBandwidthProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units>
+                                units :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value>
                                 value :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrequencyBandwidthProperty :: FrequencyBandwidthProperty
 mkFrequencyBandwidthProperty
   = FrequencyBandwidthProperty
-      {units = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), units = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties FrequencyBandwidthProperty where
   toResourceProperties FrequencyBandwidthProperty {..}
     = ResourceProperties

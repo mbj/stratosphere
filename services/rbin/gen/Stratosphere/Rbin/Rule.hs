@@ -11,20 +11,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Rule
-  = Rule {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html>
+    Rule {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-description>
+          description :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-excluderesourcetags>
           excludeResourceTags :: (Prelude.Maybe [ResourceTagProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-lockconfiguration>
           lockConfiguration :: (Prelude.Maybe UnlockDelayProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-resourcetags>
           resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-resourcetype>
           resourceType :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-retentionperiod>
           retentionPeriod :: RetentionPeriodProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-status>
           status :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-tags>
           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRule :: Value Prelude.Text -> RetentionPeriodProperty -> Rule
 mkRule resourceType retentionPeriod
   = Rule
-      {resourceType = resourceType, retentionPeriod = retentionPeriod,
-       description = Prelude.Nothing,
+      {haddock_workaround_ = (), resourceType = resourceType,
+       retentionPeriod = retentionPeriod, description = Prelude.Nothing,
        excludeResourceTags = Prelude.Nothing,
        lockConfiguration = Prelude.Nothing,
        resourceTags = Prelude.Nothing, status = Prelude.Nothing,

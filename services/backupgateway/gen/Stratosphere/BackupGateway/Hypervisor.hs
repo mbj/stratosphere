@@ -8,21 +8,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Hypervisor
-  = Hypervisor {host :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html>
+    Hypervisor {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-host>
+                host :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-kmskeyarn>
                 kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-loggrouparn>
                 logGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-name>
                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-password>
                 password :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-tags>
                 tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html#cfn-backupgateway-hypervisor-username>
                 username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHypervisor :: Hypervisor
 mkHypervisor
   = Hypervisor
-      {host = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
-       logGroupArn = Prelude.Nothing, name = Prelude.Nothing,
-       password = Prelude.Nothing, tags = Prelude.Nothing,
-       username = Prelude.Nothing}
+      {haddock_workaround_ = (), host = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing, logGroupArn = Prelude.Nothing,
+       name = Prelude.Nothing, password = Prelude.Nothing,
+       tags = Prelude.Nothing, username = Prelude.Nothing}
 instance ToResourceProperties Hypervisor where
   toResourceProperties Hypervisor {..}
     = ResourceProperties

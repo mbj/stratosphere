@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.TargetTrackingScalingPol
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityAutoScalingSettingsProperty
-  = CapacityAutoScalingSettingsProperty {maxCapacity :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html>
+    CapacityAutoScalingSettingsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity>
+                                         maxCapacity :: (Value Prelude.Integer),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity>
                                          minCapacity :: (Value Prelude.Integer),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity>
                                          seedCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration>
                                          targetTrackingScalingPolicyConfiguration :: TargetTrackingScalingPolicyConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityAutoScalingSettingsProperty ::
@@ -24,7 +30,8 @@ mkCapacityAutoScalingSettingsProperty
   minCapacity
   targetTrackingScalingPolicyConfiguration
   = CapacityAutoScalingSettingsProperty
-      {maxCapacity = maxCapacity, minCapacity = minCapacity,
+      {haddock_workaround_ = (), maxCapacity = maxCapacity,
+       minCapacity = minCapacity,
        targetTrackingScalingPolicyConfiguration = targetTrackingScalingPolicyConfiguration,
        seedCapacity = Prelude.Nothing}
 instance ToResourceProperties CapacityAutoScalingSettingsProperty where

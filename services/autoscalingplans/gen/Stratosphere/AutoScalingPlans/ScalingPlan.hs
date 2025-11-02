@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ApplicationSourc
 import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ScalingInstructionProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingPlan
-  = ScalingPlan {applicationSource :: ApplicationSourceProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html>
+    ScalingPlan {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource>
+                 applicationSource :: ApplicationSourceProperty,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions>
                  scalingInstructions :: [ScalingInstructionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPlan ::
@@ -16,7 +20,7 @@ mkScalingPlan ::
   -> [ScalingInstructionProperty] -> ScalingPlan
 mkScalingPlan applicationSource scalingInstructions
   = ScalingPlan
-      {applicationSource = applicationSource,
+      {haddock_workaround_ = (), applicationSource = applicationSource,
        scalingInstructions = scalingInstructions}
 instance ToResourceProperties ScalingPlan where
   toResourceProperties ScalingPlan {..}

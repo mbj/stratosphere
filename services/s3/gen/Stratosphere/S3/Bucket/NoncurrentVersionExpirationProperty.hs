@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NoncurrentVersionExpirationProperty
-  = NoncurrentVersionExpirationProperty {newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html>
+    NoncurrentVersionExpirationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html#cfn-s3-bucket-noncurrentversionexpiration-newernoncurrentversions>
+                                         newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html#cfn-s3-bucket-noncurrentversionexpiration-noncurrentdays>
                                          noncurrentDays :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNoncurrentVersionExpirationProperty ::
   Value Prelude.Integer -> NoncurrentVersionExpirationProperty
 mkNoncurrentVersionExpirationProperty noncurrentDays
   = NoncurrentVersionExpirationProperty
-      {noncurrentDays = noncurrentDays,
+      {haddock_workaround_ = (), noncurrentDays = noncurrentDays,
        newerNoncurrentVersions = Prelude.Nothing}
 instance ToResourceProperties NoncurrentVersionExpirationProperty where
   toResourceProperties NoncurrentVersionExpirationProperty {..}

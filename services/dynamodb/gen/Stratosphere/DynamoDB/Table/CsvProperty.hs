@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvProperty
-  = CsvProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html>
+    CsvProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-delimiter>
+                 delimiter :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html#cfn-dynamodb-table-csv-headerlist>
                  headerList :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvProperty :: CsvProperty
 mkCsvProperty
   = CsvProperty
-      {delimiter = Prelude.Nothing, headerList = Prelude.Nothing}
+      {haddock_workaround_ = (), delimiter = Prelude.Nothing,
+       headerList = Prelude.Nothing}
 instance ToResourceProperties CsvProperty where
   toResourceProperties CsvProperty {..}
     = ResourceProperties

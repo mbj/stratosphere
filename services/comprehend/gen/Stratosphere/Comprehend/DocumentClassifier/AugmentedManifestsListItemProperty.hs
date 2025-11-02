@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AugmentedManifestsListItemProperty
-  = AugmentedManifestsListItemProperty {attributeNames :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html>
+    AugmentedManifestsListItemProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-attributenames>
+                                        attributeNames :: (ValueList Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-s3uri>
                                         s3Uri :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html#cfn-comprehend-documentclassifier-augmentedmanifestslistitem-split>
                                         split :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAugmentedManifestsListItemProperty ::
@@ -17,8 +22,8 @@ mkAugmentedManifestsListItemProperty ::
   -> Value Prelude.Text -> AugmentedManifestsListItemProperty
 mkAugmentedManifestsListItemProperty attributeNames s3Uri
   = AugmentedManifestsListItemProperty
-      {attributeNames = attributeNames, s3Uri = s3Uri,
-       split = Prelude.Nothing}
+      {haddock_workaround_ = (), attributeNames = attributeNames,
+       s3Uri = s3Uri, split = Prelude.Nothing}
 instance ToResourceProperties AugmentedManifestsListItemProperty where
   toResourceProperties AugmentedManifestsListItemProperty {..}
     = ResourceProperties

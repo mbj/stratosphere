@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIdConnectIdentityTokenConfigurationProperty
-  = OpenIdConnectIdentityTokenConfigurationProperty {clientIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html>
+    OpenIdConnectIdentityTokenConfigurationProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration-clientids>
+                                                     clientIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html#cfn-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration-principalidclaim>
                                                      principalIdClaim :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIdConnectIdentityTokenConfigurationProperty ::
   OpenIdConnectIdentityTokenConfigurationProperty
 mkOpenIdConnectIdentityTokenConfigurationProperty
   = OpenIdConnectIdentityTokenConfigurationProperty
-      {clientIds = Prelude.Nothing, principalIdClaim = Prelude.Nothing}
+      {haddock_workaround_ = (), clientIds = Prelude.Nothing,
+       principalIdClaim = Prelude.Nothing}
 instance ToResourceProperties OpenIdConnectIdentityTokenConfigurationProperty where
   toResourceProperties
     OpenIdConnectIdentityTokenConfigurationProperty {..}

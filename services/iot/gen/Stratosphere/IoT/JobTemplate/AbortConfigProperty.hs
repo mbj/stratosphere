@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.AbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
 data AbortConfigProperty
-  = AbortConfigProperty {criteriaList :: [AbortCriteriaProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html>
+    AbortConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html#cfn-iot-jobtemplate-abortconfig-criterialist>
+                         criteriaList :: [AbortCriteriaProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortConfigProperty ::
   [AbortCriteriaProperty] -> AbortConfigProperty
 mkAbortConfigProperty criteriaList
-  = AbortConfigProperty {criteriaList = criteriaList}
+  = AbortConfigProperty
+      {haddock_workaround_ = (), criteriaList = criteriaList}
 instance ToResourceProperties AbortConfigProperty where
   toResourceProperties AbortConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AbortConfigProperty where
     = JSON.object ["CriteriaList" JSON..= criteriaList]
 instance Property "CriteriaList" AbortConfigProperty where
   type PropertyType "CriteriaList" AbortConfigProperty = [AbortCriteriaProperty]
-  set newValue AbortConfigProperty {}
+  set newValue AbortConfigProperty {..}
     = AbortConfigProperty {criteriaList = newValue, ..}

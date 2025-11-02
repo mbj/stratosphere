@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.SimpleRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data AlarmRuleProperty
-  = AlarmRuleProperty {simpleRule :: (Prelude.Maybe SimpleRuleProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html>
+    AlarmRuleProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html#cfn-iotevents-alarmmodel-alarmrule-simplerule>
+                       simpleRule :: (Prelude.Maybe SimpleRuleProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmRuleProperty :: AlarmRuleProperty
 mkAlarmRuleProperty
-  = AlarmRuleProperty {simpleRule = Prelude.Nothing}
+  = AlarmRuleProperty
+      {haddock_workaround_ = (), simpleRule = Prelude.Nothing}
 instance ToResourceProperties AlarmRuleProperty where
   toResourceProperties AlarmRuleProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON AlarmRuleProperty where
               [(JSON..=) "SimpleRule" Prelude.<$> simpleRule]))
 instance Property "SimpleRule" AlarmRuleProperty where
   type PropertyType "SimpleRule" AlarmRuleProperty = SimpleRuleProperty
-  set newValue AlarmRuleProperty {}
+  set newValue AlarmRuleProperty {..}
     = AlarmRuleProperty {simpleRule = Prelude.pure newValue, ..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PreTokenGenerationConfigProperty
-  = PreTokenGenerationConfigProperty {lambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html>
+    PreTokenGenerationConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html#cfn-cognito-userpool-pretokengenerationconfig-lambdaarn>
+                                      lambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html#cfn-cognito-userpool-pretokengenerationconfig-lambdaversion>
                                       lambdaVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPreTokenGenerationConfigProperty ::
   PreTokenGenerationConfigProperty
 mkPreTokenGenerationConfigProperty
   = PreTokenGenerationConfigProperty
-      {lambdaArn = Prelude.Nothing, lambdaVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), lambdaArn = Prelude.Nothing,
+       lambdaVersion = Prelude.Nothing}
 instance ToResourceProperties PreTokenGenerationConfigProperty where
   toResourceProperties PreTokenGenerationConfigProperty {..}
     = ResourceProperties

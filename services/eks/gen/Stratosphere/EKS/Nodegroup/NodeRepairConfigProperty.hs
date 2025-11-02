@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeRepairConfigProperty
-  = NodeRepairConfigProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html>
+    NodeRepairConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html#cfn-eks-nodegroup-noderepairconfig-enabled>
+                              enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeRepairConfigProperty :: NodeRepairConfigProperty
 mkNodeRepairConfigProperty
-  = NodeRepairConfigProperty {enabled = Prelude.Nothing}
+  = NodeRepairConfigProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties NodeRepairConfigProperty where
   toResourceProperties NodeRepairConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON NodeRepairConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" NodeRepairConfigProperty where
   type PropertyType "Enabled" NodeRepairConfigProperty = Value Prelude.Bool
-  set newValue NodeRepairConfigProperty {}
+  set newValue NodeRepairConfigProperty {..}
     = NodeRepairConfigProperty {enabled = Prelude.pure newValue, ..}

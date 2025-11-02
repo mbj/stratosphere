@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssertionRuleProperty
-  = AssertionRuleProperty {assertedControls :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html>
+    AssertionRuleProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols>
+                           assertedControls :: (ValueList Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms>
                            waitPeriodMs :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssertionRuleProperty ::
@@ -15,7 +19,8 @@ mkAssertionRuleProperty ::
   -> Value Prelude.Integer -> AssertionRuleProperty
 mkAssertionRuleProperty assertedControls waitPeriodMs
   = AssertionRuleProperty
-      {assertedControls = assertedControls, waitPeriodMs = waitPeriodMs}
+      {haddock_workaround_ = (), assertedControls = assertedControls,
+       waitPeriodMs = waitPeriodMs}
 instance ToResourceProperties AssertionRuleProperty where
   toResourceProperties AssertionRuleProperty {..}
     = ResourceProperties

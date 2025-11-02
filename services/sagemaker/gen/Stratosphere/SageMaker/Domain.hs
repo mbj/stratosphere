@@ -11,17 +11,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Domain
-  = Domain {appNetworkAccessType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html>
+    Domain {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype>
+            appNetworkAccessType :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appsecuritygroupmanagement>
             appSecurityGroupManagement :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode>
             authMode :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultspacesettings>
             defaultSpaceSettings :: (Prelude.Maybe DefaultSpaceSettingsProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings>
             defaultUserSettings :: UserSettingsProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname>
             domainName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainsettings>
             domainSettings :: (Prelude.Maybe DomainSettingsProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid>
             kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids>
             subnetIds :: (ValueList Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tagpropagation>
             tagPropagation :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags>
             tags :: (Prelude.Maybe [Tag]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid>
             vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::
@@ -31,8 +45,9 @@ mkDomain ::
         -> ValueList Prelude.Text -> Value Prelude.Text -> Domain
 mkDomain authMode defaultUserSettings domainName subnetIds vpcId
   = Domain
-      {authMode = authMode, defaultUserSettings = defaultUserSettings,
-       domainName = domainName, subnetIds = subnetIds, vpcId = vpcId,
+      {haddock_workaround_ = (), authMode = authMode,
+       defaultUserSettings = defaultUserSettings, domainName = domainName,
+       subnetIds = subnetIds, vpcId = vpcId,
        appNetworkAccessType = Prelude.Nothing,
        appSecurityGroupManagement = Prelude.Nothing,
        defaultSpaceSettings = Prelude.Nothing,

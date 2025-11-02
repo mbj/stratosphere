@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkFabricConfigurationProperty
-  = NetworkFabricConfigurationProperty {edition :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html>
+    NetworkFabricConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html#cfn-managedblockchain-member-networkfabricconfiguration-edition>
+                                        edition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFabricConfigurationProperty ::
   Value Prelude.Text -> NetworkFabricConfigurationProperty
 mkNetworkFabricConfigurationProperty edition
-  = NetworkFabricConfigurationProperty {edition = edition}
+  = NetworkFabricConfigurationProperty
+      {haddock_workaround_ = (), edition = edition}
 instance ToResourceProperties NetworkFabricConfigurationProperty where
   toResourceProperties NetworkFabricConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON NetworkFabricConfigurationProperty where
     = JSON.object ["Edition" JSON..= edition]
 instance Property "Edition" NetworkFabricConfigurationProperty where
   type PropertyType "Edition" NetworkFabricConfigurationProperty = Value Prelude.Text
-  set newValue NetworkFabricConfigurationProperty {}
+  set newValue NetworkFabricConfigurationProperty {..}
     = NetworkFabricConfigurationProperty {edition = newValue, ..}

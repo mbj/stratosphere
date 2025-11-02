@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.CloudWatchLogDestinationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogPublishingOptionsProperty
-  = LogPublishingOptionsProperty {cloudWatchLogDestination :: (Prelude.Maybe CloudWatchLogDestinationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-logpublishingoptions.html>
+    LogPublishingOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-logpublishingoptions.html#cfn-osis-pipeline-logpublishingoptions-cloudwatchlogdestination>
+                                  cloudWatchLogDestination :: (Prelude.Maybe CloudWatchLogDestinationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-logpublishingoptions.html#cfn-osis-pipeline-logpublishingoptions-isloggingenabled>
                                   isLoggingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPublishingOptionsProperty :: LogPublishingOptionsProperty
 mkLogPublishingOptionsProperty
   = LogPublishingOptionsProperty
-      {cloudWatchLogDestination = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cloudWatchLogDestination = Prelude.Nothing,
        isLoggingEnabled = Prelude.Nothing}
 instance ToResourceProperties LogPublishingOptionsProperty where
   toResourceProperties LogPublishingOptionsProperty {..}

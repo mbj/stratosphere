@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MariaDbParametersProperty
-  = MariaDbParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html>
+    MariaDbParametersProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database>
+                               database :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host>
                                host :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port>
                                port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMariaDbParametersProperty ::
@@ -17,7 +22,8 @@ mkMariaDbParametersProperty ::
      -> Value Prelude.Double -> MariaDbParametersProperty
 mkMariaDbParametersProperty database host port
   = MariaDbParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties MariaDbParametersProperty where
   toResourceProperties MariaDbParametersProperty {..}
     = ResourceProperties

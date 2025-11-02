@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.RangeOverrideProperty as Exports
 import Stratosphere.ResourceProperties
 data ConditionOverridesProperty
-  = ConditionOverridesProperty {range :: (Prelude.Maybe RangeOverrideProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html>
+    ConditionOverridesProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html#cfn-customerprofiles-segmentdefinition-conditionoverrides-range>
+                                range :: (Prelude.Maybe RangeOverrideProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionOverridesProperty :: ConditionOverridesProperty
 mkConditionOverridesProperty
-  = ConditionOverridesProperty {range = Prelude.Nothing}
+  = ConditionOverridesProperty
+      {haddock_workaround_ = (), range = Prelude.Nothing}
 instance ToResourceProperties ConditionOverridesProperty where
   toResourceProperties ConditionOverridesProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON ConditionOverridesProperty where
            (Prelude.catMaybes [(JSON..=) "Range" Prelude.<$> range]))
 instance Property "Range" ConditionOverridesProperty where
   type PropertyType "Range" ConditionOverridesProperty = RangeOverrideProperty
-  set newValue ConditionOverridesProperty {}
+  set newValue ConditionOverridesProperty {..}
     = ConditionOverridesProperty {range = Prelude.pure newValue, ..}

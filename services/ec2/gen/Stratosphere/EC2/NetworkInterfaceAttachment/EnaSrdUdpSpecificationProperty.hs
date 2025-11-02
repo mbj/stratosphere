@@ -8,12 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnaSrdUdpSpecificationProperty
-  = EnaSrdUdpSpecificationProperty {enaSrdUdpEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>
+    EnaSrdUdpSpecificationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html#cfn-ec2-networkinterfaceattachment-enasrdudpspecification-enasrdudpenabled>
+                                    enaSrdUdpEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnaSrdUdpSpecificationProperty :: EnaSrdUdpSpecificationProperty
 mkEnaSrdUdpSpecificationProperty
   = EnaSrdUdpSpecificationProperty
-      {enaSrdUdpEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (), enaSrdUdpEnabled = Prelude.Nothing}
 instance ToResourceProperties EnaSrdUdpSpecificationProperty where
   toResourceProperties EnaSrdUdpSpecificationProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON EnaSrdUdpSpecificationProperty where
               [(JSON..=) "EnaSrdUdpEnabled" Prelude.<$> enaSrdUdpEnabled]))
 instance Property "EnaSrdUdpEnabled" EnaSrdUdpSpecificationProperty where
   type PropertyType "EnaSrdUdpEnabled" EnaSrdUdpSpecificationProperty = Value Prelude.Bool
-  set newValue EnaSrdUdpSpecificationProperty {}
+  set newValue EnaSrdUdpSpecificationProperty {..}
     = EnaSrdUdpSpecificationProperty
         {enaSrdUdpEnabled = Prelude.pure newValue, ..}

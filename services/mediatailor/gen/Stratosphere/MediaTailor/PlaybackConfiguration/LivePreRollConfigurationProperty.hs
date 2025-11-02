@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LivePreRollConfigurationProperty
-  = LivePreRollConfigurationProperty {adDecisionServerUrl :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html>
+    LivePreRollConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration-addecisionserverurl>
+                                      adDecisionServerUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration-maxdurationseconds>
                                       maxDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLivePreRollConfigurationProperty ::
   LivePreRollConfigurationProperty
 mkLivePreRollConfigurationProperty
   = LivePreRollConfigurationProperty
-      {adDecisionServerUrl = Prelude.Nothing,
+      {haddock_workaround_ = (), adDecisionServerUrl = Prelude.Nothing,
        maxDurationSeconds = Prelude.Nothing}
 instance ToResourceProperties LivePreRollConfigurationProperty where
   toResourceProperties LivePreRollConfigurationProperty {..}

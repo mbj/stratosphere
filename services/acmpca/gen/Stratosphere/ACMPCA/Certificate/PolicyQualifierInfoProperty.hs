@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.Certificate.QualifierProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyQualifierInfoProperty
-  = PolicyQualifierInfoProperty {policyQualifierId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html>
+    PolicyQualifierInfoProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid>
+                                 policyQualifierId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier>
                                  qualifier :: QualifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyQualifierInfoProperty ::
@@ -17,7 +21,8 @@ mkPolicyQualifierInfoProperty ::
   -> QualifierProperty -> PolicyQualifierInfoProperty
 mkPolicyQualifierInfoProperty policyQualifierId qualifier
   = PolicyQualifierInfoProperty
-      {policyQualifierId = policyQualifierId, qualifier = qualifier}
+      {haddock_workaround_ = (), policyQualifierId = policyQualifierId,
+       qualifier = qualifier}
 instance ToResourceProperties PolicyQualifierInfoProperty where
   toResourceProperties PolicyQualifierInfoProperty {..}
     = ResourceProperties

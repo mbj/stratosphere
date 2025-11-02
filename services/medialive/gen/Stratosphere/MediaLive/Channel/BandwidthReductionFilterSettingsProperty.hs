@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BandwidthReductionFilterSettingsProperty
-  = BandwidthReductionFilterSettingsProperty {postFilterSharpening :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html>
+    BandwidthReductionFilterSettingsProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html#cfn-medialive-channel-bandwidthreductionfiltersettings-postfiltersharpening>
+                                              postFilterSharpening :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html#cfn-medialive-channel-bandwidthreductionfiltersettings-strength>
                                               strength :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBandwidthReductionFilterSettingsProperty ::
   BandwidthReductionFilterSettingsProperty
 mkBandwidthReductionFilterSettingsProperty
   = BandwidthReductionFilterSettingsProperty
-      {postFilterSharpening = Prelude.Nothing,
+      {haddock_workaround_ = (), postFilterSharpening = Prelude.Nothing,
        strength = Prelude.Nothing}
 instance ToResourceProperties BandwidthReductionFilterSettingsProperty where
   toResourceProperties BandwidthReductionFilterSettingsProperty {..}

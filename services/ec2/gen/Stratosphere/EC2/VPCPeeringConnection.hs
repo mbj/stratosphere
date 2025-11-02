@@ -8,18 +8,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VPCPeeringConnection
-  = VPCPeeringConnection {peerOwnerId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html>
+    VPCPeeringConnection {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid>
+                          peerOwnerId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion>
                           peerRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn>
                           peerRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid>
                           peerVpcId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-tags>
                           tags :: (Prelude.Maybe [Tag]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid>
                           vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCPeeringConnection ::
   Value Prelude.Text -> Value Prelude.Text -> VPCPeeringConnection
 mkVPCPeeringConnection peerVpcId vpcId
   = VPCPeeringConnection
-      {peerVpcId = peerVpcId, vpcId = vpcId,
+      {haddock_workaround_ = (), peerVpcId = peerVpcId, vpcId = vpcId,
        peerOwnerId = Prelude.Nothing, peerRegion = Prelude.Nothing,
        peerRoleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VPCPeeringConnection where

@@ -14,22 +14,33 @@ import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.StopActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.WorkmailActionProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {addHeaderAction :: (Prelude.Maybe AddHeaderActionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-addheaderaction>
+                    addHeaderAction :: (Prelude.Maybe AddHeaderActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction>
                     bounceAction :: (Prelude.Maybe BounceActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-connectaction>
                     connectAction :: (Prelude.Maybe ConnectActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-lambdaaction>
                     lambdaAction :: (Prelude.Maybe LambdaActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-s3action>
                     s3Action :: (Prelude.Maybe S3ActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-snsaction>
                     sNSAction :: (Prelude.Maybe SNSActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-stopaction>
                     stopAction :: (Prelude.Maybe StopActionProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction>
                     workmailAction :: (Prelude.Maybe WorkmailActionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
-      {addHeaderAction = Prelude.Nothing, bounceAction = Prelude.Nothing,
-       connectAction = Prelude.Nothing, lambdaAction = Prelude.Nothing,
-       s3Action = Prelude.Nothing, sNSAction = Prelude.Nothing,
-       stopAction = Prelude.Nothing, workmailAction = Prelude.Nothing}
+      {haddock_workaround_ = (), addHeaderAction = Prelude.Nothing,
+       bounceAction = Prelude.Nothing, connectAction = Prelude.Nothing,
+       lambdaAction = Prelude.Nothing, s3Action = Prelude.Nothing,
+       sNSAction = Prelude.Nothing, stopAction = Prelude.Nothing,
+       workmailAction = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties

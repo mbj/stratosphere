@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationDataProperty as Exports
 import Stratosphere.ResourceProperties
 data AssociationConfigurationDataProperty
-  = AssociationConfigurationDataProperty {knowledgeBaseAssociationConfigurationData :: KnowledgeBaseAssociationConfigurationDataProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html>
+    AssociationConfigurationDataProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html#cfn-wisdom-aiagent-associationconfigurationdata-knowledgebaseassociationconfigurationdata>
+                                          knowledgeBaseAssociationConfigurationData :: KnowledgeBaseAssociationConfigurationDataProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationConfigurationDataProperty ::
   KnowledgeBaseAssociationConfigurationDataProperty
@@ -16,7 +19,8 @@ mkAssociationConfigurationDataProperty ::
 mkAssociationConfigurationDataProperty
   knowledgeBaseAssociationConfigurationData
   = AssociationConfigurationDataProperty
-      {knowledgeBaseAssociationConfigurationData = knowledgeBaseAssociationConfigurationData}
+      {haddock_workaround_ = (),
+       knowledgeBaseAssociationConfigurationData = knowledgeBaseAssociationConfigurationData}
 instance ToResourceProperties AssociationConfigurationDataProperty where
   toResourceProperties AssociationConfigurationDataProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON AssociationConfigurationDataProperty where
            JSON..= knowledgeBaseAssociationConfigurationData]
 instance Property "KnowledgeBaseAssociationConfigurationData" AssociationConfigurationDataProperty where
   type PropertyType "KnowledgeBaseAssociationConfigurationData" AssociationConfigurationDataProperty = KnowledgeBaseAssociationConfigurationDataProperty
-  set newValue AssociationConfigurationDataProperty {}
+  set newValue AssociationConfigurationDataProperty {..}
     = AssociationConfigurationDataProperty
         {knowledgeBaseAssociationConfigurationData = newValue, ..}

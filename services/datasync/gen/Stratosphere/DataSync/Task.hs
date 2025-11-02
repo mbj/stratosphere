@@ -13,23 +13,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Task
-  = Task {cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html>
+    Task {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn>
+          cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn>
           destinationLocationArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes>
           excludes :: (Prelude.Maybe [FilterRuleProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes>
           includes :: (Prelude.Maybe [FilterRuleProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-manifestconfig>
           manifestConfig :: (Prelude.Maybe ManifestConfigProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name>
           name :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options>
           options :: (Prelude.Maybe OptionsProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule>
           schedule :: (Prelude.Maybe TaskScheduleProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn>
           sourceLocationArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskmode>
           taskMode :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskreportconfig>
           taskReportConfig :: (Prelude.Maybe TaskReportConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTask :: Value Prelude.Text -> Value Prelude.Text -> Task
 mkTask destinationLocationArn sourceLocationArn
   = Task
-      {destinationLocationArn = destinationLocationArn,
+      {haddock_workaround_ = (),
+       destinationLocationArn = destinationLocationArn,
        sourceLocationArn = sourceLocationArn,
        cloudWatchLogGroupArn = Prelude.Nothing,
        excludes = Prelude.Nothing, includes = Prelude.Nothing,

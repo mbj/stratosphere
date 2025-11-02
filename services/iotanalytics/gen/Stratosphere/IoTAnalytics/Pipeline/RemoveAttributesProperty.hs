@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoveAttributesProperty
-  = RemoveAttributesProperty {attributes :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html>
+    RemoveAttributesProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-attributes>
+                              attributes :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html#cfn-iotanalytics-pipeline-removeattributes-next>
                               next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveAttributesProperty ::
@@ -16,7 +21,8 @@ mkRemoveAttributesProperty ::
   -> Value Prelude.Text -> RemoveAttributesProperty
 mkRemoveAttributesProperty attributes name
   = RemoveAttributesProperty
-      {attributes = attributes, name = name, next = Prelude.Nothing}
+      {haddock_workaround_ = (), attributes = attributes, name = name,
+       next = Prelude.Nothing}
 instance ToResourceProperties RemoveAttributesProperty where
   toResourceProperties RemoveAttributesProperty {..}
     = ResourceProperties

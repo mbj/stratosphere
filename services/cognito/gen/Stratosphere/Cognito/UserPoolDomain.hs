@@ -8,17 +8,23 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolDomain.CustomDomainConfigType
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolDomain
-  = UserPoolDomain {customDomainConfig :: (Prelude.Maybe CustomDomainConfigTypeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html>
+    UserPoolDomain {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-customdomainconfig>
+                    customDomainConfig :: (Prelude.Maybe CustomDomainConfigTypeProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-domain>
                     domain :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-managedloginversion>
                     managedLoginVersion :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-userpoolid>
                     userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolDomain ::
   Value Prelude.Text -> Value Prelude.Text -> UserPoolDomain
 mkUserPoolDomain domain userPoolId
   = UserPoolDomain
-      {domain = domain, userPoolId = userPoolId,
-       customDomainConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), domain = domain,
+       userPoolId = userPoolId, customDomainConfig = Prelude.Nothing,
        managedLoginVersion = Prelude.Nothing}
 instance ToResourceProperties UserPoolDomain where
   toResourceProperties UserPoolDomain {..}

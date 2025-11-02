@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextFullAIPromptEditTemplateConfigurationProperty
-  = TextFullAIPromptEditTemplateConfigurationProperty {text :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-textfullaipromptedittemplateconfiguration.html>
+    TextFullAIPromptEditTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-textfullaipromptedittemplateconfiguration.html#cfn-wisdom-aiprompt-textfullaipromptedittemplateconfiguration-text>
+                                                       text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextFullAIPromptEditTemplateConfigurationProperty ::
   Value Prelude.Text
   -> TextFullAIPromptEditTemplateConfigurationProperty
 mkTextFullAIPromptEditTemplateConfigurationProperty text
-  = TextFullAIPromptEditTemplateConfigurationProperty {text = text}
+  = TextFullAIPromptEditTemplateConfigurationProperty
+      {haddock_workaround_ = (), text = text}
 instance ToResourceProperties TextFullAIPromptEditTemplateConfigurationProperty where
   toResourceProperties
     TextFullAIPromptEditTemplateConfigurationProperty {..}
@@ -26,6 +30,6 @@ instance JSON.ToJSON TextFullAIPromptEditTemplateConfigurationProperty where
     = JSON.object ["Text" JSON..= text]
 instance Property "Text" TextFullAIPromptEditTemplateConfigurationProperty where
   type PropertyType "Text" TextFullAIPromptEditTemplateConfigurationProperty = Value Prelude.Text
-  set newValue TextFullAIPromptEditTemplateConfigurationProperty {}
+  set newValue TextFullAIPromptEditTemplateConfigurationProperty {..}
     = TextFullAIPromptEditTemplateConfigurationProperty
         {text = newValue, ..}

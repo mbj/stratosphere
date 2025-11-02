@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExpiryEventsConfigurationProperty
-  = ExpiryEventsConfigurationProperty {daysBeforeExpiry :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html>
+    ExpiryEventsConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry>
+                                       daysBeforeExpiry :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExpiryEventsConfigurationProperty ::
   ExpiryEventsConfigurationProperty
 mkExpiryEventsConfigurationProperty
   = ExpiryEventsConfigurationProperty
-      {daysBeforeExpiry = Prelude.Nothing}
+      {haddock_workaround_ = (), daysBeforeExpiry = Prelude.Nothing}
 instance ToResourceProperties ExpiryEventsConfigurationProperty where
   toResourceProperties ExpiryEventsConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ExpiryEventsConfigurationProperty where
               [(JSON..=) "DaysBeforeExpiry" Prelude.<$> daysBeforeExpiry]))
 instance Property "DaysBeforeExpiry" ExpiryEventsConfigurationProperty where
   type PropertyType "DaysBeforeExpiry" ExpiryEventsConfigurationProperty = Value Prelude.Integer
-  set newValue ExpiryEventsConfigurationProperty {}
+  set newValue ExpiryEventsConfigurationProperty {..}
     = ExpiryEventsConfigurationProperty
         {daysBeforeExpiry = Prelude.pure newValue, ..}

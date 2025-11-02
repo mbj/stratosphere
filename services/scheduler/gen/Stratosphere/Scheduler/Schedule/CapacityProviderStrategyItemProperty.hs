@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityProviderStrategyItemProperty
-  = CapacityProviderStrategyItemProperty {base :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html>
+    CapacityProviderStrategyItemProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html#cfn-scheduler-schedule-capacityproviderstrategyitem-base>
+                                          base :: (Prelude.Maybe (Value Prelude.Double)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html#cfn-scheduler-schedule-capacityproviderstrategyitem-capacityprovider>
                                           capacityProvider :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html#cfn-scheduler-schedule-capacityproviderstrategyitem-weight>
                                           weight :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProviderStrategyItemProperty ::
   Value Prelude.Text -> CapacityProviderStrategyItemProperty
 mkCapacityProviderStrategyItemProperty capacityProvider
   = CapacityProviderStrategyItemProperty
-      {capacityProvider = capacityProvider, base = Prelude.Nothing,
-       weight = Prelude.Nothing}
+      {haddock_workaround_ = (), capacityProvider = capacityProvider,
+       base = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties CapacityProviderStrategyItemProperty where
   toResourceProperties CapacityProviderStrategyItemProperty {..}
     = ResourceProperties

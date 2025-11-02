@@ -7,14 +7,19 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SampleValueProperty as Exports
 import Stratosphere.ResourceProperties
 data SlotTypeValueProperty
-  = SlotTypeValueProperty {sampleValue :: SampleValueProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html>
+    SlotTypeValueProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-samplevalue>
+                           sampleValue :: SampleValueProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html#cfn-lex-bot-slottypevalue-synonyms>
                            synonyms :: (Prelude.Maybe [SampleValueProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotTypeValueProperty ::
   SampleValueProperty -> SlotTypeValueProperty
 mkSlotTypeValueProperty sampleValue
   = SlotTypeValueProperty
-      {sampleValue = sampleValue, synonyms = Prelude.Nothing}
+      {haddock_workaround_ = (), sampleValue = sampleValue,
+       synonyms = Prelude.Nothing}
 instance ToResourceProperties SlotTypeValueProperty where
   toResourceProperties SlotTypeValueProperty {..}
     = ResourceProperties

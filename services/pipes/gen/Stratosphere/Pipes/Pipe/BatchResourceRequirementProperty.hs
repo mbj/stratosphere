@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchResourceRequirementProperty
-  = BatchResourceRequirementProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchresourcerequirement.html>
+    BatchResourceRequirementProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchresourcerequirement.html#cfn-pipes-pipe-batchresourcerequirement-type>
+                                      type' :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchresourcerequirement.html#cfn-pipes-pipe-batchresourcerequirement-value>
                                       value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchResourceRequirementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BatchResourceRequirementProperty
 mkBatchResourceRequirementProperty type' value
-  = BatchResourceRequirementProperty {type' = type', value = value}
+  = BatchResourceRequirementProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties BatchResourceRequirementProperty where
   toResourceProperties BatchResourceRequirementProperty {..}
     = ResourceProperties

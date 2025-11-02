@@ -8,18 +8,26 @@ import {-# SOURCE #-} Stratosphere.ASK.Skill.OverridesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SkillPackageProperty
-  = SkillPackageProperty {overrides :: (Prelude.Maybe OverridesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html>
+    SkillPackageProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-overrides>
+                          overrides :: (Prelude.Maybe OverridesProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3bucket>
                           s3Bucket :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3bucketrole>
                           s3BucketRole :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3key>
                           s3Key :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3objectversion>
                           s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSkillPackageProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SkillPackageProperty
 mkSkillPackageProperty s3Bucket s3Key
   = SkillPackageProperty
-      {s3Bucket = s3Bucket, s3Key = s3Key, overrides = Prelude.Nothing,
-       s3BucketRole = Prelude.Nothing, s3ObjectVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Bucket = s3Bucket, s3Key = s3Key,
+       overrides = Prelude.Nothing, s3BucketRole = Prelude.Nothing,
+       s3ObjectVersion = Prelude.Nothing}
 instance ToResourceProperties SkillPackageProperty where
   toResourceProperties SkillPackageProperty {..}
     = ResourceProperties

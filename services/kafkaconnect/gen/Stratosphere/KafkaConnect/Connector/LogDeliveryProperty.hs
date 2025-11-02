@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.WorkerLogDeliveryProperty as Exports
 import Stratosphere.ResourceProperties
 data LogDeliveryProperty
-  = LogDeliveryProperty {workerLogDelivery :: WorkerLogDeliveryProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html>
+    LogDeliveryProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html#cfn-kafkaconnect-connector-logdelivery-workerlogdelivery>
+                         workerLogDelivery :: WorkerLogDeliveryProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryProperty ::
   WorkerLogDeliveryProperty -> LogDeliveryProperty
 mkLogDeliveryProperty workerLogDelivery
-  = LogDeliveryProperty {workerLogDelivery = workerLogDelivery}
+  = LogDeliveryProperty
+      {haddock_workaround_ = (), workerLogDelivery = workerLogDelivery}
 instance ToResourceProperties LogDeliveryProperty where
   toResourceProperties LogDeliveryProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON LogDeliveryProperty where
     = JSON.object ["WorkerLogDelivery" JSON..= workerLogDelivery]
 instance Property "WorkerLogDelivery" LogDeliveryProperty where
   type PropertyType "WorkerLogDelivery" LogDeliveryProperty = WorkerLogDeliveryProperty
-  set newValue LogDeliveryProperty {}
+  set newValue LogDeliveryProperty {..}
     = LogDeliveryProperty {workerLogDelivery = newValue, ..}

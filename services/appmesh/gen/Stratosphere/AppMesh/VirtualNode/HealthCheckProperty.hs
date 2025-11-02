@@ -7,12 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckProperty
-  = HealthCheckProperty {healthyThreshold :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html>
+    HealthCheckProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-healthythreshold>
+                         healthyThreshold :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-intervalmillis>
                          intervalMillis :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-path>
                          path :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-port>
                          port :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-protocol>
                          protocol :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-timeoutmillis>
                          timeoutMillis :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html#cfn-appmesh-virtualnode-healthcheck-unhealthythreshold>
                          unhealthyThreshold :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckProperty ::
@@ -28,7 +37,7 @@ mkHealthCheckProperty
   timeoutMillis
   unhealthyThreshold
   = HealthCheckProperty
-      {healthyThreshold = healthyThreshold,
+      {haddock_workaround_ = (), healthyThreshold = healthyThreshold,
        intervalMillis = intervalMillis, protocol = protocol,
        timeoutMillis = timeoutMillis,
        unhealthyThreshold = unhealthyThreshold, path = Prelude.Nothing,

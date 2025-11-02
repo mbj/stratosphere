@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RestartPolicyProperty
-  = RestartPolicyProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html>
+    RestartPolicyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html#cfn-ecs-taskdefinition-restartpolicy-enabled>
+                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html#cfn-ecs-taskdefinition-restartpolicy-ignoredexitcodes>
                            ignoredExitCodes :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html#cfn-ecs-taskdefinition-restartpolicy-restartattemptperiod>
                            restartAttemptPeriod :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestartPolicyProperty :: RestartPolicyProperty
 mkRestartPolicyProperty
   = RestartPolicyProperty
-      {enabled = Prelude.Nothing, ignoredExitCodes = Prelude.Nothing,
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       ignoredExitCodes = Prelude.Nothing,
        restartAttemptPeriod = Prelude.Nothing}
 instance ToResourceProperties RestartPolicyProperty where
   toResourceProperties RestartPolicyProperty {..}

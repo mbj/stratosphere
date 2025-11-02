@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupPlan.BackupRuleResourceTypePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupPlanResourceTypeProperty
-  = BackupPlanResourceTypeProperty {advancedBackupSettings :: (Prelude.Maybe [AdvancedBackupSettingResourceTypeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html>
+    BackupPlanResourceTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings>
+                                    advancedBackupSettings :: (Prelude.Maybe [AdvancedBackupSettingResourceTypeProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname>
                                     backupPlanName :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule>
                                     backupPlanRule :: [BackupRuleResourceTypeProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupPlanResourceTypeProperty ::
@@ -20,7 +25,8 @@ mkBackupPlanResourceTypeProperty ::
      -> BackupPlanResourceTypeProperty
 mkBackupPlanResourceTypeProperty backupPlanName backupPlanRule
   = BackupPlanResourceTypeProperty
-      {backupPlanName = backupPlanName, backupPlanRule = backupPlanRule,
+      {haddock_workaround_ = (), backupPlanName = backupPlanName,
+       backupPlanRule = backupPlanRule,
        advancedBackupSettings = Prelude.Nothing}
 instance ToResourceProperties BackupPlanResourceTypeProperty where
   toResourceProperties BackupPlanResourceTypeProperty {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockStorageProperty
-  = BlockStorageProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html>
+    BlockStorageProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html#cfn-eks-cluster-blockstorage-enabled>
+                          enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockStorageProperty :: BlockStorageProperty
 mkBlockStorageProperty
-  = BlockStorageProperty {enabled = Prelude.Nothing}
+  = BlockStorageProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties BlockStorageProperty where
   toResourceProperties BlockStorageProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON BlockStorageProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" BlockStorageProperty where
   type PropertyType "Enabled" BlockStorageProperty = Value Prelude.Bool
-  set newValue BlockStorageProperty {}
+  set newValue BlockStorageProperty {..}
     = BlockStorageProperty {enabled = Prelude.pure newValue, ..}

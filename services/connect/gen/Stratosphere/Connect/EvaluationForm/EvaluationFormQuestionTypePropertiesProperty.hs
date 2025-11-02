@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQ
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormQuestionTypePropertiesProperty
-  = EvaluationFormQuestionTypePropertiesProperty {numeric :: (Prelude.Maybe EvaluationFormNumericQuestionPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html>
+    EvaluationFormQuestionTypePropertiesProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-numeric>
+                                                  numeric :: (Prelude.Maybe EvaluationFormNumericQuestionPropertiesProperty),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-singleselect>
                                                   singleSelect :: (Prelude.Maybe EvaluationFormSingleSelectQuestionPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormQuestionTypePropertiesProperty ::
   EvaluationFormQuestionTypePropertiesProperty
 mkEvaluationFormQuestionTypePropertiesProperty
   = EvaluationFormQuestionTypePropertiesProperty
-      {numeric = Prelude.Nothing, singleSelect = Prelude.Nothing}
+      {haddock_workaround_ = (), numeric = Prelude.Nothing,
+       singleSelect = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormQuestionTypePropertiesProperty where
   toResourceProperties
     EvaluationFormQuestionTypePropertiesProperty {..}

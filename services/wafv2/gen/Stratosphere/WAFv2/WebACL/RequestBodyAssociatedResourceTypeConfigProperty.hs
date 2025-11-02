@@ -8,7 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestBodyAssociatedResourceTypeConfigProperty
-  = RequestBodyAssociatedResourceTypeConfigProperty {defaultSizeInspectionLimit :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html>
+    RequestBodyAssociatedResourceTypeConfigProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html#cfn-wafv2-webacl-requestbodyassociatedresourcetypeconfig-defaultsizeinspectionlimit>
+                                                     defaultSizeInspectionLimit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestBodyAssociatedResourceTypeConfigProperty ::
   Value Prelude.Text
@@ -16,7 +19,8 @@ mkRequestBodyAssociatedResourceTypeConfigProperty ::
 mkRequestBodyAssociatedResourceTypeConfigProperty
   defaultSizeInspectionLimit
   = RequestBodyAssociatedResourceTypeConfigProperty
-      {defaultSizeInspectionLimit = defaultSizeInspectionLimit}
+      {haddock_workaround_ = (),
+       defaultSizeInspectionLimit = defaultSizeInspectionLimit}
 instance ToResourceProperties RequestBodyAssociatedResourceTypeConfigProperty where
   toResourceProperties
     RequestBodyAssociatedResourceTypeConfigProperty {..}
@@ -31,6 +35,6 @@ instance JSON.ToJSON RequestBodyAssociatedResourceTypeConfigProperty where
         ["DefaultSizeInspectionLimit" JSON..= defaultSizeInspectionLimit]
 instance Property "DefaultSizeInspectionLimit" RequestBodyAssociatedResourceTypeConfigProperty where
   type PropertyType "DefaultSizeInspectionLimit" RequestBodyAssociatedResourceTypeConfigProperty = Value Prelude.Text
-  set newValue RequestBodyAssociatedResourceTypeConfigProperty {}
+  set newValue RequestBodyAssociatedResourceTypeConfigProperty {..}
     = RequestBodyAssociatedResourceTypeConfigProperty
         {defaultSizeInspectionLimit = newValue, ..}

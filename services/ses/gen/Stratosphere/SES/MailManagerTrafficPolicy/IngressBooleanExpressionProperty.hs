@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanTo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressBooleanExpressionProperty
-  = IngressBooleanExpressionProperty {evaluate :: IngressBooleanToEvaluateProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html>
+    IngressBooleanExpressionProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleanexpression-evaluate>
+                                      evaluate :: IngressBooleanToEvaluateProperty,
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleanexpression-operator>
                                       operator :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressBooleanExpressionProperty ::
@@ -17,7 +21,8 @@ mkIngressBooleanExpressionProperty ::
   -> Value Prelude.Text -> IngressBooleanExpressionProperty
 mkIngressBooleanExpressionProperty evaluate operator
   = IngressBooleanExpressionProperty
-      {evaluate = evaluate, operator = operator}
+      {haddock_workaround_ = (), evaluate = evaluate,
+       operator = operator}
 instance ToResourceProperties IngressBooleanExpressionProperty where
   toResourceProperties IngressBooleanExpressionProperty {..}
     = ResourceProperties

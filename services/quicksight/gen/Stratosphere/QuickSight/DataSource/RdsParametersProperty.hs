@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RdsParametersProperty
-  = RdsParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html>
+    RdsParametersProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database>
+                           database :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid>
                            instanceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsParametersProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RdsParametersProperty
 mkRdsParametersProperty database instanceId
   = RdsParametersProperty
-      {database = database, instanceId = instanceId}
+      {haddock_workaround_ = (), database = database,
+       instanceId = instanceId}
 instance ToResourceProperties RdsParametersProperty where
   toResourceProperties RdsParametersProperty {..}
     = ResourceProperties

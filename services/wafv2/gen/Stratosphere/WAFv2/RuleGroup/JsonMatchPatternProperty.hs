@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonMatchPatternProperty
-  = JsonMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html>
+    JsonMatchPatternProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all>
+                              all :: (Prelude.Maybe JSON.Object),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths>
                               includedPaths :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonMatchPatternProperty :: JsonMatchPatternProperty
 mkJsonMatchPatternProperty
   = JsonMatchPatternProperty
-      {all = Prelude.Nothing, includedPaths = Prelude.Nothing}
+      {haddock_workaround_ = (), all = Prelude.Nothing,
+       includedPaths = Prelude.Nothing}
 instance ToResourceProperties JsonMatchPatternProperty where
   toResourceProperties JsonMatchPatternProperty {..}
     = ResourceProperties

@@ -10,14 +10,18 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.OnDemandProvisioningSpecification
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.SpotProvisioningSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceFleetProvisioningSpecificationsProperty
-  = InstanceFleetProvisioningSpecificationsProperty {onDemandSpecification :: (Prelude.Maybe OnDemandProvisioningSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html>
+    InstanceFleetProvisioningSpecificationsProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification>
+                                                     onDemandSpecification :: (Prelude.Maybe OnDemandProvisioningSpecificationProperty),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification>
                                                      spotSpecification :: (Prelude.Maybe SpotProvisioningSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetProvisioningSpecificationsProperty ::
   InstanceFleetProvisioningSpecificationsProperty
 mkInstanceFleetProvisioningSpecificationsProperty
   = InstanceFleetProvisioningSpecificationsProperty
-      {onDemandSpecification = Prelude.Nothing,
+      {haddock_workaround_ = (), onDemandSpecification = Prelude.Nothing,
        spotSpecification = Prelude.Nothing}
 instance ToResourceProperties InstanceFleetProvisioningSpecificationsProperty where
   toResourceProperties

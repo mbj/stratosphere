@@ -9,19 +9,28 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldIdentifierProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestInspectionACFPProperty
-  = RequestInspectionACFPProperty {addressFields :: (Prelude.Maybe [FieldIdentifierProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html>
+    RequestInspectionACFPProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-addressfields>
+                                   addressFields :: (Prelude.Maybe [FieldIdentifierProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-emailfield>
                                    emailField :: (Prelude.Maybe FieldIdentifierProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-passwordfield>
                                    passwordField :: (Prelude.Maybe FieldIdentifierProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-payloadtype>
                                    payloadType :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-phonenumberfields>
                                    phoneNumberFields :: (Prelude.Maybe [FieldIdentifierProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html#cfn-wafv2-webacl-requestinspectionacfp-usernamefield>
                                    usernameField :: (Prelude.Maybe FieldIdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestInspectionACFPProperty ::
   Value Prelude.Text -> RequestInspectionACFPProperty
 mkRequestInspectionACFPProperty payloadType
   = RequestInspectionACFPProperty
-      {payloadType = payloadType, addressFields = Prelude.Nothing,
-       emailField = Prelude.Nothing, passwordField = Prelude.Nothing,
+      {haddock_workaround_ = (), payloadType = payloadType,
+       addressFields = Prelude.Nothing, emailField = Prelude.Nothing,
+       passwordField = Prelude.Nothing,
        phoneNumberFields = Prelude.Nothing,
        usernameField = Prelude.Nothing}
 instance ToResourceProperties RequestInspectionACFPProperty where

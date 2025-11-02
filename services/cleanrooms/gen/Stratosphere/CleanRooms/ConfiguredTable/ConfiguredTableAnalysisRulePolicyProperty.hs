@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1Property as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAnalysisRulePolicyProperty
-  = ConfiguredTableAnalysisRulePolicyProperty {v1 :: ConfiguredTableAnalysisRulePolicyV1Property}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html>
+    ConfiguredTableAnalysisRulePolicyProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicy-v1>
+                                               v1 :: ConfiguredTableAnalysisRulePolicyV1Property}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAnalysisRulePolicyProperty ::
   ConfiguredTableAnalysisRulePolicyV1Property
   -> ConfiguredTableAnalysisRulePolicyProperty
 mkConfiguredTableAnalysisRulePolicyProperty v1
-  = ConfiguredTableAnalysisRulePolicyProperty {v1 = v1}
+  = ConfiguredTableAnalysisRulePolicyProperty
+      {haddock_workaround_ = (), v1 = v1}
 instance ToResourceProperties ConfiguredTableAnalysisRulePolicyProperty where
   toResourceProperties ConfiguredTableAnalysisRulePolicyProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ConfiguredTableAnalysisRulePolicyProperty where
     = JSON.object ["V1" JSON..= v1]
 instance Property "V1" ConfiguredTableAnalysisRulePolicyProperty where
   type PropertyType "V1" ConfiguredTableAnalysisRulePolicyProperty = ConfiguredTableAnalysisRulePolicyV1Property
-  set newValue ConfiguredTableAnalysisRulePolicyProperty {}
+  set newValue ConfiguredTableAnalysisRulePolicyProperty {..}
     = ConfiguredTableAnalysisRulePolicyProperty {v1 = newValue, ..}

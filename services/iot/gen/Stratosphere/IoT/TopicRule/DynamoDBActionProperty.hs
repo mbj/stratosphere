@@ -7,14 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBActionProperty
-  = DynamoDBActionProperty {hashKeyField :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html>
+    DynamoDBActionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield>
+                            hashKeyField :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype>
                             hashKeyType :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue>
                             hashKeyValue :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield>
                             payloadField :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield>
                             rangeKeyField :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype>
                             rangeKeyType :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue>
                             rangeKeyValue :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn>
                             roleArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename>
                             tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBActionProperty ::
@@ -28,11 +39,11 @@ mkDynamoDBActionProperty
   roleArn
   tableName
   = DynamoDBActionProperty
-      {hashKeyField = hashKeyField, hashKeyValue = hashKeyValue,
-       roleArn = roleArn, tableName = tableName,
-       hashKeyType = Prelude.Nothing, payloadField = Prelude.Nothing,
-       rangeKeyField = Prelude.Nothing, rangeKeyType = Prelude.Nothing,
-       rangeKeyValue = Prelude.Nothing}
+      {haddock_workaround_ = (), hashKeyField = hashKeyField,
+       hashKeyValue = hashKeyValue, roleArn = roleArn,
+       tableName = tableName, hashKeyType = Prelude.Nothing,
+       payloadField = Prelude.Nothing, rangeKeyField = Prelude.Nothing,
+       rangeKeyType = Prelude.Nothing, rangeKeyValue = Prelude.Nothing}
 instance ToResourceProperties DynamoDBActionProperty where
   toResourceProperties DynamoDBActionProperty {..}
     = ResourceProperties

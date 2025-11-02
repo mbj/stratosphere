@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JWTOptionsProperty
-  = JWTOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html>
+    JWTOptionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html#cfn-opensearchservice-domain-jwtoptions-enabled>
+                        enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html#cfn-opensearchservice-domain-jwtoptions-publickey>
                         publicKey :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html#cfn-opensearchservice-domain-jwtoptions-roleskey>
                         rolesKey :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html#cfn-opensearchservice-domain-jwtoptions-subjectkey>
                         subjectKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJWTOptionsProperty :: JWTOptionsProperty
 mkJWTOptionsProperty
   = JWTOptionsProperty
-      {enabled = Prelude.Nothing, publicKey = Prelude.Nothing,
-       rolesKey = Prelude.Nothing, subjectKey = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       publicKey = Prelude.Nothing, rolesKey = Prelude.Nothing,
+       subjectKey = Prelude.Nothing}
 instance ToResourceProperties JWTOptionsProperty where
   toResourceProperties JWTOptionsProperty {..}
     = ResourceProperties

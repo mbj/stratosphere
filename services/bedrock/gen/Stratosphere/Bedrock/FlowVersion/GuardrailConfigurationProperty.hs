@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GuardrailConfigurationProperty
-  = GuardrailConfigurationProperty {guardrailIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html>
+    GuardrailConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html#cfn-bedrock-flowversion-guardrailconfiguration-guardrailidentifier>
+                                    guardrailIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html#cfn-bedrock-flowversion-guardrailconfiguration-guardrailversion>
                                     guardrailVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGuardrailConfigurationProperty :: GuardrailConfigurationProperty
 mkGuardrailConfigurationProperty
   = GuardrailConfigurationProperty
-      {guardrailIdentifier = Prelude.Nothing,
+      {haddock_workaround_ = (), guardrailIdentifier = Prelude.Nothing,
        guardrailVersion = Prelude.Nothing}
 instance ToResourceProperties GuardrailConfigurationProperty where
   toResourceProperties GuardrailConfigurationProperty {..}

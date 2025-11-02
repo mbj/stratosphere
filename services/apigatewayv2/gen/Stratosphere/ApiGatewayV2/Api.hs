@@ -9,28 +9,48 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.Api.CorsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Api
-  = Api {apiKeySelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html>
+    Api {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-apikeyselectionexpression>
+         apiKeySelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-basepath>
          basePath :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-body>
          body :: (Prelude.Maybe JSON.Object),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-bodys3location>
          bodyS3Location :: (Prelude.Maybe BodyS3LocationProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-corsconfiguration>
          corsConfiguration :: (Prelude.Maybe CorsProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-credentialsarn>
          credentialsArn :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint>
          disableExecuteApiEndpoint :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation>
          disableSchemaValidation :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings>
          failOnWarnings :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-name>
          name :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-protocoltype>
          protocolType :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routekey>
          routeKey :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routeselectionexpression>
          routeSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-tags>
          tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-target>
          target :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-version>
          version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApi :: Api
 mkApi
   = Api
-      {apiKeySelectionExpression = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       apiKeySelectionExpression = Prelude.Nothing,
        basePath = Prelude.Nothing, body = Prelude.Nothing,
        bodyS3Location = Prelude.Nothing,
        corsConfiguration = Prelude.Nothing,

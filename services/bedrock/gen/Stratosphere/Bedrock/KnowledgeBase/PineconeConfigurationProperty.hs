@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.PineconeFieldMappingPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PineconeConfigurationProperty
-  = PineconeConfigurationProperty {connectionString :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html>
+    PineconeConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html#cfn-bedrock-knowledgebase-pineconeconfiguration-connectionstring>
+                                   connectionString :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html#cfn-bedrock-knowledgebase-pineconeconfiguration-credentialssecretarn>
                                    credentialsSecretArn :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html#cfn-bedrock-knowledgebase-pineconeconfiguration-fieldmapping>
                                    fieldMapping :: PineconeFieldMappingProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html#cfn-bedrock-knowledgebase-pineconeconfiguration-namespace>
                                    namespace :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPineconeConfigurationProperty ::
@@ -23,7 +29,7 @@ mkPineconeConfigurationProperty
   credentialsSecretArn
   fieldMapping
   = PineconeConfigurationProperty
-      {connectionString = connectionString,
+      {haddock_workaround_ = (), connectionString = connectionString,
        credentialsSecretArn = credentialsSecretArn,
        fieldMapping = fieldMapping, namespace = Prelude.Nothing}
 instance ToResourceProperties PineconeConfigurationProperty where

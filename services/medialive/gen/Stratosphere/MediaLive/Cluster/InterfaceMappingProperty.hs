@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InterfaceMappingProperty
-  = InterfaceMappingProperty {logicalInterfaceName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-interfacemapping.html>
+    InterfaceMappingProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-interfacemapping.html#cfn-medialive-cluster-interfacemapping-logicalinterfacename>
+                              logicalInterfaceName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-interfacemapping.html#cfn-medialive-cluster-interfacemapping-networkid>
                               networkId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInterfaceMappingProperty :: InterfaceMappingProperty
 mkInterfaceMappingProperty
   = InterfaceMappingProperty
-      {logicalInterfaceName = Prelude.Nothing,
+      {haddock_workaround_ = (), logicalInterfaceName = Prelude.Nothing,
        networkId = Prelude.Nothing}
 instance ToResourceProperties InterfaceMappingProperty where
   toResourceProperties InterfaceMappingProperty {..}

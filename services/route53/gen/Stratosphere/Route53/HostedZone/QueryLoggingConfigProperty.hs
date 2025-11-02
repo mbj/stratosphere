@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryLoggingConfigProperty
-  = QueryLoggingConfigProperty {cloudWatchLogsLogGroupArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html>
+    QueryLoggingConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn>
+                                cloudWatchLogsLogGroupArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryLoggingConfigProperty ::
   Value Prelude.Text -> QueryLoggingConfigProperty
 mkQueryLoggingConfigProperty cloudWatchLogsLogGroupArn
   = QueryLoggingConfigProperty
-      {cloudWatchLogsLogGroupArn = cloudWatchLogsLogGroupArn}
+      {haddock_workaround_ = (),
+       cloudWatchLogsLogGroupArn = cloudWatchLogsLogGroupArn}
 instance ToResourceProperties QueryLoggingConfigProperty where
   toResourceProperties QueryLoggingConfigProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON QueryLoggingConfigProperty where
         ["CloudWatchLogsLogGroupArn" JSON..= cloudWatchLogsLogGroupArn]
 instance Property "CloudWatchLogsLogGroupArn" QueryLoggingConfigProperty where
   type PropertyType "CloudWatchLogsLogGroupArn" QueryLoggingConfigProperty = Value Prelude.Text
-  set newValue QueryLoggingConfigProperty {}
+  set newValue QueryLoggingConfigProperty {..}
     = QueryLoggingConfigProperty
         {cloudWatchLogsLogGroupArn = newValue, ..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSetUsageConfigurationProperty
-  = DataSetUsageConfigurationProperty {disableUseAsDirectQuerySource :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html>
+    DataSetUsageConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html#cfn-quicksight-dataset-datasetusageconfiguration-disableuseasdirectquerysource>
+                                       disableUseAsDirectQuerySource :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html#cfn-quicksight-dataset-datasetusageconfiguration-disableuseasimportedsource>
                                        disableUseAsImportedSource :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetUsageConfigurationProperty ::
   DataSetUsageConfigurationProperty
 mkDataSetUsageConfigurationProperty
   = DataSetUsageConfigurationProperty
-      {disableUseAsDirectQuerySource = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       disableUseAsDirectQuerySource = Prelude.Nothing,
        disableUseAsImportedSource = Prelude.Nothing}
 instance ToResourceProperties DataSetUsageConfigurationProperty where
   toResourceProperties DataSetUsageConfigurationProperty {..}

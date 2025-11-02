@@ -8,12 +8,18 @@ import {-# SOURCE #-} Stratosphere.WAF.ByteMatchSet.ByteMatchTupleProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ByteMatchSet
-  = ByteMatchSet {byteMatchTuples :: (Prelude.Maybe [ByteMatchTupleProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html>
+    ByteMatchSet {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-bytematchtuples>
+                  byteMatchTuples :: (Prelude.Maybe [ByteMatchTupleProperty]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html#cfn-waf-bytematchset-name>
                   name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchSet :: Value Prelude.Text -> ByteMatchSet
 mkByteMatchSet name
-  = ByteMatchSet {name = name, byteMatchTuples = Prelude.Nothing}
+  = ByteMatchSet
+      {haddock_workaround_ = (), name = name,
+       byteMatchTuples = Prelude.Nothing}
 instance ToResourceProperties ByteMatchSet where
   toResourceProperties ByteMatchSet {..}
     = ResourceProperties

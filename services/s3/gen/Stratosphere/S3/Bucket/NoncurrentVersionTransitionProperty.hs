@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NoncurrentVersionTransitionProperty
-  = NoncurrentVersionTransitionProperty {newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversiontransition.html>
+    NoncurrentVersionTransitionProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversiontransition.html#cfn-s3-bucket-noncurrentversiontransition-newernoncurrentversions>
+                                         newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversiontransition.html#cfn-s3-bucket-noncurrentversiontransition-storageclass>
                                          storageClass :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversiontransition.html#cfn-s3-bucket-noncurrentversiontransition-transitionindays>
                                          transitionInDays :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNoncurrentVersionTransitionProperty ::
@@ -17,7 +22,8 @@ mkNoncurrentVersionTransitionProperty ::
   -> Value Prelude.Integer -> NoncurrentVersionTransitionProperty
 mkNoncurrentVersionTransitionProperty storageClass transitionInDays
   = NoncurrentVersionTransitionProperty
-      {storageClass = storageClass, transitionInDays = transitionInDays,
+      {haddock_workaround_ = (), storageClass = storageClass,
+       transitionInDays = transitionInDays,
        newerNoncurrentVersions = Prelude.Nothing}
 instance ToResourceProperties NoncurrentVersionTransitionProperty where
   toResourceProperties NoncurrentVersionTransitionProperty {..}

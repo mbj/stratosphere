@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.DataLakeSettings.DataLakePrinci
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrincipalPermissionsProperty
-  = PrincipalPermissionsProperty {permissions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html>
+    PrincipalPermissionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html#cfn-lakeformation-datalakesettings-principalpermissions-permissions>
+                                  permissions :: (ValueList Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html#cfn-lakeformation-datalakesettings-principalpermissions-principal>
                                   principal :: DataLakePrincipalProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrincipalPermissionsProperty ::
@@ -17,7 +21,8 @@ mkPrincipalPermissionsProperty ::
   -> DataLakePrincipalProperty -> PrincipalPermissionsProperty
 mkPrincipalPermissionsProperty permissions principal
   = PrincipalPermissionsProperty
-      {permissions = permissions, principal = principal}
+      {haddock_workaround_ = (), permissions = permissions,
+       principal = principal}
 instance ToResourceProperties PrincipalPermissionsProperty where
   toResourceProperties PrincipalPermissionsProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreatedAtProperty
-  = CreatedAtProperty {nanos :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html>
+    CreatedAtProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html#cfn-healthlake-fhirdatastore-createdat-nanos>
+                       nanos :: (Value Prelude.Integer),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html#cfn-healthlake-fhirdatastore-createdat-seconds>
                        seconds :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCreatedAtProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> CreatedAtProperty
 mkCreatedAtProperty nanos seconds
-  = CreatedAtProperty {nanos = nanos, seconds = seconds}
+  = CreatedAtProperty
+      {haddock_workaround_ = (), nanos = nanos, seconds = seconds}
 instance ToResourceProperties CreatedAtProperty where
   toResourceProperties CreatedAtProperty {..}
     = ResourceProperties

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Connect.UserHierarchyStructure.UserHierarchyS
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserHierarchyStructure
-  = UserHierarchyStructure {instanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html>
+    UserHierarchyStructure {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html#cfn-connect-userhierarchystructure-instancearn>
+                            instanceArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html#cfn-connect-userhierarchystructure-userhierarchystructure>
                             userHierarchyStructure :: (Prelude.Maybe UserHierarchyStructureProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserHierarchyStructure ::
   Value Prelude.Text -> UserHierarchyStructure
 mkUserHierarchyStructure instanceArn
   = UserHierarchyStructure
-      {instanceArn = instanceArn,
+      {haddock_workaround_ = (), instanceArn = instanceArn,
        userHierarchyStructure = Prelude.Nothing}
 instance ToResourceProperties UserHierarchyStructure where
   toResourceProperties UserHierarchyStructure {..}

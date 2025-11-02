@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.CloudWatchAlarmDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingTriggerProperty
-  = ScalingTriggerProperty {cloudWatchAlarmDefinition :: CloudWatchAlarmDefinitionProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html>
+    ScalingTriggerProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html#cfn-elasticmapreduce-cluster-scalingtrigger-cloudwatchalarmdefinition>
+                            cloudWatchAlarmDefinition :: CloudWatchAlarmDefinitionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingTriggerProperty ::
   CloudWatchAlarmDefinitionProperty -> ScalingTriggerProperty
 mkScalingTriggerProperty cloudWatchAlarmDefinition
   = ScalingTriggerProperty
-      {cloudWatchAlarmDefinition = cloudWatchAlarmDefinition}
+      {haddock_workaround_ = (),
+       cloudWatchAlarmDefinition = cloudWatchAlarmDefinition}
 instance ToResourceProperties ScalingTriggerProperty where
   toResourceProperties ScalingTriggerProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON ScalingTriggerProperty where
         ["CloudWatchAlarmDefinition" JSON..= cloudWatchAlarmDefinition]
 instance Property "CloudWatchAlarmDefinition" ScalingTriggerProperty where
   type PropertyType "CloudWatchAlarmDefinition" ScalingTriggerProperty = CloudWatchAlarmDefinitionProperty
-  set newValue ScalingTriggerProperty {}
+  set newValue ScalingTriggerProperty {..}
     = ScalingTriggerProperty {cloudWatchAlarmDefinition = newValue, ..}

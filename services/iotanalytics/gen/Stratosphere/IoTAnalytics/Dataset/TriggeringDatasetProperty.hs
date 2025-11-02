@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggeringDatasetProperty
-  = TriggeringDatasetProperty {datasetName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html>
+    TriggeringDatasetProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html#cfn-iotanalytics-dataset-triggeringdataset-datasetname>
+                               datasetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggeringDatasetProperty ::
   Value Prelude.Text -> TriggeringDatasetProperty
 mkTriggeringDatasetProperty datasetName
-  = TriggeringDatasetProperty {datasetName = datasetName}
+  = TriggeringDatasetProperty
+      {haddock_workaround_ = (), datasetName = datasetName}
 instance ToResourceProperties TriggeringDatasetProperty where
   toResourceProperties TriggeringDatasetProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON TriggeringDatasetProperty where
     = JSON.object ["DatasetName" JSON..= datasetName]
 instance Property "DatasetName" TriggeringDatasetProperty where
   type PropertyType "DatasetName" TriggeringDatasetProperty = Value Prelude.Text
-  set newValue TriggeringDatasetProperty {}
+  set newValue TriggeringDatasetProperty {..}
     = TriggeringDatasetProperty {datasetName = newValue, ..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalDatasetParameterDefaultValuesProperty
-  = DecimalDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html>
+    DecimalDatasetParameterDefaultValuesProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html#cfn-quicksight-dataset-decimaldatasetparameterdefaultvalues-staticvalues>
+                                                  staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalDatasetParameterDefaultValuesProperty ::
   DecimalDatasetParameterDefaultValuesProperty
 mkDecimalDatasetParameterDefaultValuesProperty
   = DecimalDatasetParameterDefaultValuesProperty
-      {staticValues = Prelude.Nothing}
+      {haddock_workaround_ = (), staticValues = Prelude.Nothing}
 instance ToResourceProperties DecimalDatasetParameterDefaultValuesProperty where
   toResourceProperties
     DecimalDatasetParameterDefaultValuesProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON DecimalDatasetParameterDefaultValuesProperty where
               [(JSON..=) "StaticValues" Prelude.<$> staticValues]))
 instance Property "StaticValues" DecimalDatasetParameterDefaultValuesProperty where
   type PropertyType "StaticValues" DecimalDatasetParameterDefaultValuesProperty = ValueList Prelude.Double
-  set newValue DecimalDatasetParameterDefaultValuesProperty {}
+  set newValue DecimalDatasetParameterDefaultValuesProperty {..}
     = DecimalDatasetParameterDefaultValuesProperty
         {staticValues = Prelude.pure newValue, ..}

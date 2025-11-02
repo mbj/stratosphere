@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowStepFunctionsParametersProperty
-  = MaintenanceWindowStepFunctionsParametersProperty {input :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html>
+    MaintenanceWindowStepFunctionsParametersProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input>
+                                                      input :: (Prelude.Maybe (Value Prelude.Text)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name>
                                                       name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowStepFunctionsParametersProperty ::
   MaintenanceWindowStepFunctionsParametersProperty
 mkMaintenanceWindowStepFunctionsParametersProperty
   = MaintenanceWindowStepFunctionsParametersProperty
-      {input = Prelude.Nothing, name = Prelude.Nothing}
+      {haddock_workaround_ = (), input = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties MaintenanceWindowStepFunctionsParametersProperty where
   toResourceProperties
     MaintenanceWindowStepFunctionsParametersProperty {..}

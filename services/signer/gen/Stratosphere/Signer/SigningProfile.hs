@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SigningProfile
-  = SigningProfile {platformId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html>
+    SigningProfile {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid>
+                    platformId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod>
                     signatureValidityPeriod :: (Prelude.Maybe SignatureValidityPeriodProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSigningProfile :: Value Prelude.Text -> SigningProfile
 mkSigningProfile platformId
   = SigningProfile
-      {platformId = platformId,
+      {haddock_workaround_ = (), platformId = platformId,
        signatureValidityPeriod = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties SigningProfile where
   toResourceProperties SigningProfile {..}

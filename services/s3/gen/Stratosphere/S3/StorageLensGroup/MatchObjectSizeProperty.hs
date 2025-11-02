@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatchObjectSizeProperty
-  = MatchObjectSizeProperty {bytesGreaterThan :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html>
+    MatchObjectSizeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html#cfn-s3-storagelensgroup-matchobjectsize-bytesgreaterthan>
+                             bytesGreaterThan :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html#cfn-s3-storagelensgroup-matchobjectsize-byteslessthan>
                              bytesLessThan :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchObjectSizeProperty :: MatchObjectSizeProperty
 mkMatchObjectSizeProperty
   = MatchObjectSizeProperty
-      {bytesGreaterThan = Prelude.Nothing,
+      {haddock_workaround_ = (), bytesGreaterThan = Prelude.Nothing,
        bytesLessThan = Prelude.Nothing}
 instance ToResourceProperties MatchObjectSizeProperty where
   toResourceProperties MatchObjectSizeProperty {..}

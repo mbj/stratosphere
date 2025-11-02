@@ -12,18 +12,26 @@ import {-# SOURCE #-} Stratosphere.PinpointEmail.ConfigurationSetEventDestinatio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventDestinationProperty
-  = EventDestinationProperty {cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html>
+    EventDestinationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-cloudwatchdestination>
+                              cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-enabled>
                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-kinesisfirehosedestination>
                               kinesisFirehoseDestination :: (Prelude.Maybe KinesisFirehoseDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-matchingeventtypes>
                               matchingEventTypes :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-pinpointdestination>
                               pinpointDestination :: (Prelude.Maybe PinpointDestinationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html#cfn-pinpointemail-configurationseteventdestination-eventdestination-snsdestination>
                               snsDestination :: (Prelude.Maybe SnsDestinationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDestinationProperty ::
   ValueList Prelude.Text -> EventDestinationProperty
 mkEventDestinationProperty matchingEventTypes
   = EventDestinationProperty
-      {matchingEventTypes = matchingEventTypes,
+      {haddock_workaround_ = (), matchingEventTypes = matchingEventTypes,
        cloudWatchDestination = Prelude.Nothing, enabled = Prelude.Nothing,
        kinesisFirehoseDestination = Prelude.Nothing,
        pinpointDestination = Prelude.Nothing,

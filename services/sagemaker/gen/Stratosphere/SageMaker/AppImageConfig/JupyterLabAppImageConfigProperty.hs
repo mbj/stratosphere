@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.ContainerConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data JupyterLabAppImageConfigProperty
-  = JupyterLabAppImageConfigProperty {containerConfig :: (Prelude.Maybe ContainerConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html>
+    JupyterLabAppImageConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig-containerconfig>
+                                      containerConfig :: (Prelude.Maybe ContainerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJupyterLabAppImageConfigProperty ::
   JupyterLabAppImageConfigProperty
 mkJupyterLabAppImageConfigProperty
   = JupyterLabAppImageConfigProperty
-      {containerConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), containerConfig = Prelude.Nothing}
 instance ToResourceProperties JupyterLabAppImageConfigProperty where
   toResourceProperties JupyterLabAppImageConfigProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON JupyterLabAppImageConfigProperty where
               [(JSON..=) "ContainerConfig" Prelude.<$> containerConfig]))
 instance Property "ContainerConfig" JupyterLabAppImageConfigProperty where
   type PropertyType "ContainerConfig" JupyterLabAppImageConfigProperty = ContainerConfigProperty
-  set newValue JupyterLabAppImageConfigProperty {}
+  set newValue JupyterLabAppImageConfigProperty {..}
     = JupyterLabAppImageConfigProperty
         {containerConfig = Prelude.pure newValue, ..}

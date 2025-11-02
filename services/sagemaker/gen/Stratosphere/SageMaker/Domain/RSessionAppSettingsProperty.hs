@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.CustomImageProperty as Expor
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.ResourceSpecProperty as Exports
 import Stratosphere.ResourceProperties
 data RSessionAppSettingsProperty
-  = RSessionAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>
+    RSessionAppSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-customimages>
+                                 customImages :: (Prelude.Maybe [CustomImageProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-defaultresourcespec>
                                  defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRSessionAppSettingsProperty :: RSessionAppSettingsProperty
 mkRSessionAppSettingsProperty
   = RSessionAppSettingsProperty
-      {customImages = Prelude.Nothing,
+      {haddock_workaround_ = (), customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing}
 instance ToResourceProperties RSessionAppSettingsProperty where
   toResourceProperties RSessionAppSettingsProperty {..}

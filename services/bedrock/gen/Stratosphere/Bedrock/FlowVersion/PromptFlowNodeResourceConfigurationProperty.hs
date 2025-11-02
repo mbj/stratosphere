@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptFlowNodeResourceConfigurationProperty
-  = PromptFlowNodeResourceConfigurationProperty {promptArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownoderesourceconfiguration.html>
+    PromptFlowNodeResourceConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownoderesourceconfiguration.html#cfn-bedrock-flowversion-promptflownoderesourceconfiguration-promptarn>
+                                                 promptArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptFlowNodeResourceConfigurationProperty ::
   Value Prelude.Text -> PromptFlowNodeResourceConfigurationProperty
 mkPromptFlowNodeResourceConfigurationProperty promptArn
   = PromptFlowNodeResourceConfigurationProperty
-      {promptArn = promptArn}
+      {haddock_workaround_ = (), promptArn = promptArn}
 instance ToResourceProperties PromptFlowNodeResourceConfigurationProperty where
   toResourceProperties
     PromptFlowNodeResourceConfigurationProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON PromptFlowNodeResourceConfigurationProperty where
     = JSON.object ["PromptArn" JSON..= promptArn]
 instance Property "PromptArn" PromptFlowNodeResourceConfigurationProperty where
   type PropertyType "PromptArn" PromptFlowNodeResourceConfigurationProperty = Value Prelude.Text
-  set newValue PromptFlowNodeResourceConfigurationProperty {}
+  set newValue PromptFlowNodeResourceConfigurationProperty {..}
     = PromptFlowNodeResourceConfigurationProperty
         {promptArn = newValue, ..}

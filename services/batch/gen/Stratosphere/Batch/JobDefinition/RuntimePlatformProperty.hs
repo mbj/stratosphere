@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuntimePlatformProperty
-  = RuntimePlatformProperty {cpuArchitecture :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html>
+    RuntimePlatformProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html#cfn-batch-jobdefinition-ecstaskproperties-runtimeplatform-cpuarchitecture>
+                             cpuArchitecture :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html#cfn-batch-jobdefinition-ecstaskproperties-runtimeplatform-operatingsystemfamily>
                              operatingSystemFamily :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimePlatformProperty :: RuntimePlatformProperty
 mkRuntimePlatformProperty
   = RuntimePlatformProperty
-      {cpuArchitecture = Prelude.Nothing,
+      {haddock_workaround_ = (), cpuArchitecture = Prelude.Nothing,
        operatingSystemFamily = Prelude.Nothing}
 instance ToResourceProperties RuntimePlatformProperty where
   toResourceProperties RuntimePlatformProperty {..}

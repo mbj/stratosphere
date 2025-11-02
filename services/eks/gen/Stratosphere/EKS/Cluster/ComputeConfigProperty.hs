@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeConfigProperty
-  = ComputeConfigProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html>
+    ComputeConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html#cfn-eks-cluster-computeconfig-enabled>
+                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html#cfn-eks-cluster-computeconfig-nodepools>
                            nodePools :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html#cfn-eks-cluster-computeconfig-noderolearn>
                            nodeRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeConfigProperty :: ComputeConfigProperty
 mkComputeConfigProperty
   = ComputeConfigProperty
-      {enabled = Prelude.Nothing, nodePools = Prelude.Nothing,
-       nodeRoleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       nodePools = Prelude.Nothing, nodeRoleArn = Prelude.Nothing}
 instance ToResourceProperties ComputeConfigProperty where
   toResourceProperties ComputeConfigProperty {..}
     = ResourceProperties

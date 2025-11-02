@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentAttributeConfigurationProperty
-  = DocumentAttributeConfigurationProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-documentattributeconfiguration.html>
+    DocumentAttributeConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-documentattributeconfiguration.html#cfn-qbusiness-index-documentattributeconfiguration-name>
+                                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-documentattributeconfiguration.html#cfn-qbusiness-index-documentattributeconfiguration-search>
                                             search :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-documentattributeconfiguration.html#cfn-qbusiness-index-documentattributeconfiguration-type>
                                             type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeConfigurationProperty ::
   DocumentAttributeConfigurationProperty
 mkDocumentAttributeConfigurationProperty
   = DocumentAttributeConfigurationProperty
-      {name = Prelude.Nothing, search = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       search = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties DocumentAttributeConfigurationProperty where
   toResourceProperties DocumentAttributeConfigurationProperty {..}
     = ResourceProperties

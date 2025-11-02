@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigurationProperty
-  = VpcConfigurationProperty {securityGroupIds :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html>
+    VpcConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html#cfn-kinesisanalyticsv2-application-vpcconfiguration-securitygroupids>
+                              securityGroupIds :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html#cfn-kinesisanalyticsv2-application-vpcconfiguration-subnetids>
                               subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigurationProperty ::
@@ -15,7 +19,8 @@ mkVpcConfigurationProperty ::
   -> ValueList Prelude.Text -> VpcConfigurationProperty
 mkVpcConfigurationProperty securityGroupIds subnetIds
   = VpcConfigurationProperty
-      {securityGroupIds = securityGroupIds, subnetIds = subnetIds}
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds,
+       subnetIds = subnetIds}
 instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties

@@ -8,13 +8,19 @@ import {-# SOURCE #-} Stratosphere.WAF.XssMatchSet.XssMatchTupleProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data XssMatchSet
-  = XssMatchSet {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html>
+    XssMatchSet {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-name>
+                 name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html#cfn-waf-xssmatchset-xssmatchtuples>
                  xssMatchTuples :: [XssMatchTupleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchSet ::
   Value Prelude.Text -> [XssMatchTupleProperty] -> XssMatchSet
 mkXssMatchSet name xssMatchTuples
-  = XssMatchSet {name = name, xssMatchTuples = xssMatchTuples}
+  = XssMatchSet
+      {haddock_workaround_ = (), name = name,
+       xssMatchTuples = xssMatchTuples}
 instance ToResourceProperties XssMatchSet where
   toResourceProperties XssMatchSet {..}
     = ResourceProperties

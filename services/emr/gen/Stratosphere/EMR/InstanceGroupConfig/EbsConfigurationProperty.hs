@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.EMR.InstanceGroupConfig.EbsBlockDeviceConfigP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EbsConfigurationProperty
-  = EbsConfigurationProperty {ebsBlockDeviceConfigs :: (Prelude.Maybe [EbsBlockDeviceConfigProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html>
+    EbsConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfigs>
+                              ebsBlockDeviceConfigs :: (Prelude.Maybe [EbsBlockDeviceConfigProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized>
                               ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsConfigurationProperty :: EbsConfigurationProperty
 mkEbsConfigurationProperty
   = EbsConfigurationProperty
-      {ebsBlockDeviceConfigs = Prelude.Nothing,
+      {haddock_workaround_ = (), ebsBlockDeviceConfigs = Prelude.Nothing,
        ebsOptimized = Prelude.Nothing}
 instance ToResourceProperties EbsConfigurationProperty where
   toResourceProperties EbsConfigurationProperty {..}

@@ -10,19 +10,30 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data User
-  = User {groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html>
+    User {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-groups>
+          groups :: (Prelude.Maybe (ValueList Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-loginprofile>
           loginProfile :: (Prelude.Maybe LoginProfileProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-managedpolicyarns>
           managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-path>
           path :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-permissionsboundary>
           permissionsBoundary :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-policies>
           policies :: (Prelude.Maybe [PolicyProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-username>
           userName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUser :: User
 mkUser
   = User
-      {groups = Prelude.Nothing, loginProfile = Prelude.Nothing,
+      {haddock_workaround_ = (), groups = Prelude.Nothing,
+       loginProfile = Prelude.Nothing,
        managedPolicyArns = Prelude.Nothing, path = Prelude.Nothing,
        permissionsBoundary = Prelude.Nothing, policies = Prelude.Nothing,
        tags = Prelude.Nothing, userName = Prelude.Nothing}

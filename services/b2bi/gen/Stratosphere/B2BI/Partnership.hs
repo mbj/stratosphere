@@ -9,12 +9,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Partnership
-  = Partnership {capabilities :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html>
+    Partnership {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilities>
+                 capabilities :: (ValueList Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions>
                  capabilityOptions :: (Prelude.Maybe CapabilityOptionsProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-email>
                  email :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-phone>
                  phone :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-profileid>
                  profileId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-tags>
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartnership ::
@@ -23,9 +32,10 @@ mkPartnership ::
      -> Value Prelude.Text -> Value Prelude.Text -> Partnership
 mkPartnership capabilities email name profileId
   = Partnership
-      {capabilities = capabilities, email = email, name = name,
-       profileId = profileId, capabilityOptions = Prelude.Nothing,
-       phone = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), capabilities = capabilities,
+       email = email, name = name, profileId = profileId,
+       capabilityOptions = Prelude.Nothing, phone = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Partnership where
   toResourceProperties Partnership {..}
     = ResourceProperties

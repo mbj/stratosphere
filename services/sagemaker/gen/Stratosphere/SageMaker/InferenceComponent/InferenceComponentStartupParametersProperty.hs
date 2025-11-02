@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceComponentStartupParametersProperty
-  = InferenceComponentStartupParametersProperty {containerStartupHealthCheckTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html>
+    InferenceComponentStartupParametersProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html#cfn-sagemaker-inferencecomponent-inferencecomponentstartupparameters-containerstartuphealthchecktimeoutinseconds>
+                                                 containerStartupHealthCheckTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html#cfn-sagemaker-inferencecomponent-inferencecomponentstartupparameters-modeldatadownloadtimeoutinseconds>
                                                  modelDataDownloadTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponentStartupParametersProperty ::
   InferenceComponentStartupParametersProperty
 mkInferenceComponentStartupParametersProperty
   = InferenceComponentStartupParametersProperty
-      {containerStartupHealthCheckTimeoutInSeconds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       containerStartupHealthCheckTimeoutInSeconds = Prelude.Nothing,
        modelDataDownloadTimeoutInSeconds = Prelude.Nothing}
 instance ToResourceProperties InferenceComponentStartupParametersProperty where
   toResourceProperties

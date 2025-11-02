@@ -11,13 +11,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data WorkspacesPool
-  = WorkspacesPool {applicationSettings :: (Prelude.Maybe ApplicationSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html>
+    WorkspacesPool {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-applicationsettings>
+                    applicationSettings :: (Prelude.Maybe ApplicationSettingsProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-bundleid>
                     bundleId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-capacity>
                     capacity :: CapacityProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-directoryid>
                     directoryId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-poolname>
                     poolName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-tags>
                     tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-timeoutsettings>
                     timeoutSettings :: (Prelude.Maybe TimeoutSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspacesPool ::
@@ -26,9 +36,9 @@ mkWorkspacesPool ::
      -> Value Prelude.Text -> Value Prelude.Text -> WorkspacesPool
 mkWorkspacesPool bundleId capacity directoryId poolName
   = WorkspacesPool
-      {bundleId = bundleId, capacity = capacity,
-       directoryId = directoryId, poolName = poolName,
-       applicationSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), bundleId = bundleId,
+       capacity = capacity, directoryId = directoryId,
+       poolName = poolName, applicationSettings = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing,
        timeoutSettings = Prelude.Nothing}
 instance ToResourceProperties WorkspacesPool where

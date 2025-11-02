@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectAttachmentOptionsProperty
-  = ConnectAttachmentOptionsProperty {protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html>
+    ConnectAttachmentOptionsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html#cfn-networkmanager-connectattachment-connectattachmentoptions-protocol>
+                                      protocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectAttachmentOptionsProperty ::
   ConnectAttachmentOptionsProperty
 mkConnectAttachmentOptionsProperty
-  = ConnectAttachmentOptionsProperty {protocol = Prelude.Nothing}
+  = ConnectAttachmentOptionsProperty
+      {haddock_workaround_ = (), protocol = Prelude.Nothing}
 instance ToResourceProperties ConnectAttachmentOptionsProperty where
   toResourceProperties ConnectAttachmentOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ConnectAttachmentOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Protocol" Prelude.<$> protocol]))
 instance Property "Protocol" ConnectAttachmentOptionsProperty where
   type PropertyType "Protocol" ConnectAttachmentOptionsProperty = Value Prelude.Text
-  set newValue ConnectAttachmentOptionsProperty {}
+  set newValue ConnectAttachmentOptionsProperty {..}
     = ConnectAttachmentOptionsProperty
         {protocol = Prelude.pure newValue, ..}

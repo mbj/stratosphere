@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamsKmsKeyProperty
-  = StreamsKmsKeyProperty {kmsAliasArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html>
+    StreamsKmsKeyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html#cfn-groundstation-missionprofile-streamskmskey-kmsaliasarn>
+                           kmsAliasArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html#cfn-groundstation-missionprofile-streamskmskey-kmskeyarn>
                            kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamsKmsKeyProperty :: StreamsKmsKeyProperty
 mkStreamsKmsKeyProperty
   = StreamsKmsKeyProperty
-      {kmsAliasArn = Prelude.Nothing, kmsKeyArn = Prelude.Nothing}
+      {haddock_workaround_ = (), kmsAliasArn = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing}
 instance ToResourceProperties StreamsKmsKeyProperty where
   toResourceProperties StreamsKmsKeyProperty {..}
     = ResourceProperties

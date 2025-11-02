@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemEndpointAttributesProperty
-  = SystemEndpointAttributesProperty {address :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemendpointattributes.html>
+    SystemEndpointAttributesProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemendpointattributes.html#cfn-wisdom-messagetemplate-systemendpointattributes-address>
+                                      address :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemEndpointAttributesProperty ::
   SystemEndpointAttributesProperty
 mkSystemEndpointAttributesProperty
-  = SystemEndpointAttributesProperty {address = Prelude.Nothing}
+  = SystemEndpointAttributesProperty
+      {haddock_workaround_ = (), address = Prelude.Nothing}
 instance ToResourceProperties SystemEndpointAttributesProperty where
   toResourceProperties SystemEndpointAttributesProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SystemEndpointAttributesProperty where
            (Prelude.catMaybes [(JSON..=) "Address" Prelude.<$> address]))
 instance Property "Address" SystemEndpointAttributesProperty where
   type PropertyType "Address" SystemEndpointAttributesProperty = Value Prelude.Text
-  set newValue SystemEndpointAttributesProperty {}
+  set newValue SystemEndpointAttributesProperty {..}
     = SystemEndpointAttributesProperty
         {address = Prelude.pure newValue, ..}

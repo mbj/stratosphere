@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.SSM.MaintenanceWindowTarget.TargetsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowTarget
-  = MaintenanceWindowTarget {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html>
+    MaintenanceWindowTarget {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-description>
+                             description :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-ownerinformation>
                              ownerInformation :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-resourcetype>
                              resourceType :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-targets>
                              targets :: [TargetsProperty],
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-windowid>
                              windowId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowTarget ::
@@ -22,9 +30,10 @@ mkMaintenanceWindowTarget ::
      -> Value Prelude.Text -> MaintenanceWindowTarget
 mkMaintenanceWindowTarget resourceType targets windowId
   = MaintenanceWindowTarget
-      {resourceType = resourceType, targets = targets,
-       windowId = windowId, description = Prelude.Nothing,
-       name = Prelude.Nothing, ownerInformation = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceType = resourceType,
+       targets = targets, windowId = windowId,
+       description = Prelude.Nothing, name = Prelude.Nothing,
+       ownerInformation = Prelude.Nothing}
 instance ToResourceProperties MaintenanceWindowTarget where
   toResourceProperties MaintenanceWindowTarget {..}
     = ResourceProperties

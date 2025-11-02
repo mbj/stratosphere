@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.ActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.DataBrew.Recipe.ConditionExpressionProperty as Exports
 import Stratosphere.ResourceProperties
 data RecipeStepProperty
-  = RecipeStepProperty {action :: ActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html>
+    RecipeStepProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action>
+                        action :: ActionProperty,
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions>
                         conditionExpressions :: (Prelude.Maybe [ConditionExpressionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipeStepProperty :: ActionProperty -> RecipeStepProperty
 mkRecipeStepProperty action
   = RecipeStepProperty
-      {action = action, conditionExpressions = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action,
+       conditionExpressions = Prelude.Nothing}
 instance ToResourceProperties RecipeStepProperty where
   toResourceProperties RecipeStepProperty {..}
     = ResourceProperties

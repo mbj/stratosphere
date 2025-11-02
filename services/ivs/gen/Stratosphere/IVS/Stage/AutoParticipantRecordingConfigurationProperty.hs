@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoParticipantRecordingConfigurationProperty
-  = AutoParticipantRecordingConfigurationProperty {mediaTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html>
+    AutoParticipantRecordingConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-mediatypes>
+                                                   mediaTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-storageconfigurationarn>
                                                    storageConfigurationArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoParticipantRecordingConfigurationProperty ::
@@ -16,7 +20,8 @@ mkAutoParticipantRecordingConfigurationProperty ::
 mkAutoParticipantRecordingConfigurationProperty
   storageConfigurationArn
   = AutoParticipantRecordingConfigurationProperty
-      {storageConfigurationArn = storageConfigurationArn,
+      {haddock_workaround_ = (),
+       storageConfigurationArn = storageConfigurationArn,
        mediaTypes = Prelude.Nothing}
 instance ToResourceProperties AutoParticipantRecordingConfigurationProperty where
   toResourceProperties

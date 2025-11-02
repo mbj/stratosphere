@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureS3SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FrameCaptureCdnSettingsProperty
-  = FrameCaptureCdnSettingsProperty {frameCaptureS3Settings :: (Prelude.Maybe FrameCaptureS3SettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html>
+    FrameCaptureCdnSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html#cfn-medialive-channel-framecapturecdnsettings-framecaptures3settings>
+                                     frameCaptureS3Settings :: (Prelude.Maybe FrameCaptureS3SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureCdnSettingsProperty ::
   FrameCaptureCdnSettingsProperty
 mkFrameCaptureCdnSettingsProperty
   = FrameCaptureCdnSettingsProperty
-      {frameCaptureS3Settings = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       frameCaptureS3Settings = Prelude.Nothing}
 instance ToResourceProperties FrameCaptureCdnSettingsProperty where
   toResourceProperties FrameCaptureCdnSettingsProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON FrameCaptureCdnSettingsProperty where
                  Prelude.<$> frameCaptureS3Settings]))
 instance Property "FrameCaptureS3Settings" FrameCaptureCdnSettingsProperty where
   type PropertyType "FrameCaptureS3Settings" FrameCaptureCdnSettingsProperty = FrameCaptureS3SettingsProperty
-  set newValue FrameCaptureCdnSettingsProperty {}
+  set newValue FrameCaptureCdnSettingsProperty {..}
     = FrameCaptureCdnSettingsProperty
         {frameCaptureS3Settings = Prelude.pure newValue, ..}

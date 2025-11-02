@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RdsDbInstanceProperty
-  = RdsDbInstanceProperty {dbPassword :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html>
+    RdsDbInstanceProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-dbpassword>
+                           dbPassword :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-dbuser>
                            dbUser :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-rdsdbinstancearn>
                            rdsDbInstanceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsDbInstanceProperty ::
@@ -17,8 +22,8 @@ mkRdsDbInstanceProperty ::
      -> Value Prelude.Text -> RdsDbInstanceProperty
 mkRdsDbInstanceProperty dbPassword dbUser rdsDbInstanceArn
   = RdsDbInstanceProperty
-      {dbPassword = dbPassword, dbUser = dbUser,
-       rdsDbInstanceArn = rdsDbInstanceArn}
+      {haddock_workaround_ = (), dbPassword = dbPassword,
+       dbUser = dbUser, rdsDbInstanceArn = rdsDbInstanceArn}
 instance ToResourceProperties RdsDbInstanceProperty where
   toResourceProperties RdsDbInstanceProperty {..}
     = ResourceProperties

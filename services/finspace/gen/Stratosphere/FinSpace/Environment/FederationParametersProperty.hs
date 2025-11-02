@@ -9,17 +9,26 @@ import {-# SOURCE #-} Stratosphere.FinSpace.Environment.AttributeMapItemsPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FederationParametersProperty
-  = FederationParametersProperty {applicationCallBackURL :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html>
+    FederationParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl>
+                                  applicationCallBackURL :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap>
                                   attributeMap :: (Prelude.Maybe [AttributeMapItemsProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername>
                                   federationProviderName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn>
                                   federationURN :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument>
                                   samlMetadataDocument :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl>
                                   samlMetadataURL :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFederationParametersProperty :: FederationParametersProperty
 mkFederationParametersProperty
   = FederationParametersProperty
-      {applicationCallBackURL = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       applicationCallBackURL = Prelude.Nothing,
        attributeMap = Prelude.Nothing,
        federationProviderName = Prelude.Nothing,
        federationURN = Prelude.Nothing,

@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.IdMappingTable.IdMappingTableInputSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data IdMappingTableInputReferencePropertiesProperty
-  = IdMappingTableInputReferencePropertiesProperty {idMappingTableInputSource :: [IdMappingTableInputSourceProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html>
+    IdMappingTableInputReferencePropertiesProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html#cfn-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties-idmappingtableinputsource>
+                                                    idMappingTableInputSource :: [IdMappingTableInputSourceProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingTableInputReferencePropertiesProperty ::
   [IdMappingTableInputSourceProperty]
@@ -16,7 +19,8 @@ mkIdMappingTableInputReferencePropertiesProperty ::
 mkIdMappingTableInputReferencePropertiesProperty
   idMappingTableInputSource
   = IdMappingTableInputReferencePropertiesProperty
-      {idMappingTableInputSource = idMappingTableInputSource}
+      {haddock_workaround_ = (),
+       idMappingTableInputSource = idMappingTableInputSource}
 instance ToResourceProperties IdMappingTableInputReferencePropertiesProperty where
   toResourceProperties
     IdMappingTableInputReferencePropertiesProperty {..}
@@ -31,6 +35,6 @@ instance JSON.ToJSON IdMappingTableInputReferencePropertiesProperty where
         ["IdMappingTableInputSource" JSON..= idMappingTableInputSource]
 instance Property "IdMappingTableInputSource" IdMappingTableInputReferencePropertiesProperty where
   type PropertyType "IdMappingTableInputSource" IdMappingTableInputReferencePropertiesProperty = [IdMappingTableInputSourceProperty]
-  set newValue IdMappingTableInputReferencePropertiesProperty {}
+  set newValue IdMappingTableInputReferencePropertiesProperty {..}
     = IdMappingTableInputReferencePropertiesProperty
         {idMappingTableInputSource = newValue, ..}

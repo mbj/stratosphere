@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerRangeProperty
-  = IntegerRangeProperty {maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html>
+    IntegerRangeProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-maximum>
+                          maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-minimum>
                           minimum :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerRangeProperty :: IntegerRangeProperty
 mkIntegerRangeProperty
   = IntegerRangeProperty
-      {maximum = Prelude.Nothing, minimum = Prelude.Nothing}
+      {haddock_workaround_ = (), maximum = Prelude.Nothing,
+       minimum = Prelude.Nothing}
 instance ToResourceProperties IntegerRangeProperty where
   toResourceProperties IntegerRangeProperty {..}
     = ResourceProperties

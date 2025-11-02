@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.ComponentVersion.LambdaContainer
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaLinuxProcessParamsProperty
-  = LambdaLinuxProcessParamsProperty {containerParams :: (Prelude.Maybe LambdaContainerParamsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html>
+    LambdaLinuxProcessParamsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams>
+                                      containerParams :: (Prelude.Maybe LambdaContainerParamsProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode>
                                       isolationMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaLinuxProcessParamsProperty ::
   LambdaLinuxProcessParamsProperty
 mkLambdaLinuxProcessParamsProperty
   = LambdaLinuxProcessParamsProperty
-      {containerParams = Prelude.Nothing,
+      {haddock_workaround_ = (), containerParams = Prelude.Nothing,
        isolationMode = Prelude.Nothing}
 instance ToResourceProperties LambdaLinuxProcessParamsProperty where
   toResourceProperties LambdaLinuxProcessParamsProperty {..}

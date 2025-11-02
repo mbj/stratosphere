@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleCriteriaProperty
-  = AnalysisRuleCriteriaProperty {accountIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html>
+    AnalysisRuleCriteriaProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html#cfn-accessanalyzer-analyzer-analysisrulecriteria-accountids>
+                                  accountIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html#cfn-accessanalyzer-analyzer-analysisrulecriteria-resourcetags>
                                   resourceTags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRuleCriteriaProperty :: AnalysisRuleCriteriaProperty
 mkAnalysisRuleCriteriaProperty
   = AnalysisRuleCriteriaProperty
-      {accountIds = Prelude.Nothing, resourceTags = Prelude.Nothing}
+      {haddock_workaround_ = (), accountIds = Prelude.Nothing,
+       resourceTags = Prelude.Nothing}
 instance ToResourceProperties AnalysisRuleCriteriaProperty where
   toResourceProperties AnalysisRuleCriteriaProperty {..}
     = ResourceProperties

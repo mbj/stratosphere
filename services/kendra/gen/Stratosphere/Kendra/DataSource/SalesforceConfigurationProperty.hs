@@ -12,14 +12,25 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.SalesforceStandardObjectCon
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceConfigurationProperty
-  = SalesforceConfigurationProperty {chatterFeedConfiguration :: (Prelude.Maybe SalesforceChatterFeedConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html>
+    SalesforceConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration>
+                                     chatterFeedConfiguration :: (Prelude.Maybe SalesforceChatterFeedConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments>
                                      crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns>
                                      excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns>
                                      includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration>
                                      knowledgeArticleConfiguration :: (Prelude.Maybe SalesforceKnowledgeArticleConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn>
                                      secretArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl>
                                      serverUrl :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration>
                                      standardObjectAttachmentConfiguration :: (Prelude.Maybe SalesforceStandardObjectAttachmentConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations>
                                      standardObjectConfigurations :: (Prelude.Maybe [SalesforceStandardObjectConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceConfigurationProperty ::
@@ -27,8 +38,8 @@ mkSalesforceConfigurationProperty ::
   -> Value Prelude.Text -> SalesforceConfigurationProperty
 mkSalesforceConfigurationProperty secretArn serverUrl
   = SalesforceConfigurationProperty
-      {secretArn = secretArn, serverUrl = serverUrl,
-       chatterFeedConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), secretArn = secretArn,
+       serverUrl = serverUrl, chatterFeedConfiguration = Prelude.Nothing,
        crawlAttachments = Prelude.Nothing,
        excludeAttachmentFilePatterns = Prelude.Nothing,
        includeAttachmentFilePatterns = Prelude.Nothing,

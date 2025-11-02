@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityProviderStrategyItemProperty
-  = CapacityProviderStrategyItemProperty {base :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html>
+    CapacityProviderStrategyItemProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html#cfn-ecs-taskset-capacityproviderstrategyitem-base>
+                                          base :: (Prelude.Maybe (Value Prelude.Integer)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html#cfn-ecs-taskset-capacityproviderstrategyitem-capacityprovider>
                                           capacityProvider :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html#cfn-ecs-taskset-capacityproviderstrategyitem-weight>
                                           weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProviderStrategyItemProperty ::
   CapacityProviderStrategyItemProperty
 mkCapacityProviderStrategyItemProperty
   = CapacityProviderStrategyItemProperty
-      {base = Prelude.Nothing, capacityProvider = Prelude.Nothing,
-       weight = Prelude.Nothing}
+      {haddock_workaround_ = (), base = Prelude.Nothing,
+       capacityProvider = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties CapacityProviderStrategyItemProperty where
   toResourceProperties CapacityProviderStrategyItemProperty {..}
     = ResourceProperties

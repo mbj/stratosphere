@@ -14,20 +14,32 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Service
-  = Service {autoScalingConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html>
+    Service {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn>
+             autoScalingConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration>
              encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration>
              healthCheckConfiguration :: (Prelude.Maybe HealthCheckConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration>
              instanceConfiguration :: (Prelude.Maybe InstanceConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-networkconfiguration>
              networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-observabilityconfiguration>
              observabilityConfiguration :: (Prelude.Maybe ServiceObservabilityConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename>
              serviceName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration>
              sourceConfiguration :: SourceConfigurationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkService :: SourceConfigurationProperty -> Service
 mkService sourceConfiguration
   = Service
-      {sourceConfiguration = sourceConfiguration,
+      {haddock_workaround_ = (),
+       sourceConfiguration = sourceConfiguration,
        autoScalingConfigurationArn = Prelude.Nothing,
        encryptionConfiguration = Prelude.Nothing,
        healthCheckConfiguration = Prelude.Nothing,

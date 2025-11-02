@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignatureValidityPeriodProperty
-  = SignatureValidityPeriodProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html>
+    SignatureValidityPeriodProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type>
+                                     type' :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value>
                                      value :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignatureValidityPeriodProperty ::
   SignatureValidityPeriodProperty
 mkSignatureValidityPeriodProperty
   = SignatureValidityPeriodProperty
-      {type' = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties SignatureValidityPeriodProperty where
   toResourceProperties SignatureValidityPeriodProperty {..}
     = ResourceProperties

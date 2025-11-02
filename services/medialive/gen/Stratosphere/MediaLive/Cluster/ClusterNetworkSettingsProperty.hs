@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Cluster.InterfaceMappingProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterNetworkSettingsProperty
-  = ClusterNetworkSettingsProperty {defaultRoute :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-clusternetworksettings.html>
+    ClusterNetworkSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-clusternetworksettings.html#cfn-medialive-cluster-clusternetworksettings-defaultroute>
+                                    defaultRoute :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-clusternetworksettings.html#cfn-medialive-cluster-clusternetworksettings-interfacemappings>
                                     interfaceMappings :: (Prelude.Maybe [InterfaceMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterNetworkSettingsProperty :: ClusterNetworkSettingsProperty
 mkClusterNetworkSettingsProperty
   = ClusterNetworkSettingsProperty
-      {defaultRoute = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultRoute = Prelude.Nothing,
        interfaceMappings = Prelude.Nothing}
 instance ToResourceProperties ClusterNetworkSettingsProperty where
   toResourceProperties ClusterNetworkSettingsProperty {..}

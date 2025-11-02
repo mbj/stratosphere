@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomVocabularyItemProperty
-  = CustomVocabularyItemProperty {displayAs :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html>
+    CustomVocabularyItemProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html#cfn-lex-bot-customvocabularyitem-displayas>
+                                  displayAs :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html#cfn-lex-bot-customvocabularyitem-phrase>
                                   phrase :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html#cfn-lex-bot-customvocabularyitem-weight>
                                   weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomVocabularyItemProperty ::
   Value Prelude.Text -> CustomVocabularyItemProperty
 mkCustomVocabularyItemProperty phrase
   = CustomVocabularyItemProperty
-      {phrase = phrase, displayAs = Prelude.Nothing,
-       weight = Prelude.Nothing}
+      {haddock_workaround_ = (), phrase = phrase,
+       displayAs = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties CustomVocabularyItemProperty where
   toResourceProperties CustomVocabularyItemProperty {..}
     = ResourceProperties

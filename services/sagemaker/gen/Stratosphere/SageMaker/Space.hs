@@ -11,19 +11,28 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Space
-  = Space {domainId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html>
+    Space {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-domainid>
+           domainId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-ownershipsettings>
            ownershipSettings :: (Prelude.Maybe OwnershipSettingsProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacedisplayname>
            spaceDisplayName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacename>
            spaceName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacesettings>
            spaceSettings :: (Prelude.Maybe SpaceSettingsProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-spacesharingsettings>
            spaceSharingSettings :: (Prelude.Maybe SpaceSharingSettingsProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html#cfn-sagemaker-space-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpace :: Value Prelude.Text -> Value Prelude.Text -> Space
 mkSpace domainId spaceName
   = Space
-      {domainId = domainId, spaceName = spaceName,
-       ownershipSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), domainId = domainId,
+       spaceName = spaceName, ownershipSettings = Prelude.Nothing,
        spaceDisplayName = Prelude.Nothing,
        spaceSettings = Prelude.Nothing,
        spaceSharingSettings = Prelude.Nothing, tags = Prelude.Nothing}

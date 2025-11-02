@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.VpcConfigProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerlessCluster
-  = ServerlessCluster {clientAuthentication :: ClientAuthenticationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html>
+    ServerlessCluster {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-clientauthentication>
+                       clientAuthentication :: ClientAuthenticationProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-clustername>
                        clusterName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-tags>
                        tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html#cfn-msk-serverlesscluster-vpcconfigs>
                        vpcConfigs :: [VpcConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessCluster ::
@@ -19,7 +25,8 @@ mkServerlessCluster ::
   -> Value Prelude.Text -> [VpcConfigProperty] -> ServerlessCluster
 mkServerlessCluster clientAuthentication clusterName vpcConfigs
   = ServerlessCluster
-      {clientAuthentication = clientAuthentication,
+      {haddock_workaround_ = (),
+       clientAuthentication = clientAuthentication,
        clusterName = clusterName, vpcConfigs = vpcConfigs,
        tags = Prelude.Nothing}
 instance ToResourceProperties ServerlessCluster where

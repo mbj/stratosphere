@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.HttpTimeoutProperty as Ex
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TcpTimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 data ListenerTimeoutProperty
-  = ListenerTimeoutProperty {gRPC :: (Prelude.Maybe GrpcTimeoutProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html>
+    ListenerTimeoutProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-grpc>
+                             gRPC :: (Prelude.Maybe GrpcTimeoutProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-http>
                              hTTP :: (Prelude.Maybe HttpTimeoutProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-http2>
                              hTTP2 :: (Prelude.Maybe HttpTimeoutProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html#cfn-appmesh-virtualnode-listenertimeout-tcp>
                              tCP :: (Prelude.Maybe TcpTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTimeoutProperty :: ListenerTimeoutProperty
 mkListenerTimeoutProperty
   = ListenerTimeoutProperty
-      {gRPC = Prelude.Nothing, hTTP = Prelude.Nothing,
-       hTTP2 = Prelude.Nothing, tCP = Prelude.Nothing}
+      {haddock_workaround_ = (), gRPC = Prelude.Nothing,
+       hTTP = Prelude.Nothing, hTTP2 = Prelude.Nothing,
+       tCP = Prelude.Nothing}
 instance ToResourceProperties ListenerTimeoutProperty where
   toResourceProperties ListenerTimeoutProperty {..}
     = ResourceProperties

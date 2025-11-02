@@ -9,15 +9,27 @@ import {-# SOURCE #-} Stratosphere.RDS.DBProxy.TagFormatProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBProxy
-  = DBProxy {auth :: [AuthFormatProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html>
+    DBProxy {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth>
+             auth :: [AuthFormatProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname>
              dBProxyName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging>
              debugLogging :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily>
              engineFamily :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout>
              idleClientTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls>
              requireTLS :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn>
              roleArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags>
              tags :: (Prelude.Maybe [TagFormatProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids>
              vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids>
              vpcSubnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxy ::
@@ -27,7 +39,7 @@ mkDBProxy ::
         -> Value Prelude.Text -> ValueList Prelude.Text -> DBProxy
 mkDBProxy auth dBProxyName engineFamily roleArn vpcSubnetIds
   = DBProxy
-      {auth = auth, dBProxyName = dBProxyName,
+      {haddock_workaround_ = (), auth = auth, dBProxyName = dBProxyName,
        engineFamily = engineFamily, roleArn = roleArn,
        vpcSubnetIds = vpcSubnetIds, debugLogging = Prelude.Nothing,
        idleClientTimeout = Prelude.Nothing, requireTLS = Prelude.Nothing,

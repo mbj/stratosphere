@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.StaticPolicyDefini
 import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyDefinitionProperty
-  = PolicyDefinitionProperty {static :: (Prelude.Maybe StaticPolicyDefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html>
+    PolicyDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-static>
+                              static :: (Prelude.Maybe StaticPolicyDefinitionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-templatelinked>
                               templateLinked :: (Prelude.Maybe TemplateLinkedPolicyDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyDefinitionProperty :: PolicyDefinitionProperty
 mkPolicyDefinitionProperty
   = PolicyDefinitionProperty
-      {static = Prelude.Nothing, templateLinked = Prelude.Nothing}
+      {haddock_workaround_ = (), static = Prelude.Nothing,
+       templateLinked = Prelude.Nothing}
 instance ToResourceProperties PolicyDefinitionProperty where
   toResourceProperties PolicyDefinitionProperty {..}
     = ResourceProperties

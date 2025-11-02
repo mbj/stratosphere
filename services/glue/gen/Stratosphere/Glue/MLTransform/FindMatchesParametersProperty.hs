@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FindMatchesParametersProperty
-  = FindMatchesParametersProperty {accuracyCostTradeoff :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html>
+    FindMatchesParametersProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff>
+                                   accuracyCostTradeoff :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels>
                                    enforceProvidedLabels :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff>
                                    precisionRecallTradeoff :: (Prelude.Maybe (Value Prelude.Double)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname>
                                    primaryKeyColumnName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFindMatchesParametersProperty ::
   Value Prelude.Text -> FindMatchesParametersProperty
 mkFindMatchesParametersProperty primaryKeyColumnName
   = FindMatchesParametersProperty
-      {primaryKeyColumnName = primaryKeyColumnName,
+      {haddock_workaround_ = (),
+       primaryKeyColumnName = primaryKeyColumnName,
        accuracyCostTradeoff = Prelude.Nothing,
        enforceProvidedLabels = Prelude.Nothing,
        precisionRecallTradeoff = Prelude.Nothing}

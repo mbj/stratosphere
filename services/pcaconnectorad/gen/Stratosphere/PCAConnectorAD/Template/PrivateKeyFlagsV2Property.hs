@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrivateKeyFlagsV2Property
-  = PrivateKeyFlagsV2Property {clientVersion :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html>
+    PrivateKeyFlagsV2Property {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html#cfn-pcaconnectorad-template-privatekeyflagsv2-clientversion>
+                               clientVersion :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html#cfn-pcaconnectorad-template-privatekeyflagsv2-exportablekey>
                                exportableKey :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html#cfn-pcaconnectorad-template-privatekeyflagsv2-strongkeyprotectionrequired>
                                strongKeyProtectionRequired :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateKeyFlagsV2Property ::
   Value Prelude.Text -> PrivateKeyFlagsV2Property
 mkPrivateKeyFlagsV2Property clientVersion
   = PrivateKeyFlagsV2Property
-      {clientVersion = clientVersion, exportableKey = Prelude.Nothing,
+      {haddock_workaround_ = (), clientVersion = clientVersion,
+       exportableKey = Prelude.Nothing,
        strongKeyProtectionRequired = Prelude.Nothing}
 instance ToResourceProperties PrivateKeyFlagsV2Property where
   toResourceProperties PrivateKeyFlagsV2Property {..}

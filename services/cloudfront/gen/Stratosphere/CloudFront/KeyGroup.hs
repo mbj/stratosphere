@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.KeyGroup.KeyGroupConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data KeyGroup
-  = KeyGroup {keyGroupConfig :: KeyGroupConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html>
+    KeyGroup {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig>
+              keyGroupConfig :: KeyGroupConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyGroup :: KeyGroupConfigProperty -> KeyGroup
 mkKeyGroup keyGroupConfig
-  = KeyGroup {keyGroupConfig = keyGroupConfig}
+  = KeyGroup
+      {haddock_workaround_ = (), keyGroupConfig = keyGroupConfig}
 instance ToResourceProperties KeyGroup where
   toResourceProperties KeyGroup {..}
     = ResourceProperties
@@ -23,4 +27,5 @@ instance JSON.ToJSON KeyGroup where
     = JSON.object ["KeyGroupConfig" JSON..= keyGroupConfig]
 instance Property "KeyGroupConfig" KeyGroup where
   type PropertyType "KeyGroupConfig" KeyGroup = KeyGroupConfigProperty
-  set newValue KeyGroup {} = KeyGroup {keyGroupConfig = newValue, ..}
+  set newValue KeyGroup {..}
+    = KeyGroup {keyGroupConfig = newValue, ..}

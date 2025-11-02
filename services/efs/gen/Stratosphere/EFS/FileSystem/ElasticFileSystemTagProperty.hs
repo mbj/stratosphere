@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ElasticFileSystemTagProperty
-  = ElasticFileSystemTagProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html>
+    ElasticFileSystemTagProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key>
+                                  key :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value>
                                   value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticFileSystemTagProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ElasticFileSystemTagProperty
 mkElasticFileSystemTagProperty key value
-  = ElasticFileSystemTagProperty {key = key, value = value}
+  = ElasticFileSystemTagProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties ElasticFileSystemTagProperty where
   toResourceProperties ElasticFileSystemTagProperty {..}
     = ResourceProperties

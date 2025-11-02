@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-networkconfiguration.html>
+    NetworkConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-networkconfiguration.html#cfn-batch-jobdefinition-ecstaskproperties-networkconfiguration-assignpublicip>
+                                  assignPublicIp :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
-  = NetworkConfigurationProperty {assignPublicIp = Prelude.Nothing}
+  = NetworkConfigurationProperty
+      {haddock_workaround_ = (), assignPublicIp = Prelude.Nothing}
 instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON NetworkConfigurationProperty where
               [(JSON..=) "AssignPublicIp" Prelude.<$> assignPublicIp]))
 instance Property "AssignPublicIp" NetworkConfigurationProperty where
   type PropertyType "AssignPublicIp" NetworkConfigurationProperty = Value Prelude.Text
-  set newValue NetworkConfigurationProperty {}
+  set newValue NetworkConfigurationProperty {..}
     = NetworkConfigurationProperty
         {assignPublicIp = Prelude.pure newValue, ..}

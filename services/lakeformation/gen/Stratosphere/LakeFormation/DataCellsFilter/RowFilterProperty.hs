@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RowFilterProperty
-  = RowFilterProperty {allRowsWildcard :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html>
+    RowFilterProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html#cfn-lakeformation-datacellsfilter-rowfilter-allrowswildcard>
+                       allRowsWildcard :: (Prelude.Maybe JSON.Object),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html#cfn-lakeformation-datacellsfilter-rowfilter-filterexpression>
                        filterExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRowFilterProperty :: RowFilterProperty
 mkRowFilterProperty
   = RowFilterProperty
-      {allRowsWildcard = Prelude.Nothing,
+      {haddock_workaround_ = (), allRowsWildcard = Prelude.Nothing,
        filterExpression = Prelude.Nothing}
 instance ToResourceProperties RowFilterProperty where
   toResourceProperties RowFilterProperty {..}

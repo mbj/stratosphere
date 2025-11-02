@@ -9,18 +9,26 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.MetricGroupProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationDetailProperty
-  = EvaluationDetailProperty {datasets :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html>
+    EvaluationDetailProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-datasets>
+                              datasets :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-evaluationjobarn>
                               evaluationJobArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-evaluationobservation>
                               evaluationObservation :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-metadata>
                               metadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-metricgroups>
                               metricGroups :: (Prelude.Maybe [MetricGroupProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html#cfn-sagemaker-modelcard-evaluationdetail-name>
                               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationDetailProperty ::
   Value Prelude.Text -> EvaluationDetailProperty
 mkEvaluationDetailProperty name
   = EvaluationDetailProperty
-      {name = name, datasets = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, datasets = Prelude.Nothing,
        evaluationJobArn = Prelude.Nothing,
        evaluationObservation = Prelude.Nothing,
        metadata = Prelude.Nothing, metricGroups = Prelude.Nothing}

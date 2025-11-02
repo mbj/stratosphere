@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptureOptionProperty
-  = CaptureOptionProperty {captureMode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>
+    CaptureOptionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html#cfn-sagemaker-endpointconfig-captureoption-capturemode>
+                           captureMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptureOptionProperty ::
   Value Prelude.Text -> CaptureOptionProperty
 mkCaptureOptionProperty captureMode
-  = CaptureOptionProperty {captureMode = captureMode}
+  = CaptureOptionProperty
+      {haddock_workaround_ = (), captureMode = captureMode}
 instance ToResourceProperties CaptureOptionProperty where
   toResourceProperties CaptureOptionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CaptureOptionProperty where
     = JSON.object ["CaptureMode" JSON..= captureMode]
 instance Property "CaptureMode" CaptureOptionProperty where
   type PropertyType "CaptureMode" CaptureOptionProperty = Value Prelude.Text
-  set newValue CaptureOptionProperty {}
+  set newValue CaptureOptionProperty {..}
     = CaptureOptionProperty {captureMode = newValue, ..}

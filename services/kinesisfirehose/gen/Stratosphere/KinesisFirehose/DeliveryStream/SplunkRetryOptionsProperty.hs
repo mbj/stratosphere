@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SplunkRetryOptionsProperty
-  = SplunkRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html>
+    SplunkRetryOptionsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html#cfn-kinesisfirehose-deliverystream-splunkretryoptions-durationinseconds>
+                                durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSplunkRetryOptionsProperty :: SplunkRetryOptionsProperty
 mkSplunkRetryOptionsProperty
-  = SplunkRetryOptionsProperty {durationInSeconds = Prelude.Nothing}
+  = SplunkRetryOptionsProperty
+      {haddock_workaround_ = (), durationInSeconds = Prelude.Nothing}
 instance ToResourceProperties SplunkRetryOptionsProperty where
   toResourceProperties SplunkRetryOptionsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SplunkRetryOptionsProperty where
               [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
 instance Property "DurationInSeconds" SplunkRetryOptionsProperty where
   type PropertyType "DurationInSeconds" SplunkRetryOptionsProperty = Value Prelude.Integer
-  set newValue SplunkRetryOptionsProperty {}
+  set newValue SplunkRetryOptionsProperty {..}
     = SplunkRetryOptionsProperty
         {durationInSeconds = Prelude.pure newValue, ..}

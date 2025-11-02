@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.UploadSettingsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3SourceProperty
-  = S3SourceProperty {dataSourceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html>
+    S3SourceProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn>
+                      dataSourceArn :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns>
                       inputColumns :: [InputColumnProperty],
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings>
                       uploadSettings :: (Prelude.Maybe UploadSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourceProperty ::
   Value Prelude.Text -> [InputColumnProperty] -> S3SourceProperty
 mkS3SourceProperty dataSourceArn inputColumns
   = S3SourceProperty
-      {dataSourceArn = dataSourceArn, inputColumns = inputColumns,
-       uploadSettings = Prelude.Nothing}
+      {haddock_workaround_ = (), dataSourceArn = dataSourceArn,
+       inputColumns = inputColumns, uploadSettings = Prelude.Nothing}
 instance ToResourceProperties S3SourceProperty where
   toResourceProperties S3SourceProperty {..}
     = ResourceProperties

@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcRouteMatchProperty as Expor
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.GrpcTimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 data GrpcRouteProperty
-  = GrpcRouteProperty {action :: GrpcRouteActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html>
+    GrpcRouteProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-action>
+                       action :: GrpcRouteActionProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-match>
                        match :: GrpcRouteMatchProperty,
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-retrypolicy>
                        retryPolicy :: (Prelude.Maybe GrpcRetryPolicyProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-timeout>
                        timeout :: (Prelude.Maybe GrpcTimeoutProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteProperty ::
@@ -20,8 +26,8 @@ mkGrpcRouteProperty ::
   -> GrpcRouteMatchProperty -> GrpcRouteProperty
 mkGrpcRouteProperty action match
   = GrpcRouteProperty
-      {action = action, match = match, retryPolicy = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action, match = match,
+       retryPolicy = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties GrpcRouteProperty where
   toResourceProperties GrpcRouteProperty {..}
     = ResourceProperties

@@ -13,22 +13,33 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.PrincipalPermissions.TableResou
 import {-# SOURCE #-} Stratosphere.LakeFormation.PrincipalPermissions.TableWithColumnsResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceProperty
-  = ResourceProperty {catalog :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html>
+    ResourceProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-catalog>
+                      catalog :: (Prelude.Maybe JSON.Object),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-datacellsfilter>
                       dataCellsFilter :: (Prelude.Maybe DataCellsFilterResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-datalocation>
                       dataLocation :: (Prelude.Maybe DataLocationResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-database>
                       database :: (Prelude.Maybe DatabaseResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftag>
                       lFTag :: (Prelude.Maybe LFTagKeyResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-lftagpolicy>
                       lFTagPolicy :: (Prelude.Maybe LFTagPolicyResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-table>
                       table :: (Prelude.Maybe TableResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html#cfn-lakeformation-principalpermissions-resource-tablewithcolumns>
                       tableWithColumns :: (Prelude.Maybe TableWithColumnsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
   = ResourceProperty
-      {catalog = Prelude.Nothing, dataCellsFilter = Prelude.Nothing,
-       dataLocation = Prelude.Nothing, database = Prelude.Nothing,
-       lFTag = Prelude.Nothing, lFTagPolicy = Prelude.Nothing,
-       table = Prelude.Nothing, tableWithColumns = Prelude.Nothing}
+      {haddock_workaround_ = (), catalog = Prelude.Nothing,
+       dataCellsFilter = Prelude.Nothing, dataLocation = Prelude.Nothing,
+       database = Prelude.Nothing, lFTag = Prelude.Nothing,
+       lFTagPolicy = Prelude.Nothing, table = Prelude.Nothing,
+       tableWithColumns = Prelude.Nothing}
 instance ToResourceProperties ResourceProperty where
   toResourceProperties ResourceProperty {..}
     = ResourceProperties

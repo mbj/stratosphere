@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlainTextMessageProperty
-  = PlainTextMessageProperty {value :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html>
+    PlainTextMessageProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html#cfn-lex-bot-plaintextmessage-value>
+                              value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlainTextMessageProperty ::
   Value Prelude.Text -> PlainTextMessageProperty
 mkPlainTextMessageProperty value
-  = PlainTextMessageProperty {value = value}
+  = PlainTextMessageProperty
+      {haddock_workaround_ = (), value = value}
 instance ToResourceProperties PlainTextMessageProperty where
   toResourceProperties PlainTextMessageProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON PlainTextMessageProperty where
     = JSON.object ["Value" JSON..= value]
 instance Property "Value" PlainTextMessageProperty where
   type PropertyType "Value" PlainTextMessageProperty = Value Prelude.Text
-  set newValue PlainTextMessageProperty {}
+  set newValue PlainTextMessageProperty {..}
     = PlainTextMessageProperty {value = newValue, ..}

@@ -16,32 +16,54 @@ import {-# SOURCE #-} Stratosphere.EC2.VPNConnection.VpnTunnelLogOptionsSpecific
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpnTunnelOptionsSpecificationProperty
-  = VpnTunnelOptionsSpecificationProperty {dPDTimeoutAction :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html>
+    VpnTunnelOptionsSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-dpdtimeoutaction>
+                                           dPDTimeoutAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-dpdtimeoutseconds>
                                            dPDTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-enabletunnellifecyclecontrol>
                                            enableTunnelLifecycleControl :: (Prelude.Maybe (Value Prelude.Bool)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-ikeversions>
                                            iKEVersions :: (Prelude.Maybe [IKEVersionsRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-logoptions>
                                            logOptions :: (Prelude.Maybe VpnTunnelLogOptionsSpecificationProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase1dhgroupnumbers>
                                            phase1DHGroupNumbers :: (Prelude.Maybe [Phase1DHGroupNumbersRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase1encryptionalgorithms>
                                            phase1EncryptionAlgorithms :: (Prelude.Maybe [Phase1EncryptionAlgorithmsRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase1integrityalgorithms>
                                            phase1IntegrityAlgorithms :: (Prelude.Maybe [Phase1IntegrityAlgorithmsRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase1lifetimeseconds>
                                            phase1LifetimeSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase2dhgroupnumbers>
                                            phase2DHGroupNumbers :: (Prelude.Maybe [Phase2DHGroupNumbersRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase2encryptionalgorithms>
                                            phase2EncryptionAlgorithms :: (Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase2integrityalgorithms>
                                            phase2IntegrityAlgorithms :: (Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValueProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-phase2lifetimeseconds>
                                            phase2LifetimeSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey>
                                            preSharedKey :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-rekeyfuzzpercentage>
                                            rekeyFuzzPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-rekeymargintimeseconds>
                                            rekeyMarginTimeSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-replaywindowsize>
                                            replayWindowSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-startupaction>
                                            startupAction :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr>
                                            tunnelInsideCidr :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsideipv6cidr>
                                            tunnelInsideIpv6Cidr :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpnTunnelOptionsSpecificationProperty ::
   VpnTunnelOptionsSpecificationProperty
 mkVpnTunnelOptionsSpecificationProperty
   = VpnTunnelOptionsSpecificationProperty
-      {dPDTimeoutAction = Prelude.Nothing,
+      {haddock_workaround_ = (), dPDTimeoutAction = Prelude.Nothing,
        dPDTimeoutSeconds = Prelude.Nothing,
        enableTunnelLifecycleControl = Prelude.Nothing,
        iKEVersions = Prelude.Nothing, logOptions = Prelude.Nothing,

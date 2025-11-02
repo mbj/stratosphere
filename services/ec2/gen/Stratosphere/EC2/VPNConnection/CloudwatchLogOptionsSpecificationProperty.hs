@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudwatchLogOptionsSpecificationProperty
-  = CloudwatchLogOptionsSpecificationProperty {logEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html>
+    CloudwatchLogOptionsSpecificationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-logenabled>
+                                               logEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-loggrouparn>
                                                logGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-logoutputformat>
                                                logOutputFormat :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchLogOptionsSpecificationProperty ::
   CloudwatchLogOptionsSpecificationProperty
 mkCloudwatchLogOptionsSpecificationProperty
   = CloudwatchLogOptionsSpecificationProperty
-      {logEnabled = Prelude.Nothing, logGroupArn = Prelude.Nothing,
-       logOutputFormat = Prelude.Nothing}
+      {haddock_workaround_ = (), logEnabled = Prelude.Nothing,
+       logGroupArn = Prelude.Nothing, logOutputFormat = Prelude.Nothing}
 instance ToResourceProperties CloudwatchLogOptionsSpecificationProperty where
   toResourceProperties CloudwatchLogOptionsSpecificationProperty {..}
     = ResourceProperties

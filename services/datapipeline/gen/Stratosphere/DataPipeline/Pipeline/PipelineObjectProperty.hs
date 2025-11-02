@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.DataPipeline.Pipeline.FieldProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineObjectProperty
-  = PipelineObjectProperty {fields :: [FieldProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobject.html>
+    PipelineObjectProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobject.html#cfn-datapipeline-pipeline-pipelineobject-fields>
+                            fields :: [FieldProperty],
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobject.html#cfn-datapipeline-pipeline-pipelineobject-id>
                             id :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobject.html#cfn-datapipeline-pipeline-pipelineobject-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineObjectProperty ::
@@ -18,7 +23,8 @@ mkPipelineObjectProperty ::
   -> Value Prelude.Text
      -> Value Prelude.Text -> PipelineObjectProperty
 mkPipelineObjectProperty fields id name
-  = PipelineObjectProperty {fields = fields, id = id, name = name}
+  = PipelineObjectProperty
+      {haddock_workaround_ = (), fields = fields, id = id, name = name}
 instance ToResourceProperties PipelineObjectProperty where
   toResourceProperties PipelineObjectProperty {..}
     = ResourceProperties

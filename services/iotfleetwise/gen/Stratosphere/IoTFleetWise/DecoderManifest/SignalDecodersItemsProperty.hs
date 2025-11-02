@@ -11,11 +11,19 @@ import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.ObdSignalPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignalDecodersItemsProperty
-  = SignalDecodersItemsProperty {canSignal :: (Prelude.Maybe CanSignalProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html>
+    SignalDecodersItemsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-cansignal>
+                                 canSignal :: (Prelude.Maybe CanSignalProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-customdecodingsignal>
                                  customDecodingSignal :: (Prelude.Maybe CustomDecodingSignalProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-fullyqualifiedname>
                                  fullyQualifiedName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-interfaceid>
                                  interfaceId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-obdsignal>
                                  obdSignal :: (Prelude.Maybe ObdSignalProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html#cfn-iotfleetwise-decodermanifest-signaldecodersitems-type>
                                  type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalDecodersItemsProperty ::
@@ -24,7 +32,7 @@ mkSignalDecodersItemsProperty ::
      -> Value Prelude.Text -> SignalDecodersItemsProperty
 mkSignalDecodersItemsProperty fullyQualifiedName interfaceId type'
   = SignalDecodersItemsProperty
-      {fullyQualifiedName = fullyQualifiedName,
+      {haddock_workaround_ = (), fullyQualifiedName = fullyQualifiedName,
        interfaceId = interfaceId, type' = type',
        canSignal = Prelude.Nothing,
        customDecodingSignal = Prelude.Nothing,

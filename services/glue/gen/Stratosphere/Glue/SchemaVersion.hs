@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.Glue.SchemaVersion.SchemaProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaVersion
-  = SchemaVersion {schema :: SchemaProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html>
+    SchemaVersion {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema>
+                   schema :: SchemaProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition>
                    schemaDefinition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersion ::
   SchemaProperty -> Value Prelude.Text -> SchemaVersion
 mkSchemaVersion schema schemaDefinition
   = SchemaVersion
-      {schema = schema, schemaDefinition = schemaDefinition}
+      {haddock_workaround_ = (), schema = schema,
+       schemaDefinition = schemaDefinition}
 instance ToResourceProperties SchemaVersion where
   toResourceProperties SchemaVersion {..}
     = ResourceProperties

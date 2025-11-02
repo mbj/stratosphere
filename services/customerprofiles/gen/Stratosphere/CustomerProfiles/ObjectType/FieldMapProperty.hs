@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.ObjectType.ObjectTypeFieldPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldMapProperty
-  = FieldMapProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html>
+    FieldMapProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name>
+                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield>
                       objectTypeField :: (Prelude.Maybe ObjectTypeFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldMapProperty :: FieldMapProperty
 mkFieldMapProperty
   = FieldMapProperty
-      {name = Prelude.Nothing, objectTypeField = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       objectTypeField = Prelude.Nothing}
 instance ToResourceProperties FieldMapProperty where
   toResourceProperties FieldMapProperty {..}
     = ResourceProperties

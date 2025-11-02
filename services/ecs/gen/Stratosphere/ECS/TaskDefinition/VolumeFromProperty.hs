@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeFromProperty
-  = VolumeFromProperty {readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html>
+    VolumeFromProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-readonly>
+                        readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html#cfn-ecs-taskdefinition-volumefrom-sourcecontainer>
                         sourceContainer :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeFromProperty :: VolumeFromProperty
 mkVolumeFromProperty
   = VolumeFromProperty
-      {readOnly = Prelude.Nothing, sourceContainer = Prelude.Nothing}
+      {haddock_workaround_ = (), readOnly = Prelude.Nothing,
+       sourceContainer = Prelude.Nothing}
 instance ToResourceProperties VolumeFromProperty where
   toResourceProperties VolumeFromProperty {..}
     = ResourceProperties

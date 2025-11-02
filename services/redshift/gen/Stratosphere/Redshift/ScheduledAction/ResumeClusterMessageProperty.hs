@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResumeClusterMessageProperty
-  = ResumeClusterMessageProperty {clusterIdentifier :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html>
+    ResumeClusterMessageProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html#cfn-redshift-scheduledaction-resumeclustermessage-clusteridentifier>
+                                  clusterIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResumeClusterMessageProperty ::
   Value Prelude.Text -> ResumeClusterMessageProperty
 mkResumeClusterMessageProperty clusterIdentifier
   = ResumeClusterMessageProperty
-      {clusterIdentifier = clusterIdentifier}
+      {haddock_workaround_ = (), clusterIdentifier = clusterIdentifier}
 instance ToResourceProperties ResumeClusterMessageProperty where
   toResourceProperties ResumeClusterMessageProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON ResumeClusterMessageProperty where
     = JSON.object ["ClusterIdentifier" JSON..= clusterIdentifier]
 instance Property "ClusterIdentifier" ResumeClusterMessageProperty where
   type PropertyType "ClusterIdentifier" ResumeClusterMessageProperty = Value Prelude.Text
-  set newValue ResumeClusterMessageProperty {}
+  set newValue ResumeClusterMessageProperty {..}
     = ResumeClusterMessageProperty {clusterIdentifier = newValue, ..}

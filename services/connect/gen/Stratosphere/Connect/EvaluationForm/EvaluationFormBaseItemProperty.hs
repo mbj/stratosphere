@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty as Exports
 import Stratosphere.ResourceProperties
 data EvaluationFormBaseItemProperty
-  = EvaluationFormBaseItemProperty {section :: EvaluationFormSectionProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html>
+    EvaluationFormBaseItemProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html#cfn-connect-evaluationform-evaluationformbaseitem-section>
+                                    section :: EvaluationFormSectionProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormBaseItemProperty ::
   EvaluationFormSectionProperty -> EvaluationFormBaseItemProperty
 mkEvaluationFormBaseItemProperty section
-  = EvaluationFormBaseItemProperty {section = section}
+  = EvaluationFormBaseItemProperty
+      {haddock_workaround_ = (), section = section}
 instance ToResourceProperties EvaluationFormBaseItemProperty where
   toResourceProperties EvaluationFormBaseItemProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON EvaluationFormBaseItemProperty where
     = JSON.object ["Section" JSON..= section]
 instance Property "Section" EvaluationFormBaseItemProperty where
   type PropertyType "Section" EvaluationFormBaseItemProperty = EvaluationFormSectionProperty
-  set newValue EvaluationFormBaseItemProperty {}
+  set newValue EvaluationFormBaseItemProperty {..}
     = EvaluationFormBaseItemProperty {section = newValue, ..}

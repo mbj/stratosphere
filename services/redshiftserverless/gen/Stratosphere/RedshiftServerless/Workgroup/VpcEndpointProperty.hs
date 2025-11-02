@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.RedshiftServerless.Workgroup.NetworkInterface
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcEndpointProperty
-  = VpcEndpointProperty {networkInterfaces :: (Prelude.Maybe [NetworkInterfaceProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html>
+    VpcEndpointProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html#cfn-redshiftserverless-workgroup-vpcendpoint-networkinterfaces>
+                         networkInterfaces :: (Prelude.Maybe [NetworkInterfaceProperty]),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html#cfn-redshiftserverless-workgroup-vpcendpoint-vpcendpointid>
                          vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html#cfn-redshiftserverless-workgroup-vpcendpoint-vpcid>
                          vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcEndpointProperty :: VpcEndpointProperty
 mkVpcEndpointProperty
   = VpcEndpointProperty
-      {networkInterfaces = Prelude.Nothing,
+      {haddock_workaround_ = (), networkInterfaces = Prelude.Nothing,
        vpcEndpointId = Prelude.Nothing, vpcId = Prelude.Nothing}
 instance ToResourceProperties VpcEndpointProperty where
   toResourceProperties VpcEndpointProperty {..}

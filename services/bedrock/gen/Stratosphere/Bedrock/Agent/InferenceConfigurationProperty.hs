@@ -8,18 +8,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceConfigurationProperty
-  = InferenceConfigurationProperty {maximumLength :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html>
+    InferenceConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-maximumlength>
+                                    maximumLength :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-stopsequences>
                                     stopSequences :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-temperature>
                                     temperature :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-topk>
                                     topK :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-topp>
                                     topP :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceConfigurationProperty :: InferenceConfigurationProperty
 mkInferenceConfigurationProperty
   = InferenceConfigurationProperty
-      {maximumLength = Prelude.Nothing, stopSequences = Prelude.Nothing,
-       temperature = Prelude.Nothing, topK = Prelude.Nothing,
-       topP = Prelude.Nothing}
+      {haddock_workaround_ = (), maximumLength = Prelude.Nothing,
+       stopSequences = Prelude.Nothing, temperature = Prelude.Nothing,
+       topK = Prelude.Nothing, topP = Prelude.Nothing}
 instance ToResourceProperties InferenceConfigurationProperty where
   toResourceProperties InferenceConfigurationProperty {..}
     = ResourceProperties

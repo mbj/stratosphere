@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPolicyDetailsProperty
-  = CustomPolicyDetailsProperty {enableDebugLogDelivery :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html>
+    CustomPolicyDetailsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-enabledebuglogdelivery>
+                                 enableDebugLogDelivery :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-policyruntime>
                                  policyRuntime :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html#cfn-config-configrule-custompolicydetails-policytext>
                                  policyText :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPolicyDetailsProperty :: CustomPolicyDetailsProperty
 mkCustomPolicyDetailsProperty
   = CustomPolicyDetailsProperty
-      {enableDebugLogDelivery = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       enableDebugLogDelivery = Prelude.Nothing,
        policyRuntime = Prelude.Nothing, policyText = Prelude.Nothing}
 instance ToResourceProperties CustomPolicyDetailsProperty where
   toResourceProperties CustomPolicyDetailsProperty {..}

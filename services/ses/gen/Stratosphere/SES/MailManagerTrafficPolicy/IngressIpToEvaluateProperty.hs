@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressIpToEvaluateProperty
-  = IngressIpToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html>
+    IngressIpToEvaluateProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressiptoevaluate-attribute>
+                                 attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressIpToEvaluateProperty ::
   Value Prelude.Text -> IngressIpToEvaluateProperty
 mkIngressIpToEvaluateProperty attribute
-  = IngressIpToEvaluateProperty {attribute = attribute}
+  = IngressIpToEvaluateProperty
+      {haddock_workaround_ = (), attribute = attribute}
 instance ToResourceProperties IngressIpToEvaluateProperty where
   toResourceProperties IngressIpToEvaluateProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON IngressIpToEvaluateProperty where
     = JSON.object ["Attribute" JSON..= attribute]
 instance Property "Attribute" IngressIpToEvaluateProperty where
   type PropertyType "Attribute" IngressIpToEvaluateProperty = Value Prelude.Text
-  set newValue IngressIpToEvaluateProperty {}
+  set newValue IngressIpToEvaluateProperty {..}
     = IngressIpToEvaluateProperty {attribute = newValue, ..}

@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KerberosAttributesProperty
-  = KerberosAttributesProperty {aDDomainJoinPassword :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html>
+    KerberosAttributesProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-addomainjoinpassword>
+                                aDDomainJoinPassword :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-addomainjoinuser>
                                 aDDomainJoinUser :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-crossrealmtrustprincipalpassword>
                                 crossRealmTrustPrincipalPassword :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-kdcadminpassword>
                                 kdcAdminPassword :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-realm>
                                 realm :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKerberosAttributesProperty ::
@@ -18,8 +25,8 @@ mkKerberosAttributesProperty ::
   -> Value Prelude.Text -> KerberosAttributesProperty
 mkKerberosAttributesProperty kdcAdminPassword realm
   = KerberosAttributesProperty
-      {kdcAdminPassword = kdcAdminPassword, realm = realm,
-       aDDomainJoinPassword = Prelude.Nothing,
+      {haddock_workaround_ = (), kdcAdminPassword = kdcAdminPassword,
+       realm = realm, aDDomainJoinPassword = Prelude.Nothing,
        aDDomainJoinUser = Prelude.Nothing,
        crossRealmTrustPrincipalPassword = Prelude.Nothing}
 instance ToResourceProperties KerberosAttributesProperty where

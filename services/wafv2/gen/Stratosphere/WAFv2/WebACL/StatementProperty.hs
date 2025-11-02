@@ -21,26 +21,43 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.SqliMatchStatementProperty as Ex
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.XssMatchStatementProperty as Exports
 import Stratosphere.ResourceProperties
 data StatementProperty
-  = StatementProperty {andStatement :: (Prelude.Maybe AndStatementProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>
+    StatementProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement>
+                       andStatement :: (Prelude.Maybe AndStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement>
                        byteMatchStatement :: (Prelude.Maybe ByteMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement>
                        geoMatchStatement :: (Prelude.Maybe GeoMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement>
                        iPSetReferenceStatement :: (Prelude.Maybe IPSetReferenceStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement>
                        labelMatchStatement :: (Prelude.Maybe LabelMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement>
                        managedRuleGroupStatement :: (Prelude.Maybe ManagedRuleGroupStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement>
                        notStatement :: (Prelude.Maybe NotStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement>
                        orStatement :: (Prelude.Maybe OrStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement>
                        rateBasedStatement :: (Prelude.Maybe RateBasedStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexmatchstatement>
                        regexMatchStatement :: (Prelude.Maybe RegexMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement>
                        regexPatternSetReferenceStatement :: (Prelude.Maybe RegexPatternSetReferenceStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement>
                        ruleGroupReferenceStatement :: (Prelude.Maybe RuleGroupReferenceStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement>
                        sizeConstraintStatement :: (Prelude.Maybe SizeConstraintStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement>
                        sqliMatchStatement :: (Prelude.Maybe SqliMatchStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement>
                        xssMatchStatement :: (Prelude.Maybe XssMatchStatementProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatementProperty :: StatementProperty
 mkStatementProperty
   = StatementProperty
-      {andStatement = Prelude.Nothing,
+      {haddock_workaround_ = (), andStatement = Prelude.Nothing,
        byteMatchStatement = Prelude.Nothing,
        geoMatchStatement = Prelude.Nothing,
        iPSetReferenceStatement = Prelude.Nothing,

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpFilterProperty
-  = IpFilterProperty {cidr :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html>
+    IpFilterProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr>
+                      cidr :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy>
                       policy :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IpFilterProperty
 mkIpFilterProperty cidr policy
-  = IpFilterProperty {cidr = cidr, policy = policy}
+  = IpFilterProperty
+      {haddock_workaround_ = (), cidr = cidr, policy = policy}
 instance ToResourceProperties IpFilterProperty where
   toResourceProperties IpFilterProperty {..}
     = ResourceProperties

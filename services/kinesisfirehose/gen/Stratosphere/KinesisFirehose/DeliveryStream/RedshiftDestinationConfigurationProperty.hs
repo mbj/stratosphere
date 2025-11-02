@@ -14,17 +14,31 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManager
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftDestinationConfigurationProperty
-  = RedshiftDestinationConfigurationProperty {cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html>
+    RedshiftDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions>
+                                              cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-clusterjdbcurl>
                                               clusterJDBCURL :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand>
                                               copyCommand :: CopyCommandProperty,
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password>
                                               password :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration>
                                               processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions>
                                               retryOptions :: (Prelude.Maybe RedshiftRetryOptionsProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn>
                                               roleARN :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration>
                                               s3BackupConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode>
                                               s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration>
                                               s3Configuration :: S3DestinationConfigurationProperty,
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-secretsmanagerconfiguration>
                                               secretsManagerConfiguration :: (Prelude.Maybe SecretsManagerConfigurationProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username>
                                               username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDestinationConfigurationProperty ::
@@ -39,8 +53,9 @@ mkRedshiftDestinationConfigurationProperty
   roleARN
   s3Configuration
   = RedshiftDestinationConfigurationProperty
-      {clusterJDBCURL = clusterJDBCURL, copyCommand = copyCommand,
-       roleARN = roleARN, s3Configuration = s3Configuration,
+      {haddock_workaround_ = (), clusterJDBCURL = clusterJDBCURL,
+       copyCommand = copyCommand, roleARN = roleARN,
+       s3Configuration = s3Configuration,
        cloudWatchLoggingOptions = Prelude.Nothing,
        password = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,

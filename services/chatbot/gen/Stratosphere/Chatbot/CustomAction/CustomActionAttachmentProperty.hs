@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.Chatbot.CustomAction.CustomActionAttachmentCr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomActionAttachmentProperty
-  = CustomActionAttachmentProperty {buttonText :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html>
+    CustomActionAttachmentProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html#cfn-chatbot-customaction-customactionattachment-buttontext>
+                                    buttonText :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html#cfn-chatbot-customaction-customactionattachment-criteria>
                                     criteria :: (Prelude.Maybe [CustomActionAttachmentCriteriaProperty]),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html#cfn-chatbot-customaction-customactionattachment-notificationtype>
                                     notificationType :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html#cfn-chatbot-customaction-customactionattachment-variables>
                                     variables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionAttachmentProperty :: CustomActionAttachmentProperty
 mkCustomActionAttachmentProperty
   = CustomActionAttachmentProperty
-      {buttonText = Prelude.Nothing, criteria = Prelude.Nothing,
-       notificationType = Prelude.Nothing, variables = Prelude.Nothing}
+      {haddock_workaround_ = (), buttonText = Prelude.Nothing,
+       criteria = Prelude.Nothing, notificationType = Prelude.Nothing,
+       variables = Prelude.Nothing}
 instance ToResourceProperties CustomActionAttachmentProperty where
   toResourceProperties CustomActionAttachmentProperty {..}
     = ResourceProperties

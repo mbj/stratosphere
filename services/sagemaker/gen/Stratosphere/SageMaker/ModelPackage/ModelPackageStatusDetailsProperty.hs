@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusItemProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelPackageStatusDetailsProperty
-  = ModelPackageStatusDetailsProperty {validationStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html>
+    ModelPackageStatusDetailsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html#cfn-sagemaker-modelpackage-modelpackagestatusdetails-validationstatuses>
+                                       validationStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageStatusDetailsProperty ::
   ModelPackageStatusDetailsProperty
 mkModelPackageStatusDetailsProperty
   = ModelPackageStatusDetailsProperty
-      {validationStatuses = Prelude.Nothing}
+      {haddock_workaround_ = (), validationStatuses = Prelude.Nothing}
 instance ToResourceProperties ModelPackageStatusDetailsProperty where
   toResourceProperties ModelPackageStatusDetailsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ModelPackageStatusDetailsProperty where
               [(JSON..=) "ValidationStatuses" Prelude.<$> validationStatuses]))
 instance Property "ValidationStatuses" ModelPackageStatusDetailsProperty where
   type PropertyType "ValidationStatuses" ModelPackageStatusDetailsProperty = [ModelPackageStatusItemProperty]
-  set newValue ModelPackageStatusDetailsProperty {}
+  set newValue ModelPackageStatusDetailsProperty {..}
     = ModelPackageStatusDetailsProperty
         {validationStatuses = Prelude.pure newValue, ..}

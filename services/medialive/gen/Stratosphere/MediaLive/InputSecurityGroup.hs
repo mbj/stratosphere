@@ -7,13 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.InputSecurityGroup.InputWhitelistRuleCidrProperty as Exports
 import Stratosphere.ResourceProperties
 data InputSecurityGroup
-  = InputSecurityGroup {tags :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html>
+    InputSecurityGroup {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html#cfn-medialive-inputsecuritygroup-tags>
+                        tags :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html#cfn-medialive-inputsecuritygroup-whitelistrules>
                         whitelistRules :: (Prelude.Maybe [InputWhitelistRuleCidrProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSecurityGroup :: InputSecurityGroup
 mkInputSecurityGroup
   = InputSecurityGroup
-      {tags = Prelude.Nothing, whitelistRules = Prelude.Nothing}
+      {haddock_workaround_ = (), tags = Prelude.Nothing,
+       whitelistRules = Prelude.Nothing}
 instance ToResourceProperties InputSecurityGroup where
   toResourceProperties InputSecurityGroup {..}
     = ResourceProperties

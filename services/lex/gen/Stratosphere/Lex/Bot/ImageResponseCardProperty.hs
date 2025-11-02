@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.ButtonProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageResponseCardProperty
-  = ImageResponseCardProperty {buttons :: (Prelude.Maybe [ButtonProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html>
+    ImageResponseCardProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-buttons>
+                               buttons :: (Prelude.Maybe [ButtonProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-imageurl>
                                imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-subtitle>
                                subtitle :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html#cfn-lex-bot-imageresponsecard-title>
                                title :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageResponseCardProperty ::
   Value Prelude.Text -> ImageResponseCardProperty
 mkImageResponseCardProperty title
   = ImageResponseCardProperty
-      {title = title, buttons = Prelude.Nothing,
-       imageUrl = Prelude.Nothing, subtitle = Prelude.Nothing}
+      {haddock_workaround_ = (), title = title,
+       buttons = Prelude.Nothing, imageUrl = Prelude.Nothing,
+       subtitle = Prelude.Nothing}
 instance ToResourceProperties ImageResponseCardProperty where
   toResourceProperties ImageResponseCardProperty {..}
     = ResourceProperties

@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentDependencyRequirementProperty
-  = ComponentDependencyRequirementProperty {dependencyType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html>
+    ComponentDependencyRequirementProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype>
+                                            dependencyType :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement>
                                             versionRequirement :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDependencyRequirementProperty ::
   ComponentDependencyRequirementProperty
 mkComponentDependencyRequirementProperty
   = ComponentDependencyRequirementProperty
-      {dependencyType = Prelude.Nothing,
+      {haddock_workaround_ = (), dependencyType = Prelude.Nothing,
        versionRequirement = Prelude.Nothing}
 instance ToResourceProperties ComponentDependencyRequirementProperty where
   toResourceProperties ComponentDependencyRequirementProperty {..}

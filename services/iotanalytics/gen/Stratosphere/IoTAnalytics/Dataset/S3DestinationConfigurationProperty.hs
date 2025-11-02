@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.GlueConfigurationPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationConfigurationProperty
-  = S3DestinationConfigurationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html>
+    S3DestinationConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-bucket>
+                                        bucket :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-glueconfiguration>
                                         glueConfiguration :: (Prelude.Maybe GlueConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-key>
                                         key :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-rolearn>
                                         roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::
@@ -20,8 +26,8 @@ mkS3DestinationConfigurationProperty ::
      -> Value Prelude.Text -> S3DestinationConfigurationProperty
 mkS3DestinationConfigurationProperty bucket key roleArn
   = S3DestinationConfigurationProperty
-      {bucket = bucket, key = key, roleArn = roleArn,
-       glueConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket, key = key,
+       roleArn = roleArn, glueConfiguration = Prelude.Nothing}
 instance ToResourceProperties S3DestinationConfigurationProperty where
   toResourceProperties S3DestinationConfigurationProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerCertificate.Ce
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerCertificate
-  = ListenerCertificate {certificates :: [CertificateProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html>
+    ListenerCertificate {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-certificates>
+                         certificates :: [CertificateProperty],
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-listenerarn>
                          listenerArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerCertificate ::
   [CertificateProperty] -> Value Prelude.Text -> ListenerCertificate
 mkListenerCertificate certificates listenerArn
   = ListenerCertificate
-      {certificates = certificates, listenerArn = listenerArn}
+      {haddock_workaround_ = (), certificates = certificates,
+       listenerArn = listenerArn}
 instance ToResourceProperties ListenerCertificate where
   toResourceProperties ListenerCertificate {..}
     = ResourceProperties

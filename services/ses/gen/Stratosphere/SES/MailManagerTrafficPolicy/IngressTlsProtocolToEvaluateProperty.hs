@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressTlsProtocolToEvaluateProperty
-  = IngressTlsProtocolToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate.html>
+    IngressTlsProtocolToEvaluateProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate-attribute>
+                                          attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressTlsProtocolToEvaluateProperty ::
   Value Prelude.Text -> IngressTlsProtocolToEvaluateProperty
 mkIngressTlsProtocolToEvaluateProperty attribute
-  = IngressTlsProtocolToEvaluateProperty {attribute = attribute}
+  = IngressTlsProtocolToEvaluateProperty
+      {haddock_workaround_ = (), attribute = attribute}
 instance ToResourceProperties IngressTlsProtocolToEvaluateProperty where
   toResourceProperties IngressTlsProtocolToEvaluateProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IngressTlsProtocolToEvaluateProperty where
     = JSON.object ["Attribute" JSON..= attribute]
 instance Property "Attribute" IngressTlsProtocolToEvaluateProperty where
   type PropertyType "Attribute" IngressTlsProtocolToEvaluateProperty = Value Prelude.Text
-  set newValue IngressTlsProtocolToEvaluateProperty {}
+  set newValue IngressTlsProtocolToEvaluateProperty {..}
     = IngressTlsProtocolToEvaluateProperty {attribute = newValue, ..}

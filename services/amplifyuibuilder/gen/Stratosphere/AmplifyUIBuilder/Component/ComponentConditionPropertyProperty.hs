@@ -9,22 +9,31 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.ComponentPropertyP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentConditionPropertyProperty
-  = ComponentConditionPropertyProperty {else' :: (Prelude.Maybe ComponentPropertyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html>
+    ComponentConditionPropertyProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-else>
+                                        else' :: (Prelude.Maybe ComponentPropertyProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-field>
                                         field :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operand>
                                         operand :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operandtype>
                                         operandType :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-operator>
                                         operator :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-property>
                                         property :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentconditionproperty.html#cfn-amplifyuibuilder-component-componentconditionproperty-then>
                                         then' :: (Prelude.Maybe ComponentPropertyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConditionPropertyProperty ::
   ComponentConditionPropertyProperty
 mkComponentConditionPropertyProperty
   = ComponentConditionPropertyProperty
-      {else' = Prelude.Nothing, field = Prelude.Nothing,
-       operand = Prelude.Nothing, operandType = Prelude.Nothing,
-       operator = Prelude.Nothing, property = Prelude.Nothing,
-       then' = Prelude.Nothing}
+      {haddock_workaround_ = (), else' = Prelude.Nothing,
+       field = Prelude.Nothing, operand = Prelude.Nothing,
+       operandType = Prelude.Nothing, operator = Prelude.Nothing,
+       property = Prelude.Nothing, then' = Prelude.Nothing}
 instance ToResourceProperties ComponentConditionPropertyProperty where
   toResourceProperties ComponentConditionPropertyProperty {..}
     = ResourceProperties

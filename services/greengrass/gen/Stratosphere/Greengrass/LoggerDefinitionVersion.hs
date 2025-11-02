@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinitionVersion.LoggerProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggerDefinitionVersion
-  = LoggerDefinitionVersion {loggerDefinitionId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html>
+    LoggerDefinitionVersion {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggerdefinitionid>
+                             loggerDefinitionId :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html#cfn-greengrass-loggerdefinitionversion-loggers>
                              loggers :: [LoggerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinitionVersion ::
   Value Prelude.Text -> [LoggerProperty] -> LoggerDefinitionVersion
 mkLoggerDefinitionVersion loggerDefinitionId loggers
   = LoggerDefinitionVersion
-      {loggerDefinitionId = loggerDefinitionId, loggers = loggers}
+      {haddock_workaround_ = (), loggerDefinitionId = loggerDefinitionId,
+       loggers = loggers}
 instance ToResourceProperties LoggerDefinitionVersion where
   toResourceProperties LoggerDefinitionVersion {..}
     = ResourceProperties

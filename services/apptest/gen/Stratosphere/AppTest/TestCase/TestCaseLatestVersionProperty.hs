@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TestCaseLatestVersionProperty
-  = TestCaseLatestVersionProperty {status :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-testcaselatestversion.html>
+    TestCaseLatestVersionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-testcaselatestversion.html#cfn-apptest-testcase-testcaselatestversion-status>
+                                   status :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-testcaselatestversion.html#cfn-apptest-testcase-testcaselatestversion-version>
                                    version :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTestCaseLatestVersionProperty ::
@@ -15,7 +19,7 @@ mkTestCaseLatestVersionProperty ::
   -> Value Prelude.Double -> TestCaseLatestVersionProperty
 mkTestCaseLatestVersionProperty status version
   = TestCaseLatestVersionProperty
-      {status = status, version = version}
+      {haddock_workaround_ = (), status = status, version = version}
 instance ToResourceProperties TestCaseLatestVersionProperty where
   toResourceProperties TestCaseLatestVersionProperty {..}
     = ResourceProperties

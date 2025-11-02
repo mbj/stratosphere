@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.AppSync.Resolver.LambdaConflictHandlerConfigP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SyncConfigProperty
-  = SyncConfigProperty {conflictDetection :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html>
+    SyncConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflictdetection>
+                        conflictDetection :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-conflicthandler>
                         conflictHandler :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html#cfn-appsync-resolver-syncconfig-lambdaconflicthandlerconfig>
                         lambdaConflictHandlerConfig :: (Prelude.Maybe LambdaConflictHandlerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncConfigProperty :: Value Prelude.Text -> SyncConfigProperty
 mkSyncConfigProperty conflictDetection
   = SyncConfigProperty
-      {conflictDetection = conflictDetection,
+      {haddock_workaround_ = (), conflictDetection = conflictDetection,
        conflictHandler = Prelude.Nothing,
        lambdaConflictHandlerConfig = Prelude.Nothing}
 instance ToResourceProperties SyncConfigProperty where

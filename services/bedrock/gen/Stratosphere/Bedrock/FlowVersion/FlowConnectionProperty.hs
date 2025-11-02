@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.FlowConnectionConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowConnectionProperty
-  = FlowConnectionProperty {configuration :: (Prelude.Maybe FlowConnectionConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html>
+    FlowConnectionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html#cfn-bedrock-flowversion-flowconnection-configuration>
+                            configuration :: (Prelude.Maybe FlowConnectionConfigurationProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html#cfn-bedrock-flowversion-flowconnection-name>
                             name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html#cfn-bedrock-flowversion-flowconnection-source>
                             source :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html#cfn-bedrock-flowversion-flowconnection-target>
                             target :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html#cfn-bedrock-flowversion-flowconnection-type>
                             type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowConnectionProperty ::
@@ -22,8 +29,8 @@ mkFlowConnectionProperty ::
         -> Value Prelude.Text -> FlowConnectionProperty
 mkFlowConnectionProperty name source target type'
   = FlowConnectionProperty
-      {name = name, source = source, target = target, type' = type',
-       configuration = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, source = source,
+       target = target, type' = type', configuration = Prelude.Nothing}
 instance ToResourceProperties FlowConnectionProperty where
   toResourceProperties FlowConnectionProperty {..}
     = ResourceProperties

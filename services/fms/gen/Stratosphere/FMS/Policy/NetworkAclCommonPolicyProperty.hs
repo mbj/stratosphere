@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FMS.Policy.NetworkAclEntrySetProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkAclCommonPolicyProperty
-  = NetworkAclCommonPolicyProperty {networkAclEntrySet :: NetworkAclEntrySetProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html>
+    NetworkAclCommonPolicyProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html#cfn-fms-policy-networkaclcommonpolicy-networkaclentryset>
+                                    networkAclEntrySet :: NetworkAclEntrySetProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclCommonPolicyProperty ::
   NetworkAclEntrySetProperty -> NetworkAclCommonPolicyProperty
 mkNetworkAclCommonPolicyProperty networkAclEntrySet
   = NetworkAclCommonPolicyProperty
-      {networkAclEntrySet = networkAclEntrySet}
+      {haddock_workaround_ = (), networkAclEntrySet = networkAclEntrySet}
 instance ToResourceProperties NetworkAclCommonPolicyProperty where
   toResourceProperties NetworkAclCommonPolicyProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON NetworkAclCommonPolicyProperty where
     = JSON.object ["NetworkAclEntrySet" JSON..= networkAclEntrySet]
 instance Property "NetworkAclEntrySet" NetworkAclCommonPolicyProperty where
   type PropertyType "NetworkAclEntrySet" NetworkAclCommonPolicyProperty = NetworkAclEntrySetProperty
-  set newValue NetworkAclCommonPolicyProperty {}
+  set newValue NetworkAclCommonPolicyProperty {..}
     = NetworkAclCommonPolicyProperty
         {networkAclEntrySet = newValue, ..}

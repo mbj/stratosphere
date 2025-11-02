@@ -10,21 +10,34 @@ import {-# SOURCE #-} Stratosphere.Glue.Trigger.PredicateProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Trigger
-  = Trigger {actions :: [ActionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html>
+    Trigger {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-actions>
+             actions :: [ActionProperty],
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description>
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-eventbatchingcondition>
              eventBatchingCondition :: (Prelude.Maybe EventBatchingConditionProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-predicate>
              predicate :: (Prelude.Maybe PredicateProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule>
              schedule :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation>
              startOnCreation :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-tags>
              tags :: (Prelude.Maybe JSON.Object),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type>
              type' :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname>
              workflowName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrigger :: [ActionProperty] -> Value Prelude.Text -> Trigger
 mkTrigger actions type'
   = Trigger
-      {actions = actions, type' = type', description = Prelude.Nothing,
+      {haddock_workaround_ = (), actions = actions, type' = type',
+       description = Prelude.Nothing,
        eventBatchingCondition = Prelude.Nothing, name = Prelude.Nothing,
        predicate = Prelude.Nothing, schedule = Prelude.Nothing,
        startOnCreation = Prelude.Nothing, tags = Prelude.Nothing,

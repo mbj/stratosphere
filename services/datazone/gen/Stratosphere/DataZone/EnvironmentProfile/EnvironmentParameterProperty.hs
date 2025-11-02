@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentParameterProperty
-  = EnvironmentParameterProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html>
+    EnvironmentParameterProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html#cfn-datazone-environmentprofile-environmentparameter-name>
+                                  name :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html#cfn-datazone-environmentprofile-environmentparameter-value>
                                   value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentParameterProperty :: EnvironmentParameterProperty
 mkEnvironmentParameterProperty
   = EnvironmentParameterProperty
-      {name = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties EnvironmentParameterProperty where
   toResourceProperties EnvironmentParameterProperty {..}
     = ResourceProperties

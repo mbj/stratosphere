@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.AnalysisProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleVerdictToEvaluateProperty
-  = RuleVerdictToEvaluateProperty {analysis :: (Prelude.Maybe AnalysisProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html>
+    RuleVerdictToEvaluateProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html#cfn-ses-mailmanagerruleset-ruleverdicttoevaluate-analysis>
+                                   analysis :: (Prelude.Maybe AnalysisProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html#cfn-ses-mailmanagerruleset-ruleverdicttoevaluate-attribute>
                                    attribute :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleVerdictToEvaluateProperty :: RuleVerdictToEvaluateProperty
 mkRuleVerdictToEvaluateProperty
   = RuleVerdictToEvaluateProperty
-      {analysis = Prelude.Nothing, attribute = Prelude.Nothing}
+      {haddock_workaround_ = (), analysis = Prelude.Nothing,
+       attribute = Prelude.Nothing}
 instance ToResourceProperties RuleVerdictToEvaluateProperty where
   toResourceProperties RuleVerdictToEvaluateProperty {..}
     = ResourceProperties

@@ -9,20 +9,28 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.ActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicRulePayloadProperty
-  = TopicRulePayloadProperty {actions :: [ActionProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html>
+    TopicRulePayloadProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions>
+                              actions :: [ActionProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion>
                               awsIotSqlVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description>
                               description :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction>
                               errorAction :: (Prelude.Maybe ActionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled>
                               ruleDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql>
                               sql :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRulePayloadProperty ::
   [ActionProperty] -> Value Prelude.Text -> TopicRulePayloadProperty
 mkTopicRulePayloadProperty actions sql
   = TopicRulePayloadProperty
-      {actions = actions, sql = sql, awsIotSqlVersion = Prelude.Nothing,
-       description = Prelude.Nothing, errorAction = Prelude.Nothing,
-       ruleDisabled = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions, sql = sql,
+       awsIotSqlVersion = Prelude.Nothing, description = Prelude.Nothing,
+       errorAction = Prelude.Nothing, ruleDisabled = Prelude.Nothing}
 instance ToResourceProperties TopicRulePayloadProperty where
   toResourceProperties TopicRulePayloadProperty {..}
     = ResourceProperties

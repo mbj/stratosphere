@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.RemoveHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 data RemoveHeadersConfigProperty
-  = RemoveHeadersConfigProperty {items :: [RemoveHeaderProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html>
+    RemoveHeadersConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html#cfn-cloudfront-responseheaderspolicy-removeheadersconfig-items>
+                                 items :: [RemoveHeaderProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeadersConfigProperty ::
   [RemoveHeaderProperty] -> RemoveHeadersConfigProperty
 mkRemoveHeadersConfigProperty items
-  = RemoveHeadersConfigProperty {items = items}
+  = RemoveHeadersConfigProperty
+      {haddock_workaround_ = (), items = items}
 instance ToResourceProperties RemoveHeadersConfigProperty where
   toResourceProperties RemoveHeadersConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RemoveHeadersConfigProperty where
     = JSON.object ["Items" JSON..= items]
 instance Property "Items" RemoveHeadersConfigProperty where
   type PropertyType "Items" RemoveHeadersConfigProperty = [RemoveHeaderProperty]
-  set newValue RemoveHeadersConfigProperty {}
+  set newValue RemoveHeadersConfigProperty {..}
     = RemoveHeadersConfigProperty {items = newValue, ..}

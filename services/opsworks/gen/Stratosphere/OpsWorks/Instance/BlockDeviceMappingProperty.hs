@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.OpsWorks.Instance.EbsBlockDeviceProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockDeviceMappingProperty
-  = BlockDeviceMappingProperty {deviceName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html>
+    BlockDeviceMappingProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html#cfn-opsworks-instance-blockdevicemapping-devicename>
+                                deviceName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html#cfn-opsworks-instance-blockdevicemapping-ebs>
                                 ebs :: (Prelude.Maybe EbsBlockDeviceProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html#cfn-opsworks-instance-blockdevicemapping-nodevice>
                                 noDevice :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html#cfn-opsworks-instance-blockdevicemapping-virtualname>
                                 virtualName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockDeviceMappingProperty :: BlockDeviceMappingProperty
 mkBlockDeviceMappingProperty
   = BlockDeviceMappingProperty
-      {deviceName = Prelude.Nothing, ebs = Prelude.Nothing,
-       noDevice = Prelude.Nothing, virtualName = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceName = Prelude.Nothing,
+       ebs = Prelude.Nothing, noDevice = Prelude.Nothing,
+       virtualName = Prelude.Nothing}
 instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties

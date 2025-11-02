@@ -7,12 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Device
-  = Device {deviceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html>
+    Device {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-deviceid>
+            deviceId :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-enabled>
             enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Value Prelude.Bool -> Device
 mkDevice deviceId enabled
-  = Device {deviceId = deviceId, enabled = enabled}
+  = Device
+      {haddock_workaround_ = (), deviceId = deviceId, enabled = enabled}
 instance ToResourceProperties Device where
   toResourceProperties Device {..}
     = ResourceProperties

@@ -10,18 +10,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Endpoint
-  = Endpoint {deploymentConfig :: (Prelude.Maybe DeploymentConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html>
+    Endpoint {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-deploymentconfig>
+              deploymentConfig :: (Prelude.Maybe DeploymentConfigProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname>
               endpointConfigName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointname>
               endpointName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-excluderetainedvariantproperties>
               excludeRetainedVariantProperties :: (Prelude.Maybe [VariantPropertyProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-retainallvariantproperties>
               retainAllVariantProperties :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-retaindeploymentconfig>
               retainDeploymentConfig :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint :: Value Prelude.Text -> Endpoint
 mkEndpoint endpointConfigName
   = Endpoint
-      {endpointConfigName = endpointConfigName,
+      {haddock_workaround_ = (), endpointConfigName = endpointConfigName,
        deploymentConfig = Prelude.Nothing, endpointName = Prelude.Nothing,
        excludeRetainedVariantProperties = Prelude.Nothing,
        retainAllVariantProperties = Prelude.Nothing,

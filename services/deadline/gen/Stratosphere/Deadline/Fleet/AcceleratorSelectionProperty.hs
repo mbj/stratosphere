@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AcceleratorSelectionProperty
-  = AcceleratorSelectionProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html>
+    AcceleratorSelectionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html#cfn-deadline-fleet-acceleratorselection-name>
+                                  name :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html#cfn-deadline-fleet-acceleratorselection-runtime>
                                   runtime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorSelectionProperty ::
   Value Prelude.Text -> AcceleratorSelectionProperty
 mkAcceleratorSelectionProperty name
   = AcceleratorSelectionProperty
-      {name = name, runtime = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, runtime = Prelude.Nothing}
 instance ToResourceProperties AcceleratorSelectionProperty where
   toResourceProperties AcceleratorSelectionProperty {..}
     = ResourceProperties

@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Function.FunctionMetadataProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Function
-  = Function {autoPublish :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html>
+    Function {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish>
+              autoPublish :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode>
               functionCode :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig>
               functionConfig :: FunctionConfigProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata>
               functionMetadata :: (Prelude.Maybe FunctionMetadataProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name>
               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunction ::
@@ -20,9 +27,9 @@ mkFunction ::
   -> FunctionConfigProperty -> Value Prelude.Text -> Function
 mkFunction functionCode functionConfig name
   = Function
-      {functionCode = functionCode, functionConfig = functionConfig,
-       name = name, autoPublish = Prelude.Nothing,
-       functionMetadata = Prelude.Nothing}
+      {haddock_workaround_ = (), functionCode = functionCode,
+       functionConfig = functionConfig, name = name,
+       autoPublish = Prelude.Nothing, functionMetadata = Prelude.Nothing}
 instance ToResourceProperties Function where
   toResourceProperties Function {..}
     = ResourceProperties

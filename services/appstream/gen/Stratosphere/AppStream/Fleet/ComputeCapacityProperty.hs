@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeCapacityProperty
-  = ComputeCapacityProperty {desiredInstances :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html>
+    ComputeCapacityProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances>
+                             desiredInstances :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredsessions>
                              desiredSessions :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeCapacityProperty :: ComputeCapacityProperty
 mkComputeCapacityProperty
   = ComputeCapacityProperty
-      {desiredInstances = Prelude.Nothing,
+      {haddock_workaround_ = (), desiredInstances = Prelude.Nothing,
        desiredSessions = Prelude.Nothing}
 instance ToResourceProperties ComputeCapacityProperty where
   toResourceProperties ComputeCapacityProperty {..}

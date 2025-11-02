@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegrationAssociation
-  = IntegrationAssociation {instanceId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html>
+    IntegrationAssociation {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-instanceid>
+                            instanceId :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-integrationarn>
                             integrationArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-integrationtype>
                             integrationType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationAssociation ::
@@ -17,8 +22,8 @@ mkIntegrationAssociation ::
      -> Value Prelude.Text -> IntegrationAssociation
 mkIntegrationAssociation instanceId integrationArn integrationType
   = IntegrationAssociation
-      {instanceId = instanceId, integrationArn = integrationArn,
-       integrationType = integrationType}
+      {haddock_workaround_ = (), instanceId = instanceId,
+       integrationArn = integrationArn, integrationType = integrationType}
 instance ToResourceProperties IntegrationAssociation where
   toResourceProperties IntegrationAssociation {..}
     = ResourceProperties

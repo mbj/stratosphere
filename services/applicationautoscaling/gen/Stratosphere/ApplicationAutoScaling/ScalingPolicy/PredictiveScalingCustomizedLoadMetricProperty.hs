@@ -8,14 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 data PredictiveScalingCustomizedLoadMetricProperty
-  = PredictiveScalingCustomizedLoadMetricProperty {metricDataQueries :: [PredictiveScalingMetricDataQueryProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html>
+    PredictiveScalingCustomizedLoadMetricProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric-metricdataqueries>
+                                                   metricDataQueries :: [PredictiveScalingMetricDataQueryProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingCustomizedLoadMetricProperty ::
   [PredictiveScalingMetricDataQueryProperty]
   -> PredictiveScalingCustomizedLoadMetricProperty
 mkPredictiveScalingCustomizedLoadMetricProperty metricDataQueries
   = PredictiveScalingCustomizedLoadMetricProperty
-      {metricDataQueries = metricDataQueries}
+      {haddock_workaround_ = (), metricDataQueries = metricDataQueries}
 instance ToResourceProperties PredictiveScalingCustomizedLoadMetricProperty where
   toResourceProperties
     PredictiveScalingCustomizedLoadMetricProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON PredictiveScalingCustomizedLoadMetricProperty where
     = JSON.object ["MetricDataQueries" JSON..= metricDataQueries]
 instance Property "MetricDataQueries" PredictiveScalingCustomizedLoadMetricProperty where
   type PropertyType "MetricDataQueries" PredictiveScalingCustomizedLoadMetricProperty = [PredictiveScalingMetricDataQueryProperty]
-  set newValue PredictiveScalingCustomizedLoadMetricProperty {}
+  set newValue PredictiveScalingCustomizedLoadMetricProperty {..}
     = PredictiveScalingCustomizedLoadMetricProperty
         {metricDataQueries = newValue, ..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetContentVersionValueProperty
-  = DatasetContentVersionValueProperty {datasetName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html>
+    DatasetContentVersionValueProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html#cfn-iotanalytics-dataset-datasetcontentversionvalue-datasetname>
+                                        datasetName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentVersionValueProperty ::
   Value Prelude.Text -> DatasetContentVersionValueProperty
 mkDatasetContentVersionValueProperty datasetName
-  = DatasetContentVersionValueProperty {datasetName = datasetName}
+  = DatasetContentVersionValueProperty
+      {haddock_workaround_ = (), datasetName = datasetName}
 instance ToResourceProperties DatasetContentVersionValueProperty where
   toResourceProperties DatasetContentVersionValueProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON DatasetContentVersionValueProperty where
     = JSON.object ["DatasetName" JSON..= datasetName]
 instance Property "DatasetName" DatasetContentVersionValueProperty where
   type PropertyType "DatasetName" DatasetContentVersionValueProperty = Value Prelude.Text
-  set newValue DatasetContentVersionValueProperty {}
+  set newValue DatasetContentVersionValueProperty {..}
     = DatasetContentVersionValueProperty {datasetName = newValue, ..}

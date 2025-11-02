@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.VpcAttachmentOptionsProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcOptionsProperty
-  = VpcOptionsProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html>
+    VpcOptionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html#cfn-osis-pipeline-vpcoptions-securitygroupids>
+                        securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html#cfn-osis-pipeline-vpcoptions-subnetids>
                         subnetIds :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html#cfn-osis-pipeline-vpcoptions-vpcattachmentoptions>
                         vpcAttachmentOptions :: (Prelude.Maybe VpcAttachmentOptionsProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html#cfn-osis-pipeline-vpcoptions-vpcendpointmanagement>
                         vpcEndpointManagement :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcOptionsProperty ::
   ValueList Prelude.Text -> VpcOptionsProperty
 mkVpcOptionsProperty subnetIds
   = VpcOptionsProperty
-      {subnetIds = subnetIds, securityGroupIds = Prelude.Nothing,
+      {haddock_workaround_ = (), subnetIds = subnetIds,
+       securityGroupIds = Prelude.Nothing,
        vpcAttachmentOptions = Prelude.Nothing,
        vpcEndpointManagement = Prelude.Nothing}
 instance ToResourceProperties VpcOptionsProperty where

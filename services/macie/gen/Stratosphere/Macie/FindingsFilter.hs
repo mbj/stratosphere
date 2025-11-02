@@ -9,20 +9,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FindingsFilter
-  = FindingsFilter {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html>
+    FindingsFilter {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action>
+                    action :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria>
                     findingCriteria :: FindingCriteriaProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position>
                     position :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingsFilter ::
   FindingCriteriaProperty -> Value Prelude.Text -> FindingsFilter
 mkFindingsFilter findingCriteria name
   = FindingsFilter
-      {findingCriteria = findingCriteria, name = name,
-       action = Prelude.Nothing, description = Prelude.Nothing,
-       position = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), findingCriteria = findingCriteria,
+       name = name, action = Prelude.Nothing,
+       description = Prelude.Nothing, position = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties FindingsFilter where
   toResourceProperties FindingsFilter {..}
     = ResourceProperties

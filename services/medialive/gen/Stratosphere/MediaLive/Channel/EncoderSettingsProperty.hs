@@ -21,25 +21,41 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeConfigProperty as E
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoDescriptionProperty as Exports
 import Stratosphere.ResourceProperties
 data EncoderSettingsProperty
-  = EncoderSettingsProperty {audioDescriptions :: (Prelude.Maybe [AudioDescriptionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html>
+    EncoderSettingsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-audiodescriptions>
+                             audioDescriptions :: (Prelude.Maybe [AudioDescriptionProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-availblanking>
                              availBlanking :: (Prelude.Maybe AvailBlankingProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-availconfiguration>
                              availConfiguration :: (Prelude.Maybe AvailConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-blackoutslate>
                              blackoutSlate :: (Prelude.Maybe BlackoutSlateProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-captiondescriptions>
                              captionDescriptions :: (Prelude.Maybe [CaptionDescriptionProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-colorcorrectionsettings>
                              colorCorrectionSettings :: (Prelude.Maybe ColorCorrectionSettingsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-featureactivations>
                              featureActivations :: (Prelude.Maybe FeatureActivationsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-globalconfiguration>
                              globalConfiguration :: (Prelude.Maybe GlobalConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-motiongraphicsconfiguration>
                              motionGraphicsConfiguration :: (Prelude.Maybe MotionGraphicsConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-nielsenconfiguration>
                              nielsenConfiguration :: (Prelude.Maybe NielsenConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-outputgroups>
                              outputGroups :: (Prelude.Maybe [OutputGroupProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-thumbnailconfiguration>
                              thumbnailConfiguration :: (Prelude.Maybe ThumbnailConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-timecodeconfig>
                              timecodeConfig :: (Prelude.Maybe TimecodeConfigProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html#cfn-medialive-channel-encodersettings-videodescriptions>
                              videoDescriptions :: (Prelude.Maybe [VideoDescriptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncoderSettingsProperty :: EncoderSettingsProperty
 mkEncoderSettingsProperty
   = EncoderSettingsProperty
-      {audioDescriptions = Prelude.Nothing,
+      {haddock_workaround_ = (), audioDescriptions = Prelude.Nothing,
        availBlanking = Prelude.Nothing,
        availConfiguration = Prelude.Nothing,
        blackoutSlate = Prelude.Nothing,

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PeeringAttachmentStatusProperty
-  = PeeringAttachmentStatusProperty {code :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html>
+    PeeringAttachmentStatusProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html#cfn-ec2-transitgatewaypeeringattachment-peeringattachmentstatus-code>
+                                     code :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html#cfn-ec2-transitgatewaypeeringattachment-peeringattachmentstatus-message>
                                      message :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPeeringAttachmentStatusProperty ::
   PeeringAttachmentStatusProperty
 mkPeeringAttachmentStatusProperty
   = PeeringAttachmentStatusProperty
-      {code = Prelude.Nothing, message = Prelude.Nothing}
+      {haddock_workaround_ = (), code = Prelude.Nothing,
+       message = Prelude.Nothing}
 instance ToResourceProperties PeeringAttachmentStatusProperty where
   toResourceProperties PeeringAttachmentStatusProperty {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.CloudFormationC
 import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.TagCollectionProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceCollectionFilterProperty
-  = ResourceCollectionFilterProperty {cloudFormation :: (Prelude.Maybe CloudFormationCollectionFilterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html>
+    ResourceCollectionFilterProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation>
+                                      cloudFormation :: (Prelude.Maybe CloudFormationCollectionFilterProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-tags>
                                       tags :: (Prelude.Maybe [TagCollectionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollectionFilterProperty ::
   ResourceCollectionFilterProperty
 mkResourceCollectionFilterProperty
   = ResourceCollectionFilterProperty
-      {cloudFormation = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), cloudFormation = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ResourceCollectionFilterProperty where
   toResourceProperties ResourceCollectionFilterProperty {..}
     = ResourceProperties

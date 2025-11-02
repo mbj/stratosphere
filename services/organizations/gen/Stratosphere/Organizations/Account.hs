@@ -8,18 +8,25 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Account
-  = Account {accountName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html>
+    Account {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-accountname>
+             accountName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-email>
              email :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-parentids>
              parentIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-rolename>
              roleName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html#cfn-organizations-account-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: Value Prelude.Text -> Value Prelude.Text -> Account
 mkAccount accountName email
   = Account
-      {accountName = accountName, email = email,
-       parentIds = Prelude.Nothing, roleName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), accountName = accountName,
+       email = email, parentIds = Prelude.Nothing,
+       roleName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Account where
   toResourceProperties Account {..}
     = ResourceProperties

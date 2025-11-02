@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityProviderStrategyItemProperty
-  = CapacityProviderStrategyItemProperty {base :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-capacityproviderstrategyitem.html>
+    CapacityProviderStrategyItemProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-capacityproviderstrategyitem.html#cfn-pipes-pipe-capacityproviderstrategyitem-base>
+                                          base :: (Prelude.Maybe (Value Prelude.Integer)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-capacityproviderstrategyitem.html#cfn-pipes-pipe-capacityproviderstrategyitem-capacityprovider>
                                           capacityProvider :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-capacityproviderstrategyitem.html#cfn-pipes-pipe-capacityproviderstrategyitem-weight>
                                           weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProviderStrategyItemProperty ::
   Value Prelude.Text -> CapacityProviderStrategyItemProperty
 mkCapacityProviderStrategyItemProperty capacityProvider
   = CapacityProviderStrategyItemProperty
-      {capacityProvider = capacityProvider, base = Prelude.Nothing,
-       weight = Prelude.Nothing}
+      {haddock_workaround_ = (), capacityProvider = capacityProvider,
+       base = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties CapacityProviderStrategyItemProperty where
   toResourceProperties CapacityProviderStrategyItemProperty {..}
     = ResourceProperties

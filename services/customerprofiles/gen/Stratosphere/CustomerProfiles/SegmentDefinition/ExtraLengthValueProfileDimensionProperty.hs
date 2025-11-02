@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExtraLengthValueProfileDimensionProperty
-  = ExtraLengthValueProfileDimensionProperty {dimensionType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html>
+    ExtraLengthValueProfileDimensionProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html#cfn-customerprofiles-segmentdefinition-extralengthvalueprofiledimension-dimensiontype>
+                                              dimensionType :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html#cfn-customerprofiles-segmentdefinition-extralengthvalueprofiledimension-values>
                                               values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExtraLengthValueProfileDimensionProperty ::
@@ -17,7 +21,8 @@ mkExtraLengthValueProfileDimensionProperty ::
      -> ExtraLengthValueProfileDimensionProperty
 mkExtraLengthValueProfileDimensionProperty dimensionType values
   = ExtraLengthValueProfileDimensionProperty
-      {dimensionType = dimensionType, values = values}
+      {haddock_workaround_ = (), dimensionType = dimensionType,
+       values = values}
 instance ToResourceProperties ExtraLengthValueProfileDimensionProperty where
   toResourceProperties ExtraLengthValueProfileDimensionProperty {..}
     = ResourceProperties

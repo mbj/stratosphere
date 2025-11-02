@@ -8,13 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelDataQualityProperty
-  = ModelDataQualityProperty {constraints :: (Prelude.Maybe MetricsSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldataquality.html>
+    ModelDataQualityProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldataquality.html#cfn-sagemaker-modelpackage-modeldataquality-constraints>
+                              constraints :: (Prelude.Maybe MetricsSourceProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldataquality.html#cfn-sagemaker-modelpackage-modeldataquality-statistics>
                               statistics :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelDataQualityProperty :: ModelDataQualityProperty
 mkModelDataQualityProperty
   = ModelDataQualityProperty
-      {constraints = Prelude.Nothing, statistics = Prelude.Nothing}
+      {haddock_workaround_ = (), constraints = Prelude.Nothing,
+       statistics = Prelude.Nothing}
 instance ToResourceProperties ModelDataQualityProperty where
   toResourceProperties ModelDataQualityProperty {..}
     = ResourceProperties

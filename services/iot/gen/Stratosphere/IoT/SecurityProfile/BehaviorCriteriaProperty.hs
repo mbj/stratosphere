@@ -11,18 +11,27 @@ import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.StatisticalThresholdPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BehaviorCriteriaProperty
-  = BehaviorCriteriaProperty {comparisonOperator :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html>
+    BehaviorCriteriaProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator>
+                              comparisonOperator :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm>
                               consecutiveDatapointsToAlarm :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear>
                               consecutiveDatapointsToClear :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds>
                               durationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig>
                               mlDetectionConfig :: (Prelude.Maybe MachineLearningDetectionConfigProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold>
                               statisticalThreshold :: (Prelude.Maybe StatisticalThresholdProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value>
                               value :: (Prelude.Maybe MetricValueProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorCriteriaProperty :: BehaviorCriteriaProperty
 mkBehaviorCriteriaProperty
   = BehaviorCriteriaProperty
-      {comparisonOperator = Prelude.Nothing,
+      {haddock_workaround_ = (), comparisonOperator = Prelude.Nothing,
        consecutiveDatapointsToAlarm = Prelude.Nothing,
        consecutiveDatapointsToClear = Prelude.Nothing,
        durationSeconds = Prelude.Nothing,

@@ -10,21 +10,32 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.DialogStateProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ResponseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 data PostFulfillmentStatusSpecificationProperty
-  = PostFulfillmentStatusSpecificationProperty {failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html>
+    PostFulfillmentStatusSpecificationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureconditional>
+                                                failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failurenextstep>
                                                 failureNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-failureresponse>
                                                 failureResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successconditional>
                                                 successConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successnextstep>
                                                 successNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-successresponse>
                                                 successResponse :: (Prelude.Maybe ResponseSpecificationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutconditional>
                                                 timeoutConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutnextstep>
                                                 timeoutNextStep :: (Prelude.Maybe DialogStateProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html#cfn-lex-bot-postfulfillmentstatusspecification-timeoutresponse>
                                                 timeoutResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPostFulfillmentStatusSpecificationProperty ::
   PostFulfillmentStatusSpecificationProperty
 mkPostFulfillmentStatusSpecificationProperty
   = PostFulfillmentStatusSpecificationProperty
-      {failureConditional = Prelude.Nothing,
+      {haddock_workaround_ = (), failureConditional = Prelude.Nothing,
        failureNextStep = Prelude.Nothing,
        failureResponse = Prelude.Nothing,
        successConditional = Prelude.Nothing,

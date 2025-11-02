@@ -15,20 +15,37 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExtendedS3DestinationConfigurationProperty
-  = ExtendedS3DestinationConfigurationProperty {bucketARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html>
+    ExtendedS3DestinationConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn>
+                                                bucketARN :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints>
                                                 bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions>
                                                 cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat>
                                                 compressionFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-customtimezone>
                                                 customTimeZone :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration>
                                                 dataFormatConversionConfiguration :: (Prelude.Maybe DataFormatConversionConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration>
                                                 dynamicPartitioningConfiguration :: (Prelude.Maybe DynamicPartitioningConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration>
                                                 encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix>
                                                 errorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-fileextension>
                                                 fileExtension :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix>
                                                 prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration>
                                                 processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn>
                                                 roleARN :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration>
                                                 s3BackupConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode>
                                                 s3BackupMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExtendedS3DestinationConfigurationProperty ::
@@ -36,8 +53,8 @@ mkExtendedS3DestinationConfigurationProperty ::
   -> Value Prelude.Text -> ExtendedS3DestinationConfigurationProperty
 mkExtendedS3DestinationConfigurationProperty bucketARN roleARN
   = ExtendedS3DestinationConfigurationProperty
-      {bucketARN = bucketARN, roleARN = roleARN,
-       bufferingHints = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketARN = bucketARN,
+       roleARN = roleARN, bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
        compressionFormat = Prelude.Nothing,
        customTimeZone = Prelude.Nothing,

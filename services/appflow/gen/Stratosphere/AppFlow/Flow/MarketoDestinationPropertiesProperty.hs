@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarketoDestinationPropertiesProperty
-  = MarketoDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html>
+    MarketoDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-errorhandlingconfig>
+                                          errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html#cfn-appflow-flow-marketodestinationproperties-object>
                                           object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMarketoDestinationPropertiesProperty ::
   Value Prelude.Text -> MarketoDestinationPropertiesProperty
 mkMarketoDestinationPropertiesProperty object
   = MarketoDestinationPropertiesProperty
-      {object = object, errorHandlingConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), object = object,
+       errorHandlingConfig = Prelude.Nothing}
 instance ToResourceProperties MarketoDestinationPropertiesProperty where
   toResourceProperties MarketoDestinationPropertiesProperty {..}
     = ResourceProperties

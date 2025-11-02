@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConstraintsResourceProperty
-  = ConstraintsResourceProperty {s3Uri :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html>
+    ConstraintsResourceProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri>
+                                 s3Uri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConstraintsResourceProperty :: ConstraintsResourceProperty
 mkConstraintsResourceProperty
-  = ConstraintsResourceProperty {s3Uri = Prelude.Nothing}
+  = ConstraintsResourceProperty
+      {haddock_workaround_ = (), s3Uri = Prelude.Nothing}
 instance ToResourceProperties ConstraintsResourceProperty where
   toResourceProperties ConstraintsResourceProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ConstraintsResourceProperty where
            (Prelude.catMaybes [(JSON..=) "S3Uri" Prelude.<$> s3Uri]))
 instance Property "S3Uri" ConstraintsResourceProperty where
   type PropertyType "S3Uri" ConstraintsResourceProperty = Value Prelude.Text
-  set newValue ConstraintsResourceProperty {}
+  set newValue ConstraintsResourceProperty {..}
     = ConstraintsResourceProperty {s3Uri = Prelude.pure newValue, ..}

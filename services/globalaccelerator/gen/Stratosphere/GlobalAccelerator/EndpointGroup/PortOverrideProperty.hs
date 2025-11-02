@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortOverrideProperty
-  = PortOverrideProperty {endpointPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html>
+    PortOverrideProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport>
+                          endpointPort :: (Value Prelude.Integer),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport>
                           listenerPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortOverrideProperty ::
@@ -15,7 +19,8 @@ mkPortOverrideProperty ::
   -> Value Prelude.Integer -> PortOverrideProperty
 mkPortOverrideProperty endpointPort listenerPort
   = PortOverrideProperty
-      {endpointPort = endpointPort, listenerPort = listenerPort}
+      {haddock_workaround_ = (), endpointPort = endpointPort,
+       listenerPort = listenerPort}
 instance ToResourceProperties PortOverrideProperty where
   toResourceProperties PortOverrideProperty {..}
     = ResourceProperties

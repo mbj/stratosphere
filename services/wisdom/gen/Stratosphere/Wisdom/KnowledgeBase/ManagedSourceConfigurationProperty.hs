@@ -8,14 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.WebCrawlerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ManagedSourceConfigurationProperty
-  = ManagedSourceConfigurationProperty {webCrawlerConfiguration :: WebCrawlerConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html>
+    ManagedSourceConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html#cfn-wisdom-knowledgebase-managedsourceconfiguration-webcrawlerconfiguration>
+                                        webCrawlerConfiguration :: WebCrawlerConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedSourceConfigurationProperty ::
   WebCrawlerConfigurationProperty
   -> ManagedSourceConfigurationProperty
 mkManagedSourceConfigurationProperty webCrawlerConfiguration
   = ManagedSourceConfigurationProperty
-      {webCrawlerConfiguration = webCrawlerConfiguration}
+      {haddock_workaround_ = (),
+       webCrawlerConfiguration = webCrawlerConfiguration}
 instance ToResourceProperties ManagedSourceConfigurationProperty where
   toResourceProperties ManagedSourceConfigurationProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON ManagedSourceConfigurationProperty where
         ["WebCrawlerConfiguration" JSON..= webCrawlerConfiguration]
 instance Property "WebCrawlerConfiguration" ManagedSourceConfigurationProperty where
   type PropertyType "WebCrawlerConfiguration" ManagedSourceConfigurationProperty = WebCrawlerConfigurationProperty
-  set newValue ManagedSourceConfigurationProperty {}
+  set newValue ManagedSourceConfigurationProperty {..}
     = ManagedSourceConfigurationProperty
         {webCrawlerConfiguration = newValue, ..}

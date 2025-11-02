@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.DataTransferApiProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomConnectorSourcePropertiesProperty
-  = CustomConnectorSourcePropertiesProperty {customProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html>
+    CustomConnectorSourcePropertiesProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-customproperties>
+                                             customProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-datatransferapi>
                                              dataTransferApi :: (Prelude.Maybe DataTransferApiProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html#cfn-appflow-flow-customconnectorsourceproperties-entityname>
                                              entityName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorSourcePropertiesProperty ::
   Value Prelude.Text -> CustomConnectorSourcePropertiesProperty
 mkCustomConnectorSourcePropertiesProperty entityName
   = CustomConnectorSourcePropertiesProperty
-      {entityName = entityName, customProperties = Prelude.Nothing,
+      {haddock_workaround_ = (), entityName = entityName,
+       customProperties = Prelude.Nothing,
        dataTransferApi = Prelude.Nothing}
 instance ToResourceProperties CustomConnectorSourcePropertiesProperty where
   toResourceProperties CustomConnectorSourcePropertiesProperty {..}

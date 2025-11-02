@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnswerMachineDetectionConfigProperty
-  = AnswerMachineDetectionConfigProperty {awaitAnswerMachinePrompt :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-answermachinedetectionconfig.html>
+    AnswerMachineDetectionConfigProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-answermachinedetectionconfig.html#cfn-connectcampaignsv2-campaign-answermachinedetectionconfig-awaitanswermachineprompt>
+                                          awaitAnswerMachinePrompt :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-answermachinedetectionconfig.html#cfn-connectcampaignsv2-campaign-answermachinedetectionconfig-enableanswermachinedetection>
                                           enableAnswerMachineDetection :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnswerMachineDetectionConfigProperty ::
   Value Prelude.Bool -> AnswerMachineDetectionConfigProperty
 mkAnswerMachineDetectionConfigProperty enableAnswerMachineDetection
   = AnswerMachineDetectionConfigProperty
-      {enableAnswerMachineDetection = enableAnswerMachineDetection,
+      {haddock_workaround_ = (),
+       enableAnswerMachineDetection = enableAnswerMachineDetection,
        awaitAnswerMachinePrompt = Prelude.Nothing}
 instance ToResourceProperties AnswerMachineDetectionConfigProperty where
   toResourceProperties AnswerMachineDetectionConfigProperty {..}

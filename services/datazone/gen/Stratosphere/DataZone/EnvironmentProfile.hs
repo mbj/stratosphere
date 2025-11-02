@@ -8,13 +8,23 @@ import {-# SOURCE #-} Stratosphere.DataZone.EnvironmentProfile.EnvironmentParame
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentProfile
-  = EnvironmentProfile {awsAccountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html>
+    EnvironmentProfile {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-awsaccountid>
+                        awsAccountId :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-awsaccountregion>
                         awsAccountRegion :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-domainidentifier>
                         domainIdentifier :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-environmentblueprintidentifier>
                         environmentBlueprintIdentifier :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-projectidentifier>
                         projectIdentifier :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html#cfn-datazone-environmentprofile-userparameters>
                         userParameters :: (Prelude.Maybe [EnvironmentParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProfile ::
@@ -31,7 +41,8 @@ mkEnvironmentProfile
   name
   projectIdentifier
   = EnvironmentProfile
-      {awsAccountId = awsAccountId, awsAccountRegion = awsAccountRegion,
+      {haddock_workaround_ = (), awsAccountId = awsAccountId,
+       awsAccountRegion = awsAccountRegion,
        domainIdentifier = domainIdentifier,
        environmentBlueprintIdentifier = environmentBlueprintIdentifier,
        name = name, projectIdentifier = projectIdentifier,

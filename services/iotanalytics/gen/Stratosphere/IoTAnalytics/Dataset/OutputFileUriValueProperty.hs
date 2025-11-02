@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputFileUriValueProperty
-  = OutputFileUriValueProperty {fileName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-outputfileurivalue.html>
+    OutputFileUriValueProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-outputfileurivalue.html#cfn-iotanalytics-dataset-outputfileurivalue-filename>
+                                fileName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFileUriValueProperty ::
   Value Prelude.Text -> OutputFileUriValueProperty
 mkOutputFileUriValueProperty fileName
-  = OutputFileUriValueProperty {fileName = fileName}
+  = OutputFileUriValueProperty
+      {haddock_workaround_ = (), fileName = fileName}
 instance ToResourceProperties OutputFileUriValueProperty where
   toResourceProperties OutputFileUriValueProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON OutputFileUriValueProperty where
     = JSON.object ["FileName" JSON..= fileName]
 instance Property "FileName" OutputFileUriValueProperty where
   type PropertyType "FileName" OutputFileUriValueProperty = Value Prelude.Text
-  set newValue OutputFileUriValueProperty {}
+  set newValue OutputFileUriValueProperty {..}
     = OutputFileUriValueProperty {fileName = newValue, ..}

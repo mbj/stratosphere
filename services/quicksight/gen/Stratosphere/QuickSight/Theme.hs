@@ -10,13 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Theme
-  = Theme {awsAccountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html>
+    Theme {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid>
+           awsAccountId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid>
            baseThemeId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration>
            configuration :: ThemeConfigurationProperty,
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name>
            name :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions>
            permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags>
            tags :: (Prelude.Maybe [Tag]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid>
            themeId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription>
            versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTheme ::
@@ -26,10 +36,10 @@ mkTheme ::
         -> Value Prelude.Text -> Value Prelude.Text -> Theme
 mkTheme awsAccountId baseThemeId configuration name themeId
   = Theme
-      {awsAccountId = awsAccountId, baseThemeId = baseThemeId,
-       configuration = configuration, name = name, themeId = themeId,
-       permissions = Prelude.Nothing, tags = Prelude.Nothing,
-       versionDescription = Prelude.Nothing}
+      {haddock_workaround_ = (), awsAccountId = awsAccountId,
+       baseThemeId = baseThemeId, configuration = configuration,
+       name = name, themeId = themeId, permissions = Prelude.Nothing,
+       tags = Prelude.Nothing, versionDescription = Prelude.Nothing}
 instance ToResourceProperties Theme where
   toResourceProperties Theme {..}
     = ResourceProperties

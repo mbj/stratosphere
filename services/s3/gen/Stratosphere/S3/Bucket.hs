@@ -24,31 +24,54 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Bucket
-  = Bucket {accelerateConfiguration :: (Prelude.Maybe AccelerateConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html>
+    Bucket {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration>
+            accelerateConfiguration :: (Prelude.Maybe AccelerateConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accesscontrol>
             accessControl :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations>
             analyticsConfigurations :: (Prelude.Maybe [AnalyticsConfigurationProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketencryption>
             bucketEncryption :: (Prelude.Maybe BucketEncryptionProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketname>
             bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-corsconfiguration>
             corsConfiguration :: (Prelude.Maybe CorsConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations>
             intelligentTieringConfigurations :: (Prelude.Maybe [IntelligentTieringConfigurationProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations>
             inventoryConfigurations :: (Prelude.Maybe [InventoryConfigurationProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-lifecycleconfiguration>
             lifecycleConfiguration :: (Prelude.Maybe LifecycleConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-loggingconfiguration>
             loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-metricsconfigurations>
             metricsConfigurations :: (Prelude.Maybe [MetricsConfigurationProperty]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-notificationconfiguration>
             notificationConfiguration :: (Prelude.Maybe NotificationConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration>
             objectLockConfiguration :: (Prelude.Maybe ObjectLockConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-objectlockenabled>
             objectLockEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-ownershipcontrols>
             ownershipControls :: (Prelude.Maybe OwnershipControlsProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration>
             publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-replicationconfiguration>
             replicationConfiguration :: (Prelude.Maybe ReplicationConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-tags>
             tags :: (Prelude.Maybe [Tag]),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-versioningconfiguration>
             versioningConfiguration :: (Prelude.Maybe VersioningConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-websiteconfiguration>
             websiteConfiguration :: (Prelude.Maybe WebsiteConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBucket :: Bucket
 mkBucket
   = Bucket
-      {accelerateConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       accelerateConfiguration = Prelude.Nothing,
        accessControl = Prelude.Nothing,
        analyticsConfigurations = Prelude.Nothing,
        bucketEncryption = Prelude.Nothing, bucketName = Prelude.Nothing,

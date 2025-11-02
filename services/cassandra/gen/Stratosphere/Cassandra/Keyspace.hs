@@ -9,14 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Keyspace
-  = Keyspace {keyspaceName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html>
+    Keyspace {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename>
+              keyspaceName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-replicationspecification>
               replicationSpecification :: (Prelude.Maybe ReplicationSpecificationProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyspace :: Keyspace
 mkKeyspace
   = Keyspace
-      {keyspaceName = Prelude.Nothing,
+      {haddock_workaround_ = (), keyspaceName = Prelude.Nothing,
        replicationSpecification = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Keyspace where
   toResourceProperties Keyspace {..}

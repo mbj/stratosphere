@@ -8,12 +8,21 @@ import {-# SOURCE #-} Stratosphere.AmazonMQ.Configuration.TagsEntryProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Configuration
-  = Configuration {authenticationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html>
+    Configuration {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-authenticationstrategy>
+                   authenticationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data>
                    data' :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-enginetype>
                    engineType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion>
                    engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-tags>
                    tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
@@ -21,8 +30,8 @@ mkConfiguration ::
   -> Value Prelude.Text -> Value Prelude.Text -> Configuration
 mkConfiguration data' engineType name
   = Configuration
-      {data' = data', engineType = engineType, name = name,
-       authenticationStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), data' = data', engineType = engineType,
+       name = name, authenticationStrategy = Prelude.Nothing,
        description = Prelude.Nothing, engineVersion = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Configuration where

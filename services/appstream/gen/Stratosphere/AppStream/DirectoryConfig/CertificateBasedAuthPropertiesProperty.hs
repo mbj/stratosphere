@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateBasedAuthPropertiesProperty
-  = CertificateBasedAuthPropertiesProperty {certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html>
+    CertificateBasedAuthPropertiesProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html#cfn-appstream-directoryconfig-certificatebasedauthproperties-certificateauthorityarn>
+                                            certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html#cfn-appstream-directoryconfig-certificatebasedauthproperties-status>
                                             status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateBasedAuthPropertiesProperty ::
   CertificateBasedAuthPropertiesProperty
 mkCertificateBasedAuthPropertiesProperty
   = CertificateBasedAuthPropertiesProperty
-      {certificateAuthorityArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       certificateAuthorityArn = Prelude.Nothing,
        status = Prelude.Nothing}
 instance ToResourceProperties CertificateBasedAuthPropertiesProperty where
   toResourceProperties CertificateBasedAuthPropertiesProperty {..}

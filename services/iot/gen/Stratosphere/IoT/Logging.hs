@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Logging
-  = Logging {accountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html>
+    Logging {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-accountid>
+             accountId :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-defaultloglevel>
              defaultLogLevel :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-rolearn>
              roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogging ::
@@ -16,8 +21,8 @@ mkLogging ::
   -> Value Prelude.Text -> Value Prelude.Text -> Logging
 mkLogging accountId defaultLogLevel roleArn
   = Logging
-      {accountId = accountId, defaultLogLevel = defaultLogLevel,
-       roleArn = roleArn}
+      {haddock_workaround_ = (), accountId = accountId,
+       defaultLogLevel = defaultLogLevel, roleArn = roleArn}
 instance ToResourceProperties Logging where
   toResourceProperties Logging {..}
     = ResourceProperties

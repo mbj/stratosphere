@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Dashboard
-  = Dashboard {dashboardDefinition :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html>
+    Dashboard {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition>
+               dashboardDefinition :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription>
                dashboardDescription :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname>
                dashboardName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid>
                projectId :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboard ::
@@ -19,7 +26,8 @@ mkDashboard ::
   -> Value Prelude.Text -> Value Prelude.Text -> Dashboard
 mkDashboard dashboardDefinition dashboardDescription dashboardName
   = Dashboard
-      {dashboardDefinition = dashboardDefinition,
+      {haddock_workaround_ = (),
+       dashboardDefinition = dashboardDefinition,
        dashboardDescription = dashboardDescription,
        dashboardName = dashboardName, projectId = Prelude.Nothing,
        tags = Prelude.Nothing}

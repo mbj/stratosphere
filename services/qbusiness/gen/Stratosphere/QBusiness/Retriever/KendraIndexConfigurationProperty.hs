@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KendraIndexConfigurationProperty
-  = KendraIndexConfigurationProperty {indexId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-kendraindexconfiguration.html>
+    KendraIndexConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-kendraindexconfiguration.html#cfn-qbusiness-retriever-kendraindexconfiguration-indexid>
+                                      indexId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKendraIndexConfigurationProperty ::
   Value Prelude.Text -> KendraIndexConfigurationProperty
 mkKendraIndexConfigurationProperty indexId
-  = KendraIndexConfigurationProperty {indexId = indexId}
+  = KendraIndexConfigurationProperty
+      {haddock_workaround_ = (), indexId = indexId}
 instance ToResourceProperties KendraIndexConfigurationProperty where
   toResourceProperties KendraIndexConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON KendraIndexConfigurationProperty where
     = JSON.object ["IndexId" JSON..= indexId]
 instance Property "IndexId" KendraIndexConfigurationProperty where
   type PropertyType "IndexId" KendraIndexConfigurationProperty = Value Prelude.Text
-  set newValue KendraIndexConfigurationProperty {}
+  set newValue KendraIndexConfigurationProperty {..}
     = KendraIndexConfigurationProperty {indexId = newValue, ..}

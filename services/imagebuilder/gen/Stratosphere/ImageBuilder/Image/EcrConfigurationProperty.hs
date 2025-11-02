@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcrConfigurationProperty
-  = EcrConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ecrconfiguration.html>
+    EcrConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ecrconfiguration.html#cfn-imagebuilder-image-ecrconfiguration-containertags>
+                              containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ecrconfiguration.html#cfn-imagebuilder-image-ecrconfiguration-repositoryname>
                               repositoryName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcrConfigurationProperty :: EcrConfigurationProperty
 mkEcrConfigurationProperty
   = EcrConfigurationProperty
-      {containerTags = Prelude.Nothing, repositoryName = Prelude.Nothing}
+      {haddock_workaround_ = (), containerTags = Prelude.Nothing,
+       repositoryName = Prelude.Nothing}
 instance ToResourceProperties EcrConfigurationProperty where
   toResourceProperties EcrConfigurationProperty {..}
     = ResourceProperties

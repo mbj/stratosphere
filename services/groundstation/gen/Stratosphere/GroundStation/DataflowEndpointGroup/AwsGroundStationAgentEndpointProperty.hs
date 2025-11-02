@@ -10,19 +10,26 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.RangedCon
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsGroundStationAgentEndpointProperty
-  = AwsGroundStationAgentEndpointProperty {agentStatus :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>
+    AwsGroundStationAgentEndpointProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-agentstatus>
+                                           agentStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-auditresults>
                                            auditResults :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-egressaddress>
                                            egressAddress :: (Prelude.Maybe ConnectionDetailsProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-ingressaddress>
                                            ingressAddress :: (Prelude.Maybe RangedConnectionDetailsProperty),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-name>
                                            name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsGroundStationAgentEndpointProperty ::
   AwsGroundStationAgentEndpointProperty
 mkAwsGroundStationAgentEndpointProperty
   = AwsGroundStationAgentEndpointProperty
-      {agentStatus = Prelude.Nothing, auditResults = Prelude.Nothing,
-       egressAddress = Prelude.Nothing, ingressAddress = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), agentStatus = Prelude.Nothing,
+       auditResults = Prelude.Nothing, egressAddress = Prelude.Nothing,
+       ingressAddress = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties AwsGroundStationAgentEndpointProperty where
   toResourceProperties AwsGroundStationAgentEndpointProperty {..}
     = ResourceProperties

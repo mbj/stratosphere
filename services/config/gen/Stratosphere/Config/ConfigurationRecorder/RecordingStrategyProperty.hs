@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordingStrategyProperty
-  = RecordingStrategyProperty {useOnly :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html>
+    RecordingStrategyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html#cfn-config-configurationrecorder-recordingstrategy-useonly>
+                               useOnly :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingStrategyProperty ::
   Value Prelude.Text -> RecordingStrategyProperty
 mkRecordingStrategyProperty useOnly
-  = RecordingStrategyProperty {useOnly = useOnly}
+  = RecordingStrategyProperty
+      {haddock_workaround_ = (), useOnly = useOnly}
 instance ToResourceProperties RecordingStrategyProperty where
   toResourceProperties RecordingStrategyProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RecordingStrategyProperty where
     = JSON.object ["UseOnly" JSON..= useOnly]
 instance Property "UseOnly" RecordingStrategyProperty where
   type PropertyType "UseOnly" RecordingStrategyProperty = Value Prelude.Text
-  set newValue RecordingStrategyProperty {}
+  set newValue RecordingStrategyProperty {..}
     = RecordingStrategyProperty {useOnly = newValue, ..}

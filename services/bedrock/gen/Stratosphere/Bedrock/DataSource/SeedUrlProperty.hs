@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SeedUrlProperty
-  = SeedUrlProperty {url :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html>
+    SeedUrlProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html#cfn-bedrock-datasource-seedurl-url>
+                     url :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSeedUrlProperty :: Value Prelude.Text -> SeedUrlProperty
-mkSeedUrlProperty url = SeedUrlProperty {url = url}
+mkSeedUrlProperty url
+  = SeedUrlProperty {haddock_workaround_ = (), url = url}
 instance ToResourceProperties SeedUrlProperty where
   toResourceProperties SeedUrlProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON SeedUrlProperty where
   toJSON SeedUrlProperty {..} = JSON.object ["Url" JSON..= url]
 instance Property "Url" SeedUrlProperty where
   type PropertyType "Url" SeedUrlProperty = Value Prelude.Text
-  set newValue SeedUrlProperty {}
+  set newValue SeedUrlProperty {..}
     = SeedUrlProperty {url = newValue, ..}

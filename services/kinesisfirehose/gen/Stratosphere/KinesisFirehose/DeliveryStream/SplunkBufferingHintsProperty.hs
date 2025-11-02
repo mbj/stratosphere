@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SplunkBufferingHintsProperty
-  = SplunkBufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html>
+    SplunkBufferingHintsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html#cfn-kinesisfirehose-deliverystream-splunkbufferinghints-intervalinseconds>
+                                  intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html#cfn-kinesisfirehose-deliverystream-splunkbufferinghints-sizeinmbs>
                                   sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSplunkBufferingHintsProperty :: SplunkBufferingHintsProperty
 mkSplunkBufferingHintsProperty
   = SplunkBufferingHintsProperty
-      {intervalInSeconds = Prelude.Nothing, sizeInMBs = Prelude.Nothing}
+      {haddock_workaround_ = (), intervalInSeconds = Prelude.Nothing,
+       sizeInMBs = Prelude.Nothing}
 instance ToResourceProperties SplunkBufferingHintsProperty where
   toResourceProperties SplunkBufferingHintsProperty {..}
     = ResourceProperties

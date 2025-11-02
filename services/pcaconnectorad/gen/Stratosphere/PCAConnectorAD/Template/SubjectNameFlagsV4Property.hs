@@ -7,21 +7,33 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubjectNameFlagsV4Property
-  = SubjectNameFlagsV4Property {requireCommonName :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html>
+    SubjectNameFlagsV4Property {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-requirecommonname>
+                                requireCommonName :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-requiredirectorypath>
                                 requireDirectoryPath :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-requirednsascn>
                                 requireDnsAsCn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-requireemail>
                                 requireEmail :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequiredirectoryguid>
                                 sanRequireDirectoryGuid :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequiredns>
                                 sanRequireDns :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequiredomaindns>
                                 sanRequireDomainDns :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequireemail>
                                 sanRequireEmail :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequirespn>
                                 sanRequireSpn :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html#cfn-pcaconnectorad-template-subjectnameflagsv4-sanrequireupn>
                                 sanRequireUpn :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectNameFlagsV4Property :: SubjectNameFlagsV4Property
 mkSubjectNameFlagsV4Property
   = SubjectNameFlagsV4Property
-      {requireCommonName = Prelude.Nothing,
+      {haddock_workaround_ = (), requireCommonName = Prelude.Nothing,
        requireDirectoryPath = Prelude.Nothing,
        requireDnsAsCn = Prelude.Nothing, requireEmail = Prelude.Nothing,
        sanRequireDirectoryGuid = Prelude.Nothing,

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SortPropertyProperty
-  = SortPropertyProperty {direction :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html>
+    SortPropertyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html#cfn-amplifyuibuilder-component-sortproperty-direction>
+                          direction :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-sortproperty.html#cfn-amplifyuibuilder-component-sortproperty-field>
                           field :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSortPropertyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SortPropertyProperty
 mkSortPropertyProperty direction field
-  = SortPropertyProperty {direction = direction, field = field}
+  = SortPropertyProperty
+      {haddock_workaround_ = (), direction = direction, field = field}
 instance ToResourceProperties SortPropertyProperty where
   toResourceProperties SortPropertyProperty {..}
     = ResourceProperties

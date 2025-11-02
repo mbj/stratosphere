@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficMirrorPortRangeProperty
-  = TrafficMirrorPortRangeProperty {fromPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html>
+    TrafficMirrorPortRangeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport>
+                                    fromPort :: (Value Prelude.Integer),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport>
                                     toPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorPortRangeProperty ::
@@ -16,7 +20,7 @@ mkTrafficMirrorPortRangeProperty ::
   -> Value Prelude.Integer -> TrafficMirrorPortRangeProperty
 mkTrafficMirrorPortRangeProperty fromPort toPort
   = TrafficMirrorPortRangeProperty
-      {fromPort = fromPort, toPort = toPort}
+      {haddock_workaround_ = (), fromPort = fromPort, toPort = toPort}
 instance ToResourceProperties TrafficMirrorPortRangeProperty where
   toResourceProperties TrafficMirrorPortRangeProperty {..}
     = ResourceProperties

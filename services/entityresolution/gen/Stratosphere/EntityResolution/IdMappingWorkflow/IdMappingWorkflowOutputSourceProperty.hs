@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingWorkflowOutputSourceProperty
-  = IdMappingWorkflowOutputSourceProperty {kMSArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html>
+    IdMappingWorkflowOutputSourceProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowoutputsource-kmsarn>
+                                           kMSArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowoutputsource-outputs3path>
                                            outputS3Path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingWorkflowOutputSourceProperty ::
   Value Prelude.Text -> IdMappingWorkflowOutputSourceProperty
 mkIdMappingWorkflowOutputSourceProperty outputS3Path
   = IdMappingWorkflowOutputSourceProperty
-      {outputS3Path = outputS3Path, kMSArn = Prelude.Nothing}
+      {haddock_workaround_ = (), outputS3Path = outputS3Path,
+       kMSArn = Prelude.Nothing}
 instance ToResourceProperties IdMappingWorkflowOutputSourceProperty where
   toResourceProperties IdMappingWorkflowOutputSourceProperty {..}
     = ResourceProperties

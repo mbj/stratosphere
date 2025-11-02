@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModuleLoggingConfigurationProperty
-  = ModuleLoggingConfigurationProperty {cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html>
+    ModuleLoggingConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn>
+                                        cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled>
                                         enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel>
                                         logLevel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModuleLoggingConfigurationProperty ::
   ModuleLoggingConfigurationProperty
 mkModuleLoggingConfigurationProperty
   = ModuleLoggingConfigurationProperty
-      {cloudWatchLogGroupArn = Prelude.Nothing,
+      {haddock_workaround_ = (), cloudWatchLogGroupArn = Prelude.Nothing,
        enabled = Prelude.Nothing, logLevel = Prelude.Nothing}
 instance ToResourceProperties ModuleLoggingConfigurationProperty where
   toResourceProperties ModuleLoggingConfigurationProperty {..}

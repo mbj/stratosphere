@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupMemberProperty
-  = OriginGroupMemberProperty {originId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html>
+    OriginGroupMemberProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid>
+                               originId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupMemberProperty ::
   Value Prelude.Text -> OriginGroupMemberProperty
 mkOriginGroupMemberProperty originId
-  = OriginGroupMemberProperty {originId = originId}
+  = OriginGroupMemberProperty
+      {haddock_workaround_ = (), originId = originId}
 instance ToResourceProperties OriginGroupMemberProperty where
   toResourceProperties OriginGroupMemberProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON OriginGroupMemberProperty where
     = JSON.object ["OriginId" JSON..= originId]
 instance Property "OriginId" OriginGroupMemberProperty where
   type PropertyType "OriginId" OriginGroupMemberProperty = Value Prelude.Text
-  set newValue OriginGroupMemberProperty {}
+  set newValue OriginGroupMemberProperty {..}
     = OriginGroupMemberProperty {originId = newValue, ..}

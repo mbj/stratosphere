@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.AlarmActionProperty as Exports
 import Stratosphere.ResourceProperties
 data AlarmEventActionsProperty
-  = AlarmEventActionsProperty {alarmActions :: (Prelude.Maybe [AlarmActionProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html>
+    AlarmEventActionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html#cfn-iotevents-alarmmodel-alarmeventactions-alarmactions>
+                               alarmActions :: (Prelude.Maybe [AlarmActionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmEventActionsProperty :: AlarmEventActionsProperty
 mkAlarmEventActionsProperty
-  = AlarmEventActionsProperty {alarmActions = Prelude.Nothing}
+  = AlarmEventActionsProperty
+      {haddock_workaround_ = (), alarmActions = Prelude.Nothing}
 instance ToResourceProperties AlarmEventActionsProperty where
   toResourceProperties AlarmEventActionsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON AlarmEventActionsProperty where
               [(JSON..=) "AlarmActions" Prelude.<$> alarmActions]))
 instance Property "AlarmActions" AlarmEventActionsProperty where
   type PropertyType "AlarmActions" AlarmEventActionsProperty = [AlarmActionProperty]
-  set newValue AlarmEventActionsProperty {}
+  set newValue AlarmEventActionsProperty {..}
     = AlarmEventActionsProperty
         {alarmActions = Prelude.pure newValue, ..}

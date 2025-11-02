@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeConfigurationProperty
-  = NodeConfigurationProperty {availabilityZone :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html>
+    NodeConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html#cfn-managedblockchain-node-nodeconfiguration-availabilityzone>
+                               availabilityZone :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html#cfn-managedblockchain-node-nodeconfiguration-instancetype>
                                instanceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeConfigurationProperty ::
@@ -15,7 +19,8 @@ mkNodeConfigurationProperty ::
   -> Value Prelude.Text -> NodeConfigurationProperty
 mkNodeConfigurationProperty availabilityZone instanceType
   = NodeConfigurationProperty
-      {availabilityZone = availabilityZone, instanceType = instanceType}
+      {haddock_workaround_ = (), availabilityZone = availabilityZone,
+       instanceType = instanceType}
 instance ToResourceProperties NodeConfigurationProperty where
   toResourceProperties NodeConfigurationProperty {..}
     = ResourceProperties

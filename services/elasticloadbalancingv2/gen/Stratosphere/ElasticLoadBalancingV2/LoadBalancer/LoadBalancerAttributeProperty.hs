@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadBalancerAttributeProperty
-  = LoadBalancerAttributeProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html>
+    LoadBalancerAttributeProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-key>
+                                   key :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-value>
                                    value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerAttributeProperty :: LoadBalancerAttributeProperty
 mkLoadBalancerAttributeProperty
   = LoadBalancerAttributeProperty
-      {key = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), key = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties LoadBalancerAttributeProperty where
   toResourceProperties LoadBalancerAttributeProperty {..}
     = ResourceProperties

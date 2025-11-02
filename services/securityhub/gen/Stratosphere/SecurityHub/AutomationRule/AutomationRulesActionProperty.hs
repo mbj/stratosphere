@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.AutomationRule.AutomationRulesFin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutomationRulesActionProperty
-  = AutomationRulesActionProperty {findingFieldsUpdate :: AutomationRulesFindingFieldsUpdateProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html>
+    AutomationRulesActionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-findingfieldsupdate>
+                                   findingFieldsUpdate :: AutomationRulesFindingFieldsUpdateProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-type>
                                    type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutomationRulesActionProperty ::
@@ -17,7 +21,8 @@ mkAutomationRulesActionProperty ::
   -> Value Prelude.Text -> AutomationRulesActionProperty
 mkAutomationRulesActionProperty findingFieldsUpdate type'
   = AutomationRulesActionProperty
-      {findingFieldsUpdate = findingFieldsUpdate, type' = type'}
+      {haddock_workaround_ = (),
+       findingFieldsUpdate = findingFieldsUpdate, type' = type'}
 instance ToResourceProperties AutomationRulesActionProperty where
   toResourceProperties AutomationRulesActionProperty {..}
     = ResourceProperties

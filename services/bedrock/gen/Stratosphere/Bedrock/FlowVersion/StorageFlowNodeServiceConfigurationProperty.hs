@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowVersion.StorageFlowNodeS3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageFlowNodeServiceConfigurationProperty
-  = StorageFlowNodeServiceConfigurationProperty {s3 :: (Prelude.Maybe StorageFlowNodeS3ConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html>
+    StorageFlowNodeServiceConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html#cfn-bedrock-flowversion-storageflownodeserviceconfiguration-s3>
+                                                 s3 :: (Prelude.Maybe StorageFlowNodeS3ConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageFlowNodeServiceConfigurationProperty ::
   StorageFlowNodeServiceConfigurationProperty
 mkStorageFlowNodeServiceConfigurationProperty
   = StorageFlowNodeServiceConfigurationProperty
-      {s3 = Prelude.Nothing}
+      {haddock_workaround_ = (), s3 = Prelude.Nothing}
 instance ToResourceProperties StorageFlowNodeServiceConfigurationProperty where
   toResourceProperties
     StorageFlowNodeServiceConfigurationProperty {..}
@@ -30,6 +33,6 @@ instance JSON.ToJSON StorageFlowNodeServiceConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "S3" Prelude.<$> s3]))
 instance Property "S3" StorageFlowNodeServiceConfigurationProperty where
   type PropertyType "S3" StorageFlowNodeServiceConfigurationProperty = StorageFlowNodeS3ConfigurationProperty
-  set newValue StorageFlowNodeServiceConfigurationProperty {}
+  set newValue StorageFlowNodeServiceConfigurationProperty {..}
     = StorageFlowNodeServiceConfigurationProperty
         {s3 = Prelude.pure newValue, ..}

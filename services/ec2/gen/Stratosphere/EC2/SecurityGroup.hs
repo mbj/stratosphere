@@ -10,18 +10,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data SecurityGroup
-  = SecurityGroup {groupDescription :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html>
+    SecurityGroup {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-groupdescription>
+                   groupDescription :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-groupname>
                    groupName :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-securitygroupegress>
                    securityGroupEgress :: (Prelude.Maybe [EgressProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-securitygroupingress>
                    securityGroupIngress :: (Prelude.Maybe [IngressProperty]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-tags>
                    tags :: (Prelude.Maybe [Tag]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-vpcid>
                    vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroup :: Value Prelude.Text -> SecurityGroup
 mkSecurityGroup groupDescription
   = SecurityGroup
-      {groupDescription = groupDescription, groupName = Prelude.Nothing,
-       securityGroupEgress = Prelude.Nothing,
+      {haddock_workaround_ = (), groupDescription = groupDescription,
+       groupName = Prelude.Nothing, securityGroupEgress = Prelude.Nothing,
        securityGroupIngress = Prelude.Nothing, tags = Prelude.Nothing,
        vpcId = Prelude.Nothing}
 instance ToResourceProperties SecurityGroup where

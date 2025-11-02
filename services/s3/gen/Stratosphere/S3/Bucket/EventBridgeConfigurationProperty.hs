@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeConfigurationProperty
-  = EventBridgeConfigurationProperty {eventBridgeEnabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-eventbridgeconfiguration.html>
+    EventBridgeConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-eventbridgeconfiguration.html#cfn-s3-bucket-eventbridgeconfiguration-eventbridgeenabled>
+                                      eventBridgeEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeConfigurationProperty ::
   Value Prelude.Bool -> EventBridgeConfigurationProperty
 mkEventBridgeConfigurationProperty eventBridgeEnabled
   = EventBridgeConfigurationProperty
-      {eventBridgeEnabled = eventBridgeEnabled}
+      {haddock_workaround_ = (), eventBridgeEnabled = eventBridgeEnabled}
 instance ToResourceProperties EventBridgeConfigurationProperty where
   toResourceProperties EventBridgeConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON EventBridgeConfigurationProperty where
     = JSON.object ["EventBridgeEnabled" JSON..= eventBridgeEnabled]
 instance Property "EventBridgeEnabled" EventBridgeConfigurationProperty where
   type PropertyType "EventBridgeEnabled" EventBridgeConfigurationProperty = Value Prelude.Bool
-  set newValue EventBridgeConfigurationProperty {}
+  set newValue EventBridgeConfigurationProperty {..}
     = EventBridgeConfigurationProperty
         {eventBridgeEnabled = newValue, ..}

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.DataZone.UserProfile.IamUserProfileDetailsPro
 import {-# SOURCE #-} Stratosphere.DataZone.UserProfile.SsoUserProfileDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data UserProfileDetailsProperty
-  = UserProfileDetailsProperty {iam :: (Prelude.Maybe IamUserProfileDetailsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html>
+    UserProfileDetailsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html#cfn-datazone-userprofile-userprofiledetails-iam>
+                                iam :: (Prelude.Maybe IamUserProfileDetailsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html#cfn-datazone-userprofile-userprofiledetails-sso>
                                 sso :: (Prelude.Maybe SsoUserProfileDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProfileDetailsProperty :: UserProfileDetailsProperty
 mkUserProfileDetailsProperty
   = UserProfileDetailsProperty
-      {iam = Prelude.Nothing, sso = Prelude.Nothing}
+      {haddock_workaround_ = (), iam = Prelude.Nothing,
+       sso = Prelude.Nothing}
 instance ToResourceProperties UserProfileDetailsProperty where
   toResourceProperties UserProfileDetailsProperty {..}
     = ResourceProperties

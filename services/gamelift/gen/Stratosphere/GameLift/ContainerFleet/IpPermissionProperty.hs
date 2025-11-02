@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpPermissionProperty
-  = IpPermissionProperty {fromPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-ippermission.html>
+    IpPermissionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-ippermission.html#cfn-gamelift-containerfleet-ippermission-fromport>
+                          fromPort :: (Value Prelude.Integer),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-ippermission.html#cfn-gamelift-containerfleet-ippermission-iprange>
                           ipRange :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-ippermission.html#cfn-gamelift-containerfleet-ippermission-protocol>
                           protocol :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-ippermission.html#cfn-gamelift-containerfleet-ippermission-toport>
                           toPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIpPermissionProperty ::
@@ -19,8 +25,8 @@ mkIpPermissionProperty ::
         -> Value Prelude.Integer -> IpPermissionProperty
 mkIpPermissionProperty fromPort ipRange protocol toPort
   = IpPermissionProperty
-      {fromPort = fromPort, ipRange = ipRange, protocol = protocol,
-       toPort = toPort}
+      {haddock_workaround_ = (), fromPort = fromPort, ipRange = ipRange,
+       protocol = protocol, toPort = toPort}
 instance ToResourceProperties IpPermissionProperty where
   toResourceProperties IpPermissionProperty {..}
     = ResourceProperties

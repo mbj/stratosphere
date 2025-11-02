@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficRouteProperty
-  = TrafficRouteProperty {listenerArns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-trafficroute.html>
+    TrafficRouteProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-trafficroute.html#cfn-codedeploy-deploymentgroup-trafficroute-listenerarns>
+                          listenerArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRouteProperty :: TrafficRouteProperty
 mkTrafficRouteProperty
-  = TrafficRouteProperty {listenerArns = Prelude.Nothing}
+  = TrafficRouteProperty
+      {haddock_workaround_ = (), listenerArns = Prelude.Nothing}
 instance ToResourceProperties TrafficRouteProperty where
   toResourceProperties TrafficRouteProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON TrafficRouteProperty where
               [(JSON..=) "ListenerArns" Prelude.<$> listenerArns]))
 instance Property "ListenerArns" TrafficRouteProperty where
   type PropertyType "ListenerArns" TrafficRouteProperty = ValueList Prelude.Text
-  set newValue TrafficRouteProperty {}
+  set newValue TrafficRouteProperty {..}
     = TrafficRouteProperty {listenerArns = Prelude.pure newValue, ..}

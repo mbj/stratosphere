@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandCapacityReservationOptionsProperty
-  = OnDemandCapacityReservationOptionsProperty {capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandcapacityreservationoptions.html>
+    OnDemandCapacityReservationOptionsProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-cluster-ondemandcapacityreservationoptions-capacityreservationpreference>
+                                                capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-cluster-ondemandcapacityreservationoptions-capacityreservationresourcegrouparn>
                                                 capacityReservationResourceGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandcapacityreservationoptions.html#cfn-elasticmapreduce-cluster-ondemandcapacityreservationoptions-usagestrategy>
                                                 usageStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandCapacityReservationOptionsProperty ::
   OnDemandCapacityReservationOptionsProperty
 mkOnDemandCapacityReservationOptionsProperty
   = OnDemandCapacityReservationOptionsProperty
-      {capacityReservationPreference = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       capacityReservationPreference = Prelude.Nothing,
        capacityReservationResourceGroupArn = Prelude.Nothing,
        usageStrategy = Prelude.Nothing}
 instance ToResourceProperties OnDemandCapacityReservationOptionsProperty where

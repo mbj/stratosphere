@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.Backup.BackupSelection.ConditionsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupSelectionResourceTypeProperty
-  = BackupSelectionResourceTypeProperty {conditions :: (Prelude.Maybe ConditionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html>
+    BackupSelectionResourceTypeProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-conditions>
+                                         conditions :: (Prelude.Maybe ConditionsProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn>
                                          iamRoleArn :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags>
                                          listOfTags :: (Prelude.Maybe [ConditionResourceTypeProperty]),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-notresources>
                                          notResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources>
                                          resources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname>
                                          selectionName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupSelectionResourceTypeProperty ::
@@ -22,9 +30,10 @@ mkBackupSelectionResourceTypeProperty ::
   -> Value Prelude.Text -> BackupSelectionResourceTypeProperty
 mkBackupSelectionResourceTypeProperty iamRoleArn selectionName
   = BackupSelectionResourceTypeProperty
-      {iamRoleArn = iamRoleArn, selectionName = selectionName,
-       conditions = Prelude.Nothing, listOfTags = Prelude.Nothing,
-       notResources = Prelude.Nothing, resources = Prelude.Nothing}
+      {haddock_workaround_ = (), iamRoleArn = iamRoleArn,
+       selectionName = selectionName, conditions = Prelude.Nothing,
+       listOfTags = Prelude.Nothing, notResources = Prelude.Nothing,
+       resources = Prelude.Nothing}
 instance ToResourceProperties BackupSelectionResourceTypeProperty where
   toResourceProperties BackupSelectionResourceTypeProperty {..}
     = ResourceProperties

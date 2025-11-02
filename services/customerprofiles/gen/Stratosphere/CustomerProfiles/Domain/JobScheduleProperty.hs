@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobScheduleProperty
-  = JobScheduleProperty {dayOfTheWeek :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-jobschedule.html>
+    JobScheduleProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-jobschedule.html#cfn-customerprofiles-domain-jobschedule-dayoftheweek>
+                         dayOfTheWeek :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-jobschedule.html#cfn-customerprofiles-domain-jobschedule-time>
                          time :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobScheduleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> JobScheduleProperty
 mkJobScheduleProperty dayOfTheWeek time
-  = JobScheduleProperty {dayOfTheWeek = dayOfTheWeek, time = time}
+  = JobScheduleProperty
+      {haddock_workaround_ = (), dayOfTheWeek = dayOfTheWeek,
+       time = time}
 instance ToResourceProperties JobScheduleProperty where
   toResourceProperties JobScheduleProperty {..}
     = ResourceProperties

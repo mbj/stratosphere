@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionDrainingPolicyProperty
-  = ConnectionDrainingPolicyProperty {enabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html>
+    ConnectionDrainingPolicyProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html#cfn-elb-connectiondrainingpolicy-enabled>
+                                      enabled :: (Value Prelude.Bool),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html#cfn-elb-connectiondrainingpolicy-timeout>
                                       timeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionDrainingPolicyProperty ::
   Value Prelude.Bool -> ConnectionDrainingPolicyProperty
 mkConnectionDrainingPolicyProperty enabled
   = ConnectionDrainingPolicyProperty
-      {enabled = enabled, timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       timeout = Prelude.Nothing}
 instance ToResourceProperties ConnectionDrainingPolicyProperty where
   toResourceProperties ConnectionDrainingPolicyProperty {..}
     = ResourceProperties

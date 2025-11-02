@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPartitionUploadOptionsProperty
-  = DataPartitionUploadOptionsProperty {conditionLanguageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html>
+    DataPartitionUploadOptionsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html#cfn-iotfleetwise-campaign-datapartitionuploadoptions-conditionlanguageversion>
+                                        conditionLanguageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html#cfn-iotfleetwise-campaign-datapartitionuploadoptions-expression>
                                         expression :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPartitionUploadOptionsProperty ::
   Value Prelude.Text -> DataPartitionUploadOptionsProperty
 mkDataPartitionUploadOptionsProperty expression
   = DataPartitionUploadOptionsProperty
-      {expression = expression,
+      {haddock_workaround_ = (), expression = expression,
        conditionLanguageVersion = Prelude.Nothing}
 instance ToResourceProperties DataPartitionUploadOptionsProperty where
   toResourceProperties DataPartitionUploadOptionsProperty {..}

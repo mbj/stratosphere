@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FederatedAuthenticationRequestProperty
-  = FederatedAuthenticationRequestProperty {sAMLProviderArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html>
+    FederatedAuthenticationRequestProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn>
+                                            sAMLProviderArn :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn>
                                             selfServiceSAMLProviderArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFederatedAuthenticationRequestProperty ::
   Value Prelude.Text -> FederatedAuthenticationRequestProperty
 mkFederatedAuthenticationRequestProperty sAMLProviderArn
   = FederatedAuthenticationRequestProperty
-      {sAMLProviderArn = sAMLProviderArn,
+      {haddock_workaround_ = (), sAMLProviderArn = sAMLProviderArn,
        selfServiceSAMLProviderArn = Prelude.Nothing}
 instance ToResourceProperties FederatedAuthenticationRequestProperty where
   toResourceProperties FederatedAuthenticationRequestProperty {..}

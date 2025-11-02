@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHttp2Con
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHttpConnectionPoolProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayConnectionPoolProperty
-  = VirtualGatewayConnectionPoolProperty {gRPC :: (Prelude.Maybe VirtualGatewayGrpcConnectionPoolProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html>
+    VirtualGatewayConnectionPoolProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc>
+                                          gRPC :: (Prelude.Maybe VirtualGatewayGrpcConnectionPoolProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http>
                                           hTTP :: (Prelude.Maybe VirtualGatewayHttpConnectionPoolProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2>
                                           hTTP2 :: (Prelude.Maybe VirtualGatewayHttp2ConnectionPoolProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayConnectionPoolProperty ::
   VirtualGatewayConnectionPoolProperty
 mkVirtualGatewayConnectionPoolProperty
   = VirtualGatewayConnectionPoolProperty
-      {gRPC = Prelude.Nothing, hTTP = Prelude.Nothing,
-       hTTP2 = Prelude.Nothing}
+      {haddock_workaround_ = (), gRPC = Prelude.Nothing,
+       hTTP = Prelude.Nothing, hTTP2 = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayConnectionPoolProperty where
   toResourceProperties VirtualGatewayConnectionPoolProperty {..}
     = ResourceProperties

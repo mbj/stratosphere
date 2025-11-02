@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentControllerProperty
-  = DeploymentControllerProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html>
+    DeploymentControllerProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type>
+                                  type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentControllerProperty :: DeploymentControllerProperty
 mkDeploymentControllerProperty
-  = DeploymentControllerProperty {type' = Prelude.Nothing}
+  = DeploymentControllerProperty
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties DeploymentControllerProperty where
   toResourceProperties DeploymentControllerProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON DeploymentControllerProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" DeploymentControllerProperty where
   type PropertyType "Type" DeploymentControllerProperty = Value Prelude.Text
-  set newValue DeploymentControllerProperty {}
+  set newValue DeploymentControllerProperty {..}
     = DeploymentControllerProperty {type' = Prelude.pure newValue, ..}

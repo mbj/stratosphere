@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrimaryTaskSet
-  = PrimaryTaskSet {cluster :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html>
+    PrimaryTaskSet {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster>
+                    cluster :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service>
                     service :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid>
                     taskSetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrimaryTaskSet ::
@@ -16,7 +21,8 @@ mkPrimaryTaskSet ::
   -> Value Prelude.Text -> Value Prelude.Text -> PrimaryTaskSet
 mkPrimaryTaskSet cluster service taskSetId
   = PrimaryTaskSet
-      {cluster = cluster, service = service, taskSetId = taskSetId}
+      {haddock_workaround_ = (), cluster = cluster, service = service,
+       taskSetId = taskSetId}
 instance ToResourceProperties PrimaryTaskSet where
   toResourceProperties PrimaryTaskSet {..}
     = ResourceProperties

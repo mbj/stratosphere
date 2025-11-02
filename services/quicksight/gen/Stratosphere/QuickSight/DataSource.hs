@@ -14,25 +14,40 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DataSource
-  = DataSource {alternateDataSourceParameters :: (Prelude.Maybe [DataSourceParametersProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html>
+    DataSource {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters>
+                alternateDataSourceParameters :: (Prelude.Maybe [DataSourceParametersProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid>
                 awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials>
                 credentials :: (Prelude.Maybe DataSourceCredentialsProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid>
                 dataSourceId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters>
                 dataSourceParameters :: (Prelude.Maybe DataSourceParametersProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo>
                 errorInfo :: (Prelude.Maybe DataSourceErrorInfoProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-folderarns>
                 folderArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name>
                 name :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions>
                 permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties>
                 sslProperties :: (Prelude.Maybe SslPropertiesProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags>
                 tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type>
                 type' :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties>
                 vpcConnectionProperties :: (Prelude.Maybe VpcConnectionPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
   Value Prelude.Text -> Value Prelude.Text -> DataSource
 mkDataSource name type'
   = DataSource
-      {name = name, type' = type',
+      {haddock_workaround_ = (), name = name, type' = type',
        alternateDataSourceParameters = Prelude.Nothing,
        awsAccountId = Prelude.Nothing, credentials = Prelude.Nothing,
        dataSourceId = Prelude.Nothing,

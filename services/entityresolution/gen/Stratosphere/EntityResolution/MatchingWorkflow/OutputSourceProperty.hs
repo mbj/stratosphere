@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.OutputAttri
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputSourceProperty
-  = OutputSourceProperty {applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html>
+    OutputSourceProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-applynormalization>
+                          applyNormalization :: (Prelude.Maybe (Value Prelude.Bool)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-kmsarn>
                           kMSArn :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-output>
                           output :: [OutputAttributeProperty],
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-outputs3path>
                           outputS3Path :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputSourceProperty ::
@@ -18,8 +24,9 @@ mkOutputSourceProperty ::
   -> Value Prelude.Text -> OutputSourceProperty
 mkOutputSourceProperty output outputS3Path
   = OutputSourceProperty
-      {output = output, outputS3Path = outputS3Path,
-       applyNormalization = Prelude.Nothing, kMSArn = Prelude.Nothing}
+      {haddock_workaround_ = (), output = output,
+       outputS3Path = outputS3Path, applyNormalization = Prelude.Nothing,
+       kMSArn = Prelude.Nothing}
 instance ToResourceProperties OutputSourceProperty where
   toResourceProperties OutputSourceProperty {..}
     = ResourceProperties

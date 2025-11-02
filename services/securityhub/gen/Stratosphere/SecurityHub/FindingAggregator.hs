@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FindingAggregator
-  = FindingAggregator {regionLinkingMode :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html>
+    FindingAggregator {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html#cfn-securityhub-findingaggregator-regionlinkingmode>
+                       regionLinkingMode :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html#cfn-securityhub-findingaggregator-regions>
                        regions :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingAggregator :: Value Prelude.Text -> FindingAggregator
 mkFindingAggregator regionLinkingMode
   = FindingAggregator
-      {regionLinkingMode = regionLinkingMode, regions = Prelude.Nothing}
+      {haddock_workaround_ = (), regionLinkingMode = regionLinkingMode,
+       regions = Prelude.Nothing}
 instance ToResourceProperties FindingAggregator where
   toResourceProperties FindingAggregator {..}
     = ResourceProperties

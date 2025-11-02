@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuroraParametersProperty
-  = AuroraParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html>
+    AuroraParametersProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database>
+                              database :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host>
                               host :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port>
                               port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuroraParametersProperty ::
@@ -17,7 +22,8 @@ mkAuroraParametersProperty ::
      -> Value Prelude.Double -> AuroraParametersProperty
 mkAuroraParametersProperty database host port
   = AuroraParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties AuroraParametersProperty where
   toResourceProperties AuroraParametersProperty {..}
     = ResourceProperties

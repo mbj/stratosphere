@@ -8,23 +8,34 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelationalDatabaseParameterProperty
-  = RelationalDatabaseParameterProperty {allowedValues :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html>
+    RelationalDatabaseParameterProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-allowedvalues>
+                                         allowedValues :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-applymethod>
                                          applyMethod :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-applytype>
                                          applyType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-datatype>
                                          dataType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-description>
                                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-ismodifiable>
                                          isModifiable :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-parametername>
                                          parameterName :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html#cfn-lightsail-database-relationaldatabaseparameter-parametervalue>
                                          parameterValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalDatabaseParameterProperty ::
   RelationalDatabaseParameterProperty
 mkRelationalDatabaseParameterProperty
   = RelationalDatabaseParameterProperty
-      {allowedValues = Prelude.Nothing, applyMethod = Prelude.Nothing,
-       applyType = Prelude.Nothing, dataType = Prelude.Nothing,
-       description = Prelude.Nothing, isModifiable = Prelude.Nothing,
-       parameterName = Prelude.Nothing, parameterValue = Prelude.Nothing}
+      {haddock_workaround_ = (), allowedValues = Prelude.Nothing,
+       applyMethod = Prelude.Nothing, applyType = Prelude.Nothing,
+       dataType = Prelude.Nothing, description = Prelude.Nothing,
+       isModifiable = Prelude.Nothing, parameterName = Prelude.Nothing,
+       parameterValue = Prelude.Nothing}
 instance ToResourceProperties RelationalDatabaseParameterProperty where
   toResourceProperties RelationalDatabaseParameterProperty {..}
     = ResourceProperties

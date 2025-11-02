@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputSpecificationProperty
-  = InputSpecificationProperty {codec :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html>
+    InputSpecificationProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-codec>
+                                codec :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-maximumbitrate>
                                 maximumBitrate :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html#cfn-medialive-channel-inputspecification-resolution>
                                 resolution :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSpecificationProperty :: InputSpecificationProperty
 mkInputSpecificationProperty
   = InputSpecificationProperty
-      {codec = Prelude.Nothing, maximumBitrate = Prelude.Nothing,
-       resolution = Prelude.Nothing}
+      {haddock_workaround_ = (), codec = Prelude.Nothing,
+       maximumBitrate = Prelude.Nothing, resolution = Prelude.Nothing}
 instance ToResourceProperties InputSpecificationProperty where
   toResourceProperties InputSpecificationProperty {..}
     = ResourceProperties

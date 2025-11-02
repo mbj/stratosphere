@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolverQueryLoggingConfig
-  = ResolverQueryLoggingConfig {destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html>
+    ResolverQueryLoggingConfig {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn>
+                                destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name>
                                 name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverQueryLoggingConfig :: ResolverQueryLoggingConfig
 mkResolverQueryLoggingConfig
   = ResolverQueryLoggingConfig
-      {destinationArn = Prelude.Nothing, name = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationArn = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties ResolverQueryLoggingConfig where
   toResourceProperties ResolverQueryLoggingConfig {..}
     = ResourceProperties

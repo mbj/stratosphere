@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptParameterKeyValueProperty
-  = ScriptParameterKeyValueProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html>
+    ScriptParameterKeyValueProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key>
+                                     key :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value>
                                      value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptParameterKeyValueProperty ::
   ScriptParameterKeyValueProperty
 mkScriptParameterKeyValueProperty
   = ScriptParameterKeyValueProperty
-      {key = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), key = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties ScriptParameterKeyValueProperty where
   toResourceProperties ScriptParameterKeyValueProperty {..}
     = ResourceProperties

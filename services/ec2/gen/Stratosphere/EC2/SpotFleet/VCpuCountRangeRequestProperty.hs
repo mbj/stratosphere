@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VCpuCountRangeRequestProperty
-  = VCpuCountRangeRequestProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-vcpucountrangerequest.html>
+    VCpuCountRangeRequestProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-vcpucountrangerequest.html#cfn-ec2-spotfleet-vcpucountrangerequest-max>
+                                   max :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-vcpucountrangerequest.html#cfn-ec2-spotfleet-vcpucountrangerequest-min>
                                    min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVCpuCountRangeRequestProperty :: VCpuCountRangeRequestProperty
 mkVCpuCountRangeRequestProperty
   = VCpuCountRangeRequestProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties VCpuCountRangeRequestProperty where
   toResourceProperties VCpuCountRangeRequestProperty {..}
     = ResourceProperties

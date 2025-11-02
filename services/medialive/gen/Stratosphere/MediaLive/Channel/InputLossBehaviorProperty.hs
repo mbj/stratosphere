@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLocationProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputLossBehaviorProperty
-  = InputLossBehaviorProperty {blackFrameMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html>
+    InputLossBehaviorProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html#cfn-medialive-channel-inputlossbehavior-blackframemsec>
+                               blackFrameMsec :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html#cfn-medialive-channel-inputlossbehavior-inputlossimagecolor>
                                inputLossImageColor :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html#cfn-medialive-channel-inputlossbehavior-inputlossimageslate>
                                inputLossImageSlate :: (Prelude.Maybe InputLocationProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html#cfn-medialive-channel-inputlossbehavior-inputlossimagetype>
                                inputLossImageType :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html#cfn-medialive-channel-inputlossbehavior-repeatframemsec>
                                repeatFrameMsec :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLossBehaviorProperty :: InputLossBehaviorProperty
 mkInputLossBehaviorProperty
   = InputLossBehaviorProperty
-      {blackFrameMsec = Prelude.Nothing,
+      {haddock_workaround_ = (), blackFrameMsec = Prelude.Nothing,
        inputLossImageColor = Prelude.Nothing,
        inputLossImageSlate = Prelude.Nothing,
        inputLossImageType = Prelude.Nothing,

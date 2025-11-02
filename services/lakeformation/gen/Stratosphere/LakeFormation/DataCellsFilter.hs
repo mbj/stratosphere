@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.DataCellsFilter.RowFilterProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCellsFilter
-  = DataCellsFilter {columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html>
+    DataCellsFilter {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-columnnames>
+                     columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-columnwildcard>
                      columnWildcard :: (Prelude.Maybe ColumnWildcardProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-databasename>
                      databaseName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-rowfilter>
                      rowFilter :: (Prelude.Maybe RowFilterProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablecatalogid>
                      tableCatalogId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html#cfn-lakeformation-datacellsfilter-tablename>
                      tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCellsFilter ::
@@ -23,10 +32,10 @@ mkDataCellsFilter ::
      -> Value Prelude.Text -> Value Prelude.Text -> DataCellsFilter
 mkDataCellsFilter databaseName name tableCatalogId tableName
   = DataCellsFilter
-      {databaseName = databaseName, name = name,
-       tableCatalogId = tableCatalogId, tableName = tableName,
-       columnNames = Prelude.Nothing, columnWildcard = Prelude.Nothing,
-       rowFilter = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       name = name, tableCatalogId = tableCatalogId,
+       tableName = tableName, columnNames = Prelude.Nothing,
+       columnWildcard = Prelude.Nothing, rowFilter = Prelude.Nothing}
 instance ToResourceProperties DataCellsFilter where
   toResourceProperties DataCellsFilter {..}
     = ResourceProperties

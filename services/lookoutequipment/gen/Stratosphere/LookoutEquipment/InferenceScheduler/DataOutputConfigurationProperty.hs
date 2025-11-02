@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.LookoutEquipment.InferenceScheduler.S3OutputC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataOutputConfigurationProperty
-  = DataOutputConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-dataoutputconfiguration.html>
+    DataOutputConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-dataoutputconfiguration.html#cfn-lookoutequipment-inferencescheduler-dataoutputconfiguration-kmskeyid>
+                                     kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-dataoutputconfiguration.html#cfn-lookoutequipment-inferencescheduler-dataoutputconfiguration-s3outputconfiguration>
                                      s3OutputConfiguration :: S3OutputConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataOutputConfigurationProperty ::
   S3OutputConfigurationProperty -> DataOutputConfigurationProperty
 mkDataOutputConfigurationProperty s3OutputConfiguration
   = DataOutputConfigurationProperty
-      {s3OutputConfiguration = s3OutputConfiguration,
+      {haddock_workaround_ = (),
+       s3OutputConfiguration = s3OutputConfiguration,
        kmsKeyId = Prelude.Nothing}
 instance ToResourceProperties DataOutputConfigurationProperty where
   toResourceProperties DataOutputConfigurationProperty {..}

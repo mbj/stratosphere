@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowConnectionProperty as Export
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.FlowNodeProperty as Exports
 import Stratosphere.ResourceProperties
 data FlowDefinitionProperty
-  = FlowDefinitionProperty {connections :: (Prelude.Maybe [FlowConnectionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdefinition.html>
+    FlowDefinitionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdefinition.html#cfn-bedrock-flow-flowdefinition-connections>
+                            connections :: (Prelude.Maybe [FlowConnectionProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowdefinition.html#cfn-bedrock-flow-flowdefinition-nodes>
                             nodes :: (Prelude.Maybe [FlowNodeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowDefinitionProperty :: FlowDefinitionProperty
 mkFlowDefinitionProperty
   = FlowDefinitionProperty
-      {connections = Prelude.Nothing, nodes = Prelude.Nothing}
+      {haddock_workaround_ = (), connections = Prelude.Nothing,
+       nodes = Prelude.Nothing}
 instance ToResourceProperties FlowDefinitionProperty where
   toResourceProperties FlowDefinitionProperty {..}
     = ResourceProperties

@@ -10,15 +10,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DataSource
-  = DataSource {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html>
+    DataSource {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-applicationid>
+                applicationId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-configuration>
                 configuration :: JSON.Object,
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-displayname>
                 displayName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-documentenrichmentconfiguration>
                 documentEnrichmentConfiguration :: (Prelude.Maybe DocumentEnrichmentConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-indexid>
                 indexId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-rolearn>
                 roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-syncschedule>
                 syncSchedule :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-tags>
                 tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-vpcconfiguration>
                 vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
@@ -27,9 +39,9 @@ mkDataSource ::
      -> Value Prelude.Text -> Value Prelude.Text -> DataSource
 mkDataSource applicationId configuration displayName indexId
   = DataSource
-      {applicationId = applicationId, configuration = configuration,
-       displayName = displayName, indexId = indexId,
-       description = Prelude.Nothing,
+      {haddock_workaround_ = (), applicationId = applicationId,
+       configuration = configuration, displayName = displayName,
+       indexId = indexId, description = Prelude.Nothing,
        documentEnrichmentConfiguration = Prelude.Nothing,
        roleArn = Prelude.Nothing, syncSchedule = Prelude.Nothing,
        tags = Prelude.Nothing, vpcConfiguration = Prelude.Nothing}

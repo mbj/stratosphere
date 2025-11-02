@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IotEventsActionProperty
-  = IotEventsActionProperty {batchMode :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html>
+    IotEventsActionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode>
+                             batchMode :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname>
                              inputName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid>
                              messageId :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn>
                              roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IotEventsActionProperty
 mkIotEventsActionProperty inputName roleArn
   = IotEventsActionProperty
-      {inputName = inputName, roleArn = roleArn,
-       batchMode = Prelude.Nothing, messageId = Prelude.Nothing}
+      {haddock_workaround_ = (), inputName = inputName,
+       roleArn = roleArn, batchMode = Prelude.Nothing,
+       messageId = Prelude.Nothing}
 instance ToResourceProperties IotEventsActionProperty where
   toResourceProperties IotEventsActionProperty {..}
     = ResourceProperties

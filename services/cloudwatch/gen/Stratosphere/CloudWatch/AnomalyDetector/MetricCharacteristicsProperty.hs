@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricCharacteristicsProperty
-  = MetricCharacteristicsProperty {periodicSpikes :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>
+    MetricCharacteristicsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html#cfn-cloudwatch-anomalydetector-metriccharacteristics-periodicspikes>
+                                   periodicSpikes :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricCharacteristicsProperty :: MetricCharacteristicsProperty
 mkMetricCharacteristicsProperty
-  = MetricCharacteristicsProperty {periodicSpikes = Prelude.Nothing}
+  = MetricCharacteristicsProperty
+      {haddock_workaround_ = (), periodicSpikes = Prelude.Nothing}
 instance ToResourceProperties MetricCharacteristicsProperty where
   toResourceProperties MetricCharacteristicsProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON MetricCharacteristicsProperty where
               [(JSON..=) "PeriodicSpikes" Prelude.<$> periodicSpikes]))
 instance Property "PeriodicSpikes" MetricCharacteristicsProperty where
   type PropertyType "PeriodicSpikes" MetricCharacteristicsProperty = Value Prelude.Bool
-  set newValue MetricCharacteristicsProperty {}
+  set newValue MetricCharacteristicsProperty {..}
     = MetricCharacteristicsProperty
         {periodicSpikes = Prelude.pure newValue, ..}

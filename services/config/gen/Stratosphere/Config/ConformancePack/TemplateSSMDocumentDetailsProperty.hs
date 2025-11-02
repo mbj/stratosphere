@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateSSMDocumentDetailsProperty
-  = TemplateSSMDocumentDetailsProperty {documentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html>
+    TemplateSSMDocumentDetailsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html#cfn-config-conformancepack-templatessmdocumentdetails-documentname>
+                                        documentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html#cfn-config-conformancepack-templatessmdocumentdetails-documentversion>
                                         documentVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateSSMDocumentDetailsProperty ::
   TemplateSSMDocumentDetailsProperty
 mkTemplateSSMDocumentDetailsProperty
   = TemplateSSMDocumentDetailsProperty
-      {documentName = Prelude.Nothing, documentVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), documentName = Prelude.Nothing,
+       documentVersion = Prelude.Nothing}
 instance ToResourceProperties TemplateSSMDocumentDetailsProperty where
   toResourceProperties TemplateSSMDocumentDetailsProperty {..}
     = ResourceProperties

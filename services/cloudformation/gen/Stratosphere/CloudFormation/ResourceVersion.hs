@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.CloudFormation.ResourceVersion.LoggingConfigP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceVersion
-  = ResourceVersion {executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html>
+    ResourceVersion {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn>
+                     executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig>
                      loggingConfig :: (Prelude.Maybe LoggingConfigProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage>
                      schemaHandlerPackage :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename>
                      typeName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceVersion ::
   Value Prelude.Text -> Value Prelude.Text -> ResourceVersion
 mkResourceVersion schemaHandlerPackage typeName
   = ResourceVersion
-      {schemaHandlerPackage = schemaHandlerPackage, typeName = typeName,
+      {haddock_workaround_ = (),
+       schemaHandlerPackage = schemaHandlerPackage, typeName = typeName,
        executionRoleArn = Prelude.Nothing,
        loggingConfig = Prelude.Nothing}
 instance ToResourceProperties ResourceVersion where

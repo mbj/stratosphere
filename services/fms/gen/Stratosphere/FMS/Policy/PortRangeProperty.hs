@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortRangeProperty
-  = PortRangeProperty {from :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-portrange.html>
+    PortRangeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-portrange.html#cfn-fms-policy-portrange-from>
+                       from :: (Value Prelude.Integer),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-portrange.html#cfn-fms-policy-portrange-to>
                        to :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortRangeProperty ::
   Value Prelude.Integer -> Value Prelude.Integer -> PortRangeProperty
 mkPortRangeProperty from to
-  = PortRangeProperty {from = from, to = to}
+  = PortRangeProperty
+      {haddock_workaround_ = (), from = from, to = to}
 instance ToResourceProperties PortRangeProperty where
   toResourceProperties PortRangeProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityReservationTargetProperty
-  = CapacityReservationTargetProperty {capacityReservationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationtarget.html>
+    CapacityReservationTargetProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationtarget.html#cfn-autoscaling-autoscalinggroup-capacityreservationtarget-capacityreservationids>
+                                       capacityReservationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationtarget.html#cfn-autoscaling-autoscalinggroup-capacityreservationtarget-capacityreservationresourcegrouparns>
                                        capacityReservationResourceGroupArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationTargetProperty ::
   CapacityReservationTargetProperty
 mkCapacityReservationTargetProperty
   = CapacityReservationTargetProperty
-      {capacityReservationIds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       capacityReservationIds = Prelude.Nothing,
        capacityReservationResourceGroupArns = Prelude.Nothing}
 instance ToResourceProperties CapacityReservationTargetProperty where
   toResourceProperties CapacityReservationTargetProperty {..}

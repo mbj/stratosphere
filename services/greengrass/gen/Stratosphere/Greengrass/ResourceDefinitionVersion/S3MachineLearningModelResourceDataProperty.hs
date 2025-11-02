@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinitionVersion.Resource
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3MachineLearningModelResourceDataProperty
-  = S3MachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html>
+    S3MachineLearningModelResourceDataProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-destinationpath>
+                                                destinationPath :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-ownersetting>
                                                 ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata-s3uri>
                                                 s3Uri :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3MachineLearningModelResourceDataProperty ::
@@ -18,8 +23,8 @@ mkS3MachineLearningModelResourceDataProperty ::
   -> Value Prelude.Text -> S3MachineLearningModelResourceDataProperty
 mkS3MachineLearningModelResourceDataProperty destinationPath s3Uri
   = S3MachineLearningModelResourceDataProperty
-      {destinationPath = destinationPath, s3Uri = s3Uri,
-       ownerSetting = Prelude.Nothing}
+      {haddock_workaround_ = (), destinationPath = destinationPath,
+       s3Uri = s3Uri, ownerSetting = Prelude.Nothing}
 instance ToResourceProperties S3MachineLearningModelResourceDataProperty where
   toResourceProperties
     S3MachineLearningModelResourceDataProperty {..}

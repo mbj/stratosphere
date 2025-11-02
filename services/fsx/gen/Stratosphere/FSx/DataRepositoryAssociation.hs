@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DataRepositoryAssociation
-  = DataRepositoryAssociation {batchImportMetaDataOnCreate :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html>
+    DataRepositoryAssociation {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-batchimportmetadataoncreate>
+                               batchImportMetaDataOnCreate :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-datarepositorypath>
                                dataRepositoryPath :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-filesystemid>
                                fileSystemId :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-filesystempath>
                                fileSystemPath :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-importedfilechunksize>
                                importedFileChunkSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-s3>
                                s3 :: (Prelude.Maybe S3Property),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-tags>
                                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataRepositoryAssociation ::
@@ -27,7 +36,7 @@ mkDataRepositoryAssociation
   fileSystemId
   fileSystemPath
   = DataRepositoryAssociation
-      {dataRepositoryPath = dataRepositoryPath,
+      {haddock_workaround_ = (), dataRepositoryPath = dataRepositoryPath,
        fileSystemId = fileSystemId, fileSystemPath = fileSystemPath,
        batchImportMetaDataOnCreate = Prelude.Nothing,
        importedFileChunkSize = Prelude.Nothing, s3 = Prelude.Nothing,

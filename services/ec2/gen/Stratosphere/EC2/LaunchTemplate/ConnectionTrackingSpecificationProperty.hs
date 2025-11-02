@@ -8,15 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionTrackingSpecificationProperty
-  = ConnectionTrackingSpecificationProperty {tcpEstablishedTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html>
+    ConnectionTrackingSpecificationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html#cfn-ec2-launchtemplate-connectiontrackingspecification-tcpestablishedtimeout>
+                                             tcpEstablishedTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html#cfn-ec2-launchtemplate-connectiontrackingspecification-udpstreamtimeout>
                                              udpStreamTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html#cfn-ec2-launchtemplate-connectiontrackingspecification-udptimeout>
                                              udpTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionTrackingSpecificationProperty ::
   ConnectionTrackingSpecificationProperty
 mkConnectionTrackingSpecificationProperty
   = ConnectionTrackingSpecificationProperty
-      {tcpEstablishedTimeout = Prelude.Nothing,
+      {haddock_workaround_ = (), tcpEstablishedTimeout = Prelude.Nothing,
        udpStreamTimeout = Prelude.Nothing, udpTimeout = Prelude.Nothing}
 instance ToResourceProperties ConnectionTrackingSpecificationProperty where
   toResourceProperties ConnectionTrackingSpecificationProperty {..}

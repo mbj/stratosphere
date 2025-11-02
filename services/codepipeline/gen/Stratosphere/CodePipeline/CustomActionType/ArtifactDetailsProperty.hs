@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArtifactDetailsProperty
-  = ArtifactDetailsProperty {maximumCount :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html>
+    ArtifactDetailsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-maximumcount>
+                             maximumCount :: (Value Prelude.Integer),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-minimumcount>
                              minimumCount :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactDetailsProperty ::
@@ -15,7 +19,8 @@ mkArtifactDetailsProperty ::
   -> Value Prelude.Integer -> ArtifactDetailsProperty
 mkArtifactDetailsProperty maximumCount minimumCount
   = ArtifactDetailsProperty
-      {maximumCount = maximumCount, minimumCount = minimumCount}
+      {haddock_workaround_ = (), maximumCount = maximumCount,
+       minimumCount = minimumCount}
 instance ToResourceProperties ArtifactDetailsProperty where
   toResourceProperties ArtifactDetailsProperty {..}
     = ResourceProperties

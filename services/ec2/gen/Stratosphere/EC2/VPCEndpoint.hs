@@ -7,21 +7,31 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCEndpoint
-  = VPCEndpoint {policyDocument :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html>
+    VPCEndpoint {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument>
+                 policyDocument :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled>
                  privateDnsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids>
                  routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids>
                  securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename>
                  serviceName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids>
                  subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype>
                  vpcEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid>
                  vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> VPCEndpoint
 mkVPCEndpoint serviceName vpcId
   = VPCEndpoint
-      {serviceName = serviceName, vpcId = vpcId,
-       policyDocument = Prelude.Nothing,
+      {haddock_workaround_ = (), serviceName = serviceName,
+       vpcId = vpcId, policyDocument = Prelude.Nothing,
        privateDnsEnabled = Prelude.Nothing,
        routeTableIds = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing,

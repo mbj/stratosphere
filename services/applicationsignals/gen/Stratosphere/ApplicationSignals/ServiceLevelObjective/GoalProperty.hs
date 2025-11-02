@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.Inte
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoalProperty
-  = GoalProperty {attainmentGoal :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html>
+    GoalProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-attainmentgoal>
+                  attainmentGoal :: (Prelude.Maybe (Value Prelude.Double)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-interval>
                   interval :: (Prelude.Maybe IntervalProperty),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-warningthreshold>
                   warningThreshold :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGoalProperty :: GoalProperty
 mkGoalProperty
   = GoalProperty
-      {attainmentGoal = Prelude.Nothing, interval = Prelude.Nothing,
-       warningThreshold = Prelude.Nothing}
+      {haddock_workaround_ = (), attainmentGoal = Prelude.Nothing,
+       interval = Prelude.Nothing, warningThreshold = Prelude.Nothing}
 instance ToResourceProperties GoalProperty where
   toResourceProperties GoalProperty {..}
     = ResourceProperties

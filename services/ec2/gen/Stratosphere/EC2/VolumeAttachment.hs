@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeAttachment
-  = VolumeAttachment {device :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html>
+    VolumeAttachment {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-device>
+                      device :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-instanceid>
                       instanceId :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-volumeid>
                       volumeId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeAttachment ::
   Value Prelude.Text -> Value Prelude.Text -> VolumeAttachment
 mkVolumeAttachment instanceId volumeId
   = VolumeAttachment
-      {instanceId = instanceId, volumeId = volumeId,
-       device = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceId = instanceId,
+       volumeId = volumeId, device = Prelude.Nothing}
 instance ToResourceProperties VolumeAttachment where
   toResourceProperties VolumeAttachment {..}
     = ResourceProperties

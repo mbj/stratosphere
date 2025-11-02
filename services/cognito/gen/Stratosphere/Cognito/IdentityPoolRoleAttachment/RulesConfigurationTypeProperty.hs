@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data RulesConfigurationTypeProperty
-  = RulesConfigurationTypeProperty {rules :: [MappingRuleProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>
+    RulesConfigurationTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules>
+                                    rules :: [MappingRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesConfigurationTypeProperty ::
   [MappingRuleProperty] -> RulesConfigurationTypeProperty
 mkRulesConfigurationTypeProperty rules
-  = RulesConfigurationTypeProperty {rules = rules}
+  = RulesConfigurationTypeProperty
+      {haddock_workaround_ = (), rules = rules}
 instance ToResourceProperties RulesConfigurationTypeProperty where
   toResourceProperties RulesConfigurationTypeProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RulesConfigurationTypeProperty where
     = JSON.object ["Rules" JSON..= rules]
 instance Property "Rules" RulesConfigurationTypeProperty where
   type PropertyType "Rules" RulesConfigurationTypeProperty = [MappingRuleProperty]
-  set newValue RulesConfigurationTypeProperty {}
+  set newValue RulesConfigurationTypeProperty {..}
     = RulesConfigurationTypeProperty {rules = newValue, ..}

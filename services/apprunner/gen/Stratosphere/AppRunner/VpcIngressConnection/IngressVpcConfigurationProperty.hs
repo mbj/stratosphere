@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressVpcConfigurationProperty
-  = IngressVpcConfigurationProperty {vpcEndpointId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html>
+    IngressVpcConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html#cfn-apprunner-vpcingressconnection-ingressvpcconfiguration-vpcendpointid>
+                                     vpcEndpointId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html#cfn-apprunner-vpcingressconnection-ingressvpcconfiguration-vpcid>
                                      vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressVpcConfigurationProperty ::
@@ -16,7 +20,8 @@ mkIngressVpcConfigurationProperty ::
   -> Value Prelude.Text -> IngressVpcConfigurationProperty
 mkIngressVpcConfigurationProperty vpcEndpointId vpcId
   = IngressVpcConfigurationProperty
-      {vpcEndpointId = vpcEndpointId, vpcId = vpcId}
+      {haddock_workaround_ = (), vpcEndpointId = vpcEndpointId,
+       vpcId = vpcId}
 instance ToResourceProperties IngressVpcConfigurationProperty where
   toResourceProperties IngressVpcConfigurationProperty {..}
     = ResourceProperties

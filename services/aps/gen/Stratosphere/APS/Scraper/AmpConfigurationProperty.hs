@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmpConfigurationProperty
-  = AmpConfigurationProperty {workspaceArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html>
+    AmpConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html#cfn-aps-scraper-ampconfiguration-workspacearn>
+                              workspaceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmpConfigurationProperty ::
   Value Prelude.Text -> AmpConfigurationProperty
 mkAmpConfigurationProperty workspaceArn
-  = AmpConfigurationProperty {workspaceArn = workspaceArn}
+  = AmpConfigurationProperty
+      {haddock_workaround_ = (), workspaceArn = workspaceArn}
 instance ToResourceProperties AmpConfigurationProperty where
   toResourceProperties AmpConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AmpConfigurationProperty where
     = JSON.object ["WorkspaceArn" JSON..= workspaceArn]
 instance Property "WorkspaceArn" AmpConfigurationProperty where
   type PropertyType "WorkspaceArn" AmpConfigurationProperty = Value Prelude.Text
-  set newValue AmpConfigurationProperty {}
+  set newValue AmpConfigurationProperty {..}
     = AmpConfigurationProperty {workspaceArn = newValue, ..}

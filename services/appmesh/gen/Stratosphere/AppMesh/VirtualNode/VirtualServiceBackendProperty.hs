@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualServiceBackendProperty
-  = VirtualServiceBackendProperty {clientPolicy :: (Prelude.Maybe ClientPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html>
+    VirtualServiceBackendProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-clientpolicy>
+                                   clientPolicy :: (Prelude.Maybe ClientPolicyProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename>
                                    virtualServiceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceBackendProperty ::
   Value Prelude.Text -> VirtualServiceBackendProperty
 mkVirtualServiceBackendProperty virtualServiceName
   = VirtualServiceBackendProperty
-      {virtualServiceName = virtualServiceName,
+      {haddock_workaround_ = (), virtualServiceName = virtualServiceName,
        clientPolicy = Prelude.Nothing}
 instance ToResourceProperties VirtualServiceBackendProperty where
   toResourceProperties VirtualServiceBackendProperty {..}

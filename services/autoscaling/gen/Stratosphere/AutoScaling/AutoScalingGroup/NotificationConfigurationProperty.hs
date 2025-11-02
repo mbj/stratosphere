@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationConfigurationProperty
-  = NotificationConfigurationProperty {notificationTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html>
+    NotificationConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-notificationtypes>
+                                       notificationTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-topicarn>
                                        topicARN :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   ValueList Prelude.Text -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty topicARN
   = NotificationConfigurationProperty
-      {topicARN = topicARN, notificationTypes = Prelude.Nothing}
+      {haddock_workaround_ = (), topicARN = topicARN,
+       notificationTypes = Prelude.Nothing}
 instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties

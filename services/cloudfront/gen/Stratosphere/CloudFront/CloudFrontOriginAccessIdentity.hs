@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data CloudFrontOriginAccessIdentity
-  = CloudFrontOriginAccessIdentity {cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfigProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html>
+    CloudFrontOriginAccessIdentity {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig>
+                                    cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFrontOriginAccessIdentity ::
   CloudFrontOriginAccessIdentityConfigProperty
@@ -16,7 +19,8 @@ mkCloudFrontOriginAccessIdentity ::
 mkCloudFrontOriginAccessIdentity
   cloudFrontOriginAccessIdentityConfig
   = CloudFrontOriginAccessIdentity
-      {cloudFrontOriginAccessIdentityConfig = cloudFrontOriginAccessIdentityConfig}
+      {haddock_workaround_ = (),
+       cloudFrontOriginAccessIdentityConfig = cloudFrontOriginAccessIdentityConfig}
 instance ToResourceProperties CloudFrontOriginAccessIdentity where
   toResourceProperties CloudFrontOriginAccessIdentity {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON CloudFrontOriginAccessIdentity where
            JSON..= cloudFrontOriginAccessIdentityConfig]
 instance Property "CloudFrontOriginAccessIdentityConfig" CloudFrontOriginAccessIdentity where
   type PropertyType "CloudFrontOriginAccessIdentityConfig" CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentityConfigProperty
-  set newValue CloudFrontOriginAccessIdentity {}
+  set newValue CloudFrontOriginAccessIdentity {..}
     = CloudFrontOriginAccessIdentity
         {cloudFrontOriginAccessIdentityConfig = newValue, ..}

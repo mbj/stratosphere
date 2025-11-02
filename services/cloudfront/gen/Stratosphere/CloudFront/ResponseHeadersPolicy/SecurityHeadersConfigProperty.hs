@@ -13,17 +13,25 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.StrictTransp
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.XSSProtectionProperty as Exports
 import Stratosphere.ResourceProperties
 data SecurityHeadersConfigProperty
-  = SecurityHeadersConfigProperty {contentSecurityPolicy :: (Prelude.Maybe ContentSecurityPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html>
+    SecurityHeadersConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-contentsecuritypolicy>
+                                   contentSecurityPolicy :: (Prelude.Maybe ContentSecurityPolicyProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-contenttypeoptions>
                                    contentTypeOptions :: (Prelude.Maybe ContentTypeOptionsProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-frameoptions>
                                    frameOptions :: (Prelude.Maybe FrameOptionsProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-referrerpolicy>
                                    referrerPolicy :: (Prelude.Maybe ReferrerPolicyProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-stricttransportsecurity>
                                    strictTransportSecurity :: (Prelude.Maybe StrictTransportSecurityProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-xssprotection>
                                    xSSProtection :: (Prelude.Maybe XSSProtectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityHeadersConfigProperty :: SecurityHeadersConfigProperty
 mkSecurityHeadersConfigProperty
   = SecurityHeadersConfigProperty
-      {contentSecurityPolicy = Prelude.Nothing,
+      {haddock_workaround_ = (), contentSecurityPolicy = Prelude.Nothing,
        contentTypeOptions = Prelude.Nothing,
        frameOptions = Prelude.Nothing, referrerPolicy = Prelude.Nothing,
        strictTransportSecurity = Prelude.Nothing,

@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data OutpostResolver
-  = OutpostResolver {instanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html>
+    OutpostResolver {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-instancecount>
+                     instanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-outpostarn>
                      outpostArn :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-preferredinstancetype>
                      preferredInstanceType :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html#cfn-route53resolver-outpostresolver-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutpostResolver ::
@@ -19,7 +26,7 @@ mkOutpostResolver ::
   -> Value Prelude.Text -> Value Prelude.Text -> OutpostResolver
 mkOutpostResolver name outpostArn preferredInstanceType
   = OutpostResolver
-      {name = name, outpostArn = outpostArn,
+      {haddock_workaround_ = (), name = name, outpostArn = outpostArn,
        preferredInstanceType = preferredInstanceType,
        instanceCount = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties OutpostResolver where

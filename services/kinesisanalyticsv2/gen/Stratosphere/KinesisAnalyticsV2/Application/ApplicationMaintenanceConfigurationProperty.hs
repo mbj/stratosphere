@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationMaintenanceConfigurationProperty
-  = ApplicationMaintenanceConfigurationProperty {applicationMaintenanceWindowStartTime :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html>
+    ApplicationMaintenanceConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration-applicationmaintenancewindowstarttime>
+                                                 applicationMaintenanceWindowStartTime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationMaintenanceConfigurationProperty ::
   Value Prelude.Text -> ApplicationMaintenanceConfigurationProperty
 mkApplicationMaintenanceConfigurationProperty
   applicationMaintenanceWindowStartTime
   = ApplicationMaintenanceConfigurationProperty
-      {applicationMaintenanceWindowStartTime = applicationMaintenanceWindowStartTime}
+      {haddock_workaround_ = (),
+       applicationMaintenanceWindowStartTime = applicationMaintenanceWindowStartTime}
 instance ToResourceProperties ApplicationMaintenanceConfigurationProperty where
   toResourceProperties
     ApplicationMaintenanceConfigurationProperty {..}
@@ -31,6 +35,6 @@ instance JSON.ToJSON ApplicationMaintenanceConfigurationProperty where
            JSON..= applicationMaintenanceWindowStartTime]
 instance Property "ApplicationMaintenanceWindowStartTime" ApplicationMaintenanceConfigurationProperty where
   type PropertyType "ApplicationMaintenanceWindowStartTime" ApplicationMaintenanceConfigurationProperty = Value Prelude.Text
-  set newValue ApplicationMaintenanceConfigurationProperty {}
+  set newValue ApplicationMaintenanceConfigurationProperty {..}
     = ApplicationMaintenanceConfigurationProperty
         {applicationMaintenanceWindowStartTime = newValue, ..}

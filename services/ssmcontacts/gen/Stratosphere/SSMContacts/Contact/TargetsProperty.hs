@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.SSMContacts.Contact.ChannelTargetInfoProperty
 import {-# SOURCE #-} Stratosphere.SSMContacts.Contact.ContactTargetInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetsProperty
-  = TargetsProperty {channelTargetInfo :: (Prelude.Maybe ChannelTargetInfoProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html>
+    TargetsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo>
+                     channelTargetInfo :: (Prelude.Maybe ChannelTargetInfoProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo>
                      contactTargetInfo :: (Prelude.Maybe ContactTargetInfoProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty
-      {channelTargetInfo = Prelude.Nothing,
+      {haddock_workaround_ = (), channelTargetInfo = Prelude.Nothing,
        contactTargetInfo = Prelude.Nothing}
 instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}

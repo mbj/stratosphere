@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelationshipValueProperty
-  = RelationshipValueProperty {targetComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationshipvalue.html>
+    RelationshipValueProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationshipvalue.html#cfn-iottwinmaker-entity-relationshipvalue-targetcomponentname>
+                               targetComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationshipvalue.html#cfn-iottwinmaker-entity-relationshipvalue-targetentityid>
                                targetEntityId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationshipValueProperty :: RelationshipValueProperty
 mkRelationshipValueProperty
   = RelationshipValueProperty
-      {targetComponentName = Prelude.Nothing,
+      {haddock_workaround_ = (), targetComponentName = Prelude.Nothing,
        targetEntityId = Prelude.Nothing}
 instance ToResourceProperties RelationshipValueProperty where
   toResourceProperties RelationshipValueProperty {..}

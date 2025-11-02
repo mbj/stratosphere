@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentCircuitBreakerProperty
-  = DeploymentCircuitBreakerProperty {enable :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html>
+    DeploymentCircuitBreakerProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable>
+                                      enable :: (Value Prelude.Bool),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback>
                                       rollback :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentCircuitBreakerProperty ::
@@ -16,7 +20,7 @@ mkDeploymentCircuitBreakerProperty ::
   -> Value Prelude.Bool -> DeploymentCircuitBreakerProperty
 mkDeploymentCircuitBreakerProperty enable rollback
   = DeploymentCircuitBreakerProperty
-      {enable = enable, rollback = rollback}
+      {haddock_workaround_ = (), enable = enable, rollback = rollback}
 instance ToResourceProperties DeploymentCircuitBreakerProperty where
   toResourceProperties DeploymentCircuitBreakerProperty {..}
     = ResourceProperties

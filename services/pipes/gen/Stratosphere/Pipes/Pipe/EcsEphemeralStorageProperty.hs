@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsEphemeralStorageProperty
-  = EcsEphemeralStorageProperty {sizeInGiB :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsephemeralstorage.html>
+    EcsEphemeralStorageProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsephemeralstorage.html#cfn-pipes-pipe-ecsephemeralstorage-sizeingib>
+                                 sizeInGiB :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsEphemeralStorageProperty ::
   Value Prelude.Integer -> EcsEphemeralStorageProperty
 mkEcsEphemeralStorageProperty sizeInGiB
-  = EcsEphemeralStorageProperty {sizeInGiB = sizeInGiB}
+  = EcsEphemeralStorageProperty
+      {haddock_workaround_ = (), sizeInGiB = sizeInGiB}
 instance ToResourceProperties EcsEphemeralStorageProperty where
   toResourceProperties EcsEphemeralStorageProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON EcsEphemeralStorageProperty where
     = JSON.object ["SizeInGiB" JSON..= sizeInGiB]
 instance Property "SizeInGiB" EcsEphemeralStorageProperty where
   type PropertyType "SizeInGiB" EcsEphemeralStorageProperty = Value Prelude.Integer
-  set newValue EcsEphemeralStorageProperty {}
+  set newValue EcsEphemeralStorageProperty {..}
     = EcsEphemeralStorageProperty {sizeInGiB = newValue, ..}

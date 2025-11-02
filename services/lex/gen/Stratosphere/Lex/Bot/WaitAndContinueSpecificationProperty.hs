@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.StillWaitingResponseSpecificationProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WaitAndContinueSpecificationProperty
-  = WaitAndContinueSpecificationProperty {continueResponse :: ResponseSpecificationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html>
+    WaitAndContinueSpecificationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-continueresponse>
+                                          continueResponse :: ResponseSpecificationProperty,
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-isactive>
                                           isActive :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-stillwaitingresponse>
                                           stillWaitingResponse :: (Prelude.Maybe StillWaitingResponseSpecificationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html#cfn-lex-bot-waitandcontinuespecification-waitingresponse>
                                           waitingResponse :: ResponseSpecificationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitAndContinueSpecificationProperty ::
@@ -23,7 +29,7 @@ mkWaitAndContinueSpecificationProperty
   continueResponse
   waitingResponse
   = WaitAndContinueSpecificationProperty
-      {continueResponse = continueResponse,
+      {haddock_workaround_ = (), continueResponse = continueResponse,
        waitingResponse = waitingResponse, isActive = Prelude.Nothing,
        stillWaitingResponse = Prelude.Nothing}
 instance ToResourceProperties WaitAndContinueSpecificationProperty where

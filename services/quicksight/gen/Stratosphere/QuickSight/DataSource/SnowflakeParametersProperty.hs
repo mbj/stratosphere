@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.OAuthParametersProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeParametersProperty
-  = SnowflakeParametersProperty {authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html>
+    SnowflakeParametersProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-authenticationtype>
+                                 authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database>
                                  database :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-databaseaccesscontrolrole>
                                  databaseAccessControlRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host>
                                  host :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-oauthparameters>
                                  oAuthParameters :: (Prelude.Maybe OAuthParametersProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse>
                                  warehouse :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeParametersProperty ::
@@ -22,8 +30,8 @@ mkSnowflakeParametersProperty ::
      -> Value Prelude.Text -> SnowflakeParametersProperty
 mkSnowflakeParametersProperty database host warehouse
   = SnowflakeParametersProperty
-      {database = database, host = host, warehouse = warehouse,
-       authenticationType = Prelude.Nothing,
+      {haddock_workaround_ = (), database = database, host = host,
+       warehouse = warehouse, authenticationType = Prelude.Nothing,
        databaseAccessControlRole = Prelude.Nothing,
        oAuthParameters = Prelude.Nothing}
 instance ToResourceProperties SnowflakeParametersProperty where

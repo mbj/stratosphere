@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthenticationModeProperty
-  = AuthenticationModeProperty {passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html>
+    AuthenticationModeProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html#cfn-elasticache-user-authenticationmode-passwords>
+                                passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html#cfn-elasticache-user-authenticationmode-type>
                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationModeProperty ::
   Value Prelude.Text -> AuthenticationModeProperty
 mkAuthenticationModeProperty type'
   = AuthenticationModeProperty
-      {type' = type', passwords = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       passwords = Prelude.Nothing}
 instance ToResourceProperties AuthenticationModeProperty where
   toResourceProperties AuthenticationModeProperty {..}
     = ResourceProperties

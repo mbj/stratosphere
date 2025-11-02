@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaFunctionFlowNodeConfigurationProperty
-  = LambdaFunctionFlowNodeConfigurationProperty {lambdaArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lambdafunctionflownodeconfiguration.html>
+    LambdaFunctionFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lambdafunctionflownodeconfiguration.html#cfn-bedrock-flowversion-lambdafunctionflownodeconfiguration-lambdaarn>
+                                                 lambdaArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionFlowNodeConfigurationProperty ::
   Value Prelude.Text -> LambdaFunctionFlowNodeConfigurationProperty
 mkLambdaFunctionFlowNodeConfigurationProperty lambdaArn
   = LambdaFunctionFlowNodeConfigurationProperty
-      {lambdaArn = lambdaArn}
+      {haddock_workaround_ = (), lambdaArn = lambdaArn}
 instance ToResourceProperties LambdaFunctionFlowNodeConfigurationProperty where
   toResourceProperties
     LambdaFunctionFlowNodeConfigurationProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON LambdaFunctionFlowNodeConfigurationProperty where
     = JSON.object ["LambdaArn" JSON..= lambdaArn]
 instance Property "LambdaArn" LambdaFunctionFlowNodeConfigurationProperty where
   type PropertyType "LambdaArn" LambdaFunctionFlowNodeConfigurationProperty = Value Prelude.Text
-  set newValue LambdaFunctionFlowNodeConfigurationProperty {}
+  set newValue LambdaFunctionFlowNodeConfigurationProperty {..}
     = LambdaFunctionFlowNodeConfigurationProperty
         {lambdaArn = newValue, ..}

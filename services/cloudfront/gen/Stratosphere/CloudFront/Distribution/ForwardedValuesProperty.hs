@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.CookiesProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ForwardedValuesProperty
-  = ForwardedValuesProperty {cookies :: (Prelude.Maybe CookiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html>
+    ForwardedValuesProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies>
+                             cookies :: (Prelude.Maybe CookiesProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers>
                              headers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring>
                              queryString :: (Value Prelude.Bool),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys>
                              queryStringCacheKeys :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardedValuesProperty ::
   Value Prelude.Bool -> ForwardedValuesProperty
 mkForwardedValuesProperty queryString
   = ForwardedValuesProperty
-      {queryString = queryString, cookies = Prelude.Nothing,
-       headers = Prelude.Nothing, queryStringCacheKeys = Prelude.Nothing}
+      {haddock_workaround_ = (), queryString = queryString,
+       cookies = Prelude.Nothing, headers = Prelude.Nothing,
+       queryStringCacheKeys = Prelude.Nothing}
 instance ToResourceProperties ForwardedValuesProperty where
   toResourceProperties ForwardedValuesProperty {..}
     = ResourceProperties

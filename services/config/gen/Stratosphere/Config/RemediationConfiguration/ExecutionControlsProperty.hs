@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Config.RemediationConfiguration.SsmControlsProperty as Exports
 import Stratosphere.ResourceProperties
 data ExecutionControlsProperty
-  = ExecutionControlsProperty {ssmControls :: (Prelude.Maybe SsmControlsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html>
+    ExecutionControlsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols>
+                               ssmControls :: (Prelude.Maybe SsmControlsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionControlsProperty :: ExecutionControlsProperty
 mkExecutionControlsProperty
-  = ExecutionControlsProperty {ssmControls = Prelude.Nothing}
+  = ExecutionControlsProperty
+      {haddock_workaround_ = (), ssmControls = Prelude.Nothing}
 instance ToResourceProperties ExecutionControlsProperty where
   toResourceProperties ExecutionControlsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON ExecutionControlsProperty where
               [(JSON..=) "SsmControls" Prelude.<$> ssmControls]))
 instance Property "SsmControls" ExecutionControlsProperty where
   type PropertyType "SsmControls" ExecutionControlsProperty = SsmControlsProperty
-  set newValue ExecutionControlsProperty {}
+  set newValue ExecutionControlsProperty {..}
     = ExecutionControlsProperty
         {ssmControls = Prelude.pure newValue, ..}

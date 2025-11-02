@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TokenValidityUnitsProperty
-  = TokenValidityUnitsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html>
+    TokenValidityUnitsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken>
+                                accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken>
                                 idToken :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken>
                                 refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTokenValidityUnitsProperty :: TokenValidityUnitsProperty
 mkTokenValidityUnitsProperty
   = TokenValidityUnitsProperty
-      {accessToken = Prelude.Nothing, idToken = Prelude.Nothing,
-       refreshToken = Prelude.Nothing}
+      {haddock_workaround_ = (), accessToken = Prelude.Nothing,
+       idToken = Prelude.Nothing, refreshToken = Prelude.Nothing}
 instance ToResourceProperties TokenValidityUnitsProperty where
   toResourceProperties TokenValidityUnitsProperty {..}
     = ResourceProperties

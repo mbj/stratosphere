@@ -12,13 +12,23 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.SourceSelectionCriteriaProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationRuleProperty
-  = ReplicationRuleProperty {deleteMarkerReplication :: (Prelude.Maybe DeleteMarkerReplicationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html>
+    ReplicationRuleProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-deletemarkerreplication>
+                             deleteMarkerReplication :: (Prelude.Maybe DeleteMarkerReplicationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-destination>
                              destination :: ReplicationDestinationProperty,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-filter>
                              filter :: (Prelude.Maybe ReplicationRuleFilterProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-id>
                              id :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-prefix>
                              prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-priority>
                              priority :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria>
                              sourceSelectionCriteria :: (Prelude.Maybe SourceSelectionCriteriaProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html#cfn-s3-bucket-replicationrule-status>
                              status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleProperty ::
@@ -26,8 +36,8 @@ mkReplicationRuleProperty ::
   -> Value Prelude.Text -> ReplicationRuleProperty
 mkReplicationRuleProperty destination status
   = ReplicationRuleProperty
-      {destination = destination, status = status,
-       deleteMarkerReplication = Prelude.Nothing,
+      {haddock_workaround_ = (), destination = destination,
+       status = status, deleteMarkerReplication = Prelude.Nothing,
        filter = Prelude.Nothing, id = Prelude.Nothing,
        prefix = Prelude.Nothing, priority = Prelude.Nothing,
        sourceSelectionCriteria = Prelude.Nothing}

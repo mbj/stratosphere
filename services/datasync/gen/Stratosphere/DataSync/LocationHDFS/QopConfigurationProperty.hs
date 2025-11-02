@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QopConfigurationProperty
-  = QopConfigurationProperty {dataTransferProtection :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html>
+    QopConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-datatransferprotection>
+                              dataTransferProtection :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html#cfn-datasync-locationhdfs-qopconfiguration-rpcprotection>
                               rpcProtection :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkQopConfigurationProperty :: QopConfigurationProperty
 mkQopConfigurationProperty
   = QopConfigurationProperty
-      {dataTransferProtection = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       dataTransferProtection = Prelude.Nothing,
        rpcProtection = Prelude.Nothing}
 instance ToResourceProperties QopConfigurationProperty where
   toResourceProperties QopConfigurationProperty {..}

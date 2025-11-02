@@ -11,21 +11,30 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.TmpfsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LinuxParametersProperty
-  = LinuxParametersProperty {capabilities :: (Prelude.Maybe KernelCapabilitiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html>
+    LinuxParametersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities>
+                             capabilities :: (Prelude.Maybe KernelCapabilitiesProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices>
                              devices :: (Prelude.Maybe [DeviceProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled>
                              initProcessEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap>
                              maxSwap :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize>
                              sharedMemorySize :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness>
                              swappiness :: (Prelude.Maybe (Value Prelude.Integer)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs>
                              tmpfs :: (Prelude.Maybe [TmpfsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLinuxParametersProperty :: LinuxParametersProperty
 mkLinuxParametersProperty
   = LinuxParametersProperty
-      {capabilities = Prelude.Nothing, devices = Prelude.Nothing,
-       initProcessEnabled = Prelude.Nothing, maxSwap = Prelude.Nothing,
-       sharedMemorySize = Prelude.Nothing, swappiness = Prelude.Nothing,
-       tmpfs = Prelude.Nothing}
+      {haddock_workaround_ = (), capabilities = Prelude.Nothing,
+       devices = Prelude.Nothing, initProcessEnabled = Prelude.Nothing,
+       maxSwap = Prelude.Nothing, sharedMemorySize = Prelude.Nothing,
+       swappiness = Prelude.Nothing, tmpfs = Prelude.Nothing}
 instance ToResourceProperties LinuxParametersProperty where
   toResourceProperties LinuxParametersProperty {..}
     = ResourceProperties

@@ -10,10 +10,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Campaign
-  = Campaign {connectInstanceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html>
+    Campaign {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-connectinstancearn>
+              connectInstanceArn :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-dialerconfig>
               dialerConfig :: DialerConfigProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-outboundcallconfig>
               outboundCallConfig :: OutboundCallConfigProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html#cfn-connectcampaigns-campaign-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaign ::
@@ -22,7 +29,7 @@ mkCampaign ::
      -> Value Prelude.Text -> OutboundCallConfigProperty -> Campaign
 mkCampaign connectInstanceArn dialerConfig name outboundCallConfig
   = Campaign
-      {connectInstanceArn = connectInstanceArn,
+      {haddock_workaround_ = (), connectInstanceArn = connectInstanceArn,
        dialerConfig = dialerConfig, name = name,
        outboundCallConfig = outboundCallConfig, tags = Prelude.Nothing}
 instance ToResourceProperties Campaign where

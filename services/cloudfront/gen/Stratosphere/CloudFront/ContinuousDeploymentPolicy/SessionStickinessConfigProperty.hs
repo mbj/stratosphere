@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SessionStickinessConfigProperty
-  = SessionStickinessConfigProperty {idleTTL :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html>
+    SessionStickinessConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html#cfn-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig-idlettl>
+                                     idleTTL :: (Value Prelude.Integer),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html#cfn-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig-maximumttl>
                                      maximumTTL :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionStickinessConfigProperty ::
@@ -16,7 +20,8 @@ mkSessionStickinessConfigProperty ::
   -> Value Prelude.Integer -> SessionStickinessConfigProperty
 mkSessionStickinessConfigProperty idleTTL maximumTTL
   = SessionStickinessConfigProperty
-      {idleTTL = idleTTL, maximumTTL = maximumTTL}
+      {haddock_workaround_ = (), idleTTL = idleTTL,
+       maximumTTL = maximumTTL}
 instance ToResourceProperties SessionStickinessConfigProperty where
   toResourceProperties SessionStickinessConfigProperty {..}
     = ResourceProperties

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultEbsStorageSettingsProperty
-  = DefaultEbsStorageSettingsProperty {defaultEbsVolumeSizeInGb :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html>
+    DefaultEbsStorageSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-defaultebsvolumesizeingb>
+                                       defaultEbsVolumeSizeInGb :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-maximumebsvolumesizeingb>
                                        maximumEbsVolumeSizeInGb :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultEbsStorageSettingsProperty ::
@@ -18,7 +22,8 @@ mkDefaultEbsStorageSettingsProperty
   defaultEbsVolumeSizeInGb
   maximumEbsVolumeSizeInGb
   = DefaultEbsStorageSettingsProperty
-      {defaultEbsVolumeSizeInGb = defaultEbsVolumeSizeInGb,
+      {haddock_workaround_ = (),
+       defaultEbsVolumeSizeInGb = defaultEbsVolumeSizeInGb,
        maximumEbsVolumeSizeInGb = maximumEbsVolumeSizeInGb}
 instance ToResourceProperties DefaultEbsStorageSettingsProperty where
   toResourceProperties DefaultEbsStorageSettingsProperty {..}

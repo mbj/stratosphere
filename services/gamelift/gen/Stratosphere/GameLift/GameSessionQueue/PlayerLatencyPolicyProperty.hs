@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlayerLatencyPolicyProperty
-  = PlayerLatencyPolicyProperty {maximumIndividualPlayerLatencyMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html>
+    PlayerLatencyPolicyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html#cfn-gamelift-gamesessionqueue-playerlatencypolicy-maximumindividualplayerlatencymilliseconds>
+                                 maximumIndividualPlayerLatencyMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html#cfn-gamelift-gamesessionqueue-playerlatencypolicy-policydurationseconds>
                                  policyDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlayerLatencyPolicyProperty :: PlayerLatencyPolicyProperty
 mkPlayerLatencyPolicyProperty
   = PlayerLatencyPolicyProperty
-      {maximumIndividualPlayerLatencyMilliseconds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       maximumIndividualPlayerLatencyMilliseconds = Prelude.Nothing,
        policyDurationSeconds = Prelude.Nothing}
 instance ToResourceProperties PlayerLatencyPolicyProperty where
   toResourceProperties PlayerLatencyPolicyProperty {..}

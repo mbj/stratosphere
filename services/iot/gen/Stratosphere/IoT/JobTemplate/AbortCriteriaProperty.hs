@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AbortCriteriaProperty
-  = AbortCriteriaProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html>
+    AbortCriteriaProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html#cfn-iot-jobtemplate-abortcriteria-action>
+                           action :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html#cfn-iot-jobtemplate-abortcriteria-failuretype>
                            failureType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html#cfn-iot-jobtemplate-abortcriteria-minnumberofexecutedthings>
                            minNumberOfExecutedThings :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html#cfn-iot-jobtemplate-abortcriteria-thresholdpercentage>
                            thresholdPercentage :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortCriteriaProperty ::
@@ -23,7 +29,8 @@ mkAbortCriteriaProperty
   minNumberOfExecutedThings
   thresholdPercentage
   = AbortCriteriaProperty
-      {action = action, failureType = failureType,
+      {haddock_workaround_ = (), action = action,
+       failureType = failureType,
        minNumberOfExecutedThings = minNumberOfExecutedThings,
        thresholdPercentage = thresholdPercentage}
 instance ToResourceProperties AbortCriteriaProperty where

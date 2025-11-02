@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerSeedUrlConfigurat
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerSiteMapsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data WebCrawlerUrlsProperty
-  = WebCrawlerUrlsProperty {seedUrlConfiguration :: (Prelude.Maybe WebCrawlerSeedUrlConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html>
+    WebCrawlerUrlsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html#cfn-kendra-datasource-webcrawlerurls-seedurlconfiguration>
+                            seedUrlConfiguration :: (Prelude.Maybe WebCrawlerSeedUrlConfigurationProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html#cfn-kendra-datasource-webcrawlerurls-sitemapsconfiguration>
                             siteMapsConfiguration :: (Prelude.Maybe WebCrawlerSiteMapsConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerUrlsProperty :: WebCrawlerUrlsProperty
 mkWebCrawlerUrlsProperty
   = WebCrawlerUrlsProperty
-      {seedUrlConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), seedUrlConfiguration = Prelude.Nothing,
        siteMapsConfiguration = Prelude.Nothing}
 instance ToResourceProperties WebCrawlerUrlsProperty where
   toResourceProperties WebCrawlerUrlsProperty {..}

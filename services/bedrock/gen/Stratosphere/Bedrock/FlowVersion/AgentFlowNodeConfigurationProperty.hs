@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentFlowNodeConfigurationProperty
-  = AgentFlowNodeConfigurationProperty {agentAliasArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html>
+    AgentFlowNodeConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html#cfn-bedrock-flowversion-agentflownodeconfiguration-agentaliasarn>
+                                        agentAliasArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentFlowNodeConfigurationProperty ::
   Value Prelude.Text -> AgentFlowNodeConfigurationProperty
 mkAgentFlowNodeConfigurationProperty agentAliasArn
   = AgentFlowNodeConfigurationProperty
-      {agentAliasArn = agentAliasArn}
+      {haddock_workaround_ = (), agentAliasArn = agentAliasArn}
 instance ToResourceProperties AgentFlowNodeConfigurationProperty where
   toResourceProperties AgentFlowNodeConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON AgentFlowNodeConfigurationProperty where
     = JSON.object ["AgentAliasArn" JSON..= agentAliasArn]
 instance Property "AgentAliasArn" AgentFlowNodeConfigurationProperty where
   type PropertyType "AgentAliasArn" AgentFlowNodeConfigurationProperty = Value Prelude.Text
-  set newValue AgentFlowNodeConfigurationProperty {}
+  set newValue AgentFlowNodeConfigurationProperty {..}
     = AgentFlowNodeConfigurationProperty {agentAliasArn = newValue, ..}

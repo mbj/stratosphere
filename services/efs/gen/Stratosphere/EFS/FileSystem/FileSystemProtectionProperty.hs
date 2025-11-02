@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileSystemProtectionProperty
-  = FileSystemProtectionProperty {replicationOverwriteProtection :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemprotection.html>
+    FileSystemProtectionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemprotection.html#cfn-efs-filesystem-filesystemprotection-replicationoverwriteprotection>
+                                  replicationOverwriteProtection :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystemProtectionProperty :: FileSystemProtectionProperty
 mkFileSystemProtectionProperty
   = FileSystemProtectionProperty
-      {replicationOverwriteProtection = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       replicationOverwriteProtection = Prelude.Nothing}
 instance ToResourceProperties FileSystemProtectionProperty where
   toResourceProperties FileSystemProtectionProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON FileSystemProtectionProperty where
                  Prelude.<$> replicationOverwriteProtection]))
 instance Property "ReplicationOverwriteProtection" FileSystemProtectionProperty where
   type PropertyType "ReplicationOverwriteProtection" FileSystemProtectionProperty = Value Prelude.Text
-  set newValue FileSystemProtectionProperty {}
+  set newValue FileSystemProtectionProperty {..}
     = FileSystemProtectionProperty
         {replicationOverwriteProtection = Prelude.pure newValue, ..}

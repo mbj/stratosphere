@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CacheConfigProperty
-  = CacheConfigProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-cacheconfig.html>
+    CacheConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-cacheconfig.html#cfn-amplify-app-cacheconfig-type>
+                         type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheConfigProperty :: CacheConfigProperty
 mkCacheConfigProperty
-  = CacheConfigProperty {type' = Prelude.Nothing}
+  = CacheConfigProperty
+      {haddock_workaround_ = (), type' = Prelude.Nothing}
 instance ToResourceProperties CacheConfigProperty where
   toResourceProperties CacheConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON CacheConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type']))
 instance Property "Type" CacheConfigProperty where
   type PropertyType "Type" CacheConfigProperty = Value Prelude.Text
-  set newValue CacheConfigProperty {}
+  set newValue CacheConfigProperty {..}
     = CacheConfigProperty {type' = Prelude.pure newValue, ..}

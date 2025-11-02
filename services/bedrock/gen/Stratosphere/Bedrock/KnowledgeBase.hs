@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.StorageConfigurationPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KnowledgeBase
-  = KnowledgeBase {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html>
+    KnowledgeBase {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration>
                    knowledgeBaseConfiguration :: KnowledgeBaseConfigurationProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-rolearn>
                    roleArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-storageconfiguration>
                    storageConfiguration :: StorageConfigurationProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-tags>
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBase ::
@@ -27,7 +35,8 @@ mkKnowledgeBase
   roleArn
   storageConfiguration
   = KnowledgeBase
-      {knowledgeBaseConfiguration = knowledgeBaseConfiguration,
+      {haddock_workaround_ = (),
+       knowledgeBaseConfiguration = knowledgeBaseConfiguration,
        name = name, roleArn = roleArn,
        storageConfiguration = storageConfiguration,
        description = Prelude.Nothing, tags = Prelude.Nothing}

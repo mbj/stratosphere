@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataResourceProperty
-  = DataResourceProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html>
+    DataResourceProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type>
+                          type' :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values>
                           values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataResourceProperty ::
   Value Prelude.Text -> DataResourceProperty
 mkDataResourceProperty type'
-  = DataResourceProperty {type' = type', values = Prelude.Nothing}
+  = DataResourceProperty
+      {haddock_workaround_ = (), type' = type', values = Prelude.Nothing}
 instance ToResourceProperties DataResourceProperty where
   toResourceProperties DataResourceProperty {..}
     = ResourceProperties

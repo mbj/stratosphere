@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DataPipeline.Pipeline.ParameterAttributePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterObjectProperty
-  = ParameterObjectProperty {attributes :: [ParameterAttributeProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html>
+    ParameterObjectProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-attributes>
+                             attributes :: [ParameterAttributeProperty],
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html#cfn-datapipeline-pipeline-parameterobject-id>
                              id :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterObjectProperty ::
   [ParameterAttributeProperty]
   -> Value Prelude.Text -> ParameterObjectProperty
 mkParameterObjectProperty attributes id
-  = ParameterObjectProperty {attributes = attributes, id = id}
+  = ParameterObjectProperty
+      {haddock_workaround_ = (), attributes = attributes, id = id}
 instance ToResourceProperties ParameterObjectProperty where
   toResourceProperties ParameterObjectProperty {..}
     = ResourceProperties

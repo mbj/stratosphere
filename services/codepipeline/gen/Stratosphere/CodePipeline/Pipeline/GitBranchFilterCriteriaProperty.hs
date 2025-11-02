@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitBranchFilterCriteriaProperty
-  = GitBranchFilterCriteriaProperty {excludes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html>
+    GitBranchFilterCriteriaProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html#cfn-codepipeline-pipeline-gitbranchfiltercriteria-excludes>
+                                     excludes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html#cfn-codepipeline-pipeline-gitbranchfiltercriteria-includes>
                                      includes :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitBranchFilterCriteriaProperty ::
   GitBranchFilterCriteriaProperty
 mkGitBranchFilterCriteriaProperty
   = GitBranchFilterCriteriaProperty
-      {excludes = Prelude.Nothing, includes = Prelude.Nothing}
+      {haddock_workaround_ = (), excludes = Prelude.Nothing,
+       includes = Prelude.Nothing}
 instance ToResourceProperties GitBranchFilterCriteriaProperty where
   toResourceProperties GitBranchFilterCriteriaProperty {..}
     = ResourceProperties

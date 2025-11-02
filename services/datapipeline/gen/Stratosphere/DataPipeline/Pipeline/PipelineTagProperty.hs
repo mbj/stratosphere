@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineTagProperty
-  = PipelineTagProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html>
+    PipelineTagProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html#cfn-datapipeline-pipeline-pipelinetag-key>
+                         key :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html#cfn-datapipeline-pipeline-pipelinetag-value>
                          value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PipelineTagProperty
 mkPipelineTagProperty key value
-  = PipelineTagProperty {key = key, value = value}
+  = PipelineTagProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties PipelineTagProperty where
   toResourceProperties PipelineTagProperty {..}
     = ResourceProperties

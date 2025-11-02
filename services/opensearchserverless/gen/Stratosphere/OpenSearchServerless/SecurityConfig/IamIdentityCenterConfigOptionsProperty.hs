@@ -8,18 +8,27 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamIdentityCenterConfigOptionsProperty
-  = IamIdentityCenterConfigOptionsProperty {applicationArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html>
+    IamIdentityCenterConfigOptionsProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-applicationarn>
+                                            applicationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-applicationdescription>
                                             applicationDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-applicationname>
                                             applicationName :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-groupattribute>
                                             groupAttribute :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-instancearn>
                                             instanceArn :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html#cfn-opensearchserverless-securityconfig-iamidentitycenterconfigoptions-userattribute>
                                             userAttribute :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIamIdentityCenterConfigOptionsProperty ::
   Value Prelude.Text -> IamIdentityCenterConfigOptionsProperty
 mkIamIdentityCenterConfigOptionsProperty instanceArn
   = IamIdentityCenterConfigOptionsProperty
-      {instanceArn = instanceArn, applicationArn = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       applicationArn = Prelude.Nothing,
        applicationDescription = Prelude.Nothing,
        applicationName = Prelude.Nothing,
        groupAttribute = Prelude.Nothing, userAttribute = Prelude.Nothing}

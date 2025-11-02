@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetContainerRepositoryProperty
-  = TargetContainerRepositoryProperty {repositoryName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html>
+    TargetContainerRepositoryProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html#cfn-imagebuilder-distributionconfiguration-targetcontainerrepository-repositoryname>
+                                       repositoryName :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html#cfn-imagebuilder-distributionconfiguration-targetcontainerrepository-service>
                                        service :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetContainerRepositoryProperty ::
   TargetContainerRepositoryProperty
 mkTargetContainerRepositoryProperty
   = TargetContainerRepositoryProperty
-      {repositoryName = Prelude.Nothing, service = Prelude.Nothing}
+      {haddock_workaround_ = (), repositoryName = Prelude.Nothing,
+       service = Prelude.Nothing}
 instance ToResourceProperties TargetContainerRepositoryProperty where
   toResourceProperties TargetContainerRepositoryProperty {..}
     = ResourceProperties

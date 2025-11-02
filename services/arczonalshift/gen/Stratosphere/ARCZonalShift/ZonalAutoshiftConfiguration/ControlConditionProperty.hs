@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ControlConditionProperty
-  = ControlConditionProperty {alarmIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html>
+    ControlConditionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html#cfn-arczonalshift-zonalautoshiftconfiguration-controlcondition-alarmidentifier>
+                              alarmIdentifier :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html#cfn-arczonalshift-zonalautoshiftconfiguration-controlcondition-type>
                               type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkControlConditionProperty ::
@@ -15,7 +19,8 @@ mkControlConditionProperty ::
   -> Value Prelude.Text -> ControlConditionProperty
 mkControlConditionProperty alarmIdentifier type'
   = ControlConditionProperty
-      {alarmIdentifier = alarmIdentifier, type' = type'}
+      {haddock_workaround_ = (), alarmIdentifier = alarmIdentifier,
+       type' = type'}
 instance ToResourceProperties ControlConditionProperty where
   toResourceProperties ControlConditionProperty {..}
     = ResourceProperties

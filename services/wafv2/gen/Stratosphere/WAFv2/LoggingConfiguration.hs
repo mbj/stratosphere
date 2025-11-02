@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.WAFv2.LoggingConfiguration.LoggingFilterPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfiguration
-  = LoggingConfiguration {logDestinationConfigs :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html>
+    LoggingConfiguration {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs>
+                          logDestinationConfigs :: (ValueList Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter>
                           loggingFilter :: (Prelude.Maybe LoggingFilterProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields>
                           redactedFields :: (Prelude.Maybe [FieldToMatchProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn>
                           resourceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::
@@ -19,7 +25,8 @@ mkLoggingConfiguration ::
   -> Value Prelude.Text -> LoggingConfiguration
 mkLoggingConfiguration logDestinationConfigs resourceArn
   = LoggingConfiguration
-      {logDestinationConfigs = logDestinationConfigs,
+      {haddock_workaround_ = (),
+       logDestinationConfigs = logDestinationConfigs,
        resourceArn = resourceArn, loggingFilter = Prelude.Nothing,
        redactedFields = Prelude.Nothing}
 instance ToResourceProperties LoggingConfiguration where

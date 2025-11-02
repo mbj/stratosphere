@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingInfoProperty
-  = LoggingInfoProperty {region :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html>
+    LoggingInfoProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region>
+                         region :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket>
                          s3Bucket :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix>
                          s3Prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingInfoProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoggingInfoProperty
 mkLoggingInfoProperty region s3Bucket
   = LoggingInfoProperty
-      {region = region, s3Bucket = s3Bucket, s3Prefix = Prelude.Nothing}
+      {haddock_workaround_ = (), region = region, s3Bucket = s3Bucket,
+       s3Prefix = Prelude.Nothing}
 instance ToResourceProperties LoggingInfoProperty where
   toResourceProperties LoggingInfoProperty {..}
     = ResourceProperties

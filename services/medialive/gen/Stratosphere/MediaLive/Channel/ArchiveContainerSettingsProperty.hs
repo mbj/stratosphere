@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.M2tsSettingsProperty as Exp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.RawSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data ArchiveContainerSettingsProperty
-  = ArchiveContainerSettingsProperty {m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html>
+    ArchiveContainerSettingsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-m2tssettings>
+                                      m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html#cfn-medialive-channel-archivecontainersettings-rawsettings>
                                       rawSettings :: (Prelude.Maybe RawSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveContainerSettingsProperty ::
   ArchiveContainerSettingsProperty
 mkArchiveContainerSettingsProperty
   = ArchiveContainerSettingsProperty
-      {m2tsSettings = Prelude.Nothing, rawSettings = Prelude.Nothing}
+      {haddock_workaround_ = (), m2tsSettings = Prelude.Nothing,
+       rawSettings = Prelude.Nothing}
 instance ToResourceProperties ArchiveContainerSettingsProperty where
   toResourceProperties ArchiveContainerSettingsProperty {..}
     = ResourceProperties

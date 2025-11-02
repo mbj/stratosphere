@@ -8,16 +8,22 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.StepProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TestCase
-  = TestCase {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html>
+    TestCase {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html#cfn-apptest-testcase-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html#cfn-apptest-testcase-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html#cfn-apptest-testcase-steps>
               steps :: [StepProperty],
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html#cfn-apptest-testcase-tags>
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTestCase :: Value Prelude.Text -> [StepProperty] -> TestCase
 mkTestCase name steps
   = TestCase
-      {name = name, steps = steps, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, steps = steps,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TestCase where
   toResourceProperties TestCase {..}
     = ResourceProperties

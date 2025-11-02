@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppConfigResourceObjectProperty
-  = AppConfigResourceObjectProperty {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-appconfigresourceobject.html>
+    AppConfigResourceObjectProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-appconfigresourceobject.html#cfn-evidently-project-appconfigresourceobject-applicationid>
+                                     applicationId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-appconfigresourceobject.html#cfn-evidently-project-appconfigresourceobject-environmentid>
                                      environmentId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppConfigResourceObjectProperty ::
@@ -16,7 +20,8 @@ mkAppConfigResourceObjectProperty ::
   -> Value Prelude.Text -> AppConfigResourceObjectProperty
 mkAppConfigResourceObjectProperty applicationId environmentId
   = AppConfigResourceObjectProperty
-      {applicationId = applicationId, environmentId = environmentId}
+      {haddock_workaround_ = (), applicationId = applicationId,
+       environmentId = environmentId}
 instance ToResourceProperties AppConfigResourceObjectProperty where
   toResourceProperties AppConfigResourceObjectProperty {..}
     = ResourceProperties

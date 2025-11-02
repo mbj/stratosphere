@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaEndpointInputProperty
-  = LambdaEndpointInputProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html>
+    LambdaEndpointInputProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html#cfn-refactorspaces-service-lambdaendpointinput-arn>
+                                 arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaEndpointInputProperty ::
   Value Prelude.Text -> LambdaEndpointInputProperty
 mkLambdaEndpointInputProperty arn
-  = LambdaEndpointInputProperty {arn = arn}
+  = LambdaEndpointInputProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties LambdaEndpointInputProperty where
   toResourceProperties LambdaEndpointInputProperty {..}
     = ResourceProperties
@@ -23,5 +26,5 @@ instance JSON.ToJSON LambdaEndpointInputProperty where
     = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" LambdaEndpointInputProperty where
   type PropertyType "Arn" LambdaEndpointInputProperty = Value Prelude.Text
-  set newValue LambdaEndpointInputProperty {}
+  set newValue LambdaEndpointInputProperty {..}
     = LambdaEndpointInputProperty {arn = newValue, ..}

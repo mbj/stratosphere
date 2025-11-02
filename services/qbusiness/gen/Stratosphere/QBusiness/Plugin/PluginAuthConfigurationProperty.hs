@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.QBusiness.Plugin.BasicAuthConfigurationProper
 import {-# SOURCE #-} Stratosphere.QBusiness.Plugin.OAuth2ClientCredentialConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data PluginAuthConfigurationProperty
-  = PluginAuthConfigurationProperty {basicAuthConfiguration :: (Prelude.Maybe BasicAuthConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html>
+    PluginAuthConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html#cfn-qbusiness-plugin-pluginauthconfiguration-basicauthconfiguration>
+                                     basicAuthConfiguration :: (Prelude.Maybe BasicAuthConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html#cfn-qbusiness-plugin-pluginauthconfiguration-noauthconfiguration>
                                      noAuthConfiguration :: (Prelude.Maybe JSON.Object),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html#cfn-qbusiness-plugin-pluginauthconfiguration-oauth2clientcredentialconfiguration>
                                      oAuth2ClientCredentialConfiguration :: (Prelude.Maybe OAuth2ClientCredentialConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPluginAuthConfigurationProperty ::
   PluginAuthConfigurationProperty
 mkPluginAuthConfigurationProperty
   = PluginAuthConfigurationProperty
-      {basicAuthConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       basicAuthConfiguration = Prelude.Nothing,
        noAuthConfiguration = Prelude.Nothing,
        oAuth2ClientCredentialConfiguration = Prelude.Nothing}
 instance ToResourceProperties PluginAuthConfigurationProperty where

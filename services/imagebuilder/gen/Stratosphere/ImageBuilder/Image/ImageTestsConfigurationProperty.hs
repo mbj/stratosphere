@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageTestsConfigurationProperty
-  = ImageTestsConfigurationProperty {imageTestsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html>
+    ImageTestsConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled>
+                                     imageTestsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes>
                                      timeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageTestsConfigurationProperty ::
   ImageTestsConfigurationProperty
 mkImageTestsConfigurationProperty
   = ImageTestsConfigurationProperty
-      {imageTestsEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), imageTestsEnabled = Prelude.Nothing,
        timeoutMinutes = Prelude.Nothing}
 instance ToResourceProperties ImageTestsConfigurationProperty where
   toResourceProperties ImageTestsConfigurationProperty {..}

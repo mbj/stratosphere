@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ValidationProfilePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidationSpecificationProperty
-  = ValidationSpecificationProperty {validationProfiles :: [ValidationProfileProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html>
+    ValidationSpecificationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationprofiles>
+                                     validationProfiles :: [ValidationProfileProperty],
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html#cfn-sagemaker-modelpackage-validationspecification-validationrole>
                                      validationRole :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationSpecificationProperty ::
@@ -17,7 +21,7 @@ mkValidationSpecificationProperty ::
   -> Value Prelude.Text -> ValidationSpecificationProperty
 mkValidationSpecificationProperty validationProfiles validationRole
   = ValidationSpecificationProperty
-      {validationProfiles = validationProfiles,
+      {haddock_workaround_ = (), validationProfiles = validationProfiles,
        validationRole = validationRole}
 instance ToResourceProperties ValidationSpecificationProperty where
   toResourceProperties ValidationSpecificationProperty {..}

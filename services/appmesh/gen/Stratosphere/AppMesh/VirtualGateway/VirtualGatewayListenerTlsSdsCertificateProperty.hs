@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayListenerTlsSdsCertificateProperty
-  = VirtualGatewayListenerTlsSdsCertificateProperty {secretName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlssdscertificate.html>
+    VirtualGatewayListenerTlsSdsCertificateProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlssdscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlssdscertificate-secretname>
+                                                     secretName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsSdsCertificateProperty ::
   Value Prelude.Text
   -> VirtualGatewayListenerTlsSdsCertificateProperty
 mkVirtualGatewayListenerTlsSdsCertificateProperty secretName
   = VirtualGatewayListenerTlsSdsCertificateProperty
-      {secretName = secretName}
+      {haddock_workaround_ = (), secretName = secretName}
 instance ToResourceProperties VirtualGatewayListenerTlsSdsCertificateProperty where
   toResourceProperties
     VirtualGatewayListenerTlsSdsCertificateProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON VirtualGatewayListenerTlsSdsCertificateProperty where
     = JSON.object ["SecretName" JSON..= secretName]
 instance Property "SecretName" VirtualGatewayListenerTlsSdsCertificateProperty where
   type PropertyType "SecretName" VirtualGatewayListenerTlsSdsCertificateProperty = Value Prelude.Text
-  set newValue VirtualGatewayListenerTlsSdsCertificateProperty {}
+  set newValue VirtualGatewayListenerTlsSdsCertificateProperty {..}
     = VirtualGatewayListenerTlsSdsCertificateProperty
         {secretName = newValue, ..}

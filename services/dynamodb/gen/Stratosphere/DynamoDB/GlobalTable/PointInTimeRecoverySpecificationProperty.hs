@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PointInTimeRecoverySpecificationProperty
-  = PointInTimeRecoverySpecificationProperty {pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html>
+    PointInTimeRecoverySpecificationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled>
+                                              pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPointInTimeRecoverySpecificationProperty ::
   PointInTimeRecoverySpecificationProperty
 mkPointInTimeRecoverySpecificationProperty
   = PointInTimeRecoverySpecificationProperty
-      {pointInTimeRecoveryEnabled = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       pointInTimeRecoveryEnabled = Prelude.Nothing}
 instance ToResourceProperties PointInTimeRecoverySpecificationProperty where
   toResourceProperties PointInTimeRecoverySpecificationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON PointInTimeRecoverySpecificationProperty where
                  Prelude.<$> pointInTimeRecoveryEnabled]))
 instance Property "PointInTimeRecoveryEnabled" PointInTimeRecoverySpecificationProperty where
   type PropertyType "PointInTimeRecoveryEnabled" PointInTimeRecoverySpecificationProperty = Value Prelude.Bool
-  set newValue PointInTimeRecoverySpecificationProperty {}
+  set newValue PointInTimeRecoverySpecificationProperty {..}
     = PointInTimeRecoverySpecificationProperty
         {pointInTimeRecoveryEnabled = Prelude.pure newValue, ..}

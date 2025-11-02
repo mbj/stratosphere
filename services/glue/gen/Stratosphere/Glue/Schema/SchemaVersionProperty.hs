@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaVersionProperty
-  = SchemaVersionProperty {isLatest :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html>
+    SchemaVersionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest>
+                           isLatest :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber>
                            versionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersionProperty :: SchemaVersionProperty
 mkSchemaVersionProperty
   = SchemaVersionProperty
-      {isLatest = Prelude.Nothing, versionNumber = Prelude.Nothing}
+      {haddock_workaround_ = (), isLatest = Prelude.Nothing,
+       versionNumber = Prelude.Nothing}
 instance ToResourceProperties SchemaVersionProperty where
   toResourceProperties SchemaVersionProperty {..}
     = ResourceProperties

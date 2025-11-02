@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynatraceConnectorProfileCredentialsProperty
-  = DynatraceConnectorProfileCredentialsProperty {apiToken :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html>
+    DynatraceConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken>
+                                                  apiToken :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynatraceConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> DynatraceConnectorProfileCredentialsProperty
 mkDynatraceConnectorProfileCredentialsProperty apiToken
   = DynatraceConnectorProfileCredentialsProperty
-      {apiToken = apiToken}
+      {haddock_workaround_ = (), apiToken = apiToken}
 instance ToResourceProperties DynatraceConnectorProfileCredentialsProperty where
   toResourceProperties
     DynatraceConnectorProfileCredentialsProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON DynatraceConnectorProfileCredentialsProperty where
     = JSON.object ["ApiToken" JSON..= apiToken]
 instance Property "ApiToken" DynatraceConnectorProfileCredentialsProperty where
   type PropertyType "ApiToken" DynatraceConnectorProfileCredentialsProperty = Value Prelude.Text
-  set newValue DynatraceConnectorProfileCredentialsProperty {}
+  set newValue DynatraceConnectorProfileCredentialsProperty {..}
     = DynatraceConnectorProfileCredentialsProperty
         {apiToken = newValue, ..}

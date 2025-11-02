@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.Budgets.Budget.NotificationProperty as Export
 import {-# SOURCE #-} Stratosphere.Budgets.Budget.SubscriberProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationWithSubscribersProperty
-  = NotificationWithSubscribersProperty {notification :: NotificationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html>
+    NotificationWithSubscribersProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification>
+                                         notification :: NotificationProperty,
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers>
                                          subscribers :: [SubscriberProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationWithSubscribersProperty ::
@@ -17,7 +21,8 @@ mkNotificationWithSubscribersProperty ::
   -> [SubscriberProperty] -> NotificationWithSubscribersProperty
 mkNotificationWithSubscribersProperty notification subscribers
   = NotificationWithSubscribersProperty
-      {notification = notification, subscribers = subscribers}
+      {haddock_workaround_ = (), notification = notification,
+       subscribers = subscribers}
 instance ToResourceProperties NotificationWithSubscribersProperty where
   toResourceProperties NotificationWithSubscribersProperty {..}
     = ResourceProperties

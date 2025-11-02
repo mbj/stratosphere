@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentComponentUpdatePolicyProperty
-  = DeploymentComponentUpdatePolicyProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html>
+    DeploymentComponentUpdatePolicyProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html#cfn-greengrassv2-deployment-deploymentcomponentupdatepolicy-action>
+                                             action :: (Prelude.Maybe (Value Prelude.Text)),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html#cfn-greengrassv2-deployment-deploymentcomponentupdatepolicy-timeoutinseconds>
                                              timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentComponentUpdatePolicyProperty ::
   DeploymentComponentUpdatePolicyProperty
 mkDeploymentComponentUpdatePolicyProperty
   = DeploymentComponentUpdatePolicyProperty
-      {action = Prelude.Nothing, timeoutInSeconds = Prelude.Nothing}
+      {haddock_workaround_ = (), action = Prelude.Nothing,
+       timeoutInSeconds = Prelude.Nothing}
 instance ToResourceProperties DeploymentComponentUpdatePolicyProperty where
   toResourceProperties DeploymentComponentUpdatePolicyProperty {..}
     = ResourceProperties

@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Space.ResourceSpecProperty as Expor
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.SpaceAppLifecycleManagementProperty as Exports
 import Stratosphere.ResourceProperties
 data SpaceCodeEditorAppSettingsProperty
-  = SpaceCodeEditorAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>
+    SpaceCodeEditorAppSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-applifecyclemanagement>
+                                        appLifecycleManagement :: (Prelude.Maybe SpaceAppLifecycleManagementProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-defaultresourcespec>
                                         defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceCodeEditorAppSettingsProperty ::
   SpaceCodeEditorAppSettingsProperty
 mkSpaceCodeEditorAppSettingsProperty
   = SpaceCodeEditorAppSettingsProperty
-      {appLifecycleManagement = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       appLifecycleManagement = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing}
 instance ToResourceProperties SpaceCodeEditorAppSettingsProperty where
   toResourceProperties SpaceCodeEditorAppSettingsProperty {..}

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.ResourceSpecProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JupyterServerAppSettingsProperty
-  = JupyterServerAppSettingsProperty {defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>
+    JupyterServerAppSettingsProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec>
+                                      defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-lifecycleconfigarns>
                                       lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJupyterServerAppSettingsProperty ::
   JupyterServerAppSettingsProperty
 mkJupyterServerAppSettingsProperty
   = JupyterServerAppSettingsProperty
-      {defaultResourceSpec = Prelude.Nothing,
+      {haddock_workaround_ = (), defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}
 instance ToResourceProperties JupyterServerAppSettingsProperty where
   toResourceProperties JupyterServerAppSettingsProperty {..}

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data RateLimitQueryStringProperty
-  = RateLimitQueryStringProperty {textTransformations :: [TextTransformationProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitquerystring.html>
+    RateLimitQueryStringProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitquerystring.html#cfn-wafv2-webacl-ratelimitquerystring-texttransformations>
+                                  textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitQueryStringProperty ::
   [TextTransformationProperty] -> RateLimitQueryStringProperty
 mkRateLimitQueryStringProperty textTransformations
   = RateLimitQueryStringProperty
-      {textTransformations = textTransformations}
+      {haddock_workaround_ = (),
+       textTransformations = textTransformations}
 instance ToResourceProperties RateLimitQueryStringProperty where
   toResourceProperties RateLimitQueryStringProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON RateLimitQueryStringProperty where
     = JSON.object ["TextTransformations" JSON..= textTransformations]
 instance Property "TextTransformations" RateLimitQueryStringProperty where
   type PropertyType "TextTransformations" RateLimitQueryStringProperty = [TextTransformationProperty]
-  set newValue RateLimitQueryStringProperty {}
+  set newValue RateLimitQueryStringProperty {..}
     = RateLimitQueryStringProperty {textTransformations = newValue, ..}

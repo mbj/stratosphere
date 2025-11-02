@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.EKS.AccessEntry.AccessScopeProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPolicyProperty
-  = AccessPolicyProperty {accessScope :: AccessScopeProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html>
+    AccessPolicyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html#cfn-eks-accessentry-accesspolicy-accessscope>
+                          accessScope :: AccessScopeProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html#cfn-eks-accessentry-accesspolicy-policyarn>
                           policyArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyProperty ::
   AccessScopeProperty -> Value Prelude.Text -> AccessPolicyProperty
 mkAccessPolicyProperty accessScope policyArn
   = AccessPolicyProperty
-      {accessScope = accessScope, policyArn = policyArn}
+      {haddock_workaround_ = (), accessScope = accessScope,
+       policyArn = policyArn}
 instance ToResourceProperties AccessPolicyProperty where
   toResourceProperties AccessPolicyProperty {..}
     = ResourceProperties

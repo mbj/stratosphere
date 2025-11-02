@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.S3TableOutputOptionsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCatalogOutputProperty
-  = DataCatalogOutputProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html>
+    DataCatalogOutputProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid>
+                               catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename>
                                databaseName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions>
                                databaseOptions :: (Prelude.Maybe DatabaseTableOutputOptionsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite>
                                overwrite :: (Prelude.Maybe (Value Prelude.Bool)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options>
                                s3Options :: (Prelude.Maybe S3TableOutputOptionsProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename>
                                tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogOutputProperty ::
@@ -22,9 +30,10 @@ mkDataCatalogOutputProperty ::
   -> Value Prelude.Text -> DataCatalogOutputProperty
 mkDataCatalogOutputProperty databaseName tableName
   = DataCatalogOutputProperty
-      {databaseName = databaseName, tableName = tableName,
-       catalogId = Prelude.Nothing, databaseOptions = Prelude.Nothing,
-       overwrite = Prelude.Nothing, s3Options = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       tableName = tableName, catalogId = Prelude.Nothing,
+       databaseOptions = Prelude.Nothing, overwrite = Prelude.Nothing,
+       s3Options = Prelude.Nothing}
 instance ToResourceProperties DataCatalogOutputProperty where
   toResourceProperties DataCatalogOutputProperty {..}
     = ResourceProperties

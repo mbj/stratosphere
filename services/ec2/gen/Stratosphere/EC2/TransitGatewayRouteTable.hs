@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayRouteTable
-  = TransitGatewayRouteTable {tags :: (Prelude.Maybe [Tag]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html>
+    TransitGatewayRouteTable {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags>
+                              tags :: (Prelude.Maybe [Tag]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid>
                               transitGatewayId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTable ::
   Value Prelude.Text -> TransitGatewayRouteTable
 mkTransitGatewayRouteTable transitGatewayId
   = TransitGatewayRouteTable
-      {transitGatewayId = transitGatewayId, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), transitGatewayId = transitGatewayId,
+       tags = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayRouteTable where
   toResourceProperties TransitGatewayRouteTable {..}
     = ResourceProperties

@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegionConfigurationProperty
-  = RegionConfigurationProperty {sseKmsKeyId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html>
+    RegionConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid>
+                                 sseKmsKeyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionConfigurationProperty ::
   Value Prelude.Text -> RegionConfigurationProperty
 mkRegionConfigurationProperty sseKmsKeyId
-  = RegionConfigurationProperty {sseKmsKeyId = sseKmsKeyId}
+  = RegionConfigurationProperty
+      {haddock_workaround_ = (), sseKmsKeyId = sseKmsKeyId}
 instance ToResourceProperties RegionConfigurationProperty where
   toResourceProperties RegionConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RegionConfigurationProperty where
     = JSON.object ["SseKmsKeyId" JSON..= sseKmsKeyId]
 instance Property "SseKmsKeyId" RegionConfigurationProperty where
   type PropertyType "SseKmsKeyId" RegionConfigurationProperty = Value Prelude.Text
-  set newValue RegionConfigurationProperty {}
+  set newValue RegionConfigurationProperty {..}
     = RegionConfigurationProperty {sseKmsKeyId = newValue, ..}

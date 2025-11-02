@@ -13,18 +13,27 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.WebDataSourceConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceConfigurationProperty
-  = DataSourceConfigurationProperty {confluenceConfiguration :: (Prelude.Maybe ConfluenceDataSourceConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html>
+    DataSourceConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-confluenceconfiguration>
+                                     confluenceConfiguration :: (Prelude.Maybe ConfluenceDataSourceConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-s3configuration>
                                      s3Configuration :: (Prelude.Maybe S3DataSourceConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-salesforceconfiguration>
                                      salesforceConfiguration :: (Prelude.Maybe SalesforceDataSourceConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-sharepointconfiguration>
                                      sharePointConfiguration :: (Prelude.Maybe SharePointDataSourceConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-type>
                                      type' :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-webconfiguration>
                                      webConfiguration :: (Prelude.Maybe WebDataSourceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationProperty ::
   Value Prelude.Text -> DataSourceConfigurationProperty
 mkDataSourceConfigurationProperty type'
   = DataSourceConfigurationProperty
-      {type' = type', confluenceConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       confluenceConfiguration = Prelude.Nothing,
        s3Configuration = Prelude.Nothing,
        salesforceConfiguration = Prelude.Nothing,
        sharePointConfiguration = Prelude.Nothing,

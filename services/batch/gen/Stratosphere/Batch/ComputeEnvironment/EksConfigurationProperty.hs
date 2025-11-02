@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksConfigurationProperty
-  = EksConfigurationProperty {eksClusterArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html>
+    EksConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html#cfn-batch-computeenvironment-eksconfiguration-eksclusterarn>
+                              eksClusterArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html#cfn-batch-computeenvironment-eksconfiguration-kubernetesnamespace>
                               kubernetesNamespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksConfigurationProperty ::
@@ -15,7 +19,7 @@ mkEksConfigurationProperty ::
   -> Value Prelude.Text -> EksConfigurationProperty
 mkEksConfigurationProperty eksClusterArn kubernetesNamespace
   = EksConfigurationProperty
-      {eksClusterArn = eksClusterArn,
+      {haddock_workaround_ = (), eksClusterArn = eksClusterArn,
        kubernetesNamespace = kubernetesNamespace}
 instance ToResourceProperties EksConfigurationProperty where
   toResourceProperties EksConfigurationProperty {..}

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDecodingInterfaceProperty
-  = CustomDecodingInterfaceProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html>
+    CustomDecodingInterfaceProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html#cfn-iotfleetwise-decodermanifest-customdecodinginterface-name>
+                                     name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDecodingInterfaceProperty ::
   Value Prelude.Text -> CustomDecodingInterfaceProperty
 mkCustomDecodingInterfaceProperty name
-  = CustomDecodingInterfaceProperty {name = name}
+  = CustomDecodingInterfaceProperty
+      {haddock_workaround_ = (), name = name}
 instance ToResourceProperties CustomDecodingInterfaceProperty where
   toResourceProperties CustomDecodingInterfaceProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CustomDecodingInterfaceProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" CustomDecodingInterfaceProperty where
   type PropertyType "Name" CustomDecodingInterfaceProperty = Value Prelude.Text
-  set newValue CustomDecodingInterfaceProperty {}
+  set newValue CustomDecodingInterfaceProperty {..}
     = CustomDecodingInterfaceProperty {name = newValue, ..}

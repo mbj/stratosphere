@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerDependencyProperty
-  = ContainerDependencyProperty {condition :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html>
+    ContainerDependencyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html#cfn-gamelift-containergroupdefinition-containerdependency-condition>
+                                 condition :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html#cfn-gamelift-containergroupdefinition-containerdependency-containername>
                                  containerName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDependencyProperty ::
@@ -15,7 +19,8 @@ mkContainerDependencyProperty ::
   -> Value Prelude.Text -> ContainerDependencyProperty
 mkContainerDependencyProperty condition containerName
   = ContainerDependencyProperty
-      {condition = condition, containerName = containerName}
+      {haddock_workaround_ = (), condition = condition,
+       containerName = containerName}
 instance ToResourceProperties ContainerDependencyProperty where
   toResourceProperties ContainerDependencyProperty {..}
     = ResourceProperties

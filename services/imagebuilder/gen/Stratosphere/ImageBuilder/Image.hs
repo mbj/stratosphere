@@ -10,21 +10,34 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.WorkflowConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Image
-  = Image {containerRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html>
+    Image {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn>
+           containerRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn>
            distributionConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled>
            enhancedImageMetadataEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole>
            executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn>
            imageRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagescanningconfiguration>
            imageScanningConfiguration :: (Prelude.Maybe ImageScanningConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration>
            imageTestsConfiguration :: (Prelude.Maybe ImageTestsConfigurationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn>
            infrastructureConfigurationArn :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags>
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-workflows>
            workflows :: (Prelude.Maybe [WorkflowConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImage :: Value Prelude.Text -> Image
 mkImage infrastructureConfigurationArn
   = Image
-      {infrastructureConfigurationArn = infrastructureConfigurationArn,
+      {haddock_workaround_ = (),
+       infrastructureConfigurationArn = infrastructureConfigurationArn,
        containerRecipeArn = Prelude.Nothing,
        distributionConfigurationArn = Prelude.Nothing,
        enhancedImageMetadataEnabled = Prelude.Nothing,

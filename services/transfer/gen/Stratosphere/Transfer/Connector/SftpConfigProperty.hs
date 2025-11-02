@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SftpConfigProperty
-  = SftpConfigProperty {trustedHostKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html>
+    SftpConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys>
+                        trustedHostKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-usersecretid>
                         userSecretId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSftpConfigProperty :: SftpConfigProperty
 mkSftpConfigProperty
   = SftpConfigProperty
-      {trustedHostKeys = Prelude.Nothing, userSecretId = Prelude.Nothing}
+      {haddock_workaround_ = (), trustedHostKeys = Prelude.Nothing,
+       userSecretId = Prelude.Nothing}
 instance ToResourceProperties SftpConfigProperty where
   toResourceProperties SftpConfigProperty {..}
     = ResourceProperties

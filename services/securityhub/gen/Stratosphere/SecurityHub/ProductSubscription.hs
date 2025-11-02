@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProductSubscription
-  = ProductSubscription {productArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html>
+    ProductSubscription {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html#cfn-securityhub-productsubscription-productarn>
+                         productArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProductSubscription :: Value Prelude.Text -> ProductSubscription
 mkProductSubscription productArn
-  = ProductSubscription {productArn = productArn}
+  = ProductSubscription
+      {haddock_workaround_ = (), productArn = productArn}
 instance ToResourceProperties ProductSubscription where
   toResourceProperties ProductSubscription {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ProductSubscription where
     = JSON.object ["ProductArn" JSON..= productArn]
 instance Property "ProductArn" ProductSubscription where
   type PropertyType "ProductArn" ProductSubscription = Value Prelude.Text
-  set newValue ProductSubscription {}
+  set newValue ProductSubscription {..}
     = ProductSubscription {productArn = newValue, ..}

@@ -8,15 +8,27 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.PayloadProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBProperty
-  = DynamoDBProperty {hashKeyField :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html>
+    DynamoDBProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield>
+                      hashKeyField :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype>
                       hashKeyType :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue>
                       hashKeyValue :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation>
                       operation :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload>
                       payload :: (Prelude.Maybe PayloadProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield>
                       payloadField :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield>
                       rangeKeyField :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype>
                       rangeKeyType :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue>
                       rangeKeyValue :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename>
                       tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBProperty ::
@@ -24,11 +36,12 @@ mkDynamoDBProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> DynamoDBProperty
 mkDynamoDBProperty hashKeyField hashKeyValue tableName
   = DynamoDBProperty
-      {hashKeyField = hashKeyField, hashKeyValue = hashKeyValue,
-       tableName = tableName, hashKeyType = Prelude.Nothing,
-       operation = Prelude.Nothing, payload = Prelude.Nothing,
-       payloadField = Prelude.Nothing, rangeKeyField = Prelude.Nothing,
-       rangeKeyType = Prelude.Nothing, rangeKeyValue = Prelude.Nothing}
+      {haddock_workaround_ = (), hashKeyField = hashKeyField,
+       hashKeyValue = hashKeyValue, tableName = tableName,
+       hashKeyType = Prelude.Nothing, operation = Prelude.Nothing,
+       payload = Prelude.Nothing, payloadField = Prelude.Nothing,
+       rangeKeyField = Prelude.Nothing, rangeKeyType = Prelude.Nothing,
+       rangeKeyValue = Prelude.Nothing}
 instance ToResourceProperties DynamoDBProperty where
   toResourceProperties DynamoDBProperty {..}
     = ResourceProperties

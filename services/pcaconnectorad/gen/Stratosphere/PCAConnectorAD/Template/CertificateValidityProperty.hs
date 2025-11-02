@@ -8,7 +8,11 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.ValidityPeriodProperty as Exports
 import Stratosphere.ResourceProperties
 data CertificateValidityProperty
-  = CertificateValidityProperty {renewalPeriod :: ValidityPeriodProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-certificatevalidity.html>
+    CertificateValidityProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-certificatevalidity.html#cfn-pcaconnectorad-template-certificatevalidity-renewalperiod>
+                                 renewalPeriod :: ValidityPeriodProperty,
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-certificatevalidity.html#cfn-pcaconnectorad-template-certificatevalidity-validityperiod>
                                  validityPeriod :: ValidityPeriodProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateValidityProperty ::
@@ -16,7 +20,8 @@ mkCertificateValidityProperty ::
   -> ValidityPeriodProperty -> CertificateValidityProperty
 mkCertificateValidityProperty renewalPeriod validityPeriod
   = CertificateValidityProperty
-      {renewalPeriod = renewalPeriod, validityPeriod = validityPeriod}
+      {haddock_workaround_ = (), renewalPeriod = renewalPeriod,
+       validityPeriod = validityPeriod}
 instance ToResourceProperties CertificateValidityProperty where
   toResourceProperties CertificateValidityProperty {..}
     = ResourceProperties

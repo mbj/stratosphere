@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorOAuthReques
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackConnectorProfileCredentialsProperty
-  = SlackConnectorProfileCredentialsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html>
+    SlackConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken>
+                                              accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid>
                                               clientId :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret>
                                               clientSecret :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest>
                                               connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackConnectorProfileCredentialsProperty ::
@@ -19,8 +25,8 @@ mkSlackConnectorProfileCredentialsProperty ::
   -> Value Prelude.Text -> SlackConnectorProfileCredentialsProperty
 mkSlackConnectorProfileCredentialsProperty clientId clientSecret
   = SlackConnectorProfileCredentialsProperty
-      {clientId = clientId, clientSecret = clientSecret,
-       accessToken = Prelude.Nothing,
+      {haddock_workaround_ = (), clientId = clientId,
+       clientSecret = clientSecret, accessToken = Prelude.Nothing,
        connectorOAuthRequest = Prelude.Nothing}
 instance ToResourceProperties SlackConnectorProfileCredentialsProperty where
   toResourceProperties SlackConnectorProfileCredentialsProperty {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GranteeProperty
-  = GranteeProperty {granteeIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-grantee.html>
+    GranteeProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-grantee.html#cfn-s3-accessgrant-grantee-granteeidentifier>
+                     granteeIdentifier :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-grantee.html#cfn-s3-accessgrant-grantee-granteetype>
                      granteeType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGranteeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GranteeProperty
 mkGranteeProperty granteeIdentifier granteeType
   = GranteeProperty
-      {granteeIdentifier = granteeIdentifier, granteeType = granteeType}
+      {haddock_workaround_ = (), granteeIdentifier = granteeIdentifier,
+       granteeType = granteeType}
 instance ToResourceProperties GranteeProperty where
   toResourceProperties GranteeProperty {..}
     = ResourceProperties

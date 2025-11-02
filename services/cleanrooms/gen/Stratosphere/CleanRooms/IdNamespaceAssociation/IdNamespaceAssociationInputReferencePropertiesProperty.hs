@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdNamespaceAssociationInputReferencePropertiesProperty
-  = IdNamespaceAssociationInputReferencePropertiesProperty {idMappingWorkflowsSupported :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties.html>
+    IdNamespaceAssociationInputReferencePropertiesProperty {haddock_workaround_ :: (),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties.html#cfn-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties-idmappingworkflowssupported>
+                                                            idMappingWorkflowsSupported :: (Prelude.Maybe JSON.Object),
+                                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties.html#cfn-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties-idnamespacetype>
                                                             idNamespaceType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdNamespaceAssociationInputReferencePropertiesProperty ::
   IdNamespaceAssociationInputReferencePropertiesProperty
 mkIdNamespaceAssociationInputReferencePropertiesProperty
   = IdNamespaceAssociationInputReferencePropertiesProperty
-      {idMappingWorkflowsSupported = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       idMappingWorkflowsSupported = Prelude.Nothing,
        idNamespaceType = Prelude.Nothing}
 instance ToResourceProperties IdNamespaceAssociationInputReferencePropertiesProperty where
   toResourceProperties

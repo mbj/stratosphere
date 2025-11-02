@@ -8,16 +8,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeTypesSelectorProperty
-  = AttributeTypesSelectorProperty {address :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html>
+    AttributeTypesSelectorProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html#cfn-customerprofiles-domain-attributetypesselector-address>
+                                    address :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html#cfn-customerprofiles-domain-attributetypesselector-attributematchingmodel>
                                     attributeMatchingModel :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html#cfn-customerprofiles-domain-attributetypesselector-emailaddress>
                                     emailAddress :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html#cfn-customerprofiles-domain-attributetypesselector-phonenumber>
                                     phoneNumber :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeTypesSelectorProperty ::
   Value Prelude.Text -> AttributeTypesSelectorProperty
 mkAttributeTypesSelectorProperty attributeMatchingModel
   = AttributeTypesSelectorProperty
-      {attributeMatchingModel = attributeMatchingModel,
+      {haddock_workaround_ = (),
+       attributeMatchingModel = attributeMatchingModel,
        address = Prelude.Nothing, emailAddress = Prelude.Nothing,
        phoneNumber = Prelude.Nothing}
 instance ToResourceProperties AttributeTypesSelectorProperty where

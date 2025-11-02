@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.VpcOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcEndpointProperty
-  = VpcEndpointProperty {vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html>
+    VpcEndpointProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html#cfn-osis-pipeline-vpcendpoint-vpcendpointid>
+                         vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html#cfn-osis-pipeline-vpcendpoint-vpcid>
                          vpcId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html#cfn-osis-pipeline-vpcendpoint-vpcoptions>
                          vpcOptions :: (Prelude.Maybe VpcOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcEndpointProperty :: VpcEndpointProperty
 mkVpcEndpointProperty
   = VpcEndpointProperty
-      {vpcEndpointId = Prelude.Nothing, vpcId = Prelude.Nothing,
-       vpcOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), vpcEndpointId = Prelude.Nothing,
+       vpcId = Prelude.Nothing, vpcOptions = Prelude.Nothing}
 instance ToResourceProperties VpcEndpointProperty where
   toResourceProperties VpcEndpointProperty {..}
     = ResourceProperties

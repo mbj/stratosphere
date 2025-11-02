@@ -9,15 +9,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Mesh
-  = Mesh {meshName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html>
+    Mesh {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-meshname>
+          meshName :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-spec>
           spec :: (Prelude.Maybe MeshSpecProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags>
           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMesh :: Mesh
 mkMesh
   = Mesh
-      {meshName = Prelude.Nothing, spec = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), meshName = Prelude.Nothing,
+       spec = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Mesh where
   toResourceProperties Mesh {..}
     = ResourceProperties

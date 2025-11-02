@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluenceBlogToIndexFieldMappingProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfluenceBlogConfigurationProperty
-  = ConfluenceBlogConfigurationProperty {blogFieldMappings :: (Prelude.Maybe [ConfluenceBlogToIndexFieldMappingProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html>
+    ConfluenceBlogConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings>
+                                         blogFieldMappings :: (Prelude.Maybe [ConfluenceBlogToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceBlogConfigurationProperty ::
   ConfluenceBlogConfigurationProperty
 mkConfluenceBlogConfigurationProperty
   = ConfluenceBlogConfigurationProperty
-      {blogFieldMappings = Prelude.Nothing}
+      {haddock_workaround_ = (), blogFieldMappings = Prelude.Nothing}
 instance ToResourceProperties ConfluenceBlogConfigurationProperty where
   toResourceProperties ConfluenceBlogConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ConfluenceBlogConfigurationProperty where
               [(JSON..=) "BlogFieldMappings" Prelude.<$> blogFieldMappings]))
 instance Property "BlogFieldMappings" ConfluenceBlogConfigurationProperty where
   type PropertyType "BlogFieldMappings" ConfluenceBlogConfigurationProperty = [ConfluenceBlogToIndexFieldMappingProperty]
-  set newValue ConfluenceBlogConfigurationProperty {}
+  set newValue ConfluenceBlogConfigurationProperty {..}
     = ConfluenceBlogConfigurationProperty
         {blogFieldMappings = Prelude.pure newValue, ..}

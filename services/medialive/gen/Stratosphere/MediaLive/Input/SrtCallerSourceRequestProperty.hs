@@ -9,16 +9,24 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Input.SrtCallerDecryptionRequestPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SrtCallerSourceRequestProperty
-  = SrtCallerSourceRequestProperty {decryption :: (Prelude.Maybe SrtCallerDecryptionRequestProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html>
+    SrtCallerSourceRequestProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html#cfn-medialive-input-srtcallersourcerequest-decryption>
+                                    decryption :: (Prelude.Maybe SrtCallerDecryptionRequestProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html#cfn-medialive-input-srtcallersourcerequest-minimumlatency>
                                     minimumLatency :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html#cfn-medialive-input-srtcallersourcerequest-srtlisteneraddress>
                                     srtListenerAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html#cfn-medialive-input-srtcallersourcerequest-srtlistenerport>
                                     srtListenerPort :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html#cfn-medialive-input-srtcallersourcerequest-streamid>
                                     streamId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSrtCallerSourceRequestProperty :: SrtCallerSourceRequestProperty
 mkSrtCallerSourceRequestProperty
   = SrtCallerSourceRequestProperty
-      {decryption = Prelude.Nothing, minimumLatency = Prelude.Nothing,
+      {haddock_workaround_ = (), decryption = Prelude.Nothing,
+       minimumLatency = Prelude.Nothing,
        srtListenerAddress = Prelude.Nothing,
        srtListenerPort = Prelude.Nothing, streamId = Prelude.Nothing}
 instance ToResourceProperties SrtCallerSourceRequestProperty where

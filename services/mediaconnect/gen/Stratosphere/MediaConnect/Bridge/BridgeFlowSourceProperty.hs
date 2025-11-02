@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.VpcInterfaceAttachmentPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeFlowSourceProperty
-  = BridgeFlowSourceProperty {flowArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeflowsource.html>
+    BridgeFlowSourceProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeflowsource.html#cfn-mediaconnect-bridge-bridgeflowsource-flowarn>
+                              flowArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeflowsource.html#cfn-mediaconnect-bridge-bridgeflowsource-flowvpcinterfaceattachment>
                               flowVpcInterfaceAttachment :: (Prelude.Maybe VpcInterfaceAttachmentProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeflowsource.html#cfn-mediaconnect-bridge-bridgeflowsource-name>
                               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeFlowSourceProperty ::
@@ -18,7 +23,7 @@ mkBridgeFlowSourceProperty ::
   -> Value Prelude.Text -> BridgeFlowSourceProperty
 mkBridgeFlowSourceProperty flowArn name
   = BridgeFlowSourceProperty
-      {flowArn = flowArn, name = name,
+      {haddock_workaround_ = (), flowArn = flowArn, name = name,
        flowVpcInterfaceAttachment = Prelude.Nothing}
 instance ToResourceProperties BridgeFlowSourceProperty where
   toResourceProperties BridgeFlowSourceProperty {..}

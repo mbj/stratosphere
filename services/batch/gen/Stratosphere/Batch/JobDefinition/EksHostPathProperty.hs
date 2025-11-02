@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksHostPathProperty
-  = EksHostPathProperty {path :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekshostpath.html>
+    EksHostPathProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekshostpath.html#cfn-batch-jobdefinition-ekshostpath-path>
+                         path :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksHostPathProperty :: EksHostPathProperty
 mkEksHostPathProperty
-  = EksHostPathProperty {path = Prelude.Nothing}
+  = EksHostPathProperty
+      {haddock_workaround_ = (), path = Prelude.Nothing}
 instance ToResourceProperties EksHostPathProperty where
   toResourceProperties EksHostPathProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON EksHostPathProperty where
            (Prelude.catMaybes [(JSON..=) "Path" Prelude.<$> path]))
 instance Property "Path" EksHostPathProperty where
   type PropertyType "Path" EksHostPathProperty = Value Prelude.Text
-  set newValue EksHostPathProperty {}
+  set newValue EksHostPathProperty {..}
     = EksHostPathProperty {path = Prelude.pure newValue, ..}

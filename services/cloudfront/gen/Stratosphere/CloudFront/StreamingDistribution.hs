@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.CloudFront.StreamingDistribution.StreamingDis
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data StreamingDistribution
-  = StreamingDistribution {streamingDistributionConfig :: StreamingDistributionConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html>
+    StreamingDistribution {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig>
+                           streamingDistributionConfig :: StreamingDistributionConfigProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-tags>
                            tags :: [Tag]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingDistribution ::
@@ -16,7 +20,8 @@ mkStreamingDistribution ::
   -> [Tag] -> StreamingDistribution
 mkStreamingDistribution streamingDistributionConfig tags
   = StreamingDistribution
-      {streamingDistributionConfig = streamingDistributionConfig,
+      {haddock_workaround_ = (),
+       streamingDistributionConfig = streamingDistributionConfig,
        tags = tags}
 instance ToResourceProperties StreamingDistribution where
   toResourceProperties StreamingDistribution {..}

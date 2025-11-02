@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudwatchLogsLogDestinationProperty
-  = CloudwatchLogsLogDestinationProperty {logGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html>
+    CloudwatchLogsLogDestinationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html#cfn-pipes-pipe-cloudwatchlogslogdestination-loggrouparn>
+                                          logGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchLogsLogDestinationProperty ::
   CloudwatchLogsLogDestinationProperty
 mkCloudwatchLogsLogDestinationProperty
   = CloudwatchLogsLogDestinationProperty
-      {logGroupArn = Prelude.Nothing}
+      {haddock_workaround_ = (), logGroupArn = Prelude.Nothing}
 instance ToResourceProperties CloudwatchLogsLogDestinationProperty where
   toResourceProperties CloudwatchLogsLogDestinationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON CloudwatchLogsLogDestinationProperty where
               [(JSON..=) "LogGroupArn" Prelude.<$> logGroupArn]))
 instance Property "LogGroupArn" CloudwatchLogsLogDestinationProperty where
   type PropertyType "LogGroupArn" CloudwatchLogsLogDestinationProperty = Value Prelude.Text
-  set newValue CloudwatchLogsLogDestinationProperty {}
+  set newValue CloudwatchLogsLogDestinationProperty {..}
     = CloudwatchLogsLogDestinationProperty
         {logGroupArn = Prelude.pure newValue, ..}

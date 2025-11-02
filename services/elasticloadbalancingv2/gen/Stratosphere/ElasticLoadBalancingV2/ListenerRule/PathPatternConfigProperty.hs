@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathPatternConfigProperty
-  = PathPatternConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html>
+    PathPatternConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values>
+                               values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPathPatternConfigProperty :: PathPatternConfigProperty
 mkPathPatternConfigProperty
-  = PathPatternConfigProperty {values = Prelude.Nothing}
+  = PathPatternConfigProperty
+      {haddock_workaround_ = (), values = Prelude.Nothing}
 instance ToResourceProperties PathPatternConfigProperty where
   toResourceProperties PathPatternConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON PathPatternConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" PathPatternConfigProperty where
   type PropertyType "Values" PathPatternConfigProperty = ValueList Prelude.Text
-  set newValue PathPatternConfigProperty {}
+  set newValue PathPatternConfigProperty {..}
     = PathPatternConfigProperty {values = Prelude.pure newValue, ..}

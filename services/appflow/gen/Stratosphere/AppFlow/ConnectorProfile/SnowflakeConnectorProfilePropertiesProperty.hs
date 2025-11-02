@@ -8,12 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeConnectorProfilePropertiesProperty
-  = SnowflakeConnectorProfilePropertiesProperty {accountName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html>
+    SnowflakeConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname>
+                                                 accountName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname>
                                                  bucketName :: (Value Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix>
                                                  bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename>
                                                  privateLinkServiceName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region>
                                                  region :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage>
                                                  stage :: (Value Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse>
                                                  warehouse :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeConnectorProfilePropertiesProperty ::
@@ -26,8 +35,9 @@ mkSnowflakeConnectorProfilePropertiesProperty
   stage
   warehouse
   = SnowflakeConnectorProfilePropertiesProperty
-      {bucketName = bucketName, stage = stage, warehouse = warehouse,
-       accountName = Prelude.Nothing, bucketPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketName = bucketName, stage = stage,
+       warehouse = warehouse, accountName = Prelude.Nothing,
+       bucketPrefix = Prelude.Nothing,
        privateLinkServiceName = Prelude.Nothing, region = Prelude.Nothing}
 instance ToResourceProperties SnowflakeConnectorProfilePropertiesProperty where
   toResourceProperties

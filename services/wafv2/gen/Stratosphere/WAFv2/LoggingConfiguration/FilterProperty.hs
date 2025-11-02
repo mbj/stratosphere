@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.WAFv2.LoggingConfiguration.ConditionProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {behavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-filter.html>
+    FilterProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-filter.html#cfn-wafv2-loggingconfiguration-filter-behavior>
+                    behavior :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-filter.html#cfn-wafv2-loggingconfiguration-filter-conditions>
                     conditions :: [ConditionProperty],
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-filter.html#cfn-wafv2-loggingconfiguration-filter-requirement>
                     requirement :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty ::
@@ -17,8 +22,8 @@ mkFilterProperty ::
   -> [ConditionProperty] -> Value Prelude.Text -> FilterProperty
 mkFilterProperty behavior conditions requirement
   = FilterProperty
-      {behavior = behavior, conditions = conditions,
-       requirement = requirement}
+      {haddock_workaround_ = (), behavior = behavior,
+       conditions = conditions, requirement = requirement}
 instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties

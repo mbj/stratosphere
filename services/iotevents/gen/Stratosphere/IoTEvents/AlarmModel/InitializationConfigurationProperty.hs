@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitializationConfigurationProperty
-  = InitializationConfigurationProperty {disabledOnInitialization :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html>
+    InitializationConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html#cfn-iotevents-alarmmodel-initializationconfiguration-disabledoninitialization>
+                                         disabledOnInitialization :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitializationConfigurationProperty ::
   Value Prelude.Bool -> InitializationConfigurationProperty
 mkInitializationConfigurationProperty disabledOnInitialization
   = InitializationConfigurationProperty
-      {disabledOnInitialization = disabledOnInitialization}
+      {haddock_workaround_ = (),
+       disabledOnInitialization = disabledOnInitialization}
 instance ToResourceProperties InitializationConfigurationProperty where
   toResourceProperties InitializationConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON InitializationConfigurationProperty where
         ["DisabledOnInitialization" JSON..= disabledOnInitialization]
 instance Property "DisabledOnInitialization" InitializationConfigurationProperty where
   type PropertyType "DisabledOnInitialization" InitializationConfigurationProperty = Value Prelude.Bool
-  set newValue InitializationConfigurationProperty {}
+  set newValue InitializationConfigurationProperty {..}
     = InitializationConfigurationProperty
         {disabledOnInitialization = newValue, ..}

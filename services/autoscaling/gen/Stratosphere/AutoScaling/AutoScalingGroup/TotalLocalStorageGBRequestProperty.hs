@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TotalLocalStorageGBRequestProperty
-  = TotalLocalStorageGBRequestProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html>
+    TotalLocalStorageGBRequestProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-max>
+                                        max :: (Prelude.Maybe (Value Prelude.Double)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-totallocalstoragegbrequest.html#cfn-autoscaling-autoscalinggroup-totallocalstoragegbrequest-min>
                                         min :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalLocalStorageGBRequestProperty ::
   TotalLocalStorageGBRequestProperty
 mkTotalLocalStorageGBRequestProperty
   = TotalLocalStorageGBRequestProperty
-      {max = Prelude.Nothing, min = Prelude.Nothing}
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties TotalLocalStorageGBRequestProperty where
   toResourceProperties TotalLocalStorageGBRequestProperty {..}
     = ResourceProperties

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuthPropertiesProperty
-  = OAuthPropertiesProperty {authCodeUrl :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html>
+    OAuthPropertiesProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-authcodeurl>
+                             authCodeUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-oauthscopes>
                              oAuthScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html#cfn-appflow-connectorprofile-oauthproperties-tokenurl>
                              tokenUrl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthPropertiesProperty :: OAuthPropertiesProperty
 mkOAuthPropertiesProperty
   = OAuthPropertiesProperty
-      {authCodeUrl = Prelude.Nothing, oAuthScopes = Prelude.Nothing,
-       tokenUrl = Prelude.Nothing}
+      {haddock_workaround_ = (), authCodeUrl = Prelude.Nothing,
+       oAuthScopes = Prelude.Nothing, tokenUrl = Prelude.Nothing}
 instance ToResourceProperties OAuthPropertiesProperty where
   toResourceProperties OAuthPropertiesProperty {..}
     = ResourceProperties

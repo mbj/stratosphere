@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegionalParameterProperty
-  = RegionalParameterProperty {parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html>
+    RegionalParameterProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html#cfn-datazone-environmentblueprintconfiguration-regionalparameter-parameters>
+                               parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html#cfn-datazone-environmentblueprintconfiguration-regionalparameter-region>
                                region :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionalParameterProperty :: RegionalParameterProperty
 mkRegionalParameterProperty
   = RegionalParameterProperty
-      {parameters = Prelude.Nothing, region = Prelude.Nothing}
+      {haddock_workaround_ = (), parameters = Prelude.Nothing,
+       region = Prelude.Nothing}
 instance ToResourceProperties RegionalParameterProperty where
   toResourceProperties RegionalParameterProperty {..}
     = ResourceProperties

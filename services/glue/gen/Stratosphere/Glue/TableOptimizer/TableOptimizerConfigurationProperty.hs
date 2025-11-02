@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableOptimizerConfigurationProperty
-  = TableOptimizerConfigurationProperty {enabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html>
+    TableOptimizerConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-enabled>
+                                         enabled :: (Value Prelude.Bool),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-rolearn>
                                          roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableOptimizerConfigurationProperty ::
@@ -16,7 +20,7 @@ mkTableOptimizerConfigurationProperty ::
   -> Value Prelude.Text -> TableOptimizerConfigurationProperty
 mkTableOptimizerConfigurationProperty enabled roleArn
   = TableOptimizerConfigurationProperty
-      {enabled = enabled, roleArn = roleArn}
+      {haddock_workaround_ = (), enabled = enabled, roleArn = roleArn}
 instance ToResourceProperties TableOptimizerConfigurationProperty where
   toResourceProperties TableOptimizerConfigurationProperty {..}
     = ResourceProperties

@@ -8,15 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Database
-  = Database {databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html>
+    Database {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-databasename>
+              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-kmskeyid>
               kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabase :: Database
 mkDatabase
   = Database
-      {databaseName = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Database where
   toResourceProperties Database {..}
     = ResourceProperties

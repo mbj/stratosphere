@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyPrincipalAttachment
-  = PolicyPrincipalAttachment {policyName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html>
+    PolicyPrincipalAttachment {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname>
+                               policyName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal>
                                principal :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyPrincipalAttachment ::
@@ -15,7 +19,8 @@ mkPolicyPrincipalAttachment ::
   -> Value Prelude.Text -> PolicyPrincipalAttachment
 mkPolicyPrincipalAttachment policyName principal
   = PolicyPrincipalAttachment
-      {policyName = policyName, principal = principal}
+      {haddock_workaround_ = (), policyName = policyName,
+       principal = principal}
 instance ToResourceProperties PolicyPrincipalAttachment where
   toResourceProperties PolicyPrincipalAttachment {..}
     = ResourceProperties

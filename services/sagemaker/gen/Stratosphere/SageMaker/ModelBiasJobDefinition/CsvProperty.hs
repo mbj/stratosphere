@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvProperty
-  = CsvProperty {header :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-csv.html>
+    CsvProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-csv.html#cfn-sagemaker-modelbiasjobdefinition-csv-header>
+                 header :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvProperty :: CsvProperty
-mkCsvProperty = CsvProperty {header = Prelude.Nothing}
+mkCsvProperty
+  = CsvProperty {haddock_workaround_ = (), header = Prelude.Nothing}
 instance ToResourceProperties CsvProperty where
   toResourceProperties CsvProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CsvProperty where
            (Prelude.catMaybes [(JSON..=) "Header" Prelude.<$> header]))
 instance Property "Header" CsvProperty where
   type PropertyType "Header" CsvProperty = Value Prelude.Bool
-  set newValue CsvProperty {}
+  set newValue CsvProperty {..}
     = CsvProperty {header = Prelude.pure newValue, ..}

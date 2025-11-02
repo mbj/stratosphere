@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SparkParametersProperty
-  = SparkParametersProperty {host :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html>
+    SparkParametersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host>
+                             host :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port>
                              port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSparkParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> SparkParametersProperty
 mkSparkParametersProperty host port
-  = SparkParametersProperty {host = host, port = port}
+  = SparkParametersProperty
+      {haddock_workaround_ = (), host = host, port = port}
 instance ToResourceProperties SparkParametersProperty where
   toResourceProperties SparkParametersProperty {..}
     = ResourceProperties

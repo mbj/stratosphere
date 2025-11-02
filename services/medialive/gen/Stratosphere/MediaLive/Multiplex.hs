@@ -10,10 +10,17 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Multiplex.TagsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Multiplex
-  = Multiplex {availabilityZones :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html>
+    Multiplex {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html#cfn-medialive-multiplex-availabilityzones>
+               availabilityZones :: (ValueList Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html#cfn-medialive-multiplex-destinations>
                destinations :: (Prelude.Maybe [MultiplexOutputDestinationProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html#cfn-medialive-multiplex-multiplexsettings>
                multiplexSettings :: MultiplexSettingsProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html#cfn-medialive-multiplex-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html#cfn-medialive-multiplex-tags>
                tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplex ::
@@ -21,7 +28,7 @@ mkMultiplex ::
   -> MultiplexSettingsProperty -> Value Prelude.Text -> Multiplex
 mkMultiplex availabilityZones multiplexSettings name
   = Multiplex
-      {availabilityZones = availabilityZones,
+      {haddock_workaround_ = (), availabilityZones = availabilityZones,
        multiplexSettings = multiplexSettings, name = name,
        destinations = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Multiplex where

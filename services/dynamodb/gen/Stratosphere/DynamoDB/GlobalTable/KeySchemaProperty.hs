@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeySchemaProperty
-  = KeySchemaProperty {attributeName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html>
+    KeySchemaProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename>
+                       attributeName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype>
                        keyType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeySchemaProperty ::
   Value Prelude.Text -> Value Prelude.Text -> KeySchemaProperty
 mkKeySchemaProperty attributeName keyType
   = KeySchemaProperty
-      {attributeName = attributeName, keyType = keyType}
+      {haddock_workaround_ = (), attributeName = attributeName,
+       keyType = keyType}
 instance ToResourceProperties KeySchemaProperty where
   toResourceProperties KeySchemaProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MeteredProduct
-  = MeteredProduct {licenseEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html>
+    MeteredProduct {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-licenseendpointid>
+                    licenseEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-productid>
                     productId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMeteredProduct :: MeteredProduct
 mkMeteredProduct
   = MeteredProduct
-      {licenseEndpointId = Prelude.Nothing, productId = Prelude.Nothing}
+      {haddock_workaround_ = (), licenseEndpointId = Prelude.Nothing,
+       productId = Prelude.Nothing}
 instance ToResourceProperties MeteredProduct where
   toResourceProperties MeteredProduct {..}
     = ResourceProperties

@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 data RequiredFieldInfoProperty
-  = RequiredFieldInfoProperty {id :: FieldIdentifierProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html>
+    RequiredFieldInfoProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html#cfn-connect-tasktemplate-requiredfieldinfo-id>
+                               id :: FieldIdentifierProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequiredFieldInfoProperty ::
   FieldIdentifierProperty -> RequiredFieldInfoProperty
 mkRequiredFieldInfoProperty id
-  = RequiredFieldInfoProperty {id = id}
+  = RequiredFieldInfoProperty {haddock_workaround_ = (), id = id}
 instance ToResourceProperties RequiredFieldInfoProperty where
   toResourceProperties RequiredFieldInfoProperty {..}
     = ResourceProperties
@@ -24,5 +27,5 @@ instance JSON.ToJSON RequiredFieldInfoProperty where
     = JSON.object ["Id" JSON..= id]
 instance Property "Id" RequiredFieldInfoProperty where
   type PropertyType "Id" RequiredFieldInfoProperty = FieldIdentifierProperty
-  set newValue RequiredFieldInfoProperty {}
+  set newValue RequiredFieldInfoProperty {..}
     = RequiredFieldInfoProperty {id = newValue, ..}

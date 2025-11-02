@@ -10,22 +10,32 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.SubjectProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeneralNameProperty
-  = GeneralNameProperty {directoryName :: (Prelude.Maybe SubjectProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html>
+    GeneralNameProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname>
+                         directoryName :: (Prelude.Maybe SubjectProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname>
                          dnsName :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname>
                          ediPartyName :: (Prelude.Maybe EdiPartyNameProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress>
                          ipAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername>
                          otherName :: (Prelude.Maybe OtherNameProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid>
                          registeredId :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name>
                          rfc822Name :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier>
                          uniformResourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeneralNameProperty :: GeneralNameProperty
 mkGeneralNameProperty
   = GeneralNameProperty
-      {directoryName = Prelude.Nothing, dnsName = Prelude.Nothing,
-       ediPartyName = Prelude.Nothing, ipAddress = Prelude.Nothing,
-       otherName = Prelude.Nothing, registeredId = Prelude.Nothing,
-       rfc822Name = Prelude.Nothing,
+      {haddock_workaround_ = (), directoryName = Prelude.Nothing,
+       dnsName = Prelude.Nothing, ediPartyName = Prelude.Nothing,
+       ipAddress = Prelude.Nothing, otherName = Prelude.Nothing,
+       registeredId = Prelude.Nothing, rfc822Name = Prelude.Nothing,
        uniformResourceIdentifier = Prelude.Nothing}
 instance ToResourceProperties GeneralNameProperty where
   toResourceProperties GeneralNameProperty {..}

@@ -9,19 +9,26 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.InputColumnProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RelationalTableProperty
-  = RelationalTableProperty {catalog :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html>
+    RelationalTableProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog>
+                             catalog :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn>
                              dataSourceArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns>
                              inputColumns :: (Prelude.Maybe [InputColumnProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name>
                              name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema>
                              schema :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalTableProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RelationalTableProperty
 mkRelationalTableProperty dataSourceArn name
   = RelationalTableProperty
-      {dataSourceArn = dataSourceArn, name = name,
-       catalog = Prelude.Nothing, inputColumns = Prelude.Nothing,
-       schema = Prelude.Nothing}
+      {haddock_workaround_ = (), dataSourceArn = dataSourceArn,
+       name = name, catalog = Prelude.Nothing,
+       inputColumns = Prelude.Nothing, schema = Prelude.Nothing}
 instance ToResourceProperties RelationalTableProperty where
   toResourceProperties RelationalTableProperty {..}
     = ResourceProperties

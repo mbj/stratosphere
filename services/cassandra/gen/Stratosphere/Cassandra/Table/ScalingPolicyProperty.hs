@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.TargetTrackingScalingPolicyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ScalingPolicyProperty
-  = ScalingPolicyProperty {targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html>
+    ScalingPolicyProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html#cfn-cassandra-table-scalingpolicy-targettrackingscalingpolicyconfiguration>
+                           targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicyProperty :: ScalingPolicyProperty
 mkScalingPolicyProperty
   = ScalingPolicyProperty
-      {targetTrackingScalingPolicyConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       targetTrackingScalingPolicyConfiguration = Prelude.Nothing}
 instance ToResourceProperties ScalingPolicyProperty where
   toResourceProperties ScalingPolicyProperty {..}
     = ResourceProperties
@@ -31,7 +35,7 @@ instance JSON.ToJSON ScalingPolicyProperty where
                  Prelude.<$> targetTrackingScalingPolicyConfiguration]))
 instance Property "TargetTrackingScalingPolicyConfiguration" ScalingPolicyProperty where
   type PropertyType "TargetTrackingScalingPolicyConfiguration" ScalingPolicyProperty = TargetTrackingScalingPolicyConfigurationProperty
-  set newValue ScalingPolicyProperty {}
+  set newValue ScalingPolicyProperty {..}
     = ScalingPolicyProperty
         {targetTrackingScalingPolicyConfiguration = Prelude.pure newValue,
          ..}

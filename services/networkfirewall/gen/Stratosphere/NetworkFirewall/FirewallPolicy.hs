@@ -9,16 +9,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FirewallPolicy
-  = FirewallPolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html>
+    FirewallPolicy {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description>
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy>
                     firewallPolicy :: FirewallPolicyProperty,
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname>
                     firewallPolicyName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallPolicy ::
   FirewallPolicyProperty -> Value Prelude.Text -> FirewallPolicy
 mkFirewallPolicy firewallPolicy firewallPolicyName
   = FirewallPolicy
-      {firewallPolicy = firewallPolicy,
+      {haddock_workaround_ = (), firewallPolicy = firewallPolicy,
        firewallPolicyName = firewallPolicyName,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FirewallPolicy where

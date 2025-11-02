@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplaceDefaultPolicyVersionParamsProperty
-  = ReplaceDefaultPolicyVersionParamsProperty {templateName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html>
+    ReplaceDefaultPolicyVersionParamsProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename>
+                                               templateName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplaceDefaultPolicyVersionParamsProperty ::
   Value Prelude.Text -> ReplaceDefaultPolicyVersionParamsProperty
 mkReplaceDefaultPolicyVersionParamsProperty templateName
   = ReplaceDefaultPolicyVersionParamsProperty
-      {templateName = templateName}
+      {haddock_workaround_ = (), templateName = templateName}
 instance ToResourceProperties ReplaceDefaultPolicyVersionParamsProperty where
   toResourceProperties ReplaceDefaultPolicyVersionParamsProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON ReplaceDefaultPolicyVersionParamsProperty where
     = JSON.object ["TemplateName" JSON..= templateName]
 instance Property "TemplateName" ReplaceDefaultPolicyVersionParamsProperty where
   type PropertyType "TemplateName" ReplaceDefaultPolicyVersionParamsProperty = Value Prelude.Text
-  set newValue ReplaceDefaultPolicyVersionParamsProperty {}
+  set newValue ReplaceDefaultPolicyVersionParamsProperty {..}
     = ReplaceDefaultPolicyVersionParamsProperty
         {templateName = newValue, ..}

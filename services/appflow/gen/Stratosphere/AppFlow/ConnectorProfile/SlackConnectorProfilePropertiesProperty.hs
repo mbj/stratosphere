@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackConnectorProfilePropertiesProperty
-  = SlackConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html>
+    SlackConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl>
+                                             instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> SlackConnectorProfilePropertiesProperty
 mkSlackConnectorProfilePropertiesProperty instanceUrl
   = SlackConnectorProfilePropertiesProperty
-      {instanceUrl = instanceUrl}
+      {haddock_workaround_ = (), instanceUrl = instanceUrl}
 instance ToResourceProperties SlackConnectorProfilePropertiesProperty where
   toResourceProperties SlackConnectorProfilePropertiesProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SlackConnectorProfilePropertiesProperty where
     = JSON.object ["InstanceUrl" JSON..= instanceUrl]
 instance Property "InstanceUrl" SlackConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" SlackConnectorProfilePropertiesProperty = Value Prelude.Text
-  set newValue SlackConnectorProfilePropertiesProperty {}
+  set newValue SlackConnectorProfilePropertiesProperty {..}
     = SlackConnectorProfilePropertiesProperty
         {instanceUrl = newValue, ..}

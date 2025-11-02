@@ -13,19 +13,28 @@ import {-# SOURCE #-} Stratosphere.Glue.Crawler.MongoDBTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.S3TargetProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetsProperty
-  = TargetsProperty {catalogTargets :: (Prelude.Maybe [CatalogTargetProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html>
+    TargetsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets>
+                     catalogTargets :: (Prelude.Maybe [CatalogTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-deltatargets>
                      deltaTargets :: (Prelude.Maybe [DeltaTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets>
                      dynamoDBTargets :: (Prelude.Maybe [DynamoDBTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets>
                      icebergTargets :: (Prelude.Maybe [IcebergTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets>
                      jdbcTargets :: (Prelude.Maybe [JdbcTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets>
                      mongoDBTargets :: (Prelude.Maybe [MongoDBTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets>
                      s3Targets :: (Prelude.Maybe [S3TargetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty
-      {catalogTargets = Prelude.Nothing, deltaTargets = Prelude.Nothing,
-       dynamoDBTargets = Prelude.Nothing,
+      {haddock_workaround_ = (), catalogTargets = Prelude.Nothing,
+       deltaTargets = Prelude.Nothing, dynamoDBTargets = Prelude.Nothing,
        icebergTargets = Prelude.Nothing, jdbcTargets = Prelude.Nothing,
        mongoDBTargets = Prelude.Nothing, s3Targets = Prelude.Nothing}
 instance ToResourceProperties TargetsProperty where

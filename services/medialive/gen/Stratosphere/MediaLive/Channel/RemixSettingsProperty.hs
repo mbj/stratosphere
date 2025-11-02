@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AudioChannelMappingProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemixSettingsProperty
-  = RemixSettingsProperty {channelMappings :: (Prelude.Maybe [AudioChannelMappingProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html>
+    RemixSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelmappings>
+                           channelMappings :: (Prelude.Maybe [AudioChannelMappingProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelsin>
                            channelsIn :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html#cfn-medialive-channel-remixsettings-channelsout>
                            channelsOut :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRemixSettingsProperty :: RemixSettingsProperty
 mkRemixSettingsProperty
   = RemixSettingsProperty
-      {channelMappings = Prelude.Nothing, channelsIn = Prelude.Nothing,
-       channelsOut = Prelude.Nothing}
+      {haddock_workaround_ = (), channelMappings = Prelude.Nothing,
+       channelsIn = Prelude.Nothing, channelsOut = Prelude.Nothing}
 instance ToResourceProperties RemixSettingsProperty where
   toResourceProperties RemixSettingsProperty {..}
     = ResourceProperties

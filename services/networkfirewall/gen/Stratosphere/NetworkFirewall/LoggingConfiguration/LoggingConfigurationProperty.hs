@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.LoggingConfiguration.LogDestinationConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {logDestinationConfigs :: [LogDestinationConfigProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html>
+    LoggingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs>
+                                  logDestinationConfigs :: [LogDestinationConfigProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty ::
   [LogDestinationConfigProperty] -> LoggingConfigurationProperty
 mkLoggingConfigurationProperty logDestinationConfigs
   = LoggingConfigurationProperty
-      {logDestinationConfigs = logDestinationConfigs}
+      {haddock_workaround_ = (),
+       logDestinationConfigs = logDestinationConfigs}
 instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON LoggingConfigurationProperty where
         ["LogDestinationConfigs" JSON..= logDestinationConfigs]
 instance Property "LogDestinationConfigs" LoggingConfigurationProperty where
   type PropertyType "LogDestinationConfigs" LoggingConfigurationProperty = [LogDestinationConfigProperty]
-  set newValue LoggingConfigurationProperty {}
+  set newValue LoggingConfigurationProperty {..}
     = LoggingConfigurationProperty
         {logDestinationConfigs = newValue, ..}

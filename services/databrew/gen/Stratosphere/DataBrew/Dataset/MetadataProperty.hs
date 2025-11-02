@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetadataProperty
-  = MetadataProperty {sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html>
+    MetadataProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html#cfn-databrew-dataset-metadata-sourcearn>
+                      sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty :: MetadataProperty
-mkMetadataProperty = MetadataProperty {sourceArn = Prelude.Nothing}
+mkMetadataProperty
+  = MetadataProperty
+      {haddock_workaround_ = (), sourceArn = Prelude.Nothing}
 instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON MetadataProperty where
            (Prelude.catMaybes [(JSON..=) "SourceArn" Prelude.<$> sourceArn]))
 instance Property "SourceArn" MetadataProperty where
   type PropertyType "SourceArn" MetadataProperty = Value Prelude.Text
-  set newValue MetadataProperty {}
+  set newValue MetadataProperty {..}
     = MetadataProperty {sourceArn = Prelude.pure newValue, ..}

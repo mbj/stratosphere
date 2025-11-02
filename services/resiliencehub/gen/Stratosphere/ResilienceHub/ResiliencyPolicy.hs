@@ -8,11 +8,19 @@ import {-# SOURCE #-} Stratosphere.ResilienceHub.ResiliencyPolicy.PolicyMapPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResiliencyPolicy
-  = ResiliencyPolicy {dataLocationConstraint :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html>
+    ResiliencyPolicy {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-datalocationconstraint>
+                      dataLocationConstraint :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policy>
                       policy :: PolicyMapProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policydescription>
                       policyDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-policyname>
                       policyName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-tags>
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html#cfn-resiliencehub-resiliencypolicy-tier>
                       tier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResiliencyPolicy ::
@@ -20,7 +28,8 @@ mkResiliencyPolicy ::
   -> Value Prelude.Text -> Value Prelude.Text -> ResiliencyPolicy
 mkResiliencyPolicy policy policyName tier
   = ResiliencyPolicy
-      {policy = policy, policyName = policyName, tier = tier,
+      {haddock_workaround_ = (), policy = policy,
+       policyName = policyName, tier = tier,
        dataLocationConstraint = Prelude.Nothing,
        policyDescription = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ResiliencyPolicy where

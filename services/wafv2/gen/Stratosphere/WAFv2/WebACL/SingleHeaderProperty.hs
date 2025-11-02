@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleHeaderProperty
-  = SingleHeaderProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html>
+    SingleHeaderProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html#cfn-wafv2-webacl-singleheader-name>
+                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleHeaderProperty ::
   Value Prelude.Text -> SingleHeaderProperty
-mkSingleHeaderProperty name = SingleHeaderProperty {name = name}
+mkSingleHeaderProperty name
+  = SingleHeaderProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties SingleHeaderProperty where
   toResourceProperties SingleHeaderProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON SingleHeaderProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" SingleHeaderProperty where
   type PropertyType "Name" SingleHeaderProperty = Value Prelude.Text
-  set newValue SingleHeaderProperty {}
+  set newValue SingleHeaderProperty {..}
     = SingleHeaderProperty {name = newValue, ..}

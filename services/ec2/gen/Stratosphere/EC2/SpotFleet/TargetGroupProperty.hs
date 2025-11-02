@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetGroupProperty
-  = TargetGroupProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html>
+    TargetGroupProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn>
+                         arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupProperty :: Value Prelude.Text -> TargetGroupProperty
-mkTargetGroupProperty arn = TargetGroupProperty {arn = arn}
+mkTargetGroupProperty arn
+  = TargetGroupProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties TargetGroupProperty where
   toResourceProperties TargetGroupProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON TargetGroupProperty where
   toJSON TargetGroupProperty {..} = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" TargetGroupProperty where
   type PropertyType "Arn" TargetGroupProperty = Value Prelude.Text
-  set newValue TargetGroupProperty {}
+  set newValue TargetGroupProperty {..}
     = TargetGroupProperty {arn = newValue, ..}

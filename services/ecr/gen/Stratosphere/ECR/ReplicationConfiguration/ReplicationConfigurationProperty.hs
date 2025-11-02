@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.ReplicationRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicationConfigurationProperty
-  = ReplicationConfigurationProperty {rules :: [ReplicationRuleProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html>
+    ReplicationConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules>
+                                      rules :: [ReplicationRuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   [ReplicationRuleProperty] -> ReplicationConfigurationProperty
 mkReplicationConfigurationProperty rules
-  = ReplicationConfigurationProperty {rules = rules}
+  = ReplicationConfigurationProperty
+      {haddock_workaround_ = (), rules = rules}
 instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ReplicationConfigurationProperty where
     = JSON.object ["Rules" JSON..= rules]
 instance Property "Rules" ReplicationConfigurationProperty where
   type PropertyType "Rules" ReplicationConfigurationProperty = [ReplicationRuleProperty]
-  set newValue ReplicationConfigurationProperty {}
+  set newValue ReplicationConfigurationProperty {..}
     = ReplicationConfigurationProperty {rules = newValue, ..}

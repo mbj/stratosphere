@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Pipeline
-  = Pipeline {parallelismConfiguration :: (Prelude.Maybe ParallelismConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html>
+    Pipeline {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-parallelismconfiguration>
+              parallelismConfiguration :: (Prelude.Maybe ParallelismConfigurationProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition>
               pipelineDefinition :: PipelineDefinitionProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription>
               pipelineDescription :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname>
               pipelineDisplayName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename>
               pipelineName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn>
               roleArn :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline ::
@@ -23,7 +32,7 @@ mkPipeline ::
   -> Value Prelude.Text -> Value Prelude.Text -> Pipeline
 mkPipeline pipelineDefinition pipelineName roleArn
   = Pipeline
-      {pipelineDefinition = pipelineDefinition,
+      {haddock_workaround_ = (), pipelineDefinition = pipelineDefinition,
        pipelineName = pipelineName, roleArn = roleArn,
        parallelismConfiguration = Prelude.Nothing,
        pipelineDescription = Prelude.Nothing,

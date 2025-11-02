@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.VariableValueProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExpressionVariableProperty
-  = ExpressionVariableProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html>
+    ExpressionVariableProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name>
+                                name :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value>
                                 value :: VariableValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExpressionVariableProperty ::
   Value Prelude.Text
   -> VariableValueProperty -> ExpressionVariableProperty
 mkExpressionVariableProperty name value
-  = ExpressionVariableProperty {name = name, value = value}
+  = ExpressionVariableProperty
+      {haddock_workaround_ = (), name = name, value = value}
 instance ToResourceProperties ExpressionVariableProperty where
   toResourceProperties ExpressionVariableProperty {..}
     = ResourceProperties

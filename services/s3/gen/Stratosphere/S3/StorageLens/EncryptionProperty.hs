@@ -7,13 +7,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.SSEKMSProperty as Exports
 import Stratosphere.ResourceProperties
 data EncryptionProperty
-  = EncryptionProperty {sSEKMS :: (Prelude.Maybe SSEKMSProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html>
+    EncryptionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-ssekms>
+                        sSEKMS :: (Prelude.Maybe SSEKMSProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html#cfn-s3-storagelens-encryption-sses3>
                         sSES3 :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionProperty :: EncryptionProperty
 mkEncryptionProperty
   = EncryptionProperty
-      {sSEKMS = Prelude.Nothing, sSES3 = Prelude.Nothing}
+      {haddock_workaround_ = (), sSEKMS = Prelude.Nothing,
+       sSES3 = Prelude.Nothing}
 instance ToResourceProperties EncryptionProperty where
   toResourceProperties EncryptionProperty {..}
     = ResourceProperties

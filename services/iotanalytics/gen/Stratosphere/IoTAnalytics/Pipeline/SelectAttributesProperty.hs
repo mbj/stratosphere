@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelectAttributesProperty
-  = SelectAttributesProperty {attributes :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html>
+    SelectAttributesProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-attributes>
+                              attributes :: (ValueList Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html#cfn-iotanalytics-pipeline-selectattributes-next>
                               next :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectAttributesProperty ::
@@ -16,7 +21,8 @@ mkSelectAttributesProperty ::
   -> Value Prelude.Text -> SelectAttributesProperty
 mkSelectAttributesProperty attributes name
   = SelectAttributesProperty
-      {attributes = attributes, name = name, next = Prelude.Nothing}
+      {haddock_workaround_ = (), attributes = attributes, name = name,
+       next = Prelude.Nothing}
 instance ToResourceProperties SelectAttributesProperty where
   toResourceProperties SelectAttributesProperty {..}
     = ResourceProperties

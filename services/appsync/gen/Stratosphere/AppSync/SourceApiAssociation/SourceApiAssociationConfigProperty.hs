@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceApiAssociationConfigProperty
-  = SourceApiAssociationConfigProperty {mergeType :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html>
+    SourceApiAssociationConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html#cfn-appsync-sourceapiassociation-sourceapiassociationconfig-mergetype>
+                                        mergeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceApiAssociationConfigProperty ::
   SourceApiAssociationConfigProperty
 mkSourceApiAssociationConfigProperty
-  = SourceApiAssociationConfigProperty {mergeType = Prelude.Nothing}
+  = SourceApiAssociationConfigProperty
+      {haddock_workaround_ = (), mergeType = Prelude.Nothing}
 instance ToResourceProperties SourceApiAssociationConfigProperty where
   toResourceProperties SourceApiAssociationConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SourceApiAssociationConfigProperty where
            (Prelude.catMaybes [(JSON..=) "MergeType" Prelude.<$> mergeType]))
 instance Property "MergeType" SourceApiAssociationConfigProperty where
   type PropertyType "MergeType" SourceApiAssociationConfigProperty = Value Prelude.Text
-  set newValue SourceApiAssociationConfigProperty {}
+  set newValue SourceApiAssociationConfigProperty {..}
     = SourceApiAssociationConfigProperty
         {mergeType = Prelude.pure newValue, ..}

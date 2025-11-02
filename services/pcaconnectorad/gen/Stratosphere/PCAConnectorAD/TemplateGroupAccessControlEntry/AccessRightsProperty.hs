@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessRightsProperty
-  = AccessRightsProperty {autoEnroll :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html>
+    AccessRightsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-accessrights-autoenroll>
+                          autoEnroll :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-accessrights-enroll>
                           enroll :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessRightsProperty :: AccessRightsProperty
 mkAccessRightsProperty
   = AccessRightsProperty
-      {autoEnroll = Prelude.Nothing, enroll = Prelude.Nothing}
+      {haddock_workaround_ = (), autoEnroll = Prelude.Nothing,
+       enroll = Prelude.Nothing}
 instance ToResourceProperties AccessRightsProperty where
   toResourceProperties AccessRightsProperty {..}
     = ResourceProperties

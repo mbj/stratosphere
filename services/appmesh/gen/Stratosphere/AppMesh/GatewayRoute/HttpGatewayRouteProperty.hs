@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteActionPr
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteMatchProperty as Exports
 import Stratosphere.ResourceProperties
 data HttpGatewayRouteProperty
-  = HttpGatewayRouteProperty {action :: HttpGatewayRouteActionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html>
+    HttpGatewayRouteProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action>
+                              action :: HttpGatewayRouteActionProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match>
                               match :: HttpGatewayRouteMatchProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteProperty ::
   HttpGatewayRouteActionProperty
   -> HttpGatewayRouteMatchProperty -> HttpGatewayRouteProperty
 mkHttpGatewayRouteProperty action match
-  = HttpGatewayRouteProperty {action = action, match = match}
+  = HttpGatewayRouteProperty
+      {haddock_workaround_ = (), action = action, match = match}
 instance ToResourceProperties HttpGatewayRouteProperty where
   toResourceProperties HttpGatewayRouteProperty {..}
     = ResourceProperties

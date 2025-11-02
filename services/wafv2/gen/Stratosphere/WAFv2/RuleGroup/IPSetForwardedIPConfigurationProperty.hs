@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetForwardedIPConfigurationProperty
-  = IPSetForwardedIPConfigurationProperty {fallbackBehavior :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html>
+    IPSetForwardedIPConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior>
+                                           fallbackBehavior :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername>
                                            headerName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position>
                                            position :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetForwardedIPConfigurationProperty ::
@@ -21,8 +26,8 @@ mkIPSetForwardedIPConfigurationProperty
   headerName
   position
   = IPSetForwardedIPConfigurationProperty
-      {fallbackBehavior = fallbackBehavior, headerName = headerName,
-       position = position}
+      {haddock_workaround_ = (), fallbackBehavior = fallbackBehavior,
+       headerName = headerName, position = position}
 instance ToResourceProperties IPSetForwardedIPConfigurationProperty where
   toResourceProperties IPSetForwardedIPConfigurationProperty {..}
     = ResourceProperties

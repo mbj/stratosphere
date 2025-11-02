@@ -7,19 +7,29 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributesProperty
-  = AttributesProperty {autoResolveBestVoices :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html>
+    AttributesProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-autoresolvebestvoices>
+                        autoResolveBestVoices :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-contactlens>
                         contactLens :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-contactflowlogs>
                         contactflowLogs :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-earlymedia>
                         earlyMedia :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-inboundcalls>
                         inboundCalls :: (Value Prelude.Bool),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-outboundcalls>
                         outboundCalls :: (Value Prelude.Bool),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-usecustomttsvoices>
                         useCustomTTSVoices :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributesProperty ::
   Value Prelude.Bool -> Value Prelude.Bool -> AttributesProperty
 mkAttributesProperty inboundCalls outboundCalls
   = AttributesProperty
-      {inboundCalls = inboundCalls, outboundCalls = outboundCalls,
+      {haddock_workaround_ = (), inboundCalls = inboundCalls,
+       outboundCalls = outboundCalls,
        autoResolveBestVoices = Prelude.Nothing,
        contactLens = Prelude.Nothing, contactflowLogs = Prelude.Nothing,
        earlyMedia = Prelude.Nothing, useCustomTTSVoices = Prelude.Nothing}

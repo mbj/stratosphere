@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceAcceleratorProperty
-  = InferenceAcceleratorProperty {deviceName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html>
+    InferenceAcceleratorProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename>
+                                  deviceName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype>
                                   deviceType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceAcceleratorProperty :: InferenceAcceleratorProperty
 mkInferenceAcceleratorProperty
   = InferenceAcceleratorProperty
-      {deviceName = Prelude.Nothing, deviceType = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceName = Prelude.Nothing,
+       deviceType = Prelude.Nothing}
 instance ToResourceProperties InferenceAcceleratorProperty where
   toResourceProperties InferenceAcceleratorProperty {..}
     = ResourceProperties

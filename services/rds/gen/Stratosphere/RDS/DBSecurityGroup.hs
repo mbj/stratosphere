@@ -9,16 +9,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DBSecurityGroup
-  = DBSecurityGroup {dBSecurityGroupIngress :: [IngressProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html>
+    DBSecurityGroup {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-dbsecuritygroupingress>
+                     dBSecurityGroupIngress :: [IngressProperty],
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-ec2vpcid>
                      eC2VpcId :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-groupdescription>
                      groupDescription :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDBSecurityGroup ::
   [IngressProperty] -> Value Prelude.Text -> DBSecurityGroup
 mkDBSecurityGroup dBSecurityGroupIngress groupDescription
   = DBSecurityGroup
-      {dBSecurityGroupIngress = dBSecurityGroupIngress,
+      {haddock_workaround_ = (),
+       dBSecurityGroupIngress = dBSecurityGroupIngress,
        groupDescription = groupDescription, eC2VpcId = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties DBSecurityGroup where

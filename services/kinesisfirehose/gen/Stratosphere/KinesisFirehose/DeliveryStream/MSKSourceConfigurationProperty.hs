@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.Authentication
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MSKSourceConfigurationProperty
-  = MSKSourceConfigurationProperty {authenticationConfiguration :: AuthenticationConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html>
+    MSKSourceConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration-authenticationconfiguration>
+                                    authenticationConfiguration :: AuthenticationConfigurationProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration-mskclusterarn>
                                     mSKClusterARN :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration-readfromtimestamp>
                                     readFromTimestamp :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html#cfn-kinesisfirehose-deliverystream-msksourceconfiguration-topicname>
                                     topicName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMSKSourceConfigurationProperty ::
@@ -23,7 +29,8 @@ mkMSKSourceConfigurationProperty
   mSKClusterARN
   topicName
   = MSKSourceConfigurationProperty
-      {authenticationConfiguration = authenticationConfiguration,
+      {haddock_workaround_ = (),
+       authenticationConfiguration = authenticationConfiguration,
        mSKClusterARN = mSKClusterARN, topicName = topicName,
        readFromTimestamp = Prelude.Nothing}
 instance ToResourceProperties MSKSourceConfigurationProperty where

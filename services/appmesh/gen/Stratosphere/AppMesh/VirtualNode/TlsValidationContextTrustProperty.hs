@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TlsValidationContextFileT
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.TlsValidationContextSdsTrustProperty as Exports
 import Stratosphere.ResourceProperties
 data TlsValidationContextTrustProperty
-  = TlsValidationContextTrustProperty {aCM :: (Prelude.Maybe TlsValidationContextAcmTrustProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html>
+    TlsValidationContextTrustProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-acm>
+                                       aCM :: (Prelude.Maybe TlsValidationContextAcmTrustProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-file>
                                        file :: (Prelude.Maybe TlsValidationContextFileTrustProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-sds>
                                        sDS :: (Prelude.Maybe TlsValidationContextSdsTrustProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextTrustProperty ::
   TlsValidationContextTrustProperty
 mkTlsValidationContextTrustProperty
   = TlsValidationContextTrustProperty
-      {aCM = Prelude.Nothing, file = Prelude.Nothing,
-       sDS = Prelude.Nothing}
+      {haddock_workaround_ = (), aCM = Prelude.Nothing,
+       file = Prelude.Nothing, sDS = Prelude.Nothing}
 instance ToResourceProperties TlsValidationContextTrustProperty where
   toResourceProperties TlsValidationContextTrustProperty {..}
     = ResourceProperties

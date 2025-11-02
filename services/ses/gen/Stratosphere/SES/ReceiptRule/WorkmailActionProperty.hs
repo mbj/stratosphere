@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkmailActionProperty
-  = WorkmailActionProperty {organizationArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html>
+    WorkmailActionProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-organizationarn>
+                            organizationArn :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-topicarn>
                             topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkmailActionProperty ::
   Value Prelude.Text -> WorkmailActionProperty
 mkWorkmailActionProperty organizationArn
   = WorkmailActionProperty
-      {organizationArn = organizationArn, topicArn = Prelude.Nothing}
+      {haddock_workaround_ = (), organizationArn = organizationArn,
+       topicArn = Prelude.Nothing}
 instance ToResourceProperties WorkmailActionProperty where
   toResourceProperties WorkmailActionProperty {..}
     = ResourceProperties

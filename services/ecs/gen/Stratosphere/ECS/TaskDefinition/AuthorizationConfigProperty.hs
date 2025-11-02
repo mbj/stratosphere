@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthorizationConfigProperty
-  = AuthorizationConfigProperty {accessPointId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html>
+    AuthorizationConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-accesspointid>
+                                 accessPointId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-iam>
                                  iAM :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationConfigProperty :: AuthorizationConfigProperty
 mkAuthorizationConfigProperty
   = AuthorizationConfigProperty
-      {accessPointId = Prelude.Nothing, iAM = Prelude.Nothing}
+      {haddock_workaround_ = (), accessPointId = Prelude.Nothing,
+       iAM = Prelude.Nothing}
 instance ToResourceProperties AuthorizationConfigProperty where
   toResourceProperties AuthorizationConfigProperty {..}
     = ResourceProperties

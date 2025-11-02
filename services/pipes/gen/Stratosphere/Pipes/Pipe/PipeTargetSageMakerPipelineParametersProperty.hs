@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data PipeTargetSageMakerPipelineParametersProperty
-  = PipeTargetSageMakerPipelineParametersProperty {pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html>
+    PipeTargetSageMakerPipelineParametersProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html#cfn-pipes-pipe-pipetargetsagemakerpipelineparameters-pipelineparameterlist>
+                                                   pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetSageMakerPipelineParametersProperty ::
   PipeTargetSageMakerPipelineParametersProperty
 mkPipeTargetSageMakerPipelineParametersProperty
   = PipeTargetSageMakerPipelineParametersProperty
-      {pipelineParameterList = Prelude.Nothing}
+      {haddock_workaround_ = (), pipelineParameterList = Prelude.Nothing}
 instance ToResourceProperties PipeTargetSageMakerPipelineParametersProperty where
   toResourceProperties
     PipeTargetSageMakerPipelineParametersProperty {..}
@@ -34,6 +37,6 @@ instance JSON.ToJSON PipeTargetSageMakerPipelineParametersProperty where
                  Prelude.<$> pipelineParameterList]))
 instance Property "PipelineParameterList" PipeTargetSageMakerPipelineParametersProperty where
   type PropertyType "PipelineParameterList" PipeTargetSageMakerPipelineParametersProperty = [SageMakerPipelineParameterProperty]
-  set newValue PipeTargetSageMakerPipelineParametersProperty {}
+  set newValue PipeTargetSageMakerPipelineParametersProperty {..}
     = PipeTargetSageMakerPipelineParametersProperty
         {pipelineParameterList = Prelude.pure newValue, ..}

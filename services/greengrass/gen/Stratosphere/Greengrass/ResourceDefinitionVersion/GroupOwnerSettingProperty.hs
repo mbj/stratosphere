@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupOwnerSettingProperty
-  = GroupOwnerSettingProperty {autoAddGroupOwner :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html>
+    GroupOwnerSettingProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-autoaddgroupowner>
+                               autoAddGroupOwner :: (Value Prelude.Bool),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html#cfn-greengrass-resourcedefinitionversion-groupownersetting-groupowner>
                                groupOwner :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupOwnerSettingProperty ::
   Value Prelude.Bool -> GroupOwnerSettingProperty
 mkGroupOwnerSettingProperty autoAddGroupOwner
   = GroupOwnerSettingProperty
-      {autoAddGroupOwner = autoAddGroupOwner,
+      {haddock_workaround_ = (), autoAddGroupOwner = autoAddGroupOwner,
        groupOwner = Prelude.Nothing}
 instance ToResourceProperties GroupOwnerSettingProperty where
   toResourceProperties GroupOwnerSettingProperty {..}

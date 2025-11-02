@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormInputProperty
-  = FormInputProperty {content :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html>
+    FormInputProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html#cfn-datazone-datasource-forminput-content>
+                       content :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html#cfn-datazone-datasource-forminput-formname>
                        formName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html#cfn-datazone-datasource-forminput-typeidentifier>
                        typeIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html#cfn-datazone-datasource-forminput-typerevision>
                        typeRevision :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormInputProperty :: Value Prelude.Text -> FormInputProperty
 mkFormInputProperty formName
   = FormInputProperty
-      {formName = formName, content = Prelude.Nothing,
-       typeIdentifier = Prelude.Nothing, typeRevision = Prelude.Nothing}
+      {haddock_workaround_ = (), formName = formName,
+       content = Prelude.Nothing, typeIdentifier = Prelude.Nothing,
+       typeRevision = Prelude.Nothing}
 instance ToResourceProperties FormInputProperty where
   toResourceProperties FormInputProperty {..}
     = ResourceProperties

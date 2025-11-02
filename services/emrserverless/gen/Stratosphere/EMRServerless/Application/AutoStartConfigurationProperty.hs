@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoStartConfigurationProperty
-  = AutoStartConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html>
+    AutoStartConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html#cfn-emrserverless-application-autostartconfiguration-enabled>
+                                    enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoStartConfigurationProperty :: AutoStartConfigurationProperty
 mkAutoStartConfigurationProperty
-  = AutoStartConfigurationProperty {enabled = Prelude.Nothing}
+  = AutoStartConfigurationProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties AutoStartConfigurationProperty where
   toResourceProperties AutoStartConfigurationProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON AutoStartConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" AutoStartConfigurationProperty where
   type PropertyType "Enabled" AutoStartConfigurationProperty = Value Prelude.Bool
-  set newValue AutoStartConfigurationProperty {}
+  set newValue AutoStartConfigurationProperty {..}
     = AutoStartConfigurationProperty
         {enabled = Prelude.pure newValue, ..}

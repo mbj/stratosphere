@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MountTarget
-  = MountTarget {fileSystemId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html>
+    MountTarget {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid>
+                 fileSystemId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress>
                  ipAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups>
                  securityGroups :: (ValueList Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid>
                  subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMountTarget ::
@@ -17,8 +23,9 @@ mkMountTarget ::
   -> ValueList Prelude.Text -> Value Prelude.Text -> MountTarget
 mkMountTarget fileSystemId securityGroups subnetId
   = MountTarget
-      {fileSystemId = fileSystemId, securityGroups = securityGroups,
-       subnetId = subnetId, ipAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), fileSystemId = fileSystemId,
+       securityGroups = securityGroups, subnetId = subnetId,
+       ipAddress = Prelude.Nothing}
 instance ToResourceProperties MountTarget where
   toResourceProperties MountTarget {..}
     = ResourceProperties

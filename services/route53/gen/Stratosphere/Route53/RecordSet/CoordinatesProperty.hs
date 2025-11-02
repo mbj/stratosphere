@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoordinatesProperty
-  = CoordinatesProperty {latitude :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-coordinates.html>
+    CoordinatesProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-coordinates.html#cfn-route53-recordset-coordinates-latitude>
+                         latitude :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-coordinates.html#cfn-route53-recordset-coordinates-longitude>
                          longitude :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCoordinatesProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CoordinatesProperty
 mkCoordinatesProperty latitude longitude
-  = CoordinatesProperty {latitude = latitude, longitude = longitude}
+  = CoordinatesProperty
+      {haddock_workaround_ = (), latitude = latitude,
+       longitude = longitude}
 instance ToResourceProperties CoordinatesProperty where
   toResourceProperties CoordinatesProperty {..}
     = ResourceProperties

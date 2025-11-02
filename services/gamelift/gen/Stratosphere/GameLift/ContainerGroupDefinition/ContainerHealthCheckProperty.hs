@@ -7,19 +7,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerHealthCheckProperty
-  = ContainerHealthCheckProperty {command :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>
+    ContainerHealthCheckProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-command>
+                                  command :: (ValueList Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-interval>
                                   interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-retries>
                                   retries :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-startperiod>
                                   startPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-timeout>
                                   timeout :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerHealthCheckProperty ::
   ValueList Prelude.Text -> ContainerHealthCheckProperty
 mkContainerHealthCheckProperty command
   = ContainerHealthCheckProperty
-      {command = command, interval = Prelude.Nothing,
-       retries = Prelude.Nothing, startPeriod = Prelude.Nothing,
-       timeout = Prelude.Nothing}
+      {haddock_workaround_ = (), command = command,
+       interval = Prelude.Nothing, retries = Prelude.Nothing,
+       startPeriod = Prelude.Nothing, timeout = Prelude.Nothing}
 instance ToResourceProperties ContainerHealthCheckProperty where
   toResourceProperties ContainerHealthCheckProperty {..}
     = ResourceProperties

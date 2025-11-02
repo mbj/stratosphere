@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcInformationProperty
-  = VpcInformationProperty {securityGroupIds :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-connector-vpcinformation.html>
+    VpcInformationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-connector-vpcinformation.html#cfn-pcaconnectorad-connector-vpcinformation-securitygroupids>
+                            securityGroupIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcInformationProperty ::
   ValueList Prelude.Text -> VpcInformationProperty
 mkVpcInformationProperty securityGroupIds
-  = VpcInformationProperty {securityGroupIds = securityGroupIds}
+  = VpcInformationProperty
+      {haddock_workaround_ = (), securityGroupIds = securityGroupIds}
 instance ToResourceProperties VpcInformationProperty where
   toResourceProperties VpcInformationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON VpcInformationProperty where
     = JSON.object ["SecurityGroupIds" JSON..= securityGroupIds]
 instance Property "SecurityGroupIds" VpcInformationProperty where
   type PropertyType "SecurityGroupIds" VpcInformationProperty = ValueList Prelude.Text
-  set newValue VpcInformationProperty {}
+  set newValue VpcInformationProperty {..}
     = VpcInformationProperty {securityGroupIds = newValue, ..}

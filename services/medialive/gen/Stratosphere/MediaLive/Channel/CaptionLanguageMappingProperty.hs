@@ -8,14 +8,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptionLanguageMappingProperty
-  = CaptionLanguageMappingProperty {captionChannel :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html>
+    CaptionLanguageMappingProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-captionchannel>
+                                    captionChannel :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagecode>
                                     languageCode :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html#cfn-medialive-channel-captionlanguagemapping-languagedescription>
                                     languageDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionLanguageMappingProperty :: CaptionLanguageMappingProperty
 mkCaptionLanguageMappingProperty
   = CaptionLanguageMappingProperty
-      {captionChannel = Prelude.Nothing, languageCode = Prelude.Nothing,
+      {haddock_workaround_ = (), captionChannel = Prelude.Nothing,
+       languageCode = Prelude.Nothing,
        languageDescription = Prelude.Nothing}
 instance ToResourceProperties CaptionLanguageMappingProperty where
   toResourceProperties CaptionLanguageMappingProperty {..}

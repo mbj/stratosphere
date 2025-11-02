@@ -13,43 +13,76 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.PortRangeFilterProperty as
 import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.StringFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data FilterCriteriaProperty
-  = FilterCriteriaProperty {awsAccountId :: (Prelude.Maybe [StringFilterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html>
+    FilterCriteriaProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-awsaccountid>
+                            awsAccountId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-componentid>
                             componentId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-componenttype>
                             componentType :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ec2instanceimageid>
                             ec2InstanceImageId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ec2instancesubnetid>
                             ec2InstanceSubnetId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ec2instancevpcid>
                             ec2InstanceVpcId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagearchitecture>
                             ecrImageArchitecture :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagehash>
                             ecrImageHash :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagepushedat>
                             ecrImagePushedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimageregistry>
                             ecrImageRegistry :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagerepositoryname>
                             ecrImageRepositoryName :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagetags>
                             ecrImageTags :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-findingarn>
                             findingArn :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-findingstatus>
                             findingStatus :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-findingtype>
                             findingType :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-firstobservedat>
                             firstObservedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-inspectorscore>
                             inspectorScore :: (Prelude.Maybe [NumberFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lastobservedat>
                             lastObservedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-networkprotocol>
                             networkProtocol :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-portrange>
                             portRange :: (Prelude.Maybe [PortRangeFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-relatedvulnerabilities>
                             relatedVulnerabilities :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-resourceid>
                             resourceId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-resourcetags>
                             resourceTags :: (Prelude.Maybe [MapFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-resourcetype>
                             resourceType :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-severity>
                             severity :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-title>
                             title :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-updatedat>
                             updatedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-vendorseverity>
                             vendorSeverity :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-vulnerabilityid>
                             vulnerabilityId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-vulnerabilitysource>
                             vulnerabilitySource :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-vulnerablepackages>
                             vulnerablePackages :: (Prelude.Maybe [PackageFilterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty
   = FilterCriteriaProperty
-      {awsAccountId = Prelude.Nothing, componentId = Prelude.Nothing,
-       componentType = Prelude.Nothing,
+      {haddock_workaround_ = (), awsAccountId = Prelude.Nothing,
+       componentId = Prelude.Nothing, componentType = Prelude.Nothing,
        ec2InstanceImageId = Prelude.Nothing,
        ec2InstanceSubnetId = Prelude.Nothing,
        ec2InstanceVpcId = Prelude.Nothing,

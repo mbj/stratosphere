@@ -7,11 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data App
-  = App {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html>
+    App {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-name>
+         name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-tags>
          tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApp :: Value Prelude.Text -> App
-mkApp name = App {name = name, tags = Prelude.Nothing}
+mkApp name
+  = App
+      {haddock_workaround_ = (), name = name, tags = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties

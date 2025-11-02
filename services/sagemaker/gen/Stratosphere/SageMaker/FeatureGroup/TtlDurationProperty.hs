@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TtlDurationProperty
-  = TtlDurationProperty {unit :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html>
+    TtlDurationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html#cfn-sagemaker-featuregroup-ttlduration-unit>
+                         unit :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html#cfn-sagemaker-featuregroup-ttlduration-value>
                          value :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTtlDurationProperty :: TtlDurationProperty
 mkTtlDurationProperty
   = TtlDurationProperty
-      {unit = Prelude.Nothing, value = Prelude.Nothing}
+      {haddock_workaround_ = (), unit = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties TtlDurationProperty where
   toResourceProperties TtlDurationProperty {..}
     = ResourceProperties

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProviderProperty
-  = ProviderProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html>
+    ProviderProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html#cfn-eks-cluster-provider-keyarn>
+                      keyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProviderProperty :: ProviderProperty
-mkProviderProperty = ProviderProperty {keyArn = Prelude.Nothing}
+mkProviderProperty
+  = ProviderProperty
+      {haddock_workaround_ = (), keyArn = Prelude.Nothing}
 instance ToResourceProperties ProviderProperty where
   toResourceProperties ProviderProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON ProviderProperty where
            (Prelude.catMaybes [(JSON..=) "KeyArn" Prelude.<$> keyArn]))
 instance Property "KeyArn" ProviderProperty where
   type PropertyType "KeyArn" ProviderProperty = Value Prelude.Text
-  set newValue ProviderProperty {}
+  set newValue ProviderProperty {..}
     = ProviderProperty {keyArn = Prelude.pure newValue, ..}

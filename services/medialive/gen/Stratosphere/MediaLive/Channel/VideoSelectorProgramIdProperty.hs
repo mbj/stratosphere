@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoSelectorProgramIdProperty
-  = VideoSelectorProgramIdProperty {programId :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorprogramid.html>
+    VideoSelectorProgramIdProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorprogramid.html#cfn-medialive-channel-videoselectorprogramid-programid>
+                                    programId :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorProgramIdProperty :: VideoSelectorProgramIdProperty
 mkVideoSelectorProgramIdProperty
-  = VideoSelectorProgramIdProperty {programId = Prelude.Nothing}
+  = VideoSelectorProgramIdProperty
+      {haddock_workaround_ = (), programId = Prelude.Nothing}
 instance ToResourceProperties VideoSelectorProgramIdProperty where
   toResourceProperties VideoSelectorProgramIdProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON VideoSelectorProgramIdProperty where
            (Prelude.catMaybes [(JSON..=) "ProgramId" Prelude.<$> programId]))
 instance Property "ProgramId" VideoSelectorProgramIdProperty where
   type PropertyType "ProgramId" VideoSelectorProgramIdProperty = Value Prelude.Integer
-  set newValue VideoSelectorProgramIdProperty {}
+  set newValue VideoSelectorProgramIdProperty {..}
     = VideoSelectorProgramIdProperty
         {programId = Prelude.pure newValue, ..}

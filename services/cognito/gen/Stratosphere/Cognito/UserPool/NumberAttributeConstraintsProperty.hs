@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NumberAttributeConstraintsProperty
-  = NumberAttributeConstraintsProperty {maxValue :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html>
+    NumberAttributeConstraintsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html#cfn-cognito-userpool-numberattributeconstraints-maxvalue>
+                                        maxValue :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html#cfn-cognito-userpool-numberattributeconstraints-minvalue>
                                         minValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberAttributeConstraintsProperty ::
   NumberAttributeConstraintsProperty
 mkNumberAttributeConstraintsProperty
   = NumberAttributeConstraintsProperty
-      {maxValue = Prelude.Nothing, minValue = Prelude.Nothing}
+      {haddock_workaround_ = (), maxValue = Prelude.Nothing,
+       minValue = Prelude.Nothing}
 instance ToResourceProperties NumberAttributeConstraintsProperty where
   toResourceProperties NumberAttributeConstraintsProperty {..}
     = ResourceProperties

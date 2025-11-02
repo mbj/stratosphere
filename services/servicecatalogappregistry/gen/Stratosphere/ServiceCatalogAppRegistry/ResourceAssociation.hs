@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceAssociation
-  = ResourceAssociation {application :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html>
+    ResourceAssociation {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application>
+                         application :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource>
                          resource :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype>
                          resourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceAssociation ::
@@ -16,8 +21,8 @@ mkResourceAssociation ::
   -> Value Prelude.Text -> Value Prelude.Text -> ResourceAssociation
 mkResourceAssociation application resource resourceType
   = ResourceAssociation
-      {application = application, resource = resource,
-       resourceType = resourceType}
+      {haddock_workaround_ = (), application = application,
+       resource = resource, resourceType = resourceType}
 instance ToResourceProperties ResourceAssociation where
   toResourceProperties ResourceAssociation {..}
     = ResourceProperties

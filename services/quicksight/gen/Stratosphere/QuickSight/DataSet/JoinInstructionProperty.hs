@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.JoinKeyPropertiesProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JoinInstructionProperty
-  = JoinInstructionProperty {leftJoinKeyProperties :: (Prelude.Maybe JoinKeyPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html>
+    JoinInstructionProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties>
+                             leftJoinKeyProperties :: (Prelude.Maybe JoinKeyPropertiesProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand>
                              leftOperand :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause>
                              onClause :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties>
                              rightJoinKeyProperties :: (Prelude.Maybe JoinKeyPropertiesProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand>
                              rightOperand :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJoinInstructionProperty ::
@@ -23,8 +31,8 @@ mkJoinInstructionProperty ::
         -> Value Prelude.Text -> JoinInstructionProperty
 mkJoinInstructionProperty leftOperand onClause rightOperand type'
   = JoinInstructionProperty
-      {leftOperand = leftOperand, onClause = onClause,
-       rightOperand = rightOperand, type' = type',
+      {haddock_workaround_ = (), leftOperand = leftOperand,
+       onClause = onClause, rightOperand = rightOperand, type' = type',
        leftJoinKeyProperties = Prelude.Nothing,
        rightJoinKeyProperties = Prelude.Nothing}
 instance ToResourceProperties JoinInstructionProperty where

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Scte20SourceSettingsProperty
-  = Scte20SourceSettingsProperty {convert608To708 :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html>
+    Scte20SourceSettingsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html#cfn-medialive-channel-scte20sourcesettings-convert608to708>
+                                  convert608To708 :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html#cfn-medialive-channel-scte20sourcesettings-source608channelnumber>
                                   source608ChannelNumber :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScte20SourceSettingsProperty :: Scte20SourceSettingsProperty
 mkScte20SourceSettingsProperty
   = Scte20SourceSettingsProperty
-      {convert608To708 = Prelude.Nothing,
+      {haddock_workaround_ = (), convert608To708 = Prelude.Nothing,
        source608ChannelNumber = Prelude.Nothing}
 instance ToResourceProperties Scte20SourceSettingsProperty where
   toResourceProperties Scte20SourceSettingsProperty {..}

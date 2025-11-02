@@ -10,20 +10,29 @@ import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomizedMetricSpecificationProperty
-  = CustomizedMetricSpecificationProperty {dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html>
+    CustomizedMetricSpecificationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-dimensions>
+                                           dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-metricname>
                                            metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-metrics>
                                            metrics :: (Prelude.Maybe [TargetTrackingMetricDataQueryProperty]),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-namespace>
                                            namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-statistic>
                                            statistic :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-unit>
                                            unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomizedMetricSpecificationProperty ::
   CustomizedMetricSpecificationProperty
 mkCustomizedMetricSpecificationProperty
   = CustomizedMetricSpecificationProperty
-      {dimensions = Prelude.Nothing, metricName = Prelude.Nothing,
-       metrics = Prelude.Nothing, namespace = Prelude.Nothing,
-       statistic = Prelude.Nothing, unit = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing,
+       metricName = Prelude.Nothing, metrics = Prelude.Nothing,
+       namespace = Prelude.Nothing, statistic = Prelude.Nothing,
+       unit = Prelude.Nothing}
 instance ToResourceProperties CustomizedMetricSpecificationProperty where
   toResourceProperties CustomizedMetricSpecificationProperty {..}
     = ResourceProperties

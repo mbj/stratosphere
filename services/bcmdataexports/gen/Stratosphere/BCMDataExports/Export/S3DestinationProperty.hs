@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.BCMDataExports.Export.S3OutputConfigurationsP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationProperty
-  = S3DestinationProperty {s3Bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html>
+    S3DestinationProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3bucket>
+                           s3Bucket :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3outputconfigurations>
                            s3OutputConfigurations :: S3OutputConfigurationsProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3prefix>
                            s3Prefix :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3region>
                            s3Region :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationProperty ::
@@ -24,7 +30,7 @@ mkS3DestinationProperty
   s3Prefix
   s3Region
   = S3DestinationProperty
-      {s3Bucket = s3Bucket,
+      {haddock_workaround_ = (), s3Bucket = s3Bucket,
        s3OutputConfigurations = s3OutputConfigurations,
        s3Prefix = s3Prefix, s3Region = s3Region}
 instance ToResourceProperties S3DestinationProperty where

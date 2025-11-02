@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaPackageOutputDestinationSettingsProperty
-  = MediaPackageOutputDestinationSettingsProperty {channelId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html>
+    MediaPackageOutputDestinationSettingsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-channelid>
+                                                   channelId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageOutputDestinationSettingsProperty ::
   MediaPackageOutputDestinationSettingsProperty
 mkMediaPackageOutputDestinationSettingsProperty
   = MediaPackageOutputDestinationSettingsProperty
-      {channelId = Prelude.Nothing}
+      {haddock_workaround_ = (), channelId = Prelude.Nothing}
 instance ToResourceProperties MediaPackageOutputDestinationSettingsProperty where
   toResourceProperties
     MediaPackageOutputDestinationSettingsProperty {..}
@@ -30,6 +33,6 @@ instance JSON.ToJSON MediaPackageOutputDestinationSettingsProperty where
            (Prelude.catMaybes [(JSON..=) "ChannelId" Prelude.<$> channelId]))
 instance Property "ChannelId" MediaPackageOutputDestinationSettingsProperty where
   type PropertyType "ChannelId" MediaPackageOutputDestinationSettingsProperty = Value Prelude.Text
-  set newValue MediaPackageOutputDestinationSettingsProperty {}
+  set newValue MediaPackageOutputDestinationSettingsProperty {..}
     = MediaPackageOutputDestinationSettingsProperty
         {channelId = Prelude.pure newValue, ..}

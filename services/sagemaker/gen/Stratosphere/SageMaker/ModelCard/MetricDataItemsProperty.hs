@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricDataItemsProperty
-  = MetricDataItemsProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html>
+    MetricDataItemsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-notes>
                              notes :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-type>
                              type' :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-value>
                              value :: JSON.Object,
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-xaxisname>
                              xAxisName :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html#cfn-sagemaker-modelcard-metricdataitems-yaxisname>
                              yAxisName :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDataItemsProperty ::
@@ -19,9 +27,9 @@ mkMetricDataItemsProperty ::
   -> Value Prelude.Text -> JSON.Object -> MetricDataItemsProperty
 mkMetricDataItemsProperty name type' value
   = MetricDataItemsProperty
-      {name = name, type' = type', value = value,
-       notes = Prelude.Nothing, xAxisName = Prelude.Nothing,
-       yAxisName = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, type' = type',
+       value = value, notes = Prelude.Nothing,
+       xAxisName = Prelude.Nothing, yAxisName = Prelude.Nothing}
 instance ToResourceProperties MetricDataItemsProperty where
   toResourceProperties MetricDataItemsProperty {..}
     = ResourceProperties

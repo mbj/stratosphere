@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetAddressProperty
-  = TargetAddressProperty {ip :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html>
+    TargetAddressProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip>
+                           ip :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ipv6>
                            ipv6 :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port>
                            port :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-protocol>
                            protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-servernameindication>
                            serverNameIndication :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetAddressProperty :: TargetAddressProperty
 mkTargetAddressProperty
   = TargetAddressProperty
-      {ip = Prelude.Nothing, ipv6 = Prelude.Nothing,
-       port = Prelude.Nothing, protocol = Prelude.Nothing,
-       serverNameIndication = Prelude.Nothing}
+      {haddock_workaround_ = (), ip = Prelude.Nothing,
+       ipv6 = Prelude.Nothing, port = Prelude.Nothing,
+       protocol = Prelude.Nothing, serverNameIndication = Prelude.Nothing}
 instance ToResourceProperties TargetAddressProperty where
   toResourceProperties TargetAddressProperty {..}
     = ResourceProperties

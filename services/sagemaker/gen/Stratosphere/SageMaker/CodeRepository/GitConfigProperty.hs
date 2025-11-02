@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitConfigProperty
-  = GitConfigProperty {branch :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html>
+    GitConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-branch>
+                       branch :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-repositoryurl>
                        repositoryUrl :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-secretarn>
                        secretArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitConfigProperty :: Value Prelude.Text -> GitConfigProperty
 mkGitConfigProperty repositoryUrl
   = GitConfigProperty
-      {repositoryUrl = repositoryUrl, branch = Prelude.Nothing,
-       secretArn = Prelude.Nothing}
+      {haddock_workaround_ = (), repositoryUrl = repositoryUrl,
+       branch = Prelude.Nothing, secretArn = Prelude.Nothing}
 instance ToResourceProperties GitConfigProperty where
   toResourceProperties GitConfigProperty {..}
     = ResourceProperties

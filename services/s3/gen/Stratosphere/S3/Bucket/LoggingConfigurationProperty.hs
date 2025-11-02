@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.TargetObjectKeyFormatProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {destinationBucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html>
+    LoggingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-destinationbucketname>
+                                  destinationBucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-logfileprefix>
                                   logFilePrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-targetobjectkeyformat>
                                   targetObjectKeyFormat :: (Prelude.Maybe TargetObjectKeyFormatProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty
-      {destinationBucketName = Prelude.Nothing,
+      {haddock_workaround_ = (), destinationBucketName = Prelude.Nothing,
        logFilePrefix = Prelude.Nothing,
        targetObjectKeyFormat = Prelude.Nothing}
 instance ToResourceProperties LoggingConfigurationProperty where

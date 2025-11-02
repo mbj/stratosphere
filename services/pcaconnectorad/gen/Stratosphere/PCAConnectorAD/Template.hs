@@ -8,10 +8,17 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.TemplateDefinitionPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Template
-  = Template {connectorArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html>
+    Template {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html#cfn-pcaconnectorad-template-connectorarn>
+              connectorArn :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html#cfn-pcaconnectorad-template-definition>
               definition :: TemplateDefinitionProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html#cfn-pcaconnectorad-template-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html#cfn-pcaconnectorad-template-reenrollallcertificateholders>
               reenrollAllCertificateHolders :: (Prelude.Maybe (Value Prelude.Bool)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html#cfn-pcaconnectorad-template-tags>
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplate ::
@@ -19,7 +26,8 @@ mkTemplate ::
   -> TemplateDefinitionProperty -> Value Prelude.Text -> Template
 mkTemplate connectorArn definition name
   = Template
-      {connectorArn = connectorArn, definition = definition, name = name,
+      {haddock_workaround_ = (), connectorArn = connectorArn,
+       definition = definition, name = name,
        reenrollAllCertificateHolders = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Template where

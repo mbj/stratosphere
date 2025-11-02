@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressGatewayBridgeProperty
-  = IngressGatewayBridgeProperty {maxBitrate :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html>
+    IngressGatewayBridgeProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge-maxbitrate>
+                                  maxBitrate :: (Value Prelude.Integer),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge-maxoutputs>
                                   maxOutputs :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressGatewayBridgeProperty ::
@@ -15,7 +19,8 @@ mkIngressGatewayBridgeProperty ::
   -> Value Prelude.Integer -> IngressGatewayBridgeProperty
 mkIngressGatewayBridgeProperty maxBitrate maxOutputs
   = IngressGatewayBridgeProperty
-      {maxBitrate = maxBitrate, maxOutputs = maxOutputs}
+      {haddock_workaround_ = (), maxBitrate = maxBitrate,
+       maxOutputs = maxOutputs}
 instance ToResourceProperties IngressGatewayBridgeProperty where
   toResourceProperties IngressGatewayBridgeProperty {..}
     = ResourceProperties

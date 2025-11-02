@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityTypesListItemProperty
-  = EntityTypesListItemProperty {type' :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entitytypeslistitem.html>
+    EntityTypesListItemProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entitytypeslistitem.html#cfn-comprehend-flywheel-entitytypeslistitem-type>
+                                 type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityTypesListItemProperty ::
   Value Prelude.Text -> EntityTypesListItemProperty
 mkEntityTypesListItemProperty type'
-  = EntityTypesListItemProperty {type' = type'}
+  = EntityTypesListItemProperty
+      {haddock_workaround_ = (), type' = type'}
 instance ToResourceProperties EntityTypesListItemProperty where
   toResourceProperties EntityTypesListItemProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON EntityTypesListItemProperty where
     = JSON.object ["Type" JSON..= type']
 instance Property "Type" EntityTypesListItemProperty where
   type PropertyType "Type" EntityTypesListItemProperty = Value Prelude.Text
-  set newValue EntityTypesListItemProperty {}
+  set newValue EntityTypesListItemProperty {..}
     = EntityTypesListItemProperty {type' = newValue, ..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessGrantsLocationConfigurationProperty
-  = AccessGrantsLocationConfigurationProperty {s3SubPrefix :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-accessgrantslocationconfiguration.html>
+    AccessGrantsLocationConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-accessgrantslocationconfiguration.html#cfn-s3-accessgrant-accessgrantslocationconfiguration-s3subprefix>
+                                               s3SubPrefix :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessGrantsLocationConfigurationProperty ::
   Value Prelude.Text -> AccessGrantsLocationConfigurationProperty
 mkAccessGrantsLocationConfigurationProperty s3SubPrefix
   = AccessGrantsLocationConfigurationProperty
-      {s3SubPrefix = s3SubPrefix}
+      {haddock_workaround_ = (), s3SubPrefix = s3SubPrefix}
 instance ToResourceProperties AccessGrantsLocationConfigurationProperty where
   toResourceProperties AccessGrantsLocationConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON AccessGrantsLocationConfigurationProperty where
     = JSON.object ["S3SubPrefix" JSON..= s3SubPrefix]
 instance Property "S3SubPrefix" AccessGrantsLocationConfigurationProperty where
   type PropertyType "S3SubPrefix" AccessGrantsLocationConfigurationProperty = Value Prelude.Text
-  set newValue AccessGrantsLocationConfigurationProperty {}
+  set newValue AccessGrantsLocationConfigurationProperty {..}
     = AccessGrantsLocationConfigurationProperty
         {s3SubPrefix = newValue, ..}

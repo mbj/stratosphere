@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SseSpecificationProperty
-  = SseSpecificationProperty {customerManagedKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessgroup-ssespecification.html>
+    SseSpecificationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessgroup-ssespecification.html#cfn-ec2-verifiedaccessgroup-ssespecification-customermanagedkeyenabled>
+                              customerManagedKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessgroup-ssespecification.html#cfn-ec2-verifiedaccessgroup-ssespecification-kmskeyarn>
                               kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSseSpecificationProperty :: SseSpecificationProperty
 mkSseSpecificationProperty
   = SseSpecificationProperty
-      {customerManagedKeyEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       customerManagedKeyEnabled = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing}
 instance ToResourceProperties SseSpecificationProperty where
   toResourceProperties SseSpecificationProperty {..}

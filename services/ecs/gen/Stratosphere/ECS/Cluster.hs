@@ -12,18 +12,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Cluster
-  = Cluster {capacityProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html>
+    Cluster {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders>
+             capacityProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername>
              clusterName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings>
              clusterSettings :: (Prelude.Maybe [ClusterSettingsProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration>
              configuration :: (Prelude.Maybe ClusterConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy>
              defaultCapacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-serviceconnectdefaults>
              serviceConnectDefaults :: (Prelude.Maybe ServiceConnectDefaultsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster :: Cluster
 mkCluster
   = Cluster
-      {capacityProviders = Prelude.Nothing,
+      {haddock_workaround_ = (), capacityProviders = Prelude.Nothing,
        clusterName = Prelude.Nothing, clusterSettings = Prelude.Nothing,
        configuration = Prelude.Nothing,
        defaultCapacityProviderStrategy = Prelude.Nothing,

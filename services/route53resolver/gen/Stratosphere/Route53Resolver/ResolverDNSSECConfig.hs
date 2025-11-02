@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolverDNSSECConfig
-  = ResolverDNSSECConfig {resourceId :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html>
+    ResolverDNSSECConfig {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid>
+                          resourceId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverDNSSECConfig :: ResolverDNSSECConfig
 mkResolverDNSSECConfig
-  = ResolverDNSSECConfig {resourceId = Prelude.Nothing}
+  = ResolverDNSSECConfig
+      {haddock_workaround_ = (), resourceId = Prelude.Nothing}
 instance ToResourceProperties ResolverDNSSECConfig where
   toResourceProperties ResolverDNSSECConfig {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON ResolverDNSSECConfig where
               [(JSON..=) "ResourceId" Prelude.<$> resourceId]))
 instance Property "ResourceId" ResolverDNSSECConfig where
   type PropertyType "ResourceId" ResolverDNSSECConfig = Value Prelude.Text
-  set newValue ResolverDNSSECConfig {}
+  set newValue ResolverDNSSECConfig {..}
     = ResolverDNSSECConfig {resourceId = Prelude.pure newValue, ..}

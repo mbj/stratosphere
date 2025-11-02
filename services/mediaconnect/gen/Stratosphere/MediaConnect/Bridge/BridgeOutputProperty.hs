@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.BridgeNetworkOutputProperty as Exports
 import Stratosphere.ResourceProperties
 data BridgeOutputProperty
-  = BridgeOutputProperty {networkOutput :: (Prelude.Maybe BridgeNetworkOutputProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html>
+    BridgeOutputProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html#cfn-mediaconnect-bridge-bridgeoutput-networkoutput>
+                          networkOutput :: (Prelude.Maybe BridgeNetworkOutputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeOutputProperty :: BridgeOutputProperty
 mkBridgeOutputProperty
-  = BridgeOutputProperty {networkOutput = Prelude.Nothing}
+  = BridgeOutputProperty
+      {haddock_workaround_ = (), networkOutput = Prelude.Nothing}
 instance ToResourceProperties BridgeOutputProperty where
   toResourceProperties BridgeOutputProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON BridgeOutputProperty where
               [(JSON..=) "NetworkOutput" Prelude.<$> networkOutput]))
 instance Property "NetworkOutput" BridgeOutputProperty where
   type PropertyType "NetworkOutput" BridgeOutputProperty = BridgeNetworkOutputProperty
-  set newValue BridgeOutputProperty {}
+  set newValue BridgeOutputProperty {..}
     = BridgeOutputProperty {networkOutput = Prelude.pure newValue, ..}

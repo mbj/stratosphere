@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerConfigurationProperty
-  = ServerConfigurationProperty {serverHostname :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html>
+    ServerConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html#cfn-datasync-storagesystem-serverconfiguration-serverhostname>
+                                 serverHostname :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html#cfn-datasync-storagesystem-serverconfiguration-serverport>
                                  serverPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerConfigurationProperty ::
   Value Prelude.Text -> ServerConfigurationProperty
 mkServerConfigurationProperty serverHostname
   = ServerConfigurationProperty
-      {serverHostname = serverHostname, serverPort = Prelude.Nothing}
+      {haddock_workaround_ = (), serverHostname = serverHostname,
+       serverPort = Prelude.Nothing}
 instance ToResourceProperties ServerConfigurationProperty where
   toResourceProperties ServerConfigurationProperty {..}
     = ResourceProperties

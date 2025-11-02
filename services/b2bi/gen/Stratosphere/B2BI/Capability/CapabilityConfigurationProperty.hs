@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.B2BI.Capability.EdiConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CapabilityConfigurationProperty
-  = CapabilityConfigurationProperty {edi :: EdiConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilityconfiguration.html>
+    CapabilityConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilityconfiguration.html#cfn-b2bi-capability-capabilityconfiguration-edi>
+                                     edi :: EdiConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapabilityConfigurationProperty ::
   EdiConfigurationProperty -> CapabilityConfigurationProperty
 mkCapabilityConfigurationProperty edi
-  = CapabilityConfigurationProperty {edi = edi}
+  = CapabilityConfigurationProperty
+      {haddock_workaround_ = (), edi = edi}
 instance ToResourceProperties CapabilityConfigurationProperty where
   toResourceProperties CapabilityConfigurationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON CapabilityConfigurationProperty where
     = JSON.object ["Edi" JSON..= edi]
 instance Property "Edi" CapabilityConfigurationProperty where
   type PropertyType "Edi" CapabilityConfigurationProperty = EdiConfigurationProperty
-  set newValue CapabilityConfigurationProperty {}
+  set newValue CapabilityConfigurationProperty {..}
     = CapabilityConfigurationProperty {edi = newValue, ..}

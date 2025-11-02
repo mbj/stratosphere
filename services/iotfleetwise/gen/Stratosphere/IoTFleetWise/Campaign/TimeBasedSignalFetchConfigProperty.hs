@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedSignalFetchConfigProperty
-  = TimeBasedSignalFetchConfigProperty {executionFrequencyMs :: (Value Prelude.Double)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html>
+    TimeBasedSignalFetchConfigProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html#cfn-iotfleetwise-campaign-timebasedsignalfetchconfig-executionfrequencyms>
+                                        executionFrequencyMs :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedSignalFetchConfigProperty ::
   Value Prelude.Double -> TimeBasedSignalFetchConfigProperty
 mkTimeBasedSignalFetchConfigProperty executionFrequencyMs
   = TimeBasedSignalFetchConfigProperty
-      {executionFrequencyMs = executionFrequencyMs}
+      {haddock_workaround_ = (),
+       executionFrequencyMs = executionFrequencyMs}
 instance ToResourceProperties TimeBasedSignalFetchConfigProperty where
   toResourceProperties TimeBasedSignalFetchConfigProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON TimeBasedSignalFetchConfigProperty where
     = JSON.object ["ExecutionFrequencyMs" JSON..= executionFrequencyMs]
 instance Property "ExecutionFrequencyMs" TimeBasedSignalFetchConfigProperty where
   type PropertyType "ExecutionFrequencyMs" TimeBasedSignalFetchConfigProperty = Value Prelude.Double
-  set newValue TimeBasedSignalFetchConfigProperty {}
+  set newValue TimeBasedSignalFetchConfigProperty {..}
     = TimeBasedSignalFetchConfigProperty
         {executionFrequencyMs = newValue, ..}

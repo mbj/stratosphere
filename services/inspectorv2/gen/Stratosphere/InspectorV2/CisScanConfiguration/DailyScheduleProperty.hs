@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty as Exports
 import Stratosphere.ResourceProperties
 data DailyScheduleProperty
-  = DailyScheduleProperty {startTime :: TimeProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html>
+    DailyScheduleProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html#cfn-inspectorv2-cisscanconfiguration-dailyschedule-starttime>
+                           startTime :: TimeProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDailyScheduleProperty :: TimeProperty -> DailyScheduleProperty
 mkDailyScheduleProperty startTime
-  = DailyScheduleProperty {startTime = startTime}
+  = DailyScheduleProperty
+      {haddock_workaround_ = (), startTime = startTime}
 instance ToResourceProperties DailyScheduleProperty where
   toResourceProperties DailyScheduleProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON DailyScheduleProperty where
     = JSON.object ["StartTime" JSON..= startTime]
 instance Property "StartTime" DailyScheduleProperty where
   type PropertyType "StartTime" DailyScheduleProperty = TimeProperty
-  set newValue DailyScheduleProperty {}
+  set newValue DailyScheduleProperty {..}
     = DailyScheduleProperty {startTime = newValue, ..}

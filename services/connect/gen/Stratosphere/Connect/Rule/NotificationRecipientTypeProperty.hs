@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationRecipientTypeProperty
-  = NotificationRecipientTypeProperty {userArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html>
+    NotificationRecipientTypeProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html#cfn-connect-rule-notificationrecipienttype-userarns>
+                                       userArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html#cfn-connect-rule-notificationrecipienttype-usertags>
                                        userTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationRecipientTypeProperty ::
   NotificationRecipientTypeProperty
 mkNotificationRecipientTypeProperty
   = NotificationRecipientTypeProperty
-      {userArns = Prelude.Nothing, userTags = Prelude.Nothing}
+      {haddock_workaround_ = (), userArns = Prelude.Nothing,
+       userTags = Prelude.Nothing}
 instance ToResourceProperties NotificationRecipientTypeProperty where
   toResourceProperties NotificationRecipientTypeProperty {..}
     = ResourceProperties

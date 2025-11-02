@@ -8,16 +8,23 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MWAA.Environment.ModuleLoggingConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {dagProcessingLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html>
+    LoggingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs>
+                                  dagProcessingLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs>
                                   schedulerLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs>
                                   taskLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs>
                                   webserverLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs>
                                   workerLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty
-      {dagProcessingLogs = Prelude.Nothing,
+      {haddock_workaround_ = (), dagProcessingLogs = Prelude.Nothing,
        schedulerLogs = Prelude.Nothing, taskLogs = Prelude.Nothing,
        webserverLogs = Prelude.Nothing, workerLogs = Prelude.Nothing}
 instance ToResourceProperties LoggingConfigurationProperty where

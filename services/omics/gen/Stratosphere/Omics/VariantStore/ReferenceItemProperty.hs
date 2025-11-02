@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceItemProperty
-  = ReferenceItemProperty {referenceArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-referenceitem.html>
+    ReferenceItemProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-referenceitem.html#cfn-omics-variantstore-referenceitem-referencearn>
+                           referenceArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceItemProperty ::
   Value Prelude.Text -> ReferenceItemProperty
 mkReferenceItemProperty referenceArn
-  = ReferenceItemProperty {referenceArn = referenceArn}
+  = ReferenceItemProperty
+      {haddock_workaround_ = (), referenceArn = referenceArn}
 instance ToResourceProperties ReferenceItemProperty where
   toResourceProperties ReferenceItemProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ReferenceItemProperty where
     = JSON.object ["ReferenceArn" JSON..= referenceArn]
 instance Property "ReferenceArn" ReferenceItemProperty where
   type PropertyType "ReferenceArn" ReferenceItemProperty = Value Prelude.Text
-  set newValue ReferenceItemProperty {}
+  set newValue ReferenceItemProperty {..}
     = ReferenceItemProperty {referenceArn = newValue, ..}

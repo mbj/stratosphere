@@ -5,10 +5,12 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AribSourceSettingsProperty
-  = AribSourceSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribsourcesettings.html>
+    AribSourceSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAribSourceSettingsProperty :: AribSourceSettingsProperty
-mkAribSourceSettingsProperty = AribSourceSettingsProperty {}
+mkAribSourceSettingsProperty
+  = AribSourceSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties AribSourceSettingsProperty where
   toResourceProperties AribSourceSettingsProperty {}
     = ResourceProperties

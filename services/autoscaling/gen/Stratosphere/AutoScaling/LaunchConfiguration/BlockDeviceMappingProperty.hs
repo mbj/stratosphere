@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.LaunchConfiguration.BlockDevicePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockDeviceMappingProperty
-  = BlockDeviceMappingProperty {deviceName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html>
+    BlockDeviceMappingProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-devicename>
+                                deviceName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-ebs>
                                 ebs :: (Prelude.Maybe BlockDeviceProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-nodevice>
                                 noDevice :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html#cfn-autoscaling-launchconfiguration-blockdevicemapping-virtualname>
                                 virtualName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockDeviceMappingProperty ::
   Value Prelude.Text -> BlockDeviceMappingProperty
 mkBlockDeviceMappingProperty deviceName
   = BlockDeviceMappingProperty
-      {deviceName = deviceName, ebs = Prelude.Nothing,
-       noDevice = Prelude.Nothing, virtualName = Prelude.Nothing}
+      {haddock_workaround_ = (), deviceName = deviceName,
+       ebs = Prelude.Nothing, noDevice = Prelude.Nothing,
+       virtualName = Prelude.Nothing}
 instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties

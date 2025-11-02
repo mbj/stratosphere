@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSManagedRulesBotControlRuleSetProperty
-  = AWSManagedRulesBotControlRuleSetProperty {enableMachineLearning :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html>
+    AWSManagedRulesBotControlRuleSetProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html#cfn-wafv2-webacl-awsmanagedrulesbotcontrolruleset-enablemachinelearning>
+                                              enableMachineLearning :: (Prelude.Maybe (Value Prelude.Bool)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html#cfn-wafv2-webacl-awsmanagedrulesbotcontrolruleset-inspectionlevel>
                                               inspectionLevel :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSManagedRulesBotControlRuleSetProperty ::
   Value Prelude.Text -> AWSManagedRulesBotControlRuleSetProperty
 mkAWSManagedRulesBotControlRuleSetProperty inspectionLevel
   = AWSManagedRulesBotControlRuleSetProperty
-      {inspectionLevel = inspectionLevel,
+      {haddock_workaround_ = (), inspectionLevel = inspectionLevel,
        enableMachineLearning = Prelude.Nothing}
 instance ToResourceProperties AWSManagedRulesBotControlRuleSetProperty where
   toResourceProperties AWSManagedRulesBotControlRuleSetProperty {..}

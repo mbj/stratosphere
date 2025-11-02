@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIDConnectProviderConfigurationProperty
-  = OpenIDConnectProviderConfigurationProperty {secretsArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html>
+    OpenIDConnectProviderConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html#cfn-qbusiness-webexperience-openidconnectproviderconfiguration-secretsarn>
+                                                secretsArn :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html#cfn-qbusiness-webexperience-openidconnectproviderconfiguration-secretsrole>
                                                 secretsRole :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIDConnectProviderConfigurationProperty ::
@@ -16,7 +20,8 @@ mkOpenIDConnectProviderConfigurationProperty ::
   -> Value Prelude.Text -> OpenIDConnectProviderConfigurationProperty
 mkOpenIDConnectProviderConfigurationProperty secretsArn secretsRole
   = OpenIDConnectProviderConfigurationProperty
-      {secretsArn = secretsArn, secretsRole = secretsRole}
+      {haddock_workaround_ = (), secretsArn = secretsArn,
+       secretsRole = secretsRole}
 instance ToResourceProperties OpenIDConnectProviderConfigurationProperty where
   toResourceProperties
     OpenIDConnectProviderConfigurationProperty {..}

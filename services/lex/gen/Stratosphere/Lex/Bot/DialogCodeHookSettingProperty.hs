@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DialogCodeHookSettingProperty
-  = DialogCodeHookSettingProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html>
+    DialogCodeHookSettingProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html#cfn-lex-bot-dialogcodehooksetting-enabled>
+                                   enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogCodeHookSettingProperty ::
   Value Prelude.Bool -> DialogCodeHookSettingProperty
 mkDialogCodeHookSettingProperty enabled
-  = DialogCodeHookSettingProperty {enabled = enabled}
+  = DialogCodeHookSettingProperty
+      {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties DialogCodeHookSettingProperty where
   toResourceProperties DialogCodeHookSettingProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON DialogCodeHookSettingProperty where
     = JSON.object ["Enabled" JSON..= enabled]
 instance Property "Enabled" DialogCodeHookSettingProperty where
   type PropertyType "Enabled" DialogCodeHookSettingProperty = Value Prelude.Bool
-  set newValue DialogCodeHookSettingProperty {}
+  set newValue DialogCodeHookSettingProperty {..}
     = DialogCodeHookSettingProperty {enabled = newValue, ..}

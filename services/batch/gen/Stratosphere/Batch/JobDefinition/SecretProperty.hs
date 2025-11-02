@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecretProperty
-  = SecretProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html>
+    SecretProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-name>
+                    name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-valuefrom>
                     valueFrom :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SecretProperty
 mkSecretProperty name valueFrom
-  = SecretProperty {name = name, valueFrom = valueFrom}
+  = SecretProperty
+      {haddock_workaround_ = (), name = name, valueFrom = valueFrom}
 instance ToResourceProperties SecretProperty where
   toResourceProperties SecretProperty {..}
     = ResourceProperties

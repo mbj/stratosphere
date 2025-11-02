@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.OAuth2PropertiesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomConnectorProfilePropertiesProperty
-  = CustomConnectorProfilePropertiesProperty {oAuth2Properties :: (Prelude.Maybe OAuth2PropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html>
+    CustomConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html#cfn-appflow-connectorprofile-customconnectorprofileproperties-oauth2properties>
+                                              oAuth2Properties :: (Prelude.Maybe OAuth2PropertiesProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html#cfn-appflow-connectorprofile-customconnectorprofileproperties-profileproperties>
                                               profileProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorProfilePropertiesProperty ::
   CustomConnectorProfilePropertiesProperty
 mkCustomConnectorProfilePropertiesProperty
   = CustomConnectorProfilePropertiesProperty
-      {oAuth2Properties = Prelude.Nothing,
+      {haddock_workaround_ = (), oAuth2Properties = Prelude.Nothing,
        profileProperties = Prelude.Nothing}
 instance ToResourceProperties CustomConnectorProfilePropertiesProperty where
   toResourceProperties CustomConnectorProfilePropertiesProperty {..}

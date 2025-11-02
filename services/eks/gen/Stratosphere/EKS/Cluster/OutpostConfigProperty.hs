@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.ControlPlanePlacementProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutpostConfigProperty
-  = OutpostConfigProperty {controlPlaneInstanceType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html>
+    OutpostConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneinstancetype>
+                           controlPlaneInstanceType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneplacement>
                            controlPlanePlacement :: (Prelude.Maybe ControlPlanePlacementProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-outpostarns>
                            outpostArns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutpostConfigProperty ::
@@ -17,7 +22,8 @@ mkOutpostConfigProperty ::
   -> ValueList Prelude.Text -> OutpostConfigProperty
 mkOutpostConfigProperty controlPlaneInstanceType outpostArns
   = OutpostConfigProperty
-      {controlPlaneInstanceType = controlPlaneInstanceType,
+      {haddock_workaround_ = (),
+       controlPlaneInstanceType = controlPlaneInstanceType,
        outpostArns = outpostArns, controlPlanePlacement = Prelude.Nothing}
 instance ToResourceProperties OutpostConfigProperty where
   toResourceProperties OutpostConfigProperty {..}

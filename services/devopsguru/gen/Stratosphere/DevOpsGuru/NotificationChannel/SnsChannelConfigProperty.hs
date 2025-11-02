@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsChannelConfigProperty
-  = SnsChannelConfigProperty {topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html>
+    SnsChannelConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn>
+                              topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsChannelConfigProperty :: SnsChannelConfigProperty
 mkSnsChannelConfigProperty
-  = SnsChannelConfigProperty {topicArn = Prelude.Nothing}
+  = SnsChannelConfigProperty
+      {haddock_workaround_ = (), topicArn = Prelude.Nothing}
 instance ToResourceProperties SnsChannelConfigProperty where
   toResourceProperties SnsChannelConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SnsChannelConfigProperty where
            (Prelude.catMaybes [(JSON..=) "TopicArn" Prelude.<$> topicArn]))
 instance Property "TopicArn" SnsChannelConfigProperty where
   type PropertyType "TopicArn" SnsChannelConfigProperty = Value Prelude.Text
-  set newValue SnsChannelConfigProperty {}
+  set newValue SnsChannelConfigProperty {..}
     = SnsChannelConfigProperty {topicArn = Prelude.pure newValue, ..}

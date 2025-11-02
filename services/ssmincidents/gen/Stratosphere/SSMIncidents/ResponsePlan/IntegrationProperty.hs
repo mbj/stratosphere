@@ -7,13 +7,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.PagerDutyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data IntegrationProperty
-  = IntegrationProperty {pagerDutyConfiguration :: PagerDutyConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html>
+    IntegrationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html#cfn-ssmincidents-responseplan-integration-pagerdutyconfiguration>
+                         pagerDutyConfiguration :: PagerDutyConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationProperty ::
   PagerDutyConfigurationProperty -> IntegrationProperty
 mkIntegrationProperty pagerDutyConfiguration
   = IntegrationProperty
-      {pagerDutyConfiguration = pagerDutyConfiguration}
+      {haddock_workaround_ = (),
+       pagerDutyConfiguration = pagerDutyConfiguration}
 instance ToResourceProperties IntegrationProperty where
   toResourceProperties IntegrationProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON IntegrationProperty where
         ["PagerDutyConfiguration" JSON..= pagerDutyConfiguration]
 instance Property "PagerDutyConfiguration" IntegrationProperty where
   type PropertyType "PagerDutyConfiguration" IntegrationProperty = PagerDutyConfigurationProperty
-  set newValue IntegrationProperty {}
+  set newValue IntegrationProperty {..}
     = IntegrationProperty {pagerDutyConfiguration = newValue, ..}

@@ -8,13 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.SessionKeysAbpV10x
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AbpV10xProperty
-  = AbpV10xProperty {devAddr :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html>
+    AbpV10xProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr>
+                     devAddr :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys>
                      sessionKeys :: SessionKeysAbpV10xProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAbpV10xProperty ::
   Value Prelude.Text -> SessionKeysAbpV10xProperty -> AbpV10xProperty
 mkAbpV10xProperty devAddr sessionKeys
-  = AbpV10xProperty {devAddr = devAddr, sessionKeys = sessionKeys}
+  = AbpV10xProperty
+      {haddock_workaround_ = (), devAddr = devAddr,
+       sessionKeys = sessionKeys}
 instance ToResourceProperties AbpV10xProperty where
   toResourceProperties AbpV10xProperty {..}
     = ResourceProperties

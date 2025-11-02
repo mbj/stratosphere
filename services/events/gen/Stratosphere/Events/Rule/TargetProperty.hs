@@ -19,29 +19,49 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.SqsParametersProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetProperty
-  = TargetProperty {appSyncParameters :: (Prelude.Maybe AppSyncParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html>
+    TargetProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-appsyncparameters>
+                    appSyncParameters :: (Prelude.Maybe AppSyncParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn>
                     arn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters>
                     batchParameters :: (Prelude.Maybe BatchParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig>
                     deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters>
                     ecsParameters :: (Prelude.Maybe EcsParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters>
                     httpParameters :: (Prelude.Maybe HttpParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id>
                     id :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input>
                     input :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath>
                     inputPath :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer>
                     inputTransformer :: (Prelude.Maybe InputTransformerProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters>
                     kinesisParameters :: (Prelude.Maybe KinesisParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters>
                     redshiftDataParameters :: (Prelude.Maybe RedshiftDataParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy>
                     retryPolicy :: (Prelude.Maybe RetryPolicyProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn>
                     roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters>
                     runCommandParameters :: (Prelude.Maybe RunCommandParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters>
                     sageMakerPipelineParameters :: (Prelude.Maybe SageMakerPipelineParametersProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters>
                     sqsParameters :: (Prelude.Maybe SqsParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty arn id
   = TargetProperty
-      {arn = arn, id = id, appSyncParameters = Prelude.Nothing,
+      {haddock_workaround_ = (), arn = arn, id = id,
+       appSyncParameters = Prelude.Nothing,
        batchParameters = Prelude.Nothing,
        deadLetterConfig = Prelude.Nothing,
        ecsParameters = Prelude.Nothing, httpParameters = Prelude.Nothing,

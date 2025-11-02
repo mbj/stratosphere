@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.CustomVocabularyItemProperty as Exports
 import Stratosphere.ResourceProperties
 data CustomVocabularyProperty
-  = CustomVocabularyProperty {customVocabularyItems :: [CustomVocabularyItemProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html>
+    CustomVocabularyProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html#cfn-lex-bot-customvocabulary-customvocabularyitems>
+                              customVocabularyItems :: [CustomVocabularyItemProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomVocabularyProperty ::
   [CustomVocabularyItemProperty] -> CustomVocabularyProperty
 mkCustomVocabularyProperty customVocabularyItems
   = CustomVocabularyProperty
-      {customVocabularyItems = customVocabularyItems}
+      {haddock_workaround_ = (),
+       customVocabularyItems = customVocabularyItems}
 instance ToResourceProperties CustomVocabularyProperty where
   toResourceProperties CustomVocabularyProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON CustomVocabularyProperty where
         ["CustomVocabularyItems" JSON..= customVocabularyItems]
 instance Property "CustomVocabularyItems" CustomVocabularyProperty where
   type PropertyType "CustomVocabularyItems" CustomVocabularyProperty = [CustomVocabularyItemProperty]
-  set newValue CustomVocabularyProperty {}
+  set newValue CustomVocabularyProperty {..}
     = CustomVocabularyProperty {customVocabularyItems = newValue, ..}

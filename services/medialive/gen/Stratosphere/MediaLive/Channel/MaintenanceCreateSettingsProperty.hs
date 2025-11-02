@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceCreateSettingsProperty
-  = MaintenanceCreateSettingsProperty {maintenanceDay :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html>
+    MaintenanceCreateSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenanceday>
+                                       maintenanceDay :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html#cfn-medialive-channel-maintenancecreatesettings-maintenancestarttime>
                                        maintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceCreateSettingsProperty ::
   MaintenanceCreateSettingsProperty
 mkMaintenanceCreateSettingsProperty
   = MaintenanceCreateSettingsProperty
-      {maintenanceDay = Prelude.Nothing,
+      {haddock_workaround_ = (), maintenanceDay = Prelude.Nothing,
        maintenanceStartTime = Prelude.Nothing}
 instance ToResourceProperties MaintenanceCreateSettingsProperty where
   toResourceProperties MaintenanceCreateSettingsProperty {..}

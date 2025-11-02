@@ -8,9 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StudioLifecycleConfig
-  = StudioLifecycleConfig {studioLifecycleConfigAppType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html>
+    StudioLifecycleConfig {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigapptype>
+                           studioLifecycleConfigAppType :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigcontent>
                            studioLifecycleConfigContent :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigname>
                            studioLifecycleConfigName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-tags>
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioLifecycleConfig ::
@@ -22,7 +28,8 @@ mkStudioLifecycleConfig
   studioLifecycleConfigContent
   studioLifecycleConfigName
   = StudioLifecycleConfig
-      {studioLifecycleConfigAppType = studioLifecycleConfigAppType,
+      {haddock_workaround_ = (),
+       studioLifecycleConfigAppType = studioLifecycleConfigAppType,
        studioLifecycleConfigContent = studioLifecycleConfigContent,
        studioLifecycleConfigName = studioLifecycleConfigName,
        tags = Prelude.Nothing}

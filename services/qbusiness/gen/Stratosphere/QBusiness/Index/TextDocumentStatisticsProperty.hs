@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextDocumentStatisticsProperty
-  = TextDocumentStatisticsProperty {indexedTextBytes :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-textdocumentstatistics.html>
+    TextDocumentStatisticsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-textdocumentstatistics.html#cfn-qbusiness-index-textdocumentstatistics-indexedtextbytes>
+                                    indexedTextBytes :: (Prelude.Maybe (Value Prelude.Double)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-textdocumentstatistics.html#cfn-qbusiness-index-textdocumentstatistics-indexedtextdocumentcount>
                                     indexedTextDocumentCount :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextDocumentStatisticsProperty :: TextDocumentStatisticsProperty
 mkTextDocumentStatisticsProperty
   = TextDocumentStatisticsProperty
-      {indexedTextBytes = Prelude.Nothing,
+      {haddock_workaround_ = (), indexedTextBytes = Prelude.Nothing,
        indexedTextDocumentCount = Prelude.Nothing}
 instance ToResourceProperties TextDocumentStatisticsProperty where
   toResourceProperties TextDocumentStatisticsProperty {..}

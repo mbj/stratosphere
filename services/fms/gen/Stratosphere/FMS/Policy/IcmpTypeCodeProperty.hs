@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IcmpTypeCodeProperty
-  = IcmpTypeCodeProperty {code :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-icmptypecode.html>
+    IcmpTypeCodeProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-icmptypecode.html#cfn-fms-policy-icmptypecode-code>
+                          code :: (Value Prelude.Integer),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-icmptypecode.html#cfn-fms-policy-icmptypecode-type>
                           type' :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIcmpTypeCodeProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> IcmpTypeCodeProperty
 mkIcmpTypeCodeProperty code type'
-  = IcmpTypeCodeProperty {code = code, type' = type'}
+  = IcmpTypeCodeProperty
+      {haddock_workaround_ = (), code = code, type' = type'}
 instance ToResourceProperties IcmpTypeCodeProperty where
   toResourceProperties IcmpTypeCodeProperty {..}
     = ResourceProperties

@@ -10,12 +10,21 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.PortRangeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkAclEntryProperty
-  = NetworkAclEntryProperty {cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html>
+    NetworkAclEntryProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-cidrblock>
+                             cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-egress>
                              egress :: (Value Prelude.Bool),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-icmptypecode>
                              icmpTypeCode :: (Prelude.Maybe IcmpTypeCodeProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-ipv6cidrblock>
                              ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-portrange>
                              portRange :: (Prelude.Maybe PortRangeProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-protocol>
                              protocol :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html#cfn-fms-policy-networkaclentry-ruleaction>
                              ruleAction :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclEntryProperty ::
@@ -24,9 +33,10 @@ mkNetworkAclEntryProperty ::
      -> Value Prelude.Text -> NetworkAclEntryProperty
 mkNetworkAclEntryProperty egress protocol ruleAction
   = NetworkAclEntryProperty
-      {egress = egress, protocol = protocol, ruleAction = ruleAction,
-       cidrBlock = Prelude.Nothing, icmpTypeCode = Prelude.Nothing,
-       ipv6CidrBlock = Prelude.Nothing, portRange = Prelude.Nothing}
+      {haddock_workaround_ = (), egress = egress, protocol = protocol,
+       ruleAction = ruleAction, cidrBlock = Prelude.Nothing,
+       icmpTypeCode = Prelude.Nothing, ipv6CidrBlock = Prelude.Nothing,
+       portRange = Prelude.Nothing}
 instance ToResourceProperties NetworkAclEntryProperty where
   toResourceProperties NetworkAclEntryProperty {..}
     = ResourceProperties

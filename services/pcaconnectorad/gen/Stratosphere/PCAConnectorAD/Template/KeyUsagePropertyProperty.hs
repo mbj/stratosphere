@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.PCAConnectorAD.Template.KeyUsagePropertyFlags
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyUsagePropertyProperty
-  = KeyUsagePropertyProperty {propertyFlags :: (Prelude.Maybe KeyUsagePropertyFlagsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageproperty.html>
+    KeyUsagePropertyProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageproperty.html#cfn-pcaconnectorad-template-keyusageproperty-propertyflags>
+                              propertyFlags :: (Prelude.Maybe KeyUsagePropertyFlagsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageproperty.html#cfn-pcaconnectorad-template-keyusageproperty-propertytype>
                               propertyType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyUsagePropertyProperty :: KeyUsagePropertyProperty
 mkKeyUsagePropertyProperty
   = KeyUsagePropertyProperty
-      {propertyFlags = Prelude.Nothing, propertyType = Prelude.Nothing}
+      {haddock_workaround_ = (), propertyFlags = Prelude.Nothing,
+       propertyType = Prelude.Nothing}
 instance ToResourceProperties KeyUsagePropertyProperty where
   toResourceProperties KeyUsagePropertyProperty {..}
     = ResourceProperties

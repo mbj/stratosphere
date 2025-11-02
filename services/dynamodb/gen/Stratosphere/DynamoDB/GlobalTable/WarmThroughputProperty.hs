@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WarmThroughputProperty
-  = WarmThroughputProperty {readUnitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-warmthroughput.html>
+    WarmThroughputProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-warmthroughput.html#cfn-dynamodb-globaltable-warmthroughput-readunitspersecond>
+                            readUnitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-warmthroughput.html#cfn-dynamodb-globaltable-warmthroughput-writeunitspersecond>
                             writeUnitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWarmThroughputProperty :: WarmThroughputProperty
 mkWarmThroughputProperty
   = WarmThroughputProperty
-      {readUnitsPerSecond = Prelude.Nothing,
+      {haddock_workaround_ = (), readUnitsPerSecond = Prelude.Nothing,
        writeUnitsPerSecond = Prelude.Nothing}
 instance ToResourceProperties WarmThroughputProperty where
   toResourceProperties WarmThroughputProperty {..}

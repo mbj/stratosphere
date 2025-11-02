@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NameNodeProperty
-  = NameNodeProperty {hostname :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html>
+    NameNodeProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html#cfn-datasync-locationhdfs-namenode-hostname>
+                      hostname :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html#cfn-datasync-locationhdfs-namenode-port>
                       port :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNameNodeProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> NameNodeProperty
 mkNameNodeProperty hostname port
-  = NameNodeProperty {hostname = hostname, port = port}
+  = NameNodeProperty
+      {haddock_workaround_ = (), hostname = hostname, port = port}
 instance ToResourceProperties NameNodeProperty where
   toResourceProperties NameNodeProperty {..}
     = ResourceProperties

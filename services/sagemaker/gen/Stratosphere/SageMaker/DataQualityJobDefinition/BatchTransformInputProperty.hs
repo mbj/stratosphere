@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.DataQualityJobDefinition.DatasetFor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchTransformInputProperty
-  = BatchTransformInputProperty {dataCapturedDestinationS3Uri :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html>
+    BatchTransformInputProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-datacaptureddestinations3uri>
+                                 dataCapturedDestinationS3Uri :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-datasetformat>
                                  datasetFormat :: DatasetFormatProperty,
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-excludefeaturesattribute>
                                  excludeFeaturesAttribute :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-localpath>
                                  localPath :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-s3datadistributiontype>
                                  s3DataDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-batchtransforminput.html#cfn-sagemaker-dataqualityjobdefinition-batchtransforminput-s3inputmode>
                                  s3InputMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchTransformInputProperty ::
@@ -25,7 +33,8 @@ mkBatchTransformInputProperty
   datasetFormat
   localPath
   = BatchTransformInputProperty
-      {dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri,
+      {haddock_workaround_ = (),
+       dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri,
        datasetFormat = datasetFormat, localPath = localPath,
        excludeFeaturesAttribute = Prelude.Nothing,
        s3DataDistributionType = Prelude.Nothing,

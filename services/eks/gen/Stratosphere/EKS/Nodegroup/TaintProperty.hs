@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaintProperty
-  = TaintProperty {effect :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html>
+    TaintProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-effect>
+                   effect :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-key>
                    key :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html#cfn-eks-nodegroup-taint-value>
                    value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaintProperty :: TaintProperty
 mkTaintProperty
   = TaintProperty
-      {effect = Prelude.Nothing, key = Prelude.Nothing,
-       value = Prelude.Nothing}
+      {haddock_workaround_ = (), effect = Prelude.Nothing,
+       key = Prelude.Nothing, value = Prelude.Nothing}
 instance ToResourceProperties TaintProperty where
   toResourceProperties TaintProperty {..}
     = ResourceProperties

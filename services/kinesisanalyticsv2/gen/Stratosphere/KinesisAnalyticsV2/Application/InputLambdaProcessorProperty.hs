@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputLambdaProcessorProperty
-  = InputLambdaProcessorProperty {resourceARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html>
+    InputLambdaProcessorProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html#cfn-kinesisanalyticsv2-application-inputlambdaprocessor-resourcearn>
+                                  resourceARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLambdaProcessorProperty ::
   Value Prelude.Text -> InputLambdaProcessorProperty
 mkInputLambdaProcessorProperty resourceARN
-  = InputLambdaProcessorProperty {resourceARN = resourceARN}
+  = InputLambdaProcessorProperty
+      {haddock_workaround_ = (), resourceARN = resourceARN}
 instance ToResourceProperties InputLambdaProcessorProperty where
   toResourceProperties InputLambdaProcessorProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON InputLambdaProcessorProperty where
     = JSON.object ["ResourceARN" JSON..= resourceARN]
 instance Property "ResourceARN" InputLambdaProcessorProperty where
   type PropertyType "ResourceARN" InputLambdaProcessorProperty = Value Prelude.Text
-  set newValue InputLambdaProcessorProperty {}
+  set newValue InputLambdaProcessorProperty {..}
     = InputLambdaProcessorProperty {resourceARN = newValue, ..}

@@ -11,18 +11,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PartnerAccount
-  = PartnerAccount {accountLinked :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html>
+    PartnerAccount {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-accountlinked>
+                    accountLinked :: (Prelude.Maybe (Value Prelude.Bool)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partneraccountid>
                     partnerAccountId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-partnertype>
                     partnerType :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalk>
                     sidewalk :: (Prelude.Maybe SidewalkAccountInfoProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkresponse>
                     sidewalkResponse :: (Prelude.Maybe SidewalkAccountInfoWithFingerprintProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkupdate>
                     sidewalkUpdate :: (Prelude.Maybe SidewalkUpdateAccountProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartnerAccount :: PartnerAccount
 mkPartnerAccount
   = PartnerAccount
-      {accountLinked = Prelude.Nothing,
+      {haddock_workaround_ = (), accountLinked = Prelude.Nothing,
        partnerAccountId = Prelude.Nothing, partnerType = Prelude.Nothing,
        sidewalk = Prelude.Nothing, sidewalkResponse = Prelude.Nothing,
        sidewalkUpdate = Prelude.Nothing, tags = Prelude.Nothing}

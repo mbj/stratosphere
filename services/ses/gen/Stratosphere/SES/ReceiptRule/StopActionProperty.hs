@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StopActionProperty
-  = StopActionProperty {scope :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html>
+    StopActionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-scope>
+                        scope :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn>
                         topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStopActionProperty :: Value Prelude.Text -> StopActionProperty
 mkStopActionProperty scope
-  = StopActionProperty {scope = scope, topicArn = Prelude.Nothing}
+  = StopActionProperty
+      {haddock_workaround_ = (), scope = scope,
+       topicArn = Prelude.Nothing}
 instance ToResourceProperties StopActionProperty where
   toResourceProperties StopActionProperty {..}
     = ResourceProperties

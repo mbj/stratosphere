@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.UpsolverS3OutputFormatConfigProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpsolverDestinationPropertiesProperty
-  = UpsolverDestinationPropertiesProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html>
+    UpsolverDestinationPropertiesProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname>
+                                           bucketName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix>
                                            bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig>
                                            s3OutputFormatConfig :: UpsolverS3OutputFormatConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpsolverDestinationPropertiesProperty ::
@@ -21,7 +26,7 @@ mkUpsolverDestinationPropertiesProperty
   bucketName
   s3OutputFormatConfig
   = UpsolverDestinationPropertiesProperty
-      {bucketName = bucketName,
+      {haddock_workaround_ = (), bucketName = bucketName,
        s3OutputFormatConfig = s3OutputFormatConfig,
        bucketPrefix = Prelude.Nothing}
 instance ToResourceProperties UpsolverDestinationPropertiesProperty where

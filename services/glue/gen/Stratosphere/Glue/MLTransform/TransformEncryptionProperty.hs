@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Glue.MLTransform.MLUserDataEncryptionProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformEncryptionProperty
-  = TransformEncryptionProperty {mLUserDataEncryption :: (Prelude.Maybe MLUserDataEncryptionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html>
+    TransformEncryptionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption>
+                                 mLUserDataEncryption :: (Prelude.Maybe MLUserDataEncryptionProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname>
                                  taskRunSecurityConfigurationName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformEncryptionProperty :: TransformEncryptionProperty
 mkTransformEncryptionProperty
   = TransformEncryptionProperty
-      {mLUserDataEncryption = Prelude.Nothing,
+      {haddock_workaround_ = (), mLUserDataEncryption = Prelude.Nothing,
        taskRunSecurityConfigurationName = Prelude.Nothing}
 instance ToResourceProperties TransformEncryptionProperty where
   toResourceProperties TransformEncryptionProperty {..}

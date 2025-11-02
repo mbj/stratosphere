@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormItemProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSectionProperty
-  = EvaluationFormSectionProperty {instructions :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html>
+    EvaluationFormSectionProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-instructions>
+                                   instructions :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-items>
                                    items :: (Prelude.Maybe [EvaluationFormItemProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-refid>
                                    refId :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-title>
                                    title :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html#cfn-connect-evaluationform-evaluationformsection-weight>
                                    weight :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSectionProperty ::
@@ -20,8 +27,9 @@ mkEvaluationFormSectionProperty ::
   -> Value Prelude.Text -> EvaluationFormSectionProperty
 mkEvaluationFormSectionProperty refId title
   = EvaluationFormSectionProperty
-      {refId = refId, title = title, instructions = Prelude.Nothing,
-       items = Prelude.Nothing, weight = Prelude.Nothing}
+      {haddock_workaround_ = (), refId = refId, title = title,
+       instructions = Prelude.Nothing, items = Prelude.Nothing,
+       weight = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSectionProperty where
   toResourceProperties EvaluationFormSectionProperty {..}
     = ResourceProperties

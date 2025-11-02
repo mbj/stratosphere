@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortRangeProperty
-  = PortRangeProperty {fromPort :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html>
+    PortRangeProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html#cfn-networkfirewall-tlsinspectionconfiguration-portrange-fromport>
+                       fromPort :: (Value Prelude.Integer),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html#cfn-networkfirewall-tlsinspectionconfiguration-portrange-toport>
                        toPort :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortRangeProperty ::
   Value Prelude.Integer -> Value Prelude.Integer -> PortRangeProperty
 mkPortRangeProperty fromPort toPort
-  = PortRangeProperty {fromPort = fromPort, toPort = toPort}
+  = PortRangeProperty
+      {haddock_workaround_ = (), fromPort = fromPort, toPort = toPort}
 instance ToResourceProperties PortRangeProperty where
   toResourceProperties PortRangeProperty {..}
     = ResourceProperties

@@ -10,16 +10,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AppBlockBuilder
-  = AppBlockBuilder {accessEndpoints :: (Prelude.Maybe [AccessEndpointProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html>
+    AppBlockBuilder {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-accessendpoints>
+                     accessEndpoints :: (Prelude.Maybe [AccessEndpointProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-appblockarns>
                      appBlockArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-description>
                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-displayname>
                      displayName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-enabledefaultinternetaccess>
                      enableDefaultInternetAccess :: (Prelude.Maybe (Value Prelude.Bool)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-iamrolearn>
                      iamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-instancetype>
                      instanceType :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-platform>
                      platform :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-tags>
                      tags :: (Prelude.Maybe [Tag]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-vpcconfig>
                      vpcConfig :: VpcConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppBlockBuilder ::
@@ -28,10 +41,10 @@ mkAppBlockBuilder ::
      -> Value Prelude.Text -> VpcConfigProperty -> AppBlockBuilder
 mkAppBlockBuilder instanceType name platform vpcConfig
   = AppBlockBuilder
-      {instanceType = instanceType, name = name, platform = platform,
-       vpcConfig = vpcConfig, accessEndpoints = Prelude.Nothing,
-       appBlockArns = Prelude.Nothing, description = Prelude.Nothing,
-       displayName = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceType = instanceType,
+       name = name, platform = platform, vpcConfig = vpcConfig,
+       accessEndpoints = Prelude.Nothing, appBlockArns = Prelude.Nothing,
+       description = Prelude.Nothing, displayName = Prelude.Nothing,
        enableDefaultInternetAccess = Prelude.Nothing,
        iamRoleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AppBlockBuilder where

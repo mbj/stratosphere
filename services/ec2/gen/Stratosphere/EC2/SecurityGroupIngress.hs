@@ -7,27 +7,42 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityGroupIngress
-  = SecurityGroupIngress {cidrIp :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html>
+    SecurityGroupIngress {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-cidrip>
+                          cidrIp :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-cidripv6>
                           cidrIpv6 :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-description>
                           description :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-fromport>
                           fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupid>
                           groupId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupname>
                           groupName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-ipprotocol>
                           ipProtocol :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid>
                           sourcePrefixListId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourcesecuritygroupid>
                           sourceSecurityGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourcesecuritygroupname>
                           sourceSecurityGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourcesecuritygroupownerid>
                           sourceSecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-toport>
                           toPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroupIngress ::
   Value Prelude.Text -> SecurityGroupIngress
 mkSecurityGroupIngress ipProtocol
   = SecurityGroupIngress
-      {ipProtocol = ipProtocol, cidrIp = Prelude.Nothing,
-       cidrIpv6 = Prelude.Nothing, description = Prelude.Nothing,
-       fromPort = Prelude.Nothing, groupId = Prelude.Nothing,
-       groupName = Prelude.Nothing, sourcePrefixListId = Prelude.Nothing,
+      {haddock_workaround_ = (), ipProtocol = ipProtocol,
+       cidrIp = Prelude.Nothing, cidrIpv6 = Prelude.Nothing,
+       description = Prelude.Nothing, fromPort = Prelude.Nothing,
+       groupId = Prelude.Nothing, groupName = Prelude.Nothing,
+       sourcePrefixListId = Prelude.Nothing,
        sourceSecurityGroupId = Prelude.Nothing,
        sourceSecurityGroupName = Prelude.Nothing,
        sourceSecurityGroupOwnerId = Prelude.Nothing,

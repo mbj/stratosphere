@@ -8,17 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VerifiedAccessTrustProviderProperty
-  = VerifiedAccessTrustProviderProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>
+    VerifiedAccessTrustProviderProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustprovider-description>
+                                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustprovider-devicetrustprovidertype>
                                          deviceTrustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustprovider-trustprovidertype>
                                          trustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustprovider-usertrustprovidertype>
                                          userTrustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustprovider-verifiedaccesstrustproviderid>
                                          verifiedAccessTrustProviderId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessTrustProviderProperty ::
   VerifiedAccessTrustProviderProperty
 mkVerifiedAccessTrustProviderProperty
   = VerifiedAccessTrustProviderProperty
-      {description = Prelude.Nothing,
+      {haddock_workaround_ = (), description = Prelude.Nothing,
        deviceTrustProviderType = Prelude.Nothing,
        trustProviderType = Prelude.Nothing,
        userTrustProviderType = Prelude.Nothing,

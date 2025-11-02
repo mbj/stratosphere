@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataEncryptionMetadataProperty
-  = DataEncryptionMetadataProperty {allowCleartext :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html>
+    DataEncryptionMetadataProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowcleartext>
+                                    allowCleartext :: (Value Prelude.Bool),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowduplicates>
                                     allowDuplicates :: (Value Prelude.Bool),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowjoinsoncolumnswithdifferentnames>
                                     allowJoinsOnColumnsWithDifferentNames :: (Value Prelude.Bool),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-preservenulls>
                                     preserveNulls :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataEncryptionMetadataProperty ::
@@ -24,7 +30,7 @@ mkDataEncryptionMetadataProperty
   allowJoinsOnColumnsWithDifferentNames
   preserveNulls
   = DataEncryptionMetadataProperty
-      {allowCleartext = allowCleartext,
+      {haddock_workaround_ = (), allowCleartext = allowCleartext,
        allowDuplicates = allowDuplicates,
        allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames,
        preserveNulls = preserveNulls}

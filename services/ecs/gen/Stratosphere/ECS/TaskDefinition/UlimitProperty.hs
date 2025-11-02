@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UlimitProperty
-  = UlimitProperty {hardLimit :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html>
+    UlimitProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-hardlimit>
+                    hardLimit :: (Value Prelude.Integer),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-softlimit>
                     softLimit :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUlimitProperty ::
@@ -16,7 +21,8 @@ mkUlimitProperty ::
   -> Value Prelude.Text -> Value Prelude.Integer -> UlimitProperty
 mkUlimitProperty hardLimit name softLimit
   = UlimitProperty
-      {hardLimit = hardLimit, name = name, softLimit = softLimit}
+      {haddock_workaround_ = (), hardLimit = hardLimit, name = name,
+       softLimit = softLimit}
 instance ToResourceProperties UlimitProperty where
   toResourceProperties UlimitProperty {..}
     = ResourceProperties

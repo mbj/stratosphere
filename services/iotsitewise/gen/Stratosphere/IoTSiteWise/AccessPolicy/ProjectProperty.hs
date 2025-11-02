@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectProperty
-  = ProjectProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html>
+    ProjectProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id>
+                     id :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectProperty :: ProjectProperty
-mkProjectProperty = ProjectProperty {id = Prelude.Nothing}
+mkProjectProperty
+  = ProjectProperty {haddock_workaround_ = (), id = Prelude.Nothing}
 instance ToResourceProperties ProjectProperty where
   toResourceProperties ProjectProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON ProjectProperty where
            (Prelude.catMaybes [(JSON..=) "id" Prelude.<$> id]))
 instance Property "id" ProjectProperty where
   type PropertyType "id" ProjectProperty = Value Prelude.Text
-  set newValue ProjectProperty {}
+  set newValue ProjectProperty {..}
     = ProjectProperty {id = Prelude.pure newValue, ..}

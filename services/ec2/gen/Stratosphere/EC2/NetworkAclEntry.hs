@@ -9,14 +9,25 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkAclEntry.PortRangeProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkAclEntry
-  = NetworkAclEntry {cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html>
+    NetworkAclEntry {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-cidrblock>
+                     cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-egress>
                      egress :: (Prelude.Maybe (Value Prelude.Bool)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-icmp>
                      icmp :: (Prelude.Maybe IcmpProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-ipv6cidrblock>
                      ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-networkaclid>
                      networkAclId :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-portrange>
                      portRange :: (Prelude.Maybe PortRangeProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-protocol>
                      protocol :: (Value Prelude.Integer),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-ruleaction>
                      ruleAction :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-rulenumber>
                      ruleNumber :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclEntry ::
@@ -25,11 +36,11 @@ mkNetworkAclEntry ::
      -> Value Prelude.Text -> Value Prelude.Integer -> NetworkAclEntry
 mkNetworkAclEntry networkAclId protocol ruleAction ruleNumber
   = NetworkAclEntry
-      {networkAclId = networkAclId, protocol = protocol,
-       ruleAction = ruleAction, ruleNumber = ruleNumber,
-       cidrBlock = Prelude.Nothing, egress = Prelude.Nothing,
-       icmp = Prelude.Nothing, ipv6CidrBlock = Prelude.Nothing,
-       portRange = Prelude.Nothing}
+      {haddock_workaround_ = (), networkAclId = networkAclId,
+       protocol = protocol, ruleAction = ruleAction,
+       ruleNumber = ruleNumber, cidrBlock = Prelude.Nothing,
+       egress = Prelude.Nothing, icmp = Prelude.Nothing,
+       ipv6CidrBlock = Prelude.Nothing, portRange = Prelude.Nothing}
 instance ToResourceProperties NetworkAclEntry where
   toResourceProperties NetworkAclEntry {..}
     = ResourceProperties

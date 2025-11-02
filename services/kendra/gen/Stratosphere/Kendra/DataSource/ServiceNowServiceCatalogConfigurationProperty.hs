@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowServiceCatalogConfigurationProperty
-  = ServiceNowServiceCatalogConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html>
+    ServiceNowServiceCatalogConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-crawlattachments>
+                                                   crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documentdatafieldname>
                                                    documentDataFieldName :: (Value Prelude.Text),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documenttitlefieldname>
                                                    documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns>
                                                    excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings>
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns>
                                                    includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowServiceCatalogConfigurationProperty ::
@@ -21,7 +29,8 @@ mkServiceNowServiceCatalogConfigurationProperty ::
 mkServiceNowServiceCatalogConfigurationProperty
   documentDataFieldName
   = ServiceNowServiceCatalogConfigurationProperty
-      {documentDataFieldName = documentDataFieldName,
+      {haddock_workaround_ = (),
+       documentDataFieldName = documentDataFieldName,
        crawlAttachments = Prelude.Nothing,
        documentTitleFieldName = Prelude.Nothing,
        excludeAttachmentFilePatterns = Prelude.Nothing,

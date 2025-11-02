@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerSideEncryptionByDefaultProperty
-  = ServerSideEncryptionByDefaultProperty {kMSMasterKeyID :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionbydefault.html>
+    ServerSideEncryptionByDefaultProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionbydefault.html#cfn-s3express-directorybucket-serversideencryptionbydefault-kmsmasterkeyid>
+                                           kMSMasterKeyID :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionbydefault.html#cfn-s3express-directorybucket-serversideencryptionbydefault-ssealgorithm>
                                            sSEAlgorithm :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionByDefaultProperty ::
   Value Prelude.Text -> ServerSideEncryptionByDefaultProperty
 mkServerSideEncryptionByDefaultProperty sSEAlgorithm
   = ServerSideEncryptionByDefaultProperty
-      {sSEAlgorithm = sSEAlgorithm, kMSMasterKeyID = Prelude.Nothing}
+      {haddock_workaround_ = (), sSEAlgorithm = sSEAlgorithm,
+       kMSMasterKeyID = Prelude.Nothing}
 instance ToResourceProperties ServerSideEncryptionByDefaultProperty where
   toResourceProperties ServerSideEncryptionByDefaultProperty {..}
     = ResourceProperties

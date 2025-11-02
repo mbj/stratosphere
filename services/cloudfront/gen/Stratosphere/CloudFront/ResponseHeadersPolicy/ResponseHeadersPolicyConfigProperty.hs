@@ -13,19 +13,28 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.ServerTiming
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseHeadersPolicyConfigProperty
-  = ResponseHeadersPolicyConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html>
+    ResponseHeadersPolicyConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-comment>
+                                         comment :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-corsconfig>
                                          corsConfig :: (Prelude.Maybe CorsConfigProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-customheadersconfig>
                                          customHeadersConfig :: (Prelude.Maybe CustomHeadersConfigProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-name>
                                          name :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-removeheadersconfig>
                                          removeHeadersConfig :: (Prelude.Maybe RemoveHeadersConfigProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-securityheadersconfig>
                                          securityHeadersConfig :: (Prelude.Maybe SecurityHeadersConfigProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html#cfn-cloudfront-responseheaderspolicy-responseheaderspolicyconfig-servertimingheadersconfig>
                                          serverTimingHeadersConfig :: (Prelude.Maybe ServerTimingHeadersConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseHeadersPolicyConfigProperty ::
   Value Prelude.Text -> ResponseHeadersPolicyConfigProperty
 mkResponseHeadersPolicyConfigProperty name
   = ResponseHeadersPolicyConfigProperty
-      {name = name, comment = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name, comment = Prelude.Nothing,
        corsConfig = Prelude.Nothing,
        customHeadersConfig = Prelude.Nothing,
        removeHeadersConfig = Prelude.Nothing,

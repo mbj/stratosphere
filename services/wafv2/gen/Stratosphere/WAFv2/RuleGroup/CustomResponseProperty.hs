@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomHTTPHeaderProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomResponseProperty
-  = CustomResponseProperty {customResponseBodyKey :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponse.html>
+    CustomResponseProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponse.html#cfn-wafv2-rulegroup-customresponse-customresponsebodykey>
+                            customResponseBodyKey :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponse.html#cfn-wafv2-rulegroup-customresponse-responsecode>
                             responseCode :: (Value Prelude.Integer),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponse.html#cfn-wafv2-rulegroup-customresponse-responseheaders>
                             responseHeaders :: (Prelude.Maybe [CustomHTTPHeaderProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomResponseProperty ::
   Value Prelude.Integer -> CustomResponseProperty
 mkCustomResponseProperty responseCode
   = CustomResponseProperty
-      {responseCode = responseCode,
+      {haddock_workaround_ = (), responseCode = responseCode,
        customResponseBodyKey = Prelude.Nothing,
        responseHeaders = Prelude.Nothing}
 instance ToResourceProperties CustomResponseProperty where

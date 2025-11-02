@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.FixedResponseProperty as Expo
 import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.ForwardProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {fixedResponse :: (Prelude.Maybe FixedResponseProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html#cfn-vpclattice-rule-action-fixedresponse>
+                    fixedResponse :: (Prelude.Maybe FixedResponseProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html#cfn-vpclattice-rule-action-forward>
                     forward :: (Prelude.Maybe ForwardProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
-      {fixedResponse = Prelude.Nothing, forward = Prelude.Nothing}
+      {haddock_workaround_ = (), fixedResponse = Prelude.Nothing,
+       forward = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties

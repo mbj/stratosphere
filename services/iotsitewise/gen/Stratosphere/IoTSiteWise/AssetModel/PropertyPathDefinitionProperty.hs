@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyPathDefinitionProperty
-  = PropertyPathDefinitionProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html>
+    PropertyPathDefinitionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html#cfn-iotsitewise-assetmodel-propertypathdefinition-name>
+                                    name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyPathDefinitionProperty ::
   Value Prelude.Text -> PropertyPathDefinitionProperty
 mkPropertyPathDefinitionProperty name
-  = PropertyPathDefinitionProperty {name = name}
+  = PropertyPathDefinitionProperty
+      {haddock_workaround_ = (), name = name}
 instance ToResourceProperties PropertyPathDefinitionProperty where
   toResourceProperties PropertyPathDefinitionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON PropertyPathDefinitionProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" PropertyPathDefinitionProperty where
   type PropertyType "Name" PropertyPathDefinitionProperty = Value Prelude.Text
-  set newValue PropertyPathDefinitionProperty {}
+  set newValue PropertyPathDefinitionProperty {..}
     = PropertyPathDefinitionProperty {name = newValue, ..}

@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortSetProperty
-  = PortSetProperty {definition :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html>
+    PortSetProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition>
+                     definition :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPortSetProperty :: PortSetProperty
-mkPortSetProperty = PortSetProperty {definition = Prelude.Nothing}
+mkPortSetProperty
+  = PortSetProperty
+      {haddock_workaround_ = (), definition = Prelude.Nothing}
 instance ToResourceProperties PortSetProperty where
   toResourceProperties PortSetProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON PortSetProperty where
               [(JSON..=) "Definition" Prelude.<$> definition]))
 instance Property "Definition" PortSetProperty where
   type PropertyType "Definition" PortSetProperty = ValueList Prelude.Text
-  set newValue PortSetProperty {}
+  set newValue PortSetProperty {..}
     = PortSetProperty {definition = Prelude.pure newValue, ..}

@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleW
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficConfigProperty
-  = TrafficConfigProperty {singleHeaderConfig :: (Prelude.Maybe SingleHeaderConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html>
+    TrafficConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-singleheaderconfig>
+                           singleHeaderConfig :: (Prelude.Maybe SingleHeaderConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-singleweightconfig>
                            singleWeightConfig :: (Prelude.Maybe SingleWeightConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html#cfn-cloudfront-continuousdeploymentpolicy-trafficconfig-type>
                            type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficConfigProperty ::
   Value Prelude.Text -> TrafficConfigProperty
 mkTrafficConfigProperty type'
   = TrafficConfigProperty
-      {type' = type', singleHeaderConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       singleHeaderConfig = Prelude.Nothing,
        singleWeightConfig = Prelude.Nothing}
 instance ToResourceProperties TrafficConfigProperty where
   toResourceProperties TrafficConfigProperty {..}

@@ -10,16 +10,21 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleCustom
 import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleListProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfiguredTableAnalysisRulePolicyV1Property
-  = ConfiguredTableAnalysisRulePolicyV1Property {aggregation :: (Prelude.Maybe AnalysisRuleAggregationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html>
+    ConfiguredTableAnalysisRulePolicyV1Property {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-aggregation>
+                                                 aggregation :: (Prelude.Maybe AnalysisRuleAggregationProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-custom>
                                                  custom :: (Prelude.Maybe AnalysisRuleCustomProperty),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html#cfn-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1-list>
                                                  list :: (Prelude.Maybe AnalysisRuleListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTableAnalysisRulePolicyV1Property ::
   ConfiguredTableAnalysisRulePolicyV1Property
 mkConfiguredTableAnalysisRulePolicyV1Property
   = ConfiguredTableAnalysisRulePolicyV1Property
-      {aggregation = Prelude.Nothing, custom = Prelude.Nothing,
-       list = Prelude.Nothing}
+      {haddock_workaround_ = (), aggregation = Prelude.Nothing,
+       custom = Prelude.Nothing, list = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTableAnalysisRulePolicyV1Property where
   toResourceProperties
     ConfiguredTableAnalysisRulePolicyV1Property {..}

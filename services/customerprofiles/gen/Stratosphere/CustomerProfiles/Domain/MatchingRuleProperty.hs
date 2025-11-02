@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatchingRuleProperty
-  = MatchingRuleProperty {rule :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html>
+    MatchingRuleProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html#cfn-customerprofiles-domain-matchingrule-rule>
+                          rule :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchingRuleProperty ::
   ValueList Prelude.Text -> MatchingRuleProperty
-mkMatchingRuleProperty rule = MatchingRuleProperty {rule = rule}
+mkMatchingRuleProperty rule
+  = MatchingRuleProperty {haddock_workaround_ = (), rule = rule}
 instance ToResourceProperties MatchingRuleProperty where
   toResourceProperties MatchingRuleProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON MatchingRuleProperty where
     = JSON.object ["Rule" JSON..= rule]
 instance Property "Rule" MatchingRuleProperty where
   type PropertyType "Rule" MatchingRuleProperty = ValueList Prelude.Text
-  set newValue MatchingRuleProperty {}
+  set newValue MatchingRuleProperty {..}
     = MatchingRuleProperty {rule = newValue, ..}

@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.ConditionProperty as Exports
 import Stratosphere.ResourceProperties
 data BeforeEntryConditionsProperty
-  = BeforeEntryConditionsProperty {conditions :: (Prelude.Maybe [ConditionProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html>
+    BeforeEntryConditionsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html#cfn-codepipeline-pipeline-beforeentryconditions-conditions>
+                                   conditions :: (Prelude.Maybe [ConditionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBeforeEntryConditionsProperty :: BeforeEntryConditionsProperty
 mkBeforeEntryConditionsProperty
-  = BeforeEntryConditionsProperty {conditions = Prelude.Nothing}
+  = BeforeEntryConditionsProperty
+      {haddock_workaround_ = (), conditions = Prelude.Nothing}
 instance ToResourceProperties BeforeEntryConditionsProperty where
   toResourceProperties BeforeEntryConditionsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON BeforeEntryConditionsProperty where
               [(JSON..=) "Conditions" Prelude.<$> conditions]))
 instance Property "Conditions" BeforeEntryConditionsProperty where
   type PropertyType "Conditions" BeforeEntryConditionsProperty = [ConditionProperty]
-  set newValue BeforeEntryConditionsProperty {}
+  set newValue BeforeEntryConditionsProperty {..}
     = BeforeEntryConditionsProperty
         {conditions = Prelude.pure newValue, ..}

@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkerConfigurationProperty
-  = WorkerConfigurationProperty {cpu :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html>
+    WorkerConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-cpu>
+                                 cpu :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-disk>
                                  disk :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-disktype>
                                  diskType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-memory>
                                  memory :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerConfigurationProperty ::
@@ -17,8 +23,8 @@ mkWorkerConfigurationProperty ::
   -> Value Prelude.Text -> WorkerConfigurationProperty
 mkWorkerConfigurationProperty cpu memory
   = WorkerConfigurationProperty
-      {cpu = cpu, memory = memory, disk = Prelude.Nothing,
-       diskType = Prelude.Nothing}
+      {haddock_workaround_ = (), cpu = cpu, memory = memory,
+       disk = Prelude.Nothing, diskType = Prelude.Nothing}
 instance ToResourceProperties WorkerConfigurationProperty where
   toResourceProperties WorkerConfigurationProperty {..}
     = ResourceProperties

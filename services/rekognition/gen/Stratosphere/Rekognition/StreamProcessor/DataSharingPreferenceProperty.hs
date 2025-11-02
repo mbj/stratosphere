@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSharingPreferenceProperty
-  = DataSharingPreferenceProperty {optIn :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-datasharingpreference.html>
+    DataSharingPreferenceProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-datasharingpreference.html#cfn-rekognition-streamprocessor-datasharingpreference-optin>
+                                   optIn :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSharingPreferenceProperty ::
   Value Prelude.Bool -> DataSharingPreferenceProperty
 mkDataSharingPreferenceProperty optIn
-  = DataSharingPreferenceProperty {optIn = optIn}
+  = DataSharingPreferenceProperty
+      {haddock_workaround_ = (), optIn = optIn}
 instance ToResourceProperties DataSharingPreferenceProperty where
   toResourceProperties DataSharingPreferenceProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON DataSharingPreferenceProperty where
     = JSON.object ["OptIn" JSON..= optIn]
 instance Property "OptIn" DataSharingPreferenceProperty where
   type PropertyType "OptIn" DataSharingPreferenceProperty = Value Prelude.Bool
-  set newValue DataSharingPreferenceProperty {}
+  set newValue DataSharingPreferenceProperty {..}
     = DataSharingPreferenceProperty {optIn = newValue, ..}

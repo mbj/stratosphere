@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerProcessProperty
-  = ServerProcessProperty {concurrentExecutions :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html>
+    ServerProcessProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions>
+                           concurrentExecutions :: (Value Prelude.Integer),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath>
                            launchPath :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters>
                            parameters :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkServerProcessProperty ::
@@ -16,7 +21,8 @@ mkServerProcessProperty ::
   -> Value Prelude.Text -> ServerProcessProperty
 mkServerProcessProperty concurrentExecutions launchPath
   = ServerProcessProperty
-      {concurrentExecutions = concurrentExecutions,
+      {haddock_workaround_ = (),
+       concurrentExecutions = concurrentExecutions,
        launchPath = launchPath, parameters = Prelude.Nothing}
 instance ToResourceProperties ServerProcessProperty where
   toResourceProperties ServerProcessProperty {..}

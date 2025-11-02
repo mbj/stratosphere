@@ -8,14 +8,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftConnectorProfilePropertiesProperty
-  = RedshiftConnectorProfilePropertiesProperty {bucketName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html>
+    RedshiftConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname>
+                                                bucketName :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix>
                                                 bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-clusteridentifier>
                                                 clusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-dataapirolearn>
                                                 dataApiRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databasename>
                                                 databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl>
                                                 databaseUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-isredshiftserverless>
                                                 isRedshiftServerless :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn>
                                                 roleArn :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-workgroupname>
                                                 workgroupName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftConnectorProfilePropertiesProperty ::
@@ -23,8 +34,8 @@ mkRedshiftConnectorProfilePropertiesProperty ::
   -> Value Prelude.Text -> RedshiftConnectorProfilePropertiesProperty
 mkRedshiftConnectorProfilePropertiesProperty bucketName roleArn
   = RedshiftConnectorProfilePropertiesProperty
-      {bucketName = bucketName, roleArn = roleArn,
-       bucketPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), bucketName = bucketName,
+       roleArn = roleArn, bucketPrefix = Prelude.Nothing,
        clusterIdentifier = Prelude.Nothing,
        dataApiRoleArn = Prelude.Nothing, databaseName = Prelude.Nothing,
        databaseUrl = Prelude.Nothing,

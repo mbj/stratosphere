@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationTableConfigurationProperty
-  = DestinationTableConfigurationProperty {destinationDatabaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html>
+    DestinationTableConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-destinationdatabasename>
+                                           destinationDatabaseName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-destinationtablename>
                                            destinationTableName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-s3erroroutputprefix>
                                            s3ErrorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-uniquekeys>
                                            uniqueKeys :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationTableConfigurationProperty ::
@@ -20,7 +26,8 @@ mkDestinationTableConfigurationProperty
   destinationDatabaseName
   destinationTableName
   = DestinationTableConfigurationProperty
-      {destinationDatabaseName = destinationDatabaseName,
+      {haddock_workaround_ = (),
+       destinationDatabaseName = destinationDatabaseName,
        destinationTableName = destinationTableName,
        s3ErrorOutputPrefix = Prelude.Nothing,
        uniqueKeys = Prelude.Nothing}

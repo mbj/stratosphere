@@ -10,11 +10,19 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.ComponentPropertyP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentChildProperty
-  = ComponentChildProperty {children :: (Prelude.Maybe [ComponentChildProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html>
+    ComponentChildProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-children>
+                            children :: (Prelude.Maybe [ComponentChildProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-componenttype>
                             componentType :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-events>
                             events :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentEventProperty)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-name>
                             name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-properties>
                             properties :: (Prelude.Map Prelude.Text ComponentPropertyProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-sourceid>
                             sourceId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentChildProperty ::
@@ -24,8 +32,8 @@ mkComponentChildProperty ::
         -> ComponentChildProperty
 mkComponentChildProperty componentType name properties
   = ComponentChildProperty
-      {componentType = componentType, name = name,
-       properties = properties, children = Prelude.Nothing,
+      {haddock_workaround_ = (), componentType = componentType,
+       name = name, properties = properties, children = Prelude.Nothing,
        events = Prelude.Nothing, sourceId = Prelude.Nothing}
 instance ToResourceProperties ComponentChildProperty where
   toResourceProperties ComponentChildProperty {..}

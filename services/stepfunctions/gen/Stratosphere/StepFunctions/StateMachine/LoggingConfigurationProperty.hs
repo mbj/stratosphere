@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.LogDestinationProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfigurationProperty
-  = LoggingConfigurationProperty {destinations :: (Prelude.Maybe [LogDestinationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html>
+    LoggingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations>
+                                  destinations :: (Prelude.Maybe [LogDestinationProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata>
                                   includeExecutionData :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level>
                                   level :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty
-      {destinations = Prelude.Nothing,
+      {haddock_workaround_ = (), destinations = Prelude.Nothing,
        includeExecutionData = Prelude.Nothing, level = Prelude.Nothing}
 instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}

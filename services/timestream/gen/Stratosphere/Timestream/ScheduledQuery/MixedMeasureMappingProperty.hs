@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.MultiMeasureAttribu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MixedMeasureMappingProperty
-  = MixedMeasureMappingProperty {measureName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html>
+    MixedMeasureMappingProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurename>
+                                 measureName :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-measurevaluetype>
                                  measureValueType :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-multimeasureattributemappings>
                                  multiMeasureAttributeMappings :: (Prelude.Maybe [MultiMeasureAttributeMappingProperty]),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-sourcecolumn>
                                  sourceColumn :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html#cfn-timestream-scheduledquery-mixedmeasuremapping-targetmeasurename>
                                  targetMeasureName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMixedMeasureMappingProperty ::
   Value Prelude.Text -> MixedMeasureMappingProperty
 mkMixedMeasureMappingProperty measureValueType
   = MixedMeasureMappingProperty
-      {measureValueType = measureValueType,
+      {haddock_workaround_ = (), measureValueType = measureValueType,
        measureName = Prelude.Nothing,
        multiMeasureAttributeMappings = Prelude.Nothing,
        sourceColumn = Prelude.Nothing,

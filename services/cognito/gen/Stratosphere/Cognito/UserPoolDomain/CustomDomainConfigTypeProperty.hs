@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDomainConfigTypeProperty
-  = CustomDomainConfigTypeProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html>
+    CustomDomainConfigTypeProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-certificatearn>
+                                    certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDomainConfigTypeProperty :: CustomDomainConfigTypeProperty
 mkCustomDomainConfigTypeProperty
-  = CustomDomainConfigTypeProperty {certificateArn = Prelude.Nothing}
+  = CustomDomainConfigTypeProperty
+      {haddock_workaround_ = (), certificateArn = Prelude.Nothing}
 instance ToResourceProperties CustomDomainConfigTypeProperty where
   toResourceProperties CustomDomainConfigTypeProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON CustomDomainConfigTypeProperty where
               [(JSON..=) "CertificateArn" Prelude.<$> certificateArn]))
 instance Property "CertificateArn" CustomDomainConfigTypeProperty where
   type PropertyType "CertificateArn" CustomDomainConfigTypeProperty = Value Prelude.Text
-  set newValue CustomDomainConfigTypeProperty {}
+  set newValue CustomDomainConfigTypeProperty {..}
     = CustomDomainConfigTypeProperty
         {certificateArn = Prelude.pure newValue, ..}

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TaskDefinitionPlacementConstraintProperty
-  = TaskDefinitionPlacementConstraintProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html>
+    TaskDefinitionPlacementConstraintProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression>
+                                               expression :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type>
                                                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskDefinitionPlacementConstraintProperty ::
   Value Prelude.Text -> TaskDefinitionPlacementConstraintProperty
 mkTaskDefinitionPlacementConstraintProperty type'
   = TaskDefinitionPlacementConstraintProperty
-      {type' = type', expression = Prelude.Nothing}
+      {haddock_workaround_ = (), type' = type',
+       expression = Prelude.Nothing}
 instance ToResourceProperties TaskDefinitionPlacementConstraintProperty where
   toResourceProperties TaskDefinitionPlacementConstraintProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpHeaderConfigProperty
-  = HttpHeaderConfigProperty {httpHeaderName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html>
+    HttpHeaderConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-httpheadername>
+                              httpHeaderName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-values>
                               values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpHeaderConfigProperty :: HttpHeaderConfigProperty
 mkHttpHeaderConfigProperty
   = HttpHeaderConfigProperty
-      {httpHeaderName = Prelude.Nothing, values = Prelude.Nothing}
+      {haddock_workaround_ = (), httpHeaderName = Prelude.Nothing,
+       values = Prelude.Nothing}
 instance ToResourceProperties HttpHeaderConfigProperty where
   toResourceProperties HttpHeaderConfigProperty {..}
     = ResourceProperties

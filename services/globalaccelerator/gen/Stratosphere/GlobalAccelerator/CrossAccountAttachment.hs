@@ -10,17 +10,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CrossAccountAttachment
-  = CrossAccountAttachment {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html>
+    CrossAccountAttachment {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html#cfn-globalaccelerator-crossaccountattachment-name>
+                            name :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html#cfn-globalaccelerator-crossaccountattachment-principals>
                             principals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html#cfn-globalaccelerator-crossaccountattachment-resources>
                             resources :: (Prelude.Maybe [ResourceProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html#cfn-globalaccelerator-crossaccountattachment-tags>
                             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossAccountAttachment ::
   Value Prelude.Text -> CrossAccountAttachment
 mkCrossAccountAttachment name
   = CrossAccountAttachment
-      {name = name, principals = Prelude.Nothing,
-       resources = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       principals = Prelude.Nothing, resources = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties CrossAccountAttachment where
   toResourceProperties CrossAccountAttachment {..}
     = ResourceProperties

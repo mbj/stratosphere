@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetadataConfigurationProperty
-  = MetadataConfigurationProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>
+    MetadataConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-metadataconfiguration-iops>
+                                   iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-metadataconfiguration-mode>
                                    mode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataConfigurationProperty :: MetadataConfigurationProperty
 mkMetadataConfigurationProperty
   = MetadataConfigurationProperty
-      {iops = Prelude.Nothing, mode = Prelude.Nothing}
+      {haddock_workaround_ = (), iops = Prelude.Nothing,
+       mode = Prelude.Nothing}
 instance ToResourceProperties MetadataConfigurationProperty where
   toResourceProperties MetadataConfigurationProperty {..}
     = ResourceProperties

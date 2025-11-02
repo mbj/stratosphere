@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QBusiness.Index.TextDocumentStatisticsProperty as Exports
 import Stratosphere.ResourceProperties
 data IndexStatisticsProperty
-  = IndexStatisticsProperty {textDocumentStatistics :: (Prelude.Maybe TextDocumentStatisticsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexstatistics.html>
+    IndexStatisticsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexstatistics.html#cfn-qbusiness-index-indexstatistics-textdocumentstatistics>
+                             textDocumentStatistics :: (Prelude.Maybe TextDocumentStatisticsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIndexStatisticsProperty :: IndexStatisticsProperty
 mkIndexStatisticsProperty
   = IndexStatisticsProperty
-      {textDocumentStatistics = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       textDocumentStatistics = Prelude.Nothing}
 instance ToResourceProperties IndexStatisticsProperty where
   toResourceProperties IndexStatisticsProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON IndexStatisticsProperty where
                  Prelude.<$> textDocumentStatistics]))
 instance Property "TextDocumentStatistics" IndexStatisticsProperty where
   type PropertyType "TextDocumentStatistics" IndexStatisticsProperty = TextDocumentStatisticsProperty
-  set newValue IndexStatisticsProperty {}
+  set newValue IndexStatisticsProperty {..}
     = IndexStatisticsProperty
         {textDocumentStatistics = Prelude.pure newValue, ..}

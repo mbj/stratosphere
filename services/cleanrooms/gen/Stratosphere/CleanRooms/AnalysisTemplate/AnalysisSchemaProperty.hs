@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisSchemaProperty
-  = AnalysisSchemaProperty {referencedTables :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html>
+    AnalysisSchemaProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html#cfn-cleanrooms-analysistemplate-analysisschema-referencedtables>
+                            referencedTables :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisSchemaProperty ::
   ValueList Prelude.Text -> AnalysisSchemaProperty
 mkAnalysisSchemaProperty referencedTables
-  = AnalysisSchemaProperty {referencedTables = referencedTables}
+  = AnalysisSchemaProperty
+      {haddock_workaround_ = (), referencedTables = referencedTables}
 instance ToResourceProperties AnalysisSchemaProperty where
   toResourceProperties AnalysisSchemaProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AnalysisSchemaProperty where
     = JSON.object ["ReferencedTables" JSON..= referencedTables]
 instance Property "ReferencedTables" AnalysisSchemaProperty where
   type PropertyType "ReferencedTables" AnalysisSchemaProperty = ValueList Prelude.Text
-  set newValue AnalysisSchemaProperty {}
+  set newValue AnalysisSchemaProperty {..}
     = AnalysisSchemaProperty {referencedTables = newValue, ..}

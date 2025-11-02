@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DvbTdtSettingsProperty
-  = DvbTdtSettingsProperty {repInterval :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html>
+    DvbTdtSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html#cfn-medialive-channel-dvbtdtsettings-repinterval>
+                            repInterval :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbTdtSettingsProperty :: DvbTdtSettingsProperty
 mkDvbTdtSettingsProperty
-  = DvbTdtSettingsProperty {repInterval = Prelude.Nothing}
+  = DvbTdtSettingsProperty
+      {haddock_workaround_ = (), repInterval = Prelude.Nothing}
 instance ToResourceProperties DvbTdtSettingsProperty where
   toResourceProperties DvbTdtSettingsProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON DvbTdtSettingsProperty where
               [(JSON..=) "RepInterval" Prelude.<$> repInterval]))
 instance Property "RepInterval" DvbTdtSettingsProperty where
   type PropertyType "RepInterval" DvbTdtSettingsProperty = Value Prelude.Integer
-  set newValue DvbTdtSettingsProperty {}
+  set newValue DvbTdtSettingsProperty {..}
     = DvbTdtSettingsProperty {repInterval = Prelude.pure newValue, ..}

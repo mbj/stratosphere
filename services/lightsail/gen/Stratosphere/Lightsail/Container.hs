@@ -11,13 +11,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Container
-  = Container {containerServiceDeployment :: (Prelude.Maybe ContainerServiceDeploymentProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html>
+    Container {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-containerservicedeployment>
+               containerServiceDeployment :: (Prelude.Maybe ContainerServiceDeploymentProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-isdisabled>
                isDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-power>
                power :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-privateregistryaccess>
                privateRegistryAccess :: (Prelude.Maybe PrivateRegistryAccessProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-publicdomainnames>
                publicDomainNames :: (Prelude.Maybe [PublicDomainNameProperty]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-scale>
                scale :: (Value Prelude.Integer),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-servicename>
                serviceName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainer ::
@@ -25,7 +35,8 @@ mkContainer ::
   -> Value Prelude.Integer -> Value Prelude.Text -> Container
 mkContainer power scale serviceName
   = Container
-      {power = power, scale = scale, serviceName = serviceName,
+      {haddock_workaround_ = (), power = power, scale = scale,
+       serviceName = serviceName,
        containerServiceDeployment = Prelude.Nothing,
        isDisabled = Prelude.Nothing,
        privateRegistryAccess = Prelude.Nothing,

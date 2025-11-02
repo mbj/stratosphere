@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceBundleProperty
-  = SourceBundleProperty {s3Bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html>
+    SourceBundleProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3bucket>
+                          s3Bucket :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html#cfn-elasticbeanstalk-applicationversion-sourcebundle-s3key>
                           s3Key :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceBundleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SourceBundleProperty
 mkSourceBundleProperty s3Bucket s3Key
-  = SourceBundleProperty {s3Bucket = s3Bucket, s3Key = s3Key}
+  = SourceBundleProperty
+      {haddock_workaround_ = (), s3Bucket = s3Bucket, s3Key = s3Key}
 instance ToResourceProperties SourceBundleProperty where
   toResourceProperties SourceBundleProperty {..}
     = ResourceProperties

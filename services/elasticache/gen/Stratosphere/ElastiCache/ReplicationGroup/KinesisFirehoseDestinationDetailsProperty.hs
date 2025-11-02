@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseDestinationDetailsProperty
-  = KinesisFirehoseDestinationDetailsProperty {deliveryStream :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html>
+    KinesisFirehoseDestinationDetailsProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream>
+                                               deliveryStream :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseDestinationDetailsProperty ::
   Value Prelude.Text -> KinesisFirehoseDestinationDetailsProperty
 mkKinesisFirehoseDestinationDetailsProperty deliveryStream
   = KinesisFirehoseDestinationDetailsProperty
-      {deliveryStream = deliveryStream}
+      {haddock_workaround_ = (), deliveryStream = deliveryStream}
 instance ToResourceProperties KinesisFirehoseDestinationDetailsProperty where
   toResourceProperties KinesisFirehoseDestinationDetailsProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON KinesisFirehoseDestinationDetailsProperty where
     = JSON.object ["DeliveryStream" JSON..= deliveryStream]
 instance Property "DeliveryStream" KinesisFirehoseDestinationDetailsProperty where
   type PropertyType "DeliveryStream" KinesisFirehoseDestinationDetailsProperty = Value Prelude.Text
-  set newValue KinesisFirehoseDestinationDetailsProperty {}
+  set newValue KinesisFirehoseDestinationDetailsProperty {..}
     = KinesisFirehoseDestinationDetailsProperty
         {deliveryStream = newValue, ..}

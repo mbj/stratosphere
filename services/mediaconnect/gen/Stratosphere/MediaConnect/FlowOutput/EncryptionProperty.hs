@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionProperty
-  = EncryptionProperty {algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html>
+    EncryptionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-algorithm>
+                        algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-keytype>
                         keyType :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-rolearn>
                         roleArn :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-secretarn>
                         secretArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EncryptionProperty
 mkEncryptionProperty roleArn secretArn
   = EncryptionProperty
-      {roleArn = roleArn, secretArn = secretArn,
-       algorithm = Prelude.Nothing, keyType = Prelude.Nothing}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       secretArn = secretArn, algorithm = Prelude.Nothing,
+       keyType = Prelude.Nothing}
 instance ToResourceProperties EncryptionProperty where
   toResourceProperties EncryptionProperty {..}
     = ResourceProperties

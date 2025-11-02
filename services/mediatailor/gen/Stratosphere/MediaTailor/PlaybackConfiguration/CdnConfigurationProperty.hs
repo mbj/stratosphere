@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CdnConfigurationProperty
-  = CdnConfigurationProperty {adSegmentUrlPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html>
+    CdnConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration-adsegmenturlprefix>
+                              adSegmentUrlPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html#cfn-mediatailor-playbackconfiguration-cdnconfiguration-contentsegmenturlprefix>
                               contentSegmentUrlPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCdnConfigurationProperty :: CdnConfigurationProperty
 mkCdnConfigurationProperty
   = CdnConfigurationProperty
-      {adSegmentUrlPrefix = Prelude.Nothing,
+      {haddock_workaround_ = (), adSegmentUrlPrefix = Prelude.Nothing,
        contentSegmentUrlPrefix = Prelude.Nothing}
 instance ToResourceProperties CdnConfigurationProperty where
   toResourceProperties CdnConfigurationProperty {..}

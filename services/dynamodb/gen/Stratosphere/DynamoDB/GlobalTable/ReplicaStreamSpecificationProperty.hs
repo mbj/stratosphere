@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ResourcePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data ReplicaStreamSpecificationProperty
-  = ReplicaStreamSpecificationProperty {resourcePolicy :: ResourcePolicyProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html>
+    ReplicaStreamSpecificationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html#cfn-dynamodb-globaltable-replicastreamspecification-resourcepolicy>
+                                        resourcePolicy :: ResourcePolicyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaStreamSpecificationProperty ::
   ResourcePolicyProperty -> ReplicaStreamSpecificationProperty
 mkReplicaStreamSpecificationProperty resourcePolicy
   = ReplicaStreamSpecificationProperty
-      {resourcePolicy = resourcePolicy}
+      {haddock_workaround_ = (), resourcePolicy = resourcePolicy}
 instance ToResourceProperties ReplicaStreamSpecificationProperty where
   toResourceProperties ReplicaStreamSpecificationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON ReplicaStreamSpecificationProperty where
     = JSON.object ["ResourcePolicy" JSON..= resourcePolicy]
 instance Property "ResourcePolicy" ReplicaStreamSpecificationProperty where
   type PropertyType "ResourcePolicy" ReplicaStreamSpecificationProperty = ResourcePolicyProperty
-  set newValue ReplicaStreamSpecificationProperty {}
+  set newValue ReplicaStreamSpecificationProperty {..}
     = ReplicaStreamSpecificationProperty
         {resourcePolicy = newValue, ..}

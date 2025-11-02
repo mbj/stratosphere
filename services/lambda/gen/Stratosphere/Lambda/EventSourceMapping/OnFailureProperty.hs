@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnFailureProperty
-  = OnFailureProperty {destination :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html>
+    OnFailureProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination>
+                       destination :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnFailureProperty :: OnFailureProperty
 mkOnFailureProperty
-  = OnFailureProperty {destination = Prelude.Nothing}
+  = OnFailureProperty
+      {haddock_workaround_ = (), destination = Prelude.Nothing}
 instance ToResourceProperties OnFailureProperty where
   toResourceProperties OnFailureProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON OnFailureProperty where
               [(JSON..=) "Destination" Prelude.<$> destination]))
 instance Property "Destination" OnFailureProperty where
   type PropertyType "Destination" OnFailureProperty = Value Prelude.Text
-  set newValue OnFailureProperty {}
+  set newValue OnFailureProperty {..}
     = OnFailureProperty {destination = Prelude.pure newValue, ..}

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.ObjectLambdaConfig
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPoint
-  = AccessPoint {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html>
+    AccessPoint {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name>
+                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration>
                  objectLambdaConfiguration :: ObjectLambdaConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: ObjectLambdaConfigurationProperty -> AccessPoint
 mkAccessPoint objectLambdaConfiguration
   = AccessPoint
-      {objectLambdaConfiguration = objectLambdaConfiguration,
+      {haddock_workaround_ = (),
+       objectLambdaConfiguration = objectLambdaConfiguration,
        name = Prelude.Nothing}
 instance ToResourceProperties AccessPoint where
   toResourceProperties AccessPoint {..}

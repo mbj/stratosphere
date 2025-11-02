@@ -8,12 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.AwsVpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {awsVpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html>
+    NetworkConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html#cfn-events-rule-networkconfiguration-awsvpcconfiguration>
+                                  awsVpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty
-      {awsVpcConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), awsVpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON NetworkConfigurationProperty where
               [(JSON..=) "AwsVpcConfiguration" Prelude.<$> awsVpcConfiguration]))
 instance Property "AwsVpcConfiguration" NetworkConfigurationProperty where
   type PropertyType "AwsVpcConfiguration" NetworkConfigurationProperty = AwsVpcConfigurationProperty
-  set newValue NetworkConfigurationProperty {}
+  set newValue NetworkConfigurationProperty {..}
     = NetworkConfigurationProperty
         {awsVpcConfiguration = Prelude.pure newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricsConfigProperty
-  = MetricsConfigProperty {metrics :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html>
+    MetricsConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html#cfn-lambda-eventsourcemapping-metricsconfig-metrics>
+                           metrics :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsConfigProperty :: MetricsConfigProperty
 mkMetricsConfigProperty
-  = MetricsConfigProperty {metrics = Prelude.Nothing}
+  = MetricsConfigProperty
+      {haddock_workaround_ = (), metrics = Prelude.Nothing}
 instance ToResourceProperties MetricsConfigProperty where
   toResourceProperties MetricsConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON MetricsConfigProperty where
            (Prelude.catMaybes [(JSON..=) "Metrics" Prelude.<$> metrics]))
 instance Property "Metrics" MetricsConfigProperty where
   type PropertyType "Metrics" MetricsConfigProperty = ValueList Prelude.Text
-  set newValue MetricsConfigProperty {}
+  set newValue MetricsConfigProperty {..}
     = MetricsConfigProperty {metrics = Prelude.pure newValue, ..}

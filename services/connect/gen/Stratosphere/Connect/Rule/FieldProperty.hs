@@ -8,12 +8,17 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldProperty
-  = FieldProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html>
+    FieldProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-id>
+                   id :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-value>
                    value :: FieldValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldProperty ::
   Value Prelude.Text -> FieldValueProperty -> FieldProperty
-mkFieldProperty id value = FieldProperty {id = id, value = value}
+mkFieldProperty id value
+  = FieldProperty {haddock_workaround_ = (), id = id, value = value}
 instance ToResourceProperties FieldProperty where
   toResourceProperties FieldProperty {..}
     = ResourceProperties

@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenIDConnectConfigProperty
-  = OpenIDConnectConfigProperty {authTTL :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html>
+    OpenIDConnectConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html#cfn-appsync-graphqlapi-openidconnectconfig-authttl>
+                                 authTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html#cfn-appsync-graphqlapi-openidconnectconfig-clientid>
                                  clientId :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html#cfn-appsync-graphqlapi-openidconnectconfig-iatttl>
                                  iatTTL :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html#cfn-appsync-graphqlapi-openidconnectconfig-issuer>
                                  issuer :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIDConnectConfigProperty :: OpenIDConnectConfigProperty
 mkOpenIDConnectConfigProperty
   = OpenIDConnectConfigProperty
-      {authTTL = Prelude.Nothing, clientId = Prelude.Nothing,
-       iatTTL = Prelude.Nothing, issuer = Prelude.Nothing}
+      {haddock_workaround_ = (), authTTL = Prelude.Nothing,
+       clientId = Prelude.Nothing, iatTTL = Prelude.Nothing,
+       issuer = Prelude.Nothing}
 instance ToResourceProperties OpenIDConnectConfigProperty where
   toResourceProperties OpenIDConnectConfigProperty {..}
     = ResourceProperties

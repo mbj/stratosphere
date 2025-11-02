@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetTrackingConfigurationProperty
-  = TargetTrackingConfigurationProperty {targetValue :: (Value Prelude.Double)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html>
+    TargetTrackingConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue>
+                                         targetValue :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingConfigurationProperty ::
   Value Prelude.Double -> TargetTrackingConfigurationProperty
 mkTargetTrackingConfigurationProperty targetValue
-  = TargetTrackingConfigurationProperty {targetValue = targetValue}
+  = TargetTrackingConfigurationProperty
+      {haddock_workaround_ = (), targetValue = targetValue}
 instance ToResourceProperties TargetTrackingConfigurationProperty where
   toResourceProperties TargetTrackingConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TargetTrackingConfigurationProperty where
     = JSON.object ["TargetValue" JSON..= targetValue]
 instance Property "TargetValue" TargetTrackingConfigurationProperty where
   type PropertyType "TargetValue" TargetTrackingConfigurationProperty = Value Prelude.Double
-  set newValue TargetTrackingConfigurationProperty {}
+  set newValue TargetTrackingConfigurationProperty {..}
     = TargetTrackingConfigurationProperty {targetValue = newValue, ..}

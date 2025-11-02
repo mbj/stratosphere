@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldToMatchProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
 import Stratosphere.ResourceProperties
 data XssMatchStatementProperty
-  = XssMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html>
+    XssMatchStatementProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch>
+                               fieldToMatch :: FieldToMatchProperty,
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations>
                                textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchStatementProperty ::
@@ -17,7 +21,7 @@ mkXssMatchStatementProperty ::
   -> [TextTransformationProperty] -> XssMatchStatementProperty
 mkXssMatchStatementProperty fieldToMatch textTransformations
   = XssMatchStatementProperty
-      {fieldToMatch = fieldToMatch,
+      {haddock_workaround_ = (), fieldToMatch = fieldToMatch,
        textTransformations = textTransformations}
 instance ToResourceProperties XssMatchStatementProperty where
   toResourceProperties XssMatchStatementProperty {..}

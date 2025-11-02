@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CastColumnTypeOperationProperty
-  = CastColumnTypeOperationProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html>
+    CastColumnTypeOperationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname>
+                                     columnName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format>
                                      format :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype>
                                      newColumnType :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-subtype>
                                      subType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCastColumnTypeOperationProperty ::
@@ -18,8 +24,9 @@ mkCastColumnTypeOperationProperty ::
   -> Value Prelude.Text -> CastColumnTypeOperationProperty
 mkCastColumnTypeOperationProperty columnName newColumnType
   = CastColumnTypeOperationProperty
-      {columnName = columnName, newColumnType = newColumnType,
-       format = Prelude.Nothing, subType = Prelude.Nothing}
+      {haddock_workaround_ = (), columnName = columnName,
+       newColumnType = newColumnType, format = Prelude.Nothing,
+       subType = Prelude.Nothing}
 instance ToResourceProperties CastColumnTypeOperationProperty where
   toResourceProperties CastColumnTypeOperationProperty {..}
     = ResourceProperties

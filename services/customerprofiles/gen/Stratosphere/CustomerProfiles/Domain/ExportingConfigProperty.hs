@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ExportingConfigProperty
-  = ExportingConfigProperty {s3Exporting :: (Prelude.Maybe S3ExportingConfigProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html>
+    ExportingConfigProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html#cfn-customerprofiles-domain-exportingconfig-s3exporting>
+                             s3Exporting :: (Prelude.Maybe S3ExportingConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExportingConfigProperty :: ExportingConfigProperty
 mkExportingConfigProperty
-  = ExportingConfigProperty {s3Exporting = Prelude.Nothing}
+  = ExportingConfigProperty
+      {haddock_workaround_ = (), s3Exporting = Prelude.Nothing}
 instance ToResourceProperties ExportingConfigProperty where
   toResourceProperties ExportingConfigProperty {..}
     = ResourceProperties
@@ -29,5 +33,5 @@ instance JSON.ToJSON ExportingConfigProperty where
               [(JSON..=) "S3Exporting" Prelude.<$> s3Exporting]))
 instance Property "S3Exporting" ExportingConfigProperty where
   type PropertyType "S3Exporting" ExportingConfigProperty = S3ExportingConfigProperty
-  set newValue ExportingConfigProperty {}
+  set newValue ExportingConfigProperty {..}
     = ExportingConfigProperty {s3Exporting = Prelude.pure newValue, ..}

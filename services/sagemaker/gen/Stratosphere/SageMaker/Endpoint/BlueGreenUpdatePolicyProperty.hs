@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.TrafficRoutingConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlueGreenUpdatePolicyProperty
-  = BlueGreenUpdatePolicyProperty {maximumExecutionTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>
+    BlueGreenUpdatePolicyProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-maximumexecutiontimeoutinseconds>
+                                   maximumExecutionTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-terminationwaitinseconds>
                                    terminationWaitInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-trafficroutingconfiguration>
                                    trafficRoutingConfiguration :: TrafficRoutingConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueGreenUpdatePolicyProperty ::
   TrafficRoutingConfigProperty -> BlueGreenUpdatePolicyProperty
 mkBlueGreenUpdatePolicyProperty trafficRoutingConfiguration
   = BlueGreenUpdatePolicyProperty
-      {trafficRoutingConfiguration = trafficRoutingConfiguration,
+      {haddock_workaround_ = (),
+       trafficRoutingConfiguration = trafficRoutingConfiguration,
        maximumExecutionTimeoutInSeconds = Prelude.Nothing,
        terminationWaitInSeconds = Prelude.Nothing}
 instance ToResourceProperties BlueGreenUpdatePolicyProperty where

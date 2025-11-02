@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.WorkSpacesWeb.DataProtectionSettings.InlineRe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InlineRedactionConfigurationProperty
-  = InlineRedactionConfigurationProperty {globalConfidenceLevel :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html>
+    InlineRedactionConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionconfiguration-globalconfidencelevel>
+                                          globalConfidenceLevel :: (Prelude.Maybe (Value Prelude.Double)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionconfiguration-globalenforcedurls>
                                           globalEnforcedUrls :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionconfiguration-globalexempturls>
                                           globalExemptUrls :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html#cfn-workspacesweb-dataprotectionsettings-inlineredactionconfiguration-inlineredactionpatterns>
                                           inlineRedactionPatterns :: [InlineRedactionPatternProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInlineRedactionConfigurationProperty ::
@@ -19,7 +25,8 @@ mkInlineRedactionConfigurationProperty ::
   -> InlineRedactionConfigurationProperty
 mkInlineRedactionConfigurationProperty inlineRedactionPatterns
   = InlineRedactionConfigurationProperty
-      {inlineRedactionPatterns = inlineRedactionPatterns,
+      {haddock_workaround_ = (),
+       inlineRedactionPatterns = inlineRedactionPatterns,
        globalConfidenceLevel = Prelude.Nothing,
        globalEnforcedUrls = Prelude.Nothing,
        globalExemptUrls = Prelude.Nothing}

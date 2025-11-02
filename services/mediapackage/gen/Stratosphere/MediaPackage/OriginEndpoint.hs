@@ -13,30 +13,46 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data OriginEndpoint
-  = OriginEndpoint {authorization :: (Prelude.Maybe AuthorizationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html>
+    OriginEndpoint {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization>
+                    authorization :: (Prelude.Maybe AuthorizationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid>
                     channelId :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage>
                     cmafPackage :: (Prelude.Maybe CmafPackageProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage>
                     dashPackage :: (Prelude.Maybe DashPackageProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage>
                     hlsPackage :: (Prelude.Maybe HlsPackageProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id>
                     id :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname>
                     manifestName :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage>
                     mssPackage :: (Prelude.Maybe MssPackageProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination>
                     origination :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds>
                     startoverWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags>
                     tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds>
                     timeDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist>
                     whitelist :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> OriginEndpoint
 mkOriginEndpoint channelId id
   = OriginEndpoint
-      {channelId = channelId, id = id, authorization = Prelude.Nothing,
-       cmafPackage = Prelude.Nothing, dashPackage = Prelude.Nothing,
-       description = Prelude.Nothing, hlsPackage = Prelude.Nothing,
-       manifestName = Prelude.Nothing, mssPackage = Prelude.Nothing,
-       origination = Prelude.Nothing,
+      {haddock_workaround_ = (), channelId = channelId, id = id,
+       authorization = Prelude.Nothing, cmafPackage = Prelude.Nothing,
+       dashPackage = Prelude.Nothing, description = Prelude.Nothing,
+       hlsPackage = Prelude.Nothing, manifestName = Prelude.Nothing,
+       mssPackage = Prelude.Nothing, origination = Prelude.Nothing,
        startoverWindowSeconds = Prelude.Nothing, tags = Prelude.Nothing,
        timeDelaySeconds = Prelude.Nothing, whitelist = Prelude.Nothing}
 instance ToResourceProperties OriginEndpoint where

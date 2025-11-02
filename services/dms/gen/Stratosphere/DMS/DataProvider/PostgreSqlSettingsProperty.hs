@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PostgreSqlSettingsProperty
-  = PostgreSqlSettingsProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html>
+    PostgreSqlSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html#cfn-dms-dataprovider-postgresqlsettings-certificatearn>
+                                certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html#cfn-dms-dataprovider-postgresqlsettings-databasename>
                                 databaseName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html#cfn-dms-dataprovider-postgresqlsettings-port>
                                 port :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html#cfn-dms-dataprovider-postgresqlsettings-servername>
                                 serverName :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-postgresqlsettings.html#cfn-dms-dataprovider-postgresqlsettings-sslmode>
                                 sslMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPostgreSqlSettingsProperty ::
@@ -20,8 +27,9 @@ mkPostgreSqlSettingsProperty ::
         -> Value Prelude.Text -> PostgreSqlSettingsProperty
 mkPostgreSqlSettingsProperty databaseName port serverName sslMode
   = PostgreSqlSettingsProperty
-      {databaseName = databaseName, port = port, serverName = serverName,
-       sslMode = sslMode, certificateArn = Prelude.Nothing}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       port = port, serverName = serverName, sslMode = sslMode,
+       certificateArn = Prelude.Nothing}
 instance ToResourceProperties PostgreSqlSettingsProperty where
   toResourceProperties PostgreSqlSettingsProperty {..}
     = ResourceProperties

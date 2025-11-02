@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.ApacheKafkaClusterProperty as Exports
 import Stratosphere.ResourceProperties
 data KafkaClusterProperty
-  = KafkaClusterProperty {apacheKafkaCluster :: ApacheKafkaClusterProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html>
+    KafkaClusterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html#cfn-kafkaconnect-connector-kafkacluster-apachekafkacluster>
+                          apacheKafkaCluster :: ApacheKafkaClusterProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterProperty ::
   ApacheKafkaClusterProperty -> KafkaClusterProperty
 mkKafkaClusterProperty apacheKafkaCluster
-  = KafkaClusterProperty {apacheKafkaCluster = apacheKafkaCluster}
+  = KafkaClusterProperty
+      {haddock_workaround_ = (), apacheKafkaCluster = apacheKafkaCluster}
 instance ToResourceProperties KafkaClusterProperty where
   toResourceProperties KafkaClusterProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON KafkaClusterProperty where
     = JSON.object ["ApacheKafkaCluster" JSON..= apacheKafkaCluster]
 instance Property "ApacheKafkaCluster" KafkaClusterProperty where
   type PropertyType "ApacheKafkaCluster" KafkaClusterProperty = ApacheKafkaClusterProperty
-  set newValue KafkaClusterProperty {}
+  set newValue KafkaClusterProperty {..}
     = KafkaClusterProperty {apacheKafkaCluster = newValue, ..}

@@ -8,19 +8,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetEventBridgeEventBusParametersProperty
-  = PipeTargetEventBridgeEventBusParametersProperty {detailType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html>
+    PipeTargetEventBridgeEventBusParametersProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html#cfn-pipes-pipe-pipetargeteventbridgeeventbusparameters-detailtype>
+                                                     detailType :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html#cfn-pipes-pipe-pipetargeteventbridgeeventbusparameters-endpointid>
                                                      endpointId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html#cfn-pipes-pipe-pipetargeteventbridgeeventbusparameters-resources>
                                                      resources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html#cfn-pipes-pipe-pipetargeteventbridgeeventbusparameters-source>
                                                      source :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html#cfn-pipes-pipe-pipetargeteventbridgeeventbusparameters-time>
                                                      time :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetEventBridgeEventBusParametersProperty ::
   PipeTargetEventBridgeEventBusParametersProperty
 mkPipeTargetEventBridgeEventBusParametersProperty
   = PipeTargetEventBridgeEventBusParametersProperty
-      {detailType = Prelude.Nothing, endpointId = Prelude.Nothing,
-       resources = Prelude.Nothing, source = Prelude.Nothing,
-       time = Prelude.Nothing}
+      {haddock_workaround_ = (), detailType = Prelude.Nothing,
+       endpointId = Prelude.Nothing, resources = Prelude.Nothing,
+       source = Prelude.Nothing, time = Prelude.Nothing}
 instance ToResourceProperties PipeTargetEventBridgeEventBusParametersProperty where
   toResourceProperties
     PipeTargetEventBridgeEventBusParametersProperty {..}

@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.MemberFrameworkConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberConfigurationProperty
-  = MemberConfigurationProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html>
+    MemberConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-description>
+                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-memberframeworkconfiguration>
                                  memberFrameworkConfiguration :: (Prelude.Maybe MemberFrameworkConfigurationProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html#cfn-managedblockchain-member-memberconfiguration-name>
                                  name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberConfigurationProperty ::
   Value Prelude.Text -> MemberConfigurationProperty
 mkMemberConfigurationProperty name
   = MemberConfigurationProperty
-      {name = name, description = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing,
        memberFrameworkConfiguration = Prelude.Nothing}
 instance ToResourceProperties MemberConfigurationProperty where
   toResourceProperties MemberConfigurationProperty {..}

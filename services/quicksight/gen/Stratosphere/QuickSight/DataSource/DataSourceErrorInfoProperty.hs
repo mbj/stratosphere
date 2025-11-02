@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceErrorInfoProperty
-  = DataSourceErrorInfoProperty {message :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html>
+    DataSourceErrorInfoProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message>
+                                 message :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type>
                                  type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceErrorInfoProperty :: DataSourceErrorInfoProperty
 mkDataSourceErrorInfoProperty
   = DataSourceErrorInfoProperty
-      {message = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), message = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties DataSourceErrorInfoProperty where
   toResourceProperties DataSourceErrorInfoProperty {..}
     = ResourceProperties

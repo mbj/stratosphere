@@ -8,15 +8,21 @@ import {-# SOURCE #-} Stratosphere.Route53RecoveryReadiness.ResourceSet.DNSTarge
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceProperty
-  = ResourceProperty {componentId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html>
+    ResourceProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid>
+                      componentId :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource>
                       dnsTargetResource :: (Prelude.Maybe DNSTargetResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes>
                       readinessScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn>
                       resourceArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
   = ResourceProperty
-      {componentId = Prelude.Nothing,
+      {haddock_workaround_ = (), componentId = Prelude.Nothing,
        dnsTargetResource = Prelude.Nothing,
        readinessScopes = Prelude.Nothing, resourceArn = Prelude.Nothing}
 instance ToResourceProperties ResourceProperty where

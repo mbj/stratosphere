@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSServiceProperty
-  = AWSServiceProperty {serviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html>
+    AWSServiceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename>
+                        serviceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSServiceProperty :: AWSServiceProperty
 mkAWSServiceProperty
-  = AWSServiceProperty {serviceName = Prelude.Nothing}
+  = AWSServiceProperty
+      {haddock_workaround_ = (), serviceName = Prelude.Nothing}
 instance ToResourceProperties AWSServiceProperty where
   toResourceProperties AWSServiceProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON AWSServiceProperty where
               [(JSON..=) "ServiceName" Prelude.<$> serviceName]))
 instance Property "ServiceName" AWSServiceProperty where
   type PropertyType "ServiceName" AWSServiceProperty = Value Prelude.Text
-  set newValue AWSServiceProperty {}
+  set newValue AWSServiceProperty {..}
     = AWSServiceProperty {serviceName = Prelude.pure newValue, ..}

@@ -8,14 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LandingZone
-  = LandingZone {manifest :: JSON.Object,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html>
+    LandingZone {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-manifest>
+                 manifest :: JSON.Object,
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-tags>
                  tags :: (Prelude.Maybe [Tag]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-version>
                  version :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLandingZone :: JSON.Object -> Value Prelude.Text -> LandingZone
 mkLandingZone manifest version
   = LandingZone
-      {manifest = manifest, version = version, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), manifest = manifest, version = version,
+       tags = Prelude.Nothing}
 instance ToResourceProperties LandingZone where
   toResourceProperties LandingZone {..}
     = ResourceProperties

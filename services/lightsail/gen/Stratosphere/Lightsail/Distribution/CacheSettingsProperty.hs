@@ -10,19 +10,29 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Distribution.QueryStringObjectPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CacheSettingsProperty
-  = CacheSettingsProperty {allowedHTTPMethods :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html>
+    CacheSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-allowedhttpmethods>
+                           allowedHTTPMethods :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-cachedhttpmethods>
                            cachedHTTPMethods :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-defaultttl>
                            defaultTTL :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-forwardedcookies>
                            forwardedCookies :: (Prelude.Maybe CookieObjectProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-forwardedheaders>
                            forwardedHeaders :: (Prelude.Maybe HeaderObjectProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-forwardedquerystrings>
                            forwardedQueryStrings :: (Prelude.Maybe QueryStringObjectProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-maximumttl>
                            maximumTTL :: (Prelude.Maybe (Value Prelude.Integer)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html#cfn-lightsail-distribution-cachesettings-minimumttl>
                            minimumTTL :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheSettingsProperty :: CacheSettingsProperty
 mkCacheSettingsProperty
   = CacheSettingsProperty
-      {allowedHTTPMethods = Prelude.Nothing,
+      {haddock_workaround_ = (), allowedHTTPMethods = Prelude.Nothing,
        cachedHTTPMethods = Prelude.Nothing, defaultTTL = Prelude.Nothing,
        forwardedCookies = Prelude.Nothing,
        forwardedHeaders = Prelude.Nothing,

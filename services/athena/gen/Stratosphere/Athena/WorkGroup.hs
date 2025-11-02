@@ -9,17 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data WorkGroup
-  = WorkGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html>
+    WorkGroup {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description>
+               description :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name>
                name :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption>
                recursiveDeleteOption :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state>
                state :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags>
                tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration>
                workGroupConfiguration :: (Prelude.Maybe WorkGroupConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkGroup :: Value Prelude.Text -> WorkGroup
 mkWorkGroup name
   = WorkGroup
-      {name = name, description = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing,
        recursiveDeleteOption = Prelude.Nothing, state = Prelude.Nothing,
        tags = Prelude.Nothing, workGroupConfiguration = Prelude.Nothing}
 instance ToResourceProperties WorkGroup where

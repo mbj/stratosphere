@@ -6,12 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MediaPackageOutputSettingsProperty
-  = MediaPackageOutputSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html>
+    MediaPackageOutputSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageOutputSettingsProperty ::
   MediaPackageOutputSettingsProperty
 mkMediaPackageOutputSettingsProperty
-  = MediaPackageOutputSettingsProperty {}
+  = MediaPackageOutputSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties MediaPackageOutputSettingsProperty where
   toResourceProperties MediaPackageOutputSettingsProperty {}
     = ResourceProperties

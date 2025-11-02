@@ -10,18 +10,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Repository
-  = Repository {code :: (Prelude.Maybe CodeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html>
+    Repository {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code>
+                code :: (Prelude.Maybe CodeProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-kmskeyid>
                 kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription>
                 repositoryDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname>
                 repositoryName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-tags>
                 tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers>
                 triggers :: (Prelude.Maybe [RepositoryTriggerProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepository :: Value Prelude.Text -> Repository
 mkRepository repositoryName
   = Repository
-      {repositoryName = repositoryName, code = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing,
+      {haddock_workaround_ = (), repositoryName = repositoryName,
+       code = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        repositoryDescription = Prelude.Nothing, tags = Prelude.Nothing,
        triggers = Prelude.Nothing}
 instance ToResourceProperties Repository where

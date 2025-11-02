@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyValueProperty
-  = KeyValueProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-keyvalue.html>
+    KeyValueProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-keyvalue.html#cfn-backup-restoretestingselection-keyvalue-key>
+                      key :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-keyvalue.html#cfn-backup-restoretestingselection-keyvalue-value>
                       value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValueProperty ::
   Value Prelude.Text -> Value Prelude.Text -> KeyValueProperty
 mkKeyValueProperty key value
-  = KeyValueProperty {key = key, value = value}
+  = KeyValueProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties KeyValueProperty where
   toResourceProperties KeyValueProperty {..}
     = ResourceProperties

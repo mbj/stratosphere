@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Hdr10SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data VideoSelectorColorSpaceSettingsProperty
-  = VideoSelectorColorSpaceSettingsProperty {hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html>
+    VideoSelectorColorSpaceSettingsProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html#cfn-medialive-channel-videoselectorcolorspacesettings-hdr10settings>
+                                             hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorColorSpaceSettingsProperty ::
   VideoSelectorColorSpaceSettingsProperty
 mkVideoSelectorColorSpaceSettingsProperty
   = VideoSelectorColorSpaceSettingsProperty
-      {hdr10Settings = Prelude.Nothing}
+      {haddock_workaround_ = (), hdr10Settings = Prelude.Nothing}
 instance ToResourceProperties VideoSelectorColorSpaceSettingsProperty where
   toResourceProperties VideoSelectorColorSpaceSettingsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON VideoSelectorColorSpaceSettingsProperty where
               [(JSON..=) "Hdr10Settings" Prelude.<$> hdr10Settings]))
 instance Property "Hdr10Settings" VideoSelectorColorSpaceSettingsProperty where
   type PropertyType "Hdr10Settings" VideoSelectorColorSpaceSettingsProperty = Hdr10SettingsProperty
-  set newValue VideoSelectorColorSpaceSettingsProperty {}
+  set newValue VideoSelectorColorSpaceSettingsProperty {..}
     = VideoSelectorColorSpaceSettingsProperty
         {hdr10Settings = Prelude.pure newValue, ..}

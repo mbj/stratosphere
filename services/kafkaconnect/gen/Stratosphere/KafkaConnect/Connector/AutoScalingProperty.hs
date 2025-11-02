@@ -9,10 +9,17 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.ScaleOutPolicyProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingProperty
-  = AutoScalingProperty {maxWorkerCount :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html>
+    AutoScalingProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-maxworkercount>
+                         maxWorkerCount :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-mcucount>
                          mcuCount :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-minworkercount>
                          minWorkerCount :: (Value Prelude.Integer),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleinpolicy>
                          scaleInPolicy :: ScaleInPolicyProperty,
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleoutpolicy>
                          scaleOutPolicy :: ScaleOutPolicyProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingProperty ::
@@ -28,9 +35,9 @@ mkAutoScalingProperty
   scaleInPolicy
   scaleOutPolicy
   = AutoScalingProperty
-      {maxWorkerCount = maxWorkerCount, mcuCount = mcuCount,
-       minWorkerCount = minWorkerCount, scaleInPolicy = scaleInPolicy,
-       scaleOutPolicy = scaleOutPolicy}
+      {haddock_workaround_ = (), maxWorkerCount = maxWorkerCount,
+       mcuCount = mcuCount, minWorkerCount = minWorkerCount,
+       scaleInPolicy = scaleInPolicy, scaleOutPolicy = scaleOutPolicy}
 instance ToResourceProperties AutoScalingProperty where
   toResourceProperties AutoScalingProperty {..}
     = ResourceProperties

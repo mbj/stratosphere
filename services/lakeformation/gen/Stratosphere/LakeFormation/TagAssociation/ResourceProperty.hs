@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.TableResourcePro
 import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.TableWithColumnsResourceProperty as Exports
 import Stratosphere.ResourceProperties
 data ResourceProperty
-  = ResourceProperty {catalog :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html>
+    ResourceProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-catalog>
+                      catalog :: (Prelude.Maybe JSON.Object),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-database>
                       database :: (Prelude.Maybe DatabaseResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-table>
                       table :: (Prelude.Maybe TableResourceProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html#cfn-lakeformation-tagassociation-resource-tablewithcolumns>
                       tableWithColumns :: (Prelude.Maybe TableWithColumnsResourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
   = ResourceProperty
-      {catalog = Prelude.Nothing, database = Prelude.Nothing,
-       table = Prelude.Nothing, tableWithColumns = Prelude.Nothing}
+      {haddock_workaround_ = (), catalog = Prelude.Nothing,
+       database = Prelude.Nothing, table = Prelude.Nothing,
+       tableWithColumns = Prelude.Nothing}
 instance ToResourceProperties ResourceProperty where
   toResourceProperties ResourceProperty {..}
     = ResourceProperties

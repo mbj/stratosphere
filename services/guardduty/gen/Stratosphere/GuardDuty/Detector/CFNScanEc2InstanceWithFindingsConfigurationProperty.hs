@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNScanEc2InstanceWithFindingsConfigurationProperty
-  = CFNScanEc2InstanceWithFindingsConfigurationProperty {ebsVolumes :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html>
+    CFNScanEc2InstanceWithFindingsConfigurationProperty {haddock_workaround_ :: (),
+                                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html#cfn-guardduty-detector-cfnscanec2instancewithfindingsconfiguration-ebsvolumes>
+                                                         ebsVolumes :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNScanEc2InstanceWithFindingsConfigurationProperty ::
   CFNScanEc2InstanceWithFindingsConfigurationProperty
 mkCFNScanEc2InstanceWithFindingsConfigurationProperty
   = CFNScanEc2InstanceWithFindingsConfigurationProperty
-      {ebsVolumes = Prelude.Nothing}
+      {haddock_workaround_ = (), ebsVolumes = Prelude.Nothing}
 instance ToResourceProperties CFNScanEc2InstanceWithFindingsConfigurationProperty where
   toResourceProperties
     CFNScanEc2InstanceWithFindingsConfigurationProperty {..}
@@ -32,6 +35,8 @@ instance JSON.ToJSON CFNScanEc2InstanceWithFindingsConfigurationProperty where
               [(JSON..=) "EbsVolumes" Prelude.<$> ebsVolumes]))
 instance Property "EbsVolumes" CFNScanEc2InstanceWithFindingsConfigurationProperty where
   type PropertyType "EbsVolumes" CFNScanEc2InstanceWithFindingsConfigurationProperty = Value Prelude.Bool
-  set newValue CFNScanEc2InstanceWithFindingsConfigurationProperty {}
+  set
+    newValue
+    CFNScanEc2InstanceWithFindingsConfigurationProperty {..}
     = CFNScanEc2InstanceWithFindingsConfigurationProperty
         {ebsVolumes = Prelude.pure newValue, ..}

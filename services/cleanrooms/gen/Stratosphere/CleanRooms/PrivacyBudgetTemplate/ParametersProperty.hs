@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParametersProperty
-  = ParametersProperty {epsilon :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-parameters.html>
+    ParametersProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-parameters.html#cfn-cleanrooms-privacybudgettemplate-parameters-epsilon>
+                        epsilon :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-parameters.html#cfn-cleanrooms-privacybudgettemplate-parameters-usersnoiseperquery>
                         usersNoisePerQuery :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersProperty ::
@@ -15,7 +19,8 @@ mkParametersProperty ::
   -> Value Prelude.Integer -> ParametersProperty
 mkParametersProperty epsilon usersNoisePerQuery
   = ParametersProperty
-      {epsilon = epsilon, usersNoisePerQuery = usersNoisePerQuery}
+      {haddock_workaround_ = (), epsilon = epsilon,
+       usersNoisePerQuery = usersNoisePerQuery}
 instance ToResourceProperties ParametersProperty where
   toResourceProperties ParametersProperty {..}
     = ResourceProperties

@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HoursOfOperationTimeSliceProperty
-  = HoursOfOperationTimeSliceProperty {hours :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>
+    HoursOfOperationTimeSliceProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-hours>
+                                       hours :: (Value Prelude.Integer),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html#cfn-connect-hoursofoperation-hoursofoperationtimeslice-minutes>
                                        minutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationTimeSliceProperty ::
@@ -16,7 +20,7 @@ mkHoursOfOperationTimeSliceProperty ::
   -> Value Prelude.Integer -> HoursOfOperationTimeSliceProperty
 mkHoursOfOperationTimeSliceProperty hours minutes
   = HoursOfOperationTimeSliceProperty
-      {hours = hours, minutes = minutes}
+      {haddock_workaround_ = (), hours = hours, minutes = minutes}
 instance ToResourceProperties HoursOfOperationTimeSliceProperty where
   toResourceProperties HoursOfOperationTimeSliceProperty {..}
     = ResourceProperties

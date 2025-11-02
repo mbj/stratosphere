@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationAdmin
-  = OrganizationAdmin {accountId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html>
+    OrganizationAdmin {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html#cfn-detective-organizationadmin-accountid>
+                       accountId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationAdmin :: Value Prelude.Text -> OrganizationAdmin
 mkOrganizationAdmin accountId
-  = OrganizationAdmin {accountId = accountId}
+  = OrganizationAdmin
+      {haddock_workaround_ = (), accountId = accountId}
 instance ToResourceProperties OrganizationAdmin where
   toResourceProperties OrganizationAdmin {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON OrganizationAdmin where
     = JSON.object ["AccountId" JSON..= accountId]
 instance Property "AccountId" OrganizationAdmin where
   type PropertyType "AccountId" OrganizationAdmin = Value Prelude.Text
-  set newValue OrganizationAdmin {}
+  set newValue OrganizationAdmin {..}
     = OrganizationAdmin {accountId = newValue, ..}

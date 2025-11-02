@@ -8,14 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayListenerTlsAcmCertificateProperty
-  = VirtualGatewayListenerTlsAcmCertificateProperty {certificateArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html>
+    VirtualGatewayListenerTlsAcmCertificateProperty {haddock_workaround_ :: (),
+                                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate-certificatearn>
+                                                     certificateArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsAcmCertificateProperty ::
   Value Prelude.Text
   -> VirtualGatewayListenerTlsAcmCertificateProperty
 mkVirtualGatewayListenerTlsAcmCertificateProperty certificateArn
   = VirtualGatewayListenerTlsAcmCertificateProperty
-      {certificateArn = certificateArn}
+      {haddock_workaround_ = (), certificateArn = certificateArn}
 instance ToResourceProperties VirtualGatewayListenerTlsAcmCertificateProperty where
   toResourceProperties
     VirtualGatewayListenerTlsAcmCertificateProperty {..}
@@ -28,6 +31,6 @@ instance JSON.ToJSON VirtualGatewayListenerTlsAcmCertificateProperty where
     = JSON.object ["CertificateArn" JSON..= certificateArn]
 instance Property "CertificateArn" VirtualGatewayListenerTlsAcmCertificateProperty where
   type PropertyType "CertificateArn" VirtualGatewayListenerTlsAcmCertificateProperty = Value Prelude.Text
-  set newValue VirtualGatewayListenerTlsAcmCertificateProperty {}
+  set newValue VirtualGatewayListenerTlsAcmCertificateProperty {..}
     = VirtualGatewayListenerTlsAcmCertificateProperty
         {certificateArn = newValue, ..}

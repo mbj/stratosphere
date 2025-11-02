@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsConfigProperty
-  = TlsConfigProperty {serverNameToVerify :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html>
+    TlsConfigProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html#cfn-apigatewayv2-integration-tlsconfig-servernametoverify>
+                       serverNameToVerify :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsConfigProperty :: TlsConfigProperty
 mkTlsConfigProperty
-  = TlsConfigProperty {serverNameToVerify = Prelude.Nothing}
+  = TlsConfigProperty
+      {haddock_workaround_ = (), serverNameToVerify = Prelude.Nothing}
 instance ToResourceProperties TlsConfigProperty where
   toResourceProperties TlsConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON TlsConfigProperty where
               [(JSON..=) "ServerNameToVerify" Prelude.<$> serverNameToVerify]))
 instance Property "ServerNameToVerify" TlsConfigProperty where
   type PropertyType "ServerNameToVerify" TlsConfigProperty = Value Prelude.Text
-  set newValue TlsConfigProperty {}
+  set newValue TlsConfigProperty {..}
     = TlsConfigProperty
         {serverNameToVerify = Prelude.pure newValue, ..}

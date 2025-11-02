@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FederatedDatabaseProperty
-  = FederatedDatabaseProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html>
+    FederatedDatabaseProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html#cfn-glue-database-federateddatabase-connectionname>
+                               connectionName :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html#cfn-glue-database-federateddatabase-identifier>
                                identifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFederatedDatabaseProperty :: FederatedDatabaseProperty
 mkFederatedDatabaseProperty
   = FederatedDatabaseProperty
-      {connectionName = Prelude.Nothing, identifier = Prelude.Nothing}
+      {haddock_workaround_ = (), connectionName = Prelude.Nothing,
+       identifier = Prelude.Nothing}
 instance ToResourceProperties FederatedDatabaseProperty where
   toResourceProperties FederatedDatabaseProperty {..}
     = ResourceProperties

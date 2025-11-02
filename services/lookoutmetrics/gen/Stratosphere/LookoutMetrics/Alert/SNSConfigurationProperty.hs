@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SNSConfigurationProperty
-  = SNSConfigurationProperty {roleArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html>
+    SNSConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn>
+                              roleArn :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn>
                               snsTopicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSNSConfigurationProperty ::
@@ -15,7 +19,8 @@ mkSNSConfigurationProperty ::
   -> Value Prelude.Text -> SNSConfigurationProperty
 mkSNSConfigurationProperty roleArn snsTopicArn
   = SNSConfigurationProperty
-      {roleArn = roleArn, snsTopicArn = snsTopicArn}
+      {haddock_workaround_ = (), roleArn = roleArn,
+       snsTopicArn = snsTopicArn}
 instance ToResourceProperties SNSConfigurationProperty where
   toResourceProperties SNSConfigurationProperty {..}
     = ResourceProperties

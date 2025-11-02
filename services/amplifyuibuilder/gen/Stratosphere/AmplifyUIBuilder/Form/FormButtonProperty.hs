@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FieldPositionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormButtonProperty
-  = FormButtonProperty {children :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html>
+    FormButtonProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-children>
+                        children :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-excluded>
                         excluded :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formbutton.html#cfn-amplifyuibuilder-form-formbutton-position>
                         position :: (Prelude.Maybe FieldPositionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFormButtonProperty :: FormButtonProperty
 mkFormButtonProperty
   = FormButtonProperty
-      {children = Prelude.Nothing, excluded = Prelude.Nothing,
-       position = Prelude.Nothing}
+      {haddock_workaround_ = (), children = Prelude.Nothing,
+       excluded = Prelude.Nothing, position = Prelude.Nothing}
 instance ToResourceProperties FormButtonProperty where
   toResourceProperties FormButtonProperty {..}
     = ResourceProperties

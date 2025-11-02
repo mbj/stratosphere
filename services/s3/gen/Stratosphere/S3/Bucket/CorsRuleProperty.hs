@@ -7,11 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CorsRuleProperty
-  = CorsRuleProperty {allowedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html>
+    CorsRuleProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-allowedheaders>
+                      allowedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-allowedmethods>
                       allowedMethods :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-allowedorigins>
                       allowedOrigins :: (ValueList Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-exposedheaders>
                       exposedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-id>
                       id :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html#cfn-s3-bucket-corsrule-maxage>
                       maxAge :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsRuleProperty ::
@@ -19,9 +27,10 @@ mkCorsRuleProperty ::
   -> ValueList Prelude.Text -> CorsRuleProperty
 mkCorsRuleProperty allowedMethods allowedOrigins
   = CorsRuleProperty
-      {allowedMethods = allowedMethods, allowedOrigins = allowedOrigins,
-       allowedHeaders = Prelude.Nothing, exposedHeaders = Prelude.Nothing,
-       id = Prelude.Nothing, maxAge = Prelude.Nothing}
+      {haddock_workaround_ = (), allowedMethods = allowedMethods,
+       allowedOrigins = allowedOrigins, allowedHeaders = Prelude.Nothing,
+       exposedHeaders = Prelude.Nothing, id = Prelude.Nothing,
+       maxAge = Prelude.Nothing}
 instance ToResourceProperties CorsRuleProperty where
   toResourceProperties CorsRuleProperty {..}
     = ResourceProperties

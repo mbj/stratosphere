@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedInstanceScalingProperty
-  = ManagedInstanceScalingProperty {maxInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>
+    ManagedInstanceScalingProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling-maxinstancecount>
+                                    maxInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling-mininstancecount>
                                     minInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling-status>
                                     status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedInstanceScalingProperty :: ManagedInstanceScalingProperty
 mkManagedInstanceScalingProperty
   = ManagedInstanceScalingProperty
-      {maxInstanceCount = Prelude.Nothing,
+      {haddock_workaround_ = (), maxInstanceCount = Prelude.Nothing,
        minInstanceCount = Prelude.Nothing, status = Prelude.Nothing}
 instance ToResourceProperties ManagedInstanceScalingProperty where
   toResourceProperties ManagedInstanceScalingProperty {..}

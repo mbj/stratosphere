@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleDmarcExpressionProperty
-  = RuleDmarcExpressionProperty {operator :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html>
+    RuleDmarcExpressionProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html#cfn-ses-mailmanagerruleset-ruledmarcexpression-operator>
+                                 operator :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html#cfn-ses-mailmanagerruleset-ruledmarcexpression-values>
                                  values :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleDmarcExpressionProperty ::
@@ -15,7 +19,7 @@ mkRuleDmarcExpressionProperty ::
   -> ValueList Prelude.Text -> RuleDmarcExpressionProperty
 mkRuleDmarcExpressionProperty operator values
   = RuleDmarcExpressionProperty
-      {operator = operator, values = values}
+      {haddock_workaround_ = (), operator = operator, values = values}
 instance ToResourceProperties RuleDmarcExpressionProperty where
   toResourceProperties RuleDmarcExpressionProperty {..}
     = ResourceProperties

@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.AppRunner.Service.SourceCodeVersionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeRepositoryProperty
-  = CodeRepositoryProperty {codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html>
+    CodeRepositoryProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration>
+                            codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl>
                             repositoryUrl :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion>
                             sourceCodeVersion :: SourceCodeVersionProperty,
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcedirectory>
                             sourceDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepositoryProperty ::
@@ -20,7 +26,7 @@ mkCodeRepositoryProperty ::
   -> SourceCodeVersionProperty -> CodeRepositoryProperty
 mkCodeRepositoryProperty repositoryUrl sourceCodeVersion
   = CodeRepositoryProperty
-      {repositoryUrl = repositoryUrl,
+      {haddock_workaround_ = (), repositoryUrl = repositoryUrl,
        sourceCodeVersion = sourceCodeVersion,
        codeConfiguration = Prelude.Nothing,
        sourceDirectory = Prelude.Nothing}

@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubnetGroup
-  = SubnetGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html>
+    SubnetGroup {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html#cfn-dax-subnetgroup-description>
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html#cfn-dax-subnetgroup-subnetgroupname>
                  subnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html#cfn-dax-subnetgroup-subnetids>
                  subnetIds :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetGroup :: ValueList Prelude.Text -> SubnetGroup
 mkSubnetGroup subnetIds
   = SubnetGroup
-      {subnetIds = subnetIds, description = Prelude.Nothing,
-       subnetGroupName = Prelude.Nothing}
+      {haddock_workaround_ = (), subnetIds = subnetIds,
+       description = Prelude.Nothing, subnetGroupName = Prelude.Nothing}
 instance ToResourceProperties SubnetGroup where
   toResourceProperties SubnetGroup {..}
     = ResourceProperties

@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.DecimalDatasetParameterDef
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalDatasetParameterProperty
-  = DecimalDatasetParameterProperty {defaultValues :: (Prelude.Maybe DecimalDatasetParameterDefaultValuesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html>
+    DecimalDatasetParameterProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-defaultvalues>
+                                     defaultValues :: (Prelude.Maybe DecimalDatasetParameterDefaultValuesProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-id>
                                      id :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-name>
                                      name :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html#cfn-quicksight-dataset-decimaldatasetparameter-valuetype>
                                      valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalDatasetParameterProperty ::
@@ -20,8 +26,8 @@ mkDecimalDatasetParameterProperty ::
      -> Value Prelude.Text -> DecimalDatasetParameterProperty
 mkDecimalDatasetParameterProperty id name valueType
   = DecimalDatasetParameterProperty
-      {id = id, name = name, valueType = valueType,
-       defaultValues = Prelude.Nothing}
+      {haddock_workaround_ = (), id = id, name = name,
+       valueType = valueType, defaultValues = Prelude.Nothing}
 instance ToResourceProperties DecimalDatasetParameterProperty where
   toResourceProperties DecimalDatasetParameterProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeBufferingHintsProperty
-  = SnowflakeBufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html>
+    SnowflakeBufferingHintsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html#cfn-kinesisfirehose-deliverystream-snowflakebufferinghints-intervalinseconds>
+                                     intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html#cfn-kinesisfirehose-deliverystream-snowflakebufferinghints-sizeinmbs>
                                      sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeBufferingHintsProperty ::
   SnowflakeBufferingHintsProperty
 mkSnowflakeBufferingHintsProperty
   = SnowflakeBufferingHintsProperty
-      {intervalInSeconds = Prelude.Nothing, sizeInMBs = Prelude.Nothing}
+      {haddock_workaround_ = (), intervalInSeconds = Prelude.Nothing,
+       sizeInMBs = Prelude.Nothing}
 instance ToResourceProperties SnowflakeBufferingHintsProperty where
   toResourceProperties SnowflakeBufferingHintsProperty {..}
     = ResourceProperties

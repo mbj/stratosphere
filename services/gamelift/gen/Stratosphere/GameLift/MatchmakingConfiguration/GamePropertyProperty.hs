@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GamePropertyProperty
-  = GamePropertyProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html>
+    GamePropertyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-key>
+                          key :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html#cfn-gamelift-matchmakingconfiguration-gameproperty-value>
                           value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGamePropertyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GamePropertyProperty
 mkGamePropertyProperty key value
-  = GamePropertyProperty {key = key, value = value}
+  = GamePropertyProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties GamePropertyProperty where
   toResourceProperties GamePropertyProperty {..}
     = ResourceProperties

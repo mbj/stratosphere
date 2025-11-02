@@ -10,15 +10,22 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.Project.ScopeConfigurationProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectTriggersProperty
-  = ProjectTriggersProperty {buildType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html>
+    ProjectTriggersProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype>
+                             buildType :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups>
                              filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration>
                              scopeConfiguration :: (Prelude.Maybe ScopeConfigurationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook>
                              webhook :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectTriggersProperty :: ProjectTriggersProperty
 mkProjectTriggersProperty
   = ProjectTriggersProperty
-      {buildType = Prelude.Nothing, filterGroups = Prelude.Nothing,
+      {haddock_workaround_ = (), buildType = Prelude.Nothing,
+       filterGroups = Prelude.Nothing,
        scopeConfiguration = Prelude.Nothing, webhook = Prelude.Nothing}
 instance ToResourceProperties ProjectTriggersProperty where
   toResourceProperties ProjectTriggersProperty {..}

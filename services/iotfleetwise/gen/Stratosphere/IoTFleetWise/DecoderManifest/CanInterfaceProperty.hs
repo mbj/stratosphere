@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CanInterfaceProperty
-  = CanInterfaceProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html>
+    CanInterfaceProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-name>
+                          name :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-protocolname>
                           protocolName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-protocolversion>
                           protocolVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCanInterfaceProperty ::
   Value Prelude.Text -> CanInterfaceProperty
 mkCanInterfaceProperty name
   = CanInterfaceProperty
-      {name = name, protocolName = Prelude.Nothing,
-       protocolVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       protocolName = Prelude.Nothing, protocolVersion = Prelude.Nothing}
 instance ToResourceProperties CanInterfaceProperty where
   toResourceProperties CanInterfaceProperty {..}
     = ResourceProperties

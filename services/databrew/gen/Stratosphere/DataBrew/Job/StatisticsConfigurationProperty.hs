@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticOverrideProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticsConfigurationProperty
-  = StatisticsConfigurationProperty {includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html>
+    StatisticsConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics>
+                                     includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides>
                                      overrides :: (Prelude.Maybe [StatisticOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticsConfigurationProperty ::
   StatisticsConfigurationProperty
 mkStatisticsConfigurationProperty
   = StatisticsConfigurationProperty
-      {includedStatistics = Prelude.Nothing, overrides = Prelude.Nothing}
+      {haddock_workaround_ = (), includedStatistics = Prelude.Nothing,
+       overrides = Prelude.Nothing}
 instance ToResourceProperties StatisticsConfigurationProperty where
   toResourceProperties StatisticsConfigurationProperty {..}
     = ResourceProperties

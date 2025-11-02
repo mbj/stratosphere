@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Container.HealthCheckConfigProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublicEndpointProperty
-  = PublicEndpointProperty {containerName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html>
+    PublicEndpointProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containername>
+                            containerName :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-containerport>
                             containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html#cfn-lightsail-container-publicendpoint-healthcheckconfig>
                             healthCheckConfig :: (Prelude.Maybe HealthCheckConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicEndpointProperty :: PublicEndpointProperty
 mkPublicEndpointProperty
   = PublicEndpointProperty
-      {containerName = Prelude.Nothing, containerPort = Prelude.Nothing,
+      {haddock_workaround_ = (), containerName = Prelude.Nothing,
+       containerPort = Prelude.Nothing,
        healthCheckConfig = Prelude.Nothing}
 instance ToResourceProperties PublicEndpointProperty where
   toResourceProperties PublicEndpointProperty {..}

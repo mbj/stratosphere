@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.APS.Scraper.AmpConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationProperty
-  = DestinationProperty {ampConfiguration :: AmpConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html>
+    DestinationProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html#cfn-aps-scraper-destination-ampconfiguration>
+                         ampConfiguration :: AmpConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty ::
   AmpConfigurationProperty -> DestinationProperty
 mkDestinationProperty ampConfiguration
-  = DestinationProperty {ampConfiguration = ampConfiguration}
+  = DestinationProperty
+      {haddock_workaround_ = (), ampConfiguration = ampConfiguration}
 instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON DestinationProperty where
     = JSON.object ["AmpConfiguration" JSON..= ampConfiguration]
 instance Property "AmpConfiguration" DestinationProperty where
   type PropertyType "AmpConfiguration" DestinationProperty = AmpConfigurationProperty
-  set newValue DestinationProperty {}
+  set newValue DestinationProperty {..}
     = DestinationProperty {ampConfiguration = newValue, ..}

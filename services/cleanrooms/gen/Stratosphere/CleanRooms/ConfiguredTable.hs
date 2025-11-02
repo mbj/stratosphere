@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ConfiguredTable
-  = ConfiguredTable {allowedColumns :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html>
+    ConfiguredTable {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-allowedcolumns>
+                     allowedColumns :: (ValueList Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-analysismethod>
                      analysisMethod :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-analysisrules>
                      analysisRules :: (Prelude.Maybe [AnalysisRuleProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-description>
                      description :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tablereference>
                      tableReference :: TableReferenceProperty,
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tags>
                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguredTable ::
@@ -24,10 +33,10 @@ mkConfiguredTable ::
      -> Value Prelude.Text -> TableReferenceProperty -> ConfiguredTable
 mkConfiguredTable allowedColumns analysisMethod name tableReference
   = ConfiguredTable
-      {allowedColumns = allowedColumns, analysisMethod = analysisMethod,
-       name = name, tableReference = tableReference,
-       analysisRules = Prelude.Nothing, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), allowedColumns = allowedColumns,
+       analysisMethod = analysisMethod, name = name,
+       tableReference = tableReference, analysisRules = Prelude.Nothing,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTable where
   toResourceProperties ConfiguredTable {..}
     = ResourceProperties

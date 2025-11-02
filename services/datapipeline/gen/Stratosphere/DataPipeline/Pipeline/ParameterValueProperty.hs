@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterValueProperty
-  = ParameterValueProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html>
+    ParameterValueProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html#cfn-datapipeline-pipeline-parametervalue-id>
+                            id :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html#cfn-datapipeline-pipeline-parametervalue-stringvalue>
                             stringValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterValueProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ParameterValueProperty
 mkParameterValueProperty id stringValue
-  = ParameterValueProperty {id = id, stringValue = stringValue}
+  = ParameterValueProperty
+      {haddock_workaround_ = (), id = id, stringValue = stringValue}
 instance ToResourceProperties ParameterValueProperty where
   toResourceProperties ParameterValueProperty {..}
     = ResourceProperties

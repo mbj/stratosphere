@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserAndGroupQuotasProperty
-  = UserAndGroupQuotasProperty {id :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html>
+    UserAndGroupQuotasProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-id>
+                                id :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-storagecapacityquotagib>
                                 storageCapacityQuotaGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html#cfn-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas-type>
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserAndGroupQuotasProperty :: UserAndGroupQuotasProperty
 mkUserAndGroupQuotasProperty
   = UserAndGroupQuotasProperty
-      {id = Prelude.Nothing, storageCapacityQuotaGiB = Prelude.Nothing,
-       type' = Prelude.Nothing}
+      {haddock_workaround_ = (), id = Prelude.Nothing,
+       storageCapacityQuotaGiB = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties UserAndGroupQuotasProperty where
   toResourceProperties UserAndGroupQuotasProperty {..}
     = ResourceProperties

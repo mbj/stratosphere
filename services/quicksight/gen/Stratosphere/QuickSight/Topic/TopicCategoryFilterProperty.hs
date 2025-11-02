@@ -9,15 +9,22 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.TopicCategoryFilterConstantP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicCategoryFilterProperty
-  = TopicCategoryFilterProperty {categoryFilterFunction :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html>
+    TopicCategoryFilterProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html#cfn-quicksight-topic-topiccategoryfilter-categoryfilterfunction>
+                                 categoryFilterFunction :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html#cfn-quicksight-topic-topiccategoryfilter-categoryfiltertype>
                                  categoryFilterType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html#cfn-quicksight-topic-topiccategoryfilter-constant>
                                  constant :: (Prelude.Maybe TopicCategoryFilterConstantProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html#cfn-quicksight-topic-topiccategoryfilter-inverse>
                                  inverse :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicCategoryFilterProperty :: TopicCategoryFilterProperty
 mkTopicCategoryFilterProperty
   = TopicCategoryFilterProperty
-      {categoryFilterFunction = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       categoryFilterFunction = Prelude.Nothing,
        categoryFilterType = Prelude.Nothing, constant = Prelude.Nothing,
        inverse = Prelude.Nothing}
 instance ToResourceProperties TopicCategoryFilterProperty where

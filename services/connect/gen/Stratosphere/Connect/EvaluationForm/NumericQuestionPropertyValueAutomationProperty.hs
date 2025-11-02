@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NumericQuestionPropertyValueAutomationProperty
-  = NumericQuestionPropertyValueAutomationProperty {label :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-numericquestionpropertyvalueautomation.html>
+    NumericQuestionPropertyValueAutomationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-numericquestionpropertyvalueautomation.html#cfn-connect-evaluationform-numericquestionpropertyvalueautomation-label>
+                                                    label :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericQuestionPropertyValueAutomationProperty ::
   Value Prelude.Text
   -> NumericQuestionPropertyValueAutomationProperty
 mkNumericQuestionPropertyValueAutomationProperty label
-  = NumericQuestionPropertyValueAutomationProperty {label = label}
+  = NumericQuestionPropertyValueAutomationProperty
+      {haddock_workaround_ = (), label = label}
 instance ToResourceProperties NumericQuestionPropertyValueAutomationProperty where
   toResourceProperties
     NumericQuestionPropertyValueAutomationProperty {..}
@@ -26,6 +30,6 @@ instance JSON.ToJSON NumericQuestionPropertyValueAutomationProperty where
     = JSON.object ["Label" JSON..= label]
 instance Property "Label" NumericQuestionPropertyValueAutomationProperty where
   type PropertyType "Label" NumericQuestionPropertyValueAutomationProperty = Value Prelude.Text
-  set newValue NumericQuestionPropertyValueAutomationProperty {}
+  set newValue NumericQuestionPropertyValueAutomationProperty {..}
     = NumericQuestionPropertyValueAutomationProperty
         {label = newValue, ..}

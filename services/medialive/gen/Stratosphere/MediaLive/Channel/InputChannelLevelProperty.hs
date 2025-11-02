@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputChannelLevelProperty
-  = InputChannelLevelProperty {gain :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html>
+    InputChannelLevelProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-gain>
+                               gain :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html#cfn-medialive-channel-inputchannellevel-inputchannel>
                                inputChannel :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputChannelLevelProperty :: InputChannelLevelProperty
 mkInputChannelLevelProperty
   = InputChannelLevelProperty
-      {gain = Prelude.Nothing, inputChannel = Prelude.Nothing}
+      {haddock_workaround_ = (), gain = Prelude.Nothing,
+       inputChannel = Prelude.Nothing}
 instance ToResourceProperties InputChannelLevelProperty where
   toResourceProperties InputChannelLevelProperty {..}
     = ResourceProperties

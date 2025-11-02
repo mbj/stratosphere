@@ -13,11 +13,19 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.SuccessConditionsProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StageDeclarationProperty
-  = StageDeclarationProperty {actions :: [ActionDeclarationProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html>
+    StageDeclarationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-actions>
+                              actions :: [ActionDeclarationProperty],
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-beforeentry>
                               beforeEntry :: (Prelude.Maybe BeforeEntryConditionsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers>
                               blockers :: (Prelude.Maybe [BlockerDeclarationProperty]),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name>
                               name :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure>
                               onFailure :: (Prelude.Maybe FailureConditionsProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onsuccess>
                               onSuccess :: (Prelude.Maybe SuccessConditionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStageDeclarationProperty ::
@@ -25,9 +33,9 @@ mkStageDeclarationProperty ::
   -> Value Prelude.Text -> StageDeclarationProperty
 mkStageDeclarationProperty actions name
   = StageDeclarationProperty
-      {actions = actions, name = name, beforeEntry = Prelude.Nothing,
-       blockers = Prelude.Nothing, onFailure = Prelude.Nothing,
-       onSuccess = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions, name = name,
+       beforeEntry = Prelude.Nothing, blockers = Prelude.Nothing,
+       onFailure = Prelude.Nothing, onSuccess = Prelude.Nothing}
 instance ToResourceProperties StageDeclarationProperty where
   toResourceProperties StageDeclarationProperty {..}
     = ResourceProperties

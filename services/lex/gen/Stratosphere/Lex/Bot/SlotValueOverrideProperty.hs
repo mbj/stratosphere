@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueOverrideProperty
-  = SlotValueOverrideProperty {shape :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html>
+    SlotValueOverrideProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html#cfn-lex-bot-slotvalueoverride-shape>
+                               shape :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html#cfn-lex-bot-slotvalueoverride-value>
                                value :: (Prelude.Maybe SlotValueProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html#cfn-lex-bot-slotvalueoverride-values>
                                values :: (Prelude.Maybe [SlotValueOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueOverrideProperty :: SlotValueOverrideProperty
 mkSlotValueOverrideProperty
   = SlotValueOverrideProperty
-      {shape = Prelude.Nothing, value = Prelude.Nothing,
-       values = Prelude.Nothing}
+      {haddock_workaround_ = (), shape = Prelude.Nothing,
+       value = Prelude.Nothing, values = Prelude.Nothing}
 instance ToResourceProperties SlotValueOverrideProperty where
   toResourceProperties SlotValueOverrideProperty {..}
     = ResourceProperties

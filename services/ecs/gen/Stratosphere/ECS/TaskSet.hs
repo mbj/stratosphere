@@ -13,17 +13,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TaskSet
-  = TaskSet {capacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html>
+    TaskSet {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-capacityproviderstrategy>
+             capacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster>
              cluster :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid>
              externalId :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype>
              launchType :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers>
              loadBalancers :: (Prelude.Maybe [LoadBalancerProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration>
              networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion>
              platformVersion :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale>
              scale :: (Prelude.Maybe ScaleProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service>
              service :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries>
              serviceRegistries :: (Prelude.Maybe [ServiceRegistryProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-tags>
              tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition>
              taskDefinition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskSet ::
@@ -31,7 +45,7 @@ mkTaskSet ::
   -> Value Prelude.Text -> Value Prelude.Text -> TaskSet
 mkTaskSet cluster service taskDefinition
   = TaskSet
-      {cluster = cluster, service = service,
+      {haddock_workaround_ = (), cluster = cluster, service = service,
        taskDefinition = taskDefinition,
        capacityProviderStrategy = Prelude.Nothing,
        externalId = Prelude.Nothing, launchType = Prelude.Nothing,

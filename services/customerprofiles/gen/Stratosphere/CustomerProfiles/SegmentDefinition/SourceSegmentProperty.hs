@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceSegmentProperty
-  = SourceSegmentProperty {segmentDefinitionName :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sourcesegment.html>
+    SourceSegmentProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sourcesegment.html#cfn-customerprofiles-segmentdefinition-sourcesegment-segmentdefinitionname>
+                           segmentDefinitionName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceSegmentProperty :: SourceSegmentProperty
 mkSourceSegmentProperty
-  = SourceSegmentProperty {segmentDefinitionName = Prelude.Nothing}
+  = SourceSegmentProperty
+      {haddock_workaround_ = (), segmentDefinitionName = Prelude.Nothing}
 instance ToResourceProperties SourceSegmentProperty where
   toResourceProperties SourceSegmentProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON SourceSegmentProperty where
                  Prelude.<$> segmentDefinitionName]))
 instance Property "SegmentDefinitionName" SourceSegmentProperty where
   type PropertyType "SegmentDefinitionName" SourceSegmentProperty = Value Prelude.Text
-  set newValue SourceSegmentProperty {}
+  set newValue SourceSegmentProperty {..}
     = SourceSegmentProperty
         {segmentDefinitionName = Prelude.pure newValue, ..}

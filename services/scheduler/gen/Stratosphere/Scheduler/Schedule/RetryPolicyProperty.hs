@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetryPolicyProperty
-  = RetryPolicyProperty {maximumEventAgeInSeconds :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-retrypolicy.html>
+    RetryPolicyProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-retrypolicy.html#cfn-scheduler-schedule-retrypolicy-maximumeventageinseconds>
+                         maximumEventAgeInSeconds :: (Prelude.Maybe (Value Prelude.Double)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-retrypolicy.html#cfn-scheduler-schedule-retrypolicy-maximumretryattempts>
                          maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryPolicyProperty :: RetryPolicyProperty
 mkRetryPolicyProperty
   = RetryPolicyProperty
-      {maximumEventAgeInSeconds = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       maximumEventAgeInSeconds = Prelude.Nothing,
        maximumRetryAttempts = Prelude.Nothing}
 instance ToResourceProperties RetryPolicyProperty where
   toResourceProperties RetryPolicyProperty {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryProperty
-  = RepositoryProperty {pathComponent :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html>
+    RepositoryProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html#cfn-cloud9-environmentec2-repository-pathcomponent>
+                        pathComponent :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html#cfn-cloud9-environmentec2-repository-repositoryurl>
                         repositoryUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RepositoryProperty
 mkRepositoryProperty pathComponent repositoryUrl
   = RepositoryProperty
-      {pathComponent = pathComponent, repositoryUrl = repositoryUrl}
+      {haddock_workaround_ = (), pathComponent = pathComponent,
+       repositoryUrl = repositoryUrl}
 instance ToResourceProperties RepositoryProperty where
   toResourceProperties RepositoryProperty {..}
     = ResourceProperties

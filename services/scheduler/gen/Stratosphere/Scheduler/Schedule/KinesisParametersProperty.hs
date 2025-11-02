@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisParametersProperty
-  = KinesisParametersProperty {partitionKey :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-kinesisparameters.html>
+    KinesisParametersProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-kinesisparameters.html#cfn-scheduler-schedule-kinesisparameters-partitionkey>
+                               partitionKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisParametersProperty ::
   Value Prelude.Text -> KinesisParametersProperty
 mkKinesisParametersProperty partitionKey
-  = KinesisParametersProperty {partitionKey = partitionKey}
+  = KinesisParametersProperty
+      {haddock_workaround_ = (), partitionKey = partitionKey}
 instance ToResourceProperties KinesisParametersProperty where
   toResourceProperties KinesisParametersProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON KinesisParametersProperty where
     = JSON.object ["PartitionKey" JSON..= partitionKey]
 instance Property "PartitionKey" KinesisParametersProperty where
   type PropertyType "PartitionKey" KinesisParametersProperty = Value Prelude.Text
-  set newValue KinesisParametersProperty {}
+  set newValue KinesisParametersProperty {..}
     = KinesisParametersProperty {partitionKey = newValue, ..}

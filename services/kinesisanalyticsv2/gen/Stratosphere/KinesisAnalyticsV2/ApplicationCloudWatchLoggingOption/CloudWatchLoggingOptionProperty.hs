@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLoggingOptionProperty
-  = CloudWatchLoggingOptionProperty {logStreamARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html>
+    CloudWatchLoggingOptionProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html#cfn-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption-logstreamarn>
+                                     logStreamARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLoggingOptionProperty ::
   Value Prelude.Text -> CloudWatchLoggingOptionProperty
 mkCloudWatchLoggingOptionProperty logStreamARN
-  = CloudWatchLoggingOptionProperty {logStreamARN = logStreamARN}
+  = CloudWatchLoggingOptionProperty
+      {haddock_workaround_ = (), logStreamARN = logStreamARN}
 instance ToResourceProperties CloudWatchLoggingOptionProperty where
   toResourceProperties CloudWatchLoggingOptionProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CloudWatchLoggingOptionProperty where
     = JSON.object ["LogStreamARN" JSON..= logStreamARN]
 instance Property "LogStreamARN" CloudWatchLoggingOptionProperty where
   type PropertyType "LogStreamARN" CloudWatchLoggingOptionProperty = Value Prelude.Text
-  set newValue CloudWatchLoggingOptionProperty {}
+  set newValue CloudWatchLoggingOptionProperty {..}
     = CloudWatchLoggingOptionProperty {logStreamARN = newValue, ..}

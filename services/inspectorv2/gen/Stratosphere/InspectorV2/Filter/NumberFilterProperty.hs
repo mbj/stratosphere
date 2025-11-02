@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NumberFilterProperty
-  = NumberFilterProperty {lowerInclusive :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html>
+    NumberFilterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-lowerinclusive>
+                          lowerInclusive :: (Prelude.Maybe (Value Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html#cfn-inspectorv2-filter-numberfilter-upperinclusive>
                           upperInclusive :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberFilterProperty :: NumberFilterProperty
 mkNumberFilterProperty
   = NumberFilterProperty
-      {lowerInclusive = Prelude.Nothing,
+      {haddock_workaround_ = (), lowerInclusive = Prelude.Nothing,
        upperInclusive = Prelude.Nothing}
 instance ToResourceProperties NumberFilterProperty where
   toResourceProperties NumberFilterProperty {..}

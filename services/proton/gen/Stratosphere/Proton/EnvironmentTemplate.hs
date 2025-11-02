@@ -8,19 +8,28 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EnvironmentTemplate
-  = EnvironmentTemplate {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html>
+    EnvironmentTemplate {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-description>
+                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-displayname>
                          displayName :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-encryptionkey>
                          encryptionKey :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-name>
                          name :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-provisioning>
                          provisioning :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-tags>
                          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentTemplate :: EnvironmentTemplate
 mkEnvironmentTemplate
   = EnvironmentTemplate
-      {description = Prelude.Nothing, displayName = Prelude.Nothing,
-       encryptionKey = Prelude.Nothing, name = Prelude.Nothing,
-       provisioning = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), description = Prelude.Nothing,
+       displayName = Prelude.Nothing, encryptionKey = Prelude.Nothing,
+       name = Prelude.Nothing, provisioning = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EnvironmentTemplate where
   toResourceProperties EnvironmentTemplate {..}
     = ResourceProperties

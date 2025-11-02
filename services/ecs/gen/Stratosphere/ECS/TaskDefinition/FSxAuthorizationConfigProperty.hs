@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FSxAuthorizationConfigProperty
-  = FSxAuthorizationConfigProperty {credentialsParameter :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html>
+    FSxAuthorizationConfigProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html#cfn-ecs-taskdefinition-fsxauthorizationconfig-credentialsparameter>
+                                    credentialsParameter :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html#cfn-ecs-taskdefinition-fsxauthorizationconfig-domain>
                                     domain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFSxAuthorizationConfigProperty ::
@@ -16,7 +20,8 @@ mkFSxAuthorizationConfigProperty ::
   -> Value Prelude.Text -> FSxAuthorizationConfigProperty
 mkFSxAuthorizationConfigProperty credentialsParameter domain
   = FSxAuthorizationConfigProperty
-      {credentialsParameter = credentialsParameter, domain = domain}
+      {haddock_workaround_ = (),
+       credentialsParameter = credentialsParameter, domain = domain}
 instance ToResourceProperties FSxAuthorizationConfigProperty where
   toResourceProperties FSxAuthorizationConfigProperty {..}
     = ResourceProperties

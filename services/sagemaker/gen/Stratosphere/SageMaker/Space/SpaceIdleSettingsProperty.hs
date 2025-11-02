@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpaceIdleSettingsProperty
-  = SpaceIdleSettingsProperty {idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html>
+    SpaceIdleSettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html#cfn-sagemaker-space-spaceidlesettings-idletimeoutinminutes>
+                               idleTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceIdleSettingsProperty :: SpaceIdleSettingsProperty
 mkSpaceIdleSettingsProperty
   = SpaceIdleSettingsProperty
-      {idleTimeoutInMinutes = Prelude.Nothing}
+      {haddock_workaround_ = (), idleTimeoutInMinutes = Prelude.Nothing}
 instance ToResourceProperties SpaceIdleSettingsProperty where
   toResourceProperties SpaceIdleSettingsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON SpaceIdleSettingsProperty where
                  Prelude.<$> idleTimeoutInMinutes]))
 instance Property "IdleTimeoutInMinutes" SpaceIdleSettingsProperty where
   type PropertyType "IdleTimeoutInMinutes" SpaceIdleSettingsProperty = Value Prelude.Integer
-  set newValue SpaceIdleSettingsProperty {}
+  set newValue SpaceIdleSettingsProperty {..}
     = SpaceIdleSettingsProperty
         {idleTimeoutInMinutes = Prelude.pure newValue, ..}

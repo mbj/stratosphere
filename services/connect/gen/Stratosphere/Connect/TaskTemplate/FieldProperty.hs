@@ -8,16 +8,23 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldProperty
-  = FieldProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html>
+    FieldProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-description>
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-id>
                    id :: FieldIdentifierProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-singleselectoptions>
                    singleSelectOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html#cfn-connect-tasktemplate-field-type>
                    type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldProperty ::
   FieldIdentifierProperty -> Value Prelude.Text -> FieldProperty
 mkFieldProperty id type'
   = FieldProperty
-      {id = id, type' = type', description = Prelude.Nothing,
+      {haddock_workaround_ = (), id = id, type' = type',
+       description = Prelude.Nothing,
        singleSelectOptions = Prelude.Nothing}
 instance ToResourceProperties FieldProperty where
   toResourceProperties FieldProperty {..}

@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PersonalizationConfigurationProperty
-  = PersonalizationConfigurationProperty {personalizationControlMode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html>
+    PersonalizationConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html#cfn-qbusiness-application-personalizationconfiguration-personalizationcontrolmode>
+                                          personalizationControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPersonalizationConfigurationProperty ::
   Value Prelude.Text -> PersonalizationConfigurationProperty
 mkPersonalizationConfigurationProperty personalizationControlMode
   = PersonalizationConfigurationProperty
-      {personalizationControlMode = personalizationControlMode}
+      {haddock_workaround_ = (),
+       personalizationControlMode = personalizationControlMode}
 instance ToResourceProperties PersonalizationConfigurationProperty where
   toResourceProperties PersonalizationConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON PersonalizationConfigurationProperty where
         ["PersonalizationControlMode" JSON..= personalizationControlMode]
 instance Property "PersonalizationControlMode" PersonalizationConfigurationProperty where
   type PropertyType "PersonalizationControlMode" PersonalizationConfigurationProperty = Value Prelude.Text
-  set newValue PersonalizationConfigurationProperty {}
+  set newValue PersonalizationConfigurationProperty {..}
     = PersonalizationConfigurationProperty
         {personalizationControlMode = newValue, ..}

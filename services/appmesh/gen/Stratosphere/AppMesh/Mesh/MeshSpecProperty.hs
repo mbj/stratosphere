@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Mesh.EgressFilterProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppMesh.Mesh.MeshServiceDiscoveryProperty as Exports
 import Stratosphere.ResourceProperties
 data MeshSpecProperty
-  = MeshSpecProperty {egressFilter :: (Prelude.Maybe EgressFilterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html>
+    MeshSpecProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-egressfilter>
+                      egressFilter :: (Prelude.Maybe EgressFilterProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html#cfn-appmesh-mesh-meshspec-servicediscovery>
                       serviceDiscovery :: (Prelude.Maybe MeshServiceDiscoveryProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMeshSpecProperty :: MeshSpecProperty
 mkMeshSpecProperty
   = MeshSpecProperty
-      {egressFilter = Prelude.Nothing,
+      {haddock_workaround_ = (), egressFilter = Prelude.Nothing,
        serviceDiscovery = Prelude.Nothing}
 instance ToResourceProperties MeshSpecProperty where
   toResourceProperties MeshSpecProperty {..}

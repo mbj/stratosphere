@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecretsManagerConfigurationProperty
-  = SecretsManagerConfigurationProperty {enabled :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>
+    SecretsManagerConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-enabled>
+                                         enabled :: (Value Prelude.Bool),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-rolearn>
                                          roleARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-secretarn>
                                          secretARN :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretsManagerConfigurationProperty ::
   Value Prelude.Bool -> SecretsManagerConfigurationProperty
 mkSecretsManagerConfigurationProperty enabled
   = SecretsManagerConfigurationProperty
-      {enabled = enabled, roleARN = Prelude.Nothing,
-       secretARN = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       roleARN = Prelude.Nothing, secretARN = Prelude.Nothing}
 instance ToResourceProperties SecretsManagerConfigurationProperty where
   toResourceProperties SecretsManagerConfigurationProperty {..}
     = ResourceProperties

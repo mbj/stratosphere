@@ -13,18 +13,27 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Space.SpaceStorageSettingsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpaceSettingsProperty
-  = SpaceSettingsProperty {appType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html>
+    SpaceSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-apptype>
+                           appType :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-codeeditorappsettings>
                            codeEditorAppSettings :: (Prelude.Maybe SpaceCodeEditorAppSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-customfilesystems>
                            customFileSystems :: (Prelude.Maybe [CustomFileSystemProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-jupyterlabappsettings>
                            jupyterLabAppSettings :: (Prelude.Maybe SpaceJupyterLabAppSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-jupyterserverappsettings>
                            jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-kernelgatewayappsettings>
                            kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-spacestoragesettings>
                            spaceStorageSettings :: (Prelude.Maybe SpaceStorageSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceSettingsProperty :: SpaceSettingsProperty
 mkSpaceSettingsProperty
   = SpaceSettingsProperty
-      {appType = Prelude.Nothing,
+      {haddock_workaround_ = (), appType = Prelude.Nothing,
        codeEditorAppSettings = Prelude.Nothing,
        customFileSystems = Prelude.Nothing,
        jupyterLabAppSettings = Prelude.Nothing,

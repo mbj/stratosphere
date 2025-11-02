@@ -13,18 +13,27 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.TrackingConfigProperty a
 import {-# SOURCE #-} Stratosphere.GroundStation.Config.UplinkEchoConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfigDataProperty
-  = ConfigDataProperty {antennaDownlinkConfig :: (Prelude.Maybe AntennaDownlinkConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html>
+    ConfigDataProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig>
+                        antennaDownlinkConfig :: (Prelude.Maybe AntennaDownlinkConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig>
                         antennaDownlinkDemodDecodeConfig :: (Prelude.Maybe AntennaDownlinkDemodDecodeConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig>
                         antennaUplinkConfig :: (Prelude.Maybe AntennaUplinkConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig>
                         dataflowEndpointConfig :: (Prelude.Maybe DataflowEndpointConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig>
                         s3RecordingConfig :: (Prelude.Maybe S3RecordingConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig>
                         trackingConfig :: (Prelude.Maybe TrackingConfigProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig>
                         uplinkEchoConfig :: (Prelude.Maybe UplinkEchoConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigDataProperty :: ConfigDataProperty
 mkConfigDataProperty
   = ConfigDataProperty
-      {antennaDownlinkConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), antennaDownlinkConfig = Prelude.Nothing,
        antennaDownlinkDemodDecodeConfig = Prelude.Nothing,
        antennaUplinkConfig = Prelude.Nothing,
        dataflowEndpointConfig = Prelude.Nothing,

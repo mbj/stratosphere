@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnProperty
-  = ColumnProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html>
+    ColumnProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment>
+                    comment :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type>
                     type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnProperty :: Value Prelude.Text -> ColumnProperty
 mkColumnProperty name
   = ColumnProperty
-      {name = name, comment = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, comment = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties

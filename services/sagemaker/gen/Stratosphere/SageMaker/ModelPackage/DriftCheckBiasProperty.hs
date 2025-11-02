@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.FileSourceProperty as 
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty as Exports
 import Stratosphere.ResourceProperties
 data DriftCheckBiasProperty
-  = DriftCheckBiasProperty {configFile :: (Prelude.Maybe FileSourceProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html>
+    DriftCheckBiasProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-configfile>
+                            configFile :: (Prelude.Maybe FileSourceProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-posttrainingconstraints>
                             postTrainingConstraints :: (Prelude.Maybe MetricsSourceProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html#cfn-sagemaker-modelpackage-driftcheckbias-pretrainingconstraints>
                             preTrainingConstraints :: (Prelude.Maybe MetricsSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckBiasProperty :: DriftCheckBiasProperty
 mkDriftCheckBiasProperty
   = DriftCheckBiasProperty
-      {configFile = Prelude.Nothing,
+      {haddock_workaround_ = (), configFile = Prelude.Nothing,
        postTrainingConstraints = Prelude.Nothing,
        preTrainingConstraints = Prelude.Nothing}
 instance ToResourceProperties DriftCheckBiasProperty where

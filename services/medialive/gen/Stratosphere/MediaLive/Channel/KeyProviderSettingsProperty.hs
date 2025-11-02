@@ -8,11 +8,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.StaticKeySettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data KeyProviderSettingsProperty
-  = KeyProviderSettingsProperty {staticKeySettings :: (Prelude.Maybe StaticKeySettingsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html>
+    KeyProviderSettingsProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html#cfn-medialive-channel-keyprovidersettings-statickeysettings>
+                                 staticKeySettings :: (Prelude.Maybe StaticKeySettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyProviderSettingsProperty :: KeyProviderSettingsProperty
 mkKeyProviderSettingsProperty
-  = KeyProviderSettingsProperty {staticKeySettings = Prelude.Nothing}
+  = KeyProviderSettingsProperty
+      {haddock_workaround_ = (), staticKeySettings = Prelude.Nothing}
 instance ToResourceProperties KeyProviderSettingsProperty where
   toResourceProperties KeyProviderSettingsProperty {..}
     = ResourceProperties
@@ -29,6 +33,6 @@ instance JSON.ToJSON KeyProviderSettingsProperty where
               [(JSON..=) "StaticKeySettings" Prelude.<$> staticKeySettings]))
 instance Property "StaticKeySettings" KeyProviderSettingsProperty where
   type PropertyType "StaticKeySettings" KeyProviderSettingsProperty = StaticKeySettingsProperty
-  set newValue KeyProviderSettingsProperty {}
+  set newValue KeyProviderSettingsProperty {..}
     = KeyProviderSettingsProperty
         {staticKeySettings = Prelude.pure newValue, ..}

@@ -12,16 +12,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Bot
-  = Bot {autoBuildBotLocales :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html>
+    Bot {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-autobuildbotlocales>
+         autoBuildBotLocales :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botfiles3location>
          botFileS3Location :: (Prelude.Maybe S3LocationProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botlocales>
          botLocales :: (Prelude.Maybe [BotLocaleProperty]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags>
          botTags :: (Prelude.Maybe [Tag]),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-dataprivacy>
          dataPrivacy :: DataPrivacyProperty,
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-idlesessionttlinseconds>
          idleSessionTTLInSeconds :: (Value Prelude.Integer),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn>
          roleArn :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings>
          testBotAliasSettings :: (Prelude.Maybe TestBotAliasSettingsProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliastags>
          testBotAliasTags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBot ::
@@ -30,7 +43,7 @@ mkBot ::
      -> Value Prelude.Text -> Value Prelude.Text -> Bot
 mkBot dataPrivacy idleSessionTTLInSeconds name roleArn
   = Bot
-      {dataPrivacy = dataPrivacy,
+      {haddock_workaround_ = (), dataPrivacy = dataPrivacy,
        idleSessionTTLInSeconds = idleSessionTTLInSeconds, name = name,
        roleArn = roleArn, autoBuildBotLocales = Prelude.Nothing,
        botFileS3Location = Prelude.Nothing, botLocales = Prelude.Nothing,

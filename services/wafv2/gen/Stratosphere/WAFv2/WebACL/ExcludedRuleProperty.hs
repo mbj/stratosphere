@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExcludedRuleProperty
-  = ExcludedRuleProperty {name :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html>
+    ExcludedRuleProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name>
+                          name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExcludedRuleProperty ::
   Value Prelude.Text -> ExcludedRuleProperty
-mkExcludedRuleProperty name = ExcludedRuleProperty {name = name}
+mkExcludedRuleProperty name
+  = ExcludedRuleProperty {haddock_workaround_ = (), name = name}
 instance ToResourceProperties ExcludedRuleProperty where
   toResourceProperties ExcludedRuleProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON ExcludedRuleProperty where
     = JSON.object ["Name" JSON..= name]
 instance Property "Name" ExcludedRuleProperty where
   type PropertyType "Name" ExcludedRuleProperty = Value Prelude.Text
-  set newValue ExcludedRuleProperty {}
+  set newValue ExcludedRuleProperty {..}
     = ExcludedRuleProperty {name = newValue, ..}

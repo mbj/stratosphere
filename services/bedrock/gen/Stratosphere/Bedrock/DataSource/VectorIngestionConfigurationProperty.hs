@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.CustomTransformationConfig
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ParsingConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data VectorIngestionConfigurationProperty
-  = VectorIngestionConfigurationProperty {chunkingConfiguration :: (Prelude.Maybe ChunkingConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html>
+    VectorIngestionConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-chunkingconfiguration>
+                                          chunkingConfiguration :: (Prelude.Maybe ChunkingConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-customtransformationconfiguration>
                                           customTransformationConfiguration :: (Prelude.Maybe CustomTransformationConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-parsingconfiguration>
                                           parsingConfiguration :: (Prelude.Maybe ParsingConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVectorIngestionConfigurationProperty ::
   VectorIngestionConfigurationProperty
 mkVectorIngestionConfigurationProperty
   = VectorIngestionConfigurationProperty
-      {chunkingConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), chunkingConfiguration = Prelude.Nothing,
        customTransformationConfiguration = Prelude.Nothing,
        parsingConfiguration = Prelude.Nothing}
 instance ToResourceProperties VectorIngestionConfigurationProperty where

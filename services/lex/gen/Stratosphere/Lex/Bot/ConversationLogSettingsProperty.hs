@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.AudioLogSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.TextLogSettingProperty as Exports
 import Stratosphere.ResourceProperties
 data ConversationLogSettingsProperty
-  = ConversationLogSettingsProperty {audioLogSettings :: (Prelude.Maybe [AudioLogSettingProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conversationlogsettings.html>
+    ConversationLogSettingsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conversationlogsettings.html#cfn-lex-bot-conversationlogsettings-audiologsettings>
+                                     audioLogSettings :: (Prelude.Maybe [AudioLogSettingProperty]),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conversationlogsettings.html#cfn-lex-bot-conversationlogsettings-textlogsettings>
                                      textLogSettings :: (Prelude.Maybe [TextLogSettingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConversationLogSettingsProperty ::
   ConversationLogSettingsProperty
 mkConversationLogSettingsProperty
   = ConversationLogSettingsProperty
-      {audioLogSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), audioLogSettings = Prelude.Nothing,
        textLogSettings = Prelude.Nothing}
 instance ToResourceProperties ConversationLogSettingsProperty where
   toResourceProperties ConversationLogSettingsProperty {..}

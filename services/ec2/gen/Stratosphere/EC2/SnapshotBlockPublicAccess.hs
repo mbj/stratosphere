@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnapshotBlockPublicAccess
-  = SnapshotBlockPublicAccess {state :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html>
+    SnapshotBlockPublicAccess {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html#cfn-ec2-snapshotblockpublicaccess-state>
+                               state :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapshotBlockPublicAccess ::
   Value Prelude.Text -> SnapshotBlockPublicAccess
 mkSnapshotBlockPublicAccess state
-  = SnapshotBlockPublicAccess {state = state}
+  = SnapshotBlockPublicAccess
+      {haddock_workaround_ = (), state = state}
 instance ToResourceProperties SnapshotBlockPublicAccess where
   toResourceProperties SnapshotBlockPublicAccess {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON SnapshotBlockPublicAccess where
     = JSON.object ["State" JSON..= state]
 instance Property "State" SnapshotBlockPublicAccess where
   type PropertyType "State" SnapshotBlockPublicAccess = Value Prelude.Text
-  set newValue SnapshotBlockPublicAccess {}
+  set newValue SnapshotBlockPublicAccess {..}
     = SnapshotBlockPublicAccess {state = newValue, ..}

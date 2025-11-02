@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceWindowProperty
-  = MaintenanceWindowProperty {durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html>
+    MaintenanceWindowProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-durationinminutes>
+                               durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html#cfn-iot-jobtemplate-maintenancewindow-starttime>
                                startTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowProperty :: MaintenanceWindowProperty
 mkMaintenanceWindowProperty
   = MaintenanceWindowProperty
-      {durationInMinutes = Prelude.Nothing, startTime = Prelude.Nothing}
+      {haddock_workaround_ = (), durationInMinutes = Prelude.Nothing,
+       startTime = Prelude.Nothing}
 instance ToResourceProperties MaintenanceWindowProperty where
   toResourceProperties MaintenanceWindowProperty {..}
     = ResourceProperties

@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VCpuCountProperty
-  = VCpuCountProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html>
+    VCpuCountProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html#cfn-ec2-launchtemplate-vcpucount-max>
+                       max :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html#cfn-ec2-launchtemplate-vcpucount-min>
                        min :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVCpuCountProperty :: VCpuCountProperty
 mkVCpuCountProperty
-  = VCpuCountProperty {max = Prelude.Nothing, min = Prelude.Nothing}
+  = VCpuCountProperty
+      {haddock_workaround_ = (), max = Prelude.Nothing,
+       min = Prelude.Nothing}
 instance ToResourceProperties VCpuCountProperty where
   toResourceProperties VCpuCountProperty {..}
     = ResourceProperties

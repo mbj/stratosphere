@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeSigningPoliciesProperty
-  = CodeSigningPoliciesProperty {untrustedArtifactOnDeployment :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html>
+    CodeSigningPoliciesProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment>
+                                 untrustedArtifactOnDeployment :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeSigningPoliciesProperty ::
   Value Prelude.Text -> CodeSigningPoliciesProperty
 mkCodeSigningPoliciesProperty untrustedArtifactOnDeployment
   = CodeSigningPoliciesProperty
-      {untrustedArtifactOnDeployment = untrustedArtifactOnDeployment}
+      {haddock_workaround_ = (),
+       untrustedArtifactOnDeployment = untrustedArtifactOnDeployment}
 instance ToResourceProperties CodeSigningPoliciesProperty where
   toResourceProperties CodeSigningPoliciesProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON CodeSigningPoliciesProperty where
            JSON..= untrustedArtifactOnDeployment]
 instance Property "UntrustedArtifactOnDeployment" CodeSigningPoliciesProperty where
   type PropertyType "UntrustedArtifactOnDeployment" CodeSigningPoliciesProperty = Value Prelude.Text
-  set newValue CodeSigningPoliciesProperty {}
+  set newValue CodeSigningPoliciesProperty {..}
     = CodeSigningPoliciesProperty
         {untrustedArtifactOnDeployment = newValue, ..}

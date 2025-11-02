@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidityDateFormatProperty
-  = ValidityDateFormatProperty {begin :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html>
+    ValidityDateFormatProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin>
+                                begin :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end>
                                 end :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidityDateFormatProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ValidityDateFormatProperty
 mkValidityDateFormatProperty begin end
-  = ValidityDateFormatProperty {begin = begin, end = end}
+  = ValidityDateFormatProperty
+      {haddock_workaround_ = (), begin = begin, end = end}
 instance ToResourceProperties ValidityDateFormatProperty where
   toResourceProperties ValidityDateFormatProperty {..}
     = ResourceProperties

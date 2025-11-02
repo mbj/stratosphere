@@ -9,9 +9,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AssistantAssociation
-  = AssistantAssociation {assistantId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html>
+    AssistantAssociation {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-assistantid>
+                          assistantId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-association>
                           association :: AssociationDataProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-associationtype>
                           associationType :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html#cfn-wisdom-assistantassociation-tags>
                           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssistantAssociation ::
@@ -20,8 +26,9 @@ mkAssistantAssociation ::
      -> Value Prelude.Text -> AssistantAssociation
 mkAssistantAssociation assistantId association associationType
   = AssistantAssociation
-      {assistantId = assistantId, association = association,
-       associationType = associationType, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), assistantId = assistantId,
+       association = association, associationType = associationType,
+       tags = Prelude.Nothing}
 instance ToResourceProperties AssistantAssociation where
   toResourceProperties AssistantAssociation {..}
     = ResourceProperties

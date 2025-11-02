@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyTimestampProperty
-  = AssetPropertyTimestampProperty {offsetInNanos :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertytimestamp.html>
+    AssetPropertyTimestampProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertytimestamp.html#cfn-iotevents-alarmmodel-assetpropertytimestamp-offsetinnanos>
+                                    offsetInNanos :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-assetpropertytimestamp.html#cfn-iotevents-alarmmodel-assetpropertytimestamp-timeinseconds>
                                     timeInSeconds :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyTimestampProperty ::
   Value Prelude.Text -> AssetPropertyTimestampProperty
 mkAssetPropertyTimestampProperty timeInSeconds
   = AssetPropertyTimestampProperty
-      {timeInSeconds = timeInSeconds, offsetInNanos = Prelude.Nothing}
+      {haddock_workaround_ = (), timeInSeconds = timeInSeconds,
+       offsetInNanos = Prelude.Nothing}
 instance ToResourceProperties AssetPropertyTimestampProperty where
   toResourceProperties AssetPropertyTimestampProperty {..}
     = ResourceProperties

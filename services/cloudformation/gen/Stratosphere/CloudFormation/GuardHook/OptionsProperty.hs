@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFormation.GuardHook.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data OptionsProperty
-  = OptionsProperty {inputParams :: (Prelude.Maybe S3LocationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-options.html>
+    OptionsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-options.html#cfn-cloudformation-guardhook-options-inputparams>
+                     inputParams :: (Prelude.Maybe S3LocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
-mkOptionsProperty = OptionsProperty {inputParams = Prelude.Nothing}
+mkOptionsProperty
+  = OptionsProperty
+      {haddock_workaround_ = (), inputParams = Prelude.Nothing}
 instance ToResourceProperties OptionsProperty where
   toResourceProperties OptionsProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON OptionsProperty where
               [(JSON..=) "InputParams" Prelude.<$> inputParams]))
 instance Property "InputParams" OptionsProperty where
   type PropertyType "InputParams" OptionsProperty = S3LocationProperty
-  set newValue OptionsProperty {}
+  set newValue OptionsProperty {..}
     = OptionsProperty {inputParams = Prelude.pure newValue, ..}

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityIdentifierProperty
-  = EntityIdentifierProperty {entityId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html>
+    EntityIdentifierProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html#cfn-verifiedpermissions-policy-entityidentifier-entityid>
+                              entityId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html#cfn-verifiedpermissions-policy-entityidentifier-entitytype>
                               entityType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityIdentifierProperty ::
@@ -15,7 +19,8 @@ mkEntityIdentifierProperty ::
   -> Value Prelude.Text -> EntityIdentifierProperty
 mkEntityIdentifierProperty entityId entityType
   = EntityIdentifierProperty
-      {entityId = entityId, entityType = entityType}
+      {haddock_workaround_ = (), entityId = entityId,
+       entityType = entityType}
 instance ToResourceProperties EntityIdentifierProperty where
   toResourceProperties EntityIdentifierProperty {..}
     = ResourceProperties

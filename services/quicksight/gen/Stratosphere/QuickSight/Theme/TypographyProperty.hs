@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Theme.FontProperty as Exports
 import Stratosphere.ResourceProperties
 data TypographyProperty
-  = TypographyProperty {fontFamilies :: (Prelude.Maybe [FontProperty])}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html>
+    TypographyProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies>
+                        fontFamilies :: (Prelude.Maybe [FontProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTypographyProperty :: TypographyProperty
 mkTypographyProperty
-  = TypographyProperty {fontFamilies = Prelude.Nothing}
+  = TypographyProperty
+      {haddock_workaround_ = (), fontFamilies = Prelude.Nothing}
 instance ToResourceProperties TypographyProperty where
   toResourceProperties TypographyProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON TypographyProperty where
               [(JSON..=) "FontFamilies" Prelude.<$> fontFamilies]))
 instance Property "FontFamilies" TypographyProperty where
   type PropertyType "FontFamilies" TypographyProperty = [FontProperty]
-  set newValue TypographyProperty {}
+  set newValue TypographyProperty {..}
     = TypographyProperty {fontFamilies = Prelude.pure newValue, ..}

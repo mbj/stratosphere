@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IdentityProvider
-  = IdentityProvider {identityProviderDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html>
+    IdentityProvider {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-identityproviderdetails>
+                      identityProviderDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-identityprovidername>
                       identityProviderName :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-identityprovidertype>
                       identityProviderType :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-portalarn>
                       portalArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-tags>
                       tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProvider ::
@@ -22,7 +29,8 @@ mkIdentityProvider
   identityProviderName
   identityProviderType
   = IdentityProvider
-      {identityProviderDetails = identityProviderDetails,
+      {haddock_workaround_ = (),
+       identityProviderDetails = identityProviderDetails,
        identityProviderName = identityProviderName,
        identityProviderType = identityProviderType,
        portalArn = Prelude.Nothing, tags = Prelude.Nothing}

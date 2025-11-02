@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourcePermissionProperty
-  = ResourcePermissionProperty {actions :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html>
+    ResourcePermissionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions>
+                                actions :: (ValueList Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal>
                                 principal :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-resource>
                                 resource :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePermissionProperty ::
@@ -16,8 +21,8 @@ mkResourcePermissionProperty ::
   -> Value Prelude.Text -> ResourcePermissionProperty
 mkResourcePermissionProperty actions principal
   = ResourcePermissionProperty
-      {actions = actions, principal = principal,
-       resource = Prelude.Nothing}
+      {haddock_workaround_ = (), actions = actions,
+       principal = principal, resource = Prelude.Nothing}
 instance ToResourceProperties ResourcePermissionProperty where
   toResourceProperties ResourcePermissionProperty {..}
     = ResourceProperties

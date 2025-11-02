@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ec2EbsVolumeProperty
-  = Ec2EbsVolumeProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html>
+    Ec2EbsVolumeProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html#cfn-deadline-fleet-ec2ebsvolume-iops>
+                          iops :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html#cfn-deadline-fleet-ec2ebsvolume-sizegib>
                           sizeGiB :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html#cfn-deadline-fleet-ec2ebsvolume-throughputmib>
                           throughputMiB :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEc2EbsVolumeProperty :: Ec2EbsVolumeProperty
 mkEc2EbsVolumeProperty
   = Ec2EbsVolumeProperty
-      {iops = Prelude.Nothing, sizeGiB = Prelude.Nothing,
-       throughputMiB = Prelude.Nothing}
+      {haddock_workaround_ = (), iops = Prelude.Nothing,
+       sizeGiB = Prelude.Nothing, throughputMiB = Prelude.Nothing}
 instance ToResourceProperties Ec2EbsVolumeProperty where
   toResourceProperties Ec2EbsVolumeProperty {..}
     = ResourceProperties

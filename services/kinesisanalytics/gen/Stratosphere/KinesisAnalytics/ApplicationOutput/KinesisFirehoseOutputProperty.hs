@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseOutputProperty
-  = KinesisFirehoseOutputProperty {resourceARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html>
+    KinesisFirehoseOutputProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html#cfn-kinesisanalytics-applicationoutput-kinesisfirehoseoutput-resourcearn>
+                                   resourceARN :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html#cfn-kinesisanalytics-applicationoutput-kinesisfirehoseoutput-rolearn>
                                    roleARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseOutputProperty ::
@@ -15,7 +19,8 @@ mkKinesisFirehoseOutputProperty ::
   -> Value Prelude.Text -> KinesisFirehoseOutputProperty
 mkKinesisFirehoseOutputProperty resourceARN roleARN
   = KinesisFirehoseOutputProperty
-      {resourceARN = resourceARN, roleARN = roleARN}
+      {haddock_workaround_ = (), resourceARN = resourceARN,
+       roleARN = roleARN}
 instance ToResourceProperties KinesisFirehoseOutputProperty where
   toResourceProperties KinesisFirehoseOutputProperty {..}
     = ResourceProperties

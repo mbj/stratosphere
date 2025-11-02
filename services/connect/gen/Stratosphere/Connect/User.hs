@@ -11,16 +11,29 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data User
-  = User {directoryUserId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html>
+    User {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-directoryuserid>
+          directoryUserId :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-hierarchygrouparn>
           hierarchyGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-identityinfo>
           identityInfo :: (Prelude.Maybe UserIdentityInfoProperty),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-instancearn>
           instanceArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-password>
           password :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phoneconfig>
           phoneConfig :: UserPhoneConfigProperty,
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-routingprofilearn>
           routingProfileArn :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-securityprofilearns>
           securityProfileArns :: (ValueList Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-tags>
           tags :: (Prelude.Maybe [Tag]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-userproficiencies>
           userProficiencies :: (Prelude.Maybe [UserProficiencyProperty]),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-username>
           username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUser ::
@@ -35,8 +48,8 @@ mkUser
   securityProfileArns
   username
   = User
-      {instanceArn = instanceArn, phoneConfig = phoneConfig,
-       routingProfileArn = routingProfileArn,
+      {haddock_workaround_ = (), instanceArn = instanceArn,
+       phoneConfig = phoneConfig, routingProfileArn = routingProfileArn,
        securityProfileArns = securityProfileArns, username = username,
        directoryUserId = Prelude.Nothing,
        hierarchyGroupArn = Prelude.Nothing,

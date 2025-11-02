@@ -11,20 +11,30 @@ import {-# SOURCE #-} Stratosphere.Comprehend.DocumentClassifier.DocumentReaderC
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentClassifierInputDataConfigProperty
-  = DocumentClassifierInputDataConfigProperty {augmentedManifests :: (Prelude.Maybe [AugmentedManifestsListItemProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html>
+    DocumentClassifierInputDataConfigProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-augmentedmanifests>
+                                               augmentedManifests :: (Prelude.Maybe [AugmentedManifestsListItemProperty]),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-dataformat>
                                                dataFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documentreaderconfig>
                                                documentReaderConfig :: (Prelude.Maybe DocumentReaderConfigProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documenttype>
                                                documentType :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-documents>
                                                documents :: (Prelude.Maybe DocumentClassifierDocumentsProperty),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-labeldelimiter>
                                                labelDelimiter :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-s3uri>
                                                s3Uri :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html#cfn-comprehend-documentclassifier-documentclassifierinputdataconfig-tests3uri>
                                                testS3Uri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentClassifierInputDataConfigProperty ::
   DocumentClassifierInputDataConfigProperty
 mkDocumentClassifierInputDataConfigProperty
   = DocumentClassifierInputDataConfigProperty
-      {augmentedManifests = Prelude.Nothing,
+      {haddock_workaround_ = (), augmentedManifests = Prelude.Nothing,
        dataFormat = Prelude.Nothing,
        documentReaderConfig = Prelude.Nothing,
        documentType = Prelude.Nothing, documents = Prelude.Nothing,

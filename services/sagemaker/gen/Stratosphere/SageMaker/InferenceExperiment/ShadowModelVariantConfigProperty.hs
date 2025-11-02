@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShadowModelVariantConfigProperty
-  = ShadowModelVariantConfigProperty {samplingPercentage :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html>
+    ShadowModelVariantConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodelvariantconfig-samplingpercentage>
+                                      samplingPercentage :: (Value Prelude.Integer),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html#cfn-sagemaker-inferenceexperiment-shadowmodelvariantconfig-shadowmodelvariantname>
                                       shadowModelVariantName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkShadowModelVariantConfigProperty ::
@@ -18,7 +22,7 @@ mkShadowModelVariantConfigProperty
   samplingPercentage
   shadowModelVariantName
   = ShadowModelVariantConfigProperty
-      {samplingPercentage = samplingPercentage,
+      {haddock_workaround_ = (), samplingPercentage = samplingPercentage,
        shadowModelVariantName = shadowModelVariantName}
 instance ToResourceProperties ShadowModelVariantConfigProperty where
   toResourceProperties ShadowModelVariantConfigProperty {..}

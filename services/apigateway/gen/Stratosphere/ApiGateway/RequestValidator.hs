@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RequestValidator
-  = RequestValidator {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html>
+    RequestValidator {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name>
+                      name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid>
                       restApiId :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody>
                       validateRequestBody :: (Prelude.Maybe (Value Prelude.Bool)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters>
                       validateRequestParameters :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestValidator :: Value Prelude.Text -> RequestValidator
 mkRequestValidator restApiId
   = RequestValidator
-      {restApiId = restApiId, name = Prelude.Nothing,
-       validateRequestBody = Prelude.Nothing,
+      {haddock_workaround_ = (), restApiId = restApiId,
+       name = Prelude.Nothing, validateRequestBody = Prelude.Nothing,
        validateRequestParameters = Prelude.Nothing}
 instance ToResourceProperties RequestValidator where
   toResourceProperties RequestValidator {..}

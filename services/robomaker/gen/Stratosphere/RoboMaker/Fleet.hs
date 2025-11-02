@@ -7,11 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Fleet
-  = Fleet {name :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html>
+    Fleet {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-name>
+           name :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-tags>
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Fleet
-mkFleet = Fleet {name = Prelude.Nothing, tags = Prelude.Nothing}
+mkFleet
+  = Fleet
+      {haddock_workaround_ = (), name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties

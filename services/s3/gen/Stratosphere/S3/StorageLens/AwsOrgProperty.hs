@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsOrgProperty
-  = AwsOrgProperty {arn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html>
+    AwsOrgProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn>
+                    arn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsOrgProperty :: Value Prelude.Text -> AwsOrgProperty
-mkAwsOrgProperty arn = AwsOrgProperty {arn = arn}
+mkAwsOrgProperty arn
+  = AwsOrgProperty {haddock_workaround_ = (), arn = arn}
 instance ToResourceProperties AwsOrgProperty where
   toResourceProperties AwsOrgProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON AwsOrgProperty where
   toJSON AwsOrgProperty {..} = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" AwsOrgProperty where
   type PropertyType "Arn" AwsOrgProperty = Value Prelude.Text
-  set newValue AwsOrgProperty {}
+  set newValue AwsOrgProperty {..}
     = AwsOrgProperty {arn = newValue, ..}

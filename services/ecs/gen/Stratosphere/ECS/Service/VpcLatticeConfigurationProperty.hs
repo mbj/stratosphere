@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcLatticeConfigurationProperty
-  = VpcLatticeConfigurationProperty {portName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html>
+    VpcLatticeConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-portname>
+                                     portName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-rolearn>
                                      roleArn :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-targetgrouparn>
                                      targetGroupArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcLatticeConfigurationProperty ::
@@ -18,7 +23,7 @@ mkVpcLatticeConfigurationProperty ::
      -> Value Prelude.Text -> VpcLatticeConfigurationProperty
 mkVpcLatticeConfigurationProperty portName roleArn targetGroupArn
   = VpcLatticeConfigurationProperty
-      {portName = portName, roleArn = roleArn,
+      {haddock_workaround_ = (), portName = portName, roleArn = roleArn,
        targetGroupArn = targetGroupArn}
 instance ToResourceProperties VpcLatticeConfigurationProperty where
   toResourceProperties VpcLatticeConfigurationProperty {..}

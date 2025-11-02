@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLossFailoverSettingsPr
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoBlackFailoverSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data FailoverConditionSettingsProperty
-  = FailoverConditionSettingsProperty {audioSilenceSettings :: (Prelude.Maybe AudioSilenceFailoverSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html>
+    FailoverConditionSettingsProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-audiosilencesettings>
+                                       audioSilenceSettings :: (Prelude.Maybe AudioSilenceFailoverSettingsProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-inputlosssettings>
                                        inputLossSettings :: (Prelude.Maybe InputLossFailoverSettingsProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html#cfn-medialive-channel-failoverconditionsettings-videoblacksettings>
                                        videoBlackSettings :: (Prelude.Maybe VideoBlackFailoverSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionSettingsProperty ::
   FailoverConditionSettingsProperty
 mkFailoverConditionSettingsProperty
   = FailoverConditionSettingsProperty
-      {audioSilenceSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), audioSilenceSettings = Prelude.Nothing,
        inputLossSettings = Prelude.Nothing,
        videoBlackSettings = Prelude.Nothing}
 instance ToResourceProperties FailoverConditionSettingsProperty where

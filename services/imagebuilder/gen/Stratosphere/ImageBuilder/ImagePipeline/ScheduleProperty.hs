@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleProperty
-  = ScheduleProperty {pipelineExecutionStartCondition :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html>
+    ScheduleProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition>
+                      pipelineExecutionStartCondition :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression>
                       scheduleExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: ScheduleProperty
 mkScheduleProperty
   = ScheduleProperty
-      {pipelineExecutionStartCondition = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       pipelineExecutionStartCondition = Prelude.Nothing,
        scheduleExpression = Prelude.Nothing}
 instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}

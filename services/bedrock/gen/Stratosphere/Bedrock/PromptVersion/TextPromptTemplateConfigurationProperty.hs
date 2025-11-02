@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Bedrock.PromptVersion.PromptInputVariableProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextPromptTemplateConfigurationProperty
-  = TextPromptTemplateConfigurationProperty {inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html>
+    TextPromptTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-inputvariables>
+                                             inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-text>
                                              text :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextPromptTemplateConfigurationProperty ::
   Value Prelude.Text -> TextPromptTemplateConfigurationProperty
 mkTextPromptTemplateConfigurationProperty text
   = TextPromptTemplateConfigurationProperty
-      {text = text, inputVariables = Prelude.Nothing}
+      {haddock_workaround_ = (), text = text,
+       inputVariables = Prelude.Nothing}
 instance ToResourceProperties TextPromptTemplateConfigurationProperty where
   toResourceProperties TextPromptTemplateConfigurationProperty {..}
     = ResourceProperties

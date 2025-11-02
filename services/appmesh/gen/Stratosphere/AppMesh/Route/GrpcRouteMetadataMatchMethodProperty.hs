@@ -9,19 +9,26 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.MatchRangeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcRouteMetadataMatchMethodProperty
-  = GrpcRouteMetadataMatchMethodProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html>
+    GrpcRouteMetadataMatchMethodProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-exact>
+                                          exact :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-prefix>
                                           prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-range>
                                           range :: (Prelude.Maybe MatchRangeProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-regex>
                                           regex :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html#cfn-appmesh-route-grpcroutemetadatamatchmethod-suffix>
                                           suffix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMetadataMatchMethodProperty ::
   GrpcRouteMetadataMatchMethodProperty
 mkGrpcRouteMetadataMatchMethodProperty
   = GrpcRouteMetadataMatchMethodProperty
-      {exact = Prelude.Nothing, prefix = Prelude.Nothing,
-       range = Prelude.Nothing, regex = Prelude.Nothing,
-       suffix = Prelude.Nothing}
+      {haddock_workaround_ = (), exact = Prelude.Nothing,
+       prefix = Prelude.Nothing, range = Prelude.Nothing,
+       regex = Prelude.Nothing, suffix = Prelude.Nothing}
 instance ToResourceProperties GrpcRouteMetadataMatchMethodProperty where
   toResourceProperties GrpcRouteMetadataMatchMethodProperty {..}
     = ResourceProperties

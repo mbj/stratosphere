@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeFarmConfigurationProperty
-  = ComputeFarmConfigurationProperty {activeDirectoryUser :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html>
+    ComputeFarmConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser>
+                                      activeDirectoryUser :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint>
                                       endpoint :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeFarmConfigurationProperty ::
   ComputeFarmConfigurationProperty
 mkComputeFarmConfigurationProperty
   = ComputeFarmConfigurationProperty
-      {activeDirectoryUser = Prelude.Nothing, endpoint = Prelude.Nothing}
+      {haddock_workaround_ = (), activeDirectoryUser = Prelude.Nothing,
+       endpoint = Prelude.Nothing}
 instance ToResourceProperties ComputeFarmConfigurationProperty where
   toResourceProperties ComputeFarmConfigurationProperty {..}
     = ResourceProperties

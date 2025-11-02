@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaConflictHandlerConfigProperty
-  = LambdaConflictHandlerConfigProperty {lambdaConflictHandlerArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html>
+    LambdaConflictHandlerConfigProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html#cfn-appsync-resolver-lambdaconflicthandlerconfig-lambdaconflicthandlerarn>
+                                         lambdaConflictHandlerArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConflictHandlerConfigProperty ::
   LambdaConflictHandlerConfigProperty
 mkLambdaConflictHandlerConfigProperty
   = LambdaConflictHandlerConfigProperty
-      {lambdaConflictHandlerArn = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       lambdaConflictHandlerArn = Prelude.Nothing}
 instance ToResourceProperties LambdaConflictHandlerConfigProperty where
   toResourceProperties LambdaConflictHandlerConfigProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON LambdaConflictHandlerConfigProperty where
                  Prelude.<$> lambdaConflictHandlerArn]))
 instance Property "LambdaConflictHandlerArn" LambdaConflictHandlerConfigProperty where
   type PropertyType "LambdaConflictHandlerArn" LambdaConflictHandlerConfigProperty = Value Prelude.Text
-  set newValue LambdaConflictHandlerConfigProperty {}
+  set newValue LambdaConflictHandlerConfigProperty {..}
     = LambdaConflictHandlerConfigProperty
         {lambdaConflictHandlerArn = Prelude.pure newValue, ..}

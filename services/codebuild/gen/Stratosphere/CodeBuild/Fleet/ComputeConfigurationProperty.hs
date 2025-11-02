@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeConfigurationProperty
-  = ComputeConfigurationProperty {disk :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html>
+    ComputeConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-disk>
+                                  disk :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-machinetype>
                                   machineType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-memory>
                                   memory :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-vcpu>
                                   vCpu :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeConfigurationProperty :: ComputeConfigurationProperty
 mkComputeConfigurationProperty
   = ComputeConfigurationProperty
-      {disk = Prelude.Nothing, machineType = Prelude.Nothing,
-       memory = Prelude.Nothing, vCpu = Prelude.Nothing}
+      {haddock_workaround_ = (), disk = Prelude.Nothing,
+       machineType = Prelude.Nothing, memory = Prelude.Nothing,
+       vCpu = Prelude.Nothing}
 instance ToResourceProperties ComputeConfigurationProperty where
   toResourceProperties ComputeConfigurationProperty {..}
     = ResourceProperties

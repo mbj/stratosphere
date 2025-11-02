@@ -7,12 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StateProperty
-  = StateProperty {code :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html>
+    StateProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html#cfn-ec2-instance-state-code>
+                   code :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html#cfn-ec2-instance-state-name>
                    name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStateProperty :: StateProperty
 mkStateProperty
-  = StateProperty {code = Prelude.Nothing, name = Prelude.Nothing}
+  = StateProperty
+      {haddock_workaround_ = (), code = Prelude.Nothing,
+       name = Prelude.Nothing}
 instance ToResourceProperties StateProperty where
   toResourceProperties StateProperty {..}
     = ResourceProperties

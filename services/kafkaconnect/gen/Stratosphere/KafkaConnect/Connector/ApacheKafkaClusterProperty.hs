@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.VpcProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApacheKafkaClusterProperty
-  = ApacheKafkaClusterProperty {bootstrapServers :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html>
+    ApacheKafkaClusterProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-bootstrapservers>
+                                bootstrapServers :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html#cfn-kafkaconnect-connector-apachekafkacluster-vpc>
                                 vpc :: VpcProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApacheKafkaClusterProperty ::
   Value Prelude.Text -> VpcProperty -> ApacheKafkaClusterProperty
 mkApacheKafkaClusterProperty bootstrapServers vpc
   = ApacheKafkaClusterProperty
-      {bootstrapServers = bootstrapServers, vpc = vpc}
+      {haddock_workaround_ = (), bootstrapServers = bootstrapServers,
+       vpc = vpc}
 instance ToResourceProperties ApacheKafkaClusterProperty where
   toResourceProperties ApacheKafkaClusterProperty {..}
     = ResourceProperties

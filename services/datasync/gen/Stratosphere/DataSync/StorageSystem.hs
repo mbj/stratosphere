@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data StorageSystem
-  = StorageSystem {agentArns :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html>
+    StorageSystem {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-agentarns>
+                   agentArns :: (ValueList Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-cloudwatchloggrouparn>
                    cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-name>
                    name :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-serverconfiguration>
                    serverConfiguration :: ServerConfigurationProperty,
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-servercredentials>
                    serverCredentials :: (Prelude.Maybe ServerCredentialsProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-systemtype>
                    systemType :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html#cfn-datasync-storagesystem-tags>
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageSystem ::
@@ -24,10 +33,10 @@ mkStorageSystem ::
      -> Value Prelude.Text -> StorageSystem
 mkStorageSystem agentArns serverConfiguration systemType
   = StorageSystem
-      {agentArns = agentArns, serverConfiguration = serverConfiguration,
-       systemType = systemType, cloudWatchLogGroupArn = Prelude.Nothing,
-       name = Prelude.Nothing, serverCredentials = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), agentArns = agentArns,
+       serverConfiguration = serverConfiguration, systemType = systemType,
+       cloudWatchLogGroupArn = Prelude.Nothing, name = Prelude.Nothing,
+       serverCredentials = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties StorageSystem where
   toResourceProperties StorageSystem {..}
     = ResourceProperties

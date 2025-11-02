@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.Session
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleWeightPolicyConfigProperty
-  = SingleWeightPolicyConfigProperty {sessionStickinessConfig :: (Prelude.Maybe SessionStickinessConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html>
+    SingleWeightPolicyConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig-sessionstickinessconfig>
+                                      sessionStickinessConfig :: (Prelude.Maybe SessionStickinessConfigProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig-weight>
                                       weight :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleWeightPolicyConfigProperty ::
   Value Prelude.Double -> SingleWeightPolicyConfigProperty
 mkSingleWeightPolicyConfigProperty weight
   = SingleWeightPolicyConfigProperty
-      {weight = weight, sessionStickinessConfig = Prelude.Nothing}
+      {haddock_workaround_ = (), weight = weight,
+       sessionStickinessConfig = Prelude.Nothing}
 instance ToResourceProperties SingleWeightPolicyConfigProperty where
   toResourceProperties SingleWeightPolicyConfigProperty {..}
     = ResourceProperties

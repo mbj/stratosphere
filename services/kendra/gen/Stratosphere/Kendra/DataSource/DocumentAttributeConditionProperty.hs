@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DocumentAttributeValuePrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentAttributeConditionProperty
-  = DocumentAttributeConditionProperty {conditionDocumentAttributeKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html>
+    DocumentAttributeConditionProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiondocumentattributekey>
+                                        conditionDocumentAttributeKey :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-conditiononvalue>
                                         conditionOnValue :: (Prelude.Maybe DocumentAttributeValueProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html#cfn-kendra-datasource-documentattributecondition-operator>
                                         operator :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeConditionProperty ::
@@ -20,7 +25,8 @@ mkDocumentAttributeConditionProperty
   conditionDocumentAttributeKey
   operator
   = DocumentAttributeConditionProperty
-      {conditionDocumentAttributeKey = conditionDocumentAttributeKey,
+      {haddock_workaround_ = (),
+       conditionDocumentAttributeKey = conditionDocumentAttributeKey,
        operator = operator, conditionOnValue = Prelude.Nothing}
 instance ToResourceProperties DocumentAttributeConditionProperty where
   toResourceProperties DocumentAttributeConditionProperty {..}

@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateTimeDatasetParameterDefaultValuesProperty
-  = DateTimeDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html>
+    DateTimeDatasetParameterDefaultValuesProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html#cfn-quicksight-dataset-datetimedatasetparameterdefaultvalues-staticvalues>
+                                                   staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeDatasetParameterDefaultValuesProperty ::
   DateTimeDatasetParameterDefaultValuesProperty
 mkDateTimeDatasetParameterDefaultValuesProperty
   = DateTimeDatasetParameterDefaultValuesProperty
-      {staticValues = Prelude.Nothing}
+      {haddock_workaround_ = (), staticValues = Prelude.Nothing}
 instance ToResourceProperties DateTimeDatasetParameterDefaultValuesProperty where
   toResourceProperties
     DateTimeDatasetParameterDefaultValuesProperty {..}
@@ -32,6 +35,6 @@ instance JSON.ToJSON DateTimeDatasetParameterDefaultValuesProperty where
               [(JSON..=) "StaticValues" Prelude.<$> staticValues]))
 instance Property "StaticValues" DateTimeDatasetParameterDefaultValuesProperty where
   type PropertyType "StaticValues" DateTimeDatasetParameterDefaultValuesProperty = ValueList Prelude.Text
-  set newValue DateTimeDatasetParameterDefaultValuesProperty {}
+  set newValue DateTimeDatasetParameterDefaultValuesProperty {..}
     = DateTimeDatasetParameterDefaultValuesProperty
         {staticValues = Prelude.pure newValue, ..}

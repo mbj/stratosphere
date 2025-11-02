@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioPidSelectionProperty
-  = AudioPidSelectionProperty {pid :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html>
+    AudioPidSelectionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html#cfn-medialive-channel-audiopidselection-pid>
+                               pid :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioPidSelectionProperty :: AudioPidSelectionProperty
 mkAudioPidSelectionProperty
-  = AudioPidSelectionProperty {pid = Prelude.Nothing}
+  = AudioPidSelectionProperty
+      {haddock_workaround_ = (), pid = Prelude.Nothing}
 instance ToResourceProperties AudioPidSelectionProperty where
   toResourceProperties AudioPidSelectionProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON AudioPidSelectionProperty where
            (Prelude.catMaybes [(JSON..=) "Pid" Prelude.<$> pid]))
 instance Property "Pid" AudioPidSelectionProperty where
   type PropertyType "Pid" AudioPidSelectionProperty = Value Prelude.Integer
-  set newValue AudioPidSelectionProperty {}
+  set newValue AudioPidSelectionProperty {..}
     = AudioPidSelectionProperty {pid = Prelude.pure newValue, ..}

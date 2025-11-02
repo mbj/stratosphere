@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyProviderProperty as Exports
 import Stratosphere.ResourceProperties
 data MssEncryptionProperty
-  = MssEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html>
+    MssEncryptionProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider>
+                           spekeKeyProvider :: SpekeKeyProviderProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMssEncryptionProperty ::
   SpekeKeyProviderProperty -> MssEncryptionProperty
 mkMssEncryptionProperty spekeKeyProvider
-  = MssEncryptionProperty {spekeKeyProvider = spekeKeyProvider}
+  = MssEncryptionProperty
+      {haddock_workaround_ = (), spekeKeyProvider = spekeKeyProvider}
 instance ToResourceProperties MssEncryptionProperty where
   toResourceProperties MssEncryptionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON MssEncryptionProperty where
     = JSON.object ["SpekeKeyProvider" JSON..= spekeKeyProvider]
 instance Property "SpekeKeyProvider" MssEncryptionProperty where
   type PropertyType "SpekeKeyProvider" MssEncryptionProperty = SpekeKeyProviderProperty
-  set newValue MssEncryptionProperty {}
+  set newValue MssEncryptionProperty {..}
     = MssEncryptionProperty {spekeKeyProvider = newValue, ..}

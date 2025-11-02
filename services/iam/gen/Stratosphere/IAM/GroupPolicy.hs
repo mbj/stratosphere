@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupPolicy
-  = GroupPolicy {groupName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html>
+    GroupPolicy {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html#cfn-iam-grouppolicy-groupname>
+                 groupName :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html#cfn-iam-grouppolicy-policydocument>
                  policyDocument :: (Prelude.Maybe JSON.Object),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html#cfn-iam-grouppolicy-policyname>
                  policyName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupPolicy ::
   Value Prelude.Text -> Value Prelude.Text -> GroupPolicy
 mkGroupPolicy groupName policyName
   = GroupPolicy
-      {groupName = groupName, policyName = policyName,
-       policyDocument = Prelude.Nothing}
+      {haddock_workaround_ = (), groupName = groupName,
+       policyName = policyName, policyDocument = Prelude.Nothing}
 instance ToResourceProperties GroupPolicy where
   toResourceProperties GroupPolicy {..}
     = ResourceProperties

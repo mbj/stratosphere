@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerTlsAcmCertificateProperty
-  = ListenerTlsAcmCertificateProperty {certificateArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html>
+    ListenerTlsAcmCertificateProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html#cfn-appmesh-virtualnode-listenertlsacmcertificate-certificatearn>
+                                       certificateArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsAcmCertificateProperty ::
   Value Prelude.Text -> ListenerTlsAcmCertificateProperty
 mkListenerTlsAcmCertificateProperty certificateArn
   = ListenerTlsAcmCertificateProperty
-      {certificateArn = certificateArn}
+      {haddock_workaround_ = (), certificateArn = certificateArn}
 instance ToResourceProperties ListenerTlsAcmCertificateProperty where
   toResourceProperties ListenerTlsAcmCertificateProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON ListenerTlsAcmCertificateProperty where
     = JSON.object ["CertificateArn" JSON..= certificateArn]
 instance Property "CertificateArn" ListenerTlsAcmCertificateProperty where
   type PropertyType "CertificateArn" ListenerTlsAcmCertificateProperty = Value Prelude.Text
-  set newValue ListenerTlsAcmCertificateProperty {}
+  set newValue ListenerTlsAcmCertificateProperty {..}
     = ListenerTlsAcmCertificateProperty {certificateArn = newValue, ..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlexibleTimeWindowProperty
-  = FlexibleTimeWindowProperty {maximumWindowInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html>
+    FlexibleTimeWindowProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html#cfn-scheduler-schedule-flexibletimewindow-maximumwindowinminutes>
+                                maximumWindowInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html#cfn-scheduler-schedule-flexibletimewindow-mode>
                                 mode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlexibleTimeWindowProperty ::
   Value Prelude.Text -> FlexibleTimeWindowProperty
 mkFlexibleTimeWindowProperty mode
   = FlexibleTimeWindowProperty
-      {mode = mode, maximumWindowInMinutes = Prelude.Nothing}
+      {haddock_workaround_ = (), mode = mode,
+       maximumWindowInMinutes = Prelude.Nothing}
 instance ToResourceProperties FlexibleTimeWindowProperty where
   toResourceProperties FlexibleTimeWindowProperty {..}
     = ResourceProperties

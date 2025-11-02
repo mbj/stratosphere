@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BasicAuthCredentialsProperty
-  = BasicAuthCredentialsProperty {password :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-basicauthcredentials.html>
+    BasicAuthCredentialsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-basicauthcredentials.html#cfn-appflow-connectorprofile-basicauthcredentials-password>
+                                  password :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-basicauthcredentials.html#cfn-appflow-connectorprofile-basicauthcredentials-username>
                                   username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBasicAuthCredentialsProperty ::
@@ -15,7 +19,8 @@ mkBasicAuthCredentialsProperty ::
   -> Value Prelude.Text -> BasicAuthCredentialsProperty
 mkBasicAuthCredentialsProperty password username
   = BasicAuthCredentialsProperty
-      {password = password, username = username}
+      {haddock_workaround_ = (), password = password,
+       username = username}
 instance ToResourceProperties BasicAuthCredentialsProperty where
   toResourceProperties BasicAuthCredentialsProperty {..}
     = ResourceProperties

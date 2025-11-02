@@ -7,28 +7,41 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageVersion
-  = ImageVersion {alias :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html>
+    ImageVersion {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-alias>
+                  alias :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-aliases>
                   aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage>
                   baseImage :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-horovod>
                   horovod :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename>
                   imageName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-jobtype>
                   jobType :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-mlframework>
                   mLFramework :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-processor>
                   processor :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-programminglang>
                   programmingLang :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-releasenotes>
                   releaseNotes :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-vendorguidance>
                   vendorGuidance :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageVersion ::
   Value Prelude.Text -> Value Prelude.Text -> ImageVersion
 mkImageVersion baseImage imageName
   = ImageVersion
-      {baseImage = baseImage, imageName = imageName,
-       alias = Prelude.Nothing, aliases = Prelude.Nothing,
-       horovod = Prelude.Nothing, jobType = Prelude.Nothing,
-       mLFramework = Prelude.Nothing, processor = Prelude.Nothing,
-       programmingLang = Prelude.Nothing, releaseNotes = Prelude.Nothing,
-       vendorGuidance = Prelude.Nothing}
+      {haddock_workaround_ = (), baseImage = baseImage,
+       imageName = imageName, alias = Prelude.Nothing,
+       aliases = Prelude.Nothing, horovod = Prelude.Nothing,
+       jobType = Prelude.Nothing, mLFramework = Prelude.Nothing,
+       processor = Prelude.Nothing, programmingLang = Prelude.Nothing,
+       releaseNotes = Prelude.Nothing, vendorGuidance = Prelude.Nothing}
 instance ToResourceProperties ImageVersion where
   toResourceProperties ImageVersion {..}
     = ResourceProperties

@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.EfsInputFileLocationPropert
 import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3InputFileLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InputFileLocationProperty
-  = InputFileLocationProperty {efsFileLocation :: (Prelude.Maybe EfsInputFileLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html>
+    InputFileLocationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html#cfn-transfer-workflow-inputfilelocation-efsfilelocation>
+                               efsFileLocation :: (Prelude.Maybe EfsInputFileLocationProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html#cfn-transfer-workflow-inputfilelocation-s3filelocation>
                                s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFileLocationProperty :: InputFileLocationProperty
 mkInputFileLocationProperty
   = InputFileLocationProperty
-      {efsFileLocation = Prelude.Nothing,
+      {haddock_workaround_ = (), efsFileLocation = Prelude.Nothing,
        s3FileLocation = Prelude.Nothing}
 instance ToResourceProperties InputFileLocationProperty where
   toResourceProperties InputFileLocationProperty {..}

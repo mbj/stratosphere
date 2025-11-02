@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OverrideTimeSliceProperty
-  = OverrideTimeSliceProperty {hours :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetimeslice.html>
+    OverrideTimeSliceProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetimeslice.html#cfn-connect-hoursofoperation-overridetimeslice-hours>
+                               hours :: (Value Prelude.Integer),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetimeslice.html#cfn-connect-hoursofoperation-overridetimeslice-minutes>
                                minutes :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideTimeSliceProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> OverrideTimeSliceProperty
 mkOverrideTimeSliceProperty hours minutes
-  = OverrideTimeSliceProperty {hours = hours, minutes = minutes}
+  = OverrideTimeSliceProperty
+      {haddock_workaround_ = (), hours = hours, minutes = minutes}
 instance ToResourceProperties OverrideTimeSliceProperty where
   toResourceProperties OverrideTimeSliceProperty {..}
     = ResourceProperties

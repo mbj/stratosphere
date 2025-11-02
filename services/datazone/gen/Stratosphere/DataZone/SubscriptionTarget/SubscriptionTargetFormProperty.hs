@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubscriptionTargetFormProperty
-  = SubscriptionTargetFormProperty {content :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html>
+    SubscriptionTargetFormProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html#cfn-datazone-subscriptiontarget-subscriptiontargetform-content>
+                                    content :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html#cfn-datazone-subscriptiontarget-subscriptiontargetform-formname>
                                     formName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionTargetFormProperty ::
@@ -16,7 +20,7 @@ mkSubscriptionTargetFormProperty ::
   -> Value Prelude.Text -> SubscriptionTargetFormProperty
 mkSubscriptionTargetFormProperty content formName
   = SubscriptionTargetFormProperty
-      {content = content, formName = formName}
+      {haddock_workaround_ = (), content = content, formName = formName}
 instance ToResourceProperties SubscriptionTargetFormProperty where
   toResourceProperties SubscriptionTargetFormProperty {..}
     = ResourceProperties

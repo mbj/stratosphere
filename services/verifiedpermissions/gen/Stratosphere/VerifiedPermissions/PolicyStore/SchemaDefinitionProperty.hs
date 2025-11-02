@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SchemaDefinitionProperty
-  = SchemaDefinitionProperty {cedarJson :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html>
+    SchemaDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html#cfn-verifiedpermissions-policystore-schemadefinition-cedarjson>
+                              cedarJson :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaDefinitionProperty :: SchemaDefinitionProperty
 mkSchemaDefinitionProperty
-  = SchemaDefinitionProperty {cedarJson = Prelude.Nothing}
+  = SchemaDefinitionProperty
+      {haddock_workaround_ = (), cedarJson = Prelude.Nothing}
 instance ToResourceProperties SchemaDefinitionProperty where
   toResourceProperties SchemaDefinitionProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON SchemaDefinitionProperty where
            (Prelude.catMaybes [(JSON..=) "CedarJson" Prelude.<$> cedarJson]))
 instance Property "CedarJson" SchemaDefinitionProperty where
   type PropertyType "CedarJson" SchemaDefinitionProperty = Value Prelude.Text
-  set newValue SchemaDefinitionProperty {}
+  set newValue SchemaDefinitionProperty {..}
     = SchemaDefinitionProperty {cedarJson = Prelude.pure newValue, ..}

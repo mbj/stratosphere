@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsValidationContextFileTrustProperty
-  = TlsValidationContextFileTrustProperty {certificateChain :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html>
+    TlsValidationContextFileTrustProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html#cfn-appmesh-virtualnode-tlsvalidationcontextfiletrust-certificatechain>
+                                           certificateChain :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextFileTrustProperty ::
   Value Prelude.Text -> TlsValidationContextFileTrustProperty
 mkTlsValidationContextFileTrustProperty certificateChain
   = TlsValidationContextFileTrustProperty
-      {certificateChain = certificateChain}
+      {haddock_workaround_ = (), certificateChain = certificateChain}
 instance ToResourceProperties TlsValidationContextFileTrustProperty where
   toResourceProperties TlsValidationContextFileTrustProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON TlsValidationContextFileTrustProperty where
     = JSON.object ["CertificateChain" JSON..= certificateChain]
 instance Property "CertificateChain" TlsValidationContextFileTrustProperty where
   type PropertyType "CertificateChain" TlsValidationContextFileTrustProperty = Value Prelude.Text
-  set newValue TlsValidationContextFileTrustProperty {}
+  set newValue TlsValidationContextFileTrustProperty {..}
     = TlsValidationContextFileTrustProperty
         {certificateChain = newValue, ..}

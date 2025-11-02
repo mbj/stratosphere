@@ -8,13 +8,18 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data WALWorkspace
-  = WALWorkspace {tags :: (Prelude.Maybe [Tag]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html>
+    WALWorkspace {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html#cfn-emr-walworkspace-tags>
+                  tags :: (Prelude.Maybe [Tag]),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html#cfn-emr-walworkspace-walworkspacename>
                   wALWorkspaceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWALWorkspace :: WALWorkspace
 mkWALWorkspace
   = WALWorkspace
-      {tags = Prelude.Nothing, wALWorkspaceName = Prelude.Nothing}
+      {haddock_workaround_ = (), tags = Prelude.Nothing,
+       wALWorkspaceName = Prelude.Nothing}
 instance ToResourceProperties WALWorkspace where
   toResourceProperties WALWorkspace {..}
     = ResourceProperties

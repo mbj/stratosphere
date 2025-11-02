@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceCodeVersionProperty
-  = SourceCodeVersionProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html>
+    SourceCodeVersionProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type>
+                               type' :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value>
                                value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceCodeVersionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SourceCodeVersionProperty
 mkSourceCodeVersionProperty type' value
-  = SourceCodeVersionProperty {type' = type', value = value}
+  = SourceCodeVersionProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties SourceCodeVersionProperty where
   toResourceProperties SourceCodeVersionProperty {..}
     = ResourceProperties

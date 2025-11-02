@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsLogSourceProperty
-  = AwsLogSourceProperty {sourceName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-awslogsource.html>
+    AwsLogSourceProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-awslogsource.html#cfn-securitylake-subscriber-awslogsource-sourcename>
+                          sourceName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-awslogsource.html#cfn-securitylake-subscriber-awslogsource-sourceversion>
                           sourceVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsLogSourceProperty :: AwsLogSourceProperty
 mkAwsLogSourceProperty
   = AwsLogSourceProperty
-      {sourceName = Prelude.Nothing, sourceVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceName = Prelude.Nothing,
+       sourceVersion = Prelude.Nothing}
 instance ToResourceProperties AwsLogSourceProperty where
   toResourceProperties AwsLogSourceProperty {..}
     = ResourceProperties

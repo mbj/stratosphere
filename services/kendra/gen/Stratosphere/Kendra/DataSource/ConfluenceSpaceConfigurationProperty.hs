@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluenceSpaceToIndexField
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfluenceSpaceConfigurationProperty
-  = ConfluenceSpaceConfigurationProperty {crawlArchivedSpaces :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html>
+    ConfluenceSpaceConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces>
+                                          crawlArchivedSpaces :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces>
                                           crawlPersonalSpaces :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces>
                                           excludeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces>
                                           includeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings>
                                           spaceFieldMappings :: (Prelude.Maybe [ConfluenceSpaceToIndexFieldMappingProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceSpaceConfigurationProperty ::
   ConfluenceSpaceConfigurationProperty
 mkConfluenceSpaceConfigurationProperty
   = ConfluenceSpaceConfigurationProperty
-      {crawlArchivedSpaces = Prelude.Nothing,
+      {haddock_workaround_ = (), crawlArchivedSpaces = Prelude.Nothing,
        crawlPersonalSpaces = Prelude.Nothing,
        excludeSpaces = Prelude.Nothing, includeSpaces = Prelude.Nothing,
        spaceFieldMappings = Prelude.Nothing}

@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputLocationProperty
-  = OutputLocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html>
+    OutputLocationProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket>
+                            bucket :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucketowner>
                             bucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key>
                             key :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputLocationProperty ::
   Value Prelude.Text -> OutputLocationProperty
 mkOutputLocationProperty bucket
   = OutputLocationProperty
-      {bucket = bucket, bucketOwner = Prelude.Nothing,
-       key = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket,
+       bucketOwner = Prelude.Nothing, key = Prelude.Nothing}
 instance ToResourceProperties OutputLocationProperty where
   toResourceProperties OutputLocationProperty {..}
     = ResourceProperties

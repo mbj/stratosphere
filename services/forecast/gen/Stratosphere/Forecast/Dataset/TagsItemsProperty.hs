@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagsItemsProperty
-  = TagsItemsProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html>
+    TagsItemsProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html#cfn-forecast-dataset-tagsitems-key>
+                       key :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html#cfn-forecast-dataset-tagsitems-value>
                        value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTagsItemsProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TagsItemsProperty
 mkTagsItemsProperty key value
-  = TagsItemsProperty {key = key, value = value}
+  = TagsItemsProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties TagsItemsProperty where
   toResourceProperties TagsItemsProperty {..}
     = ResourceProperties

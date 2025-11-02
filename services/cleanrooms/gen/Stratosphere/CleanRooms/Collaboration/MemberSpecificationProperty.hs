@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.Collaboration.PaymentConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberSpecificationProperty
-  = MemberSpecificationProperty {accountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html>
+    MemberSpecificationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-accountid>
+                                 accountId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-displayname>
                                  displayName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities>
                                  memberAbilities :: (ValueList Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-paymentconfiguration>
                                  paymentConfiguration :: (Prelude.Maybe PaymentConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberSpecificationProperty ::
@@ -20,8 +26,8 @@ mkMemberSpecificationProperty ::
      -> ValueList Prelude.Text -> MemberSpecificationProperty
 mkMemberSpecificationProperty accountId displayName memberAbilities
   = MemberSpecificationProperty
-      {accountId = accountId, displayName = displayName,
-       memberAbilities = memberAbilities,
+      {haddock_workaround_ = (), accountId = accountId,
+       displayName = displayName, memberAbilities = memberAbilities,
        paymentConfiguration = Prelude.Nothing}
 instance ToResourceProperties MemberSpecificationProperty where
   toResourceProperties MemberSpecificationProperty {..}

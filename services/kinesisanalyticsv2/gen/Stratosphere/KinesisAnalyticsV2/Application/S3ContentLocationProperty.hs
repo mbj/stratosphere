@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ContentLocationProperty
-  = S3ContentLocationProperty {bucketARN :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html>
+    S3ContentLocationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-bucketarn>
+                               bucketARN :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-filekey>
                                fileKey :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html#cfn-kinesisanalyticsv2-application-s3contentlocation-objectversion>
                                objectVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ContentLocationProperty ::
@@ -16,8 +21,8 @@ mkS3ContentLocationProperty ::
   -> Value Prelude.Text -> S3ContentLocationProperty
 mkS3ContentLocationProperty bucketARN fileKey
   = S3ContentLocationProperty
-      {bucketARN = bucketARN, fileKey = fileKey,
-       objectVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), bucketARN = bucketARN,
+       fileKey = fileKey, objectVersion = Prelude.Nothing}
 instance ToResourceProperties S3ContentLocationProperty where
   toResourceProperties S3ContentLocationProperty {..}
     = ResourceProperties

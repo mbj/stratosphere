@@ -10,18 +10,27 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.StatusProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentProperty
-  = ComponentProperty {componentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html>
+    ComponentProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componentname>
+                       componentName :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-componenttypeid>
                        componentTypeId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-definedin>
                        definedIn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-properties>
                        properties :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyProperty)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-propertygroups>
                        propertyGroups :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyGroupProperty)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html#cfn-iottwinmaker-entity-component-status>
                        status :: (Prelude.Maybe StatusProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentProperty :: ComponentProperty
 mkComponentProperty
   = ComponentProperty
-      {componentName = Prelude.Nothing,
+      {haddock_workaround_ = (), componentName = Prelude.Nothing,
        componentTypeId = Prelude.Nothing, definedIn = Prelude.Nothing,
        description = Prelude.Nothing, properties = Prelude.Nothing,
        propertyGroups = Prelude.Nothing, status = Prelude.Nothing}

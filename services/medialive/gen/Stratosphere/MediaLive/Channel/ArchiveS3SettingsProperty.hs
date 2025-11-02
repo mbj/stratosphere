@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveS3SettingsProperty
-  = ArchiveS3SettingsProperty {cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html>
+    ArchiveS3SettingsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html#cfn-medialive-channel-archives3settings-cannedacl>
+                               cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveS3SettingsProperty :: ArchiveS3SettingsProperty
 mkArchiveS3SettingsProperty
-  = ArchiveS3SettingsProperty {cannedAcl = Prelude.Nothing}
+  = ArchiveS3SettingsProperty
+      {haddock_workaround_ = (), cannedAcl = Prelude.Nothing}
 instance ToResourceProperties ArchiveS3SettingsProperty where
   toResourceProperties ArchiveS3SettingsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ArchiveS3SettingsProperty where
            (Prelude.catMaybes [(JSON..=) "CannedAcl" Prelude.<$> cannedAcl]))
 instance Property "CannedAcl" ArchiveS3SettingsProperty where
   type PropertyType "CannedAcl" ArchiveS3SettingsProperty = Value Prelude.Text
-  set newValue ArchiveS3SettingsProperty {}
+  set newValue ArchiveS3SettingsProperty {..}
     = ArchiveS3SettingsProperty {cannedAcl = Prelude.pure newValue, ..}

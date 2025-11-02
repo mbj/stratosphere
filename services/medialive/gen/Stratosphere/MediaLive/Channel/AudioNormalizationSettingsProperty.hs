@@ -8,16 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioNormalizationSettingsProperty
-  = AudioNormalizationSettingsProperty {algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html>
+    AudioNormalizationSettingsProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-algorithm>
+                                        algorithm :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-algorithmcontrol>
                                         algorithmControl :: (Prelude.Maybe (Value Prelude.Text)),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-targetlkfs>
                                         targetLkfs :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioNormalizationSettingsProperty ::
   AudioNormalizationSettingsProperty
 mkAudioNormalizationSettingsProperty
   = AudioNormalizationSettingsProperty
-      {algorithm = Prelude.Nothing, algorithmControl = Prelude.Nothing,
-       targetLkfs = Prelude.Nothing}
+      {haddock_workaround_ = (), algorithm = Prelude.Nothing,
+       algorithmControl = Prelude.Nothing, targetLkfs = Prelude.Nothing}
 instance ToResourceProperties AudioNormalizationSettingsProperty where
   toResourceProperties AudioNormalizationSettingsProperty {..}
     = ResourceProperties

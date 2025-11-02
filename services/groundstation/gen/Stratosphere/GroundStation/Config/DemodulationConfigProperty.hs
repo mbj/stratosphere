@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DemodulationConfigProperty
-  = DemodulationConfigProperty {unvalidatedJSON :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html>
+    DemodulationConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson>
+                                unvalidatedJSON :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDemodulationConfigProperty :: DemodulationConfigProperty
 mkDemodulationConfigProperty
-  = DemodulationConfigProperty {unvalidatedJSON = Prelude.Nothing}
+  = DemodulationConfigProperty
+      {haddock_workaround_ = (), unvalidatedJSON = Prelude.Nothing}
 instance ToResourceProperties DemodulationConfigProperty where
   toResourceProperties DemodulationConfigProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON DemodulationConfigProperty where
               [(JSON..=) "UnvalidatedJSON" Prelude.<$> unvalidatedJSON]))
 instance Property "UnvalidatedJSON" DemodulationConfigProperty where
   type PropertyType "UnvalidatedJSON" DemodulationConfigProperty = Value Prelude.Text
-  set newValue DemodulationConfigProperty {}
+  set newValue DemodulationConfigProperty {..}
     = DemodulationConfigProperty
         {unvalidatedJSON = Prelude.pure newValue, ..}

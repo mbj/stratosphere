@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricPolicyRuleProperty
-  = MetricPolicyRuleProperty {objectGroup :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html>
+    MetricPolicyRuleProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroup>
+                              objectGroup :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html#cfn-mediastore-container-metricpolicyrule-objectgroupname>
                               objectGroupName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricPolicyRuleProperty ::
@@ -15,7 +19,8 @@ mkMetricPolicyRuleProperty ::
   -> Value Prelude.Text -> MetricPolicyRuleProperty
 mkMetricPolicyRuleProperty objectGroup objectGroupName
   = MetricPolicyRuleProperty
-      {objectGroup = objectGroup, objectGroupName = objectGroupName}
+      {haddock_workaround_ = (), objectGroup = objectGroup,
+       objectGroupName = objectGroupName}
 instance ToResourceProperties MetricPolicyRuleProperty where
   toResourceProperties MetricPolicyRuleProperty {..}
     = ResourceProperties

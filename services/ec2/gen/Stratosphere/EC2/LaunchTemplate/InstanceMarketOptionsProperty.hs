@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.SpotOptionsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceMarketOptionsProperty
-  = InstanceMarketOptionsProperty {marketType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html>
+    InstanceMarketOptionsProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html#cfn-ec2-launchtemplate-instancemarketoptions-markettype>
+                                   marketType :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html#cfn-ec2-launchtemplate-instancemarketoptions-spotoptions>
                                    spotOptions :: (Prelude.Maybe SpotOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMarketOptionsProperty :: InstanceMarketOptionsProperty
 mkInstanceMarketOptionsProperty
   = InstanceMarketOptionsProperty
-      {marketType = Prelude.Nothing, spotOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), marketType = Prelude.Nothing,
+       spotOptions = Prelude.Nothing}
 instance ToResourceProperties InstanceMarketOptionsProperty where
   toResourceProperties InstanceMarketOptionsProperty {..}
     = ResourceProperties

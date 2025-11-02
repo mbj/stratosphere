@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DimensionMappingProperty
-  = DimensionMappingProperty {dimensionValueType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html>
+    DimensionMappingProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-dimensionvaluetype>
+                              dimensionValueType :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html#cfn-timestream-scheduledquery-dimensionmapping-name>
                               name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionMappingProperty ::
@@ -15,7 +19,8 @@ mkDimensionMappingProperty ::
   -> Value Prelude.Text -> DimensionMappingProperty
 mkDimensionMappingProperty dimensionValueType name
   = DimensionMappingProperty
-      {dimensionValueType = dimensionValueType, name = name}
+      {haddock_workaround_ = (), dimensionValueType = dimensionValueType,
+       name = name}
 instance ToResourceProperties DimensionMappingProperty where
   toResourceProperties DimensionMappingProperty {..}
     = ResourceProperties

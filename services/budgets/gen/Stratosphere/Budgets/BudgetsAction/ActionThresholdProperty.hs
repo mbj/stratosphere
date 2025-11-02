@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionThresholdProperty
-  = ActionThresholdProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html>
+    ActionThresholdProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type>
+                             type' :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value>
                              value :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionThresholdProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> ActionThresholdProperty
 mkActionThresholdProperty type' value
-  = ActionThresholdProperty {type' = type', value = value}
+  = ActionThresholdProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties ActionThresholdProperty where
   toResourceProperties ActionThresholdProperty {..}
     = ResourceProperties

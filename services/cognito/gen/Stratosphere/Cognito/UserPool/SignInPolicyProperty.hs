@@ -7,11 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignInPolicyProperty
-  = SignInPolicyProperty {allowedFirstAuthFactors :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-signinpolicy.html>
+    SignInPolicyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-signinpolicy.html#cfn-cognito-userpool-signinpolicy-allowedfirstauthfactors>
+                          allowedFirstAuthFactors :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSignInPolicyProperty :: SignInPolicyProperty
 mkSignInPolicyProperty
-  = SignInPolicyProperty {allowedFirstAuthFactors = Prelude.Nothing}
+  = SignInPolicyProperty
+      {haddock_workaround_ = (),
+       allowedFirstAuthFactors = Prelude.Nothing}
 instance ToResourceProperties SignInPolicyProperty where
   toResourceProperties SignInPolicyProperty {..}
     = ResourceProperties
@@ -30,6 +35,6 @@ instance JSON.ToJSON SignInPolicyProperty where
                  Prelude.<$> allowedFirstAuthFactors]))
 instance Property "AllowedFirstAuthFactors" SignInPolicyProperty where
   type PropertyType "AllowedFirstAuthFactors" SignInPolicyProperty = ValueList Prelude.Text
-  set newValue SignInPolicyProperty {}
+  set newValue SignInPolicyProperty {..}
     = SignInPolicyProperty
         {allowedFirstAuthFactors = Prelude.pure newValue, ..}

@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ParametersProperty
-  = ParametersProperty {excludeBootVolume :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html>
+    ParametersProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume>
+                        excludeBootVolume :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags>
                         excludeDataVolumeTags :: (Prelude.Maybe [Tag]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot>
                         noReboot :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersProperty :: ParametersProperty
 mkParametersProperty
   = ParametersProperty
-      {excludeBootVolume = Prelude.Nothing,
+      {haddock_workaround_ = (), excludeBootVolume = Prelude.Nothing,
        excludeDataVolumeTags = Prelude.Nothing,
        noReboot = Prelude.Nothing}
 instance ToResourceProperties ParametersProperty where

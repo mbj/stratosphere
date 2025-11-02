@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetDescriptorProperty
-  = IPSetDescriptorProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptors.html>
+    IPSetDescriptorProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptors.html#cfn-waf-ipset-ipsetdescriptors-type>
+                             type' :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptors.html#cfn-waf-ipset-ipsetdescriptors-value>
                              value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetDescriptorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IPSetDescriptorProperty
 mkIPSetDescriptorProperty type' value
-  = IPSetDescriptorProperty {type' = type', value = value}
+  = IPSetDescriptorProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties IPSetDescriptorProperty where
   toResourceProperties IPSetDescriptorProperty {..}
     = ResourceProperties

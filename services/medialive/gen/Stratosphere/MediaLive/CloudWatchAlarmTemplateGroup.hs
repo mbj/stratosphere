@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchAlarmTemplateGroup
-  = CloudWatchAlarmTemplateGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html>
+    CloudWatchAlarmTemplateGroup {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html#cfn-medialive-cloudwatchalarmtemplategroup-description>
+                                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html#cfn-medialive-cloudwatchalarmtemplategroup-name>
                                   name :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html#cfn-medialive-cloudwatchalarmtemplategroup-tags>
                                   tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchAlarmTemplateGroup ::
   Value Prelude.Text -> CloudWatchAlarmTemplateGroup
 mkCloudWatchAlarmTemplateGroup name
   = CloudWatchAlarmTemplateGroup
-      {name = name, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CloudWatchAlarmTemplateGroup where
   toResourceProperties CloudWatchAlarmTemplateGroup {..}
     = ResourceProperties

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualRouterSpecProperty
-  = VirtualRouterSpecProperty {listeners :: [VirtualRouterListenerProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html>
+    VirtualRouterSpecProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html#cfn-appmesh-virtualrouter-virtualrouterspec-listeners>
+                               listeners :: [VirtualRouterListenerProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterSpecProperty ::
   [VirtualRouterListenerProperty] -> VirtualRouterSpecProperty
 mkVirtualRouterSpecProperty listeners
-  = VirtualRouterSpecProperty {listeners = listeners}
+  = VirtualRouterSpecProperty
+      {haddock_workaround_ = (), listeners = listeners}
 instance ToResourceProperties VirtualRouterSpecProperty where
   toResourceProperties VirtualRouterSpecProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON VirtualRouterSpecProperty where
     = JSON.object ["Listeners" JSON..= listeners]
 instance Property "Listeners" VirtualRouterSpecProperty where
   type PropertyType "Listeners" VirtualRouterSpecProperty = [VirtualRouterListenerProperty]
-  set newValue VirtualRouterSpecProperty {}
+  set newValue VirtualRouterSpecProperty {..}
     = VirtualRouterSpecProperty {listeners = newValue, ..}

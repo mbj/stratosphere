@@ -9,15 +9,21 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteHeaderMa
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpGatewayRouteHeaderProperty
-  = HttpGatewayRouteHeaderProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html>
+    HttpGatewayRouteHeaderProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-invert>
+                                    invert :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-match>
                                     match :: (Prelude.Maybe HttpGatewayRouteHeaderMatchProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html#cfn-appmesh-gatewayroute-httpgatewayrouteheader-name>
                                     name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteHeaderProperty ::
   Value Prelude.Text -> HttpGatewayRouteHeaderProperty
 mkHttpGatewayRouteHeaderProperty name
   = HttpGatewayRouteHeaderProperty
-      {name = name, invert = Prelude.Nothing, match = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, invert = Prelude.Nothing,
+       match = Prelude.Nothing}
 instance ToResourceProperties HttpGatewayRouteHeaderProperty where
   toResourceProperties HttpGatewayRouteHeaderProperty {..}
     = ResourceProperties

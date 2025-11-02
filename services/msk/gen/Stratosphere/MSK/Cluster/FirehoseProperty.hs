@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseProperty
-  = FirehoseProperty {deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html>
+    FirehoseProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-deliverystream>
+                      deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html#cfn-msk-cluster-firehose-enabled>
                       enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseProperty :: Value Prelude.Bool -> FirehoseProperty
 mkFirehoseProperty enabled
   = FirehoseProperty
-      {enabled = enabled, deliveryStream = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = enabled,
+       deliveryStream = Prelude.Nothing}
 instance ToResourceProperties FirehoseProperty where
   toResourceProperties FirehoseProperty {..}
     = ResourceProperties

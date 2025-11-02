@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RolePolicy
-  = RolePolicy {policyDocument :: (Prelude.Maybe JSON.Object),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html>
+    RolePolicy {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html#cfn-iam-rolepolicy-policydocument>
+                policyDocument :: (Prelude.Maybe JSON.Object),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html#cfn-iam-rolepolicy-policyname>
                 policyName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html#cfn-iam-rolepolicy-rolename>
                 roleName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRolePolicy ::
   Value Prelude.Text -> Value Prelude.Text -> RolePolicy
 mkRolePolicy policyName roleName
   = RolePolicy
-      {policyName = policyName, roleName = roleName,
-       policyDocument = Prelude.Nothing}
+      {haddock_workaround_ = (), policyName = policyName,
+       roleName = roleName, policyDocument = Prelude.Nothing}
 instance ToResourceProperties RolePolicy where
   toResourceProperties RolePolicy {..}
     = ResourceProperties

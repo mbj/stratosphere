@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.ProvisionedThroughputProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EBSStorageInfoProperty
-  = EBSStorageInfoProperty {provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-ebsstorageinfo.html>
+    EBSStorageInfoProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-ebsstorageinfo.html#cfn-msk-cluster-ebsstorageinfo-provisionedthroughput>
+                            provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-ebsstorageinfo.html#cfn-msk-cluster-ebsstorageinfo-volumesize>
                             volumeSize :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEBSStorageInfoProperty :: EBSStorageInfoProperty
 mkEBSStorageInfoProperty
   = EBSStorageInfoProperty
-      {provisionedThroughput = Prelude.Nothing,
+      {haddock_workaround_ = (), provisionedThroughput = Prelude.Nothing,
        volumeSize = Prelude.Nothing}
 instance ToResourceProperties EBSStorageInfoProperty where
   toResourceProperties EBSStorageInfoProperty {..}

@@ -10,14 +10,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec601SettingsProperty as E
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec709SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data H264ColorSpaceSettingsProperty
-  = H264ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html>
+    H264ColorSpaceSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-colorspacepassthroughsettings>
+                                    colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec601settings>
                                     rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html#cfn-medialive-channel-h264colorspacesettings-rec709settings>
                                     rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkH264ColorSpaceSettingsProperty :: H264ColorSpaceSettingsProperty
 mkH264ColorSpaceSettingsProperty
   = H264ColorSpaceSettingsProperty
-      {colorSpacePassthroughSettings = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       colorSpacePassthroughSettings = Prelude.Nothing,
        rec601Settings = Prelude.Nothing, rec709Settings = Prelude.Nothing}
 instance ToResourceProperties H264ColorSpaceSettingsProperty where
   toResourceProperties H264ColorSpaceSettingsProperty {..}

@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.CrlConfigurationP
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.OcspConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data RevocationConfigurationProperty
-  = RevocationConfigurationProperty {crlConfiguration :: (Prelude.Maybe CrlConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html>
+    RevocationConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration>
+                                     crlConfiguration :: (Prelude.Maybe CrlConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration>
                                      ocspConfiguration :: (Prelude.Maybe OcspConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRevocationConfigurationProperty ::
   RevocationConfigurationProperty
 mkRevocationConfigurationProperty
   = RevocationConfigurationProperty
-      {crlConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), crlConfiguration = Prelude.Nothing,
        ocspConfiguration = Prelude.Nothing}
 instance ToResourceProperties RevocationConfigurationProperty where
   toResourceProperties RevocationConfigurationProperty {..}

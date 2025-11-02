@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalableTargetActionProperty
-  = ScalableTargetActionProperty {maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html>
+    ScalableTargetActionProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity>
+                                  maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity>
                                   minCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalableTargetActionProperty :: ScalableTargetActionProperty
 mkScalableTargetActionProperty
   = ScalableTargetActionProperty
-      {maxCapacity = Prelude.Nothing, minCapacity = Prelude.Nothing}
+      {haddock_workaround_ = (), maxCapacity = Prelude.Nothing,
+       minCapacity = Prelude.Nothing}
 instance ToResourceProperties ScalableTargetActionProperty where
   toResourceProperties ScalableTargetActionProperty {..}
     = ResourceProperties

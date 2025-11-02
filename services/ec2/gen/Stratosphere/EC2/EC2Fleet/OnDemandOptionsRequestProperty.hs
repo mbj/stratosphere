@@ -9,17 +9,25 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.CapacityReservationOptionsReques
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandOptionsRequestProperty
-  = OnDemandOptionsRequestProperty {allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html>
+    OnDemandOptionsRequestProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy>
+                                    allocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions>
                                     capacityReservationOptions :: (Prelude.Maybe CapacityReservationOptionsRequestProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice>
                                     maxTotalPrice :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity>
                                     minTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone>
                                     singleAvailabilityZone :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype>
                                     singleInstanceType :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandOptionsRequestProperty :: OnDemandOptionsRequestProperty
 mkOnDemandOptionsRequestProperty
   = OnDemandOptionsRequestProperty
-      {allocationStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), allocationStrategy = Prelude.Nothing,
        capacityReservationOptions = Prelude.Nothing,
        maxTotalPrice = Prelude.Nothing,
        minTargetCapacity = Prelude.Nothing,

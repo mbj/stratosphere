@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceDefinitionProperty
-  = InstanceDefinitionProperty {instanceType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html>
+    InstanceDefinitionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype>
+                                instanceType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity>
                                 weightedCapacity :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceDefinitionProperty ::
   Value Prelude.Text -> InstanceDefinitionProperty
 mkInstanceDefinitionProperty instanceType
   = InstanceDefinitionProperty
-      {instanceType = instanceType, weightedCapacity = Prelude.Nothing}
+      {haddock_workaround_ = (), instanceType = instanceType,
+       weightedCapacity = Prelude.Nothing}
 instance ToResourceProperties InstanceDefinitionProperty where
   toResourceProperties InstanceDefinitionProperty {..}
     = ResourceProperties

@@ -8,14 +8,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ProposedSegmentChangeProperty
-  = ProposedSegmentChangeProperty {attachmentPolicyRuleNumber :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange.html>
+    ProposedSegmentChangeProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange.html#cfn-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange-attachmentpolicyrulenumber>
+                                   attachmentPolicyRuleNumber :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange.html#cfn-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange-segmentname>
                                    segmentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange.html#cfn-networkmanager-transitgatewayroutetableattachment-proposedsegmentchange-tags>
                                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProposedSegmentChangeProperty :: ProposedSegmentChangeProperty
 mkProposedSegmentChangeProperty
   = ProposedSegmentChangeProperty
-      {attachmentPolicyRuleNumber = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       attachmentPolicyRuleNumber = Prelude.Nothing,
        segmentName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ProposedSegmentChangeProperty where
   toResourceProperties ProposedSegmentChangeProperty {..}

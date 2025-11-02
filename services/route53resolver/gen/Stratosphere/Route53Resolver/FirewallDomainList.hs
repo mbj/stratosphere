@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FirewallDomainList
-  = FirewallDomainList {domainFileUrl :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html>
+    FirewallDomainList {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl>
+                        domainFileUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains>
                         domains :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name>
                         name :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallDomainList :: FirewallDomainList
 mkFirewallDomainList
   = FirewallDomainList
-      {domainFileUrl = Prelude.Nothing, domains = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), domainFileUrl = Prelude.Nothing,
+       domains = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties FirewallDomainList where
   toResourceProperties FirewallDomainList {..}
     = ResourceProperties

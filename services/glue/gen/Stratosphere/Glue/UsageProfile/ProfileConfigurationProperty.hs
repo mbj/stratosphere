@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.UsageProfile.ConfigurationObjectProperty as Exports
 import Stratosphere.ResourceProperties
 data ProfileConfigurationProperty
-  = ProfileConfigurationProperty {jobConfiguration :: (Prelude.Maybe (Prelude.Map Prelude.Text ConfigurationObjectProperty)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-profileconfiguration.html>
+    ProfileConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-profileconfiguration.html#cfn-glue-usageprofile-profileconfiguration-jobconfiguration>
+                                  jobConfiguration :: (Prelude.Maybe (Prelude.Map Prelude.Text ConfigurationObjectProperty)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-profileconfiguration.html#cfn-glue-usageprofile-profileconfiguration-sessionconfiguration>
                                   sessionConfiguration :: (Prelude.Maybe (Prelude.Map Prelude.Text ConfigurationObjectProperty))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProfileConfigurationProperty :: ProfileConfigurationProperty
 mkProfileConfigurationProperty
   = ProfileConfigurationProperty
-      {jobConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), jobConfiguration = Prelude.Nothing,
        sessionConfiguration = Prelude.Nothing}
 instance ToResourceProperties ProfileConfigurationProperty where
   toResourceProperties ProfileConfigurationProperty {..}

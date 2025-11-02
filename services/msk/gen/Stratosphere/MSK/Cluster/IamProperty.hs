@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamProperty
-  = IamProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html>
+    IamProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html#cfn-msk-cluster-iam-enabled>
+                 enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIamProperty :: Value Prelude.Bool -> IamProperty
-mkIamProperty enabled = IamProperty {enabled = enabled}
+mkIamProperty enabled
+  = IamProperty {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties IamProperty where
   toResourceProperties IamProperty {..}
     = ResourceProperties
@@ -20,4 +24,5 @@ instance JSON.ToJSON IamProperty where
   toJSON IamProperty {..} = JSON.object ["Enabled" JSON..= enabled]
 instance Property "Enabled" IamProperty where
   type PropertyType "Enabled" IamProperty = Value Prelude.Bool
-  set newValue IamProperty {} = IamProperty {enabled = newValue, ..}
+  set newValue IamProperty {..}
+    = IamProperty {enabled = newValue, ..}

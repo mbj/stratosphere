@@ -8,8 +8,13 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FSx.Volume.RetentionPeriodProperty as Exports
 import Stratosphere.ResourceProperties
 data SnaplockRetentionPeriodProperty
-  = SnaplockRetentionPeriodProperty {defaultRetention :: RetentionPeriodProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html>
+    SnaplockRetentionPeriodProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html#cfn-fsx-volume-snaplockretentionperiod-defaultretention>
+                                     defaultRetention :: RetentionPeriodProperty,
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html#cfn-fsx-volume-snaplockretentionperiod-maximumretention>
                                      maximumRetention :: RetentionPeriodProperty,
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html#cfn-fsx-volume-snaplockretentionperiod-minimumretention>
                                      minimumRetention :: RetentionPeriodProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnaplockRetentionPeriodProperty ::
@@ -21,7 +26,7 @@ mkSnaplockRetentionPeriodProperty
   maximumRetention
   minimumRetention
   = SnaplockRetentionPeriodProperty
-      {defaultRetention = defaultRetention,
+      {haddock_workaround_ = (), defaultRetention = defaultRetention,
        maximumRetention = maximumRetention,
        minimumRetention = minimumRetention}
 instance ToResourceProperties SnaplockRetentionPeriodProperty where

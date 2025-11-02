@@ -9,15 +9,20 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Topic.CollectiveConstantProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicCategoryFilterConstantProperty
-  = TopicCategoryFilterConstantProperty {collectiveConstant :: (Prelude.Maybe CollectiveConstantProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html>
+    TopicCategoryFilterConstantProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html#cfn-quicksight-topic-topiccategoryfilterconstant-collectiveconstant>
+                                         collectiveConstant :: (Prelude.Maybe CollectiveConstantProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html#cfn-quicksight-topic-topiccategoryfilterconstant-constanttype>
                                          constantType :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html#cfn-quicksight-topic-topiccategoryfilterconstant-singularconstant>
                                          singularConstant :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicCategoryFilterConstantProperty ::
   TopicCategoryFilterConstantProperty
 mkTopicCategoryFilterConstantProperty
   = TopicCategoryFilterConstantProperty
-      {collectiveConstant = Prelude.Nothing,
+      {haddock_workaround_ = (), collectiveConstant = Prelude.Nothing,
        constantType = Prelude.Nothing, singularConstant = Prelude.Nothing}
 instance ToResourceProperties TopicCategoryFilterConstantProperty where
   toResourceProperties TopicCategoryFilterConstantProperty {..}

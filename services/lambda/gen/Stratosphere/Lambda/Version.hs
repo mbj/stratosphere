@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.Lambda.Version.RuntimePolicyProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Version
-  = Version {codeSha256 :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html>
+    Version {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-codesha256>
+             codeSha256 :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description>
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname>
              functionName :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-provisionedconcurrencyconfig>
              provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-runtimepolicy>
              runtimePolicy :: (Prelude.Maybe RuntimePolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVersion :: Value Prelude.Text -> Version
 mkVersion functionName
   = Version
-      {functionName = functionName, codeSha256 = Prelude.Nothing,
-       description = Prelude.Nothing,
+      {haddock_workaround_ = (), functionName = functionName,
+       codeSha256 = Prelude.Nothing, description = Prelude.Nothing,
        provisionedConcurrencyConfig = Prelude.Nothing,
        runtimePolicy = Prelude.Nothing}
 instance ToResourceProperties Version where

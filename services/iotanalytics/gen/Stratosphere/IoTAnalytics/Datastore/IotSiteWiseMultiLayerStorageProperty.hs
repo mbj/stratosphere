@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3StorageProperty as Exports
 import Stratosphere.ResourceProperties
 data IotSiteWiseMultiLayerStorageProperty
-  = IotSiteWiseMultiLayerStorageProperty {customerManagedS3Storage :: (Prelude.Maybe CustomerManagedS3StorageProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html>
+    IotSiteWiseMultiLayerStorageProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html#cfn-iotanalytics-datastore-iotsitewisemultilayerstorage-customermanageds3storage>
+                                          customerManagedS3Storage :: (Prelude.Maybe CustomerManagedS3StorageProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseMultiLayerStorageProperty ::
   IotSiteWiseMultiLayerStorageProperty
 mkIotSiteWiseMultiLayerStorageProperty
   = IotSiteWiseMultiLayerStorageProperty
-      {customerManagedS3Storage = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       customerManagedS3Storage = Prelude.Nothing}
 instance ToResourceProperties IotSiteWiseMultiLayerStorageProperty where
   toResourceProperties IotSiteWiseMultiLayerStorageProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON IotSiteWiseMultiLayerStorageProperty where
                  Prelude.<$> customerManagedS3Storage]))
 instance Property "CustomerManagedS3Storage" IotSiteWiseMultiLayerStorageProperty where
   type PropertyType "CustomerManagedS3Storage" IotSiteWiseMultiLayerStorageProperty = CustomerManagedS3StorageProperty
-  set newValue IotSiteWiseMultiLayerStorageProperty {}
+  set newValue IotSiteWiseMultiLayerStorageProperty {..}
     = IotSiteWiseMultiLayerStorageProperty
         {customerManagedS3Storage = Prelude.pure newValue, ..}

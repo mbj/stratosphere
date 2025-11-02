@@ -8,12 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MulticastInputSettingsProperty
-  = MulticastInputSettingsProperty {sourceIpAddress :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multicastinputsettings.html>
+    MulticastInputSettingsProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multicastinputsettings.html#cfn-medialive-channel-multicastinputsettings-sourceipaddress>
+                                    sourceIpAddress :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMulticastInputSettingsProperty :: MulticastInputSettingsProperty
 mkMulticastInputSettingsProperty
   = MulticastInputSettingsProperty
-      {sourceIpAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceIpAddress = Prelude.Nothing}
 instance ToResourceProperties MulticastInputSettingsProperty where
   toResourceProperties MulticastInputSettingsProperty {..}
     = ResourceProperties
@@ -30,6 +33,6 @@ instance JSON.ToJSON MulticastInputSettingsProperty where
               [(JSON..=) "SourceIpAddress" Prelude.<$> sourceIpAddress]))
 instance Property "SourceIpAddress" MulticastInputSettingsProperty where
   type PropertyType "SourceIpAddress" MulticastInputSettingsProperty = Value Prelude.Text
-  set newValue MulticastInputSettingsProperty {}
+  set newValue MulticastInputSettingsProperty {..}
     = MulticastInputSettingsProperty
         {sourceIpAddress = Prelude.pure newValue, ..}

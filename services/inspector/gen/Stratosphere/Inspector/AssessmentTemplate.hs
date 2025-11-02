@@ -8,10 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AssessmentTemplate
-  = AssessmentTemplate {assessmentTargetArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html>
+    AssessmentTemplate {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttargetarn>
+                        assessmentTargetArn :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttemplatename>
                         assessmentTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-durationinseconds>
                         durationInSeconds :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-rulespackagearns>
                         rulesPackageArns :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings>
                         userAttributesForFindings :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssessmentTemplate ::
@@ -23,7 +30,8 @@ mkAssessmentTemplate
   durationInSeconds
   rulesPackageArns
   = AssessmentTemplate
-      {assessmentTargetArn = assessmentTargetArn,
+      {haddock_workaround_ = (),
+       assessmentTargetArn = assessmentTargetArn,
        durationInSeconds = durationInSeconds,
        rulesPackageArns = rulesPackageArns,
        assessmentTemplateName = Prelude.Nothing,

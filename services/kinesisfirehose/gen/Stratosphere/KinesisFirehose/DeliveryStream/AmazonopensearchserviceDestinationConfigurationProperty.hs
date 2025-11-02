@@ -16,19 +16,35 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.VpcConfigurati
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonopensearchserviceDestinationConfigurationProperty
-  = AmazonopensearchserviceDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe AmazonopensearchserviceBufferingHintsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html>
+    AmazonopensearchserviceDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-bufferinghints>
+                                                             bufferingHints :: (Prelude.Maybe AmazonopensearchserviceBufferingHintsProperty),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-cloudwatchloggingoptions>
                                                              cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-clusterendpoint>
                                                              clusterEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-documentidoptions>
                                                              documentIdOptions :: (Prelude.Maybe DocumentIdOptionsProperty),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-domainarn>
                                                              domainARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-indexname>
                                                              indexName :: (Value Prelude.Text),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-indexrotationperiod>
                                                              indexRotationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-processingconfiguration>
                                                              processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-retryoptions>
                                                              retryOptions :: (Prelude.Maybe AmazonopensearchserviceRetryOptionsProperty),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-rolearn>
                                                              roleARN :: (Value Prelude.Text),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-s3backupmode>
                                                              s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-s3configuration>
                                                              s3Configuration :: S3DestinationConfigurationProperty,
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-typename>
                                                              typeName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-vpcconfiguration>
                                                              vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonopensearchserviceDestinationConfigurationProperty ::
@@ -41,8 +57,8 @@ mkAmazonopensearchserviceDestinationConfigurationProperty
   roleARN
   s3Configuration
   = AmazonopensearchserviceDestinationConfigurationProperty
-      {indexName = indexName, roleARN = roleARN,
-       s3Configuration = s3Configuration,
+      {haddock_workaround_ = (), indexName = indexName,
+       roleARN = roleARN, s3Configuration = s3Configuration,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
        clusterEndpoint = Prelude.Nothing,

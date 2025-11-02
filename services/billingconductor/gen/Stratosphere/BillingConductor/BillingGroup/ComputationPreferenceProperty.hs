@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputationPreferenceProperty
-  = ComputationPreferenceProperty {pricingPlanArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html>
+    ComputationPreferenceProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html#cfn-billingconductor-billinggroup-computationpreference-pricingplanarn>
+                                   pricingPlanArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComputationPreferenceProperty ::
   Value Prelude.Text -> ComputationPreferenceProperty
 mkComputationPreferenceProperty pricingPlanArn
-  = ComputationPreferenceProperty {pricingPlanArn = pricingPlanArn}
+  = ComputationPreferenceProperty
+      {haddock_workaround_ = (), pricingPlanArn = pricingPlanArn}
 instance ToResourceProperties ComputationPreferenceProperty where
   toResourceProperties ComputationPreferenceProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON ComputationPreferenceProperty where
     = JSON.object ["PricingPlanArn" JSON..= pricingPlanArn]
 instance Property "PricingPlanArn" ComputationPreferenceProperty where
   type PropertyType "PricingPlanArn" ComputationPreferenceProperty = Value Prelude.Text
-  set newValue ComputationPreferenceProperty {}
+  set newValue ComputationPreferenceProperty {..}
     = ComputationPreferenceProperty {pricingPlanArn = newValue, ..}

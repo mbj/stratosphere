@@ -9,12 +9,21 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.DestinationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InventoryConfigurationProperty
-  = InventoryConfigurationProperty {destination :: DestinationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html>
+    InventoryConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination>
+                                    destination :: DestinationProperty,
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled>
                                     enabled :: (Value Prelude.Bool),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id>
                                     id :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions>
                                     includedObjectVersions :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields>
                                     optionalFields :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix>
                                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency>
                                     scheduleFrequency :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInventoryConfigurationProperty ::
@@ -30,7 +39,8 @@ mkInventoryConfigurationProperty
   includedObjectVersions
   scheduleFrequency
   = InventoryConfigurationProperty
-      {destination = destination, enabled = enabled, id = id,
+      {haddock_workaround_ = (), destination = destination,
+       enabled = enabled, id = id,
        includedObjectVersions = includedObjectVersions,
        scheduleFrequency = scheduleFrequency,
        optionalFields = Prelude.Nothing, prefix = Prelude.Nothing}

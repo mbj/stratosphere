@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDbSettingsProperty
-  = DynamoDbSettingsProperty {serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html>
+    DynamoDbSettingsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html#cfn-dms-endpoint-dynamodbsettings-serviceaccessrolearn>
+                              serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDbSettingsProperty :: DynamoDbSettingsProperty
 mkDynamoDbSettingsProperty
-  = DynamoDbSettingsProperty {serviceAccessRoleArn = Prelude.Nothing}
+  = DynamoDbSettingsProperty
+      {haddock_workaround_ = (), serviceAccessRoleArn = Prelude.Nothing}
 instance ToResourceProperties DynamoDbSettingsProperty where
   toResourceProperties DynamoDbSettingsProperty {..}
     = ResourceProperties
@@ -30,6 +34,6 @@ instance JSON.ToJSON DynamoDbSettingsProperty where
                  Prelude.<$> serviceAccessRoleArn]))
 instance Property "ServiceAccessRoleArn" DynamoDbSettingsProperty where
   type PropertyType "ServiceAccessRoleArn" DynamoDbSettingsProperty = Value Prelude.Text
-  set newValue DynamoDbSettingsProperty {}
+  set newValue DynamoDbSettingsProperty {..}
     = DynamoDbSettingsProperty
         {serviceAccessRoleArn = Prelude.pure newValue, ..}

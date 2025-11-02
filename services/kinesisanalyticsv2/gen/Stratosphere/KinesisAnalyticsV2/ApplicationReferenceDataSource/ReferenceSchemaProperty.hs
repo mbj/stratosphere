@@ -10,8 +10,13 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceSchemaProperty
-  = ReferenceSchemaProperty {recordColumns :: [RecordColumnProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html>
+    ReferenceSchemaProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordcolumns>
+                             recordColumns :: [RecordColumnProperty],
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordencoding>
                              recordEncoding :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referenceschema-recordformat>
                              recordFormat :: RecordFormatProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSchemaProperty ::
@@ -19,8 +24,8 @@ mkReferenceSchemaProperty ::
   -> RecordFormatProperty -> ReferenceSchemaProperty
 mkReferenceSchemaProperty recordColumns recordFormat
   = ReferenceSchemaProperty
-      {recordColumns = recordColumns, recordFormat = recordFormat,
-       recordEncoding = Prelude.Nothing}
+      {haddock_workaround_ = (), recordColumns = recordColumns,
+       recordFormat = recordFormat, recordEncoding = Prelude.Nothing}
 instance ToResourceProperties ReferenceSchemaProperty where
   toResourceProperties ReferenceSchemaProperty {..}
     = ResourceProperties

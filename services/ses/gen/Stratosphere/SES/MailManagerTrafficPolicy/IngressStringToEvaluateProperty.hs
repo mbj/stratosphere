@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressStringToEvaluateProperty
-  = IngressStringToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>
+    IngressStringToEvaluateProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressstringtoevaluate-attribute>
+                                     attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressStringToEvaluateProperty ::
   Value Prelude.Text -> IngressStringToEvaluateProperty
 mkIngressStringToEvaluateProperty attribute
-  = IngressStringToEvaluateProperty {attribute = attribute}
+  = IngressStringToEvaluateProperty
+      {haddock_workaround_ = (), attribute = attribute}
 instance ToResourceProperties IngressStringToEvaluateProperty where
   toResourceProperties IngressStringToEvaluateProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON IngressStringToEvaluateProperty where
     = JSON.object ["Attribute" JSON..= attribute]
 instance Property "Attribute" IngressStringToEvaluateProperty where
   type PropertyType "Attribute" IngressStringToEvaluateProperty = Value Prelude.Text
-  set newValue IngressStringToEvaluateProperty {}
+  set newValue IngressStringToEvaluateProperty {..}
     = IngressStringToEvaluateProperty {attribute = newValue, ..}

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcAttachmentOptionsProperty
-  = VpcAttachmentOptionsProperty {attachToVpc :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html>
+    VpcAttachmentOptionsProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html#cfn-osis-pipeline-vpcattachmentoptions-attachtovpc>
+                                  attachToVpc :: (Value Prelude.Bool),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html#cfn-osis-pipeline-vpcattachmentoptions-cidrblock>
                                   cidrBlock :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcAttachmentOptionsProperty ::
@@ -15,7 +19,8 @@ mkVpcAttachmentOptionsProperty ::
   -> Value Prelude.Text -> VpcAttachmentOptionsProperty
 mkVpcAttachmentOptionsProperty attachToVpc cidrBlock
   = VpcAttachmentOptionsProperty
-      {attachToVpc = attachToVpc, cidrBlock = cidrBlock}
+      {haddock_workaround_ = (), attachToVpc = attachToVpc,
+       cidrBlock = cidrBlock}
 instance ToResourceProperties VpcAttachmentOptionsProperty where
   toResourceProperties VpcAttachmentOptionsProperty {..}
     = ResourceProperties

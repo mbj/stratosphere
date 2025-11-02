@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty as Exports
 import Stratosphere.ResourceProperties
 data AuditNotificationTargetConfigurationsProperty
-  = AuditNotificationTargetConfigurationsProperty {sns :: (Prelude.Maybe AuditNotificationTargetProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html>
+    AuditNotificationTargetConfigurationsProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns>
+                                                   sns :: (Prelude.Maybe AuditNotificationTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditNotificationTargetConfigurationsProperty ::
   AuditNotificationTargetConfigurationsProperty
 mkAuditNotificationTargetConfigurationsProperty
   = AuditNotificationTargetConfigurationsProperty
-      {sns = Prelude.Nothing}
+      {haddock_workaround_ = (), sns = Prelude.Nothing}
 instance ToResourceProperties AuditNotificationTargetConfigurationsProperty where
   toResourceProperties
     AuditNotificationTargetConfigurationsProperty {..}
@@ -30,6 +33,6 @@ instance JSON.ToJSON AuditNotificationTargetConfigurationsProperty where
            (Prelude.catMaybes [(JSON..=) "Sns" Prelude.<$> sns]))
 instance Property "Sns" AuditNotificationTargetConfigurationsProperty where
   type PropertyType "Sns" AuditNotificationTargetConfigurationsProperty = AuditNotificationTargetProperty
-  set newValue AuditNotificationTargetConfigurationsProperty {}
+  set newValue AuditNotificationTargetConfigurationsProperty {..}
     = AuditNotificationTargetConfigurationsProperty
         {sns = Prelude.pure newValue, ..}

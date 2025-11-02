@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngestEndpointProperty
-  = IngestEndpointProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html>
+    IngestEndpointProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id>
+                            id :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password>
                             password :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url>
                             url :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username>
                             username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngestEndpointProperty ::
@@ -19,7 +25,8 @@ mkIngestEndpointProperty ::
         -> Value Prelude.Text -> IngestEndpointProperty
 mkIngestEndpointProperty id password url username
   = IngestEndpointProperty
-      {id = id, password = password, url = url, username = username}
+      {haddock_workaround_ = (), id = id, password = password, url = url,
+       username = username}
 instance ToResourceProperties IngestEndpointProperty where
   toResourceProperties IngestEndpointProperty {..}
     = ResourceProperties

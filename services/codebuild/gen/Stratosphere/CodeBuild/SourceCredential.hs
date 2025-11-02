@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceCredential
-  = SourceCredential {authType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html>
+    SourceCredential {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-authtype>
+                      authType :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-servertype>
                       serverType :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-token>
                       token :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-username>
                       username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceCredential ::
@@ -17,8 +23,8 @@ mkSourceCredential ::
   -> Value Prelude.Text -> Value Prelude.Text -> SourceCredential
 mkSourceCredential authType serverType token
   = SourceCredential
-      {authType = authType, serverType = serverType, token = token,
-       username = Prelude.Nothing}
+      {haddock_workaround_ = (), authType = authType,
+       serverType = serverType, token = token, username = Prelude.Nothing}
 instance ToResourceProperties SourceCredential where
   toResourceProperties SourceCredential {..}
     = ResourceProperties

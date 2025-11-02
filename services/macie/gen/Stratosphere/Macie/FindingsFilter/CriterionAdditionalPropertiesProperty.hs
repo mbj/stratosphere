@@ -8,19 +8,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CriterionAdditionalPropertiesProperty
-  = CriterionAdditionalPropertiesProperty {eq :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html>
+    CriterionAdditionalPropertiesProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-eq>
+                                           eq :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-gt>
                                            gt :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-gte>
                                            gte :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-lt>
                                            lt :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-lte>
                                            lte :: (Prelude.Maybe (Value Prelude.Integer)),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html#cfn-macie-findingsfilter-criterionadditionalproperties-neq>
                                            neq :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCriterionAdditionalPropertiesProperty ::
   CriterionAdditionalPropertiesProperty
 mkCriterionAdditionalPropertiesProperty
   = CriterionAdditionalPropertiesProperty
-      {eq = Prelude.Nothing, gt = Prelude.Nothing, gte = Prelude.Nothing,
-       lt = Prelude.Nothing, lte = Prelude.Nothing, neq = Prelude.Nothing}
+      {haddock_workaround_ = (), eq = Prelude.Nothing,
+       gt = Prelude.Nothing, gte = Prelude.Nothing, lt = Prelude.Nothing,
+       lte = Prelude.Nothing, neq = Prelude.Nothing}
 instance ToResourceProperties CriterionAdditionalPropertiesProperty where
   toResourceProperties CriterionAdditionalPropertiesProperty {..}
     = ResourceProperties

@@ -10,13 +10,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Schema
-  = Schema {checkpointVersion :: (Prelude.Maybe SchemaVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html>
+    Schema {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion>
+            checkpointVersion :: (Prelude.Maybe SchemaVersionProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility>
             compatibility :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat>
             dataFormat :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name>
             name :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry>
             registry :: (Prelude.Maybe RegistryProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition>
             schemaDefinition :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags>
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchema ::
@@ -24,10 +34,11 @@ mkSchema ::
   -> Value Prelude.Text -> Value Prelude.Text -> Schema
 mkSchema compatibility dataFormat name
   = Schema
-      {compatibility = compatibility, dataFormat = dataFormat,
-       name = name, checkpointVersion = Prelude.Nothing,
-       description = Prelude.Nothing, registry = Prelude.Nothing,
-       schemaDefinition = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), compatibility = compatibility,
+       dataFormat = dataFormat, name = name,
+       checkpointVersion = Prelude.Nothing, description = Prelude.Nothing,
+       registry = Prelude.Nothing, schemaDefinition = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Schema where
   toResourceProperties Schema {..}
     = ResourceProperties

@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OtaaV11Property
-  = OtaaV11Property {appKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html>
+    OtaaV11Property {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey>
+                     appKey :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui>
                      joinEui :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey>
                      nwkKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOtaaV11Property ::
@@ -16,7 +21,8 @@ mkOtaaV11Property ::
   -> Value Prelude.Text -> Value Prelude.Text -> OtaaV11Property
 mkOtaaV11Property appKey joinEui nwkKey
   = OtaaV11Property
-      {appKey = appKey, joinEui = joinEui, nwkKey = nwkKey}
+      {haddock_workaround_ = (), appKey = appKey, joinEui = joinEui,
+       nwkKey = nwkKey}
 instance ToResourceProperties OtaaV11Property where
   toResourceProperties OtaaV11Property {..}
     = ResourceProperties

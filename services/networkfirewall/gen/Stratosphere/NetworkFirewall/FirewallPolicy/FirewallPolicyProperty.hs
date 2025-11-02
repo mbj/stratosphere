@@ -13,14 +13,25 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatelessRuleG
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirewallPolicyProperty
-  = FirewallPolicyProperty {policyVariables :: (Prelude.Maybe PolicyVariablesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html>
+    FirewallPolicyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables>
+                            policyVariables :: (Prelude.Maybe PolicyVariablesProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefuldefaultactions>
                             statefulDefaultActions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulengineoptions>
                             statefulEngineOptions :: (Prelude.Maybe StatefulEngineOptionsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences>
                             statefulRuleGroupReferences :: (Prelude.Maybe [StatefulRuleGroupReferenceProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions>
                             statelessCustomActions :: (Prelude.Maybe [CustomActionProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions>
                             statelessDefaultActions :: (ValueList Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions>
                             statelessFragmentDefaultActions :: (ValueList Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences>
                             statelessRuleGroupReferences :: (Prelude.Maybe [StatelessRuleGroupReferenceProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-tlsinspectionconfigurationarn>
                             tLSInspectionConfigurationArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallPolicyProperty ::
@@ -30,7 +41,8 @@ mkFirewallPolicyProperty
   statelessDefaultActions
   statelessFragmentDefaultActions
   = FirewallPolicyProperty
-      {statelessDefaultActions = statelessDefaultActions,
+      {haddock_workaround_ = (),
+       statelessDefaultActions = statelessDefaultActions,
        statelessFragmentDefaultActions = statelessFragmentDefaultActions,
        policyVariables = Prelude.Nothing,
        statefulDefaultActions = Prelude.Nothing,

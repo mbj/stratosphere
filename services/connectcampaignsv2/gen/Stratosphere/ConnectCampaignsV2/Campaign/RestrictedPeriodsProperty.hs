@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodProperty as Exports
 import Stratosphere.ResourceProperties
 data RestrictedPeriodsProperty
-  = RestrictedPeriodsProperty {restrictedPeriodList :: [RestrictedPeriodProperty]}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html>
+    RestrictedPeriodsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html#cfn-connectcampaignsv2-campaign-restrictedperiods-restrictedperiodlist>
+                               restrictedPeriodList :: [RestrictedPeriodProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictedPeriodsProperty ::
   [RestrictedPeriodProperty] -> RestrictedPeriodsProperty
 mkRestrictedPeriodsProperty restrictedPeriodList
   = RestrictedPeriodsProperty
-      {restrictedPeriodList = restrictedPeriodList}
+      {haddock_workaround_ = (),
+       restrictedPeriodList = restrictedPeriodList}
 instance ToResourceProperties RestrictedPeriodsProperty where
   toResourceProperties RestrictedPeriodsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON RestrictedPeriodsProperty where
     = JSON.object ["RestrictedPeriodList" JSON..= restrictedPeriodList]
 instance Property "RestrictedPeriodList" RestrictedPeriodsProperty where
   type PropertyType "RestrictedPeriodList" RestrictedPeriodsProperty = [RestrictedPeriodProperty]
-  set newValue RestrictedPeriodsProperty {}
+  set newValue RestrictedPeriodsProperty {..}
     = RestrictedPeriodsProperty {restrictedPeriodList = newValue, ..}

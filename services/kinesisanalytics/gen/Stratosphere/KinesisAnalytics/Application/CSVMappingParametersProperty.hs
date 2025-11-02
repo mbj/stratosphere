@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CSVMappingParametersProperty
-  = CSVMappingParametersProperty {recordColumnDelimiter :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-csvmappingparameters.html>
+    CSVMappingParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-csvmappingparameters.html#cfn-kinesisanalytics-application-csvmappingparameters-recordcolumndelimiter>
+                                  recordColumnDelimiter :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-csvmappingparameters.html#cfn-kinesisanalytics-application-csvmappingparameters-recordrowdelimiter>
                                   recordRowDelimiter :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCSVMappingParametersProperty ::
@@ -17,7 +21,8 @@ mkCSVMappingParametersProperty
   recordColumnDelimiter
   recordRowDelimiter
   = CSVMappingParametersProperty
-      {recordColumnDelimiter = recordColumnDelimiter,
+      {haddock_workaround_ = (),
+       recordColumnDelimiter = recordColumnDelimiter,
        recordRowDelimiter = recordRowDelimiter}
 instance ToResourceProperties CSVMappingParametersProperty where
   toResourceProperties CSVMappingParametersProperty {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UsernameConfigurationProperty
-  = UsernameConfigurationProperty {caseSensitive :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html>
+    UsernameConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html#cfn-cognito-userpool-usernameconfiguration-casesensitive>
+                                   caseSensitive :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUsernameConfigurationProperty :: UsernameConfigurationProperty
 mkUsernameConfigurationProperty
-  = UsernameConfigurationProperty {caseSensitive = Prelude.Nothing}
+  = UsernameConfigurationProperty
+      {haddock_workaround_ = (), caseSensitive = Prelude.Nothing}
 instance ToResourceProperties UsernameConfigurationProperty where
   toResourceProperties UsernameConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON UsernameConfigurationProperty where
               [(JSON..=) "CaseSensitive" Prelude.<$> caseSensitive]))
 instance Property "CaseSensitive" UsernameConfigurationProperty where
   type PropertyType "CaseSensitive" UsernameConfigurationProperty = Value Prelude.Bool
-  set newValue UsernameConfigurationProperty {}
+  set newValue UsernameConfigurationProperty {..}
     = UsernameConfigurationProperty
         {caseSensitive = Prelude.pure newValue, ..}

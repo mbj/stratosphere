@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncrementalRunConfigProperty
-  = IncrementalRunConfigProperty {incrementalRunType :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html>
+    IncrementalRunConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html#cfn-entityresolution-matchingworkflow-incrementalrunconfig-incrementalruntype>
+                                  incrementalRunType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIncrementalRunConfigProperty ::
   Value Prelude.Text -> IncrementalRunConfigProperty
 mkIncrementalRunConfigProperty incrementalRunType
   = IncrementalRunConfigProperty
-      {incrementalRunType = incrementalRunType}
+      {haddock_workaround_ = (), incrementalRunType = incrementalRunType}
 instance ToResourceProperties IncrementalRunConfigProperty where
   toResourceProperties IncrementalRunConfigProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON IncrementalRunConfigProperty where
     = JSON.object ["IncrementalRunType" JSON..= incrementalRunType]
 instance Property "IncrementalRunType" IncrementalRunConfigProperty where
   type PropertyType "IncrementalRunType" IncrementalRunConfigProperty = Value Prelude.Text
-  set newValue IncrementalRunConfigProperty {}
+  set newValue IncrementalRunConfigProperty {..}
     = IncrementalRunConfigProperty {incrementalRunType = newValue, ..}

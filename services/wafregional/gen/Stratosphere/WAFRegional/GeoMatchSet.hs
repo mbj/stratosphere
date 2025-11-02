@@ -8,12 +8,18 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.GeoMatchSet.GeoMatchConstraintPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoMatchSet
-  = GeoMatchSet {geoMatchConstraints :: (Prelude.Maybe [GeoMatchConstraintProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html>
+    GeoMatchSet {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-geomatchconstraints>
+                 geoMatchConstraints :: (Prelude.Maybe [GeoMatchConstraintProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html#cfn-wafregional-geomatchset-name>
                  name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoMatchSet :: Value Prelude.Text -> GeoMatchSet
 mkGeoMatchSet name
-  = GeoMatchSet {name = name, geoMatchConstraints = Prelude.Nothing}
+  = GeoMatchSet
+      {haddock_workaround_ = (), name = name,
+       geoMatchConstraints = Prelude.Nothing}
 instance ToResourceProperties GeoMatchSet where
   toResourceProperties GeoMatchSet {..}
     = ResourceProperties

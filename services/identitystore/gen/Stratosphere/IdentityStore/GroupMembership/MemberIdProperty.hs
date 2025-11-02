@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MemberIdProperty
-  = MemberIdProperty {userId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html>
+    MemberIdProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html#cfn-identitystore-groupmembership-memberid-userid>
+                      userId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberIdProperty :: Value Prelude.Text -> MemberIdProperty
-mkMemberIdProperty userId = MemberIdProperty {userId = userId}
+mkMemberIdProperty userId
+  = MemberIdProperty {haddock_workaround_ = (), userId = userId}
 instance ToResourceProperties MemberIdProperty where
   toResourceProperties MemberIdProperty {..}
     = ResourceProperties
@@ -22,5 +26,5 @@ instance JSON.ToJSON MemberIdProperty where
     = JSON.object ["UserId" JSON..= userId]
 instance Property "UserId" MemberIdProperty where
   type PropertyType "UserId" MemberIdProperty = Value Prelude.Text
-  set newValue MemberIdProperty {}
+  set newValue MemberIdProperty {..}
     = MemberIdProperty {userId = newValue, ..}

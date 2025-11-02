@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InforNexusConnectorProfilePropertiesProperty
-  = InforNexusConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html>
+    InforNexusConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl>
+                                                  instanceUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> InforNexusConnectorProfilePropertiesProperty
 mkInforNexusConnectorProfilePropertiesProperty instanceUrl
   = InforNexusConnectorProfilePropertiesProperty
-      {instanceUrl = instanceUrl}
+      {haddock_workaround_ = (), instanceUrl = instanceUrl}
 instance ToResourceProperties InforNexusConnectorProfilePropertiesProperty where
   toResourceProperties
     InforNexusConnectorProfilePropertiesProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON InforNexusConnectorProfilePropertiesProperty where
     = JSON.object ["InstanceUrl" JSON..= instanceUrl]
 instance Property "InstanceUrl" InforNexusConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" InforNexusConnectorProfilePropertiesProperty = Value Prelude.Text
-  set newValue InforNexusConnectorProfilePropertiesProperty {}
+  set newValue InforNexusConnectorProfilePropertiesProperty {..}
     = InforNexusConnectorProfilePropertiesProperty
         {instanceUrl = newValue, ..}

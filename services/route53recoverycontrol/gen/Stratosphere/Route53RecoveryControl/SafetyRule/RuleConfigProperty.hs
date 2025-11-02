@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleConfigProperty
-  = RuleConfigProperty {inverted :: (Value Prelude.Bool),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html>
+    RuleConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted>
+                        inverted :: (Value Prelude.Bool),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold>
                         threshold :: (Value Prelude.Integer),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type>
                         type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleConfigProperty ::
@@ -17,7 +22,8 @@ mkRuleConfigProperty ::
      -> Value Prelude.Text -> RuleConfigProperty
 mkRuleConfigProperty inverted threshold type'
   = RuleConfigProperty
-      {inverted = inverted, threshold = threshold, type' = type'}
+      {haddock_workaround_ = (), inverted = inverted,
+       threshold = threshold, type' = type'}
 instance ToResourceProperties RuleConfigProperty where
   toResourceProperties RuleConfigProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CdiInputSpecificationProperty
-  = CdiInputSpecificationProperty {resolution :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html>
+    CdiInputSpecificationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html#cfn-medialive-channel-cdiinputspecification-resolution>
+                                   resolution :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCdiInputSpecificationProperty :: CdiInputSpecificationProperty
 mkCdiInputSpecificationProperty
-  = CdiInputSpecificationProperty {resolution = Prelude.Nothing}
+  = CdiInputSpecificationProperty
+      {haddock_workaround_ = (), resolution = Prelude.Nothing}
 instance ToResourceProperties CdiInputSpecificationProperty where
   toResourceProperties CdiInputSpecificationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON CdiInputSpecificationProperty where
               [(JSON..=) "Resolution" Prelude.<$> resolution]))
 instance Property "Resolution" CdiInputSpecificationProperty where
   type PropertyType "Resolution" CdiInputSpecificationProperty = Value Prelude.Text
-  set newValue CdiInputSpecificationProperty {}
+  set newValue CdiInputSpecificationProperty {..}
     = CdiInputSpecificationProperty
         {resolution = Prelude.pure newValue, ..}

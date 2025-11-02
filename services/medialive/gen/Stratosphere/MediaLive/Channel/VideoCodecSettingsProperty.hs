@@ -12,16 +12,23 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H265SettingsProperty as Exp
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Mpeg2SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data VideoCodecSettingsProperty
-  = VideoCodecSettingsProperty {av1Settings :: (Prelude.Maybe Av1SettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html>
+    VideoCodecSettingsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-av1settings>
+                                av1Settings :: (Prelude.Maybe Av1SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-framecapturesettings>
                                 frameCaptureSettings :: (Prelude.Maybe FrameCaptureSettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h264settings>
                                 h264Settings :: (Prelude.Maybe H264SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h265settings>
                                 h265Settings :: (Prelude.Maybe H265SettingsProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-mpeg2settings>
                                 mpeg2Settings :: (Prelude.Maybe Mpeg2SettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoCodecSettingsProperty :: VideoCodecSettingsProperty
 mkVideoCodecSettingsProperty
   = VideoCodecSettingsProperty
-      {av1Settings = Prelude.Nothing,
+      {haddock_workaround_ = (), av1Settings = Prelude.Nothing,
        frameCaptureSettings = Prelude.Nothing,
        h264Settings = Prelude.Nothing, h265Settings = Prelude.Nothing,
        mpeg2Settings = Prelude.Nothing}

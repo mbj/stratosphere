@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelNameConditionProperty
-  = LabelNameConditionProperty {labelName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-labelnamecondition.html>
+    LabelNameConditionProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-labelnamecondition.html#cfn-wafv2-loggingconfiguration-labelnamecondition-labelname>
+                                labelName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelNameConditionProperty ::
   Value Prelude.Text -> LabelNameConditionProperty
 mkLabelNameConditionProperty labelName
-  = LabelNameConditionProperty {labelName = labelName}
+  = LabelNameConditionProperty
+      {haddock_workaround_ = (), labelName = labelName}
 instance ToResourceProperties LabelNameConditionProperty where
   toResourceProperties LabelNameConditionProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON LabelNameConditionProperty where
     = JSON.object ["LabelName" JSON..= labelName]
 instance Property "LabelName" LabelNameConditionProperty where
   type PropertyType "LabelName" LabelNameConditionProperty = Value Prelude.Text
-  set newValue LabelNameConditionProperty {}
+  set newValue LabelNameConditionProperty {..}
     = LabelNameConditionProperty {labelName = newValue, ..}

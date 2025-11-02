@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppFlowConfigProperty
-  = AppFlowConfigProperty {flowName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html>
+    AppFlowConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname>
+                           flowName :: (Value Prelude.Text),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn>
                            roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppFlowConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AppFlowConfigProperty
 mkAppFlowConfigProperty flowName roleArn
-  = AppFlowConfigProperty {flowName = flowName, roleArn = roleArn}
+  = AppFlowConfigProperty
+      {haddock_workaround_ = (), flowName = flowName, roleArn = roleArn}
 instance ToResourceProperties AppFlowConfigProperty where
   toResourceProperties AppFlowConfigProperty {..}
     = ResourceProperties

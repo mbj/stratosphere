@@ -8,16 +8,21 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.MetricDimensionProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricProperty
-  = MetricProperty {dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html>
+    MetricProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-dimensions>
+                    dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-metricname>
                     metricName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html#cfn-autoscaling-scalingpolicy-metric-namespace>
                     namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetricProperty
 mkMetricProperty metricName namespace
   = MetricProperty
-      {metricName = metricName, namespace = namespace,
-       dimensions = Prelude.Nothing}
+      {haddock_workaround_ = (), metricName = metricName,
+       namespace = namespace, dimensions = Prelude.Nothing}
 instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties

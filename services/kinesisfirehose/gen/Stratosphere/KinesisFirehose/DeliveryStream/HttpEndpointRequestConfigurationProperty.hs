@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointCo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpEndpointRequestConfigurationProperty
-  = HttpEndpointRequestConfigurationProperty {commonAttributes :: (Prelude.Maybe [HttpEndpointCommonAttributeProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html>
+    HttpEndpointRequestConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes>
+                                              commonAttributes :: (Prelude.Maybe [HttpEndpointCommonAttributeProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding>
                                               contentEncoding :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointRequestConfigurationProperty ::
   HttpEndpointRequestConfigurationProperty
 mkHttpEndpointRequestConfigurationProperty
   = HttpEndpointRequestConfigurationProperty
-      {commonAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), commonAttributes = Prelude.Nothing,
        contentEncoding = Prelude.Nothing}
 instance ToResourceProperties HttpEndpointRequestConfigurationProperty where
   toResourceProperties HttpEndpointRequestConfigurationProperty {..}

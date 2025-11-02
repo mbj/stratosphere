@@ -9,17 +9,24 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.AuthorizationConfigPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EFSVolumeConfigurationProperty
-  = EFSVolumeConfigurationProperty {authorizationConfig :: (Prelude.Maybe AuthorizationConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html>
+    EFSVolumeConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig>
+                                    authorizationConfig :: (Prelude.Maybe AuthorizationConfigProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid>
                                     filesystemId :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory>
                                     rootDirectory :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption>
                                     transitEncryption :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport>
                                     transitEncryptionPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEFSVolumeConfigurationProperty ::
   Value Prelude.Text -> EFSVolumeConfigurationProperty
 mkEFSVolumeConfigurationProperty filesystemId
   = EFSVolumeConfigurationProperty
-      {filesystemId = filesystemId,
+      {haddock_workaround_ = (), filesystemId = filesystemId,
        authorizationConfig = Prelude.Nothing,
        rootDirectory = Prelude.Nothing,
        transitEncryption = Prelude.Nothing,

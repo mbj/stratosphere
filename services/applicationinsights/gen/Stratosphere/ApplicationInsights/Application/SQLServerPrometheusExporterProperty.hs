@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SQLServerPrometheusExporterProperty
-  = SQLServerPrometheusExporterProperty {prometheusPort :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html>
+    SQLServerPrometheusExporterProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html#cfn-applicationinsights-application-sqlserverprometheusexporter-prometheusport>
+                                         prometheusPort :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html#cfn-applicationinsights-application-sqlserverprometheusexporter-sqlsecretname>
                                          sQLSecretName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSQLServerPrometheusExporterProperty ::
@@ -16,7 +20,8 @@ mkSQLServerPrometheusExporterProperty ::
   -> Value Prelude.Text -> SQLServerPrometheusExporterProperty
 mkSQLServerPrometheusExporterProperty prometheusPort sQLSecretName
   = SQLServerPrometheusExporterProperty
-      {prometheusPort = prometheusPort, sQLSecretName = sQLSecretName}
+      {haddock_workaround_ = (), prometheusPort = prometheusPort,
+       sQLSecretName = sQLSecretName}
 instance ToResourceProperties SQLServerPrometheusExporterProperty where
   toResourceProperties SQLServerPrometheusExporterProperty {..}
     = ResourceProperties

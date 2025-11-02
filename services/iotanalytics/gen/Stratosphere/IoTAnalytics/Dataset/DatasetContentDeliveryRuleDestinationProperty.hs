@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.IotEventsDestinationConf
 import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DatasetContentDeliveryRuleDestinationProperty
-  = DatasetContentDeliveryRuleDestinationProperty {iotEventsDestinationConfiguration :: (Prelude.Maybe IotEventsDestinationConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html>
+    DatasetContentDeliveryRuleDestinationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html#cfn-iotanalytics-dataset-datasetcontentdeliveryruledestination-ioteventsdestinationconfiguration>
+                                                   iotEventsDestinationConfiguration :: (Prelude.Maybe IotEventsDestinationConfigurationProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html#cfn-iotanalytics-dataset-datasetcontentdeliveryruledestination-s3destinationconfiguration>
                                                    s3DestinationConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentDeliveryRuleDestinationProperty ::
   DatasetContentDeliveryRuleDestinationProperty
 mkDatasetContentDeliveryRuleDestinationProperty
   = DatasetContentDeliveryRuleDestinationProperty
-      {iotEventsDestinationConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       iotEventsDestinationConfiguration = Prelude.Nothing,
        s3DestinationConfiguration = Prelude.Nothing}
 instance ToResourceProperties DatasetContentDeliveryRuleDestinationProperty where
   toResourceProperties

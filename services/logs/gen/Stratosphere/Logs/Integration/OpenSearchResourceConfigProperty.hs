@@ -8,10 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenSearchResourceConfigProperty
-  = OpenSearchResourceConfigProperty {applicationARN :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html>
+    OpenSearchResourceConfigProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-applicationarn>
+                                      applicationARN :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-dashboardviewerprincipals>
                                       dashboardViewerPrincipals :: (ValueList Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-datasourcerolearn>
                                       dataSourceRoleArn :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-kmskeyarn>
                                       kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-retentiondays>
                                       retentionDays :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchResourceConfigProperty ::
@@ -21,7 +28,8 @@ mkOpenSearchResourceConfigProperty
   dashboardViewerPrincipals
   dataSourceRoleArn
   = OpenSearchResourceConfigProperty
-      {dashboardViewerPrincipals = dashboardViewerPrincipals,
+      {haddock_workaround_ = (),
+       dashboardViewerPrincipals = dashboardViewerPrincipals,
        dataSourceRoleArn = dataSourceRoleArn,
        applicationARN = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
        retentionDays = Prelude.Nothing}

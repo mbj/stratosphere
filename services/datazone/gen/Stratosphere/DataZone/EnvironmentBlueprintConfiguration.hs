@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.DataZone.EnvironmentBlueprintConfiguration.Re
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnvironmentBlueprintConfiguration
-  = EnvironmentBlueprintConfiguration {domainIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html>
+    EnvironmentBlueprintConfiguration {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-domainidentifier>
+                                       domainIdentifier :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-enabledregions>
                                        enabledRegions :: (ValueList Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentblueprintidentifier>
                                        environmentBlueprintIdentifier :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-manageaccessrolearn>
                                        manageAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-provisioningrolearn>
                                        provisioningRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-regionalparameters>
                                        regionalParameters :: (Prelude.Maybe [RegionalParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentBlueprintConfiguration ::
@@ -25,7 +33,7 @@ mkEnvironmentBlueprintConfiguration
   enabledRegions
   environmentBlueprintIdentifier
   = EnvironmentBlueprintConfiguration
-      {domainIdentifier = domainIdentifier,
+      {haddock_workaround_ = (), domainIdentifier = domainIdentifier,
        enabledRegions = enabledRegions,
        environmentBlueprintIdentifier = environmentBlueprintIdentifier,
        manageAccessRoleArn = Prelude.Nothing,

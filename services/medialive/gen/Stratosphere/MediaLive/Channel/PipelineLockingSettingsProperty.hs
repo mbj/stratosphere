@@ -6,12 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipelineLockingSettingsProperty
-  = PipelineLockingSettingsProperty {}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html>
+    PipelineLockingSettingsProperty {haddock_workaround_ :: ()}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineLockingSettingsProperty ::
   PipelineLockingSettingsProperty
 mkPipelineLockingSettingsProperty
-  = PipelineLockingSettingsProperty {}
+  = PipelineLockingSettingsProperty {haddock_workaround_ = ()}
 instance ToResourceProperties PipelineLockingSettingsProperty where
   toResourceProperties PipelineLockingSettingsProperty {}
     = ResourceProperties

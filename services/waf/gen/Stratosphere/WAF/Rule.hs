@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.WAF.Rule.PredicateProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Rule
-  = Rule {metricName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html>
+    Rule {haddock_workaround_ :: (),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-metricname>
+          metricName :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html#cfn-waf-rule-predicates>
           predicates :: (Prelude.Maybe [PredicateProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRule :: Value Prelude.Text -> Value Prelude.Text -> Rule
 mkRule metricName name
   = Rule
-      {metricName = metricName, name = name,
+      {haddock_workaround_ = (), metricName = metricName, name = name,
        predicates = Prelude.Nothing}
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}

@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedPublishersProperty
-  = AllowedPublishersProperty {signingProfileVersionArns :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html>
+    AllowedPublishersProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns>
+                               signingProfileVersionArns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedPublishersProperty ::
   ValueList Prelude.Text -> AllowedPublishersProperty
 mkAllowedPublishersProperty signingProfileVersionArns
   = AllowedPublishersProperty
-      {signingProfileVersionArns = signingProfileVersionArns}
+      {haddock_workaround_ = (),
+       signingProfileVersionArns = signingProfileVersionArns}
 instance ToResourceProperties AllowedPublishersProperty where
   toResourceProperties AllowedPublishersProperty {..}
     = ResourceProperties
@@ -27,6 +31,6 @@ instance JSON.ToJSON AllowedPublishersProperty where
         ["SigningProfileVersionArns" JSON..= signingProfileVersionArns]
 instance Property "SigningProfileVersionArns" AllowedPublishersProperty where
   type PropertyType "SigningProfileVersionArns" AllowedPublishersProperty = ValueList Prelude.Text
-  set newValue AllowedPublishersProperty {}
+  set newValue AllowedPublishersProperty {..}
     = AllowedPublishersProperty
         {signingProfileVersionArns = newValue, ..}

@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.TextTransformationProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateLimitHeaderProperty
-  = RateLimitHeaderProperty {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitheader.html>
+    RateLimitHeaderProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitheader.html#cfn-wafv2-rulegroup-ratelimitheader-name>
+                             name :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitheader.html#cfn-wafv2-rulegroup-ratelimitheader-texttransformations>
                              textTransformations :: [TextTransformationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitHeaderProperty ::
@@ -17,7 +21,8 @@ mkRateLimitHeaderProperty ::
   -> [TextTransformationProperty] -> RateLimitHeaderProperty
 mkRateLimitHeaderProperty name textTransformations
   = RateLimitHeaderProperty
-      {name = name, textTransformations = textTransformations}
+      {haddock_workaround_ = (), name = name,
+       textTransformations = textTransformations}
 instance ToResourceProperties RateLimitHeaderProperty where
   toResourceProperties RateLimitHeaderProperty {..}
     = ResourceProperties

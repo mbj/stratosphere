@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceCreationLimitPolicyProperty
-  = ResourceCreationLimitPolicyProperty {newGameSessionsPerCreator :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html>
+    ResourceCreationLimitPolicyProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator>
+                                         newGameSessionsPerCreator :: (Prelude.Maybe (Value Prelude.Integer)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes>
                                          policyPeriodInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCreationLimitPolicyProperty ::
   ResourceCreationLimitPolicyProperty
 mkResourceCreationLimitPolicyProperty
   = ResourceCreationLimitPolicyProperty
-      {newGameSessionsPerCreator = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       newGameSessionsPerCreator = Prelude.Nothing,
        policyPeriodInMinutes = Prelude.Nothing}
 instance ToResourceProperties ResourceCreationLimitPolicyProperty where
   toResourceProperties ResourceCreationLimitPolicyProperty {..}

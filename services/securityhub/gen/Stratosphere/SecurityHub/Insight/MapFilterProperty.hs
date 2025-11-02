@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MapFilterProperty
-  = MapFilterProperty {comparison :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-mapfilter.html>
+    MapFilterProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-mapfilter.html#cfn-securityhub-insight-mapfilter-comparison>
+                       comparison :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-mapfilter.html#cfn-securityhub-insight-mapfilter-key>
                        key :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-mapfilter.html#cfn-securityhub-insight-mapfilter-value>
                        value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMapFilterProperty ::
@@ -16,7 +21,8 @@ mkMapFilterProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> MapFilterProperty
 mkMapFilterProperty comparison key value
   = MapFilterProperty
-      {comparison = comparison, key = key, value = value}
+      {haddock_workaround_ = (), comparison = comparison, key = key,
+       value = value}
 instance ToResourceProperties MapFilterProperty where
   toResourceProperties MapFilterProperty {..}
     = ResourceProperties

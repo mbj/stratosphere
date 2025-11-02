@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.FmtpProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaStreamAttributesProperty
-  = MediaStreamAttributesProperty {fmtp :: (Prelude.Maybe FmtpProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html>
+    MediaStreamAttributesProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html#cfn-mediaconnect-flow-mediastreamattributes-fmtp>
+                                   fmtp :: (Prelude.Maybe FmtpProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html#cfn-mediaconnect-flow-mediastreamattributes-lang>
                                    lang :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaStreamAttributesProperty :: MediaStreamAttributesProperty
 mkMediaStreamAttributesProperty
   = MediaStreamAttributesProperty
-      {fmtp = Prelude.Nothing, lang = Prelude.Nothing}
+      {haddock_workaround_ = (), fmtp = Prelude.Nothing,
+       lang = Prelude.Nothing}
 instance ToResourceProperties MediaStreamAttributesProperty where
   toResourceProperties MediaStreamAttributesProperty {..}
     = ResourceProperties

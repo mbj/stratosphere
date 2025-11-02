@@ -8,12 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.GlueDataCatalogConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data CatalogConfigurationProperty
-  = CatalogConfigurationProperty {glueDataCatalogConfiguration :: (Prelude.Maybe GlueDataCatalogConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html>
+    CatalogConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html#cfn-kinesisanalyticsv2-application-catalogconfiguration-gluedatacatalogconfiguration>
+                                  glueDataCatalogConfiguration :: (Prelude.Maybe GlueDataCatalogConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCatalogConfigurationProperty :: CatalogConfigurationProperty
 mkCatalogConfigurationProperty
   = CatalogConfigurationProperty
-      {glueDataCatalogConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       glueDataCatalogConfiguration = Prelude.Nothing}
 instance ToResourceProperties CatalogConfigurationProperty where
   toResourceProperties CatalogConfigurationProperty {..}
     = ResourceProperties
@@ -32,6 +36,6 @@ instance JSON.ToJSON CatalogConfigurationProperty where
                  Prelude.<$> glueDataCatalogConfiguration]))
 instance Property "GlueDataCatalogConfiguration" CatalogConfigurationProperty where
   type PropertyType "GlueDataCatalogConfiguration" CatalogConfigurationProperty = GlueDataCatalogConfigurationProperty
-  set newValue CatalogConfigurationProperty {}
+  set newValue CatalogConfigurationProperty {..}
     = CatalogConfigurationProperty
         {glueDataCatalogConfiguration = Prelude.pure newValue, ..}

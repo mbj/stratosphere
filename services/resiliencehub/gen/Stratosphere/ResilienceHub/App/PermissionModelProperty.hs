@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PermissionModelProperty
-  = PermissionModelProperty {crossAccountRoleArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html>
+    PermissionModelProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-crossaccountrolearns>
+                             crossAccountRoleArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-invokerrolename>
                              invokerRoleName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-type>
                              type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissionModelProperty ::
   Value Prelude.Text -> PermissionModelProperty
 mkPermissionModelProperty type'
   = PermissionModelProperty
-      {type' = type', crossAccountRoleArns = Prelude.Nothing,
+      {haddock_workaround_ = (), type' = type',
+       crossAccountRoleArns = Prelude.Nothing,
        invokerRoleName = Prelude.Nothing}
 instance ToResourceProperties PermissionModelProperty where
   toResourceProperties PermissionModelProperty {..}

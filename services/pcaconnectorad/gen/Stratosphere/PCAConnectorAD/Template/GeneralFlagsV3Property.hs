@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeneralFlagsV3Property
-  = GeneralFlagsV3Property {autoEnrollment :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv3.html>
+    GeneralFlagsV3Property {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv3.html#cfn-pcaconnectorad-template-generalflagsv3-autoenrollment>
+                            autoEnrollment :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv3.html#cfn-pcaconnectorad-template-generalflagsv3-machinetype>
                             machineType :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeneralFlagsV3Property :: GeneralFlagsV3Property
 mkGeneralFlagsV3Property
   = GeneralFlagsV3Property
-      {autoEnrollment = Prelude.Nothing, machineType = Prelude.Nothing}
+      {haddock_workaround_ = (), autoEnrollment = Prelude.Nothing,
+       machineType = Prelude.Nothing}
 instance ToResourceProperties GeneralFlagsV3Property where
   toResourceProperties GeneralFlagsV3Property {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeadLetterConfigProperty
-  = DeadLetterConfigProperty {targetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html>
+    DeadLetterConfigProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn>
+                              targetArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeadLetterConfigProperty :: DeadLetterConfigProperty
 mkDeadLetterConfigProperty
-  = DeadLetterConfigProperty {targetArn = Prelude.Nothing}
+  = DeadLetterConfigProperty
+      {haddock_workaround_ = (), targetArn = Prelude.Nothing}
 instance ToResourceProperties DeadLetterConfigProperty where
   toResourceProperties DeadLetterConfigProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON DeadLetterConfigProperty where
            (Prelude.catMaybes [(JSON..=) "TargetArn" Prelude.<$> targetArn]))
 instance Property "TargetArn" DeadLetterConfigProperty where
   type PropertyType "TargetArn" DeadLetterConfigProperty = Value Prelude.Text
-  set newValue DeadLetterConfigProperty {}
+  set newValue DeadLetterConfigProperty {..}
     = DeadLetterConfigProperty {targetArn = Prelude.pure newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CollectiveConstantProperty
-  = CollectiveConstantProperty {valueList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html>
+    CollectiveConstantProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html#cfn-quicksight-topic-collectiveconstant-valuelist>
+                                valueList :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCollectiveConstantProperty :: CollectiveConstantProperty
 mkCollectiveConstantProperty
-  = CollectiveConstantProperty {valueList = Prelude.Nothing}
+  = CollectiveConstantProperty
+      {haddock_workaround_ = (), valueList = Prelude.Nothing}
 instance ToResourceProperties CollectiveConstantProperty where
   toResourceProperties CollectiveConstantProperty {..}
     = ResourceProperties
@@ -26,6 +30,6 @@ instance JSON.ToJSON CollectiveConstantProperty where
            (Prelude.catMaybes [(JSON..=) "ValueList" Prelude.<$> valueList]))
 instance Property "ValueList" CollectiveConstantProperty where
   type PropertyType "ValueList" CollectiveConstantProperty = ValueList Prelude.Text
-  set newValue CollectiveConstantProperty {}
+  set newValue CollectiveConstantProperty {..}
     = CollectiveConstantProperty
         {valueList = Prelude.pure newValue, ..}

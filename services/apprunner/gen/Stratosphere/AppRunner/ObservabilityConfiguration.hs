@@ -10,14 +10,20 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ObservabilityConfiguration
-  = ObservabilityConfiguration {observabilityConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html>
+    ObservabilityConfiguration {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-observabilityconfigurationname>
+                                observabilityConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-tags>
                                 tags :: (Prelude.Maybe [Tag]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-traceconfiguration>
                                 traceConfiguration :: (Prelude.Maybe TraceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkObservabilityConfiguration :: ObservabilityConfiguration
 mkObservabilityConfiguration
   = ObservabilityConfiguration
-      {observabilityConfigurationName = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       observabilityConfigurationName = Prelude.Nothing,
        tags = Prelude.Nothing, traceConfiguration = Prelude.Nothing}
 instance ToResourceProperties ObservabilityConfiguration where
   toResourceProperties ObservabilityConfiguration {..}

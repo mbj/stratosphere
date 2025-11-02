@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SybaseSettingsProperty
-  = SybaseSettingsProperty {secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html>
+    SybaseSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html#cfn-dms-endpoint-sybasesettings-secretsmanageraccessrolearn>
+                            secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html#cfn-dms-endpoint-sybasesettings-secretsmanagersecretid>
                             secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSybaseSettingsProperty :: SybaseSettingsProperty
 mkSybaseSettingsProperty
   = SybaseSettingsProperty
-      {secretsManagerAccessRoleArn = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       secretsManagerAccessRoleArn = Prelude.Nothing,
        secretsManagerSecretId = Prelude.Nothing}
 instance ToResourceProperties SybaseSettingsProperty where
   toResourceProperties SybaseSettingsProperty {..}

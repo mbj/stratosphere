@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ForceEndpointErrorConfigurationProperty
-  = ForceEndpointErrorConfigurationProperty {endpointErrorConditions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html>
+    ForceEndpointErrorConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html#cfn-mediapackagev2-originendpoint-forceendpointerrorconfiguration-endpointerrorconditions>
+                                             endpointErrorConditions :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForceEndpointErrorConfigurationProperty ::
   ForceEndpointErrorConfigurationProperty
 mkForceEndpointErrorConfigurationProperty
   = ForceEndpointErrorConfigurationProperty
-      {endpointErrorConditions = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       endpointErrorConditions = Prelude.Nothing}
 instance ToResourceProperties ForceEndpointErrorConfigurationProperty where
   toResourceProperties ForceEndpointErrorConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON ForceEndpointErrorConfigurationProperty where
                  Prelude.<$> endpointErrorConditions]))
 instance Property "EndpointErrorConditions" ForceEndpointErrorConfigurationProperty where
   type PropertyType "EndpointErrorConditions" ForceEndpointErrorConfigurationProperty = ValueList Prelude.Text
-  set newValue ForceEndpointErrorConfigurationProperty {}
+  set newValue ForceEndpointErrorConfigurationProperty {..}
     = ForceEndpointErrorConfigurationProperty
         {endpointErrorConditions = Prelude.pure newValue, ..}

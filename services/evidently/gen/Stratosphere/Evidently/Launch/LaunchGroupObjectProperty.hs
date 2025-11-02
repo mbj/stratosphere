@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchGroupObjectProperty
-  = LaunchGroupObjectProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html>
+    LaunchGroupObjectProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-description>
+                               description :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-feature>
                                feature :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-groupname>
                                groupName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html#cfn-evidently-launch-launchgroupobject-variation>
                                variation :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchGroupObjectProperty ::
@@ -18,7 +24,8 @@ mkLaunchGroupObjectProperty ::
      -> Value Prelude.Text -> LaunchGroupObjectProperty
 mkLaunchGroupObjectProperty feature groupName variation
   = LaunchGroupObjectProperty
-      {feature = feature, groupName = groupName, variation = variation,
+      {haddock_workaround_ = (), feature = feature,
+       groupName = groupName, variation = variation,
        description = Prelude.Nothing}
 instance ToResourceProperties LaunchGroupObjectProperty where
   toResourceProperties LaunchGroupObjectProperty {..}

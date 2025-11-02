@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.Connect.HoursOfOperation.HoursOfOperationOver
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HoursOfOperationOverrideProperty
-  = HoursOfOperationOverrideProperty {effectiveFrom :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html>
+    HoursOfOperationOverrideProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-effectivefrom>
+                                      effectiveFrom :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-effectivetill>
                                       effectiveTill :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-hoursofoperationoverrideid>
                                       hoursOfOperationOverrideId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-overrideconfig>
                                       overrideConfig :: [HoursOfOperationOverrideConfigProperty],
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-overridedescription>
                                       overrideDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-overridename>
                                       overrideName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationOverrideProperty ::
@@ -27,8 +35,9 @@ mkHoursOfOperationOverrideProperty
   overrideConfig
   overrideName
   = HoursOfOperationOverrideProperty
-      {effectiveFrom = effectiveFrom, effectiveTill = effectiveTill,
-       overrideConfig = overrideConfig, overrideName = overrideName,
+      {haddock_workaround_ = (), effectiveFrom = effectiveFrom,
+       effectiveTill = effectiveTill, overrideConfig = overrideConfig,
+       overrideName = overrideName,
        hoursOfOperationOverrideId = Prelude.Nothing,
        overrideDescription = Prelude.Nothing}
 instance ToResourceProperties HoursOfOperationOverrideProperty where

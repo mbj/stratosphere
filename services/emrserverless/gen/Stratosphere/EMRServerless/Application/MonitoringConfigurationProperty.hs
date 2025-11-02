@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ManagedPersistenceM
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.S3MonitoringConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringConfigurationProperty
-  = MonitoringConfigurationProperty {cloudWatchLoggingConfiguration :: (Prelude.Maybe CloudWatchLoggingConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html>
+    MonitoringConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-cloudwatchloggingconfiguration>
+                                     cloudWatchLoggingConfiguration :: (Prelude.Maybe CloudWatchLoggingConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration>
                                      managedPersistenceMonitoringConfiguration :: (Prelude.Maybe ManagedPersistenceMonitoringConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-s3monitoringconfiguration>
                                      s3MonitoringConfiguration :: (Prelude.Maybe S3MonitoringConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringConfigurationProperty ::
   MonitoringConfigurationProperty
 mkMonitoringConfigurationProperty
   = MonitoringConfigurationProperty
-      {cloudWatchLoggingConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cloudWatchLoggingConfiguration = Prelude.Nothing,
        managedPersistenceMonitoringConfiguration = Prelude.Nothing,
        s3MonitoringConfiguration = Prelude.Nothing}
 instance ToResourceProperties MonitoringConfigurationProperty where

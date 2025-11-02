@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MembershipQueryComputePaymentConfigProperty
-  = MembershipQueryComputePaymentConfigProperty {isResponsible :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>
+    MembershipQueryComputePaymentConfigProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html#cfn-cleanrooms-membership-membershipquerycomputepaymentconfig-isresponsible>
+                                                 isResponsible :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMembershipQueryComputePaymentConfigProperty ::
   Value Prelude.Bool -> MembershipQueryComputePaymentConfigProperty
 mkMembershipQueryComputePaymentConfigProperty isResponsible
   = MembershipQueryComputePaymentConfigProperty
-      {isResponsible = isResponsible}
+      {haddock_workaround_ = (), isResponsible = isResponsible}
 instance ToResourceProperties MembershipQueryComputePaymentConfigProperty where
   toResourceProperties
     MembershipQueryComputePaymentConfigProperty {..}
@@ -27,6 +30,6 @@ instance JSON.ToJSON MembershipQueryComputePaymentConfigProperty where
     = JSON.object ["IsResponsible" JSON..= isResponsible]
 instance Property "IsResponsible" MembershipQueryComputePaymentConfigProperty where
   type PropertyType "IsResponsible" MembershipQueryComputePaymentConfigProperty = Value Prelude.Bool
-  set newValue MembershipQueryComputePaymentConfigProperty {}
+  set newValue MembershipQueryComputePaymentConfigProperty {..}
     = MembershipQueryComputePaymentConfigProperty
         {isResponsible = newValue, ..}

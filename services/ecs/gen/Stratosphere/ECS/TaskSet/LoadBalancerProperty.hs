@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadBalancerProperty
-  = LoadBalancerProperty {containerName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html>
+    LoadBalancerProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername>
+                          containerName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport>
                           containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-targetgrouparn>
                           targetGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerProperty :: LoadBalancerProperty
 mkLoadBalancerProperty
   = LoadBalancerProperty
-      {containerName = Prelude.Nothing, containerPort = Prelude.Nothing,
-       targetGroupArn = Prelude.Nothing}
+      {haddock_workaround_ = (), containerName = Prelude.Nothing,
+       containerPort = Prelude.Nothing, targetGroupArn = Prelude.Nothing}
 instance ToResourceProperties LoadBalancerProperty where
   toResourceProperties LoadBalancerProperty {..}
     = ResourceProperties

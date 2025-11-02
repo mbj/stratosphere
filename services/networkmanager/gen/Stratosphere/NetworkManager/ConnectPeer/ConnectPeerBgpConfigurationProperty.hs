@@ -8,16 +8,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectPeerBgpConfigurationProperty
-  = ConnectPeerBgpConfigurationProperty {coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html>
+    ConnectPeerBgpConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html#cfn-networkmanager-connectpeer-connectpeerbgpconfiguration-corenetworkaddress>
+                                         coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html#cfn-networkmanager-connectpeer-connectpeerbgpconfiguration-corenetworkasn>
                                          coreNetworkAsn :: (Prelude.Maybe (Value Prelude.Double)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html#cfn-networkmanager-connectpeer-connectpeerbgpconfiguration-peeraddress>
                                          peerAddress :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html#cfn-networkmanager-connectpeer-connectpeerbgpconfiguration-peerasn>
                                          peerAsn :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectPeerBgpConfigurationProperty ::
   ConnectPeerBgpConfigurationProperty
 mkConnectPeerBgpConfigurationProperty
   = ConnectPeerBgpConfigurationProperty
-      {coreNetworkAddress = Prelude.Nothing,
+      {haddock_workaround_ = (), coreNetworkAddress = Prelude.Nothing,
        coreNetworkAsn = Prelude.Nothing, peerAddress = Prelude.Nothing,
        peerAsn = Prelude.Nothing}
 instance ToResourceProperties ConnectPeerBgpConfigurationProperty where

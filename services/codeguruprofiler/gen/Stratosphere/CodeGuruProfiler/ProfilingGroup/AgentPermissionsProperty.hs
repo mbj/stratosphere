@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentPermissionsProperty
-  = AgentPermissionsProperty {principals :: (ValueList Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html>
+    AgentPermissionsProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html#cfn-codeguruprofiler-profilinggroup-agentpermissions-principals>
+                              principals :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentPermissionsProperty ::
   ValueList Prelude.Text -> AgentPermissionsProperty
 mkAgentPermissionsProperty principals
-  = AgentPermissionsProperty {principals = principals}
+  = AgentPermissionsProperty
+      {haddock_workaround_ = (), principals = principals}
 instance ToResourceProperties AgentPermissionsProperty where
   toResourceProperties AgentPermissionsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON AgentPermissionsProperty where
     = JSON.object ["Principals" JSON..= principals]
 instance Property "Principals" AgentPermissionsProperty where
   type PropertyType "Principals" AgentPermissionsProperty = ValueList Prelude.Text
-  set newValue AgentPermissionsProperty {}
+  set newValue AgentPermissionsProperty {..}
     = AgentPermissionsProperty {principals = newValue, ..}

@@ -7,12 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EmailChannel
-  = EmailChannel {applicationId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html>
+    EmailChannel {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-applicationid>
+                  applicationId :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-configurationset>
                   configurationSet :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-enabled>
                   enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-fromaddress>
                   fromAddress :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-identity>
                   identity :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-orchestrationsendingrolearn>
                   orchestrationSendingRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-rolearn>
                   roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailChannel ::
@@ -20,9 +29,9 @@ mkEmailChannel ::
   -> Value Prelude.Text -> Value Prelude.Text -> EmailChannel
 mkEmailChannel applicationId fromAddress identity
   = EmailChannel
-      {applicationId = applicationId, fromAddress = fromAddress,
-       identity = identity, configurationSet = Prelude.Nothing,
-       enabled = Prelude.Nothing,
+      {haddock_workaround_ = (), applicationId = applicationId,
+       fromAddress = fromAddress, identity = identity,
+       configurationSet = Prelude.Nothing, enabled = Prelude.Nothing,
        orchestrationSendingRoleArn = Prelude.Nothing,
        roleArn = Prelude.Nothing}
 instance ToResourceProperties EmailChannel where

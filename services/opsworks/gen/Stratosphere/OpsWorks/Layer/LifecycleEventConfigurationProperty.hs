@@ -8,13 +8,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.OpsWorks.Layer.ShutdownEventConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data LifecycleEventConfigurationProperty
-  = LifecycleEventConfigurationProperty {shutdownEventConfiguration :: (Prelude.Maybe ShutdownEventConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html>
+    LifecycleEventConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration>
+                                         shutdownEventConfiguration :: (Prelude.Maybe ShutdownEventConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleEventConfigurationProperty ::
   LifecycleEventConfigurationProperty
 mkLifecycleEventConfigurationProperty
   = LifecycleEventConfigurationProperty
-      {shutdownEventConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       shutdownEventConfiguration = Prelude.Nothing}
 instance ToResourceProperties LifecycleEventConfigurationProperty where
   toResourceProperties LifecycleEventConfigurationProperty {..}
     = ResourceProperties
@@ -33,6 +37,6 @@ instance JSON.ToJSON LifecycleEventConfigurationProperty where
                  Prelude.<$> shutdownEventConfiguration]))
 instance Property "ShutdownEventConfiguration" LifecycleEventConfigurationProperty where
   type PropertyType "ShutdownEventConfiguration" LifecycleEventConfigurationProperty = ShutdownEventConfigurationProperty
-  set newValue LifecycleEventConfigurationProperty {}
+  set newValue LifecycleEventConfigurationProperty {..}
     = LifecycleEventConfigurationProperty
         {shutdownEventConfiguration = Prelude.pure newValue, ..}

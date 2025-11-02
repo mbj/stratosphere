@@ -8,13 +8,19 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.PolicyDefinitionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Policy
-  = Policy {definition :: PolicyDefinitionProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html>
+    Policy {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-definition>
+            definition :: PolicyDefinitionProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid>
             policyStoreId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy ::
   PolicyDefinitionProperty -> Value Prelude.Text -> Policy
 mkPolicy definition policyStoreId
-  = Policy {definition = definition, policyStoreId = policyStoreId}
+  = Policy
+      {haddock_workaround_ = (), definition = definition,
+       policyStoreId = policyStoreId}
 instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
     = ResourceProperties

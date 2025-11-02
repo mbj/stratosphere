@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BounceActionProperty
-  = BounceActionProperty {message :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html>
+    BounceActionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-message>
+                          message :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender>
                           sender :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-smtpreplycode>
                           smtpReplyCode :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-statuscode>
                           statusCode :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn>
                           topicArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBounceActionProperty ::
@@ -18,8 +25,9 @@ mkBounceActionProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> BounceActionProperty
 mkBounceActionProperty message sender smtpReplyCode
   = BounceActionProperty
-      {message = message, sender = sender, smtpReplyCode = smtpReplyCode,
-       statusCode = Prelude.Nothing, topicArn = Prelude.Nothing}
+      {haddock_workaround_ = (), message = message, sender = sender,
+       smtpReplyCode = smtpReplyCode, statusCode = Prelude.Nothing,
+       topicArn = Prelude.Nothing}
 instance ToResourceProperties BounceActionProperty where
   toResourceProperties BounceActionProperty {..}
     = ResourceProperties

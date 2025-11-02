@@ -11,20 +11,30 @@ import {-# SOURCE #-} Stratosphere.Bedrock.Agent.FunctionSchemaProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentActionGroupProperty
-  = AgentActionGroupProperty {actionGroupExecutor :: (Prelude.Maybe ActionGroupExecutorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html>
+    AgentActionGroupProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-actiongroupexecutor>
+                              actionGroupExecutor :: (Prelude.Maybe ActionGroupExecutorProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-actiongroupname>
                               actionGroupName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-actiongroupstate>
                               actionGroupState :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-apischema>
                               apiSchema :: (Prelude.Maybe APISchemaProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-description>
                               description :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-functionschema>
                               functionSchema :: (Prelude.Maybe FunctionSchemaProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-parentactiongroupsignature>
                               parentActionGroupSignature :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-skipresourceinusecheckondelete>
                               skipResourceInUseCheckOnDelete :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentActionGroupProperty ::
   Value Prelude.Text -> AgentActionGroupProperty
 mkAgentActionGroupProperty actionGroupName
   = AgentActionGroupProperty
-      {actionGroupName = actionGroupName,
+      {haddock_workaround_ = (), actionGroupName = actionGroupName,
        actionGroupExecutor = Prelude.Nothing,
        actionGroupState = Prelude.Nothing, apiSchema = Prelude.Nothing,
        description = Prelude.Nothing, functionSchema = Prelude.Nothing,

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Workteam.CognitoMemberDefinitionPro
 import {-# SOURCE #-} Stratosphere.SageMaker.Workteam.OidcMemberDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 data MemberDefinitionProperty
-  = MemberDefinitionProperty {cognitoMemberDefinition :: (Prelude.Maybe CognitoMemberDefinitionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>
+    MemberDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition>
+                              cognitoMemberDefinition :: (Prelude.Maybe CognitoMemberDefinitionProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-oidcmemberdefinition>
                               oidcMemberDefinition :: (Prelude.Maybe OidcMemberDefinitionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberDefinitionProperty :: MemberDefinitionProperty
 mkMemberDefinitionProperty
   = MemberDefinitionProperty
-      {cognitoMemberDefinition = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cognitoMemberDefinition = Prelude.Nothing,
        oidcMemberDefinition = Prelude.Nothing}
 instance ToResourceProperties MemberDefinitionProperty where
   toResourceProperties MemberDefinitionProperty {..}

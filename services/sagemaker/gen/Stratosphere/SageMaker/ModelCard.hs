@@ -11,12 +11,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ModelCard
-  = ModelCard {content :: ContentProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html>
+    ModelCard {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-content>
+               content :: ContentProperty,
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-createdby>
                createdBy :: (Prelude.Maybe UserContextProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-lastmodifiedby>
                lastModifiedBy :: (Prelude.Maybe UserContextProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-modelcardname>
                modelCardName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-modelcardstatus>
                modelCardStatus :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-securityconfig>
                securityConfig :: (Prelude.Maybe SecurityConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html#cfn-sagemaker-modelcard-tags>
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelCard ::
@@ -24,10 +33,10 @@ mkModelCard ::
   -> Value Prelude.Text -> Value Prelude.Text -> ModelCard
 mkModelCard content modelCardName modelCardStatus
   = ModelCard
-      {content = content, modelCardName = modelCardName,
-       modelCardStatus = modelCardStatus, createdBy = Prelude.Nothing,
-       lastModifiedBy = Prelude.Nothing, securityConfig = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), content = content,
+       modelCardName = modelCardName, modelCardStatus = modelCardStatus,
+       createdBy = Prelude.Nothing, lastModifiedBy = Prelude.Nothing,
+       securityConfig = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ModelCard where
   toResourceProperties ModelCard {..}
     = ResourceProperties

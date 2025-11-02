@@ -8,8 +8,13 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.Insight.AwsSecurityFindingFilters
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Insight
-  = Insight {filters :: AwsSecurityFindingFiltersProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html>
+    Insight {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-filters>
+             filters :: AwsSecurityFindingFiltersProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-groupbyattribute>
              groupByAttribute :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-name>
              name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInsight ::
@@ -17,8 +22,8 @@ mkInsight ::
   -> Value Prelude.Text -> Value Prelude.Text -> Insight
 mkInsight filters groupByAttribute name
   = Insight
-      {filters = filters, groupByAttribute = groupByAttribute,
-       name = name}
+      {haddock_workaround_ = (), filters = filters,
+       groupByAttribute = groupByAttribute, name = name}
 instance ToResourceProperties Insight where
   toResourceProperties Insight {..}
     = ResourceProperties

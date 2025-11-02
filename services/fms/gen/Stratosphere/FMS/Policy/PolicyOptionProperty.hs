@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.FMS.Policy.NetworkFirewallPolicyProperty as E
 import {-# SOURCE #-} Stratosphere.FMS.Policy.ThirdPartyFirewallPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyOptionProperty
-  = PolicyOptionProperty {networkAclCommonPolicy :: (Prelude.Maybe NetworkAclCommonPolicyProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html>
+    PolicyOptionProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkaclcommonpolicy>
+                          networkAclCommonPolicy :: (Prelude.Maybe NetworkAclCommonPolicyProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkfirewallpolicy>
                           networkFirewallPolicy :: (Prelude.Maybe NetworkFirewallPolicyProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-thirdpartyfirewallpolicy>
                           thirdPartyFirewallPolicy :: (Prelude.Maybe ThirdPartyFirewallPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyOptionProperty :: PolicyOptionProperty
 mkPolicyOptionProperty
   = PolicyOptionProperty
-      {networkAclCommonPolicy = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       networkAclCommonPolicy = Prelude.Nothing,
        networkFirewallPolicy = Prelude.Nothing,
        thirdPartyFirewallPolicy = Prelude.Nothing}
 instance ToResourceProperties PolicyOptionProperty where

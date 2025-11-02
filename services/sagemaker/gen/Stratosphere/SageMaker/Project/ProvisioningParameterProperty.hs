@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisioningParameterProperty
-  = ProvisioningParameterProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html>
+    ProvisioningParameterProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html#cfn-sagemaker-project-provisioningparameter-key>
+                                   key :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html#cfn-sagemaker-project-provisioningparameter-value>
                                    value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ProvisioningParameterProperty
 mkProvisioningParameterProperty key value
-  = ProvisioningParameterProperty {key = key, value = value}
+  = ProvisioningParameterProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties ProvisioningParameterProperty where
   toResourceProperties ProvisioningParameterProperty {..}
     = ResourceProperties

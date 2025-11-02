@@ -7,13 +7,17 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentReportS3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputsProperty
-  = OutputsProperty {experimentReportS3Configuration :: ExperimentReportS3ConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html>
+    OutputsProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html#cfn-fis-experimenttemplate-outputs-experimentreports3configuration>
+                     experimentReportS3Configuration :: ExperimentReportS3ConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputsProperty ::
   ExperimentReportS3ConfigurationProperty -> OutputsProperty
 mkOutputsProperty experimentReportS3Configuration
   = OutputsProperty
-      {experimentReportS3Configuration = experimentReportS3Configuration}
+      {haddock_workaround_ = (),
+       experimentReportS3Configuration = experimentReportS3Configuration}
 instance ToResourceProperties OutputsProperty where
   toResourceProperties OutputsProperty {..}
     = ResourceProperties
@@ -28,5 +32,5 @@ instance JSON.ToJSON OutputsProperty where
            JSON..= experimentReportS3Configuration]
 instance Property "ExperimentReportS3Configuration" OutputsProperty where
   type PropertyType "ExperimentReportS3Configuration" OutputsProperty = ExperimentReportS3ConfigurationProperty
-  set newValue OutputsProperty {}
+  set newValue OutputsProperty {..}
     = OutputsProperty {experimentReportS3Configuration = newValue, ..}

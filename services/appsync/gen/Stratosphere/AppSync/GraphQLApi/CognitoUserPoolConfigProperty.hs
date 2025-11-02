@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CognitoUserPoolConfigProperty
-  = CognitoUserPoolConfigProperty {appIdClientRegex :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html>
+    CognitoUserPoolConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-appidclientregex>
+                                   appIdClientRegex :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-awsregion>
                                    awsRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html#cfn-appsync-graphqlapi-cognitouserpoolconfig-userpoolid>
                                    userPoolId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoUserPoolConfigProperty :: CognitoUserPoolConfigProperty
 mkCognitoUserPoolConfigProperty
   = CognitoUserPoolConfigProperty
-      {appIdClientRegex = Prelude.Nothing, awsRegion = Prelude.Nothing,
-       userPoolId = Prelude.Nothing}
+      {haddock_workaround_ = (), appIdClientRegex = Prelude.Nothing,
+       awsRegion = Prelude.Nothing, userPoolId = Prelude.Nothing}
 instance ToResourceProperties CognitoUserPoolConfigProperty where
   toResourceProperties CognitoUserPoolConfigProperty {..}
     = ResourceProperties

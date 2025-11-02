@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3LocationProperty
-  = S3LocationProperty {bucket :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html>
+    S3LocationProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html#cfn-gamelift-script-s3location-bucket>
+                        bucket :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html#cfn-gamelift-script-s3location-key>
                         key :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html#cfn-gamelift-script-s3location-objectversion>
                         objectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html#cfn-gamelift-script-s3location-rolearn>
                         roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty ::
@@ -17,8 +23,8 @@ mkS3LocationProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> S3LocationProperty
 mkS3LocationProperty bucket key roleArn
   = S3LocationProperty
-      {bucket = bucket, key = key, roleArn = roleArn,
-       objectVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), bucket = bucket, key = key,
+       roleArn = roleArn, objectVersion = Prelude.Nothing}
 instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties

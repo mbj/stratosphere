@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SiemensIEProperty
-  = SiemensIEProperty {iotCoreThingName :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-siemensie.html>
+    SiemensIEProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-siemensie.html#cfn-iotsitewise-gateway-siemensie-iotcorethingname>
+                       iotCoreThingName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSiemensIEProperty :: Value Prelude.Text -> SiemensIEProperty
 mkSiemensIEProperty iotCoreThingName
-  = SiemensIEProperty {iotCoreThingName = iotCoreThingName}
+  = SiemensIEProperty
+      {haddock_workaround_ = (), iotCoreThingName = iotCoreThingName}
 instance ToResourceProperties SiemensIEProperty where
   toResourceProperties SiemensIEProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON SiemensIEProperty where
     = JSON.object ["IotCoreThingName" JSON..= iotCoreThingName]
 instance Property "IotCoreThingName" SiemensIEProperty where
   type PropertyType "IotCoreThingName" SiemensIEProperty = Value Prelude.Text
-  set newValue SiemensIEProperty {}
+  set newValue SiemensIEProperty {..}
     = SiemensIEProperty {iotCoreThingName = newValue, ..}

@@ -10,17 +10,24 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.DeployedImagePro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceComponentContainerSpecificationProperty
-  = InferenceComponentContainerSpecificationProperty {artifactUrl :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html>
+    InferenceComponentContainerSpecificationProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-artifacturl>
+                                                      artifactUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-deployedimage>
                                                       deployedImage :: (Prelude.Maybe DeployedImageProperty),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-environment>
                                                       environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-image>
                                                       image :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponentContainerSpecificationProperty ::
   InferenceComponentContainerSpecificationProperty
 mkInferenceComponentContainerSpecificationProperty
   = InferenceComponentContainerSpecificationProperty
-      {artifactUrl = Prelude.Nothing, deployedImage = Prelude.Nothing,
-       environment = Prelude.Nothing, image = Prelude.Nothing}
+      {haddock_workaround_ = (), artifactUrl = Prelude.Nothing,
+       deployedImage = Prelude.Nothing, environment = Prelude.Nothing,
+       image = Prelude.Nothing}
 instance ToResourceProperties InferenceComponentContainerSpecificationProperty where
   toResourceProperties
     InferenceComponentContainerSpecificationProperty {..}

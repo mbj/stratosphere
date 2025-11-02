@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationRes
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.FlinkRunConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data RunConfigurationProperty
-  = RunConfigurationProperty {applicationRestoreConfiguration :: (Prelude.Maybe ApplicationRestoreConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html>
+    RunConfigurationProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-applicationrestoreconfiguration>
+                              applicationRestoreConfiguration :: (Prelude.Maybe ApplicationRestoreConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html#cfn-kinesisanalyticsv2-application-runconfiguration-flinkrunconfiguration>
                               flinkRunConfiguration :: (Prelude.Maybe FlinkRunConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunConfigurationProperty :: RunConfigurationProperty
 mkRunConfigurationProperty
   = RunConfigurationProperty
-      {applicationRestoreConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       applicationRestoreConfiguration = Prelude.Nothing,
        flinkRunConfiguration = Prelude.Nothing}
 instance ToResourceProperties RunConfigurationProperty where
   toResourceProperties RunConfigurationProperty {..}

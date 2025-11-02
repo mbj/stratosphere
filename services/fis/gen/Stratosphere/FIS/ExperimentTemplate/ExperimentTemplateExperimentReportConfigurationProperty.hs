@@ -11,9 +11,15 @@ import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.OutputsProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateExperimentReportConfigurationProperty
-  = ExperimentTemplateExperimentReportConfigurationProperty {dataSources :: DataSourcesProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html>
+    ExperimentTemplateExperimentReportConfigurationProperty {haddock_workaround_ :: (),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-datasources>
+                                                             dataSources :: DataSourcesProperty,
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-outputs>
                                                              outputs :: OutputsProperty,
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-postexperimentduration>
                                                              postExperimentDuration :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-preexperimentduration>
                                                              preExperimentDuration :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateExperimentReportConfigurationProperty ::
@@ -24,8 +30,8 @@ mkExperimentTemplateExperimentReportConfigurationProperty
   dataSources
   outputs
   = ExperimentTemplateExperimentReportConfigurationProperty
-      {dataSources = dataSources, outputs = outputs,
-       postExperimentDuration = Prelude.Nothing,
+      {haddock_workaround_ = (), dataSources = dataSources,
+       outputs = outputs, postExperimentDuration = Prelude.Nothing,
        preExperimentDuration = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplateExperimentReportConfigurationProperty where
   toResourceProperties

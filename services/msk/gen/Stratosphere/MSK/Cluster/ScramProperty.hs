@@ -7,10 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScramProperty
-  = ScramProperty {enabled :: (Value Prelude.Bool)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>
+    ScramProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled>
+                   enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScramProperty :: Value Prelude.Bool -> ScramProperty
-mkScramProperty enabled = ScramProperty {enabled = enabled}
+mkScramProperty enabled
+  = ScramProperty {haddock_workaround_ = (), enabled = enabled}
 instance ToResourceProperties ScramProperty where
   toResourceProperties ScramProperty {..}
     = ResourceProperties
@@ -20,5 +24,5 @@ instance JSON.ToJSON ScramProperty where
   toJSON ScramProperty {..} = JSON.object ["Enabled" JSON..= enabled]
 instance Property "Enabled" ScramProperty where
   type PropertyType "Enabled" ScramProperty = Value Prelude.Bool
-  set newValue ScramProperty {}
+  set newValue ScramProperty {..}
     = ScramProperty {enabled = newValue, ..}

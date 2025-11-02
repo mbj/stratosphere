@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpPackageConfigurationProperty
-  = HttpPackageConfigurationProperty {path :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html>
+    HttpPackageConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html#cfn-mediatailor-vodsource-httppackageconfiguration-path>
+                                      path :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html#cfn-mediatailor-vodsource-httppackageconfiguration-sourcegroup>
                                       sourceGroup :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html#cfn-mediatailor-vodsource-httppackageconfiguration-type>
                                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpPackageConfigurationProperty ::
@@ -18,7 +23,8 @@ mkHttpPackageConfigurationProperty ::
      -> Value Prelude.Text -> HttpPackageConfigurationProperty
 mkHttpPackageConfigurationProperty path sourceGroup type'
   = HttpPackageConfigurationProperty
-      {path = path, sourceGroup = sourceGroup, type' = type'}
+      {haddock_workaround_ = (), path = path, sourceGroup = sourceGroup,
+       type' = type'}
 instance ToResourceProperties HttpPackageConfigurationProperty where
   toResourceProperties HttpPackageConfigurationProperty {..}
     = ResourceProperties

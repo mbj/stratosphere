@@ -8,14 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceStatementRequestProperty
-  = ResourceStatementRequestProperty {resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html>
+    ResourceStatementRequestProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resourcetypes>
+                                      resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html#cfn-ec2-networkinsightsaccessscope-resourcestatementrequest-resources>
                                       resources :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceStatementRequestProperty ::
   ResourceStatementRequestProperty
 mkResourceStatementRequestProperty
   = ResourceStatementRequestProperty
-      {resourceTypes = Prelude.Nothing, resources = Prelude.Nothing}
+      {haddock_workaround_ = (), resourceTypes = Prelude.Nothing,
+       resources = Prelude.Nothing}
 instance ToResourceProperties ResourceStatementRequestProperty where
   toResourceProperties ResourceStatementRequestProperty {..}
     = ResourceProperties

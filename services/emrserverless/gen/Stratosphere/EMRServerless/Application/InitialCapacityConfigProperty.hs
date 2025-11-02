@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.WorkerConfiguration
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitialCapacityConfigProperty
-  = InitialCapacityConfigProperty {workerConfiguration :: WorkerConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html>
+    InitialCapacityConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workerconfiguration>
+                                   workerConfiguration :: WorkerConfigurationProperty,
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount>
                                    workerCount :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialCapacityConfigProperty ::
@@ -17,7 +21,8 @@ mkInitialCapacityConfigProperty ::
   -> Value Prelude.Integer -> InitialCapacityConfigProperty
 mkInitialCapacityConfigProperty workerConfiguration workerCount
   = InitialCapacityConfigProperty
-      {workerConfiguration = workerConfiguration,
+      {haddock_workaround_ = (),
+       workerConfiguration = workerConfiguration,
        workerCount = workerCount}
 instance ToResourceProperties InitialCapacityConfigProperty where
   toResourceProperties InitialCapacityConfigProperty {..}

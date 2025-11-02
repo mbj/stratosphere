@@ -7,17 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluateOnExitProperty
-  = EvaluateOnExitProperty {action :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html>
+    EvaluateOnExitProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-action>
+                            action :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onexitcode>
                             onExitCode :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onreason>
                             onReason :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onstatusreason>
                             onStatusReason :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluateOnExitProperty ::
   Value Prelude.Text -> EvaluateOnExitProperty
 mkEvaluateOnExitProperty action
   = EvaluateOnExitProperty
-      {action = action, onExitCode = Prelude.Nothing,
-       onReason = Prelude.Nothing, onStatusReason = Prelude.Nothing}
+      {haddock_workaround_ = (), action = action,
+       onExitCode = Prelude.Nothing, onReason = Prelude.Nothing,
+       onStatusReason = Prelude.Nothing}
 instance ToResourceProperties EvaluateOnExitProperty where
   toResourceProperties EvaluateOnExitProperty {..}
     = ResourceProperties

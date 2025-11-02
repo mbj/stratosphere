@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueConfigurationProperty
-  = GlueConfigurationProperty {databaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-glueconfiguration.html>
+    GlueConfigurationProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-glueconfiguration.html#cfn-iotanalytics-dataset-glueconfiguration-databasename>
+                               databaseName :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-glueconfiguration.html#cfn-iotanalytics-dataset-glueconfiguration-tablename>
                                tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueConfigurationProperty ::
@@ -15,7 +19,8 @@ mkGlueConfigurationProperty ::
   -> Value Prelude.Text -> GlueConfigurationProperty
 mkGlueConfigurationProperty databaseName tableName
   = GlueConfigurationProperty
-      {databaseName = databaseName, tableName = tableName}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       tableName = tableName}
 instance ToResourceProperties GlueConfigurationProperty where
   toResourceProperties GlueConfigurationProperty {..}
     = ResourceProperties

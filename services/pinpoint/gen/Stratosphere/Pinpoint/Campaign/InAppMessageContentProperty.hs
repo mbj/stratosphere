@@ -11,19 +11,28 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.InAppMessageHeaderConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InAppMessageContentProperty
-  = InAppMessageContentProperty {backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html>
+    InAppMessageContentProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-backgroundcolor>
+                                 backgroundColor :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-bodyconfig>
                                  bodyConfig :: (Prelude.Maybe InAppMessageBodyConfigProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-headerconfig>
                                  headerConfig :: (Prelude.Maybe InAppMessageHeaderConfigProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-imageurl>
                                  imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-primarybtn>
                                  primaryBtn :: (Prelude.Maybe InAppMessageButtonProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagecontent.html#cfn-pinpoint-campaign-inappmessagecontent-secondarybtn>
                                  secondaryBtn :: (Prelude.Maybe InAppMessageButtonProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageContentProperty :: InAppMessageContentProperty
 mkInAppMessageContentProperty
   = InAppMessageContentProperty
-      {backgroundColor = Prelude.Nothing, bodyConfig = Prelude.Nothing,
-       headerConfig = Prelude.Nothing, imageUrl = Prelude.Nothing,
-       primaryBtn = Prelude.Nothing, secondaryBtn = Prelude.Nothing}
+      {haddock_workaround_ = (), backgroundColor = Prelude.Nothing,
+       bodyConfig = Prelude.Nothing, headerConfig = Prelude.Nothing,
+       imageUrl = Prelude.Nothing, primaryBtn = Prelude.Nothing,
+       secondaryBtn = Prelude.Nothing}
 instance ToResourceProperties InAppMessageContentProperty where
   toResourceProperties InAppMessageContentProperty {..}
     = ResourceProperties

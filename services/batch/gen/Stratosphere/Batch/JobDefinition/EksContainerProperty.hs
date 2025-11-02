@@ -11,24 +11,36 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerVolumeMountPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksContainerProperty
-  = EksContainerProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html>
+    EksContainerProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-args>
+                          args :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-command>
                           command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-env>
                           env :: (Prelude.Maybe [EksContainerEnvironmentVariableProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-image>
                           image :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-imagepullpolicy>
                           imagePullPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-name>
                           name :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-resources>
                           resources :: (Prelude.Maybe EksContainerResourceRequirementsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-securitycontext>
                           securityContext :: (Prelude.Maybe EksContainerSecurityContextProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html#cfn-batch-jobdefinition-ekscontainer-volumemounts>
                           volumeMounts :: (Prelude.Maybe [EksContainerVolumeMountProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerProperty ::
   Value Prelude.Text -> EksContainerProperty
 mkEksContainerProperty image
   = EksContainerProperty
-      {image = image, args = Prelude.Nothing, command = Prelude.Nothing,
-       env = Prelude.Nothing, imagePullPolicy = Prelude.Nothing,
-       name = Prelude.Nothing, resources = Prelude.Nothing,
-       securityContext = Prelude.Nothing, volumeMounts = Prelude.Nothing}
+      {haddock_workaround_ = (), image = image, args = Prelude.Nothing,
+       command = Prelude.Nothing, env = Prelude.Nothing,
+       imagePullPolicy = Prelude.Nothing, name = Prelude.Nothing,
+       resources = Prelude.Nothing, securityContext = Prelude.Nothing,
+       volumeMounts = Prelude.Nothing}
 instance ToResourceProperties EksContainerProperty where
   toResourceProperties EksContainerProperty {..}
     = ResourceProperties

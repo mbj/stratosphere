@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ValidityProperty
-  = ValidityProperty {type' :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html>
+    ValidityProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type>
+                      type' :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value>
                       value :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkValidityProperty ::
   Value Prelude.Text -> Value Prelude.Double -> ValidityProperty
 mkValidityProperty type' value
-  = ValidityProperty {type' = type', value = value}
+  = ValidityProperty
+      {haddock_workaround_ = (), type' = type', value = value}
 instance ToResourceProperties ValidityProperty where
   toResourceProperties ValidityProperty {..}
     = ResourceProperties

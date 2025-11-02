@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.RecencyProperty as Exports
 import Stratosphere.ResourceProperties
 data BehaviorProperty
-  = BehaviorProperty {recency :: (Prelude.Maybe RecencyProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html>
+    BehaviorProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html#cfn-pinpoint-segment-segmentdimensions-behavior-recency>
+                      recency :: (Prelude.Maybe RecencyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorProperty :: BehaviorProperty
-mkBehaviorProperty = BehaviorProperty {recency = Prelude.Nothing}
+mkBehaviorProperty
+  = BehaviorProperty
+      {haddock_workaround_ = (), recency = Prelude.Nothing}
 instance ToResourceProperties BehaviorProperty where
   toResourceProperties BehaviorProperty {..}
     = ResourceProperties
@@ -25,5 +30,5 @@ instance JSON.ToJSON BehaviorProperty where
            (Prelude.catMaybes [(JSON..=) "Recency" Prelude.<$> recency]))
 instance Property "Recency" BehaviorProperty where
   type PropertyType "Recency" BehaviorProperty = RecencyProperty
-  set newValue BehaviorProperty {}
+  set newValue BehaviorProperty {..}
     = BehaviorProperty {recency = Prelude.pure newValue, ..}

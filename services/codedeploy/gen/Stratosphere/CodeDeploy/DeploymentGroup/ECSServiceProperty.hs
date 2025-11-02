@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ECSServiceProperty
-  = ECSServiceProperty {clusterName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html>
+    ECSServiceProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html#cfn-codedeploy-deploymentgroup-ecsservice-clustername>
+                        clusterName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html#cfn-codedeploy-deploymentgroup-ecsservice-servicename>
                         serviceName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkECSServiceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ECSServiceProperty
 mkECSServiceProperty clusterName serviceName
   = ECSServiceProperty
-      {clusterName = clusterName, serviceName = serviceName}
+      {haddock_workaround_ = (), clusterName = clusterName,
+       serviceName = serviceName}
 instance ToResourceProperties ECSServiceProperty where
   toResourceProperties ECSServiceProperty {..}
     = ResourceProperties

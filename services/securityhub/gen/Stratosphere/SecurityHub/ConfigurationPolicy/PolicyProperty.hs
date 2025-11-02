@@ -7,10 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.SecurityHubPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PolicyProperty
-  = PolicyProperty {securityHub :: (Prelude.Maybe SecurityHubPolicyProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html>
+    PolicyProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html#cfn-securityhub-configurationpolicy-policy-securityhub>
+                    securityHub :: (Prelude.Maybe SecurityHubPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyProperty :: PolicyProperty
-mkPolicyProperty = PolicyProperty {securityHub = Prelude.Nothing}
+mkPolicyProperty
+  = PolicyProperty
+      {haddock_workaround_ = (), securityHub = Prelude.Nothing}
 instance ToResourceProperties PolicyProperty where
   toResourceProperties PolicyProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON PolicyProperty where
               [(JSON..=) "SecurityHub" Prelude.<$> securityHub]))
 instance Property "SecurityHub" PolicyProperty where
   type PropertyType "SecurityHub" PolicyProperty = SecurityHubPolicyProperty
-  set newValue PolicyProperty {}
+  set newValue PolicyProperty {..}
     = PolicyProperty {securityHub = Prelude.pure newValue, ..}

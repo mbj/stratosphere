@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkPerformanceMetricSubscription
-  = NetworkPerformanceMetricSubscription {destination :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html>
+    NetworkPerformanceMetricSubscription {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html#cfn-ec2-networkperformancemetricsubscription-destination>
+                                          destination :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html#cfn-ec2-networkperformancemetricsubscription-metric>
                                           metric :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html#cfn-ec2-networkperformancemetricsubscription-source>
                                           source :: (Value Prelude.Text),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html#cfn-ec2-networkperformancemetricsubscription-statistic>
                                           statistic :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkPerformanceMetricSubscription ::
@@ -24,8 +30,8 @@ mkNetworkPerformanceMetricSubscription
   source
   statistic
   = NetworkPerformanceMetricSubscription
-      {destination = destination, metric = metric, source = source,
-       statistic = statistic}
+      {haddock_workaround_ = (), destination = destination,
+       metric = metric, source = source, statistic = statistic}
 instance ToResourceProperties NetworkPerformanceMetricSubscription where
   toResourceProperties NetworkPerformanceMetricSubscription {..}
     = ResourceProperties

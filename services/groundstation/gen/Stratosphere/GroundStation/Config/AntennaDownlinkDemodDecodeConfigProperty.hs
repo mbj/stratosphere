@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.DemodulationConfigProper
 import {-# SOURCE #-} Stratosphere.GroundStation.Config.SpectrumConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data AntennaDownlinkDemodDecodeConfigProperty
-  = AntennaDownlinkDemodDecodeConfigProperty {decodeConfig :: (Prelude.Maybe DecodeConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html>
+    AntennaDownlinkDemodDecodeConfigProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig>
+                                              decodeConfig :: (Prelude.Maybe DecodeConfigProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig>
                                               demodulationConfig :: (Prelude.Maybe DemodulationConfigProperty),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig>
                                               spectrumConfig :: (Prelude.Maybe SpectrumConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaDownlinkDemodDecodeConfigProperty ::
   AntennaDownlinkDemodDecodeConfigProperty
 mkAntennaDownlinkDemodDecodeConfigProperty
   = AntennaDownlinkDemodDecodeConfigProperty
-      {decodeConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), decodeConfig = Prelude.Nothing,
        demodulationConfig = Prelude.Nothing,
        spectrumConfig = Prelude.Nothing}
 instance ToResourceProperties AntennaDownlinkDemodDecodeConfigProperty where

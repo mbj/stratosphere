@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseConfigProperty
-  = KinesisFirehoseConfigProperty {firehoseArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html>
+    KinesisFirehoseConfigProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html#cfn-connect-instancestorageconfig-kinesisfirehoseconfig-firehosearn>
+                                   firehoseArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseConfigProperty ::
   Value Prelude.Text -> KinesisFirehoseConfigProperty
 mkKinesisFirehoseConfigProperty firehoseArn
-  = KinesisFirehoseConfigProperty {firehoseArn = firehoseArn}
+  = KinesisFirehoseConfigProperty
+      {haddock_workaround_ = (), firehoseArn = firehoseArn}
 instance ToResourceProperties KinesisFirehoseConfigProperty where
   toResourceProperties KinesisFirehoseConfigProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON KinesisFirehoseConfigProperty where
     = JSON.object ["FirehoseArn" JSON..= firehoseArn]
 instance Property "FirehoseArn" KinesisFirehoseConfigProperty where
   type PropertyType "FirehoseArn" KinesisFirehoseConfigProperty = Value Prelude.Text
-  set newValue KinesisFirehoseConfigProperty {}
+  set newValue KinesisFirehoseConfigProperty {..}
     = KinesisFirehoseConfigProperty {firehoseArn = newValue, ..}

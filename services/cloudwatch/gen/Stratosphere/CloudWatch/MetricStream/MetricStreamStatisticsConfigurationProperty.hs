@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.MetricStream.MetricStreamStatistic
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricStreamStatisticsConfigurationProperty
-  = MetricStreamStatisticsConfigurationProperty {additionalStatistics :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html>
+    MetricStreamStatisticsConfigurationProperty {haddock_workaround_ :: (),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-additionalstatistics>
+                                                 additionalStatistics :: (ValueList Prelude.Text),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html#cfn-cloudwatch-metricstream-metricstreamstatisticsconfiguration-includemetrics>
                                                  includeMetrics :: [MetricStreamStatisticsMetricProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStreamStatisticsConfigurationProperty ::
@@ -20,7 +24,8 @@ mkMetricStreamStatisticsConfigurationProperty
   additionalStatistics
   includeMetrics
   = MetricStreamStatisticsConfigurationProperty
-      {additionalStatistics = additionalStatistics,
+      {haddock_workaround_ = (),
+       additionalStatistics = additionalStatistics,
        includeMetrics = includeMetrics}
 instance ToResourceProperties MetricStreamStatisticsConfigurationProperty where
   toResourceProperties

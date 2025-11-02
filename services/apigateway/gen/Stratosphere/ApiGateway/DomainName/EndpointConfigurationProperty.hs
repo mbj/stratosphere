@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointConfigurationProperty
-  = EndpointConfigurationProperty {types :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html>
+    EndpointConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types>
+                                   types :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointConfigurationProperty :: EndpointConfigurationProperty
 mkEndpointConfigurationProperty
-  = EndpointConfigurationProperty {types = Prelude.Nothing}
+  = EndpointConfigurationProperty
+      {haddock_workaround_ = (), types = Prelude.Nothing}
 instance ToResourceProperties EndpointConfigurationProperty where
   toResourceProperties EndpointConfigurationProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON EndpointConfigurationProperty where
            (Prelude.catMaybes [(JSON..=) "Types" Prelude.<$> types]))
 instance Property "Types" EndpointConfigurationProperty where
   type PropertyType "Types" EndpointConfigurationProperty = ValueList Prelude.Text
-  set newValue EndpointConfigurationProperty {}
+  set newValue EndpointConfigurationProperty {..}
     = EndpointConfigurationProperty {types = Prelude.pure newValue, ..}

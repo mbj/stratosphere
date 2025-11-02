@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchJobDependencyProperty
-  = BatchJobDependencyProperty {jobId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchjobdependency.html>
+    BatchJobDependencyProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchjobdependency.html#cfn-pipes-pipe-batchjobdependency-jobid>
+                                jobId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchjobdependency.html#cfn-pipes-pipe-batchjobdependency-type>
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchJobDependencyProperty :: BatchJobDependencyProperty
 mkBatchJobDependencyProperty
   = BatchJobDependencyProperty
-      {jobId = Prelude.Nothing, type' = Prelude.Nothing}
+      {haddock_workaround_ = (), jobId = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties BatchJobDependencyProperty where
   toResourceProperties BatchJobDependencyProperty {..}
     = ResourceProperties

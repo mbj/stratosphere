@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
-  = EncryptionConfigurationProperty {kmsKey :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html>
+    EncryptionConfigurationProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey>
+                                     kmsKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   Value Prelude.Text -> EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty kmsKey
-  = EncryptionConfigurationProperty {kmsKey = kmsKey}
+  = EncryptionConfigurationProperty
+      {haddock_workaround_ = (), kmsKey = kmsKey}
 instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON EncryptionConfigurationProperty where
     = JSON.object ["KmsKey" JSON..= kmsKey]
 instance Property "KmsKey" EncryptionConfigurationProperty where
   type PropertyType "KmsKey" EncryptionConfigurationProperty = Value Prelude.Text
-  set newValue EncryptionConfigurationProperty {}
+  set newValue EncryptionConfigurationProperty {..}
     = EncryptionConfigurationProperty {kmsKey = newValue, ..}

@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuroraPostgreSqlParametersProperty
-  = AuroraPostgreSqlParametersProperty {database :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html>
+    AuroraPostgreSqlParametersProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database>
+                                        database :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host>
                                         host :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port>
                                         port :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAuroraPostgreSqlParametersProperty ::
@@ -18,7 +23,8 @@ mkAuroraPostgreSqlParametersProperty ::
      -> Value Prelude.Double -> AuroraPostgreSqlParametersProperty
 mkAuroraPostgreSqlParametersProperty database host port
   = AuroraPostgreSqlParametersProperty
-      {database = database, host = host, port = port}
+      {haddock_workaround_ = (), database = database, host = host,
+       port = port}
 instance ToResourceProperties AuroraPostgreSqlParametersProperty where
   toResourceProperties AuroraPostgreSqlParametersProperty {..}
     = ResourceProperties

@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationSpecificationProperty
-  = ReplicationSpecificationProperty {regionList :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html>
+    ReplicationSpecificationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html#cfn-cassandra-keyspace-replicationspecification-regionlist>
+                                      regionList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html#cfn-cassandra-keyspace-replicationspecification-replicationstrategy>
                                       replicationStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationSpecificationProperty ::
   ReplicationSpecificationProperty
 mkReplicationSpecificationProperty
   = ReplicationSpecificationProperty
-      {regionList = Prelude.Nothing,
+      {haddock_workaround_ = (), regionList = Prelude.Nothing,
        replicationStrategy = Prelude.Nothing}
 instance ToResourceProperties ReplicationSpecificationProperty where
   toResourceProperties ReplicationSpecificationProperty {..}

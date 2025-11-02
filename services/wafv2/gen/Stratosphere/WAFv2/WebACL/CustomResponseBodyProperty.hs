@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomResponseBodyProperty
-  = CustomResponseBodyProperty {content :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html>
+    CustomResponseBodyProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content>
+                                content :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype>
                                 contentType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomResponseBodyProperty ::
@@ -15,7 +19,8 @@ mkCustomResponseBodyProperty ::
   -> Value Prelude.Text -> CustomResponseBodyProperty
 mkCustomResponseBodyProperty content contentType
   = CustomResponseBodyProperty
-      {content = content, contentType = contentType}
+      {haddock_workaround_ = (), content = content,
+       contentType = contentType}
 instance ToResourceProperties CustomResponseBodyProperty where
   toResourceProperties CustomResponseBodyProperty {..}
     = ResourceProperties

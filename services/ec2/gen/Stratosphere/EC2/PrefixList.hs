@@ -9,19 +9,26 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PrefixList
-  = PrefixList {addressFamily :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html>
+    PrefixList {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily>
+                addressFamily :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries>
                 entries :: (Prelude.Maybe [EntryProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries>
                 maxEntries :: (Prelude.Maybe (Value Prelude.Integer)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname>
                 prefixListName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixList ::
   Value Prelude.Text -> Value Prelude.Text -> PrefixList
 mkPrefixList addressFamily prefixListName
   = PrefixList
-      {addressFamily = addressFamily, prefixListName = prefixListName,
-       entries = Prelude.Nothing, maxEntries = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), addressFamily = addressFamily,
+       prefixListName = prefixListName, entries = Prelude.Nothing,
+       maxEntries = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties PrefixList where
   toResourceProperties PrefixList {..}
     = ResourceProperties

@@ -8,13 +8,17 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.Alert.LambdaConfigurationPrope
 import {-# SOURCE #-} Stratosphere.LookoutMetrics.Alert.SNSConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionProperty
-  = ActionProperty {lambdaConfiguration :: (Prelude.Maybe LambdaConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html>
+    ActionProperty {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration>
+                    lambdaConfiguration :: (Prelude.Maybe LambdaConfigurationProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration>
                     sNSConfiguration :: (Prelude.Maybe SNSConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
-      {lambdaConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), lambdaConfiguration = Prelude.Nothing,
        sNSConfiguration = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}

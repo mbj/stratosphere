@@ -11,10 +11,17 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.R
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolRiskConfigurationAttachment
-  = UserPoolRiskConfigurationAttachment {accountTakeoverRiskConfiguration :: (Prelude.Maybe AccountTakeoverRiskConfigurationTypeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html>
+    UserPoolRiskConfigurationAttachment {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfiguration>
+                                         accountTakeoverRiskConfiguration :: (Prelude.Maybe AccountTakeoverRiskConfigurationTypeProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-clientid>
                                          clientId :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfiguration>
                                          compromisedCredentialsRiskConfiguration :: (Prelude.Maybe CompromisedCredentialsRiskConfigurationTypeProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfiguration>
                                          riskExceptionConfiguration :: (Prelude.Maybe RiskExceptionConfigurationTypeProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid>
                                          userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolRiskConfigurationAttachment ::
@@ -22,7 +29,8 @@ mkUserPoolRiskConfigurationAttachment ::
   -> Value Prelude.Text -> UserPoolRiskConfigurationAttachment
 mkUserPoolRiskConfigurationAttachment clientId userPoolId
   = UserPoolRiskConfigurationAttachment
-      {clientId = clientId, userPoolId = userPoolId,
+      {haddock_workaround_ = (), clientId = clientId,
+       userPoolId = userPoolId,
        accountTakeoverRiskConfiguration = Prelude.Nothing,
        compromisedCredentialsRiskConfiguration = Prelude.Nothing,
        riskExceptionConfiguration = Prelude.Nothing}

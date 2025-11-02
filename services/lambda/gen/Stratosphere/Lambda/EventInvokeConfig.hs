@@ -8,18 +8,25 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventInvokeConfig.DestinationConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventInvokeConfig
-  = EventInvokeConfig {destinationConfig :: (Prelude.Maybe DestinationConfigProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html>
+    EventInvokeConfig {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig>
+                       destinationConfig :: (Prelude.Maybe DestinationConfigProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-functionname>
                        functionName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumeventageinseconds>
                        maximumEventAgeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumretryattempts>
                        maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Integer)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-qualifier>
                        qualifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventInvokeConfig ::
   Value Prelude.Text -> Value Prelude.Text -> EventInvokeConfig
 mkEventInvokeConfig functionName qualifier
   = EventInvokeConfig
-      {functionName = functionName, qualifier = qualifier,
-       destinationConfig = Prelude.Nothing,
+      {haddock_workaround_ = (), functionName = functionName,
+       qualifier = qualifier, destinationConfig = Prelude.Nothing,
        maximumEventAgeInSeconds = Prelude.Nothing,
        maximumRetryAttempts = Prelude.Nothing}
 instance ToResourceProperties EventInvokeConfig where

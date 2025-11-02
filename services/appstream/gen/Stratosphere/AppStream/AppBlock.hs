@@ -10,21 +10,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AppBlock
-  = AppBlock {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html>
+    AppBlock {haddock_workaround_ :: (),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-description>
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-displayname>
               displayName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-name>
               name :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-packagingtype>
               packagingType :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-postsetupscriptdetails>
               postSetupScriptDetails :: (Prelude.Maybe ScriptDetailsProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-setupscriptdetails>
               setupScriptDetails :: (Prelude.Maybe ScriptDetailsProperty),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-sources3location>
               sourceS3Location :: S3LocationProperty,
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html#cfn-appstream-appblock-tags>
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAppBlock :: Value Prelude.Text -> S3LocationProperty -> AppBlock
 mkAppBlock name sourceS3Location
   = AppBlock
-      {name = name, sourceS3Location = sourceS3Location,
-       description = Prelude.Nothing, displayName = Prelude.Nothing,
-       packagingType = Prelude.Nothing,
+      {haddock_workaround_ = (), name = name,
+       sourceS3Location = sourceS3Location, description = Prelude.Nothing,
+       displayName = Prelude.Nothing, packagingType = Prelude.Nothing,
        postSetupScriptDetails = Prelude.Nothing,
        setupScriptDetails = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AppBlock where

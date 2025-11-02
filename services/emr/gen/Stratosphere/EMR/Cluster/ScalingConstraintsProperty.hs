@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScalingConstraintsProperty
-  = ScalingConstraintsProperty {maxCapacity :: (Value Prelude.Integer),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html>
+    ScalingConstraintsProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html#cfn-elasticmapreduce-cluster-scalingconstraints-maxcapacity>
+                                maxCapacity :: (Value Prelude.Integer),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingconstraints.html#cfn-elasticmapreduce-cluster-scalingconstraints-mincapacity>
                                 minCapacity :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConstraintsProperty ::
@@ -15,7 +19,8 @@ mkScalingConstraintsProperty ::
   -> Value Prelude.Integer -> ScalingConstraintsProperty
 mkScalingConstraintsProperty maxCapacity minCapacity
   = ScalingConstraintsProperty
-      {maxCapacity = maxCapacity, minCapacity = minCapacity}
+      {haddock_workaround_ = (), maxCapacity = maxCapacity,
+       minCapacity = minCapacity}
 instance ToResourceProperties ScalingConstraintsProperty where
   toResourceProperties ScalingConstraintsProperty {..}
     = ResourceProperties

@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.DataConnectorPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionProperty
-  = FunctionProperty {implementedBy :: (Prelude.Maybe DataConnectorProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html>
+    FunctionProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-implementedby>
+                      implementedBy :: (Prelude.Maybe DataConnectorProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-requiredproperties>
                       requiredProperties :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html#cfn-iottwinmaker-componenttype-function-scope>
                       scope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty :: FunctionProperty
 mkFunctionProperty
   = FunctionProperty
-      {implementedBy = Prelude.Nothing,
+      {haddock_workaround_ = (), implementedBy = Prelude.Nothing,
        requiredProperties = Prelude.Nothing, scope = Prelude.Nothing}
 instance ToResourceProperties FunctionProperty where
   toResourceProperties FunctionProperty {..}

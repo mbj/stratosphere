@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZoneAwarenessConfigProperty
-  = ZoneAwarenessConfigProperty {availabilityZoneCount :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html>
+    ZoneAwarenessConfigProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html#cfn-opensearchservice-domain-zoneawarenessconfig-availabilityzonecount>
+                                 availabilityZoneCount :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZoneAwarenessConfigProperty :: ZoneAwarenessConfigProperty
 mkZoneAwarenessConfigProperty
   = ZoneAwarenessConfigProperty
-      {availabilityZoneCount = Prelude.Nothing}
+      {haddock_workaround_ = (), availabilityZoneCount = Prelude.Nothing}
 instance ToResourceProperties ZoneAwarenessConfigProperty where
   toResourceProperties ZoneAwarenessConfigProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON ZoneAwarenessConfigProperty where
                  Prelude.<$> availabilityZoneCount]))
 instance Property "AvailabilityZoneCount" ZoneAwarenessConfigProperty where
   type PropertyType "AvailabilityZoneCount" ZoneAwarenessConfigProperty = Value Prelude.Integer
-  set newValue ZoneAwarenessConfigProperty {}
+  set newValue ZoneAwarenessConfigProperty {..}
     = ZoneAwarenessConfigProperty
         {availabilityZoneCount = Prelude.pure newValue, ..}

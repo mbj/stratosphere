@@ -7,16 +7,23 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RunningStatusObjectProperty
-  = RunningStatusObjectProperty {analysisCompleteTime :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html>
+    RunningStatusObjectProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html#cfn-evidently-experiment-runningstatusobject-analysiscompletetime>
+                                 analysisCompleteTime :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html#cfn-evidently-experiment-runningstatusobject-desiredstate>
                                  desiredState :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html#cfn-evidently-experiment-runningstatusobject-reason>
                                  reason :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html#cfn-evidently-experiment-runningstatusobject-status>
                                  status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRunningStatusObjectProperty ::
   Value Prelude.Text -> RunningStatusObjectProperty
 mkRunningStatusObjectProperty status
   = RunningStatusObjectProperty
-      {status = status, analysisCompleteTime = Prelude.Nothing,
+      {haddock_workaround_ = (), status = status,
+       analysisCompleteTime = Prelude.Nothing,
        desiredState = Prelude.Nothing, reason = Prelude.Nothing}
 instance ToResourceProperties RunningStatusObjectProperty where
   toResourceProperties RunningStatusObjectProperty {..}

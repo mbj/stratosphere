@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliverToMailboxActionProperty
-  = DeliverToMailboxActionProperty {actionFailurePolicy :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html>
+    DeliverToMailboxActionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html#cfn-ses-mailmanagerruleset-delivertomailboxaction-actionfailurepolicy>
+                                    actionFailurePolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html#cfn-ses-mailmanagerruleset-delivertomailboxaction-mailboxarn>
                                     mailboxArn :: (Value Prelude.Text),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html#cfn-ses-mailmanagerruleset-delivertomailboxaction-rolearn>
                                     roleArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliverToMailboxActionProperty ::
@@ -17,8 +22,8 @@ mkDeliverToMailboxActionProperty ::
   -> Value Prelude.Text -> DeliverToMailboxActionProperty
 mkDeliverToMailboxActionProperty mailboxArn roleArn
   = DeliverToMailboxActionProperty
-      {mailboxArn = mailboxArn, roleArn = roleArn,
-       actionFailurePolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), mailboxArn = mailboxArn,
+       roleArn = roleArn, actionFailurePolicy = Prelude.Nothing}
 instance ToResourceProperties DeliverToMailboxActionProperty where
   toResourceProperties DeliverToMailboxActionProperty {..}
     = ResourceProperties

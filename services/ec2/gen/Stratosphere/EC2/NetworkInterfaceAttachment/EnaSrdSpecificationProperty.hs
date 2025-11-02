@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInterfaceAttachment.EnaSrdUdpSpeci
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnaSrdSpecificationProperty
-  = EnaSrdSpecificationProperty {enaSrdEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>
+    EnaSrdSpecificationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html#cfn-ec2-networkinterfaceattachment-enasrdspecification-enasrdenabled>
+                                 enaSrdEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html#cfn-ec2-networkinterfaceattachment-enasrdspecification-enasrdudpspecification>
                                  enaSrdUdpSpecification :: (Prelude.Maybe EnaSrdUdpSpecificationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnaSrdSpecificationProperty :: EnaSrdSpecificationProperty
 mkEnaSrdSpecificationProperty
   = EnaSrdSpecificationProperty
-      {enaSrdEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (), enaSrdEnabled = Prelude.Nothing,
        enaSrdUdpSpecification = Prelude.Nothing}
 instance ToResourceProperties EnaSrdSpecificationProperty where
   toResourceProperties EnaSrdSpecificationProperty {..}

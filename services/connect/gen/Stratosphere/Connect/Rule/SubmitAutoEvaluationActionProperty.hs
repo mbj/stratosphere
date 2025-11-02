@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubmitAutoEvaluationActionProperty
-  = SubmitAutoEvaluationActionProperty {evaluationFormArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html>
+    SubmitAutoEvaluationActionProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html#cfn-connect-rule-submitautoevaluationaction-evaluationformarn>
+                                        evaluationFormArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubmitAutoEvaluationActionProperty ::
   Value Prelude.Text -> SubmitAutoEvaluationActionProperty
 mkSubmitAutoEvaluationActionProperty evaluationFormArn
   = SubmitAutoEvaluationActionProperty
-      {evaluationFormArn = evaluationFormArn}
+      {haddock_workaround_ = (), evaluationFormArn = evaluationFormArn}
 instance ToResourceProperties SubmitAutoEvaluationActionProperty where
   toResourceProperties SubmitAutoEvaluationActionProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SubmitAutoEvaluationActionProperty where
     = JSON.object ["EvaluationFormArn" JSON..= evaluationFormArn]
 instance Property "EvaluationFormArn" SubmitAutoEvaluationActionProperty where
   type PropertyType "EvaluationFormArn" SubmitAutoEvaluationActionProperty = Value Prelude.Text
-  set newValue SubmitAutoEvaluationActionProperty {}
+  set newValue SubmitAutoEvaluationActionProperty {..}
     = SubmitAutoEvaluationActionProperty
         {evaluationFormArn = newValue, ..}

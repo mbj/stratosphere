@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RateLimitLabelNamespaceProperty
-  = RateLimitLabelNamespaceProperty {namespace :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitlabelnamespace.html>
+    RateLimitLabelNamespaceProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitlabelnamespace.html#cfn-wafv2-webacl-ratelimitlabelnamespace-namespace>
+                                     namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRateLimitLabelNamespaceProperty ::
   Value Prelude.Text -> RateLimitLabelNamespaceProperty
 mkRateLimitLabelNamespaceProperty namespace
-  = RateLimitLabelNamespaceProperty {namespace = namespace}
+  = RateLimitLabelNamespaceProperty
+      {haddock_workaround_ = (), namespace = namespace}
 instance ToResourceProperties RateLimitLabelNamespaceProperty where
   toResourceProperties RateLimitLabelNamespaceProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON RateLimitLabelNamespaceProperty where
     = JSON.object ["Namespace" JSON..= namespace]
 instance Property "Namespace" RateLimitLabelNamespaceProperty where
   type PropertyType "Namespace" RateLimitLabelNamespaceProperty = Value Prelude.Text
-  set newValue RateLimitLabelNamespaceProperty {}
+  set newValue RateLimitLabelNamespaceProperty {..}
     = RateLimitLabelNamespaceProperty {namespace = newValue, ..}

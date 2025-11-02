@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeNetworkSourceProperty
-  = BridgeNetworkSourceProperty {multicastIp :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html>
+    BridgeNetworkSourceProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-multicastip>
+                                 multicastIp :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-networkname>
                                  networkName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-port>
                                  port :: (Value Prelude.Integer),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-protocol>
                                  protocol :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBridgeNetworkSourceProperty ::
@@ -19,8 +25,8 @@ mkBridgeNetworkSourceProperty ::
         -> Value Prelude.Text -> BridgeNetworkSourceProperty
 mkBridgeNetworkSourceProperty multicastIp networkName port protocol
   = BridgeNetworkSourceProperty
-      {multicastIp = multicastIp, networkName = networkName, port = port,
-       protocol = protocol}
+      {haddock_workaround_ = (), multicastIp = multicastIp,
+       networkName = networkName, port = port, protocol = protocol}
 instance ToResourceProperties BridgeNetworkSourceProperty where
   toResourceProperties BridgeNetworkSourceProperty {..}
     = ResourceProperties

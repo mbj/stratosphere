@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInterfacePermission
-  = NetworkInterfacePermission {awsAccountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html>
+    NetworkInterfacePermission {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-awsaccountid>
+                                awsAccountId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-networkinterfaceid>
                                 networkInterfaceId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html#cfn-ec2-networkinterfacepermission-permission>
                                 permission :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfacePermission ::
@@ -20,7 +25,7 @@ mkNetworkInterfacePermission
   networkInterfaceId
   permission
   = NetworkInterfacePermission
-      {awsAccountId = awsAccountId,
+      {haddock_workaround_ = (), awsAccountId = awsAccountId,
        networkInterfaceId = networkInterfaceId, permission = permission}
 instance ToResourceProperties NetworkInterfacePermission where
   toResourceProperties NetworkInterfacePermission {..}

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubscriberProperty
-  = SubscriberProperty {address :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html>
+    SubscriberProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address>
+                        address :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype>
                         subscriptionType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriberProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SubscriberProperty
 mkSubscriberProperty address subscriptionType
   = SubscriberProperty
-      {address = address, subscriptionType = subscriptionType}
+      {haddock_workaround_ = (), address = address,
+       subscriptionType = subscriptionType}
 instance ToResourceProperties SubscriberProperty where
   toResourceProperties SubscriberProperty {..}
     = ResourceProperties

@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotebookInstanceLifecycleHookProperty
-  = NotebookInstanceLifecycleHookProperty {content :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html>
+    NotebookInstanceLifecycleHookProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content>
+                                           content :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotebookInstanceLifecycleHookProperty ::
   NotebookInstanceLifecycleHookProperty
 mkNotebookInstanceLifecycleHookProperty
-  = NotebookInstanceLifecycleHookProperty {content = Prelude.Nothing}
+  = NotebookInstanceLifecycleHookProperty
+      {haddock_workaround_ = (), content = Prelude.Nothing}
 instance ToResourceProperties NotebookInstanceLifecycleHookProperty where
   toResourceProperties NotebookInstanceLifecycleHookProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON NotebookInstanceLifecycleHookProperty where
            (Prelude.catMaybes [(JSON..=) "Content" Prelude.<$> content]))
 instance Property "Content" NotebookInstanceLifecycleHookProperty where
   type PropertyType "Content" NotebookInstanceLifecycleHookProperty = Value Prelude.Text
-  set newValue NotebookInstanceLifecycleHookProperty {}
+  set newValue NotebookInstanceLifecycleHookProperty {..}
     = NotebookInstanceLifecycleHookProperty
         {content = Prelude.pure newValue, ..}

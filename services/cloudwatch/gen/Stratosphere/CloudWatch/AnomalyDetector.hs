@@ -12,19 +12,30 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.SingleMetricAnomal
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalyDetector
-  = AnomalyDetector {configuration :: (Prelude.Maybe ConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html>
+    AnomalyDetector {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-configuration>
+                     configuration :: (Prelude.Maybe ConfigurationProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-dimensions>
                      dimensions :: (Prelude.Maybe [DimensionProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metriccharacteristics>
                      metricCharacteristics :: (Prelude.Maybe MetricCharacteristicsProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector>
                      metricMathAnomalyDetector :: (Prelude.Maybe MetricMathAnomalyDetectorProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricname>
                      metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-namespace>
                      namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector>
                      singleMetricAnomalyDetector :: (Prelude.Maybe SingleMetricAnomalyDetectorProperty),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-stat>
                      stat :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyDetector :: AnomalyDetector
 mkAnomalyDetector
   = AnomalyDetector
-      {configuration = Prelude.Nothing, dimensions = Prelude.Nothing,
+      {haddock_workaround_ = (), configuration = Prelude.Nothing,
+       dimensions = Prelude.Nothing,
        metricCharacteristics = Prelude.Nothing,
        metricMathAnomalyDetector = Prelude.Nothing,
        metricName = Prelude.Nothing, namespace = Prelude.Nothing,

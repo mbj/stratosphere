@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.EcrConfigurationProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageScanningConfigurationProperty
-  = ImageScanningConfigurationProperty {ecrConfiguration :: (Prelude.Maybe EcrConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html>
+    ImageScanningConfigurationProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html#cfn-imagebuilder-image-imagescanningconfiguration-ecrconfiguration>
+                                        ecrConfiguration :: (Prelude.Maybe EcrConfigurationProperty),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html#cfn-imagebuilder-image-imagescanningconfiguration-imagescanningenabled>
                                         imageScanningEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageScanningConfigurationProperty ::
   ImageScanningConfigurationProperty
 mkImageScanningConfigurationProperty
   = ImageScanningConfigurationProperty
-      {ecrConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), ecrConfiguration = Prelude.Nothing,
        imageScanningEnabled = Prelude.Nothing}
 instance ToResourceProperties ImageScanningConfigurationProperty where
   toResourceProperties ImageScanningConfigurationProperty {..}

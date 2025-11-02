@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.WAF.SizeConstraintSet.SizeConstraintProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SizeConstraintSet
-  = SizeConstraintSet {name :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html>
+    SizeConstraintSet {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-name>
+                       name :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html#cfn-waf-sizeconstraintset-sizeconstraints>
                        sizeConstraints :: [SizeConstraintProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintSet ::
   Value Prelude.Text -> [SizeConstraintProperty] -> SizeConstraintSet
 mkSizeConstraintSet name sizeConstraints
   = SizeConstraintSet
-      {name = name, sizeConstraints = sizeConstraints}
+      {haddock_workaround_ = (), name = name,
+       sizeConstraints = sizeConstraints}
 instance ToResourceProperties SizeConstraintSet where
   toResourceProperties SizeConstraintSet {..}
     = ResourceProperties

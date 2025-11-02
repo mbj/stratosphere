@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataQueryProperty
-  = DataQueryProperty {queryStatement :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-dataquery.html>
+    DataQueryProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-dataquery.html#cfn-bcmdataexports-export-dataquery-querystatement>
+                       queryStatement :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-dataquery.html#cfn-bcmdataexports-export-dataquery-tableconfigurations>
                        tableConfigurations :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQueryProperty :: Value Prelude.Text -> DataQueryProperty
 mkDataQueryProperty queryStatement
   = DataQueryProperty
-      {queryStatement = queryStatement,
+      {haddock_workaround_ = (), queryStatement = queryStatement,
        tableConfigurations = Prelude.Nothing}
 instance ToResourceProperties DataQueryProperty where
   toResourceProperties DataQueryProperty {..}

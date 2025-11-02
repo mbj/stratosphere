@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IKEVersionsRequestListValueProperty
-  = IKEVersionsRequestListValueProperty {value :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html>
+    IKEVersionsRequestListValueProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html#cfn-ec2-vpnconnection-ikeversionsrequestlistvalue-value>
+                                         value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIKEVersionsRequestListValueProperty ::
   IKEVersionsRequestListValueProperty
 mkIKEVersionsRequestListValueProperty
-  = IKEVersionsRequestListValueProperty {value = Prelude.Nothing}
+  = IKEVersionsRequestListValueProperty
+      {haddock_workaround_ = (), value = Prelude.Nothing}
 instance ToResourceProperties IKEVersionsRequestListValueProperty where
   toResourceProperties IKEVersionsRequestListValueProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON IKEVersionsRequestListValueProperty where
            (Prelude.catMaybes [(JSON..=) "Value" Prelude.<$> value]))
 instance Property "Value" IKEVersionsRequestListValueProperty where
   type PropertyType "Value" IKEVersionsRequestListValueProperty = Value Prelude.Text
-  set newValue IKEVersionsRequestListValueProperty {}
+  set newValue IKEVersionsRequestListValueProperty {..}
     = IKEVersionsRequestListValueProperty
         {value = Prelude.pure newValue, ..}

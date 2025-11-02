@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.ApplicationOutput.OutputPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationOutput
-  = ApplicationOutput {applicationName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html>
+    ApplicationOutput {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-applicationname>
+                       applicationName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-output>
                        output :: OutputProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationOutput ::
   Value Prelude.Text -> OutputProperty -> ApplicationOutput
 mkApplicationOutput applicationName output
   = ApplicationOutput
-      {applicationName = applicationName, output = output}
+      {haddock_workaround_ = (), applicationName = applicationName,
+       output = output}
 instance ToResourceProperties ApplicationOutput where
   toResourceProperties ApplicationOutput {..}
     = ResourceProperties

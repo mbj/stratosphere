@@ -7,13 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CachingConfigProperty
-  = CachingConfigProperty {cachingKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html>
+    CachingConfigProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-cachingkeys>
+                           cachingKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html#cfn-appsync-resolver-cachingconfig-ttl>
                            ttl :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCachingConfigProperty ::
   Value Prelude.Double -> CachingConfigProperty
 mkCachingConfigProperty ttl
-  = CachingConfigProperty {ttl = ttl, cachingKeys = Prelude.Nothing}
+  = CachingConfigProperty
+      {haddock_workaround_ = (), ttl = ttl,
+       cachingKeys = Prelude.Nothing}
 instance ToResourceProperties CachingConfigProperty where
   toResourceProperties CachingConfigProperty {..}
     = ResourceProperties

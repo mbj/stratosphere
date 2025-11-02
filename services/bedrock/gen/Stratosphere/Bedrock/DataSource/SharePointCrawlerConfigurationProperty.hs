@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.CrawlFilterConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SharePointCrawlerConfigurationProperty
-  = SharePointCrawlerConfigurationProperty {filterConfiguration :: (Prelude.Maybe CrawlFilterConfigurationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html>
+    SharePointCrawlerConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html#cfn-bedrock-datasource-sharepointcrawlerconfiguration-filterconfiguration>
+                                            filterConfiguration :: (Prelude.Maybe CrawlFilterConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointCrawlerConfigurationProperty ::
   SharePointCrawlerConfigurationProperty
 mkSharePointCrawlerConfigurationProperty
   = SharePointCrawlerConfigurationProperty
-      {filterConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), filterConfiguration = Prelude.Nothing}
 instance ToResourceProperties SharePointCrawlerConfigurationProperty where
   toResourceProperties SharePointCrawlerConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON SharePointCrawlerConfigurationProperty where
               [(JSON..=) "FilterConfiguration" Prelude.<$> filterConfiguration]))
 instance Property "FilterConfiguration" SharePointCrawlerConfigurationProperty where
   type PropertyType "FilterConfiguration" SharePointCrawlerConfigurationProperty = CrawlFilterConfigurationProperty
-  set newValue SharePointCrawlerConfigurationProperty {}
+  set newValue SharePointCrawlerConfigurationProperty {..}
     = SharePointCrawlerConfigurationProperty
         {filterConfiguration = Prelude.pure newValue, ..}

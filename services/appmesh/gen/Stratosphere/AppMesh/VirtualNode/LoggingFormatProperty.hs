@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.JsonFormatRefProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingFormatProperty
-  = LoggingFormatProperty {json :: (Prelude.Maybe [JsonFormatRefProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html>
+    LoggingFormatProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html#cfn-appmesh-virtualnode-loggingformat-json>
+                           json :: (Prelude.Maybe [JsonFormatRefProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html#cfn-appmesh-virtualnode-loggingformat-text>
                            text :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingFormatProperty :: LoggingFormatProperty
 mkLoggingFormatProperty
   = LoggingFormatProperty
-      {json = Prelude.Nothing, text = Prelude.Nothing}
+      {haddock_workaround_ = (), json = Prelude.Nothing,
+       text = Prelude.Nothing}
 instance ToResourceProperties LoggingFormatProperty where
   toResourceProperties LoggingFormatProperty {..}
     = ResourceProperties

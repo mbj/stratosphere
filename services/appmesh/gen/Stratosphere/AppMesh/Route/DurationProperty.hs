@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DurationProperty
-  = DurationProperty {unit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html>
+    DurationProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-unit>
+                      unit :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-duration.html#cfn-appmesh-route-duration-value>
                       value :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDurationProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> DurationProperty
 mkDurationProperty unit value
-  = DurationProperty {unit = unit, value = value}
+  = DurationProperty
+      {haddock_workaround_ = (), unit = unit, value = value}
 instance ToResourceProperties DurationProperty where
   toResourceProperties DurationProperty {..}
     = ResourceProperties

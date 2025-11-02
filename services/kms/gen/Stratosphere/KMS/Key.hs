@@ -8,23 +8,38 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Key
-  = Key {bypassPolicyLockoutSafetyCheck :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html>
+    Key {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-bypasspolicylockoutsafetycheck>
+         bypassPolicyLockoutSafetyCheck :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation>
          enableKeyRotation :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled>
          enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy>
          keyPolicy :: (Prelude.Maybe JSON.Object),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec>
          keySpec :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage>
          keyUsage :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion>
          multiRegion :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-origin>
          origin :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays>
          pendingWindowInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-rotationperiodindays>
          rotationPeriodInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags>
          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKey :: Key
 mkKey
   = Key
-      {bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
        description = Prelude.Nothing, enableKeyRotation = Prelude.Nothing,
        enabled = Prelude.Nothing, keyPolicy = Prelude.Nothing,
        keySpec = Prelude.Nothing, keyUsage = Prelude.Nothing,

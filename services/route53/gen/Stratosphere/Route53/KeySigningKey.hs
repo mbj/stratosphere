@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeySigningKey
-  = KeySigningKey {hostedZoneId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html>
+    KeySigningKey {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid>
+                   hostedZoneId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn>
                    keyManagementServiceArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name>
                    name :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status>
                    status :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeySigningKey ::
@@ -18,7 +24,7 @@ mkKeySigningKey ::
      -> Value Prelude.Text -> Value Prelude.Text -> KeySigningKey
 mkKeySigningKey hostedZoneId keyManagementServiceArn name status
   = KeySigningKey
-      {hostedZoneId = hostedZoneId,
+      {haddock_workaround_ = (), hostedZoneId = hostedZoneId,
        keyManagementServiceArn = keyManagementServiceArn, name = name,
        status = status}
 instance ToResourceProperties KeySigningKey where

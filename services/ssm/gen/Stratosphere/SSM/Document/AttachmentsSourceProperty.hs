@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttachmentsSourceProperty
-  = AttachmentsSourceProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html>
+    AttachmentsSourceProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key>
+                               key :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name>
                                name :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values>
                                values :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttachmentsSourceProperty :: AttachmentsSourceProperty
 mkAttachmentsSourceProperty
   = AttachmentsSourceProperty
-      {key = Prelude.Nothing, name = Prelude.Nothing,
-       values = Prelude.Nothing}
+      {haddock_workaround_ = (), key = Prelude.Nothing,
+       name = Prelude.Nothing, values = Prelude.Nothing}
 instance ToResourceProperties AttachmentsSourceProperty where
   toResourceProperties AttachmentsSourceProperty {..}
     = ResourceProperties

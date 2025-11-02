@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleIpToEvaluateProperty
-  = RuleIpToEvaluateProperty {attribute :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html>
+    RuleIpToEvaluateProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html#cfn-ses-mailmanagerruleset-ruleiptoevaluate-attribute>
+                              attribute :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleIpToEvaluateProperty ::
   Value Prelude.Text -> RuleIpToEvaluateProperty
 mkRuleIpToEvaluateProperty attribute
-  = RuleIpToEvaluateProperty {attribute = attribute}
+  = RuleIpToEvaluateProperty
+      {haddock_workaround_ = (), attribute = attribute}
 instance ToResourceProperties RuleIpToEvaluateProperty where
   toResourceProperties RuleIpToEvaluateProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON RuleIpToEvaluateProperty where
     = JSON.object ["Attribute" JSON..= attribute]
 instance Property "Attribute" RuleIpToEvaluateProperty where
   type PropertyType "Attribute" RuleIpToEvaluateProperty = Value Prelude.Text
-  set newValue RuleIpToEvaluateProperty {}
+  set newValue RuleIpToEvaluateProperty {..}
     = RuleIpToEvaluateProperty {attribute = newValue, ..}

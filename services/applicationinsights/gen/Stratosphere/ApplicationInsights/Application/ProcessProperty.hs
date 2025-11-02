@@ -8,14 +8,19 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.AlarmMetricPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProcessProperty
-  = ProcessProperty {alarmMetrics :: [AlarmMetricProperty],
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html>
+    ProcessProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html#cfn-applicationinsights-application-process-alarmmetrics>
+                     alarmMetrics :: [AlarmMetricProperty],
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html#cfn-applicationinsights-application-process-processname>
                      processName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessProperty ::
   [AlarmMetricProperty] -> Value Prelude.Text -> ProcessProperty
 mkProcessProperty alarmMetrics processName
   = ProcessProperty
-      {alarmMetrics = alarmMetrics, processName = processName}
+      {haddock_workaround_ = (), alarmMetrics = alarmMetrics,
+       processName = processName}
 instance ToResourceProperties ProcessProperty where
   toResourceProperties ProcessProperty {..}
     = ResourceProperties

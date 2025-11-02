@@ -9,13 +9,17 @@ import {-# SOURCE #-} Stratosphere.Evidently.Experiment.TreatmentToWeightPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnlineAbConfigObjectProperty
-  = OnlineAbConfigObjectProperty {controlTreatmentName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html>
+    OnlineAbConfigObjectProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html#cfn-evidently-experiment-onlineabconfigobject-controltreatmentname>
+                                  controlTreatmentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html#cfn-evidently-experiment-onlineabconfigobject-treatmentweights>
                                   treatmentWeights :: (Prelude.Maybe [TreatmentToWeightProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineAbConfigObjectProperty :: OnlineAbConfigObjectProperty
 mkOnlineAbConfigObjectProperty
   = OnlineAbConfigObjectProperty
-      {controlTreatmentName = Prelude.Nothing,
+      {haddock_workaround_ = (), controlTreatmentName = Prelude.Nothing,
        treatmentWeights = Prelude.Nothing}
 instance ToResourceProperties OnlineAbConfigObjectProperty where
   toResourceProperties OnlineAbConfigObjectProperty {..}

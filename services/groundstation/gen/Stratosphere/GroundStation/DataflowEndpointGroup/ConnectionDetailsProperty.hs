@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.GroundStation.DataflowEndpointGroup.SocketAdd
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionDetailsProperty
-  = ConnectionDetailsProperty {mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>
+    ConnectionDetailsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-mtu>
+                               mtu :: (Prelude.Maybe (Value Prelude.Integer)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html#cfn-groundstation-dataflowendpointgroup-connectiondetails-socketaddress>
                                socketAddress :: (Prelude.Maybe SocketAddressProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionDetailsProperty :: ConnectionDetailsProperty
 mkConnectionDetailsProperty
   = ConnectionDetailsProperty
-      {mtu = Prelude.Nothing, socketAddress = Prelude.Nothing}
+      {haddock_workaround_ = (), mtu = Prelude.Nothing,
+       socketAddress = Prelude.Nothing}
 instance ToResourceProperties ConnectionDetailsProperty where
   toResourceProperties ConnectionDetailsProperty {..}
     = ResourceProperties

@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UntagColumnOperationProperty
-  = UntagColumnOperationProperty {columnName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html>
+    UntagColumnOperationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html#cfn-quicksight-dataset-untagcolumnoperation-columnname>
+                                  columnName :: (Value Prelude.Text),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html#cfn-quicksight-dataset-untagcolumnoperation-tagnames>
                                   tagNames :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUntagColumnOperationProperty ::
@@ -15,7 +19,8 @@ mkUntagColumnOperationProperty ::
   -> ValueList Prelude.Text -> UntagColumnOperationProperty
 mkUntagColumnOperationProperty columnName tagNames
   = UntagColumnOperationProperty
-      {columnName = columnName, tagNames = tagNames}
+      {haddock_workaround_ = (), columnName = columnName,
+       tagNames = tagNames}
 instance ToResourceProperties UntagColumnOperationProperty where
   toResourceProperties UntagColumnOperationProperty {..}
     = ResourceProperties

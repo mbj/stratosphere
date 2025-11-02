@@ -8,9 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCellsFilterResourceProperty
-  = DataCellsFilterResourceProperty {databaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html>
+    DataCellsFilterResourceProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html#cfn-lakeformation-principalpermissions-datacellsfilterresource-databasename>
+                                     databaseName :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html#cfn-lakeformation-principalpermissions-datacellsfilterresource-name>
                                      name :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html#cfn-lakeformation-principalpermissions-datacellsfilterresource-tablecatalogid>
                                      tableCatalogId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html#cfn-lakeformation-principalpermissions-datacellsfilterresource-tablename>
                                      tableName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCellsFilterResourceProperty ::
@@ -24,8 +30,9 @@ mkDataCellsFilterResourceProperty
   tableCatalogId
   tableName
   = DataCellsFilterResourceProperty
-      {databaseName = databaseName, name = name,
-       tableCatalogId = tableCatalogId, tableName = tableName}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       name = name, tableCatalogId = tableCatalogId,
+       tableName = tableName}
 instance ToResourceProperties DataCellsFilterResourceProperty where
   toResourceProperties DataCellsFilterResourceProperty {..}
     = ResourceProperties

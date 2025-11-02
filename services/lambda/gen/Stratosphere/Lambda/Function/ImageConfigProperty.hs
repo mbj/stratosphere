@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageConfigProperty
-  = ImageConfigProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html>
+    ImageConfigProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command>
+                         command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint>
                          entryPoint :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory>
                          workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigProperty :: ImageConfigProperty
 mkImageConfigProperty
   = ImageConfigProperty
-      {command = Prelude.Nothing, entryPoint = Prelude.Nothing,
-       workingDirectory = Prelude.Nothing}
+      {haddock_workaround_ = (), command = Prelude.Nothing,
+       entryPoint = Prelude.Nothing, workingDirectory = Prelude.Nothing}
 instance ToResourceProperties ImageConfigProperty where
   toResourceProperties ImageConfigProperty {..}
     = ResourceProperties

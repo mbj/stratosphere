@@ -8,7 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdNamespaceAssociationInputReferenceConfigProperty
-  = IdNamespaceAssociationInputReferenceConfigProperty {inputReferenceArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig.html>
+    IdNamespaceAssociationInputReferenceConfigProperty {haddock_workaround_ :: (),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig.html#cfn-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig-inputreferencearn>
+                                                        inputReferenceArn :: (Value Prelude.Text),
+                                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig.html#cfn-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig-manageresourcepolicies>
                                                         manageResourcePolicies :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdNamespaceAssociationInputReferenceConfigProperty ::
@@ -19,7 +23,7 @@ mkIdNamespaceAssociationInputReferenceConfigProperty
   inputReferenceArn
   manageResourcePolicies
   = IdNamespaceAssociationInputReferenceConfigProperty
-      {inputReferenceArn = inputReferenceArn,
+      {haddock_workaround_ = (), inputReferenceArn = inputReferenceArn,
        manageResourcePolicies = manageResourcePolicies}
 instance ToResourceProperties IdNamespaceAssociationInputReferenceConfigProperty where
   toResourceProperties

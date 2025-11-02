@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.Deadline.Fleet.AcceleratorCountRangeProperty 
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.AcceleratorSelectionProperty as Exports
 import Stratosphere.ResourceProperties
 data AcceleratorCapabilitiesProperty
-  = AcceleratorCapabilitiesProperty {count :: (Prelude.Maybe AcceleratorCountRangeProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html>
+    AcceleratorCapabilitiesProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html#cfn-deadline-fleet-acceleratorcapabilities-count>
+                                     count :: (Prelude.Maybe AcceleratorCountRangeProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html#cfn-deadline-fleet-acceleratorcapabilities-selections>
                                      selections :: [AcceleratorSelectionProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorCapabilitiesProperty ::
   [AcceleratorSelectionProperty] -> AcceleratorCapabilitiesProperty
 mkAcceleratorCapabilitiesProperty selections
   = AcceleratorCapabilitiesProperty
-      {selections = selections, count = Prelude.Nothing}
+      {haddock_workaround_ = (), selections = selections,
+       count = Prelude.Nothing}
 instance ToResourceProperties AcceleratorCapabilitiesProperty where
   toResourceProperties AcceleratorCapabilitiesProperty {..}
     = ResourceProperties

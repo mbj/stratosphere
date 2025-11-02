@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksEmptyDirProperty
-  = EksEmptyDirProperty {medium :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksemptydir.html>
+    EksEmptyDirProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksemptydir.html#cfn-batch-jobdefinition-eksemptydir-medium>
+                         medium :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksemptydir.html#cfn-batch-jobdefinition-eksemptydir-sizelimit>
                          sizeLimit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEksEmptyDirProperty :: EksEmptyDirProperty
 mkEksEmptyDirProperty
   = EksEmptyDirProperty
-      {medium = Prelude.Nothing, sizeLimit = Prelude.Nothing}
+      {haddock_workaround_ = (), medium = Prelude.Nothing,
+       sizeLimit = Prelude.Nothing}
 instance ToResourceProperties EksEmptyDirProperty where
   toResourceProperties EksEmptyDirProperty {..}
     = ResourceProperties

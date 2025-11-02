@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncludeResourcesProperty
-  = IncludeResourcesProperty {amis :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html>
+    IncludeResourcesProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-amis>
+                              amis :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-containers>
                               containers :: (Prelude.Maybe (Value Prelude.Bool)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-snapshots>
                               snapshots :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIncludeResourcesProperty :: IncludeResourcesProperty
 mkIncludeResourcesProperty
   = IncludeResourcesProperty
-      {amis = Prelude.Nothing, containers = Prelude.Nothing,
-       snapshots = Prelude.Nothing}
+      {haddock_workaround_ = (), amis = Prelude.Nothing,
+       containers = Prelude.Nothing, snapshots = Prelude.Nothing}
 instance ToResourceProperties IncludeResourcesProperty where
   toResourceProperties IncludeResourcesProperty {..}
     = ResourceProperties

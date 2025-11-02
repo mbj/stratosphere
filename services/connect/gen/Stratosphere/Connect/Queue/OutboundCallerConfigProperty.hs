@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutboundCallerConfigProperty
-  = OutboundCallerConfigProperty {outboundCallerIdName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html>
+    OutboundCallerConfigProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html#cfn-connect-queue-outboundcallerconfig-outboundcalleridname>
+                                  outboundCallerIdName :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html#cfn-connect-queue-outboundcallerconfig-outboundcalleridnumberarn>
                                   outboundCallerIdNumberArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html#cfn-connect-queue-outboundcallerconfig-outboundflowarn>
                                   outboundFlowArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutboundCallerConfigProperty :: OutboundCallerConfigProperty
 mkOutboundCallerConfigProperty
   = OutboundCallerConfigProperty
-      {outboundCallerIdName = Prelude.Nothing,
+      {haddock_workaround_ = (), outboundCallerIdName = Prelude.Nothing,
        outboundCallerIdNumberArn = Prelude.Nothing,
        outboundFlowArn = Prelude.Nothing}
 instance ToResourceProperties OutboundCallerConfigProperty where

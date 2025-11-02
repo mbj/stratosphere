@@ -9,19 +9,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PlaceIndex
-  = PlaceIndex {dataSource :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html>
+    PlaceIndex {haddock_workaround_ :: (),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource>
+                dataSource :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration>
                 dataSourceConfiguration :: (Prelude.Maybe DataSourceConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname>
                 indexName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan>
                 pricingPlan :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlaceIndex ::
   Value Prelude.Text -> Value Prelude.Text -> PlaceIndex
 mkPlaceIndex dataSource indexName
   = PlaceIndex
-      {dataSource = dataSource, indexName = indexName,
-       dataSourceConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), dataSource = dataSource,
+       indexName = indexName, dataSourceConfiguration = Prelude.Nothing,
        description = Prelude.Nothing, pricingPlan = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties PlaceIndex where

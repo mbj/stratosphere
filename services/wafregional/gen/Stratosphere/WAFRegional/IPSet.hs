@@ -8,12 +8,18 @@ import {-# SOURCE #-} Stratosphere.WAFRegional.IPSet.IPSetDescriptorProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSet
-  = IPSet {iPSetDescriptors :: (Prelude.Maybe [IPSetDescriptorProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html>
+    IPSet {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-ipsetdescriptors>
+           iPSetDescriptors :: (Prelude.Maybe [IPSetDescriptorProperty]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html#cfn-wafregional-ipset-name>
            name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSet :: Value Prelude.Text -> IPSet
 mkIPSet name
-  = IPSet {name = name, iPSetDescriptors = Prelude.Nothing}
+  = IPSet
+      {haddock_workaround_ = (), name = name,
+       iPSetDescriptors = Prelude.Nothing}
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties

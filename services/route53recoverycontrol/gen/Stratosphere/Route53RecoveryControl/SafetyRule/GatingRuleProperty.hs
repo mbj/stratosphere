@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatingRuleProperty
-  = GatingRuleProperty {gatingControls :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html>
+    GatingRuleProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols>
+                        gatingControls :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols>
                         targetControls :: (ValueList Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-waitperiodms>
                         waitPeriodMs :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGatingRuleProperty ::
@@ -17,8 +22,8 @@ mkGatingRuleProperty ::
      -> Value Prelude.Integer -> GatingRuleProperty
 mkGatingRuleProperty gatingControls targetControls waitPeriodMs
   = GatingRuleProperty
-      {gatingControls = gatingControls, targetControls = targetControls,
-       waitPeriodMs = waitPeriodMs}
+      {haddock_workaround_ = (), gatingControls = gatingControls,
+       targetControls = targetControls, waitPeriodMs = waitPeriodMs}
 instance ToResourceProperties GatingRuleProperty where
   toResourceProperties GatingRuleProperty {..}
     = ResourceProperties

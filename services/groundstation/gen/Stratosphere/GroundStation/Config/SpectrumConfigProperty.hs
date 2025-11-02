@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.FrequencyBandwidthProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpectrumConfigProperty
-  = SpectrumConfigProperty {bandwidth :: (Prelude.Maybe FrequencyBandwidthProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html>
+    SpectrumConfigProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth>
+                            bandwidth :: (Prelude.Maybe FrequencyBandwidthProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency>
                             centerFrequency :: (Prelude.Maybe FrequencyProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization>
                             polarization :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSpectrumConfigProperty :: SpectrumConfigProperty
 mkSpectrumConfigProperty
   = SpectrumConfigProperty
-      {bandwidth = Prelude.Nothing, centerFrequency = Prelude.Nothing,
-       polarization = Prelude.Nothing}
+      {haddock_workaround_ = (), bandwidth = Prelude.Nothing,
+       centerFrequency = Prelude.Nothing, polarization = Prelude.Nothing}
 instance ToResourceProperties SpectrumConfigProperty where
   toResourceProperties SpectrumConfigProperty {..}
     = ResourceProperties

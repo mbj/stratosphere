@@ -8,10 +8,17 @@ import {-# SOURCE #-} Stratosphere.Personalize.Dataset.DatasetImportJobProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Dataset
-  = Dataset {datasetGroupArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html>
+    Dataset {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetgrouparn>
+             datasetGroupArn :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetimportjob>
              datasetImportJob :: (Prelude.Maybe DatasetImportJobProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype>
              datasetType :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-schemaarn>
              schemaArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset ::
@@ -20,8 +27,8 @@ mkDataset ::
      -> Value Prelude.Text -> Value Prelude.Text -> Dataset
 mkDataset datasetGroupArn datasetType name schemaArn
   = Dataset
-      {datasetGroupArn = datasetGroupArn, datasetType = datasetType,
-       name = name, schemaArn = schemaArn,
+      {haddock_workaround_ = (), datasetGroupArn = datasetGroupArn,
+       datasetType = datasetType, name = name, schemaArn = schemaArn,
        datasetImportJob = Prelude.Nothing}
 instance ToResourceProperties Dataset where
   toResourceProperties Dataset {..}

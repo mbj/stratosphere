@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.RetryConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FailureConditionsProperty
-  = FailureConditionsProperty {conditions :: (Prelude.Maybe [ConditionProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html>
+    FailureConditionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-conditions>
+                               conditions :: (Prelude.Maybe [ConditionProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-result>
                                result :: (Prelude.Maybe (Value Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-retryconfiguration>
                                retryConfiguration :: (Prelude.Maybe RetryConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFailureConditionsProperty :: FailureConditionsProperty
 mkFailureConditionsProperty
   = FailureConditionsProperty
-      {conditions = Prelude.Nothing, result = Prelude.Nothing,
-       retryConfiguration = Prelude.Nothing}
+      {haddock_workaround_ = (), conditions = Prelude.Nothing,
+       result = Prelude.Nothing, retryConfiguration = Prelude.Nothing}
 instance ToResourceProperties FailureConditionsProperty where
   toResourceProperties FailureConditionsProperty {..}
     = ResourceProperties

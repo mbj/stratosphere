@@ -8,14 +8,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RiskExceptionConfigurationTypeProperty
-  = RiskExceptionConfigurationTypeProperty {blockedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html>
+    RiskExceptionConfigurationTypeProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-blockediprangelist>
+                                            blockedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-skippediprangelist>
                                             skippedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRiskExceptionConfigurationTypeProperty ::
   RiskExceptionConfigurationTypeProperty
 mkRiskExceptionConfigurationTypeProperty
   = RiskExceptionConfigurationTypeProperty
-      {blockedIPRangeList = Prelude.Nothing,
+      {haddock_workaround_ = (), blockedIPRangeList = Prelude.Nothing,
        skippedIPRangeList = Prelude.Nothing}
 instance ToResourceProperties RiskExceptionConfigurationTypeProperty where
   toResourceProperties RiskExceptionConfigurationTypeProperty {..}

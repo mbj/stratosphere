@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OtaaV10xProperty
-  = OtaaV10xProperty {appEui :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html>
+    OtaaV10xProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui>
+                      appEui :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey>
                       appKey :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOtaaV10xProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OtaaV10xProperty
 mkOtaaV10xProperty appEui appKey
-  = OtaaV10xProperty {appEui = appEui, appKey = appKey}
+  = OtaaV10xProperty
+      {haddock_workaround_ = (), appEui = appEui, appKey = appKey}
 instance ToResourceProperties OtaaV10xProperty where
   toResourceProperties OtaaV10xProperty {..}
     = ResourceProperties

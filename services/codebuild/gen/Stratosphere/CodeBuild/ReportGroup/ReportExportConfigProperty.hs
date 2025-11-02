@@ -9,14 +9,18 @@ import {-# SOURCE #-} Stratosphere.CodeBuild.ReportGroup.S3ReportExportConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReportExportConfigProperty
-  = ReportExportConfigProperty {exportConfigType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html>
+    ReportExportConfigProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html#cfn-codebuild-reportgroup-reportexportconfig-exportconfigtype>
+                                exportConfigType :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html#cfn-codebuild-reportgroup-reportexportconfig-s3destination>
                                 s3Destination :: (Prelude.Maybe S3ReportExportConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReportExportConfigProperty ::
   Value Prelude.Text -> ReportExportConfigProperty
 mkReportExportConfigProperty exportConfigType
   = ReportExportConfigProperty
-      {exportConfigType = exportConfigType,
+      {haddock_workaround_ = (), exportConfigType = exportConfigType,
        s3Destination = Prelude.Nothing}
 instance ToResourceProperties ReportExportConfigProperty where
   toResourceProperties ReportExportConfigProperty {..}

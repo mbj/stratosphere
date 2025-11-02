@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationIdProperty
-  = ConfigurationIdProperty {id :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html>
+    ConfigurationIdProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id>
+                             id :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-revision>
                              revision :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationIdProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ConfigurationIdProperty
 mkConfigurationIdProperty id revision
-  = ConfigurationIdProperty {id = id, revision = revision}
+  = ConfigurationIdProperty
+      {haddock_workaround_ = (), id = id, revision = revision}
 instance ToResourceProperties ConfigurationIdProperty where
   toResourceProperties ConfigurationIdProperty {..}
     = ResourceProperties

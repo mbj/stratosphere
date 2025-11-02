@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SamlProviderConfigurationProperty
-  = SamlProviderConfigurationProperty {authenticationUrl :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-samlproviderconfiguration.html>
+    SamlProviderConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-samlproviderconfiguration.html#cfn-qbusiness-webexperience-samlproviderconfiguration-authenticationurl>
+                                       authenticationUrl :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSamlProviderConfigurationProperty ::
   Value Prelude.Text -> SamlProviderConfigurationProperty
 mkSamlProviderConfigurationProperty authenticationUrl
   = SamlProviderConfigurationProperty
-      {authenticationUrl = authenticationUrl}
+      {haddock_workaround_ = (), authenticationUrl = authenticationUrl}
 instance ToResourceProperties SamlProviderConfigurationProperty where
   toResourceProperties SamlProviderConfigurationProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON SamlProviderConfigurationProperty where
     = JSON.object ["AuthenticationUrl" JSON..= authenticationUrl]
 instance Property "AuthenticationUrl" SamlProviderConfigurationProperty where
   type PropertyType "AuthenticationUrl" SamlProviderConfigurationProperty = Value Prelude.Text
-  set newValue SamlProviderConfigurationProperty {}
+  set newValue SamlProviderConfigurationProperty {..}
     = SamlProviderConfigurationProperty
         {authenticationUrl = newValue, ..}

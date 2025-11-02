@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricStreamFilterProperty
-  = MetricStreamFilterProperty {metricNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html>
+    MetricStreamFilterProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-metricnames>
+                                metricNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace>
                                 namespace :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStreamFilterProperty ::
   Value Prelude.Text -> MetricStreamFilterProperty
 mkMetricStreamFilterProperty namespace
   = MetricStreamFilterProperty
-      {namespace = namespace, metricNames = Prelude.Nothing}
+      {haddock_workaround_ = (), namespace = namespace,
+       metricNames = Prelude.Nothing}
 instance ToResourceProperties MetricStreamFilterProperty where
   toResourceProperties MetricStreamFilterProperty {..}
     = ResourceProperties

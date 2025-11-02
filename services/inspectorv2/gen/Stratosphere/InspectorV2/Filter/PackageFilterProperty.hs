@@ -8,19 +8,28 @@ import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.NumberFilterProperty as Ex
 import {-# SOURCE #-} Stratosphere.InspectorV2.Filter.StringFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data PackageFilterProperty
-  = PackageFilterProperty {architecture :: (Prelude.Maybe StringFilterProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html>
+    PackageFilterProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-architecture>
+                           architecture :: (Prelude.Maybe StringFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-epoch>
                            epoch :: (Prelude.Maybe NumberFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-name>
                            name :: (Prelude.Maybe StringFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-release>
                            release :: (Prelude.Maybe StringFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelayerhash>
                            sourceLayerHash :: (Prelude.Maybe StringFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-version>
                            version :: (Prelude.Maybe StringFilterProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPackageFilterProperty :: PackageFilterProperty
 mkPackageFilterProperty
   = PackageFilterProperty
-      {architecture = Prelude.Nothing, epoch = Prelude.Nothing,
-       name = Prelude.Nothing, release = Prelude.Nothing,
-       sourceLayerHash = Prelude.Nothing, version = Prelude.Nothing}
+      {haddock_workaround_ = (), architecture = Prelude.Nothing,
+       epoch = Prelude.Nothing, name = Prelude.Nothing,
+       release = Prelude.Nothing, sourceLayerHash = Prelude.Nothing,
+       version = Prelude.Nothing}
 instance ToResourceProperties PackageFilterProperty where
   toResourceProperties PackageFilterProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyTlsProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientPolicyProperty
-  = ClientPolicyProperty {tLS :: (Prelude.Maybe ClientPolicyTlsProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html>
+    ClientPolicyProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html#cfn-appmesh-virtualnode-clientpolicy-tls>
+                          tLS :: (Prelude.Maybe ClientPolicyTlsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientPolicyProperty :: ClientPolicyProperty
 mkClientPolicyProperty
-  = ClientPolicyProperty {tLS = Prelude.Nothing}
+  = ClientPolicyProperty
+      {haddock_workaround_ = (), tLS = Prelude.Nothing}
 instance ToResourceProperties ClientPolicyProperty where
   toResourceProperties ClientPolicyProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON ClientPolicyProperty where
            (Prelude.catMaybes [(JSON..=) "TLS" Prelude.<$> tLS]))
 instance Property "TLS" ClientPolicyProperty where
   type PropertyType "TLS" ClientPolicyProperty = ClientPolicyTlsProperty
-  set newValue ClientPolicyProperty {}
+  set newValue ClientPolicyProperty {..}
     = ClientPolicyProperty {tLS = Prelude.pure newValue, ..}

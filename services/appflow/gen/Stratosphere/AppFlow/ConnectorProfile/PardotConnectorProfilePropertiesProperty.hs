@@ -8,15 +8,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PardotConnectorProfilePropertiesProperty
-  = PardotConnectorProfilePropertiesProperty {businessUnitId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html>
+    PardotConnectorProfilePropertiesProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-businessunitid>
+                                              businessUnitId :: (Value Prelude.Text),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-instanceurl>
                                               instanceUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html#cfn-appflow-connectorprofile-pardotconnectorprofileproperties-issandboxenvironment>
                                               isSandboxEnvironment :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> PardotConnectorProfilePropertiesProperty
 mkPardotConnectorProfilePropertiesProperty businessUnitId
   = PardotConnectorProfilePropertiesProperty
-      {businessUnitId = businessUnitId, instanceUrl = Prelude.Nothing,
+      {haddock_workaround_ = (), businessUnitId = businessUnitId,
+       instanceUrl = Prelude.Nothing,
        isSandboxEnvironment = Prelude.Nothing}
 instance ToResourceProperties PardotConnectorProfilePropertiesProperty where
   toResourceProperties PardotConnectorProfilePropertiesProperty {..}

@@ -9,15 +9,22 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3FileLocationProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CopyStepDetailsProperty
-  = CopyStepDetailsProperty {destinationFileLocation :: (Prelude.Maybe S3FileLocationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html>
+    CopyStepDetailsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-destinationfilelocation>
+                             destinationFileLocation :: (Prelude.Maybe S3FileLocationProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-overwriteexisting>
                              overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html#cfn-transfer-workflow-copystepdetails-sourcefilelocation>
                              sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyStepDetailsProperty :: CopyStepDetailsProperty
 mkCopyStepDetailsProperty
   = CopyStepDetailsProperty
-      {destinationFileLocation = Prelude.Nothing, name = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       destinationFileLocation = Prelude.Nothing, name = Prelude.Nothing,
        overwriteExisting = Prelude.Nothing,
        sourceFileLocation = Prelude.Nothing}
 instance ToResourceProperties CopyStepDetailsProperty where

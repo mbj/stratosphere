@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.SecurityHub.ConfigurationPolicy.ParameterValu
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterConfigurationProperty
-  = ParameterConfigurationProperty {value :: (Prelude.Maybe ParameterValueProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-parameterconfiguration.html>
+    ParameterConfigurationProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-parameterconfiguration.html#cfn-securityhub-configurationpolicy-parameterconfiguration-value>
+                                    value :: (Prelude.Maybe ParameterValueProperty),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-parameterconfiguration.html#cfn-securityhub-configurationpolicy-parameterconfiguration-valuetype>
                                     valueType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterConfigurationProperty ::
   Value Prelude.Text -> ParameterConfigurationProperty
 mkParameterConfigurationProperty valueType
   = ParameterConfigurationProperty
-      {valueType = valueType, value = Prelude.Nothing}
+      {haddock_workaround_ = (), valueType = valueType,
+       value = Prelude.Nothing}
 instance ToResourceProperties ParameterConfigurationProperty where
   toResourceProperties ParameterConfigurationProperty {..}
     = ResourceProperties

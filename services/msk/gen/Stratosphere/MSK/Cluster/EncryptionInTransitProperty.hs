@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionInTransitProperty
-  = EncryptionInTransitProperty {clientBroker :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html>
+    EncryptionInTransitProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html#cfn-msk-cluster-encryptionintransit-clientbroker>
+                                 clientBroker :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html#cfn-msk-cluster-encryptionintransit-incluster>
                                  inCluster :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionInTransitProperty :: EncryptionInTransitProperty
 mkEncryptionInTransitProperty
   = EncryptionInTransitProperty
-      {clientBroker = Prelude.Nothing, inCluster = Prelude.Nothing}
+      {haddock_workaround_ = (), clientBroker = Prelude.Nothing,
+       inCluster = Prelude.Nothing}
 instance ToResourceProperties EncryptionInTransitProperty where
   toResourceProperties EncryptionInTransitProperty {..}
     = ResourceProperties

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngestionWaitPolicyProperty
-  = IngestionWaitPolicyProperty {ingestionWaitTimeInHours :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html>
+    IngestionWaitPolicyProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours>
+                                 ingestionWaitTimeInHours :: (Prelude.Maybe (Value Prelude.Double)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion>
                                  waitForSpiceIngestion :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIngestionWaitPolicyProperty :: IngestionWaitPolicyProperty
 mkIngestionWaitPolicyProperty
   = IngestionWaitPolicyProperty
-      {ingestionWaitTimeInHours = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       ingestionWaitTimeInHours = Prelude.Nothing,
        waitForSpiceIngestion = Prelude.Nothing}
 instance ToResourceProperties IngestionWaitPolicyProperty where
   toResourceProperties IngestionWaitPolicyProperty {..}

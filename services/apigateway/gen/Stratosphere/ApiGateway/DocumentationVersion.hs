@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentationVersion
-  = DocumentationVersion {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html>
+    DocumentationVersion {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description>
+                          description :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion>
                           documentationVersion :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid>
                           restApiId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentationVersion ::
   Value Prelude.Text -> Value Prelude.Text -> DocumentationVersion
 mkDocumentationVersion documentationVersion restApiId
   = DocumentationVersion
-      {documentationVersion = documentationVersion,
-       restApiId = restApiId, description = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       documentationVersion = documentationVersion, restApiId = restApiId,
+       description = Prelude.Nothing}
 instance ToResourceProperties DocumentationVersion where
   toResourceProperties DocumentationVersion {..}
     = ResourceProperties

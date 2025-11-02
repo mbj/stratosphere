@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseOutputProperty
-  = KinesisFirehoseOutputProperty {resourceARN :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html>
+    KinesisFirehoseOutputProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html#cfn-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput-resourcearn>
+                                   resourceARN :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseOutputProperty ::
   Value Prelude.Text -> KinesisFirehoseOutputProperty
 mkKinesisFirehoseOutputProperty resourceARN
-  = KinesisFirehoseOutputProperty {resourceARN = resourceARN}
+  = KinesisFirehoseOutputProperty
+      {haddock_workaround_ = (), resourceARN = resourceARN}
 instance ToResourceProperties KinesisFirehoseOutputProperty where
   toResourceProperties KinesisFirehoseOutputProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON KinesisFirehoseOutputProperty where
     = JSON.object ["ResourceARN" JSON..= resourceARN]
 instance Property "ResourceARN" KinesisFirehoseOutputProperty where
   type PropertyType "ResourceARN" KinesisFirehoseOutputProperty = Value Prelude.Text
-  set newValue KinesisFirehoseOutputProperty {}
+  set newValue KinesisFirehoseOutputProperty {..}
     = KinesisFirehoseOutputProperty {resourceARN = newValue, ..}

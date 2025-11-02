@@ -8,17 +8,24 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Image
-  = Image {imageDescription :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html>
+    Image {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription>
+           imageDescription :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedisplayname>
            imageDisplayName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagename>
            imageName :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn>
            imageRoleArn :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-tags>
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImage :: Value Prelude.Text -> Value Prelude.Text -> Image
 mkImage imageName imageRoleArn
   = Image
-      {imageName = imageName, imageRoleArn = imageRoleArn,
-       imageDescription = Prelude.Nothing,
+      {haddock_workaround_ = (), imageName = imageName,
+       imageRoleArn = imageRoleArn, imageDescription = Prelude.Nothing,
        imageDisplayName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Image where
   toResourceProperties Image {..}

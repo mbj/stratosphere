@@ -11,12 +11,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VpcAttachment
-  = VpcAttachment {coreNetworkId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html>
+    VpcAttachment {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-corenetworkid>
+                   coreNetworkId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-options>
                    options :: (Prelude.Maybe VpcOptionsProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-proposednetworkfunctiongroupchange>
                    proposedNetworkFunctionGroupChange :: (Prelude.Maybe ProposedNetworkFunctionGroupChangeProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-proposedsegmentchange>
                    proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-subnetarns>
                    subnetArns :: (ValueList Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-tags>
                    tags :: (Prelude.Maybe [Tag]),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-vpcarn>
                    vpcArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcAttachment ::
@@ -24,8 +33,9 @@ mkVpcAttachment ::
   -> ValueList Prelude.Text -> Value Prelude.Text -> VpcAttachment
 mkVpcAttachment coreNetworkId subnetArns vpcArn
   = VpcAttachment
-      {coreNetworkId = coreNetworkId, subnetArns = subnetArns,
-       vpcArn = vpcArn, options = Prelude.Nothing,
+      {haddock_workaround_ = (), coreNetworkId = coreNetworkId,
+       subnetArns = subnetArns, vpcArn = vpcArn,
+       options = Prelude.Nothing,
        proposedNetworkFunctionGroupChange = Prelude.Nothing,
        proposedSegmentChange = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VpcAttachment where

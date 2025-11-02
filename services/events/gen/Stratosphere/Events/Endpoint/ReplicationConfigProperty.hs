@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationConfigProperty
-  = ReplicationConfigProperty {state :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-replicationconfig.html>
+    ReplicationConfigProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-replicationconfig.html#cfn-events-endpoint-replicationconfig-state>
+                               state :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigProperty ::
   Value Prelude.Text -> ReplicationConfigProperty
 mkReplicationConfigProperty state
-  = ReplicationConfigProperty {state = state}
+  = ReplicationConfigProperty
+      {haddock_workaround_ = (), state = state}
 instance ToResourceProperties ReplicationConfigProperty where
   toResourceProperties ReplicationConfigProperty {..}
     = ResourceProperties
@@ -23,5 +27,5 @@ instance JSON.ToJSON ReplicationConfigProperty where
     = JSON.object ["State" JSON..= state]
 instance Property "State" ReplicationConfigProperty where
   type PropertyType "State" ReplicationConfigProperty = Value Prelude.Text
-  set newValue ReplicationConfigProperty {}
+  set newValue ReplicationConfigProperty {..}
     = ReplicationConfigProperty {state = newValue, ..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnWildcardProperty
-  = ColumnWildcardProperty {excludedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-columnwildcard.html>
+    ColumnWildcardProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-columnwildcard.html#cfn-lakeformation-datacellsfilter-columnwildcard-excludedcolumnnames>
+                            excludedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnWildcardProperty :: ColumnWildcardProperty
 mkColumnWildcardProperty
-  = ColumnWildcardProperty {excludedColumnNames = Prelude.Nothing}
+  = ColumnWildcardProperty
+      {haddock_workaround_ = (), excludedColumnNames = Prelude.Nothing}
 instance ToResourceProperties ColumnWildcardProperty where
   toResourceProperties ColumnWildcardProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON ColumnWildcardProperty where
               [(JSON..=) "ExcludedColumnNames" Prelude.<$> excludedColumnNames]))
 instance Property "ExcludedColumnNames" ColumnWildcardProperty where
   type PropertyType "ExcludedColumnNames" ColumnWildcardProperty = ValueList Prelude.Text
-  set newValue ColumnWildcardProperty {}
+  set newValue ColumnWildcardProperty {..}
     = ColumnWildcardProperty
         {excludedColumnNames = Prelude.pure newValue, ..}

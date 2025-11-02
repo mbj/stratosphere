@@ -9,18 +9,25 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Cluster.TagsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Cluster
-  = Cluster {clusterType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html>
+    Cluster {haddock_workaround_ :: (),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html#cfn-medialive-cluster-clustertype>
+             clusterType :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html#cfn-medialive-cluster-instancerolearn>
              instanceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html#cfn-medialive-cluster-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html#cfn-medialive-cluster-networksettings>
              networkSettings :: (Prelude.Maybe ClusterNetworkSettingsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html#cfn-medialive-cluster-tags>
              tags :: (Prelude.Maybe [TagsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster :: Cluster
 mkCluster
   = Cluster
-      {clusterType = Prelude.Nothing, instanceRoleArn = Prelude.Nothing,
-       name = Prelude.Nothing, networkSettings = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), clusterType = Prelude.Nothing,
+       instanceRoleArn = Prelude.Nothing, name = Prelude.Nothing,
+       networkSettings = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties

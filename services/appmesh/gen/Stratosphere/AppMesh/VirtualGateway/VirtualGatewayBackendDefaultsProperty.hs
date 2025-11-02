@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data VirtualGatewayBackendDefaultsProperty
-  = VirtualGatewayBackendDefaultsProperty {clientPolicy :: (Prelude.Maybe VirtualGatewayClientPolicyProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html>
+    VirtualGatewayBackendDefaultsProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy>
+                                           clientPolicy :: (Prelude.Maybe VirtualGatewayClientPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayBackendDefaultsProperty ::
   VirtualGatewayBackendDefaultsProperty
 mkVirtualGatewayBackendDefaultsProperty
   = VirtualGatewayBackendDefaultsProperty
-      {clientPolicy = Prelude.Nothing}
+      {haddock_workaround_ = (), clientPolicy = Prelude.Nothing}
 instance ToResourceProperties VirtualGatewayBackendDefaultsProperty where
   toResourceProperties VirtualGatewayBackendDefaultsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON VirtualGatewayBackendDefaultsProperty where
               [(JSON..=) "ClientPolicy" Prelude.<$> clientPolicy]))
 instance Property "ClientPolicy" VirtualGatewayBackendDefaultsProperty where
   type PropertyType "ClientPolicy" VirtualGatewayBackendDefaultsProperty = VirtualGatewayClientPolicyProperty
-  set newValue VirtualGatewayBackendDefaultsProperty {}
+  set newValue VirtualGatewayBackendDefaultsProperty {..}
     = VirtualGatewayBackendDefaultsProperty
         {clientPolicy = Prelude.pure newValue, ..}

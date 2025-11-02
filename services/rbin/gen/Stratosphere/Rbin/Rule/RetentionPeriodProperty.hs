@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetentionPeriodProperty
-  = RetentionPeriodProperty {retentionPeriodUnit :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html>
+    RetentionPeriodProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodunit>
+                             retentionPeriodUnit :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodvalue>
                              retentionPeriodValue :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRetentionPeriodProperty ::
@@ -15,7 +19,8 @@ mkRetentionPeriodProperty ::
   -> Value Prelude.Integer -> RetentionPeriodProperty
 mkRetentionPeriodProperty retentionPeriodUnit retentionPeriodValue
   = RetentionPeriodProperty
-      {retentionPeriodUnit = retentionPeriodUnit,
+      {haddock_workaround_ = (),
+       retentionPeriodUnit = retentionPeriodUnit,
        retentionPeriodValue = retentionPeriodValue}
 instance ToResourceProperties RetentionPeriodProperty where
   toResourceProperties RetentionPeriodProperty {..}

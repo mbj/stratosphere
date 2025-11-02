@@ -9,14 +9,20 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Scte35SpliceInsertProperty 
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Scte35TimeSignalAposProperty as Exports
 import Stratosphere.ResourceProperties
 data AvailSettingsProperty
-  = AvailSettingsProperty {esam :: (Prelude.Maybe EsamProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html>
+    AvailSettingsProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-esam>
+                           esam :: (Prelude.Maybe EsamProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-scte35spliceinsert>
                            scte35SpliceInsert :: (Prelude.Maybe Scte35SpliceInsertProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html#cfn-medialive-channel-availsettings-scte35timesignalapos>
                            scte35TimeSignalApos :: (Prelude.Maybe Scte35TimeSignalAposProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailSettingsProperty :: AvailSettingsProperty
 mkAvailSettingsProperty
   = AvailSettingsProperty
-      {esam = Prelude.Nothing, scte35SpliceInsert = Prelude.Nothing,
+      {haddock_workaround_ = (), esam = Prelude.Nothing,
+       scte35SpliceInsert = Prelude.Nothing,
        scte35TimeSignalApos = Prelude.Nothing}
 instance ToResourceProperties AvailSettingsProperty where
   toResourceProperties AvailSettingsProperty {..}

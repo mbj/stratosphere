@@ -7,13 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionAtRestProperty
-  = EncryptionAtRestProperty {dataVolumeKMSKeyId :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionatrest.html>
+    EncryptionAtRestProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionatrest.html#cfn-msk-cluster-encryptionatrest-datavolumekmskeyid>
+                              dataVolumeKMSKeyId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestProperty ::
   Value Prelude.Text -> EncryptionAtRestProperty
 mkEncryptionAtRestProperty dataVolumeKMSKeyId
   = EncryptionAtRestProperty
-      {dataVolumeKMSKeyId = dataVolumeKMSKeyId}
+      {haddock_workaround_ = (), dataVolumeKMSKeyId = dataVolumeKMSKeyId}
 instance ToResourceProperties EncryptionAtRestProperty where
   toResourceProperties EncryptionAtRestProperty {..}
     = ResourceProperties
@@ -25,5 +28,5 @@ instance JSON.ToJSON EncryptionAtRestProperty where
     = JSON.object ["DataVolumeKMSKeyId" JSON..= dataVolumeKMSKeyId]
 instance Property "DataVolumeKMSKeyId" EncryptionAtRestProperty where
   type PropertyType "DataVolumeKMSKeyId" EncryptionAtRestProperty = Value Prelude.Text
-  set newValue EncryptionAtRestProperty {}
+  set newValue EncryptionAtRestProperty {..}
     = EncryptionAtRestProperty {dataVolumeKMSKeyId = newValue, ..}

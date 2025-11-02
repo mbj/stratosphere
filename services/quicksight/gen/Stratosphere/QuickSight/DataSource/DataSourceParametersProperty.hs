@@ -27,31 +27,54 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.TeradataParametersPrope
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.TrinoParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceParametersProperty
-  = DataSourceParametersProperty {amazonElasticsearchParameters :: (Prelude.Maybe AmazonElasticsearchParametersProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html>
+    DataSourceParametersProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters>
+                                  amazonElasticsearchParameters :: (Prelude.Maybe AmazonElasticsearchParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonopensearchparameters>
                                   amazonOpenSearchParameters :: (Prelude.Maybe AmazonOpenSearchParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters>
                                   athenaParameters :: (Prelude.Maybe AthenaParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters>
                                   auroraParameters :: (Prelude.Maybe AuroraParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters>
                                   auroraPostgreSqlParameters :: (Prelude.Maybe AuroraPostgreSqlParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-databricksparameters>
                                   databricksParameters :: (Prelude.Maybe DatabricksParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters>
                                   mariaDbParameters :: (Prelude.Maybe MariaDbParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters>
                                   mySqlParameters :: (Prelude.Maybe MySqlParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters>
                                   oracleParameters :: (Prelude.Maybe OracleParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters>
                                   postgreSqlParameters :: (Prelude.Maybe PostgreSqlParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters>
                                   prestoParameters :: (Prelude.Maybe PrestoParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters>
                                   rdsParameters :: (Prelude.Maybe RdsParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters>
                                   redshiftParameters :: (Prelude.Maybe RedshiftParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters>
                                   s3Parameters :: (Prelude.Maybe S3ParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters>
                                   snowflakeParameters :: (Prelude.Maybe SnowflakeParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters>
                                   sparkParameters :: (Prelude.Maybe SparkParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters>
                                   sqlServerParameters :: (Prelude.Maybe SqlServerParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-starburstparameters>
                                   starburstParameters :: (Prelude.Maybe StarburstParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters>
                                   teradataParameters :: (Prelude.Maybe TeradataParametersProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-trinoparameters>
                                   trinoParameters :: (Prelude.Maybe TrinoParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceParametersProperty :: DataSourceParametersProperty
 mkDataSourceParametersProperty
   = DataSourceParametersProperty
-      {amazonElasticsearchParameters = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       amazonElasticsearchParameters = Prelude.Nothing,
        amazonOpenSearchParameters = Prelude.Nothing,
        athenaParameters = Prelude.Nothing,
        auroraParameters = Prelude.Nothing,

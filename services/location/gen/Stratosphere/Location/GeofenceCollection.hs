@@ -8,16 +8,23 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data GeofenceCollection
-  = GeofenceCollection {collectionName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html>
+    GeofenceCollection {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname>
+                        collectionName :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description>
                         description :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid>
                         kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-tags>
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGeofenceCollection :: Value Prelude.Text -> GeofenceCollection
 mkGeofenceCollection collectionName
   = GeofenceCollection
-      {collectionName = collectionName, description = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), collectionName = collectionName,
+       description = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties GeofenceCollection where
   toResourceProperties GeofenceCollection {..}
     = ResourceProperties

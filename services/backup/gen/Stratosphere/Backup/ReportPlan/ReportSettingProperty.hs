@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReportSettingProperty
-  = ReportSettingProperty {accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html>
+    ReportSettingProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-accounts>
+                           accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-frameworkarns>
                            frameworkArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-organizationunits>
                            organizationUnits :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-regions>
                            regions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-reporttemplate>
                            reportTemplate :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReportSettingProperty ::
   Value Prelude.Text -> ReportSettingProperty
 mkReportSettingProperty reportTemplate
   = ReportSettingProperty
-      {reportTemplate = reportTemplate, accounts = Prelude.Nothing,
-       frameworkArns = Prelude.Nothing,
+      {haddock_workaround_ = (), reportTemplate = reportTemplate,
+       accounts = Prelude.Nothing, frameworkArns = Prelude.Nothing,
        organizationUnits = Prelude.Nothing, regions = Prelude.Nothing}
 instance ToResourceProperties ReportSettingProperty where
   toResourceProperties ReportSettingProperty {..}

@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.AdvancedSecurityAdditionalFl
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolAddOnsProperty
-  = UserPoolAddOnsProperty {advancedSecurityAdditionalFlows :: (Prelude.Maybe AdvancedSecurityAdditionalFlowsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html>
+    UserPoolAddOnsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecurityadditionalflows>
+                            advancedSecurityAdditionalFlows :: (Prelude.Maybe AdvancedSecurityAdditionalFlowsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode>
                             advancedSecurityMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolAddOnsProperty :: UserPoolAddOnsProperty
 mkUserPoolAddOnsProperty
   = UserPoolAddOnsProperty
-      {advancedSecurityAdditionalFlows = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       advancedSecurityAdditionalFlows = Prelude.Nothing,
        advancedSecurityMode = Prelude.Nothing}
 instance ToResourceProperties UserPoolAddOnsProperty where
   toResourceProperties UserPoolAddOnsProperty {..}

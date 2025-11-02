@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.ResourceSpecProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RStudioServerProDomainSettingsProperty
-  = RStudioServerProDomainSettingsProperty {defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>
+    RStudioServerProDomainSettingsProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-defaultresourcespec>
+                                            defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-domainexecutionrolearn>
                                             domainExecutionRoleArn :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-rstudioconnecturl>
                                             rStudioConnectUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html#cfn-sagemaker-domain-rstudioserverprodomainsettings-rstudiopackagemanagerurl>
                                             rStudioPackageManagerUrl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRStudioServerProDomainSettingsProperty ::
   Value Prelude.Text -> RStudioServerProDomainSettingsProperty
 mkRStudioServerProDomainSettingsProperty domainExecutionRoleArn
   = RStudioServerProDomainSettingsProperty
-      {domainExecutionRoleArn = domainExecutionRoleArn,
+      {haddock_workaround_ = (),
+       domainExecutionRoleArn = domainExecutionRoleArn,
        defaultResourceSpec = Prelude.Nothing,
        rStudioConnectUrl = Prelude.Nothing,
        rStudioPackageManagerUrl = Prelude.Nothing}

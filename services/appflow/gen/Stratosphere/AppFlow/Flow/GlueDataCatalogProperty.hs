@@ -7,8 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueDataCatalogProperty
-  = GlueDataCatalogProperty {databaseName :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html>
+    GlueDataCatalogProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-databasename>
+                             databaseName :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-rolearn>
                              roleArn :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html#cfn-appflow-flow-gluedatacatalog-tableprefix>
                              tablePrefix :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueDataCatalogProperty ::
@@ -17,8 +22,8 @@ mkGlueDataCatalogProperty ::
      -> Value Prelude.Text -> GlueDataCatalogProperty
 mkGlueDataCatalogProperty databaseName roleArn tablePrefix
   = GlueDataCatalogProperty
-      {databaseName = databaseName, roleArn = roleArn,
-       tablePrefix = tablePrefix}
+      {haddock_workaround_ = (), databaseName = databaseName,
+       roleArn = roleArn, tablePrefix = tablePrefix}
 instance ToResourceProperties GlueDataCatalogProperty where
   toResourceProperties GlueDataCatalogProperty {..}
     = ResourceProperties

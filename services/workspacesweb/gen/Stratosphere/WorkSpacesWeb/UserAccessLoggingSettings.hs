@@ -8,14 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data UserAccessLoggingSettings
-  = UserAccessLoggingSettings {kinesisStreamArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html>
+    UserAccessLoggingSettings {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html#cfn-workspacesweb-useraccessloggingsettings-kinesisstreamarn>
+                               kinesisStreamArn :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html#cfn-workspacesweb-useraccessloggingsettings-tags>
                                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserAccessLoggingSettings ::
   Value Prelude.Text -> UserAccessLoggingSettings
 mkUserAccessLoggingSettings kinesisStreamArn
   = UserAccessLoggingSettings
-      {kinesisStreamArn = kinesisStreamArn, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), kinesisStreamArn = kinesisStreamArn,
+       tags = Prelude.Nothing}
 instance ToResourceProperties UserAccessLoggingSettings where
   toResourceProperties UserAccessLoggingSettings {..}
     = ResourceProperties

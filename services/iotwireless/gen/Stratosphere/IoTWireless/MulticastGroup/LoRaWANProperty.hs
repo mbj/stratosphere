@@ -7,16 +7,22 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoRaWANProperty
-  = LoRaWANProperty {dlClass :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html>
+    LoRaWANProperty {haddock_workaround_ :: (),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-dlclass>
+                     dlClass :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-numberofdevicesingroup>
                      numberOfDevicesInGroup :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-numberofdevicesrequested>
                      numberOfDevicesRequested :: (Prelude.Maybe (Value Prelude.Integer)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html#cfn-iotwireless-multicastgroup-lorawan-rfregion>
                      rfRegion :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoRaWANProperty
 mkLoRaWANProperty dlClass rfRegion
   = LoRaWANProperty
-      {dlClass = dlClass, rfRegion = rfRegion,
+      {haddock_workaround_ = (), dlClass = dlClass, rfRegion = rfRegion,
        numberOfDevicesInGroup = Prelude.Nothing,
        numberOfDevicesRequested = Prelude.Nothing}
 instance ToResourceProperties LoRaWANProperty where

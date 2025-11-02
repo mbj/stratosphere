@@ -7,16 +7,23 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Backup.BackupSelection.ConditionParameterProperty as Exports
 import Stratosphere.ResourceProperties
 data ConditionsProperty
-  = ConditionsProperty {stringEquals :: (Prelude.Maybe [ConditionParameterProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html>
+    ConditionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringequals>
+                        stringEquals :: (Prelude.Maybe [ConditionParameterProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringlike>
                         stringLike :: (Prelude.Maybe [ConditionParameterProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringnotequals>
                         stringNotEquals :: (Prelude.Maybe [ConditionParameterProperty]),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html#cfn-backup-backupselection-conditions-stringnotlike>
                         stringNotLike :: (Prelude.Maybe [ConditionParameterProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionsProperty :: ConditionsProperty
 mkConditionsProperty
   = ConditionsProperty
-      {stringEquals = Prelude.Nothing, stringLike = Prelude.Nothing,
-       stringNotEquals = Prelude.Nothing, stringNotLike = Prelude.Nothing}
+      {haddock_workaround_ = (), stringEquals = Prelude.Nothing,
+       stringLike = Prelude.Nothing, stringNotEquals = Prelude.Nothing,
+       stringNotLike = Prelude.Nothing}
 instance ToResourceProperties ConditionsProperty where
   toResourceProperties ConditionsProperty {..}
     = ResourceProperties

@@ -7,14 +7,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data X12DelimitersProperty
-  = X12DelimitersProperty {componentSeparator :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12delimiters.html>
+    X12DelimitersProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12delimiters.html#cfn-b2bi-partnership-x12delimiters-componentseparator>
+                           componentSeparator :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12delimiters.html#cfn-b2bi-partnership-x12delimiters-dataelementseparator>
                            dataElementSeparator :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12delimiters.html#cfn-b2bi-partnership-x12delimiters-segmentterminator>
                            segmentTerminator :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkX12DelimitersProperty :: X12DelimitersProperty
 mkX12DelimitersProperty
   = X12DelimitersProperty
-      {componentSeparator = Prelude.Nothing,
+      {haddock_workaround_ = (), componentSeparator = Prelude.Nothing,
        dataElementSeparator = Prelude.Nothing,
        segmentTerminator = Prelude.Nothing}
 instance ToResourceProperties X12DelimitersProperty where

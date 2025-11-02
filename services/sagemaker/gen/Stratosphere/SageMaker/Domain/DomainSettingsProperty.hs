@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.RStudioServerProDomainSettin
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DomainSettingsProperty
-  = DomainSettingsProperty {dockerSettings :: (Prelude.Maybe DockerSettingsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>
+    DomainSettingsProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-dockersettings>
+                            dockerSettings :: (Prelude.Maybe DockerSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-executionroleidentityconfig>
                             executionRoleIdentityConfig :: (Prelude.Maybe (Value Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings>
                             rStudioServerProDomainSettings :: (Prelude.Maybe RStudioServerProDomainSettingsProperty),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-securitygroupids>
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainSettingsProperty :: DomainSettingsProperty
 mkDomainSettingsProperty
   = DomainSettingsProperty
-      {dockerSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), dockerSettings = Prelude.Nothing,
        executionRoleIdentityConfig = Prelude.Nothing,
        rStudioServerProDomainSettings = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing}

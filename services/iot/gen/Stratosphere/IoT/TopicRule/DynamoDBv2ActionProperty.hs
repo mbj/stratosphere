@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.PutItemInputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBv2ActionProperty
-  = DynamoDBv2ActionProperty {putItem :: (Prelude.Maybe PutItemInputProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html>
+    DynamoDBv2ActionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem>
+                              putItem :: (Prelude.Maybe PutItemInputProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn>
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBv2ActionProperty :: DynamoDBv2ActionProperty
 mkDynamoDBv2ActionProperty
   = DynamoDBv2ActionProperty
-      {putItem = Prelude.Nothing, roleArn = Prelude.Nothing}
+      {haddock_workaround_ = (), putItem = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties DynamoDBv2ActionProperty where
   toResourceProperties DynamoDBv2ActionProperty {..}
     = ResourceProperties

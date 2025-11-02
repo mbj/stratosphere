@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationTimeValueProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationTimeProperty
-  = ReplicationTimeProperty {status :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html>
+    ReplicationTimeProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status>
+                             status :: (Value Prelude.Text),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time>
                              time :: ReplicationTimeValueProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTimeProperty ::
   Value Prelude.Text
   -> ReplicationTimeValueProperty -> ReplicationTimeProperty
 mkReplicationTimeProperty status time
-  = ReplicationTimeProperty {status = status, time = time}
+  = ReplicationTimeProperty
+      {haddock_workaround_ = (), status = status, time = time}
 instance ToResourceProperties ReplicationTimeProperty where
   toResourceProperties ReplicationTimeProperty {..}
     = ResourceProperties

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchRetryStrategyProperty
-  = BatchRetryStrategyProperty {attempts :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchretrystrategy.html>
+    BatchRetryStrategyProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchretrystrategy.html#cfn-events-rule-batchretrystrategy-attempts>
+                                attempts :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchRetryStrategyProperty :: BatchRetryStrategyProperty
 mkBatchRetryStrategyProperty
-  = BatchRetryStrategyProperty {attempts = Prelude.Nothing}
+  = BatchRetryStrategyProperty
+      {haddock_workaround_ = (), attempts = Prelude.Nothing}
 instance ToResourceProperties BatchRetryStrategyProperty where
   toResourceProperties BatchRetryStrategyProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON BatchRetryStrategyProperty where
            (Prelude.catMaybes [(JSON..=) "Attempts" Prelude.<$> attempts]))
 instance Property "Attempts" BatchRetryStrategyProperty where
   type PropertyType "Attempts" BatchRetryStrategyProperty = Value Prelude.Integer
-  set newValue BatchRetryStrategyProperty {}
+  set newValue BatchRetryStrategyProperty {..}
     = BatchRetryStrategyProperty {attempts = Prelude.pure newValue, ..}

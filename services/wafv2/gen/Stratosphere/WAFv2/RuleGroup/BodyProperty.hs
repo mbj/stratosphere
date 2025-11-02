@@ -7,10 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BodyProperty
-  = BodyProperty {oversizeHandling :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-body.html>
+    BodyProperty {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-body.html#cfn-wafv2-rulegroup-body-oversizehandling>
+                  oversizeHandling :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyProperty :: BodyProperty
-mkBodyProperty = BodyProperty {oversizeHandling = Prelude.Nothing}
+mkBodyProperty
+  = BodyProperty
+      {haddock_workaround_ = (), oversizeHandling = Prelude.Nothing}
 instance ToResourceProperties BodyProperty where
   toResourceProperties BodyProperty {..}
     = ResourceProperties
@@ -27,5 +32,5 @@ instance JSON.ToJSON BodyProperty where
               [(JSON..=) "OversizeHandling" Prelude.<$> oversizeHandling]))
 instance Property "OversizeHandling" BodyProperty where
   type PropertyType "OversizeHandling" BodyProperty = Value Prelude.Text
-  set newValue BodyProperty {}
+  set newValue BodyProperty {..}
     = BodyProperty {oversizeHandling = Prelude.pure newValue, ..}

@@ -10,15 +10,21 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RuleActionOverrideProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleGroupReferenceStatementProperty
-  = RuleGroupReferenceStatementProperty {arn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html>
+    RuleGroupReferenceStatementProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn>
+                                         arn :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules>
                                          excludedRules :: (Prelude.Maybe [ExcludedRuleProperty]),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-ruleactionoverrides>
                                          ruleActionOverrides :: (Prelude.Maybe [RuleActionOverrideProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupReferenceStatementProperty ::
   Value Prelude.Text -> RuleGroupReferenceStatementProperty
 mkRuleGroupReferenceStatementProperty arn
   = RuleGroupReferenceStatementProperty
-      {arn = arn, excludedRules = Prelude.Nothing,
+      {haddock_workaround_ = (), arn = arn,
+       excludedRules = Prelude.Nothing,
        ruleActionOverrides = Prelude.Nothing}
 instance ToResourceProperties RuleGroupReferenceStatementProperty where
   toResourceProperties RuleGroupReferenceStatementProperty {..}

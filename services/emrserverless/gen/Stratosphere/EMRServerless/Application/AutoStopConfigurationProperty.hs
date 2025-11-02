@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoStopConfigurationProperty
-  = AutoStopConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html>
+    AutoStopConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html#cfn-emrserverless-application-autostopconfiguration-enabled>
+                                   enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html#cfn-emrserverless-application-autostopconfiguration-idletimeoutminutes>
                                    idleTimeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoStopConfigurationProperty :: AutoStopConfigurationProperty
 mkAutoStopConfigurationProperty
   = AutoStopConfigurationProperty
-      {enabled = Prelude.Nothing, idleTimeoutMinutes = Prelude.Nothing}
+      {haddock_workaround_ = (), enabled = Prelude.Nothing,
+       idleTimeoutMinutes = Prelude.Nothing}
 instance ToResourceProperties AutoStopConfigurationProperty where
   toResourceProperties AutoStopConfigurationProperty {..}
     = ResourceProperties

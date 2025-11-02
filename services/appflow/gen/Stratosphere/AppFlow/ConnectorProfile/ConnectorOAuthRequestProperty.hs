@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectorOAuthRequestProperty
-  = ConnectorOAuthRequestProperty {authCode :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html>
+    ConnectorOAuthRequestProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode>
+                                   authCode :: (Prelude.Maybe (Value Prelude.Text)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi>
                                    redirectUri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorOAuthRequestProperty :: ConnectorOAuthRequestProperty
 mkConnectorOAuthRequestProperty
   = ConnectorOAuthRequestProperty
-      {authCode = Prelude.Nothing, redirectUri = Prelude.Nothing}
+      {haddock_workaround_ = (), authCode = Prelude.Nothing,
+       redirectUri = Prelude.Nothing}
 instance ToResourceProperties ConnectorOAuthRequestProperty where
   toResourceProperties ConnectorOAuthRequestProperty {..}
     = ResourceProperties

@@ -7,14 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceTagProperty
-  = ResourceTagProperty {resourceTagKey :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-resourcetag.html>
+    ResourceTagProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-resourcetag.html#cfn-rbin-rule-resourcetag-resourcetagkey>
+                         resourceTagKey :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-resourcetag.html#cfn-rbin-rule-resourcetag-resourcetagvalue>
                          resourceTagValue :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ResourceTagProperty
 mkResourceTagProperty resourceTagKey resourceTagValue
   = ResourceTagProperty
-      {resourceTagKey = resourceTagKey,
+      {haddock_workaround_ = (), resourceTagKey = resourceTagKey,
        resourceTagValue = resourceTagValue}
 instance ToResourceProperties ResourceTagProperty where
   toResourceProperties ResourceTagProperty {..}

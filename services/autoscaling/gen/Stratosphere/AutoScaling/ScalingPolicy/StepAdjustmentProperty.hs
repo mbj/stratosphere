@@ -7,15 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StepAdjustmentProperty
-  = StepAdjustmentProperty {metricIntervalLowerBound :: (Prelude.Maybe (Value Prelude.Double)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustment.html>
+    StepAdjustmentProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustment.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound>
+                            metricIntervalLowerBound :: (Prelude.Maybe (Value Prelude.Double)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustment.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound>
                             metricIntervalUpperBound :: (Prelude.Maybe (Value Prelude.Double)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustment.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment>
                             scalingAdjustment :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStepAdjustmentProperty ::
   Value Prelude.Integer -> StepAdjustmentProperty
 mkStepAdjustmentProperty scalingAdjustment
   = StepAdjustmentProperty
-      {scalingAdjustment = scalingAdjustment,
+      {haddock_workaround_ = (), scalingAdjustment = scalingAdjustment,
        metricIntervalLowerBound = Prelude.Nothing,
        metricIntervalUpperBound = Prelude.Nothing}
 instance ToResourceProperties StepAdjustmentProperty where

@@ -8,17 +8,23 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.JsonMatchPatternProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonBodyProperty
-  = JsonBodyProperty {invalidFallbackBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html>
+    JsonBodyProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior>
+                      invalidFallbackBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern>
                       matchPattern :: JsonMatchPatternProperty,
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope>
                       matchScope :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-oversizehandling>
                       oversizeHandling :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonBodyProperty ::
   JsonMatchPatternProperty -> Value Prelude.Text -> JsonBodyProperty
 mkJsonBodyProperty matchPattern matchScope
   = JsonBodyProperty
-      {matchPattern = matchPattern, matchScope = matchScope,
-       invalidFallbackBehavior = Prelude.Nothing,
+      {haddock_workaround_ = (), matchPattern = matchPattern,
+       matchScope = matchScope, invalidFallbackBehavior = Prelude.Nothing,
        oversizeHandling = Prelude.Nothing}
 instance ToResourceProperties JsonBodyProperty where
   toResourceProperties JsonBodyProperty {..}

@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NfsMountOptionsProperty
-  = NfsMountOptionsProperty {version :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfsmountoptions.html>
+    NfsMountOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfsmountoptions.html#cfn-datasync-locationfsxontap-nfsmountoptions-version>
+                             version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNfsMountOptionsProperty :: NfsMountOptionsProperty
 mkNfsMountOptionsProperty
-  = NfsMountOptionsProperty {version = Prelude.Nothing}
+  = NfsMountOptionsProperty
+      {haddock_workaround_ = (), version = Prelude.Nothing}
 instance ToResourceProperties NfsMountOptionsProperty where
   toResourceProperties NfsMountOptionsProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON NfsMountOptionsProperty where
            (Prelude.catMaybes [(JSON..=) "Version" Prelude.<$> version]))
 instance Property "Version" NfsMountOptionsProperty where
   type PropertyType "Version" NfsMountOptionsProperty = Value Prelude.Text
-  set newValue NfsMountOptionsProperty {}
+  set newValue NfsMountOptionsProperty {..}
     = NfsMountOptionsProperty {version = Prelude.pure newValue, ..}

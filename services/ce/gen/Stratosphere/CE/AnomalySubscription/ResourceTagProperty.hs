@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceTagProperty
-  = ResourceTagProperty {key :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html>
+    ResourceTagProperty {haddock_workaround_ :: (),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html#cfn-ce-anomalysubscription-resourcetag-key>
+                         key :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html#cfn-ce-anomalysubscription-resourcetag-value>
                          value :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ResourceTagProperty
 mkResourceTagProperty key value
-  = ResourceTagProperty {key = key, value = value}
+  = ResourceTagProperty
+      {haddock_workaround_ = (), key = key, value = value}
 instance ToResourceProperties ResourceTagProperty where
   toResourceProperties ResourceTagProperty {..}
     = ResourceProperties

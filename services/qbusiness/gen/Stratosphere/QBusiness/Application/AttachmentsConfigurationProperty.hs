@@ -8,13 +8,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttachmentsConfigurationProperty
-  = AttachmentsConfigurationProperty {attachmentsControlMode :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-attachmentsconfiguration.html>
+    AttachmentsConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-attachmentsconfiguration.html#cfn-qbusiness-application-attachmentsconfiguration-attachmentscontrolmode>
+                                      attachmentsControlMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAttachmentsConfigurationProperty ::
   Value Prelude.Text -> AttachmentsConfigurationProperty
 mkAttachmentsConfigurationProperty attachmentsControlMode
   = AttachmentsConfigurationProperty
-      {attachmentsControlMode = attachmentsControlMode}
+      {haddock_workaround_ = (),
+       attachmentsControlMode = attachmentsControlMode}
 instance ToResourceProperties AttachmentsConfigurationProperty where
   toResourceProperties AttachmentsConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON AttachmentsConfigurationProperty where
         ["AttachmentsControlMode" JSON..= attachmentsControlMode]
 instance Property "AttachmentsControlMode" AttachmentsConfigurationProperty where
   type PropertyType "AttachmentsControlMode" AttachmentsConfigurationProperty = Value Prelude.Text
-  set newValue AttachmentsConfigurationProperty {}
+  set newValue AttachmentsConfigurationProperty {..}
     = AttachmentsConfigurationProperty
         {attachmentsControlMode = newValue, ..}

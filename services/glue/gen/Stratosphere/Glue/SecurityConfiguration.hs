@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.Glue.SecurityConfiguration.EncryptionConfigur
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityConfiguration
-  = SecurityConfiguration {encryptionConfiguration :: EncryptionConfigurationProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html>
+    SecurityConfiguration {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration>
+                           encryptionConfiguration :: EncryptionConfigurationProperty,
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html#cfn-glue-securityconfiguration-name>
                            name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfiguration ::
@@ -16,7 +20,8 @@ mkSecurityConfiguration ::
   -> Value Prelude.Text -> SecurityConfiguration
 mkSecurityConfiguration encryptionConfiguration name
   = SecurityConfiguration
-      {encryptionConfiguration = encryptionConfiguration, name = name}
+      {haddock_workaround_ = (),
+       encryptionConfiguration = encryptionConfiguration, name = name}
 instance ToResourceProperties SecurityConfiguration where
   toResourceProperties SecurityConfiguration {..}
     = ResourceProperties

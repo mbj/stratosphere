@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsConfigurationProperty
-  = CloudWatchLogsConfigurationProperty {logGroupArn :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>
+    CloudWatchLogsConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html#cfn-fis-experimenttemplate-cloudwatchlogsconfiguration-loggrouparn>
+                                         logGroupArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsConfigurationProperty ::
   Value Prelude.Text -> CloudWatchLogsConfigurationProperty
 mkCloudWatchLogsConfigurationProperty logGroupArn
-  = CloudWatchLogsConfigurationProperty {logGroupArn = logGroupArn}
+  = CloudWatchLogsConfigurationProperty
+      {haddock_workaround_ = (), logGroupArn = logGroupArn}
 instance ToResourceProperties CloudWatchLogsConfigurationProperty where
   toResourceProperties CloudWatchLogsConfigurationProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON CloudWatchLogsConfigurationProperty where
     = JSON.object ["LogGroupArn" JSON..= logGroupArn]
 instance Property "LogGroupArn" CloudWatchLogsConfigurationProperty where
   type PropertyType "LogGroupArn" CloudWatchLogsConfigurationProperty = Value Prelude.Text
-  set newValue CloudWatchLogsConfigurationProperty {}
+  set newValue CloudWatchLogsConfigurationProperty {..}
     = CloudWatchLogsConfigurationProperty {logGroupArn = newValue, ..}

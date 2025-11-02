@@ -8,7 +8,11 @@ import {-# SOURCE #-} Stratosphere.MSK.Replicator.AmazonMskClusterProperty as Ex
 import {-# SOURCE #-} Stratosphere.MSK.Replicator.KafkaClusterClientVpcConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data KafkaClusterProperty
-  = KafkaClusterProperty {amazonMskCluster :: AmazonMskClusterProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html>
+    KafkaClusterProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-amazonmskcluster>
+                          amazonMskCluster :: AmazonMskClusterProperty,
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-vpcconfig>
                           vpcConfig :: KafkaClusterClientVpcConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterProperty ::
@@ -16,7 +20,8 @@ mkKafkaClusterProperty ::
   -> KafkaClusterClientVpcConfigProperty -> KafkaClusterProperty
 mkKafkaClusterProperty amazonMskCluster vpcConfig
   = KafkaClusterProperty
-      {amazonMskCluster = amazonMskCluster, vpcConfig = vpcConfig}
+      {haddock_workaround_ = (), amazonMskCluster = amazonMskCluster,
+       vpcConfig = vpcConfig}
 instance ToResourceProperties KafkaClusterProperty where
   toResourceProperties KafkaClusterProperty {..}
     = ResourceProperties

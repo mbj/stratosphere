@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrendmicroSourcePropertiesProperty
-  = TrendmicroSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html>
+    TrendmicroSourcePropertiesProperty {haddock_workaround_ :: (),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object>
+                                        object :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrendmicroSourcePropertiesProperty ::
   Value Prelude.Text -> TrendmicroSourcePropertiesProperty
 mkTrendmicroSourcePropertiesProperty object
-  = TrendmicroSourcePropertiesProperty {object = object}
+  = TrendmicroSourcePropertiesProperty
+      {haddock_workaround_ = (), object = object}
 instance ToResourceProperties TrendmicroSourcePropertiesProperty where
   toResourceProperties TrendmicroSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,5 +29,5 @@ instance JSON.ToJSON TrendmicroSourcePropertiesProperty where
     = JSON.object ["Object" JSON..= object]
 instance Property "Object" TrendmicroSourcePropertiesProperty where
   type PropertyType "Object" TrendmicroSourcePropertiesProperty = Value Prelude.Text
-  set newValue TrendmicroSourcePropertiesProperty {}
+  set newValue TrendmicroSourcePropertiesProperty {..}
     = TrendmicroSourcePropertiesProperty {object = newValue, ..}

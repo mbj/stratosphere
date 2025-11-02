@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualNodeHttp2ConnectionPoolProperty
-  = VirtualNodeHttp2ConnectionPoolProperty {maxRequests :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html>
+    VirtualNodeHttp2ConnectionPoolProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests>
+                                            maxRequests :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeHttp2ConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualNodeHttp2ConnectionPoolProperty
 mkVirtualNodeHttp2ConnectionPoolProperty maxRequests
   = VirtualNodeHttp2ConnectionPoolProperty
-      {maxRequests = maxRequests}
+      {haddock_workaround_ = (), maxRequests = maxRequests}
 instance ToResourceProperties VirtualNodeHttp2ConnectionPoolProperty where
   toResourceProperties VirtualNodeHttp2ConnectionPoolProperty {..}
     = ResourceProperties
@@ -26,6 +29,6 @@ instance JSON.ToJSON VirtualNodeHttp2ConnectionPoolProperty where
     = JSON.object ["MaxRequests" JSON..= maxRequests]
 instance Property "MaxRequests" VirtualNodeHttp2ConnectionPoolProperty where
   type PropertyType "MaxRequests" VirtualNodeHttp2ConnectionPoolProperty = Value Prelude.Integer
-  set newValue VirtualNodeHttp2ConnectionPoolProperty {}
+  set newValue VirtualNodeHttp2ConnectionPoolProperty {..}
     = VirtualNodeHttp2ConnectionPoolProperty
         {maxRequests = newValue, ..}

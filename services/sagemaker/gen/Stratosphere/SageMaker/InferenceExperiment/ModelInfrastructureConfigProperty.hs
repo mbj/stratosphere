@@ -9,7 +9,11 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceExperiment.RealTimeInferen
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelInfrastructureConfigProperty
-  = ModelInfrastructureConfigProperty {infrastructureType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html>
+    ModelInfrastructureConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html#cfn-sagemaker-inferenceexperiment-modelinfrastructureconfig-infrastructuretype>
+                                       infrastructureType :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html#cfn-sagemaker-inferenceexperiment-modelinfrastructureconfig-realtimeinferenceconfig>
                                        realTimeInferenceConfig :: RealTimeInferenceConfigProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelInfrastructureConfigProperty ::
@@ -20,7 +24,7 @@ mkModelInfrastructureConfigProperty
   infrastructureType
   realTimeInferenceConfig
   = ModelInfrastructureConfigProperty
-      {infrastructureType = infrastructureType,
+      {haddock_workaround_ = (), infrastructureType = infrastructureType,
        realTimeInferenceConfig = realTimeInferenceConfig}
 instance ToResourceProperties ModelInfrastructureConfigProperty where
   toResourceProperties ModelInfrastructureConfigProperty {..}

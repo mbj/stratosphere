@@ -7,11 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringProperty
-  = MonitoringProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-monitoring.html>
+    MonitoringProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-monitoring.html#cfn-ec2-launchtemplate-monitoring-enabled>
+                        enabled :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringProperty :: MonitoringProperty
 mkMonitoringProperty
-  = MonitoringProperty {enabled = Prelude.Nothing}
+  = MonitoringProperty
+      {haddock_workaround_ = (), enabled = Prelude.Nothing}
 instance ToResourceProperties MonitoringProperty where
   toResourceProperties MonitoringProperty {..}
     = ResourceProperties
@@ -26,5 +30,5 @@ instance JSON.ToJSON MonitoringProperty where
            (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "Enabled" MonitoringProperty where
   type PropertyType "Enabled" MonitoringProperty = Value Prelude.Bool
-  set newValue MonitoringProperty {}
+  set newValue MonitoringProperty {..}
     = MonitoringProperty {enabled = Prelude.pure newValue, ..}

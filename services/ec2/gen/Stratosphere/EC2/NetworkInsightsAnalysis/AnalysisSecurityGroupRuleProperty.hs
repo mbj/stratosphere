@@ -9,20 +9,29 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.PortRangeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisSecurityGroupRuleProperty
-  = AnalysisSecurityGroupRuleProperty {cidr :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html>
+    AnalysisSecurityGroupRuleProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr>
+                                       cidr :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction>
                                        direction :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange>
                                        portRange :: (Prelude.Maybe PortRangeProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid>
                                        prefixListId :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol>
                                        protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid>
                                        securityGroupId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisSecurityGroupRuleProperty ::
   AnalysisSecurityGroupRuleProperty
 mkAnalysisSecurityGroupRuleProperty
   = AnalysisSecurityGroupRuleProperty
-      {cidr = Prelude.Nothing, direction = Prelude.Nothing,
-       portRange = Prelude.Nothing, prefixListId = Prelude.Nothing,
-       protocol = Prelude.Nothing, securityGroupId = Prelude.Nothing}
+      {haddock_workaround_ = (), cidr = Prelude.Nothing,
+       direction = Prelude.Nothing, portRange = Prelude.Nothing,
+       prefixListId = Prelude.Nothing, protocol = Prelude.Nothing,
+       securityGroupId = Prelude.Nothing}
 instance ToResourceProperties AnalysisSecurityGroupRuleProperty where
   toResourceProperties AnalysisSecurityGroupRuleProperty {..}
     = ResourceProperties

@@ -8,15 +8,20 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.FunctionDefinit
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionDefinition
-  = FunctionDefinition {initialVersion :: (Prelude.Maybe FunctionDefinitionVersionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html>
+    FunctionDefinition {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-initialversion>
+                        initialVersion :: (Prelude.Maybe FunctionDefinitionVersionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-name>
                         name :: (Value Prelude.Text),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-tags>
                         tags :: (Prelude.Maybe JSON.Object)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinition :: Value Prelude.Text -> FunctionDefinition
 mkFunctionDefinition name
   = FunctionDefinition
-      {name = name, initialVersion = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       initialVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FunctionDefinition where
   toResourceProperties FunctionDefinition {..}
     = ResourceProperties

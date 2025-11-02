@@ -11,20 +11,31 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.StartTagPropert
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LowLatencyHlsManifestConfigurationProperty
-  = LowLatencyHlsManifestConfigurationProperty {childManifestName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html>
+    LowLatencyHlsManifestConfigurationProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-childmanifestname>
+                                                childManifestName :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-filterconfiguration>
                                                 filterConfiguration :: (Prelude.Maybe FilterConfigurationProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-manifestname>
                                                 manifestName :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-manifestwindowseconds>
                                                 manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-programdatetimeintervalseconds>
                                                 programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-sctehls>
                                                 scteHls :: (Prelude.Maybe ScteHlsProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-starttag>
                                                 startTag :: (Prelude.Maybe StartTagProperty),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-url>
                                                 url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLowLatencyHlsManifestConfigurationProperty ::
   Value Prelude.Text -> LowLatencyHlsManifestConfigurationProperty
 mkLowLatencyHlsManifestConfigurationProperty manifestName
   = LowLatencyHlsManifestConfigurationProperty
-      {manifestName = manifestName, childManifestName = Prelude.Nothing,
+      {haddock_workaround_ = (), manifestName = manifestName,
+       childManifestName = Prelude.Nothing,
        filterConfiguration = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,

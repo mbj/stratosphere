@@ -11,19 +11,26 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksPropertiesProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeRangePropertyProperty
-  = NodeRangePropertyProperty {container :: (Prelude.Maybe ContainerPropertiesProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html>
+    NodeRangePropertyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-container>
+                               container :: (Prelude.Maybe ContainerPropertiesProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-ecsproperties>
                                ecsProperties :: (Prelude.Maybe EcsPropertiesProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-eksproperties>
                                eksProperties :: (Prelude.Maybe EksPropertiesProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-instancetypes>
                                instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-targetnodes>
                                targetNodes :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeRangePropertyProperty ::
   Value Prelude.Text -> NodeRangePropertyProperty
 mkNodeRangePropertyProperty targetNodes
   = NodeRangePropertyProperty
-      {targetNodes = targetNodes, container = Prelude.Nothing,
-       ecsProperties = Prelude.Nothing, eksProperties = Prelude.Nothing,
-       instanceTypes = Prelude.Nothing}
+      {haddock_workaround_ = (), targetNodes = targetNodes,
+       container = Prelude.Nothing, ecsProperties = Prelude.Nothing,
+       eksProperties = Prelude.Nothing, instanceTypes = Prelude.Nothing}
 instance ToResourceProperties NodeRangePropertyProperty where
   toResourceProperties NodeRangePropertyProperty {..}
     = ResourceProperties

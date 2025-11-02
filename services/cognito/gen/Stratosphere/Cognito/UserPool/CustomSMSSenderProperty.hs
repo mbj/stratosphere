@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomSMSSenderProperty
-  = CustomSMSSenderProperty {lambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html>
+    CustomSMSSenderProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn>
+                             lambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion>
                              lambdaVersion :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomSMSSenderProperty :: CustomSMSSenderProperty
 mkCustomSMSSenderProperty
   = CustomSMSSenderProperty
-      {lambdaArn = Prelude.Nothing, lambdaVersion = Prelude.Nothing}
+      {haddock_workaround_ = (), lambdaArn = Prelude.Nothing,
+       lambdaVersion = Prelude.Nothing}
 instance ToResourceProperties CustomSMSSenderProperty where
   toResourceProperties CustomSMSSenderProperty {..}
     = ResourceProperties

@@ -9,23 +9,34 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data APIKey
-  = APIKey {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html>
+    APIKey {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-description>
+            description :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-expiretime>
             expireTime :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-forcedelete>
             forceDelete :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-forceupdate>
             forceUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-keyname>
             keyName :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-noexpiry>
             noExpiry :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-restrictions>
             restrictions :: ApiKeyRestrictionsProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html#cfn-location-apikey-tags>
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAPIKey ::
   Value Prelude.Text -> ApiKeyRestrictionsProperty -> APIKey
 mkAPIKey keyName restrictions
   = APIKey
-      {keyName = keyName, restrictions = restrictions,
-       description = Prelude.Nothing, expireTime = Prelude.Nothing,
-       forceDelete = Prelude.Nothing, forceUpdate = Prelude.Nothing,
-       noExpiry = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), keyName = keyName,
+       restrictions = restrictions, description = Prelude.Nothing,
+       expireTime = Prelude.Nothing, forceDelete = Prelude.Nothing,
+       forceUpdate = Prelude.Nothing, noExpiry = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties APIKey where
   toResourceProperties APIKey {..}
     = ResourceProperties

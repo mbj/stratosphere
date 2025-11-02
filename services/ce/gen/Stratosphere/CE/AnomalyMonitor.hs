@@ -8,18 +8,25 @@ import {-# SOURCE #-} Stratosphere.CE.AnomalyMonitor.ResourceTagProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalyMonitor
-  = AnomalyMonitor {monitorDimension :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html>
+    AnomalyMonitor {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitordimension>
+                    monitorDimension :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorname>
                     monitorName :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorspecification>
                     monitorSpecification :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitortype>
                     monitorType :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-resourcetags>
                     resourceTags :: (Prelude.Maybe [ResourceTagProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyMonitor ::
   Value Prelude.Text -> Value Prelude.Text -> AnomalyMonitor
 mkAnomalyMonitor monitorName monitorType
   = AnomalyMonitor
-      {monitorName = monitorName, monitorType = monitorType,
-       monitorDimension = Prelude.Nothing,
+      {haddock_workaround_ = (), monitorName = monitorName,
+       monitorType = monitorType, monitorDimension = Prelude.Nothing,
        monitorSpecification = Prelude.Nothing,
        resourceTags = Prelude.Nothing}
 instance ToResourceProperties AnomalyMonitor where

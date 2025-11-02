@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.AppTest.TestCase.BatchProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppTest.TestCase.TN3270Property as Exports
 import Stratosphere.ResourceProperties
 data MainframeActionTypeProperty
-  = MainframeActionTypeProperty {batch :: (Prelude.Maybe BatchProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactiontype.html>
+    MainframeActionTypeProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactiontype.html#cfn-apptest-testcase-mainframeactiontype-batch>
+                                 batch :: (Prelude.Maybe BatchProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactiontype.html#cfn-apptest-testcase-mainframeactiontype-tn3270>
                                  tn3270 :: (Prelude.Maybe TN3270Property)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMainframeActionTypeProperty :: MainframeActionTypeProperty
 mkMainframeActionTypeProperty
   = MainframeActionTypeProperty
-      {batch = Prelude.Nothing, tn3270 = Prelude.Nothing}
+      {haddock_workaround_ = (), batch = Prelude.Nothing,
+       tn3270 = Prelude.Nothing}
 instance ToResourceProperties MainframeActionTypeProperty where
   toResourceProperties MainframeActionTypeProperty {..}
     = ResourceProperties

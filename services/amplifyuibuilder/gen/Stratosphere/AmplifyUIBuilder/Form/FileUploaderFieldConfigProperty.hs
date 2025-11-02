@@ -8,11 +8,19 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FileUploaderFieldConfigProperty
-  = FileUploaderFieldConfigProperty {acceptedFileTypes :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html>
+    FileUploaderFieldConfigProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-acceptedfiletypes>
+                                     acceptedFileTypes :: (ValueList Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-accesslevel>
                                      accessLevel :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-isresumable>
                                      isResumable :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-maxfilecount>
                                      maxFileCount :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-maxsize>
                                      maxSize :: (Prelude.Maybe (Value Prelude.Double)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html#cfn-amplifyuibuilder-form-fileuploaderfieldconfig-showthumbnails>
                                      showThumbnails :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFileUploaderFieldConfigProperty ::
@@ -20,9 +28,10 @@ mkFileUploaderFieldConfigProperty ::
   -> Value Prelude.Text -> FileUploaderFieldConfigProperty
 mkFileUploaderFieldConfigProperty acceptedFileTypes accessLevel
   = FileUploaderFieldConfigProperty
-      {acceptedFileTypes = acceptedFileTypes, accessLevel = accessLevel,
-       isResumable = Prelude.Nothing, maxFileCount = Prelude.Nothing,
-       maxSize = Prelude.Nothing, showThumbnails = Prelude.Nothing}
+      {haddock_workaround_ = (), acceptedFileTypes = acceptedFileTypes,
+       accessLevel = accessLevel, isResumable = Prelude.Nothing,
+       maxFileCount = Prelude.Nothing, maxSize = Prelude.Nothing,
+       showThumbnails = Prelude.Nothing}
 instance ToResourceProperties FileUploaderFieldConfigProperty where
   toResourceProperties FileUploaderFieldConfigProperty {..}
     = ResourceProperties

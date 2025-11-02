@@ -9,13 +9,18 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.EventDimensionsProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CampaignEventFilterProperty
-  = CampaignEventFilterProperty {dimensions :: (Prelude.Maybe EventDimensionsProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html>
+    CampaignEventFilterProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html#cfn-pinpoint-campaign-campaigneventfilter-dimensions>
+                                 dimensions :: (Prelude.Maybe EventDimensionsProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html#cfn-pinpoint-campaign-campaigneventfilter-filtertype>
                                  filterType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignEventFilterProperty :: CampaignEventFilterProperty
 mkCampaignEventFilterProperty
   = CampaignEventFilterProperty
-      {dimensions = Prelude.Nothing, filterType = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing,
+       filterType = Prelude.Nothing}
 instance ToResourceProperties CampaignEventFilterProperty where
   toResourceProperties CampaignEventFilterProperty {..}
     = ResourceProperties

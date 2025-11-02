@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.GitFilePathFilterCriter
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitPullRequestFilterProperty
-  = GitPullRequestFilterProperty {branches :: (Prelude.Maybe GitBranchFilterCriteriaProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html>
+    GitPullRequestFilterProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-branches>
+                                  branches :: (Prelude.Maybe GitBranchFilterCriteriaProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-events>
                                   events :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-filepaths>
                                   filePaths :: (Prelude.Maybe GitFilePathFilterCriteriaProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGitPullRequestFilterProperty :: GitPullRequestFilterProperty
 mkGitPullRequestFilterProperty
   = GitPullRequestFilterProperty
-      {branches = Prelude.Nothing, events = Prelude.Nothing,
-       filePaths = Prelude.Nothing}
+      {haddock_workaround_ = (), branches = Prelude.Nothing,
+       events = Prelude.Nothing, filePaths = Prelude.Nothing}
 instance ToResourceProperties GitPullRequestFilterProperty where
   toResourceProperties GitPullRequestFilterProperty {..}
     = ResourceProperties

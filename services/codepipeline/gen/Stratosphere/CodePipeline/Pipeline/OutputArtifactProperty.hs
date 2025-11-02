@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputArtifactProperty
-  = OutputArtifactProperty {files :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html>
+    OutputArtifactProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html#cfn-codepipeline-pipeline-outputartifact-files>
+                            files :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html#cfn-codepipeline-pipeline-outputartifact-name>
                             name :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputArtifactProperty ::
   Value Prelude.Text -> OutputArtifactProperty
 mkOutputArtifactProperty name
-  = OutputArtifactProperty {name = name, files = Prelude.Nothing}
+  = OutputArtifactProperty
+      {haddock_workaround_ = (), name = name, files = Prelude.Nothing}
 instance ToResourceProperties OutputArtifactProperty where
   toResourceProperties OutputArtifactProperty {..}
     = ResourceProperties

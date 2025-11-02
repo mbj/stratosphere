@@ -8,7 +8,10 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.AIPrompt.TextFullAIPromptEditTemplateConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AIPromptTemplateConfigurationProperty
-  = AIPromptTemplateConfigurationProperty {textFullAIPromptEditTemplateConfiguration :: TextFullAIPromptEditTemplateConfigurationProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html>
+    AIPromptTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html#cfn-wisdom-aiprompt-aiprompttemplateconfiguration-textfullaipromptedittemplateconfiguration>
+                                           textFullAIPromptEditTemplateConfiguration :: TextFullAIPromptEditTemplateConfigurationProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAIPromptTemplateConfigurationProperty ::
   TextFullAIPromptEditTemplateConfigurationProperty
@@ -16,7 +19,8 @@ mkAIPromptTemplateConfigurationProperty ::
 mkAIPromptTemplateConfigurationProperty
   textFullAIPromptEditTemplateConfiguration
   = AIPromptTemplateConfigurationProperty
-      {textFullAIPromptEditTemplateConfiguration = textFullAIPromptEditTemplateConfiguration}
+      {haddock_workaround_ = (),
+       textFullAIPromptEditTemplateConfiguration = textFullAIPromptEditTemplateConfiguration}
 instance ToResourceProperties AIPromptTemplateConfigurationProperty where
   toResourceProperties AIPromptTemplateConfigurationProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON AIPromptTemplateConfigurationProperty where
            JSON..= textFullAIPromptEditTemplateConfiguration]
 instance Property "TextFullAIPromptEditTemplateConfiguration" AIPromptTemplateConfigurationProperty where
   type PropertyType "TextFullAIPromptEditTemplateConfiguration" AIPromptTemplateConfigurationProperty = TextFullAIPromptEditTemplateConfigurationProperty
-  set newValue AIPromptTemplateConfigurationProperty {}
+  set newValue AIPromptTemplateConfigurationProperty {..}
     = AIPromptTemplateConfigurationProperty
         {textFullAIPromptEditTemplateConfiguration = newValue, ..}

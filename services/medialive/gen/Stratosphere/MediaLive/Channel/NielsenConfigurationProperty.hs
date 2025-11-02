@@ -7,13 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NielsenConfigurationProperty
-  = NielsenConfigurationProperty {distributorId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html>
+    NielsenConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html#cfn-medialive-channel-nielsenconfiguration-distributorid>
+                                  distributorId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html#cfn-medialive-channel-nielsenconfiguration-nielsenpcmtoid3tagging>
                                   nielsenPcmToId3Tagging :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenConfigurationProperty :: NielsenConfigurationProperty
 mkNielsenConfigurationProperty
   = NielsenConfigurationProperty
-      {distributorId = Prelude.Nothing,
+      {haddock_workaround_ = (), distributorId = Prelude.Nothing,
        nielsenPcmToId3Tagging = Prelude.Nothing}
 instance ToResourceProperties NielsenConfigurationProperty where
   toResourceProperties NielsenConfigurationProperty {..}

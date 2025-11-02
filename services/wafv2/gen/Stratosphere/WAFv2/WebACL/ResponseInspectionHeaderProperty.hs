@@ -8,8 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResponseInspectionHeaderProperty
-  = ResponseInspectionHeaderProperty {failureValues :: (ValueList Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html>
+    ResponseInspectionHeaderProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html#cfn-wafv2-webacl-responseinspectionheader-failurevalues>
+                                      failureValues :: (ValueList Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html#cfn-wafv2-webacl-responseinspectionheader-name>
                                       name :: (Value Prelude.Text),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html#cfn-wafv2-webacl-responseinspectionheader-successvalues>
                                       successValues :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionHeaderProperty ::
@@ -18,8 +23,8 @@ mkResponseInspectionHeaderProperty ::
      -> ValueList Prelude.Text -> ResponseInspectionHeaderProperty
 mkResponseInspectionHeaderProperty failureValues name successValues
   = ResponseInspectionHeaderProperty
-      {failureValues = failureValues, name = name,
-       successValues = successValues}
+      {haddock_workaround_ = (), failureValues = failureValues,
+       name = name, successValues = successValues}
 instance ToResourceProperties ResponseInspectionHeaderProperty where
   toResourceProperties ResponseInspectionHeaderProperty {..}
     = ResourceProperties

@@ -8,13 +8,18 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.DistributionConfigPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data Distribution
-  = Distribution {distributionConfig :: DistributionConfigProperty,
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html>
+    Distribution {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig>
+                  distributionConfig :: DistributionConfigProperty,
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags>
                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDistribution :: DistributionConfigProperty -> Distribution
 mkDistribution distributionConfig
   = Distribution
-      {distributionConfig = distributionConfig, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), distributionConfig = distributionConfig,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Distribution where
   toResourceProperties Distribution {..}
     = ResourceProperties

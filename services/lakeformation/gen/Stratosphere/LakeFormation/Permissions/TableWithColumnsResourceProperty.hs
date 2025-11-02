@@ -9,19 +9,26 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.Permissions.ColumnWildcardPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableWithColumnsResourceProperty
-  = TableWithColumnsResourceProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html>
+    TableWithColumnsResourceProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid>
+                                      catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames>
                                       columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnwildcard>
                                       columnWildcard :: (Prelude.Maybe ColumnWildcardProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-databasename>
                                       databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-name>
                                       name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableWithColumnsResourceProperty ::
   TableWithColumnsResourceProperty
 mkTableWithColumnsResourceProperty
   = TableWithColumnsResourceProperty
-      {catalogId = Prelude.Nothing, columnNames = Prelude.Nothing,
-       columnWildcard = Prelude.Nothing, databaseName = Prelude.Nothing,
-       name = Prelude.Nothing}
+      {haddock_workaround_ = (), catalogId = Prelude.Nothing,
+       columnNames = Prelude.Nothing, columnWildcard = Prelude.Nothing,
+       databaseName = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties TableWithColumnsResourceProperty where
   toResourceProperties TableWithColumnsResourceProperty {..}
     = ResourceProperties

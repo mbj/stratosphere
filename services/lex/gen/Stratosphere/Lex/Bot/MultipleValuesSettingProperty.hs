@@ -7,12 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultipleValuesSettingProperty
-  = MultipleValuesSettingProperty {allowMultipleValues :: (Prelude.Maybe (Value Prelude.Bool))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html>
+    MultipleValuesSettingProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html#cfn-lex-bot-multiplevaluessetting-allowmultiplevalues>
+                                   allowMultipleValues :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMultipleValuesSettingProperty :: MultipleValuesSettingProperty
 mkMultipleValuesSettingProperty
   = MultipleValuesSettingProperty
-      {allowMultipleValues = Prelude.Nothing}
+      {haddock_workaround_ = (), allowMultipleValues = Prelude.Nothing}
 instance ToResourceProperties MultipleValuesSettingProperty where
   toResourceProperties MultipleValuesSettingProperty {..}
     = ResourceProperties
@@ -29,6 +32,6 @@ instance JSON.ToJSON MultipleValuesSettingProperty where
               [(JSON..=) "AllowMultipleValues" Prelude.<$> allowMultipleValues]))
 instance Property "AllowMultipleValues" MultipleValuesSettingProperty where
   type PropertyType "AllowMultipleValues" MultipleValuesSettingProperty = Value Prelude.Bool
-  set newValue MultipleValuesSettingProperty {}
+  set newValue MultipleValuesSettingProperty {..}
     = MultipleValuesSettingProperty
         {allowMultipleValues = Prelude.pure newValue, ..}

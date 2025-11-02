@@ -9,11 +9,19 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.EncryptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3BucketDestinationProperty
-  = S3BucketDestinationProperty {accountId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html>
+    S3BucketDestinationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid>
+                                 accountId :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn>
                                  arn :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption>
                                  encryption :: (Prelude.Maybe EncryptionProperty),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format>
                                  format :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion>
                                  outputSchemaVersion :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix>
                                  prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3BucketDestinationProperty ::
@@ -27,8 +35,8 @@ mkS3BucketDestinationProperty
   format
   outputSchemaVersion
   = S3BucketDestinationProperty
-      {accountId = accountId, arn = arn, format = format,
-       outputSchemaVersion = outputSchemaVersion,
+      {haddock_workaround_ = (), accountId = accountId, arn = arn,
+       format = format, outputSchemaVersion = outputSchemaVersion,
        encryption = Prelude.Nothing, prefix = Prelude.Nothing}
 instance ToResourceProperties S3BucketDestinationProperty where
   toResourceProperties S3BucketDestinationProperty {..}

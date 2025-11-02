@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.AppFlow.ConnectorProfile.ConnectorOAuthReques
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskConnectorProfileCredentialsProperty
-  = ZendeskConnectorProfileCredentialsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html>
+    ZendeskConnectorProfileCredentialsProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken>
+                                                accessToken :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid>
                                                 clientId :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret>
                                                 clientSecret :: (Value Prelude.Text),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest>
                                                 connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskConnectorProfileCredentialsProperty ::
@@ -19,8 +25,8 @@ mkZendeskConnectorProfileCredentialsProperty ::
   -> Value Prelude.Text -> ZendeskConnectorProfileCredentialsProperty
 mkZendeskConnectorProfileCredentialsProperty clientId clientSecret
   = ZendeskConnectorProfileCredentialsProperty
-      {clientId = clientId, clientSecret = clientSecret,
-       accessToken = Prelude.Nothing,
+      {haddock_workaround_ = (), clientId = clientId,
+       clientSecret = clientSecret, accessToken = Prelude.Nothing,
        connectorOAuthRequest = Prelude.Nothing}
 instance ToResourceProperties ZendeskConnectorProfileCredentialsProperty where
   toResourceProperties

@@ -7,14 +7,20 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuth2PropertiesProperty
-  = OAuth2PropertiesProperty {oAuth2GrantType :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html>
+    OAuth2PropertiesProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-oauth2granttype>
+                              oAuth2GrantType :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurl>
                               tokenUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html#cfn-appflow-connectorprofile-oauth2properties-tokenurlcustomproperties>
                               tokenUrlCustomProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuth2PropertiesProperty :: OAuth2PropertiesProperty
 mkOAuth2PropertiesProperty
   = OAuth2PropertiesProperty
-      {oAuth2GrantType = Prelude.Nothing, tokenUrl = Prelude.Nothing,
+      {haddock_workaround_ = (), oAuth2GrantType = Prelude.Nothing,
+       tokenUrl = Prelude.Nothing,
        tokenUrlCustomProperties = Prelude.Nothing}
 instance ToResourceProperties OAuth2PropertiesProperty where
   toResourceProperties OAuth2PropertiesProperty {..}

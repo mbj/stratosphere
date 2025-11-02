@@ -7,16 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TmpfsProperty
-  = TmpfsProperty {containerPath :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html>
+    TmpfsProperty {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-containerpath>
+                   containerPath :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-mountoptions>
                    mountOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-size>
                    size :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTmpfsProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> TmpfsProperty
 mkTmpfsProperty containerPath size
   = TmpfsProperty
-      {containerPath = containerPath, size = size,
-       mountOptions = Prelude.Nothing}
+      {haddock_workaround_ = (), containerPath = containerPath,
+       size = size, mountOptions = Prelude.Nothing}
 instance ToResourceProperties TmpfsProperty where
   toResourceProperties TmpfsProperty {..}
     = ResourceProperties

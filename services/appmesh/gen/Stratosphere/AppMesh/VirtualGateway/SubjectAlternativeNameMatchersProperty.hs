@@ -8,12 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubjectAlternativeNameMatchersProperty
-  = SubjectAlternativeNameMatchersProperty {exact :: (Prelude.Maybe (ValueList Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenamematchers.html>
+    SubjectAlternativeNameMatchersProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-subjectalternativenamematchers.html#cfn-appmesh-virtualgateway-subjectalternativenamematchers-exact>
+                                            exact :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectAlternativeNameMatchersProperty ::
   SubjectAlternativeNameMatchersProperty
 mkSubjectAlternativeNameMatchersProperty
-  = SubjectAlternativeNameMatchersProperty {exact = Prelude.Nothing}
+  = SubjectAlternativeNameMatchersProperty
+      {haddock_workaround_ = (), exact = Prelude.Nothing}
 instance ToResourceProperties SubjectAlternativeNameMatchersProperty where
   toResourceProperties SubjectAlternativeNameMatchersProperty {..}
     = ResourceProperties
@@ -28,6 +32,6 @@ instance JSON.ToJSON SubjectAlternativeNameMatchersProperty where
            (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact]))
 instance Property "Exact" SubjectAlternativeNameMatchersProperty where
   type PropertyType "Exact" SubjectAlternativeNameMatchersProperty = ValueList Prelude.Text
-  set newValue SubjectAlternativeNameMatchersProperty {}
+  set newValue SubjectAlternativeNameMatchersProperty {..}
     = SubjectAlternativeNameMatchersProperty
         {exact = Prelude.pure newValue, ..}

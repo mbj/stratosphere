@@ -7,15 +7,21 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointMetadataProperty
-  = EndpointMetadataProperty {endpointConfigName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html>
+    EndpointMetadataProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html#cfn-sagemaker-inferenceexperiment-endpointmetadata-endpointconfigname>
+                              endpointConfigName :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html#cfn-sagemaker-inferenceexperiment-endpointmetadata-endpointname>
                               endpointName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html#cfn-sagemaker-inferenceexperiment-endpointmetadata-endpointstatus>
                               endpointStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointMetadataProperty ::
   Value Prelude.Text -> EndpointMetadataProperty
 mkEndpointMetadataProperty endpointName
   = EndpointMetadataProperty
-      {endpointName = endpointName, endpointConfigName = Prelude.Nothing,
+      {haddock_workaround_ = (), endpointName = endpointName,
+       endpointConfigName = Prelude.Nothing,
        endpointStatus = Prelude.Nothing}
 instance ToResourceProperties EndpointMetadataProperty where
   toResourceProperties EndpointMetadataProperty {..}

@@ -7,13 +7,18 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3IdentifierProperty
-  = S3IdentifierProperty {s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html>
+    S3IdentifierProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html#cfn-bedrock-agent-s3identifier-s3bucketname>
+                          s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html#cfn-bedrock-agent-s3identifier-s3objectkey>
                           s3ObjectKey :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkS3IdentifierProperty :: S3IdentifierProperty
 mkS3IdentifierProperty
   = S3IdentifierProperty
-      {s3BucketName = Prelude.Nothing, s3ObjectKey = Prelude.Nothing}
+      {haddock_workaround_ = (), s3BucketName = Prelude.Nothing,
+       s3ObjectKey = Prelude.Nothing}
 instance ToResourceProperties S3IdentifierProperty where
   toResourceProperties S3IdentifierProperty {..}
     = ResourceProperties

@@ -8,22 +8,33 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EventSubscription
-  = EventSubscription {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html>
+    EventSubscription {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-enabled>
+                       enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-eventcategories>
                        eventCategories :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-severity>
                        severity :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-snstopicarn>
                        snsTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-sourceids>
                        sourceIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-sourcetype>
                        sourceType :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-subscriptionname>
                        subscriptionName :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html#cfn-redshift-eventsubscription-tags>
                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSubscription :: Value Prelude.Text -> EventSubscription
 mkEventSubscription subscriptionName
   = EventSubscription
-      {subscriptionName = subscriptionName, enabled = Prelude.Nothing,
-       eventCategories = Prelude.Nothing, severity = Prelude.Nothing,
-       snsTopicArn = Prelude.Nothing, sourceIds = Prelude.Nothing,
-       sourceType = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), subscriptionName = subscriptionName,
+       enabled = Prelude.Nothing, eventCategories = Prelude.Nothing,
+       severity = Prelude.Nothing, snsTopicArn = Prelude.Nothing,
+       sourceIds = Prelude.Nothing, sourceType = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EventSubscription where
   toResourceProperties EventSubscription {..}
     = ResourceProperties

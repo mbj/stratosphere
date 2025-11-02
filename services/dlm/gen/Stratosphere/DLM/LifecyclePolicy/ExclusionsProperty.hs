@@ -9,14 +9,19 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ExcludeVolumeTypesListPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExclusionsProperty
-  = ExclusionsProperty {excludeBootVolumes :: (Prelude.Maybe (Value Prelude.Bool)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html>
+    ExclusionsProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludebootvolumes>
+                        excludeBootVolumes :: (Prelude.Maybe (Value Prelude.Bool)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludetags>
                         excludeTags :: (Prelude.Maybe ExcludeTagsProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html#cfn-dlm-lifecyclepolicy-exclusions-excludevolumetypes>
                         excludeVolumeTypes :: (Prelude.Maybe ExcludeVolumeTypesListProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExclusionsProperty :: ExclusionsProperty
 mkExclusionsProperty
   = ExclusionsProperty
-      {excludeBootVolumes = Prelude.Nothing,
+      {haddock_workaround_ = (), excludeBootVolumes = Prelude.Nothing,
        excludeTags = Prelude.Nothing,
        excludeVolumeTypes = Prelude.Nothing}
 instance ToResourceProperties ExclusionsProperty where

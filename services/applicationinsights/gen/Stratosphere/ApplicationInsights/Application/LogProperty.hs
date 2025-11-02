@@ -7,18 +7,25 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogProperty
-  = LogProperty {encoding :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html>
+    LogProperty {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding>
+                 encoding :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname>
                  logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath>
                  logPath :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype>
                  logType :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset>
                  patternSet :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogProperty :: Value Prelude.Text -> LogProperty
 mkLogProperty logType
   = LogProperty
-      {logType = logType, encoding = Prelude.Nothing,
-       logGroupName = Prelude.Nothing, logPath = Prelude.Nothing,
-       patternSet = Prelude.Nothing}
+      {haddock_workaround_ = (), logType = logType,
+       encoding = Prelude.Nothing, logGroupName = Prelude.Nothing,
+       logPath = Prelude.Nothing, patternSet = Prelude.Nothing}
 instance ToResourceProperties LogProperty where
   toResourceProperties LogProperty {..}
     = ResourceProperties

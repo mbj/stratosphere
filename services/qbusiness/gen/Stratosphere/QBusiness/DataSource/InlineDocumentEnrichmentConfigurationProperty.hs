@@ -10,15 +10,20 @@ import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.DocumentAttributeTargetP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InlineDocumentEnrichmentConfigurationProperty
-  = InlineDocumentEnrichmentConfigurationProperty {condition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html>
+    InlineDocumentEnrichmentConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html#cfn-qbusiness-datasource-inlinedocumentenrichmentconfiguration-condition>
+                                                   condition :: (Prelude.Maybe DocumentAttributeConditionProperty),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html#cfn-qbusiness-datasource-inlinedocumentenrichmentconfiguration-documentcontentoperator>
                                                    documentContentOperator :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html#cfn-qbusiness-datasource-inlinedocumentenrichmentconfiguration-target>
                                                    target :: (Prelude.Maybe DocumentAttributeTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInlineDocumentEnrichmentConfigurationProperty ::
   InlineDocumentEnrichmentConfigurationProperty
 mkInlineDocumentEnrichmentConfigurationProperty
   = InlineDocumentEnrichmentConfigurationProperty
-      {condition = Prelude.Nothing,
+      {haddock_workaround_ = (), condition = Prelude.Nothing,
        documentContentOperator = Prelude.Nothing,
        target = Prelude.Nothing}
 instance ToResourceProperties InlineDocumentEnrichmentConfigurationProperty where

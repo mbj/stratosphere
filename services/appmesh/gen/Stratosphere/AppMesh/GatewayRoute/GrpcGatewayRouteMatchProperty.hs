@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteMetadata
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcGatewayRouteMatchProperty
-  = GrpcGatewayRouteMatchProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameMatchProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html>
+    GrpcGatewayRouteMatchProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-hostname>
+                                   hostname :: (Prelude.Maybe GatewayRouteHostnameMatchProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-metadata>
                                    metadata :: (Prelude.Maybe [GrpcGatewayRouteMetadataProperty]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-port>
                                    port :: (Prelude.Maybe (Value Prelude.Integer)),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename>
                                    serviceName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteMatchProperty :: GrpcGatewayRouteMatchProperty
 mkGrpcGatewayRouteMatchProperty
   = GrpcGatewayRouteMatchProperty
-      {hostname = Prelude.Nothing, metadata = Prelude.Nothing,
-       port = Prelude.Nothing, serviceName = Prelude.Nothing}
+      {haddock_workaround_ = (), hostname = Prelude.Nothing,
+       metadata = Prelude.Nothing, port = Prelude.Nothing,
+       serviceName = Prelude.Nothing}
 instance ToResourceProperties GrpcGatewayRouteMatchProperty where
   toResourceProperties GrpcGatewayRouteMatchProperty {..}
     = ResourceProperties

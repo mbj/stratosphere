@@ -9,9 +9,15 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.MQBrokerAccessCredentialsProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeSourceActiveMQBrokerParametersProperty
-  = PipeSourceActiveMQBrokerParametersProperty {batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html>
+    PipeSourceActiveMQBrokerParametersProperty {haddock_workaround_ :: (),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html#cfn-pipes-pipe-pipesourceactivemqbrokerparameters-batchsize>
+                                                batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html#cfn-pipes-pipe-pipesourceactivemqbrokerparameters-credentials>
                                                 credentials :: MQBrokerAccessCredentialsProperty,
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html#cfn-pipes-pipe-pipesourceactivemqbrokerparameters-maximumbatchingwindowinseconds>
                                                 maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html#cfn-pipes-pipe-pipesourceactivemqbrokerparameters-queuename>
                                                 queueName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceActiveMQBrokerParametersProperty ::
@@ -19,8 +25,8 @@ mkPipeSourceActiveMQBrokerParametersProperty ::
   -> Value Prelude.Text -> PipeSourceActiveMQBrokerParametersProperty
 mkPipeSourceActiveMQBrokerParametersProperty credentials queueName
   = PipeSourceActiveMQBrokerParametersProperty
-      {credentials = credentials, queueName = queueName,
-       batchSize = Prelude.Nothing,
+      {haddock_workaround_ = (), credentials = credentials,
+       queueName = queueName, batchSize = Prelude.Nothing,
        maximumBatchingWindowInSeconds = Prelude.Nothing}
 instance ToResourceProperties PipeSourceActiveMQBrokerParametersProperty where
   toResourceProperties

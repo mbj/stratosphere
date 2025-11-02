@@ -8,13 +8,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.Association.S3OutputLocationProperty as Exports
 import Stratosphere.ResourceProperties
 data InstanceAssociationOutputLocationProperty
-  = InstanceAssociationOutputLocationProperty {s3Location :: (Prelude.Maybe S3OutputLocationProperty)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html>
+    InstanceAssociationOutputLocationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location>
+                                               s3Location :: (Prelude.Maybe S3OutputLocationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceAssociationOutputLocationProperty ::
   InstanceAssociationOutputLocationProperty
 mkInstanceAssociationOutputLocationProperty
   = InstanceAssociationOutputLocationProperty
-      {s3Location = Prelude.Nothing}
+      {haddock_workaround_ = (), s3Location = Prelude.Nothing}
 instance ToResourceProperties InstanceAssociationOutputLocationProperty where
   toResourceProperties InstanceAssociationOutputLocationProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON InstanceAssociationOutputLocationProperty where
               [(JSON..=) "S3Location" Prelude.<$> s3Location]))
 instance Property "S3Location" InstanceAssociationOutputLocationProperty where
   type PropertyType "S3Location" InstanceAssociationOutputLocationProperty = S3OutputLocationProperty
-  set newValue InstanceAssociationOutputLocationProperty {}
+  set newValue InstanceAssociationOutputLocationProperty {..}
     = InstanceAssociationOutputLocationProperty
         {s3Location = Prelude.pure newValue, ..}

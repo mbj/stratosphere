@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeParametersProperty
-  = EventBridgeParametersProperty {detailType :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-eventbridgeparameters.html>
+    EventBridgeParametersProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-eventbridgeparameters.html#cfn-scheduler-schedule-eventbridgeparameters-detailtype>
+                                   detailType :: (Value Prelude.Text),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-eventbridgeparameters.html#cfn-scheduler-schedule-eventbridgeparameters-source>
                                    source :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeParametersProperty ::
@@ -15,7 +19,8 @@ mkEventBridgeParametersProperty ::
   -> Value Prelude.Text -> EventBridgeParametersProperty
 mkEventBridgeParametersProperty detailType source
   = EventBridgeParametersProperty
-      {detailType = detailType, source = source}
+      {haddock_workaround_ = (), detailType = detailType,
+       source = source}
 instance ToResourceProperties EventBridgeParametersProperty where
   toResourceProperties EventBridgeParametersProperty {..}
     = ResourceProperties

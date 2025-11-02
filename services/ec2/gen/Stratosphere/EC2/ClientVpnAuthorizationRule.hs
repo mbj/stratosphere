@@ -7,10 +7,17 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientVpnAuthorizationRule
-  = ClientVpnAuthorizationRule {accessGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html>
+    ClientVpnAuthorizationRule {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-accessgroupid>
+                                accessGroupId :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-authorizeallgroups>
                                 authorizeAllGroups :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-clientvpnendpointid>
                                 clientVpnEndpointId :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-description>
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html#cfn-ec2-clientvpnauthorizationrule-targetnetworkcidr>
                                 targetNetworkCidr :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnAuthorizationRule ::
@@ -18,7 +25,8 @@ mkClientVpnAuthorizationRule ::
   -> Value Prelude.Text -> ClientVpnAuthorizationRule
 mkClientVpnAuthorizationRule clientVpnEndpointId targetNetworkCidr
   = ClientVpnAuthorizationRule
-      {clientVpnEndpointId = clientVpnEndpointId,
+      {haddock_workaround_ = (),
+       clientVpnEndpointId = clientVpnEndpointId,
        targetNetworkCidr = targetNetworkCidr,
        accessGroupId = Prelude.Nothing,
        authorizeAllGroups = Prelude.Nothing,

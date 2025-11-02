@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamingExperienceSettingsProperty
-  = StreamingExperienceSettingsProperty {preferredProtocol :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html>
+    StreamingExperienceSettingsProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html#cfn-appstream-stack-streamingexperiencesettings-preferredprotocol>
+                                         preferredProtocol :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingExperienceSettingsProperty ::
   StreamingExperienceSettingsProperty
 mkStreamingExperienceSettingsProperty
   = StreamingExperienceSettingsProperty
-      {preferredProtocol = Prelude.Nothing}
+      {haddock_workaround_ = (), preferredProtocol = Prelude.Nothing}
 instance ToResourceProperties StreamingExperienceSettingsProperty where
   toResourceProperties StreamingExperienceSettingsProperty {..}
     = ResourceProperties
@@ -31,6 +34,6 @@ instance JSON.ToJSON StreamingExperienceSettingsProperty where
               [(JSON..=) "PreferredProtocol" Prelude.<$> preferredProtocol]))
 instance Property "PreferredProtocol" StreamingExperienceSettingsProperty where
   type PropertyType "PreferredProtocol" StreamingExperienceSettingsProperty = Value Prelude.Text
-  set newValue StreamingExperienceSettingsProperty {}
+  set newValue StreamingExperienceSettingsProperty {..}
     = StreamingExperienceSettingsProperty
         {preferredProtocol = Prelude.pure newValue, ..}

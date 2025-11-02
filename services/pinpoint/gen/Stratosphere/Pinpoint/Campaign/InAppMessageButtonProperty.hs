@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.DefaultButtonConfigurationP
 import {-# SOURCE #-} Stratosphere.Pinpoint.Campaign.OverrideButtonConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data InAppMessageButtonProperty
-  = InAppMessageButtonProperty {android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html>
+    InAppMessageButtonProperty {haddock_workaround_ :: (),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-android>
+                                android :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-defaultconfig>
                                 defaultConfig :: (Prelude.Maybe DefaultButtonConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-ios>
                                 iOS :: (Prelude.Maybe OverrideButtonConfigurationProperty),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html#cfn-pinpoint-campaign-inappmessagebutton-web>
                                 web :: (Prelude.Maybe OverrideButtonConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageButtonProperty :: InAppMessageButtonProperty
 mkInAppMessageButtonProperty
   = InAppMessageButtonProperty
-      {android = Prelude.Nothing, defaultConfig = Prelude.Nothing,
-       iOS = Prelude.Nothing, web = Prelude.Nothing}
+      {haddock_workaround_ = (), android = Prelude.Nothing,
+       defaultConfig = Prelude.Nothing, iOS = Prelude.Nothing,
+       web = Prelude.Nothing}
 instance ToResourceProperties InAppMessageButtonProperty where
   toResourceProperties InAppMessageButtonProperty {..}
     = ResourceProperties

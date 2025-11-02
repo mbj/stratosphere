@@ -8,9 +8,15 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.InputColumnProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomSqlProperty
-  = CustomSqlProperty {columns :: (Prelude.Maybe [InputColumnProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html>
+    CustomSqlProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns>
+                       columns :: (Prelude.Maybe [InputColumnProperty]),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn>
                        dataSourceArn :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name>
                        name :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery>
                        sqlQuery :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomSqlProperty ::
@@ -18,8 +24,8 @@ mkCustomSqlProperty ::
   -> Value Prelude.Text -> Value Prelude.Text -> CustomSqlProperty
 mkCustomSqlProperty dataSourceArn name sqlQuery
   = CustomSqlProperty
-      {dataSourceArn = dataSourceArn, name = name, sqlQuery = sqlQuery,
-       columns = Prelude.Nothing}
+      {haddock_workaround_ = (), dataSourceArn = dataSourceArn,
+       name = name, sqlQuery = sqlQuery, columns = Prelude.Nothing}
 instance ToResourceProperties CustomSqlProperty where
   toResourceProperties CustomSqlProperty {..}
     = ResourceProperties

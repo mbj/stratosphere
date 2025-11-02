@@ -10,12 +10,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Route
-  = Route {applicationIdentifier :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html>
+    Route {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-applicationidentifier>
+           applicationIdentifier :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-defaultroute>
            defaultRoute :: (Prelude.Maybe DefaultRouteInputProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-environmentidentifier>
            environmentIdentifier :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-routetype>
            routeType :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-serviceidentifier>
            serviceIdentifier :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-tags>
            tags :: (Prelude.Maybe [Tag]),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-uripathroute>
            uriPathRoute :: (Prelude.Maybe UriPathRouteInputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute ::
@@ -28,7 +37,8 @@ mkRoute
   routeType
   serviceIdentifier
   = Route
-      {applicationIdentifier = applicationIdentifier,
+      {haddock_workaround_ = (),
+       applicationIdentifier = applicationIdentifier,
        environmentIdentifier = environmentIdentifier,
        routeType = routeType, serviceIdentifier = serviceIdentifier,
        defaultRoute = Prelude.Nothing, tags = Prelude.Nothing,

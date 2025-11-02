@@ -7,12 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnapshotOptionsProperty
-  = SnapshotOptionsProperty {automatedSnapshotStartHour :: (Prelude.Maybe (Value Prelude.Integer))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html>
+    SnapshotOptionsProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html#cfn-elasticsearch-domain-snapshotoptions-automatedsnapshotstarthour>
+                             automatedSnapshotStartHour :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapshotOptionsProperty :: SnapshotOptionsProperty
 mkSnapshotOptionsProperty
   = SnapshotOptionsProperty
-      {automatedSnapshotStartHour = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       automatedSnapshotStartHour = Prelude.Nothing}
 instance ToResourceProperties SnapshotOptionsProperty where
   toResourceProperties SnapshotOptionsProperty {..}
     = ResourceProperties
@@ -31,6 +35,6 @@ instance JSON.ToJSON SnapshotOptionsProperty where
                  Prelude.<$> automatedSnapshotStartHour]))
 instance Property "AutomatedSnapshotStartHour" SnapshotOptionsProperty where
   type PropertyType "AutomatedSnapshotStartHour" SnapshotOptionsProperty = Value Prelude.Integer
-  set newValue SnapshotOptionsProperty {}
+  set newValue SnapshotOptionsProperty {..}
     = SnapshotOptionsProperty
         {automatedSnapshotStartHour = Prelude.pure newValue, ..}

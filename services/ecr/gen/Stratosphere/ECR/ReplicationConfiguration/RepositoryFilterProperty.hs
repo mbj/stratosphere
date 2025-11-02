@@ -7,7 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryFilterProperty
-  = RepositoryFilterProperty {filter :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>
+    RepositoryFilterProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filter>
+                              filter :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filtertype>
                               filterType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryFilterProperty ::
@@ -15,7 +19,8 @@ mkRepositoryFilterProperty ::
   -> Value Prelude.Text -> RepositoryFilterProperty
 mkRepositoryFilterProperty filter filterType
   = RepositoryFilterProperty
-      {filter = filter, filterType = filterType}
+      {haddock_workaround_ = (), filter = filter,
+       filterType = filterType}
 instance ToResourceProperties RepositoryFilterProperty where
   toResourceProperties RepositoryFilterProperty {..}
     = ResourceProperties

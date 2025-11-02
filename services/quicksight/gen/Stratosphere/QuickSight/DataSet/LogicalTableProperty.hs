@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.TransformOperationProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogicalTableProperty
-  = LogicalTableProperty {alias :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html>
+    LogicalTableProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias>
+                          alias :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms>
                           dataTransforms :: (Prelude.Maybe [TransformOperationProperty]),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source>
                           source :: (Prelude.Maybe LogicalTableSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableProperty ::
   Value Prelude.Text -> LogicalTableProperty
 mkLogicalTableProperty alias
   = LogicalTableProperty
-      {alias = alias, dataTransforms = Prelude.Nothing,
-       source = Prelude.Nothing}
+      {haddock_workaround_ = (), alias = alias,
+       dataTransforms = Prelude.Nothing, source = Prelude.Nothing}
 instance ToResourceProperties LogicalTableProperty where
   toResourceProperties LogicalTableProperty {..}
     = ResourceProperties

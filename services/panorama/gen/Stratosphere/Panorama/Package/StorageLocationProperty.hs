@@ -7,16 +7,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageLocationProperty
-  = StorageLocationProperty {binaryPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html>
+    StorageLocationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html#cfn-panorama-package-storagelocation-binaryprefixlocation>
+                             binaryPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html#cfn-panorama-package-storagelocation-bucket>
                              bucket :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html#cfn-panorama-package-storagelocation-generatedprefixlocation>
                              generatedPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html#cfn-panorama-package-storagelocation-manifestprefixlocation>
                              manifestPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html#cfn-panorama-package-storagelocation-repoprefixlocation>
                              repoPrefixLocation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLocationProperty :: StorageLocationProperty
 mkStorageLocationProperty
   = StorageLocationProperty
-      {binaryPrefixLocation = Prelude.Nothing, bucket = Prelude.Nothing,
+      {haddock_workaround_ = (), binaryPrefixLocation = Prelude.Nothing,
+       bucket = Prelude.Nothing,
        generatedPrefixLocation = Prelude.Nothing,
        manifestPrefixLocation = Prelude.Nothing,
        repoPrefixLocation = Prelude.Nothing}

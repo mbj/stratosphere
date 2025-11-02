@@ -11,16 +11,23 @@ import {-# SOURCE #-} Stratosphere.NimbleStudio.StudioComponent.LicenseServiceCo
 import {-# SOURCE #-} Stratosphere.NimbleStudio.StudioComponent.SharedFileSystemConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data StudioComponentConfigurationProperty
-  = StudioComponentConfigurationProperty {activeDirectoryConfiguration :: (Prelude.Maybe ActiveDirectoryConfigurationProperty),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html>
+    StudioComponentConfigurationProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration>
+                                          activeDirectoryConfiguration :: (Prelude.Maybe ActiveDirectoryConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration>
                                           computeFarmConfiguration :: (Prelude.Maybe ComputeFarmConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration>
                                           licenseServiceConfiguration :: (Prelude.Maybe LicenseServiceConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration>
                                           sharedFileSystemConfiguration :: (Prelude.Maybe SharedFileSystemConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioComponentConfigurationProperty ::
   StudioComponentConfigurationProperty
 mkStudioComponentConfigurationProperty
   = StudioComponentConfigurationProperty
-      {activeDirectoryConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       activeDirectoryConfiguration = Prelude.Nothing,
        computeFarmConfiguration = Prelude.Nothing,
        licenseServiceConfiguration = Prelude.Nothing,
        sharedFileSystemConfiguration = Prelude.Nothing}

@@ -8,11 +8,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputWhitelistRuleCidrProperty
-  = InputWhitelistRuleCidrProperty {cidr :: (Prelude.Maybe (Value Prelude.Text))}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html>
+    InputWhitelistRuleCidrProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html#cfn-medialive-inputsecuritygroup-inputwhitelistrulecidr-cidr>
+                                    cidr :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputWhitelistRuleCidrProperty :: InputWhitelistRuleCidrProperty
 mkInputWhitelistRuleCidrProperty
-  = InputWhitelistRuleCidrProperty {cidr = Prelude.Nothing}
+  = InputWhitelistRuleCidrProperty
+      {haddock_workaround_ = (), cidr = Prelude.Nothing}
 instance ToResourceProperties InputWhitelistRuleCidrProperty where
   toResourceProperties InputWhitelistRuleCidrProperty {..}
     = ResourceProperties
@@ -27,5 +31,5 @@ instance JSON.ToJSON InputWhitelistRuleCidrProperty where
            (Prelude.catMaybes [(JSON..=) "Cidr" Prelude.<$> cidr]))
 instance Property "Cidr" InputWhitelistRuleCidrProperty where
   type PropertyType "Cidr" InputWhitelistRuleCidrProperty = Value Prelude.Text
-  set newValue InputWhitelistRuleCidrProperty {}
+  set newValue InputWhitelistRuleCidrProperty {..}
     = InputWhitelistRuleCidrProperty {cidr = Prelude.pure newValue, ..}

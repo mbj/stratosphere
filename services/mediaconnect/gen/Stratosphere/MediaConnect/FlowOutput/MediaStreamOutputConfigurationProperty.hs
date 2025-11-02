@@ -10,9 +10,15 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.FlowOutput.EncodingParametersPro
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaStreamOutputConfigurationProperty
-  = MediaStreamOutputConfigurationProperty {destinationConfigurations :: (Prelude.Maybe [DestinationConfigurationProperty]),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html>
+    MediaStreamOutputConfigurationProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-destinationconfigurations>
+                                            destinationConfigurations :: (Prelude.Maybe [DestinationConfigurationProperty]),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-encodingname>
                                             encodingName :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-encodingparameters>
                                             encodingParameters :: (Prelude.Maybe EncodingParametersProperty),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-mediastreamname>
                                             mediaStreamName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaStreamOutputConfigurationProperty ::
@@ -22,7 +28,8 @@ mkMediaStreamOutputConfigurationProperty
   encodingName
   mediaStreamName
   = MediaStreamOutputConfigurationProperty
-      {encodingName = encodingName, mediaStreamName = mediaStreamName,
+      {haddock_workaround_ = (), encodingName = encodingName,
+       mediaStreamName = mediaStreamName,
        destinationConfigurations = Prelude.Nothing,
        encodingParameters = Prelude.Nothing}
 instance ToResourceProperties MediaStreamOutputConfigurationProperty where

@@ -9,16 +9,23 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.PortRangeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisPacketHeaderProperty
-  = AnalysisPacketHeaderProperty {destinationAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html>
+    AnalysisPacketHeaderProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses>
+                                  destinationAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges>
                                   destinationPortRanges :: (Prelude.Maybe [PortRangeProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol>
                                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses>
                                   sourceAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges>
                                   sourcePortRanges :: (Prelude.Maybe [PortRangeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisPacketHeaderProperty :: AnalysisPacketHeaderProperty
 mkAnalysisPacketHeaderProperty
   = AnalysisPacketHeaderProperty
-      {destinationAddresses = Prelude.Nothing,
+      {haddock_workaround_ = (), destinationAddresses = Prelude.Nothing,
        destinationPortRanges = Prelude.Nothing,
        protocol = Prelude.Nothing, sourceAddresses = Prelude.Nothing,
        sourcePortRanges = Prelude.Nothing}

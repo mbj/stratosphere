@@ -10,16 +10,23 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentConfig.ZonalConfigProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfig
-  = DeploymentConfig {computePlatform :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html>
+    DeploymentConfig {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-computeplatform>
+                      computePlatform :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-deploymentconfigname>
                       deploymentConfigName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts>
                       minimumHealthyHosts :: (Prelude.Maybe MinimumHealthyHostsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig>
                       trafficRoutingConfig :: (Prelude.Maybe TrafficRoutingConfigProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-zonalconfig>
                       zonalConfig :: (Prelude.Maybe ZonalConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfig :: DeploymentConfig
 mkDeploymentConfig
   = DeploymentConfig
-      {computePlatform = Prelude.Nothing,
+      {haddock_workaround_ = (), computePlatform = Prelude.Nothing,
        deploymentConfigName = Prelude.Nothing,
        minimumHealthyHosts = Prelude.Nothing,
        trafficRoutingConfig = Prelude.Nothing,

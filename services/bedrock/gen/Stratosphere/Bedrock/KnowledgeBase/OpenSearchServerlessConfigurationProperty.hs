@@ -9,8 +9,13 @@ import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.OpenSearchServerlessFie
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OpenSearchServerlessConfigurationProperty
-  = OpenSearchServerlessConfigurationProperty {collectionArn :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html>
+    OpenSearchServerlessConfigurationProperty {haddock_workaround_ :: (),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html#cfn-bedrock-knowledgebase-opensearchserverlessconfiguration-collectionarn>
+                                               collectionArn :: (Value Prelude.Text),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html#cfn-bedrock-knowledgebase-opensearchserverlessconfiguration-fieldmapping>
                                                fieldMapping :: OpenSearchServerlessFieldMappingProperty,
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html#cfn-bedrock-knowledgebase-opensearchserverlessconfiguration-vectorindexname>
                                                vectorIndexName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchServerlessConfigurationProperty ::
@@ -22,8 +27,8 @@ mkOpenSearchServerlessConfigurationProperty
   fieldMapping
   vectorIndexName
   = OpenSearchServerlessConfigurationProperty
-      {collectionArn = collectionArn, fieldMapping = fieldMapping,
-       vectorIndexName = vectorIndexName}
+      {haddock_workaround_ = (), collectionArn = collectionArn,
+       fieldMapping = fieldMapping, vectorIndexName = vectorIndexName}
 instance ToResourceProperties OpenSearchServerlessConfigurationProperty where
   toResourceProperties OpenSearchServerlessConfigurationProperty {..}
     = ResourceProperties

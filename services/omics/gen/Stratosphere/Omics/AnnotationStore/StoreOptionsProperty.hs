@@ -7,12 +7,16 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Omics.AnnotationStore.TsvStoreOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data StoreOptionsProperty
-  = StoreOptionsProperty {tsvStoreOptions :: TsvStoreOptionsProperty}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html>
+    StoreOptionsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html#cfn-omics-annotationstore-storeoptions-tsvstoreoptions>
+                          tsvStoreOptions :: TsvStoreOptionsProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStoreOptionsProperty ::
   TsvStoreOptionsProperty -> StoreOptionsProperty
 mkStoreOptionsProperty tsvStoreOptions
-  = StoreOptionsProperty {tsvStoreOptions = tsvStoreOptions}
+  = StoreOptionsProperty
+      {haddock_workaround_ = (), tsvStoreOptions = tsvStoreOptions}
 instance ToResourceProperties StoreOptionsProperty where
   toResourceProperties StoreOptionsProperty {..}
     = ResourceProperties
@@ -24,5 +28,5 @@ instance JSON.ToJSON StoreOptionsProperty where
     = JSON.object ["TsvStoreOptions" JSON..= tsvStoreOptions]
 instance Property "TsvStoreOptions" StoreOptionsProperty where
   type PropertyType "TsvStoreOptions" StoreOptionsProperty = TsvStoreOptionsProperty
-  set newValue StoreOptionsProperty {}
+  set newValue StoreOptionsProperty {..}
     = StoreOptionsProperty {tsvStoreOptions = newValue, ..}

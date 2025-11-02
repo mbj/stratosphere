@@ -7,9 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessPolicy
-  = AccessPolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html>
+    AccessPolicy {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html#cfn-opensearchserverless-accesspolicy-description>
+                  description :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html#cfn-opensearchserverless-accesspolicy-name>
                   name :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html#cfn-opensearchserverless-accesspolicy-policy>
                   policy :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html#cfn-opensearchserverless-accesspolicy-type>
                   type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicy ::
@@ -17,8 +23,8 @@ mkAccessPolicy ::
   -> Value Prelude.Text -> Value Prelude.Text -> AccessPolicy
 mkAccessPolicy name policy type'
   = AccessPolicy
-      {name = name, policy = policy, type' = type',
-       description = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name, policy = policy,
+       type' = type', description = Prelude.Nothing}
 instance ToResourceProperties AccessPolicy where
   toResourceProperties AccessPolicy {..}
     = ResourceProperties

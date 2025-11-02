@@ -8,13 +8,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataParallelismConfigProperty
-  = SAPODataParallelismConfigProperty {maxParallelism :: (Value Prelude.Integer)}
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodataparallelismconfig.html>
+    SAPODataParallelismConfigProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodataparallelismconfig.html#cfn-appflow-flow-sapodataparallelismconfig-maxparallelism>
+                                       maxParallelism :: (Value Prelude.Integer)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataParallelismConfigProperty ::
   Value Prelude.Integer -> SAPODataParallelismConfigProperty
 mkSAPODataParallelismConfigProperty maxParallelism
   = SAPODataParallelismConfigProperty
-      {maxParallelism = maxParallelism}
+      {haddock_workaround_ = (), maxParallelism = maxParallelism}
 instance ToResourceProperties SAPODataParallelismConfigProperty where
   toResourceProperties SAPODataParallelismConfigProperty {..}
     = ResourceProperties
@@ -26,5 +29,5 @@ instance JSON.ToJSON SAPODataParallelismConfigProperty where
     = JSON.object ["maxParallelism" JSON..= maxParallelism]
 instance Property "maxParallelism" SAPODataParallelismConfigProperty where
   type PropertyType "maxParallelism" SAPODataParallelismConfigProperty = Value Prelude.Integer
-  set newValue SAPODataParallelismConfigProperty {}
+  set newValue SAPODataParallelismConfigProperty {..}
     = SAPODataParallelismConfigProperty {maxParallelism = newValue, ..}

@@ -9,16 +9,21 @@ import {-# SOURCE #-} Stratosphere.VerifiedPermissions.Policy.EntityIdentifierPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateLinkedPolicyDefinitionProperty
-  = TemplateLinkedPolicyDefinitionProperty {policyTemplateId :: (Value Prelude.Text),
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html>
+    TemplateLinkedPolicyDefinitionProperty {haddock_workaround_ :: (),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-policytemplateid>
+                                            policyTemplateId :: (Value Prelude.Text),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-principal>
                                             principal :: (Prelude.Maybe EntityIdentifierProperty),
+                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html#cfn-verifiedpermissions-policy-templatelinkedpolicydefinition-resource>
                                             resource :: (Prelude.Maybe EntityIdentifierProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateLinkedPolicyDefinitionProperty ::
   Value Prelude.Text -> TemplateLinkedPolicyDefinitionProperty
 mkTemplateLinkedPolicyDefinitionProperty policyTemplateId
   = TemplateLinkedPolicyDefinitionProperty
-      {policyTemplateId = policyTemplateId, principal = Prelude.Nothing,
-       resource = Prelude.Nothing}
+      {haddock_workaround_ = (), policyTemplateId = policyTemplateId,
+       principal = Prelude.Nothing, resource = Prelude.Nothing}
 instance ToResourceProperties TemplateLinkedPolicyDefinitionProperty where
   toResourceProperties TemplateLinkedPolicyDefinitionProperty {..}
     = ResourceProperties
