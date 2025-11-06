@@ -1,10 +1,10 @@
-module Stratosphere.Generator.Module
+module Stratosphere.Manager.Generator.Module
   ( renderModule
   , writeModule
   )
 where
 
-import Stratosphere.Generator.Prelude
+import Stratosphere.Manager.Generator.Prelude
 
 import qualified GHC                as GHC
 import qualified GHC.Driver.Session as GHC

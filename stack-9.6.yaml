@@ -1,9 +1,3 @@
----
-resolver: lts-22.43
-extra-deps:
-# To use the same versions as GHC-9.8
-- ghc-source-gen-0.4.6.0@sha256:3239c77806cd256f42c5e949440148d8b102f183c6aa357a8e1c44c2573957cd,4422
-- hpack-0.37.0@sha256:b7c91b0416a55c134172a9fd9a02f3815ba68c4b92cca4e320c36906d5e970e0,5187
 flags:
   stratosphere:
     development: true
@@ -31,6 +25,8 @@ flags:
     development: true
   stratosphere-applicationinsights:
     development: true
+  stratosphere-applicationsignals:
+    development: true
   stratosphere-appmesh:
     development: true
   stratosphere-apprunner:
@@ -39,7 +35,11 @@ flags:
     development: true
   stratosphere-appsync:
     development: true
+  stratosphere-apptest:
+    development: true
   stratosphere-aps:
+    development: true
+  stratosphere-arczonalshift:
     development: true
   stratosphere-ask:
     development: true
@@ -51,11 +51,17 @@ flags:
     development: true
   stratosphere-autoscalingplans:
     development: true
+  stratosphere-b2bi:
+    development: true
   stratosphere-backup:
     development: true
   stratosphere-backupgateway:
     development: true
   stratosphere-batch:
+    development: true
+  stratosphere-bcmdataexports:
+    development: true
+  stratosphere-bedrock:
     development: true
   stratosphere-billingconductor:
     development: true
@@ -68,6 +74,10 @@ flags:
   stratosphere-certificatemanager:
     development: true
   stratosphere-chatbot:
+    development: true
+  stratosphere-cleanrooms:
+    development: true
+  stratosphere-cleanroomsml:
     development: true
   stratosphere-cloud9:
     development: true
@@ -84,6 +94,8 @@ flags:
   stratosphere-codebuild:
     development: true
   stratosphere-codecommit:
+    development: true
+  stratosphere-codeconnections:
     development: true
   stratosphere-codedeploy:
     development: true
@@ -109,6 +121,8 @@ flags:
     development: true
   stratosphere-connectcampaigns:
     development: true
+  stratosphere-connectcampaignsv2:
+    development: true
   stratosphere-controltower:
     development: true
   stratosphere-cur:
@@ -121,7 +135,11 @@ flags:
     development: true
   stratosphere-datasync:
     development: true
+  stratosphere-datazone:
+    development: true
   stratosphere-dax:
+    development: true
+  stratosphere-deadline:
     development: true
   stratosphere-detective:
     development: true
@@ -165,6 +183,8 @@ flags:
     development: true
   stratosphere-emrserverless:
     development: true
+  stratosphere-entityresolution:
+    development: true
   stratosphere-events:
     development: true
   stratosphere-eventschemas:
@@ -199,6 +219,8 @@ flags:
     development: true
   stratosphere-guardduty:
     development: true
+  stratosphere-healthimaging:
+    development: true
   stratosphere-healthlake:
     development: true
   stratosphere-iam:
@@ -212,6 +234,8 @@ flags:
   stratosphere-inspectorv2:
     development: true
   stratosphere-internetmonitor:
+    development: true
+  stratosphere-invoicing:
     development: true
   stratosphere-iot:
     development: true
@@ -261,6 +285,8 @@ flags:
     development: true
   stratosphere-lambda:
     development: true
+  stratosphere-launchwizard:
+    development: true
   stratosphere-lex:
     development: true
   stratosphere-licensemanager:
@@ -291,6 +317,8 @@ flags:
     development: true
   stratosphere-mediapackage:
     development: true
+  stratosphere-mediapackagev2:
+    development: true
   stratosphere-mediastore:
     development: true
   stratosphere-mediatailor:
@@ -302,6 +330,8 @@ flags:
   stratosphere-mwaa:
     development: true
   stratosphere-neptune:
+    development: true
+  stratosphere-neptunegraph:
     development: true
   stratosphere-networkfirewall:
     development: true
@@ -327,6 +357,12 @@ flags:
     development: true
   stratosphere-panorama:
     development: true
+  stratosphere-paymentcryptography:
+    development: true
+  stratosphere-pcaconnectorad:
+    development: true
+  stratosphere-pcaconnectorscep:
+    development: true
   stratosphere-personalize:
     development: true
   stratosphere-pinpoint:
@@ -337,11 +373,15 @@ flags:
     development: true
   stratosphere-proton:
     development: true
+  stratosphere-qbusiness:
+    development: true
   stratosphere-qldb:
     development: true
   stratosphere-quicksight:
     development: true
   stratosphere-ram:
+    development: true
+  stratosphere-rbin:
     development: true
   stratosphere-rds:
     development: true
@@ -365,6 +405,8 @@ flags:
     development: true
   stratosphere-route53:
     development: true
+  stratosphere-route53profiles:
+    development: true
   stratosphere-route53recoverycontrol:
     development: true
   stratosphere-route53recoveryreadiness:
@@ -374,6 +416,8 @@ flags:
   stratosphere-rum:
     development: true
   stratosphere-s3:
+    development: true
+  stratosphere-s3express:
     development: true
   stratosphere-s3objectlambda:
     development: true
@@ -388,6 +432,8 @@ flags:
   stratosphere-secretsmanager:
     development: true
   stratosphere-securityhub:
+    development: true
+  stratosphere-securitylake:
     development: true
   stratosphere-servicecatalog:
     development: true
@@ -413,6 +459,8 @@ flags:
     development: true
   stratosphere-ssmincidents:
     development: true
+  stratosphere-ssmquicksetup:
+    development: true
   stratosphere-sso:
     development: true
   stratosphere-stepfunctions:
@@ -426,6 +474,8 @@ flags:
   stratosphere-timestream:
     development: true
   stratosphere-transfer:
+    development: true
+  stratosphere-verifiedpermissions:
     development: true
   stratosphere-voiceid:
     development: true
@@ -441,13 +491,19 @@ flags:
     development: true
   stratosphere-workspaces:
     development: true
+  stratosphere-workspacesthinclient:
+    development: true
+  stratosphere-workspacesweb:
+    development: true
   stratosphere-xray:
     development: true
 packages:
 - .
 - examples
-- services/accessanalyzer
 - services/acmpca
+- services/aps
+- services/arczonalshift
+- services/accessanalyzer
 - services/amazonmq
 - services/amplify
 - services/amplifyuibuilder
@@ -456,27 +512,33 @@ packages:
 - services/appconfig
 - services/appflow
 - services/appintegrations
-- services/applicationautoscaling
-- services/applicationinsights
 - services/appmesh
 - services/apprunner
 - services/appstream
 - services/appsync
-- services/aps
-- services/ask
+- services/apptest
+- services/applicationautoscaling
+- services/applicationinsights
+- services/applicationsignals
 - services/athena
 - services/auditmanager
 - services/autoscaling
 - services/autoscalingplans
+- services/b2bi
+- services/bcmdataexports
 - services/backup
 - services/backupgateway
 - services/batch
+- services/bedrock
 - services/billingconductor
 - services/budgets
-- services/cassandra
 - services/ce
+- services/cur
+- services/cassandra
 - services/certificatemanager
 - services/chatbot
+- services/cleanrooms
+- services/cleanroomsml
 - services/cloud9
 - services/cloudformation
 - services/cloudfront
@@ -485,6 +547,7 @@ packages:
 - services/codeartifact
 - services/codebuild
 - services/codecommit
+- services/codeconnections
 - services/codedeploy
 - services/codeguruprofiler
 - services/codegurureviewer
@@ -497,18 +560,20 @@ packages:
 - services/config
 - services/connect
 - services/connectcampaigns
+- services/connectcampaignsv2
 - services/controltower
-- services/cur
 - services/customerprofiles
+- services/dax
+- services/dlm
+- services/dms
 - services/databrew
 - services/datapipeline
 - services/datasync
-- services/dax
+- services/datazone
+- services/deadline
 - services/detective
 - services/devopsguru
 - services/directoryservice
-- services/dlm
-- services/dms
 - services/docdb
 - services/docdbelastic
 - services/dynamodb
@@ -517,23 +582,24 @@ packages:
 - services/ecs
 - services/efs
 - services/eks
+- services/emr
+- services/emrcontainers
+- services/emrserverless
 - services/elasticache
 - services/elasticbeanstalk
 - services/elasticloadbalancing
 - services/elasticloadbalancingv2
 - services/elasticsearch
-- services/emr
-- services/emrcontainers
-- services/emrserverless
-- services/events
+- services/entityresolution
 - services/eventschemas
+- services/events
 - services/evidently
-- services/finspace
 - services/fis
 - services/fms
+- services/fsx
+- services/finspace
 - services/forecast
 - services/frauddetector
-- services/fsx
 - services/gamelift
 - services/globalaccelerator
 - services/glue
@@ -542,13 +608,17 @@ packages:
 - services/greengrassv2
 - services/groundstation
 - services/guardduty
+- services/healthimaging
 - services/healthlake
 - services/iam
+- services/ivs
+- services/ivschat
 - services/identitystore
 - services/imagebuilder
 - services/inspector
 - services/inspectorv2
 - services/internetmonitor
+- services/invoicing
 - services/iot
 - services/iot1click
 - services/iotanalytics
@@ -560,8 +630,7 @@ packages:
 - services/iotthingsgraph
 - services/iottwinmaker
 - services/iotwireless
-- services/ivs
-- services/ivschat
+- services/kms
 - services/kafkaconnect
 - services/kendra
 - services/kendraranking
@@ -570,9 +639,9 @@ packages:
 - services/kinesisanalyticsv2
 - services/kinesisfirehose
 - services/kinesisvideo
-- services/kms
 - services/lakeformation
 - services/lambda
+- services/launchwizard
 - services/lex
 - services/licensemanager
 - services/lightsail
@@ -582,21 +651,24 @@ packages:
 - services/lookoutmetrics
 - services/lookoutvision
 - services/m2
+- services/msk
+- services/mwaa
 - services/macie
 - services/managedblockchain
 - services/mediaconnect
 - services/mediaconvert
 - services/medialive
 - services/mediapackage
+- services/mediapackagev2
 - services/mediastore
 - services/mediatailor
 - services/memorydb
-- services/msk
-- services/mwaa
 - services/neptune
+- services/neptunegraph
 - services/networkfirewall
 - services/networkmanager
 - services/nimblestudio
+- services/osis
 - services/oam
 - services/omics
 - services/opensearchserverless
@@ -604,17 +676,22 @@ packages:
 - services/opsworks
 - services/opsworkscm
 - services/organizations
-- services/osis
+- services/pcaconnectorad
+- services/pcaconnectorscep
 - services/panorama
+- services/paymentcryptography
 - services/personalize
 - services/pinpoint
 - services/pinpointemail
 - services/pipes
 - services/proton
+- services/qbusiness
 - services/qldb
 - services/quicksight
 - services/ram
 - services/rds
+- services/rum
+- services/rbin
 - services/redshift
 - services/redshiftserverless
 - services/refactorspaces
@@ -625,37 +702,41 @@ packages:
 - services/robomaker
 - services/rolesanywhere
 - services/route53
+- services/route53profiles
 - services/route53recoverycontrol
 - services/route53recoveryreadiness
 - services/route53resolver
-- services/rum
 - services/s3
+- services/s3express
 - services/s3objectlambda
 - services/s3outposts
-- services/sagemaker
-- services/scheduler
 - services/sdb
-- services/secretsmanager
-- services/securityhub
-- services/servicecatalog
-- services/servicecatalogappregistry
-- services/servicediscovery
 - services/ses
-- services/shield
-- services/signer
-- services/simspaceweaver
 - services/sns
 - services/sqs
 - services/ssm
 - services/ssmcontacts
 - services/ssmincidents
+- services/ssmquicksetup
 - services/sso
+- services/sagemaker
+- services/scheduler
+- services/secretsmanager
+- services/securityhub
+- services/securitylake
+- services/servicecatalog
+- services/servicecatalogappregistry
+- services/servicediscovery
+- services/shield
+- services/signer
+- services/simspaceweaver
 - services/stepfunctions
 - services/supportapp
 - services/synthetics
 - services/systemsmanagersap
 - services/timestream
 - services/transfer
+- services/verifiedpermissions
 - services/voiceid
 - services/vpclattice
 - services/waf
@@ -663,4 +744,8 @@ packages:
 - services/wafv2
 - services/wisdom
 - services/workspaces
+- services/workspacesthinclient
+- services/workspacesweb
 - services/xray
+- services/ask
+resolver: lts-22.44

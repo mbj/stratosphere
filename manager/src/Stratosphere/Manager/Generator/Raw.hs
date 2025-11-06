@@ -1,5 +1,5 @@
 -- | Official AWS specification representation.
-module Stratosphere.Generator.Raw
+module Stratosphere.Manager.Generator.Raw
   ( ComposedType(..)
   , PrimitiveType(..)
   , Property(..)
@@ -18,7 +18,7 @@ where
 
 import Data.Maybe (fromMaybe)
 import GHC.Generics
-import Stratosphere.Generator.Prelude
+import Stratosphere.Manager.Generator.Prelude
 
 import qualified Data.Aeson       as JSON
 import qualified Data.Aeson.Types as JSON
