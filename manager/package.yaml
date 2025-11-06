@@ -1,0 +1,48 @@
+_common/package: !include "../common/package.yaml"
+
+name:         stratosphere-manager
+synopsis:     Manager tool for Stratosphere AWS CloudFormation resources
+description:  Command-line tool for managing Stratosphere project
+category:     AWS, Cloud
+maintainer:   Markus Schirp
+stability:    experimental
+license:      MIT
+github:       mbj/stratosphere
+
+<<: *defaults
+
+dependencies:
+- base
+
+library:
+  source-dirs: src
+  dependencies:
+  - aeson
+  - bytestring
+  - containers
+  - directory
+  - extra
+  - filepath
+  - ghc
+  - ghc-paths
+  - ghc-source-gen
+  - hpack >= 0.37
+  - http-client
+  - http-client-tls
+  - http-types
+  - mtl
+  - optparse-applicative
+  - shakespeare
+  - stratosphere
+  - system-filepath
+  - text
+  - text-manipulate
+  - typed-process
+  - yaml
+
+executables:
+  stratosphere-manager:
+    source-dirs: app
+    main: Main
+    dependencies:
+    - stratosphere-manager

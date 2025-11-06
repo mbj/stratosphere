@@ -1,0 +1,145 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-manager
+version:        0.0.0
+synopsis:       Manager tool for Stratosphere AWS CloudFormation resources
+description:    Command-line tool for managing Stratosphere project
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Manager.CLI
+      Stratosphere.Manager.Download
+      Stratosphere.Manager.Generator.Declaration
+      Stratosphere.Manager.Generator.Main
+      Stratosphere.Manager.Generator.Module
+      Stratosphere.Manager.Generator.Prelude
+      Stratosphere.Manager.Generator.Raw
+      Stratosphere.Manager.ModelPath
+      Stratosphere.Manager.Release
+      Stratosphere.Manager.StackConfig
+  other-modules:
+      Paths_stratosphere_manager
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
+  build-depends:
+      aeson
+    , base
+    , bytestring
+    , containers
+    , directory
+    , extra
+    , filepath
+    , ghc
+    , ghc-paths
+    , ghc-source-gen
+    , hpack >=0.37
+    , http-client
+    , http-client-tls
+    , http-types
+    , mtl
+    , optparse-applicative
+    , shakespeare
+    , stratosphere
+    , system-filepath
+    , text
+    , text-manipulate
+    , typed-process
+    , yaml
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn
+
+executable stratosphere-manager
+  main-is: Main.hs
+  other-modules:
+      Paths_stratosphere_manager
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -main-is Main
+  build-depends:
+      base
+    , stratosphere-manager
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,4 +1,4 @@
-module Stratosphere.Generator.Prelude
+module Stratosphere.Manager.Generator.Prelude
   ( module Exports
   , ToText(..)
   )

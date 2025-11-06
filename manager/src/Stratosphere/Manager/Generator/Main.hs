@@ -1,31 +1,32 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-module Stratosphere.Generator.Main (main) where
+module Stratosphere.Manager.Generator.Main (main) where
 
 import Control.Monad (when)
 import Data.Set (Set)
 import Data.String (fromString)
-import Stratosphere.Generator.Module
-import Stratosphere.Generator.Prelude
-import Stratosphere.Generator.Declaration
+import Stratosphere.Manager.Generator.Declaration
+import Stratosphere.Manager.Generator.Module
+import Stratosphere.Manager.Generator.Prelude
+import Stratosphere.Manager.ModelPath (modelFilePath)
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
 
-import qualified Data.Map                   as Map
-import qualified Data.Maybe                 as Maybe
-import qualified Data.Set                   as Set
-import qualified Data.Text                  as Text
-import qualified Data.Text.IO               as Text
-import qualified Data.Version               as Version
-import qualified GHC.SourceGen              as GHC
+import qualified Data.Map                           as Map
+import qualified Data.Maybe                         as Maybe
+import qualified Data.Set                           as Set
+import qualified Data.Text                          as Text
+import qualified Data.Text.IO                       as Text
+import qualified Data.Version                       as Version
+import qualified GHC.SourceGen                      as GHC
 import qualified Hpack
-import qualified Paths_stratosphere         as Stratosphere
-import qualified Stratosphere.Generator.Raw as Raw
+import qualified Paths_stratosphere                 as Stratosphere
+import qualified Stratosphere.Manager.Generator.Raw as Raw
 
 main :: IO ()
 main = do
-  rawSpec <- either error id <$> Raw.readSpec ("generator" </> "model" </> "CloudFormationResourceSpecification.json")
+  rawSpec <- either error id <$> Raw.readSpec modelFilePath
 
   removeDirectoryIfExists "services"
   removeDirectoryIfExists "gen"

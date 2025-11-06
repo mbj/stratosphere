@@ -2,7 +2,7 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE TypeFamilies #-}
 
-module Stratosphere.Generator.Declaration
+module Stratosphere.Manager.Generator.Declaration
   ( Import(..)
   , Record(..)
   , State(..)
@@ -17,29 +17,29 @@ import Data.Set (Set)
 import Data.String (IsString, fromString)
 import GHC.SourceGen ((@@), (-->))
 import Prelude
-import Stratosphere.Generator.Prelude
+import Stratosphere.Manager.Generator.Prelude
 
-import qualified Data.Foldable                     as Foldable
-import qualified Data.List                         as List
-import qualified Data.Map.Strict                   as Map
-import qualified Data.Set                          as Set
-import qualified Data.Text                         as Text
-import qualified Data.Text.Manipulate              as Text
-import qualified GHC.Hs.Doc                        as GHC
-import qualified GHC.Hs.Extension                  as GHC
-import qualified GHC.Hs.Pat                        as GHC
-import qualified GHC.Hs.Type                       as GHC
-import qualified GHC.Parser.Annotation             as GHC
-import qualified GHC.SourceGen                     as GHC
-import qualified GHC.Types.Basic                   as GHC
-import qualified GHC.Types.Fixity                  as GHC
-import qualified GHC.Types.Name                    as GHC
-import qualified GHC.Types.Name.Reader             as GHC
-import qualified GHC.Types.SrcLoc                  as GHC
-import qualified Language.Haskell.Syntax.Decls     as GHC
-import qualified Language.Haskell.Syntax.Expr      as GHC
-import qualified Language.Haskell.Syntax.Extension as GHC
-import qualified Stratosphere.Generator.Raw        as Raw
+import qualified Data.Foldable                      as Foldable
+import qualified Data.List                          as List
+import qualified Data.Map.Strict                    as Map
+import qualified Data.Set                           as Set
+import qualified Data.Text                          as Text
+import qualified Data.Text.Manipulate               as Text
+import qualified GHC.Hs.Doc                         as GHC
+import qualified GHC.Hs.Extension                   as GHC
+import qualified GHC.Hs.Pat                         as GHC
+import qualified GHC.Hs.Type                        as GHC
+import qualified GHC.Parser.Annotation              as GHC
+import qualified GHC.SourceGen                      as GHC
+import qualified GHC.Types.Basic                    as GHC
+import qualified GHC.Types.Fixity                   as GHC
+import qualified GHC.Types.Name                     as GHC
+import qualified GHC.Types.Name.Reader              as GHC
+import qualified GHC.Types.SrcLoc                   as GHC
+import qualified Language.Haskell.Syntax.Decls      as GHC
+import qualified Language.Haskell.Syntax.Expr       as GHC
+import qualified Language.Haskell.Syntax.Extension  as GHC
+import qualified Stratosphere.Manager.Generator.Raw as Raw
 
 data Record = Record
   { awsType       :: Text
