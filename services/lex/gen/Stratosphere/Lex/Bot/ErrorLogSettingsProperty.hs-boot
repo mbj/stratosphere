@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.ErrorLogSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ErrorLogSettingsProperty :: Prelude.Type
+instance ToResourceProperties ErrorLogSettingsProperty
+instance Prelude.Eq ErrorLogSettingsProperty
+instance Prelude.Show ErrorLogSettingsProperty
+instance JSON.ToJSON ErrorLogSettingsProperty

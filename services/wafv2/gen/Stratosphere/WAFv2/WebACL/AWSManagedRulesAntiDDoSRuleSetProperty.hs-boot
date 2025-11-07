@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.AWSManagedRulesAntiDDoSRuleSetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AWSManagedRulesAntiDDoSRuleSetProperty :: Prelude.Type
+instance ToResourceProperties AWSManagedRulesAntiDDoSRuleSetProperty
+instance Prelude.Eq AWSManagedRulesAntiDDoSRuleSetProperty
+instance Prelude.Show AWSManagedRulesAntiDDoSRuleSetProperty
+instance JSON.ToJSON AWSManagedRulesAntiDDoSRuleSetProperty

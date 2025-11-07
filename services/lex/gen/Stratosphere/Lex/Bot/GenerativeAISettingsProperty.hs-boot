@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.GenerativeAISettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GenerativeAISettingsProperty :: Prelude.Type
+instance ToResourceProperties GenerativeAISettingsProperty
+instance Prelude.Eq GenerativeAISettingsProperty
+instance Prelude.Show GenerativeAISettingsProperty
+instance JSON.ToJSON GenerativeAISettingsProperty

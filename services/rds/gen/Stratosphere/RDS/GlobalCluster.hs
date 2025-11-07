@@ -1,10 +1,9 @@
 module Stratosphere.RDS.GlobalCluster (
-        module Exports, GlobalCluster(..), mkGlobalCluster
+        GlobalCluster(..), mkGlobalCluster
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.RDS.GlobalCluster.GlobalEndpointProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -21,8 +20,6 @@ data GlobalCluster
                    engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier>
                    globalClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
-                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalendpoint>
-                   globalEndpoint :: (Prelude.Maybe GlobalEndpointProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier>
                    sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted>
@@ -37,7 +34,6 @@ mkGlobalCluster
        engine = Prelude.Nothing, engineLifecycleSupport = Prelude.Nothing,
        engineVersion = Prelude.Nothing,
        globalClusterIdentifier = Prelude.Nothing,
-       globalEndpoint = Prelude.Nothing,
        sourceDBClusterIdentifier = Prelude.Nothing,
        storageEncrypted = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties GlobalCluster where
@@ -53,7 +49,6 @@ instance ToResourceProperties GlobalCluster where
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                             (JSON..=) "GlobalClusterIdentifier"
                               Prelude.<$> globalClusterIdentifier,
-                            (JSON..=) "GlobalEndpoint" Prelude.<$> globalEndpoint,
                             (JSON..=) "SourceDBClusterIdentifier"
                               Prelude.<$> sourceDBClusterIdentifier,
                             (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
@@ -70,7 +65,6 @@ instance JSON.ToJSON GlobalCluster where
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                (JSON..=) "GlobalClusterIdentifier"
                  Prelude.<$> globalClusterIdentifier,
-               (JSON..=) "GlobalEndpoint" Prelude.<$> globalEndpoint,
                (JSON..=) "SourceDBClusterIdentifier"
                  Prelude.<$> sourceDBClusterIdentifier,
                (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
@@ -97,10 +91,6 @@ instance Property "GlobalClusterIdentifier" GlobalCluster where
   set newValue GlobalCluster {..}
     = GlobalCluster
         {globalClusterIdentifier = Prelude.pure newValue, ..}
-instance Property "GlobalEndpoint" GlobalCluster where
-  type PropertyType "GlobalEndpoint" GlobalCluster = GlobalEndpointProperty
-  set newValue GlobalCluster {..}
-    = GlobalCluster {globalEndpoint = Prelude.pure newValue, ..}
 instance Property "SourceDBClusterIdentifier" GlobalCluster where
   type PropertyType "SourceDBClusterIdentifier" GlobalCluster = Value Prelude.Text
   set newValue GlobalCluster {..}

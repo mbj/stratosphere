@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.LicenseConfigurationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LicenseConfigurationRequestProperty :: Prelude.Type
+instance ToResourceProperties LicenseConfigurationRequestProperty
+instance Prelude.Eq LicenseConfigurationRequestProperty
+instance Prelude.Show LicenseConfigurationRequestProperty
+instance JSON.ToJSON LicenseConfigurationRequestProperty

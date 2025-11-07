@@ -15,6 +15,8 @@ data CustomerManagedFleetConfigurationProperty
                                                mode :: (Value Prelude.Text),
                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-storageprofileid>
                                                storageProfileId :: (Prelude.Maybe (Value Prelude.Text)),
+                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-tagpropagationmode>
+                                               tagPropagationMode :: (Prelude.Maybe (Value Prelude.Text)),
                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-workercapabilities>
                                                workerCapabilities :: CustomerManagedWorkerCapabilitiesProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -26,7 +28,8 @@ mkCustomerManagedFleetConfigurationProperty mode workerCapabilities
   = CustomerManagedFleetConfigurationProperty
       {haddock_workaround_ = (), mode = mode,
        workerCapabilities = workerCapabilities,
-       storageProfileId = Prelude.Nothing}
+       storageProfileId = Prelude.Nothing,
+       tagPropagationMode = Prelude.Nothing}
 instance ToResourceProperties CustomerManagedFleetConfigurationProperty where
   toResourceProperties CustomerManagedFleetConfigurationProperty {..}
     = ResourceProperties
@@ -37,7 +40,8 @@ instance ToResourceProperties CustomerManagedFleetConfigurationProperty where
                            ["Mode" JSON..= mode,
                             "WorkerCapabilities" JSON..= workerCapabilities]
                            (Prelude.catMaybes
-                              [(JSON..=) "StorageProfileId" Prelude.<$> storageProfileId]))}
+                              [(JSON..=) "StorageProfileId" Prelude.<$> storageProfileId,
+                               (JSON..=) "TagPropagationMode" Prelude.<$> tagPropagationMode]))}
 instance JSON.ToJSON CustomerManagedFleetConfigurationProperty where
   toJSON CustomerManagedFleetConfigurationProperty {..}
     = JSON.object
@@ -46,7 +50,8 @@ instance JSON.ToJSON CustomerManagedFleetConfigurationProperty where
               ["Mode" JSON..= mode,
                "WorkerCapabilities" JSON..= workerCapabilities]
               (Prelude.catMaybes
-                 [(JSON..=) "StorageProfileId" Prelude.<$> storageProfileId])))
+                 [(JSON..=) "StorageProfileId" Prelude.<$> storageProfileId,
+                  (JSON..=) "TagPropagationMode" Prelude.<$> tagPropagationMode])))
 instance Property "Mode" CustomerManagedFleetConfigurationProperty where
   type PropertyType "Mode" CustomerManagedFleetConfigurationProperty = Value Prelude.Text
   set newValue CustomerManagedFleetConfigurationProperty {..}
@@ -56,6 +61,11 @@ instance Property "StorageProfileId" CustomerManagedFleetConfigurationProperty w
   set newValue CustomerManagedFleetConfigurationProperty {..}
     = CustomerManagedFleetConfigurationProperty
         {storageProfileId = Prelude.pure newValue, ..}
+instance Property "TagPropagationMode" CustomerManagedFleetConfigurationProperty where
+  type PropertyType "TagPropagationMode" CustomerManagedFleetConfigurationProperty = Value Prelude.Text
+  set newValue CustomerManagedFleetConfigurationProperty {..}
+    = CustomerManagedFleetConfigurationProperty
+        {tagPropagationMode = Prelude.pure newValue, ..}
 instance Property "WorkerCapabilities" CustomerManagedFleetConfigurationProperty where
   type PropertyType "WorkerCapabilities" CustomerManagedFleetConfigurationProperty = CustomerManagedWorkerCapabilitiesProperty
   set newValue CustomerManagedFleetConfigurationProperty {..}

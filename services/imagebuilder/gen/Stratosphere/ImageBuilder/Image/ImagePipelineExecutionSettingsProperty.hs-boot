@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.Image.ImagePipelineExecutionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImagePipelineExecutionSettingsProperty :: Prelude.Type
+instance ToResourceProperties ImagePipelineExecutionSettingsProperty
+instance Prelude.Eq ImagePipelineExecutionSettingsProperty
+instance Prelude.Show ImagePipelineExecutionSettingsProperty
+instance JSON.ToJSON ImagePipelineExecutionSettingsProperty

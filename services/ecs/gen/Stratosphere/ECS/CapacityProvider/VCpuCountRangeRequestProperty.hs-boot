@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.VCpuCountRangeRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VCpuCountRangeRequestProperty :: Prelude.Type
+instance ToResourceProperties VCpuCountRangeRequestProperty
+instance Prelude.Eq VCpuCountRangeRequestProperty
+instance Prelude.Show VCpuCountRangeRequestProperty
+instance JSON.ToJSON VCpuCountRangeRequestProperty

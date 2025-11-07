@@ -10,33 +10,36 @@ data TagOptionAssociation
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html>
     TagOptionAssociation {haddock_workaround_ :: (),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-resourceid>
-                          resourceId :: (Value Prelude.Text),
+                          resourceId :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-tagoptionid>
-                          tagOptionId :: (Value Prelude.Text)}
+                          tagOptionId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkTagOptionAssociation ::
-  Value Prelude.Text -> Value Prelude.Text -> TagOptionAssociation
-mkTagOptionAssociation resourceId tagOptionId
+mkTagOptionAssociation :: TagOptionAssociation
+mkTagOptionAssociation
   = TagOptionAssociation
-      {haddock_workaround_ = (), resourceId = resourceId,
-       tagOptionId = tagOptionId}
+      {haddock_workaround_ = (), resourceId = Prelude.Nothing,
+       tagOptionId = Prelude.Nothing}
 instance ToResourceProperties TagOptionAssociation where
   toResourceProperties TagOptionAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::TagOptionAssociation",
          supportsTags = Prelude.False,
-         properties = ["ResourceId" JSON..= resourceId,
-                       "TagOptionId" JSON..= tagOptionId]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+                            (JSON..=) "TagOptionId" Prelude.<$> tagOptionId])}
 instance JSON.ToJSON TagOptionAssociation where
   toJSON TagOptionAssociation {..}
     = JSON.object
-        ["ResourceId" JSON..= resourceId,
-         "TagOptionId" JSON..= tagOptionId]
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+               (JSON..=) "TagOptionId" Prelude.<$> tagOptionId]))
 instance Property "ResourceId" TagOptionAssociation where
   type PropertyType "ResourceId" TagOptionAssociation = Value Prelude.Text
   set newValue TagOptionAssociation {..}
-    = TagOptionAssociation {resourceId = newValue, ..}
+    = TagOptionAssociation {resourceId = Prelude.pure newValue, ..}
 instance Property "TagOptionId" TagOptionAssociation where
   type PropertyType "TagOptionId" TagOptionAssociation = Value Prelude.Text
   set newValue TagOptionAssociation {..}
-    = TagOptionAssociation {tagOptionId = newValue, ..}
+    = TagOptionAssociation {tagOptionId = Prelude.pure newValue, ..}

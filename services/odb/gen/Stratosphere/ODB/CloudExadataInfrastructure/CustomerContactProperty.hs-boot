@@ -1,0 +1,9 @@
+module Stratosphere.ODB.CloudExadataInfrastructure.CustomerContactProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomerContactProperty :: Prelude.Type
+instance ToResourceProperties CustomerContactProperty
+instance Prelude.Eq CustomerContactProperty
+instance Prelude.Show CustomerContactProperty
+instance JSON.ToJSON CustomerContactProperty

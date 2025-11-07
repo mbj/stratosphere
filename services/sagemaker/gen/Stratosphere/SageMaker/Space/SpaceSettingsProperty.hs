@@ -27,6 +27,10 @@ data SpaceSettingsProperty
                            jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-kernelgatewayappsettings>
                            kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-remoteaccess>
+                           remoteAccess :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-spacemanagedresources>
+                           spaceManagedResources :: (Prelude.Maybe (Value Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-spacestoragesettings>
                            spaceStorageSettings :: (Prelude.Maybe SpaceStorageSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -39,6 +43,8 @@ mkSpaceSettingsProperty
        jupyterLabAppSettings = Prelude.Nothing,
        jupyterServerAppSettings = Prelude.Nothing,
        kernelGatewayAppSettings = Prelude.Nothing,
+       remoteAccess = Prelude.Nothing,
+       spaceManagedResources = Prelude.Nothing,
        spaceStorageSettings = Prelude.Nothing}
 instance ToResourceProperties SpaceSettingsProperty where
   toResourceProperties SpaceSettingsProperty {..}
@@ -57,6 +63,9 @@ instance ToResourceProperties SpaceSettingsProperty where
                               Prelude.<$> jupyterServerAppSettings,
                             (JSON..=) "KernelGatewayAppSettings"
                               Prelude.<$> kernelGatewayAppSettings,
+                            (JSON..=) "RemoteAccess" Prelude.<$> remoteAccess,
+                            (JSON..=) "SpaceManagedResources"
+                              Prelude.<$> spaceManagedResources,
                             (JSON..=) "SpaceStorageSettings"
                               Prelude.<$> spaceStorageSettings])}
 instance JSON.ToJSON SpaceSettingsProperty where
@@ -74,6 +83,9 @@ instance JSON.ToJSON SpaceSettingsProperty where
                  Prelude.<$> jupyterServerAppSettings,
                (JSON..=) "KernelGatewayAppSettings"
                  Prelude.<$> kernelGatewayAppSettings,
+               (JSON..=) "RemoteAccess" Prelude.<$> remoteAccess,
+               (JSON..=) "SpaceManagedResources"
+                 Prelude.<$> spaceManagedResources,
                (JSON..=) "SpaceStorageSettings"
                  Prelude.<$> spaceStorageSettings]))
 instance Property "AppType" SpaceSettingsProperty where
@@ -105,6 +117,15 @@ instance Property "KernelGatewayAppSettings" SpaceSettingsProperty where
   set newValue SpaceSettingsProperty {..}
     = SpaceSettingsProperty
         {kernelGatewayAppSettings = Prelude.pure newValue, ..}
+instance Property "RemoteAccess" SpaceSettingsProperty where
+  type PropertyType "RemoteAccess" SpaceSettingsProperty = Value Prelude.Text
+  set newValue SpaceSettingsProperty {..}
+    = SpaceSettingsProperty {remoteAccess = Prelude.pure newValue, ..}
+instance Property "SpaceManagedResources" SpaceSettingsProperty where
+  type PropertyType "SpaceManagedResources" SpaceSettingsProperty = Value Prelude.Text
+  set newValue SpaceSettingsProperty {..}
+    = SpaceSettingsProperty
+        {spaceManagedResources = Prelude.pure newValue, ..}
 instance Property "SpaceStorageSettings" SpaceSettingsProperty where
   type PropertyType "SpaceStorageSettings" SpaceSettingsProperty = SpaceStorageSettingsProperty
   set newValue SpaceSettingsProperty {..}

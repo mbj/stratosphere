@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerTrafficPolicy.IngressIsInAddressListProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngressIsInAddressListProperty :: Prelude.Type
+instance ToResourceProperties IngressIsInAddressListProperty
+instance Prelude.Eq IngressIsInAddressListProperty
+instance Prelude.Show IngressIsInAddressListProperty
+instance JSON.ToJSON IngressIsInAddressListProperty

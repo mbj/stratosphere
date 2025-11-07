@@ -41,12 +41,15 @@ library
       Stratosphere.AppSync.ApiKey
       Stratosphere.AppSync.ChannelNamespace
       Stratosphere.AppSync.ChannelNamespace.AuthModeProperty
+      Stratosphere.AppSync.ChannelNamespace.HandlerConfigProperty
+      Stratosphere.AppSync.ChannelNamespace.HandlerConfigsProperty
+      Stratosphere.AppSync.ChannelNamespace.IntegrationProperty
+      Stratosphere.AppSync.ChannelNamespace.LambdaConfigProperty
       Stratosphere.AppSync.DataSource
       Stratosphere.AppSync.DataSource.AuthorizationConfigProperty
       Stratosphere.AppSync.DataSource.AwsIamConfigProperty
       Stratosphere.AppSync.DataSource.DeltaSyncConfigProperty
       Stratosphere.AppSync.DataSource.DynamoDBConfigProperty
-      Stratosphere.AppSync.DataSource.ElasticsearchConfigProperty
       Stratosphere.AppSync.DataSource.EventBridgeConfigProperty
       Stratosphere.AppSync.DataSource.HttpConfigProperty
       Stratosphere.AppSync.DataSource.LambdaConfigProperty

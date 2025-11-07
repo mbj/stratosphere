@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ClusterRestrictedInstanceGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterRestrictedInstanceGroupProperty :: Prelude.Type
+instance ToResourceProperties ClusterRestrictedInstanceGroupProperty
+instance Prelude.Eq ClusterRestrictedInstanceGroupProperty
+instance Prelude.Show ClusterRestrictedInstanceGroupProperty
+instance JSON.ToJSON ClusterRestrictedInstanceGroupProperty

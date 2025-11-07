@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.ArtifactConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Synthetics.Canary.BrowserConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.CodeProperty as Exports
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.RunConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Synthetics.Canary.ScheduleProperty as Exports
@@ -20,8 +21,12 @@ data Canary
             artifactConfig :: (Prelude.Maybe ArtifactConfigProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location>
             artifactS3Location :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-browserconfigs>
+            browserConfigs :: (Prelude.Maybe [BrowserConfigProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code>
             code :: CodeProperty,
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-dryrunandupdate>
+            dryRunAndUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn>
             executionRoleArn :: (Value Prelude.Text),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod>
@@ -46,8 +51,8 @@ data Canary
             tags :: (Prelude.Maybe [Tag]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig>
             vPCConfig :: (Prelude.Maybe VPCConfigProperty),
-            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference>
-            visualReference :: (Prelude.Maybe VisualReferenceProperty)}
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreferences>
+            visualReferences :: (Prelude.Maybe [VisualReferenceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCanary ::
   Value Prelude.Text
@@ -66,14 +71,15 @@ mkCanary
       {haddock_workaround_ = (), artifactS3Location = artifactS3Location,
        code = code, executionRoleArn = executionRoleArn, name = name,
        runtimeVersion = runtimeVersion, schedule = schedule,
-       artifactConfig = Prelude.Nothing,
+       artifactConfig = Prelude.Nothing, browserConfigs = Prelude.Nothing,
+       dryRunAndUpdate = Prelude.Nothing,
        failureRetentionPeriod = Prelude.Nothing,
        provisionedResourceCleanup = Prelude.Nothing,
        resourcesToReplicateTags = Prelude.Nothing,
        runConfig = Prelude.Nothing,
        startCanaryAfterCreation = Prelude.Nothing,
        successRetentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
-       vPCConfig = Prelude.Nothing, visualReference = Prelude.Nothing}
+       vPCConfig = Prelude.Nothing, visualReferences = Prelude.Nothing}
 instance ToResourceProperties Canary where
   toResourceProperties Canary {..}
     = ResourceProperties
@@ -86,6 +92,8 @@ instance ToResourceProperties Canary where
                             "Schedule" JSON..= schedule]
                            (Prelude.catMaybes
                               [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
+                               (JSON..=) "BrowserConfigs" Prelude.<$> browserConfigs,
+                               (JSON..=) "DryRunAndUpdate" Prelude.<$> dryRunAndUpdate,
                                (JSON..=) "FailureRetentionPeriod"
                                  Prelude.<$> failureRetentionPeriod,
                                (JSON..=) "ProvisionedResourceCleanup"
@@ -99,7 +107,7 @@ instance ToResourceProperties Canary where
                                  Prelude.<$> successRetentionPeriod,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VPCConfig" Prelude.<$> vPCConfig,
-                               (JSON..=) "VisualReference" Prelude.<$> visualReference]))}
+                               (JSON..=) "VisualReferences" Prelude.<$> visualReferences]))}
 instance JSON.ToJSON Canary where
   toJSON Canary {..}
     = JSON.object
@@ -111,6 +119,8 @@ instance JSON.ToJSON Canary where
                "Schedule" JSON..= schedule]
               (Prelude.catMaybes
                  [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
+                  (JSON..=) "BrowserConfigs" Prelude.<$> browserConfigs,
+                  (JSON..=) "DryRunAndUpdate" Prelude.<$> dryRunAndUpdate,
                   (JSON..=) "FailureRetentionPeriod"
                     Prelude.<$> failureRetentionPeriod,
                   (JSON..=) "ProvisionedResourceCleanup"
@@ -124,7 +134,7 @@ instance JSON.ToJSON Canary where
                     Prelude.<$> successRetentionPeriod,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VPCConfig" Prelude.<$> vPCConfig,
-                  (JSON..=) "VisualReference" Prelude.<$> visualReference])))
+                  (JSON..=) "VisualReferences" Prelude.<$> visualReferences])))
 instance Property "ArtifactConfig" Canary where
   type PropertyType "ArtifactConfig" Canary = ArtifactConfigProperty
   set newValue Canary {..}
@@ -133,9 +143,17 @@ instance Property "ArtifactS3Location" Canary where
   type PropertyType "ArtifactS3Location" Canary = Value Prelude.Text
   set newValue Canary {..}
     = Canary {artifactS3Location = newValue, ..}
+instance Property "BrowserConfigs" Canary where
+  type PropertyType "BrowserConfigs" Canary = [BrowserConfigProperty]
+  set newValue Canary {..}
+    = Canary {browserConfigs = Prelude.pure newValue, ..}
 instance Property "Code" Canary where
   type PropertyType "Code" Canary = CodeProperty
   set newValue Canary {..} = Canary {code = newValue, ..}
+instance Property "DryRunAndUpdate" Canary where
+  type PropertyType "DryRunAndUpdate" Canary = Value Prelude.Bool
+  set newValue Canary {..}
+    = Canary {dryRunAndUpdate = Prelude.pure newValue, ..}
 instance Property "ExecutionRoleArn" Canary where
   type PropertyType "ExecutionRoleArn" Canary = Value Prelude.Text
   set newValue Canary {..} = Canary {executionRoleArn = newValue, ..}
@@ -180,7 +198,7 @@ instance Property "VPCConfig" Canary where
   type PropertyType "VPCConfig" Canary = VPCConfigProperty
   set newValue Canary {..}
     = Canary {vPCConfig = Prelude.pure newValue, ..}
-instance Property "VisualReference" Canary where
-  type PropertyType "VisualReference" Canary = VisualReferenceProperty
+instance Property "VisualReferences" Canary where
+  type PropertyType "VisualReferences" Canary = [VisualReferenceProperty]
   set newValue Canary {..}
-    = Canary {visualReference = Prelude.pure newValue, ..}
+    = Canary {visualReferences = Prelude.pure newValue, ..}

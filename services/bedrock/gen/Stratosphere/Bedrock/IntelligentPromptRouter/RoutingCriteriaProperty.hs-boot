@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.IntelligentPromptRouter.RoutingCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RoutingCriteriaProperty :: Prelude.Type
+instance ToResourceProperties RoutingCriteriaProperty
+instance Prelude.Eq RoutingCriteriaProperty
+instance Prelude.Show RoutingCriteriaProperty
+instance JSON.ToJSON RoutingCriteriaProperty

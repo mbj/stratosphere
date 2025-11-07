@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Bridge.MulticastSourceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MulticastSourceSettingsProperty :: Prelude.Type
+instance ToResourceProperties MulticastSourceSettingsProperty
+instance Prelude.Eq MulticastSourceSettingsProperty
+instance Prelude.Show MulticastSourceSettingsProperty
+instance JSON.ToJSON MulticastSourceSettingsProperty

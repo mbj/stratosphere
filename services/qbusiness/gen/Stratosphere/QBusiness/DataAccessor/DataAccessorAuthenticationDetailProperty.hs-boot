@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataAccessor.DataAccessorAuthenticationDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataAccessorAuthenticationDetailProperty :: Prelude.Type
+instance ToResourceProperties DataAccessorAuthenticationDetailProperty
+instance Prelude.Eq DataAccessorAuthenticationDetailProperty
+instance Prelude.Show DataAccessorAuthenticationDetailProperty
+instance JSON.ToJSON DataAccessorAuthenticationDetailProperty

@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationCentralizationRule.SourceLogsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceLogsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SourceLogsConfigurationProperty
+instance Prelude.Eq SourceLogsConfigurationProperty
+instance Prelude.Show SourceLogsConfigurationProperty
+instance JSON.ToJSON SourceLogsConfigurationProperty

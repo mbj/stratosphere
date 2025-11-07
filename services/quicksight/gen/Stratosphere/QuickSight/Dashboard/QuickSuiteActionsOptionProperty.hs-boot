@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.QuickSuiteActionsOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QuickSuiteActionsOptionProperty :: Prelude.Type
+instance ToResourceProperties QuickSuiteActionsOptionProperty
+instance Prelude.Eq QuickSuiteActionsOptionProperty
+instance Prelude.Show QuickSuiteActionsOptionProperty
+instance JSON.ToJSON QuickSuiteActionsOptionProperty

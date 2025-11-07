@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.QueryGenerationTableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QueryGenerationTableProperty :: Prelude.Type
+instance ToResourceProperties QueryGenerationTableProperty
+instance Prelude.Eq QueryGenerationTableProperty
+instance Prelude.Show QueryGenerationTableProperty
+instance JSON.ToJSON QueryGenerationTableProperty

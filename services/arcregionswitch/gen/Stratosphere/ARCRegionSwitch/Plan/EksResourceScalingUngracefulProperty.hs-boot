@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.EksResourceScalingUngracefulProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksResourceScalingUngracefulProperty :: Prelude.Type
+instance ToResourceProperties EksResourceScalingUngracefulProperty
+instance Prelude.Eq EksResourceScalingUngracefulProperty
+instance Prelude.Show EksResourceScalingUngracefulProperty
+instance JSON.ToJSON EksResourceScalingUngracefulProperty

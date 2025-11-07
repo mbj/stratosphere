@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.WordCloudVisualProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WordCloudVisualProperty :: Prelude.Type
+instance ToResourceProperties WordCloudVisualProperty
+instance Prelude.Eq WordCloudVisualProperty
+instance Prelude.Show WordCloudVisualProperty
+instance JSON.ToJSON WordCloudVisualProperty

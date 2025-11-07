@@ -39,6 +39,8 @@ data DvbSubDestinationSettingsProperty
                                        shadowXOffset :: (Prelude.Maybe (Value Prelude.Integer)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-shadowyoffset>
                                        shadowYOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-subtitlerows>
+                                       subtitleRows :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-teletextgridcontrol>
                                        teletextGridControl :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-xposition>
@@ -58,6 +60,7 @@ mkDvbSubDestinationSettingsProperty
        outlineColor = Prelude.Nothing, outlineSize = Prelude.Nothing,
        shadowColor = Prelude.Nothing, shadowOpacity = Prelude.Nothing,
        shadowXOffset = Prelude.Nothing, shadowYOffset = Prelude.Nothing,
+       subtitleRows = Prelude.Nothing,
        teletextGridControl = Prelude.Nothing, xPosition = Prelude.Nothing,
        yPosition = Prelude.Nothing}
 instance ToResourceProperties DvbSubDestinationSettingsProperty where
@@ -81,6 +84,7 @@ instance ToResourceProperties DvbSubDestinationSettingsProperty where
                             (JSON..=) "ShadowOpacity" Prelude.<$> shadowOpacity,
                             (JSON..=) "ShadowXOffset" Prelude.<$> shadowXOffset,
                             (JSON..=) "ShadowYOffset" Prelude.<$> shadowYOffset,
+                            (JSON..=) "SubtitleRows" Prelude.<$> subtitleRows,
                             (JSON..=) "TeletextGridControl" Prelude.<$> teletextGridControl,
                             (JSON..=) "XPosition" Prelude.<$> xPosition,
                             (JSON..=) "YPosition" Prelude.<$> yPosition])}
@@ -103,6 +107,7 @@ instance JSON.ToJSON DvbSubDestinationSettingsProperty where
                (JSON..=) "ShadowOpacity" Prelude.<$> shadowOpacity,
                (JSON..=) "ShadowXOffset" Prelude.<$> shadowXOffset,
                (JSON..=) "ShadowYOffset" Prelude.<$> shadowYOffset,
+               (JSON..=) "SubtitleRows" Prelude.<$> subtitleRows,
                (JSON..=) "TeletextGridControl" Prelude.<$> teletextGridControl,
                (JSON..=) "XPosition" Prelude.<$> xPosition,
                (JSON..=) "YPosition" Prelude.<$> yPosition]))
@@ -176,6 +181,11 @@ instance Property "ShadowYOffset" DvbSubDestinationSettingsProperty where
   set newValue DvbSubDestinationSettingsProperty {..}
     = DvbSubDestinationSettingsProperty
         {shadowYOffset = Prelude.pure newValue, ..}
+instance Property "SubtitleRows" DvbSubDestinationSettingsProperty where
+  type PropertyType "SubtitleRows" DvbSubDestinationSettingsProperty = Value Prelude.Text
+  set newValue DvbSubDestinationSettingsProperty {..}
+    = DvbSubDestinationSettingsProperty
+        {subtitleRows = Prelude.pure newValue, ..}
 instance Property "TeletextGridControl" DvbSubDestinationSettingsProperty where
   type PropertyType "TeletextGridControl" DvbSubDestinationSettingsProperty = Value Prelude.Text
   set newValue DvbSubDestinationSettingsProperty {..}

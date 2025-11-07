@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ChannelLabelingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChannelLabelingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ChannelLabelingConfigurationProperty
+instance Prelude.Eq ChannelLabelingConfigurationProperty
+instance Prelude.Show ChannelLabelingConfigurationProperty
+instance JSON.ToJSON ChannelLabelingConfigurationProperty

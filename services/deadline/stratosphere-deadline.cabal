@@ -41,12 +41,15 @@ library
       Stratosphere.Deadline.Fleet.FleetAttributeCapabilityProperty
       Stratosphere.Deadline.Fleet.FleetCapabilitiesProperty
       Stratosphere.Deadline.Fleet.FleetConfigurationProperty
+      Stratosphere.Deadline.Fleet.HostConfigurationProperty
       Stratosphere.Deadline.Fleet.MemoryMiBRangeProperty
       Stratosphere.Deadline.Fleet.ServiceManagedEc2FleetConfigurationProperty
       Stratosphere.Deadline.Fleet.ServiceManagedEc2InstanceCapabilitiesProperty
       Stratosphere.Deadline.Fleet.ServiceManagedEc2InstanceMarketOptionsProperty
       Stratosphere.Deadline.Fleet.VCpuCountRangeProperty
+      Stratosphere.Deadline.Fleet.VpcConfigurationProperty
       Stratosphere.Deadline.LicenseEndpoint
+      Stratosphere.Deadline.Limit
       Stratosphere.Deadline.MeteredProduct
       Stratosphere.Deadline.Monitor
       Stratosphere.Deadline.Queue
@@ -56,6 +59,7 @@ library
       Stratosphere.Deadline.Queue.WindowsUserProperty
       Stratosphere.Deadline.QueueEnvironment
       Stratosphere.Deadline.QueueFleetAssociation
+      Stratosphere.Deadline.QueueLimitAssociation
       Stratosphere.Deadline.StorageProfile
       Stratosphere.Deadline.StorageProfile.FileSystemLocationProperty
   other-modules:

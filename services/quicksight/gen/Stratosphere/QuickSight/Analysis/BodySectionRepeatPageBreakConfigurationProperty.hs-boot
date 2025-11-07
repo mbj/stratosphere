@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.BodySectionRepeatPageBreakConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BodySectionRepeatPageBreakConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BodySectionRepeatPageBreakConfigurationProperty
+instance Prelude.Eq BodySectionRepeatPageBreakConfigurationProperty
+instance Prelude.Show BodySectionRepeatPageBreakConfigurationProperty
+instance JSON.ToJSON BodySectionRepeatPageBreakConfigurationProperty

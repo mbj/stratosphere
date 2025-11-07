@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.ModuleParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModuleParametersProperty :: Prelude.Type
+instance ToResourceProperties ModuleParametersProperty
+instance Prelude.Eq ModuleParametersProperty
+instance Prelude.Show ModuleParametersProperty
+instance JSON.ToJSON ModuleParametersProperty

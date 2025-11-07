@@ -25,6 +25,8 @@ data As2ConfigProperty
                        messageSubject :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-partnerprofileid>
                        partnerProfileId :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-preservecontenttype>
+                       preserveContentType :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-signingalgorithm>
                        signingAlgorithm :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -38,6 +40,7 @@ mkAs2ConfigProperty
        mdnSigningAlgorithm = Prelude.Nothing,
        messageSubject = Prelude.Nothing,
        partnerProfileId = Prelude.Nothing,
+       preserveContentType = Prelude.Nothing,
        signingAlgorithm = Prelude.Nothing}
 instance ToResourceProperties As2ConfigProperty where
   toResourceProperties As2ConfigProperty {..}
@@ -54,6 +57,7 @@ instance ToResourceProperties As2ConfigProperty where
                             (JSON..=) "MdnSigningAlgorithm" Prelude.<$> mdnSigningAlgorithm,
                             (JSON..=) "MessageSubject" Prelude.<$> messageSubject,
                             (JSON..=) "PartnerProfileId" Prelude.<$> partnerProfileId,
+                            (JSON..=) "PreserveContentType" Prelude.<$> preserveContentType,
                             (JSON..=) "SigningAlgorithm" Prelude.<$> signingAlgorithm])}
 instance JSON.ToJSON As2ConfigProperty where
   toJSON As2ConfigProperty {..}
@@ -68,6 +72,7 @@ instance JSON.ToJSON As2ConfigProperty where
                (JSON..=) "MdnSigningAlgorithm" Prelude.<$> mdnSigningAlgorithm,
                (JSON..=) "MessageSubject" Prelude.<$> messageSubject,
                (JSON..=) "PartnerProfileId" Prelude.<$> partnerProfileId,
+               (JSON..=) "PreserveContentType" Prelude.<$> preserveContentType,
                (JSON..=) "SigningAlgorithm" Prelude.<$> signingAlgorithm]))
 instance Property "BasicAuthSecretId" As2ConfigProperty where
   type PropertyType "BasicAuthSecretId" As2ConfigProperty = Value Prelude.Text
@@ -103,6 +108,11 @@ instance Property "PartnerProfileId" As2ConfigProperty where
   type PropertyType "PartnerProfileId" As2ConfigProperty = Value Prelude.Text
   set newValue As2ConfigProperty {..}
     = As2ConfigProperty {partnerProfileId = Prelude.pure newValue, ..}
+instance Property "PreserveContentType" As2ConfigProperty where
+  type PropertyType "PreserveContentType" As2ConfigProperty = Value Prelude.Text
+  set newValue As2ConfigProperty {..}
+    = As2ConfigProperty
+        {preserveContentType = Prelude.pure newValue, ..}
 instance Property "SigningAlgorithm" As2ConfigProperty where
   type PropertyType "SigningAlgorithm" As2ConfigProperty = Value Prelude.Text
   set newValue As2ConfigProperty {..}

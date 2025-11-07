@@ -11,9 +11,9 @@ data PlaybackRestrictionPolicy
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html>
     PlaybackRestrictionPolicy {haddock_workaround_ :: (),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-allowedcountries>
-                               allowedCountries :: (ValueList Prelude.Text),
+                               allowedCountries :: (Prelude.Maybe (ValueList Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-allowedorigins>
-                               allowedOrigins :: (ValueList Prelude.Text),
+                               allowedOrigins :: (Prelude.Maybe (ValueList Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-enablestrictoriginenforcement>
                                enableStrictOriginEnforcement :: (Prelude.Maybe (Value Prelude.Bool)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-name>
@@ -21,13 +21,11 @@ data PlaybackRestrictionPolicy
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-tags>
                                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkPlaybackRestrictionPolicy ::
-  ValueList Prelude.Text
-  -> ValueList Prelude.Text -> PlaybackRestrictionPolicy
-mkPlaybackRestrictionPolicy allowedCountries allowedOrigins
+mkPlaybackRestrictionPolicy :: PlaybackRestrictionPolicy
+mkPlaybackRestrictionPolicy
   = PlaybackRestrictionPolicy
-      {haddock_workaround_ = (), allowedCountries = allowedCountries,
-       allowedOrigins = allowedOrigins,
+      {haddock_workaround_ = (), allowedCountries = Prelude.Nothing,
+       allowedOrigins = Prelude.Nothing,
        enableStrictOriginEnforcement = Prelude.Nothing,
        name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties PlaybackRestrictionPolicy where
@@ -36,34 +34,34 @@ instance ToResourceProperties PlaybackRestrictionPolicy where
         {awsType = "AWS::IVS::PlaybackRestrictionPolicy",
          supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["AllowedCountries" JSON..= allowedCountries,
-                            "AllowedOrigins" JSON..= allowedOrigins]
-                           (Prelude.catMaybes
-                              [(JSON..=) "EnableStrictOriginEnforcement"
-                                 Prelude.<$> enableStrictOriginEnforcement,
-                               (JSON..=) "Name" Prelude.<$> name,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "AllowedCountries" Prelude.<$> allowedCountries,
+                            (JSON..=) "AllowedOrigins" Prelude.<$> allowedOrigins,
+                            (JSON..=) "EnableStrictOriginEnforcement"
+                              Prelude.<$> enableStrictOriginEnforcement,
+                            (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON PlaybackRestrictionPolicy where
   toJSON PlaybackRestrictionPolicy {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["AllowedCountries" JSON..= allowedCountries,
-               "AllowedOrigins" JSON..= allowedOrigins]
-              (Prelude.catMaybes
-                 [(JSON..=) "EnableStrictOriginEnforcement"
-                    Prelude.<$> enableStrictOriginEnforcement,
-                  (JSON..=) "Name" Prelude.<$> name,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+           (Prelude.catMaybes
+              [(JSON..=) "AllowedCountries" Prelude.<$> allowedCountries,
+               (JSON..=) "AllowedOrigins" Prelude.<$> allowedOrigins,
+               (JSON..=) "EnableStrictOriginEnforcement"
+                 Prelude.<$> enableStrictOriginEnforcement,
+               (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "AllowedCountries" PlaybackRestrictionPolicy where
   type PropertyType "AllowedCountries" PlaybackRestrictionPolicy = ValueList Prelude.Text
   set newValue PlaybackRestrictionPolicy {..}
-    = PlaybackRestrictionPolicy {allowedCountries = newValue, ..}
+    = PlaybackRestrictionPolicy
+        {allowedCountries = Prelude.pure newValue, ..}
 instance Property "AllowedOrigins" PlaybackRestrictionPolicy where
   type PropertyType "AllowedOrigins" PlaybackRestrictionPolicy = ValueList Prelude.Text
   set newValue PlaybackRestrictionPolicy {..}
-    = PlaybackRestrictionPolicy {allowedOrigins = newValue, ..}
+    = PlaybackRestrictionPolicy
+        {allowedOrigins = Prelude.pure newValue, ..}
 instance Property "EnableStrictOriginEnforcement" PlaybackRestrictionPolicy where
   type PropertyType "EnableStrictOriginEnforcement" PlaybackRestrictionPolicy = Value Prelude.Bool
   set newValue PlaybackRestrictionPolicy {..}

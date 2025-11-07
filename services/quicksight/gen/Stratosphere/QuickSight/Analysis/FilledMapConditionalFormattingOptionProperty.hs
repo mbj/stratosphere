@@ -1,0 +1,35 @@
+module Stratosphere.QuickSight.Analysis.FilledMapConditionalFormattingOptionProperty (
+        module Exports, FilledMapConditionalFormattingOptionProperty(..),
+        mkFilledMapConditionalFormattingOptionProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.FilledMapShapeConditionalFormattingProperty as Exports
+import Stratosphere.ResourceProperties
+data FilledMapConditionalFormattingOptionProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapconditionalformattingoption.html>
+    FilledMapConditionalFormattingOptionProperty {haddock_workaround_ :: (),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapconditionalformattingoption.html#cfn-quicksight-analysis-filledmapconditionalformattingoption-shape>
+                                                  shape :: FilledMapShapeConditionalFormattingProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkFilledMapConditionalFormattingOptionProperty ::
+  FilledMapShapeConditionalFormattingProperty
+  -> FilledMapConditionalFormattingOptionProperty
+mkFilledMapConditionalFormattingOptionProperty shape
+  = FilledMapConditionalFormattingOptionProperty
+      {haddock_workaround_ = (), shape = shape}
+instance ToResourceProperties FilledMapConditionalFormattingOptionProperty where
+  toResourceProperties
+    FilledMapConditionalFormattingOptionProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.FilledMapConditionalFormattingOption",
+         supportsTags = Prelude.False, properties = ["Shape" JSON..= shape]}
+instance JSON.ToJSON FilledMapConditionalFormattingOptionProperty where
+  toJSON FilledMapConditionalFormattingOptionProperty {..}
+    = JSON.object ["Shape" JSON..= shape]
+instance Property "Shape" FilledMapConditionalFormattingOptionProperty where
+  type PropertyType "Shape" FilledMapConditionalFormattingOptionProperty = FilledMapShapeConditionalFormattingProperty
+  set newValue FilledMapConditionalFormattingOptionProperty {..}
+    = FilledMapConditionalFormattingOptionProperty
+        {shape = newValue, ..}

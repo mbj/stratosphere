@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.TableFieldLinkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableFieldLinkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TableFieldLinkConfigurationProperty
+instance Prelude.Eq TableFieldLinkConfigurationProperty
+instance Prelude.Show TableFieldLinkConfigurationProperty
+instance JSON.ToJSON TableFieldLinkConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Glue.TableOptimizer.OrphanFileDeletionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OrphanFileDeletionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OrphanFileDeletionConfigurationProperty
+instance Prelude.Eq OrphanFileDeletionConfigurationProperty
+instance Prelude.Show OrphanFileDeletionConfigurationProperty
+instance JSON.ToJSON OrphanFileDeletionConfigurationProperty

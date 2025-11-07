@@ -17,6 +17,8 @@ data App
          appType :: (Value Prelude.Text),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid>
          domainId :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-recoverymode>
+         recoveryMode :: (Prelude.Maybe (Value Prelude.Bool)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec>
          resourceSpec :: (Prelude.Maybe ResourceSpecProperty),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags>
@@ -32,7 +34,8 @@ mkApp appName appType domainId userProfileName
   = App
       {haddock_workaround_ = (), appName = appName, appType = appType,
        domainId = domainId, userProfileName = userProfileName,
-       resourceSpec = Prelude.Nothing, tags = Prelude.Nothing}
+       recoveryMode = Prelude.Nothing, resourceSpec = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
@@ -43,7 +46,8 @@ instance ToResourceProperties App where
                             "DomainId" JSON..= domainId,
                             "UserProfileName" JSON..= userProfileName]
                            (Prelude.catMaybes
-                              [(JSON..=) "ResourceSpec" Prelude.<$> resourceSpec,
+                              [(JSON..=) "RecoveryMode" Prelude.<$> recoveryMode,
+                               (JSON..=) "ResourceSpec" Prelude.<$> resourceSpec,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON App where
   toJSON App {..}
@@ -54,7 +58,8 @@ instance JSON.ToJSON App where
                "DomainId" JSON..= domainId,
                "UserProfileName" JSON..= userProfileName]
               (Prelude.catMaybes
-                 [(JSON..=) "ResourceSpec" Prelude.<$> resourceSpec,
+                 [(JSON..=) "RecoveryMode" Prelude.<$> recoveryMode,
+                  (JSON..=) "ResourceSpec" Prelude.<$> resourceSpec,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AppName" App where
   type PropertyType "AppName" App = Value Prelude.Text
@@ -65,6 +70,10 @@ instance Property "AppType" App where
 instance Property "DomainId" App where
   type PropertyType "DomainId" App = Value Prelude.Text
   set newValue App {..} = App {domainId = newValue, ..}
+instance Property "RecoveryMode" App where
+  type PropertyType "RecoveryMode" App = Value Prelude.Bool
+  set newValue App {..}
+    = App {recoveryMode = Prelude.pure newValue, ..}
 instance Property "ResourceSpec" App where
   type PropertyType "ResourceSpec" App = ResourceSpecProperty
   set newValue App {..}

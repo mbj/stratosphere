@@ -31,6 +31,7 @@ library
       Stratosphere.Logs.AccountPolicy
       Stratosphere.Logs.Delivery
       Stratosphere.Logs.DeliveryDestination
+      Stratosphere.Logs.DeliveryDestination.DestinationPolicyProperty
       Stratosphere.Logs.DeliverySource
       Stratosphere.Logs.Destination
       Stratosphere.Logs.Integration
@@ -45,6 +46,38 @@ library
       Stratosphere.Logs.QueryDefinition
       Stratosphere.Logs.ResourcePolicy
       Stratosphere.Logs.SubscriptionFilter
+      Stratosphere.Logs.Transformer
+      Stratosphere.Logs.Transformer.AddKeyEntryProperty
+      Stratosphere.Logs.Transformer.AddKeysProperty
+      Stratosphere.Logs.Transformer.CopyValueEntryProperty
+      Stratosphere.Logs.Transformer.CopyValueProperty
+      Stratosphere.Logs.Transformer.CsvProperty
+      Stratosphere.Logs.Transformer.DateTimeConverterProperty
+      Stratosphere.Logs.Transformer.DeleteKeysProperty
+      Stratosphere.Logs.Transformer.GrokProperty
+      Stratosphere.Logs.Transformer.ListToMapProperty
+      Stratosphere.Logs.Transformer.LowerCaseStringProperty
+      Stratosphere.Logs.Transformer.MoveKeyEntryProperty
+      Stratosphere.Logs.Transformer.MoveKeysProperty
+      Stratosphere.Logs.Transformer.ParseCloudfrontProperty
+      Stratosphere.Logs.Transformer.ParseJSONProperty
+      Stratosphere.Logs.Transformer.ParseKeyValueProperty
+      Stratosphere.Logs.Transformer.ParsePostgresProperty
+      Stratosphere.Logs.Transformer.ParseRoute53Property
+      Stratosphere.Logs.Transformer.ParseToOCSFProperty
+      Stratosphere.Logs.Transformer.ParseVPCProperty
+      Stratosphere.Logs.Transformer.ParseWAFProperty
+      Stratosphere.Logs.Transformer.ProcessorProperty
+      Stratosphere.Logs.Transformer.RenameKeyEntryProperty
+      Stratosphere.Logs.Transformer.RenameKeysProperty
+      Stratosphere.Logs.Transformer.SplitStringEntryProperty
+      Stratosphere.Logs.Transformer.SplitStringProperty
+      Stratosphere.Logs.Transformer.SubstituteStringEntryProperty
+      Stratosphere.Logs.Transformer.SubstituteStringProperty
+      Stratosphere.Logs.Transformer.TrimStringProperty
+      Stratosphere.Logs.Transformer.TypeConverterEntryProperty
+      Stratosphere.Logs.Transformer.TypeConverterProperty
+      Stratosphere.Logs.Transformer.UpperCaseStringProperty
   other-modules:
       Paths_stratosphere_logs
   hs-source-dirs:

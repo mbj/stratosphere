@@ -1,0 +1,9 @@
+module Stratosphere.SMSVOICE.ConfigurationSet.SnsDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnsDestinationProperty :: Prelude.Type
+instance ToResourceProperties SnsDestinationProperty
+instance Prelude.Eq SnsDestinationProperty
+instance Prelude.Show SnsDestinationProperty
+instance JSON.ToJSON SnsDestinationProperty

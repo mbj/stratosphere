@@ -44,6 +44,8 @@ library
       Stratosphere.IoTSiteWise.AssetModel.AssetModelHierarchyProperty
       Stratosphere.IoTSiteWise.AssetModel.AssetModelPropertyProperty
       Stratosphere.IoTSiteWise.AssetModel.AttributeProperty
+      Stratosphere.IoTSiteWise.AssetModel.EnforcedAssetModelInterfacePropertyMappingProperty
+      Stratosphere.IoTSiteWise.AssetModel.EnforcedAssetModelInterfaceRelationshipProperty
       Stratosphere.IoTSiteWise.AssetModel.ExpressionVariableProperty
       Stratosphere.IoTSiteWise.AssetModel.MetricProperty
       Stratosphere.IoTSiteWise.AssetModel.MetricWindowProperty
@@ -52,11 +54,20 @@ library
       Stratosphere.IoTSiteWise.AssetModel.TransformProperty
       Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty
       Stratosphere.IoTSiteWise.AssetModel.VariableValueProperty
+      Stratosphere.IoTSiteWise.ComputationModel
+      Stratosphere.IoTSiteWise.ComputationModel.AnomalyDetectionComputationModelConfigurationProperty
+      Stratosphere.IoTSiteWise.ComputationModel.AssetModelPropertyBindingValueProperty
+      Stratosphere.IoTSiteWise.ComputationModel.AssetPropertyBindingValueProperty
+      Stratosphere.IoTSiteWise.ComputationModel.ComputationModelConfigurationProperty
+      Stratosphere.IoTSiteWise.ComputationModel.ComputationModelDataBindingValueProperty
       Stratosphere.IoTSiteWise.Dashboard
+      Stratosphere.IoTSiteWise.Dataset
+      Stratosphere.IoTSiteWise.Dataset.DatasetSourceProperty
+      Stratosphere.IoTSiteWise.Dataset.KendraSourceDetailProperty
+      Stratosphere.IoTSiteWise.Dataset.SourceDetailProperty
       Stratosphere.IoTSiteWise.Gateway
       Stratosphere.IoTSiteWise.Gateway.GatewayCapabilitySummaryProperty
       Stratosphere.IoTSiteWise.Gateway.GatewayPlatformProperty
-      Stratosphere.IoTSiteWise.Gateway.GreengrassProperty
       Stratosphere.IoTSiteWise.Gateway.GreengrassV2Property
       Stratosphere.IoTSiteWise.Gateway.SiemensIEProperty
       Stratosphere.IoTSiteWise.Portal

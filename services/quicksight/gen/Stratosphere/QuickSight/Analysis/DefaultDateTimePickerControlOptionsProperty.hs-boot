@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.DefaultDateTimePickerControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultDateTimePickerControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultDateTimePickerControlOptionsProperty
+instance Prelude.Eq DefaultDateTimePickerControlOptionsProperty
+instance Prelude.Show DefaultDateTimePickerControlOptionsProperty
+instance JSON.ToJSON DefaultDateTimePickerControlOptionsProperty

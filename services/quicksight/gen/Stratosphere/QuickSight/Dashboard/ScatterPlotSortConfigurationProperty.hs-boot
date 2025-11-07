@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ScatterPlotSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScatterPlotSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ScatterPlotSortConfigurationProperty
+instance Prelude.Eq ScatterPlotSortConfigurationProperty
+instance Prelude.Show ScatterPlotSortConfigurationProperty
+instance JSON.ToJSON ScatterPlotSortConfigurationProperty

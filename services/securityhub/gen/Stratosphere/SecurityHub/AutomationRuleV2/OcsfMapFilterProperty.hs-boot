@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.OcsfMapFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OcsfMapFilterProperty :: Prelude.Type
+instance ToResourceProperties OcsfMapFilterProperty
+instance Prelude.Eq OcsfMapFilterProperty
+instance Prelude.Show OcsfMapFilterProperty
+instance JSON.ToJSON OcsfMapFilterProperty

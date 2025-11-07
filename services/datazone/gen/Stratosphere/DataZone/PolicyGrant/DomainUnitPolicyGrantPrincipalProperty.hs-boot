@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.PolicyGrant.DomainUnitPolicyGrantPrincipalProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DomainUnitPolicyGrantPrincipalProperty :: Prelude.Type
+instance ToResourceProperties DomainUnitPolicyGrantPrincipalProperty
+instance Prelude.Eq DomainUnitPolicyGrantPrincipalProperty
+instance Prelude.Show DomainUnitPolicyGrantPrincipalProperty
+instance JSON.ToJSON DomainUnitPolicyGrantPrincipalProperty

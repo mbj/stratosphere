@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECS.Service.CapacityProviderStrategyItemProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.DeploymentConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.DeploymentControllerProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.Service.ForceNewDeploymentProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.LoadBalancerProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.NetworkConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.PlacementConstraintProperty as Exports
@@ -37,6 +38,8 @@ data Service
              enableECSManagedTags :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand>
              enableExecuteCommand :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-forcenewdeployment>
+             forceNewDeployment :: (Prelude.Maybe ForceNewDeploymentProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds>
              healthCheckGracePeriodSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype>
@@ -84,6 +87,7 @@ mkService
        desiredCount = Prelude.Nothing,
        enableECSManagedTags = Prelude.Nothing,
        enableExecuteCommand = Prelude.Nothing,
+       forceNewDeployment = Prelude.Nothing,
        healthCheckGracePeriodSeconds = Prelude.Nothing,
        launchType = Prelude.Nothing, loadBalancers = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
@@ -113,6 +117,7 @@ instance ToResourceProperties Service where
                             (JSON..=) "DesiredCount" Prelude.<$> desiredCount,
                             (JSON..=) "EnableECSManagedTags" Prelude.<$> enableECSManagedTags,
                             (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
+                            (JSON..=) "ForceNewDeployment" Prelude.<$> forceNewDeployment,
                             (JSON..=) "HealthCheckGracePeriodSeconds"
                               Prelude.<$> healthCheckGracePeriodSeconds,
                             (JSON..=) "LaunchType" Prelude.<$> launchType,
@@ -149,6 +154,7 @@ instance JSON.ToJSON Service where
                (JSON..=) "DesiredCount" Prelude.<$> desiredCount,
                (JSON..=) "EnableECSManagedTags" Prelude.<$> enableECSManagedTags,
                (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
+               (JSON..=) "ForceNewDeployment" Prelude.<$> forceNewDeployment,
                (JSON..=) "HealthCheckGracePeriodSeconds"
                  Prelude.<$> healthCheckGracePeriodSeconds,
                (JSON..=) "LaunchType" Prelude.<$> launchType,
@@ -201,6 +207,10 @@ instance Property "EnableExecuteCommand" Service where
   type PropertyType "EnableExecuteCommand" Service = Value Prelude.Bool
   set newValue Service {..}
     = Service {enableExecuteCommand = Prelude.pure newValue, ..}
+instance Property "ForceNewDeployment" Service where
+  type PropertyType "ForceNewDeployment" Service = ForceNewDeploymentProperty
+  set newValue Service {..}
+    = Service {forceNewDeployment = Prelude.pure newValue, ..}
 instance Property "HealthCheckGracePeriodSeconds" Service where
   type PropertyType "HealthCheckGracePeriodSeconds" Service = Value Prelude.Integer
   set newValue Service {..}

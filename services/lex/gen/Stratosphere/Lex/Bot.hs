@@ -6,6 +6,8 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.BotLocaleProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.DataPrivacyProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lex.Bot.ErrorLogSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lex.Bot.ReplicationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.S3LocationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.TestBotAliasSettingsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -26,10 +28,14 @@ data Bot
          dataPrivacy :: DataPrivacyProperty,
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description>
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-errorlogsettings>
+         errorLogSettings :: (Prelude.Maybe ErrorLogSettingsProperty),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-idlesessionttlinseconds>
          idleSessionTTLInSeconds :: (Value Prelude.Integer),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-name>
          name :: (Value Prelude.Text),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-replication>
+         replication :: (Prelude.Maybe ReplicationProperty),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn>
          roleArn :: (Value Prelude.Text),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings>
@@ -48,6 +54,7 @@ mkBot dataPrivacy idleSessionTTLInSeconds name roleArn
        roleArn = roleArn, autoBuildBotLocales = Prelude.Nothing,
        botFileS3Location = Prelude.Nothing, botLocales = Prelude.Nothing,
        botTags = Prelude.Nothing, description = Prelude.Nothing,
+       errorLogSettings = Prelude.Nothing, replication = Prelude.Nothing,
        testBotAliasSettings = Prelude.Nothing,
        testBotAliasTags = Prelude.Nothing}
 instance ToResourceProperties Bot where
@@ -65,6 +72,8 @@ instance ToResourceProperties Bot where
                                (JSON..=) "BotLocales" Prelude.<$> botLocales,
                                (JSON..=) "BotTags" Prelude.<$> botTags,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "ErrorLogSettings" Prelude.<$> errorLogSettings,
+                               (JSON..=) "Replication" Prelude.<$> replication,
                                (JSON..=) "TestBotAliasSettings" Prelude.<$> testBotAliasSettings,
                                (JSON..=) "TestBotAliasTags" Prelude.<$> testBotAliasTags]))}
 instance JSON.ToJSON Bot where
@@ -81,6 +90,8 @@ instance JSON.ToJSON Bot where
                   (JSON..=) "BotLocales" Prelude.<$> botLocales,
                   (JSON..=) "BotTags" Prelude.<$> botTags,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "ErrorLogSettings" Prelude.<$> errorLogSettings,
+                  (JSON..=) "Replication" Prelude.<$> replication,
                   (JSON..=) "TestBotAliasSettings" Prelude.<$> testBotAliasSettings,
                   (JSON..=) "TestBotAliasTags" Prelude.<$> testBotAliasTags])))
 instance Property "AutoBuildBotLocales" Bot where
@@ -105,6 +116,10 @@ instance Property "Description" Bot where
   type PropertyType "Description" Bot = Value Prelude.Text
   set newValue Bot {..}
     = Bot {description = Prelude.pure newValue, ..}
+instance Property "ErrorLogSettings" Bot where
+  type PropertyType "ErrorLogSettings" Bot = ErrorLogSettingsProperty
+  set newValue Bot {..}
+    = Bot {errorLogSettings = Prelude.pure newValue, ..}
 instance Property "IdleSessionTTLInSeconds" Bot where
   type PropertyType "IdleSessionTTLInSeconds" Bot = Value Prelude.Integer
   set newValue Bot {..}
@@ -112,6 +127,10 @@ instance Property "IdleSessionTTLInSeconds" Bot where
 instance Property "Name" Bot where
   type PropertyType "Name" Bot = Value Prelude.Text
   set newValue Bot {..} = Bot {name = newValue, ..}
+instance Property "Replication" Bot where
+  type PropertyType "Replication" Bot = ReplicationProperty
+  set newValue Bot {..}
+    = Bot {replication = Prelude.pure newValue, ..}
 instance Property "RoleArn" Bot where
   type PropertyType "RoleArn" Bot = Value Prelude.Text
   set newValue Bot {..} = Bot {roleArn = newValue, ..}

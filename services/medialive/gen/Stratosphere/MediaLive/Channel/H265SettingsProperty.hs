@@ -26,6 +26,8 @@ data H265SettingsProperty
                           colorMetadata :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-colorspacesettings>
                           colorSpaceSettings :: (Prelude.Maybe H265ColorSpaceSettingsProperty),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-deblocking>
+                          deblocking :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-filtersettings>
                           filterSettings :: (Prelude.Maybe H265FilterSettingsProperty),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-fixedafd>
@@ -36,8 +38,12 @@ data H265SettingsProperty
                           framerateDenominator :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-frameratenumerator>
                           framerateNumerator :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopbreference>
+                          gopBReference :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopclosedcadence>
                           gopClosedCadence :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopnumbframes>
+                          gopNumBFrames :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopsize>
                           gopSize :: (Prelude.Maybe (Value Prelude.Double)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopsizeunits>
@@ -48,6 +54,8 @@ data H265SettingsProperty
                           lookAheadRateControl :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-maxbitrate>
                           maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-minbitrate>
+                          minBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-miniinterval>
                           minIInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-minqp>
@@ -72,6 +80,8 @@ data H265SettingsProperty
                           sceneChangeDetect :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-slices>
                           slices :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-subgoplength>
+                          subgopLength :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tier>
                           tier :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tileheight>
@@ -95,23 +105,27 @@ mkH265SettingsProperty
        alternativeTransferFunction = Prelude.Nothing,
        bitrate = Prelude.Nothing, bufSize = Prelude.Nothing,
        colorMetadata = Prelude.Nothing,
-       colorSpaceSettings = Prelude.Nothing,
+       colorSpaceSettings = Prelude.Nothing, deblocking = Prelude.Nothing,
        filterSettings = Prelude.Nothing, fixedAfd = Prelude.Nothing,
        flickerAq = Prelude.Nothing,
        framerateDenominator = Prelude.Nothing,
        framerateNumerator = Prelude.Nothing,
-       gopClosedCadence = Prelude.Nothing, gopSize = Prelude.Nothing,
+       gopBReference = Prelude.Nothing,
+       gopClosedCadence = Prelude.Nothing,
+       gopNumBFrames = Prelude.Nothing, gopSize = Prelude.Nothing,
        gopSizeUnits = Prelude.Nothing, level = Prelude.Nothing,
        lookAheadRateControl = Prelude.Nothing,
-       maxBitrate = Prelude.Nothing, minIInterval = Prelude.Nothing,
-       minQp = Prelude.Nothing, mvOverPictureBoundaries = Prelude.Nothing,
+       maxBitrate = Prelude.Nothing, minBitrate = Prelude.Nothing,
+       minIInterval = Prelude.Nothing, minQp = Prelude.Nothing,
+       mvOverPictureBoundaries = Prelude.Nothing,
        mvTemporalPredictor = Prelude.Nothing,
        parDenominator = Prelude.Nothing, parNumerator = Prelude.Nothing,
        profile = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
        rateControlMode = Prelude.Nothing, scanType = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
-       tier = Prelude.Nothing, tileHeight = Prelude.Nothing,
-       tilePadding = Prelude.Nothing, tileWidth = Prelude.Nothing,
+       subgopLength = Prelude.Nothing, tier = Prelude.Nothing,
+       tileHeight = Prelude.Nothing, tilePadding = Prelude.Nothing,
+       tileWidth = Prelude.Nothing,
        timecodeBurninSettings = Prelude.Nothing,
        timecodeInsertion = Prelude.Nothing,
        treeblockSize = Prelude.Nothing}
@@ -130,17 +144,21 @@ instance ToResourceProperties H265SettingsProperty where
                             (JSON..=) "BufSize" Prelude.<$> bufSize,
                             (JSON..=) "ColorMetadata" Prelude.<$> colorMetadata,
                             (JSON..=) "ColorSpaceSettings" Prelude.<$> colorSpaceSettings,
+                            (JSON..=) "Deblocking" Prelude.<$> deblocking,
                             (JSON..=) "FilterSettings" Prelude.<$> filterSettings,
                             (JSON..=) "FixedAfd" Prelude.<$> fixedAfd,
                             (JSON..=) "FlickerAq" Prelude.<$> flickerAq,
                             (JSON..=) "FramerateDenominator" Prelude.<$> framerateDenominator,
                             (JSON..=) "FramerateNumerator" Prelude.<$> framerateNumerator,
+                            (JSON..=) "GopBReference" Prelude.<$> gopBReference,
                             (JSON..=) "GopClosedCadence" Prelude.<$> gopClosedCadence,
+                            (JSON..=) "GopNumBFrames" Prelude.<$> gopNumBFrames,
                             (JSON..=) "GopSize" Prelude.<$> gopSize,
                             (JSON..=) "GopSizeUnits" Prelude.<$> gopSizeUnits,
                             (JSON..=) "Level" Prelude.<$> level,
                             (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+                            (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                             (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                             (JSON..=) "MinQp" Prelude.<$> minQp,
                             (JSON..=) "MvOverPictureBoundaries"
@@ -154,6 +172,7 @@ instance ToResourceProperties H265SettingsProperty where
                             (JSON..=) "ScanType" Prelude.<$> scanType,
                             (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                             (JSON..=) "Slices" Prelude.<$> slices,
+                            (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
                             (JSON..=) "Tier" Prelude.<$> tier,
                             (JSON..=) "TileHeight" Prelude.<$> tileHeight,
                             (JSON..=) "TilePadding" Prelude.<$> tilePadding,
@@ -175,17 +194,21 @@ instance JSON.ToJSON H265SettingsProperty where
                (JSON..=) "BufSize" Prelude.<$> bufSize,
                (JSON..=) "ColorMetadata" Prelude.<$> colorMetadata,
                (JSON..=) "ColorSpaceSettings" Prelude.<$> colorSpaceSettings,
+               (JSON..=) "Deblocking" Prelude.<$> deblocking,
                (JSON..=) "FilterSettings" Prelude.<$> filterSettings,
                (JSON..=) "FixedAfd" Prelude.<$> fixedAfd,
                (JSON..=) "FlickerAq" Prelude.<$> flickerAq,
                (JSON..=) "FramerateDenominator" Prelude.<$> framerateDenominator,
                (JSON..=) "FramerateNumerator" Prelude.<$> framerateNumerator,
+               (JSON..=) "GopBReference" Prelude.<$> gopBReference,
                (JSON..=) "GopClosedCadence" Prelude.<$> gopClosedCadence,
+               (JSON..=) "GopNumBFrames" Prelude.<$> gopNumBFrames,
                (JSON..=) "GopSize" Prelude.<$> gopSize,
                (JSON..=) "GopSizeUnits" Prelude.<$> gopSizeUnits,
                (JSON..=) "Level" Prelude.<$> level,
                (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+               (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                (JSON..=) "MinQp" Prelude.<$> minQp,
                (JSON..=) "MvOverPictureBoundaries"
@@ -199,6 +222,7 @@ instance JSON.ToJSON H265SettingsProperty where
                (JSON..=) "ScanType" Prelude.<$> scanType,
                (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                (JSON..=) "Slices" Prelude.<$> slices,
+               (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
                (JSON..=) "Tier" Prelude.<$> tier,
                (JSON..=) "TileHeight" Prelude.<$> tileHeight,
                (JSON..=) "TilePadding" Prelude.<$> tilePadding,
@@ -238,6 +262,10 @@ instance Property "ColorSpaceSettings" H265SettingsProperty where
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty
         {colorSpaceSettings = Prelude.pure newValue, ..}
+instance Property "Deblocking" H265SettingsProperty where
+  type PropertyType "Deblocking" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {deblocking = Prelude.pure newValue, ..}
 instance Property "FilterSettings" H265SettingsProperty where
   type PropertyType "FilterSettings" H265SettingsProperty = H265FilterSettingsProperty
   set newValue H265SettingsProperty {..}
@@ -260,11 +288,19 @@ instance Property "FramerateNumerator" H265SettingsProperty where
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty
         {framerateNumerator = Prelude.pure newValue, ..}
+instance Property "GopBReference" H265SettingsProperty where
+  type PropertyType "GopBReference" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {gopBReference = Prelude.pure newValue, ..}
 instance Property "GopClosedCadence" H265SettingsProperty where
   type PropertyType "GopClosedCadence" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty
         {gopClosedCadence = Prelude.pure newValue, ..}
+instance Property "GopNumBFrames" H265SettingsProperty where
+  type PropertyType "GopNumBFrames" H265SettingsProperty = Value Prelude.Integer
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {gopNumBFrames = Prelude.pure newValue, ..}
 instance Property "GopSize" H265SettingsProperty where
   type PropertyType "GopSize" H265SettingsProperty = Value Prelude.Double
   set newValue H265SettingsProperty {..}
@@ -286,6 +322,10 @@ instance Property "MaxBitrate" H265SettingsProperty where
   type PropertyType "MaxBitrate" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty {maxBitrate = Prelude.pure newValue, ..}
+instance Property "MinBitrate" H265SettingsProperty where
+  type PropertyType "MinBitrate" H265SettingsProperty = Value Prelude.Integer
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {minBitrate = Prelude.pure newValue, ..}
 instance Property "MinIInterval" H265SettingsProperty where
   type PropertyType "MinIInterval" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
@@ -339,6 +379,10 @@ instance Property "Slices" H265SettingsProperty where
   type PropertyType "Slices" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty {slices = Prelude.pure newValue, ..}
+instance Property "SubgopLength" H265SettingsProperty where
+  type PropertyType "SubgopLength" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {subgopLength = Prelude.pure newValue, ..}
 instance Property "Tier" H265SettingsProperty where
   type PropertyType "Tier" H265SettingsProperty = Value Prelude.Text
   set newValue H265SettingsProperty {..}

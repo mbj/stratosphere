@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.AdvancedConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdvancedConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AdvancedConfigurationProperty
+instance Prelude.Eq AdvancedConfigurationProperty
+instance Prelude.Show AdvancedConfigurationProperty
+instance JSON.ToJSON AdvancedConfigurationProperty

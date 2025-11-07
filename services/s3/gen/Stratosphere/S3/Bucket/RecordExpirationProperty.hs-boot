@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.RecordExpirationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecordExpirationProperty :: Prelude.Type
+instance ToResourceProperties RecordExpirationProperty
+instance Prelude.Eq RecordExpirationProperty
+instance Prelude.Show RecordExpirationProperty
+instance JSON.ToJSON RecordExpirationProperty

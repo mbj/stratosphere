@@ -11,6 +11,8 @@ data EncryptionMethodProperty
     EncryptionMethodProperty {haddock_workaround_ :: (),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-cmafencryptionmethod>
                               cmafEncryptionMethod :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-ismencryptionmethod>
+                              ismEncryptionMethod :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-tsencryptionmethod>
                               tsEncryptionMethod :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,6 +20,7 @@ mkEncryptionMethodProperty :: EncryptionMethodProperty
 mkEncryptionMethodProperty
   = EncryptionMethodProperty
       {haddock_workaround_ = (), cmafEncryptionMethod = Prelude.Nothing,
+       ismEncryptionMethod = Prelude.Nothing,
        tsEncryptionMethod = Prelude.Nothing}
 instance ToResourceProperties EncryptionMethodProperty where
   toResourceProperties EncryptionMethodProperty {..}
@@ -27,6 +30,7 @@ instance ToResourceProperties EncryptionMethodProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CmafEncryptionMethod" Prelude.<$> cmafEncryptionMethod,
+                            (JSON..=) "IsmEncryptionMethod" Prelude.<$> ismEncryptionMethod,
                             (JSON..=) "TsEncryptionMethod" Prelude.<$> tsEncryptionMethod])}
 instance JSON.ToJSON EncryptionMethodProperty where
   toJSON EncryptionMethodProperty {..}
@@ -34,12 +38,18 @@ instance JSON.ToJSON EncryptionMethodProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "CmafEncryptionMethod" Prelude.<$> cmafEncryptionMethod,
+               (JSON..=) "IsmEncryptionMethod" Prelude.<$> ismEncryptionMethod,
                (JSON..=) "TsEncryptionMethod" Prelude.<$> tsEncryptionMethod]))
 instance Property "CmafEncryptionMethod" EncryptionMethodProperty where
   type PropertyType "CmafEncryptionMethod" EncryptionMethodProperty = Value Prelude.Text
   set newValue EncryptionMethodProperty {..}
     = EncryptionMethodProperty
         {cmafEncryptionMethod = Prelude.pure newValue, ..}
+instance Property "IsmEncryptionMethod" EncryptionMethodProperty where
+  type PropertyType "IsmEncryptionMethod" EncryptionMethodProperty = Value Prelude.Text
+  set newValue EncryptionMethodProperty {..}
+    = EncryptionMethodProperty
+        {ismEncryptionMethod = Prelude.pure newValue, ..}
 instance Property "TsEncryptionMethod" EncryptionMethodProperty where
   type PropertyType "TsEncryptionMethod" EncryptionMethodProperty = Value Prelude.Text
   set newValue EncryptionMethodProperty {..}

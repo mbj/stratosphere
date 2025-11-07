@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GameLift.Build.StorageLocationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Build
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html>
@@ -18,6 +19,8 @@ data Build
            serverSdkVersion :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation>
            storageLocation :: (Prelude.Maybe StorageLocationProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-tags>
+           tags :: (Prelude.Maybe [Tag]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version>
            version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -27,17 +30,19 @@ mkBuild
       {haddock_workaround_ = (), name = Prelude.Nothing,
        operatingSystem = Prelude.Nothing,
        serverSdkVersion = Prelude.Nothing,
-       storageLocation = Prelude.Nothing, version = Prelude.Nothing}
+       storageLocation = Prelude.Nothing, tags = Prelude.Nothing,
+       version = Prelude.Nothing}
 instance ToResourceProperties Build where
   toResourceProperties Build {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Build", supportsTags = Prelude.False,
+        {awsType = "AWS::GameLift::Build", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
                             (JSON..=) "ServerSdkVersion" Prelude.<$> serverSdkVersion,
                             (JSON..=) "StorageLocation" Prelude.<$> storageLocation,
+                            (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON Build where
   toJSON Build {..}
@@ -48,6 +53,7 @@ instance JSON.ToJSON Build where
                (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
                (JSON..=) "ServerSdkVersion" Prelude.<$> serverSdkVersion,
                (JSON..=) "StorageLocation" Prelude.<$> storageLocation,
+               (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Version" Prelude.<$> version]))
 instance Property "Name" Build where
   type PropertyType "Name" Build = Value Prelude.Text
@@ -64,6 +70,9 @@ instance Property "StorageLocation" Build where
   type PropertyType "StorageLocation" Build = StorageLocationProperty
   set newValue Build {..}
     = Build {storageLocation = Prelude.pure newValue, ..}
+instance Property "Tags" Build where
+  type PropertyType "Tags" Build = [Tag]
+  set newValue Build {..} = Build {tags = Prelude.pure newValue, ..}
 instance Property "Version" Build where
   type PropertyType "Version" Build = Value Prelude.Text
   set newValue Build {..}

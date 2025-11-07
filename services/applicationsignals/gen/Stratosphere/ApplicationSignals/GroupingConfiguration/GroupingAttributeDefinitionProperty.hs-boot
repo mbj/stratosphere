@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.GroupingConfiguration.GroupingAttributeDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GroupingAttributeDefinitionProperty :: Prelude.Type
+instance ToResourceProperties GroupingAttributeDefinitionProperty
+instance Prelude.Eq GroupingAttributeDefinitionProperty
+instance Prelude.Show GroupingAttributeDefinitionProperty
+instance JSON.ToJSON GroupingAttributeDefinitionProperty

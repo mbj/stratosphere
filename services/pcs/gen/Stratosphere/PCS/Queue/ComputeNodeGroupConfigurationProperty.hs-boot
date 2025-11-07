@@ -1,0 +1,9 @@
+module Stratosphere.PCS.Queue.ComputeNodeGroupConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComputeNodeGroupConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ComputeNodeGroupConfigurationProperty
+instance Prelude.Eq ComputeNodeGroupConfigurationProperty
+instance Prelude.Show ComputeNodeGroupConfigurationProperty
+instance JSON.ToJSON ComputeNodeGroupConfigurationProperty

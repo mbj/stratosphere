@@ -4,6 +4,7 @@ module Stratosphere.EKS.Addon (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EKS.Addon.NamespaceConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Addon.PodIdentityAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -19,6 +20,8 @@ data Addon
            clusterName :: (Value Prelude.Text),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues>
            configurationValues :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-namespaceconfig>
+           namespaceConfig :: (Prelude.Maybe NamespaceConfigProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-podidentityassociations>
            podIdentityAssociations :: (Prelude.Maybe [PodIdentityAssociationProperty]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-preserveondelete>
@@ -36,6 +39,7 @@ mkAddon addonName clusterName
       {haddock_workaround_ = (), addonName = addonName,
        clusterName = clusterName, addonVersion = Prelude.Nothing,
        configurationValues = Prelude.Nothing,
+       namespaceConfig = Prelude.Nothing,
        podIdentityAssociations = Prelude.Nothing,
        preserveOnDelete = Prelude.Nothing,
        resolveConflicts = Prelude.Nothing,
@@ -50,6 +54,7 @@ instance ToResourceProperties Addon where
                            (Prelude.catMaybes
                               [(JSON..=) "AddonVersion" Prelude.<$> addonVersion,
                                (JSON..=) "ConfigurationValues" Prelude.<$> configurationValues,
+                               (JSON..=) "NamespaceConfig" Prelude.<$> namespaceConfig,
                                (JSON..=) "PodIdentityAssociations"
                                  Prelude.<$> podIdentityAssociations,
                                (JSON..=) "PreserveOnDelete" Prelude.<$> preserveOnDelete,
@@ -66,6 +71,7 @@ instance JSON.ToJSON Addon where
               (Prelude.catMaybes
                  [(JSON..=) "AddonVersion" Prelude.<$> addonVersion,
                   (JSON..=) "ConfigurationValues" Prelude.<$> configurationValues,
+                  (JSON..=) "NamespaceConfig" Prelude.<$> namespaceConfig,
                   (JSON..=) "PodIdentityAssociations"
                     Prelude.<$> podIdentityAssociations,
                   (JSON..=) "PreserveOnDelete" Prelude.<$> preserveOnDelete,
@@ -87,6 +93,10 @@ instance Property "ConfigurationValues" Addon where
   type PropertyType "ConfigurationValues" Addon = Value Prelude.Text
   set newValue Addon {..}
     = Addon {configurationValues = Prelude.pure newValue, ..}
+instance Property "NamespaceConfig" Addon where
+  type PropertyType "NamespaceConfig" Addon = NamespaceConfigProperty
+  set newValue Addon {..}
+    = Addon {namespaceConfig = Prelude.pure newValue, ..}
 instance Property "PodIdentityAssociations" Addon where
   type PropertyType "PodIdentityAssociations" Addon = [PodIdentityAssociationProperty]
   set newValue Addon {..}

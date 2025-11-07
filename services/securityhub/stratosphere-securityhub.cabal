@@ -28,6 +28,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.SecurityHub.AggregatorV2
       Stratosphere.SecurityHub.AutomationRule
       Stratosphere.SecurityHub.AutomationRule.AutomationRulesActionProperty
       Stratosphere.SecurityHub.AutomationRule.AutomationRulesFindingFieldsUpdateProperty
@@ -41,6 +42,24 @@ library
       Stratosphere.SecurityHub.AutomationRule.SeverityUpdateProperty
       Stratosphere.SecurityHub.AutomationRule.StringFilterProperty
       Stratosphere.SecurityHub.AutomationRule.WorkflowUpdateProperty
+      Stratosphere.SecurityHub.AutomationRuleV2
+      Stratosphere.SecurityHub.AutomationRuleV2.AutomationRulesActionV2Property
+      Stratosphere.SecurityHub.AutomationRuleV2.AutomationRulesFindingFieldsUpdateV2Property
+      Stratosphere.SecurityHub.AutomationRuleV2.BooleanFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.CompositeFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.CriteriaProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.DateFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.DateRangeProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.ExternalIntegrationConfigurationProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.MapFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.NumberFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfBooleanFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfDateFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfFindingFiltersProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfMapFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfNumberFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.OcsfStringFilterProperty
+      Stratosphere.SecurityHub.AutomationRuleV2.StringFilterProperty
       Stratosphere.SecurityHub.ConfigurationPolicy
       Stratosphere.SecurityHub.ConfigurationPolicy.ParameterConfigurationProperty
       Stratosphere.SecurityHub.ConfigurationPolicy.ParameterValueProperty
@@ -51,6 +70,7 @@ library
       Stratosphere.SecurityHub.DelegatedAdmin
       Stratosphere.SecurityHub.FindingAggregator
       Stratosphere.SecurityHub.Hub
+      Stratosphere.SecurityHub.HubV2
       Stratosphere.SecurityHub.Insight
       Stratosphere.SecurityHub.Insight.AwsSecurityFindingFiltersProperty
       Stratosphere.SecurityHub.Insight.BooleanFilterProperty

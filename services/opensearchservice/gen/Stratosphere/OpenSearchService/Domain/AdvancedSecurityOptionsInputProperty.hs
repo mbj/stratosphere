@@ -5,6 +5,7 @@ module Stratosphere.OpenSearchService.Domain.AdvancedSecurityOptionsInputPropert
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.IAMFederationOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.JWTOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.MasterUserOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.SAMLOptionsProperty as Exports
@@ -19,6 +20,8 @@ data AdvancedSecurityOptionsInputProperty
                                           anonymousAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-enabled>
                                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-iamfederationoptions>
+                                          iAMFederationOptions :: (Prelude.Maybe IAMFederationOptionsProperty),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled>
                                           internalUserDatabaseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-jwtoptions>
@@ -35,6 +38,7 @@ mkAdvancedSecurityOptionsInputProperty
       {haddock_workaround_ = (),
        anonymousAuthDisableDate = Prelude.Nothing,
        anonymousAuthEnabled = Prelude.Nothing, enabled = Prelude.Nothing,
+       iAMFederationOptions = Prelude.Nothing,
        internalUserDatabaseEnabled = Prelude.Nothing,
        jWTOptions = Prelude.Nothing, masterUserOptions = Prelude.Nothing,
        sAMLOptions = Prelude.Nothing}
@@ -49,6 +53,7 @@ instance ToResourceProperties AdvancedSecurityOptionsInputProperty where
                               Prelude.<$> anonymousAuthDisableDate,
                             (JSON..=) "AnonymousAuthEnabled" Prelude.<$> anonymousAuthEnabled,
                             (JSON..=) "Enabled" Prelude.<$> enabled,
+                            (JSON..=) "IAMFederationOptions" Prelude.<$> iAMFederationOptions,
                             (JSON..=) "InternalUserDatabaseEnabled"
                               Prelude.<$> internalUserDatabaseEnabled,
                             (JSON..=) "JWTOptions" Prelude.<$> jWTOptions,
@@ -63,6 +68,7 @@ instance JSON.ToJSON AdvancedSecurityOptionsInputProperty where
                  Prelude.<$> anonymousAuthDisableDate,
                (JSON..=) "AnonymousAuthEnabled" Prelude.<$> anonymousAuthEnabled,
                (JSON..=) "Enabled" Prelude.<$> enabled,
+               (JSON..=) "IAMFederationOptions" Prelude.<$> iAMFederationOptions,
                (JSON..=) "InternalUserDatabaseEnabled"
                  Prelude.<$> internalUserDatabaseEnabled,
                (JSON..=) "JWTOptions" Prelude.<$> jWTOptions,
@@ -83,6 +89,11 @@ instance Property "Enabled" AdvancedSecurityOptionsInputProperty where
   set newValue AdvancedSecurityOptionsInputProperty {..}
     = AdvancedSecurityOptionsInputProperty
         {enabled = Prelude.pure newValue, ..}
+instance Property "IAMFederationOptions" AdvancedSecurityOptionsInputProperty where
+  type PropertyType "IAMFederationOptions" AdvancedSecurityOptionsInputProperty = IAMFederationOptionsProperty
+  set newValue AdvancedSecurityOptionsInputProperty {..}
+    = AdvancedSecurityOptionsInputProperty
+        {iAMFederationOptions = Prelude.pure newValue, ..}
 instance Property "InternalUserDatabaseEnabled" AdvancedSecurityOptionsInputProperty where
   type PropertyType "InternalUserDatabaseEnabled" AdvancedSecurityOptionsInputProperty = Value Prelude.Bool
   set newValue AdvancedSecurityOptionsInputProperty {..}

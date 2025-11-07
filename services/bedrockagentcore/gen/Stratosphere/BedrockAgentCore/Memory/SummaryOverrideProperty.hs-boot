@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.SummaryOverrideProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SummaryOverrideProperty :: Prelude.Type
+instance ToResourceProperties SummaryOverrideProperty
+instance Prelude.Eq SummaryOverrideProperty
+instance Prelude.Show SummaryOverrideProperty
+instance JSON.ToJSON SummaryOverrideProperty

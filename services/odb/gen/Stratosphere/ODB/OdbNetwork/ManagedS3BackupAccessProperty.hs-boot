@@ -1,0 +1,9 @@
+module Stratosphere.ODB.OdbNetwork.ManagedS3BackupAccessProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedS3BackupAccessProperty :: Prelude.Type
+instance ToResourceProperties ManagedS3BackupAccessProperty
+instance Prelude.Eq ManagedS3BackupAccessProperty
+instance Prelude.Show ManagedS3BackupAccessProperty
+instance JSON.ToJSON ManagedS3BackupAccessProperty

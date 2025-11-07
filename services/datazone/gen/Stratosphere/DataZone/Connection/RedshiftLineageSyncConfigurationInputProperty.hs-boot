@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.RedshiftLineageSyncConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftLineageSyncConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties RedshiftLineageSyncConfigurationInputProperty
+instance Prelude.Eq RedshiftLineageSyncConfigurationInputProperty
+instance Prelude.Show RedshiftLineageSyncConfigurationInputProperty
+instance JSON.ToJSON RedshiftLineageSyncConfigurationInputProperty

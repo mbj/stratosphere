@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ValueRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ValueRangeProperty :: Prelude.Type
+instance ToResourceProperties ValueRangeProperty
+instance Prelude.Eq ValueRangeProperty
+instance Prelude.Show ValueRangeProperty
+instance JSON.ToJSON ValueRangeProperty

@@ -1,0 +1,9 @@
+module Stratosphere.AccessAnalyzer.Analyzer.InternalAccessConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InternalAccessConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InternalAccessConfigurationProperty
+instance Prelude.Eq InternalAccessConfigurationProperty
+instance Prelude.Show InternalAccessConfigurationProperty
+instance JSON.ToJSON InternalAccessConfigurationProperty

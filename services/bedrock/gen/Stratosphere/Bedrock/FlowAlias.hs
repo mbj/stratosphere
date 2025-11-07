@@ -4,12 +4,15 @@ module Stratosphere.Bedrock.FlowAlias (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.FlowAlias.FlowAliasConcurrencyConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.FlowAlias.FlowAliasRoutingConfigurationListItemProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowAlias
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html>
     FlowAlias {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-concurrencyconfiguration>
+               concurrencyConfiguration :: (Prelude.Maybe FlowAliasConcurrencyConfigurationProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-description>
                description :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-flowarn>
@@ -29,6 +32,7 @@ mkFlowAlias flowArn name routingConfiguration
   = FlowAlias
       {haddock_workaround_ = (), flowArn = flowArn, name = name,
        routingConfiguration = routingConfiguration,
+       concurrencyConfiguration = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FlowAlias where
   toResourceProperties FlowAlias {..}
@@ -39,7 +43,9 @@ instance ToResourceProperties FlowAlias where
                            ["FlowArn" JSON..= flowArn, "Name" JSON..= name,
                             "RoutingConfiguration" JSON..= routingConfiguration]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "ConcurrencyConfiguration"
+                                 Prelude.<$> concurrencyConfiguration,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON FlowAlias where
   toJSON FlowAlias {..}
@@ -49,8 +55,14 @@ instance JSON.ToJSON FlowAlias where
               ["FlowArn" JSON..= flowArn, "Name" JSON..= name,
                "RoutingConfiguration" JSON..= routingConfiguration]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "ConcurrencyConfiguration"
+                    Prelude.<$> concurrencyConfiguration,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "ConcurrencyConfiguration" FlowAlias where
+  type PropertyType "ConcurrencyConfiguration" FlowAlias = FlowAliasConcurrencyConfigurationProperty
+  set newValue FlowAlias {..}
+    = FlowAlias {concurrencyConfiguration = Prelude.pure newValue, ..}
 instance Property "Description" FlowAlias where
   type PropertyType "Description" FlowAlias = Value Prelude.Text
   set newValue FlowAlias {..}

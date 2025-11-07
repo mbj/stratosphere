@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Domain.UnifiedStudioSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UnifiedStudioSettingsProperty :: Prelude.Type
+instance ToResourceProperties UnifiedStudioSettingsProperty
+instance Prelude.Eq UnifiedStudioSettingsProperty
+instance Prelude.Show UnifiedStudioSettingsProperty
+instance JSON.ToJSON UnifiedStudioSettingsProperty

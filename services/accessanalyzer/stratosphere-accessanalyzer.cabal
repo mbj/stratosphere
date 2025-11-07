@@ -34,6 +34,9 @@ library
       Stratosphere.AccessAnalyzer.Analyzer.AnalyzerConfigurationProperty
       Stratosphere.AccessAnalyzer.Analyzer.ArchiveRuleProperty
       Stratosphere.AccessAnalyzer.Analyzer.FilterProperty
+      Stratosphere.AccessAnalyzer.Analyzer.InternalAccessAnalysisRuleCriteriaProperty
+      Stratosphere.AccessAnalyzer.Analyzer.InternalAccessAnalysisRuleProperty
+      Stratosphere.AccessAnalyzer.Analyzer.InternalAccessConfigurationProperty
       Stratosphere.AccessAnalyzer.Analyzer.UnusedAccessConfigurationProperty
   other-modules:
       Paths_stratosphere_accessanalyzer

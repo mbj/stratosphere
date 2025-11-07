@@ -14,10 +14,14 @@ data PackageFilterProperty
                            architecture :: (Prelude.Maybe StringFilterProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-epoch>
                            epoch :: (Prelude.Maybe NumberFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-filepath>
+                           filePath :: (Prelude.Maybe StringFilterProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-name>
                            name :: (Prelude.Maybe StringFilterProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-release>
                            release :: (Prelude.Maybe StringFilterProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelambdalayerarn>
+                           sourceLambdaLayerArn :: (Prelude.Maybe StringFilterProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelayerhash>
                            sourceLayerHash :: (Prelude.Maybe StringFilterProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-version>
@@ -27,9 +31,10 @@ mkPackageFilterProperty :: PackageFilterProperty
 mkPackageFilterProperty
   = PackageFilterProperty
       {haddock_workaround_ = (), architecture = Prelude.Nothing,
-       epoch = Prelude.Nothing, name = Prelude.Nothing,
-       release = Prelude.Nothing, sourceLayerHash = Prelude.Nothing,
-       version = Prelude.Nothing}
+       epoch = Prelude.Nothing, filePath = Prelude.Nothing,
+       name = Prelude.Nothing, release = Prelude.Nothing,
+       sourceLambdaLayerArn = Prelude.Nothing,
+       sourceLayerHash = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties PackageFilterProperty where
   toResourceProperties PackageFilterProperty {..}
     = ResourceProperties
@@ -39,8 +44,10 @@ instance ToResourceProperties PackageFilterProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "Architecture" Prelude.<$> architecture,
                             (JSON..=) "Epoch" Prelude.<$> epoch,
+                            (JSON..=) "FilePath" Prelude.<$> filePath,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Release" Prelude.<$> release,
+                            (JSON..=) "SourceLambdaLayerArn" Prelude.<$> sourceLambdaLayerArn,
                             (JSON..=) "SourceLayerHash" Prelude.<$> sourceLayerHash,
                             (JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON PackageFilterProperty where
@@ -50,8 +57,10 @@ instance JSON.ToJSON PackageFilterProperty where
            (Prelude.catMaybes
               [(JSON..=) "Architecture" Prelude.<$> architecture,
                (JSON..=) "Epoch" Prelude.<$> epoch,
+               (JSON..=) "FilePath" Prelude.<$> filePath,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Release" Prelude.<$> release,
+               (JSON..=) "SourceLambdaLayerArn" Prelude.<$> sourceLambdaLayerArn,
                (JSON..=) "SourceLayerHash" Prelude.<$> sourceLayerHash,
                (JSON..=) "Version" Prelude.<$> version]))
 instance Property "Architecture" PackageFilterProperty where
@@ -62,6 +71,10 @@ instance Property "Epoch" PackageFilterProperty where
   type PropertyType "Epoch" PackageFilterProperty = NumberFilterProperty
   set newValue PackageFilterProperty {..}
     = PackageFilterProperty {epoch = Prelude.pure newValue, ..}
+instance Property "FilePath" PackageFilterProperty where
+  type PropertyType "FilePath" PackageFilterProperty = StringFilterProperty
+  set newValue PackageFilterProperty {..}
+    = PackageFilterProperty {filePath = Prelude.pure newValue, ..}
 instance Property "Name" PackageFilterProperty where
   type PropertyType "Name" PackageFilterProperty = StringFilterProperty
   set newValue PackageFilterProperty {..}
@@ -70,6 +83,11 @@ instance Property "Release" PackageFilterProperty where
   type PropertyType "Release" PackageFilterProperty = StringFilterProperty
   set newValue PackageFilterProperty {..}
     = PackageFilterProperty {release = Prelude.pure newValue, ..}
+instance Property "SourceLambdaLayerArn" PackageFilterProperty where
+  type PropertyType "SourceLambdaLayerArn" PackageFilterProperty = StringFilterProperty
+  set newValue PackageFilterProperty {..}
+    = PackageFilterProperty
+        {sourceLambdaLayerArn = Prelude.pure newValue, ..}
 instance Property "SourceLayerHash" PackageFilterProperty where
   type PropertyType "SourceLayerHash" PackageFilterProperty = StringFilterProperty
   set newValue PackageFilterProperty {..}

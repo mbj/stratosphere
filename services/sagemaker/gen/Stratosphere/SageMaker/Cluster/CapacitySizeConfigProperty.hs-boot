@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.CapacitySizeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacitySizeConfigProperty :: Prelude.Type
+instance ToResourceProperties CapacitySizeConfigProperty
+instance Prelude.Eq CapacitySizeConfigProperty
+instance Prelude.Show CapacitySizeConfigProperty
+instance JSON.ToJSON CapacitySizeConfigProperty

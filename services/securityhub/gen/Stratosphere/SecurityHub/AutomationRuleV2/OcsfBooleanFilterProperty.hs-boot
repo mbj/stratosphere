@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.OcsfBooleanFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OcsfBooleanFilterProperty :: Prelude.Type
+instance ToResourceProperties OcsfBooleanFilterProperty
+instance Prelude.Eq OcsfBooleanFilterProperty
+instance Prelude.Show OcsfBooleanFilterProperty
+instance JSON.ToJSON OcsfBooleanFilterProperty

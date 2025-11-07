@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.ContentFiltersTierConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContentFiltersTierConfigProperty :: Prelude.Type
+instance ToResourceProperties ContentFiltersTierConfigProperty
+instance Prelude.Eq ContentFiltersTierConfigProperty
+instance Prelude.Show ContentFiltersTierConfigProperty
+instance JSON.ToJSON ContentFiltersTierConfigProperty

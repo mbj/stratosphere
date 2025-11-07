@@ -31,6 +31,7 @@ library
       Stratosphere.MediaLive.Channel
       Stratosphere.MediaLive.Channel.AacSettingsProperty
       Stratosphere.MediaLive.Channel.Ac3SettingsProperty
+      Stratosphere.MediaLive.Channel.AdditionalDestinationsProperty
       Stratosphere.MediaLive.Channel.AncillarySourceSettingsProperty
       Stratosphere.MediaLive.Channel.AnywhereSettingsProperty
       Stratosphere.MediaLive.Channel.ArchiveCdnSettingsProperty
@@ -71,6 +72,8 @@ library
       Stratosphere.MediaLive.Channel.CaptionSelectorProperty
       Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty
       Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty
+      Stratosphere.MediaLive.Channel.ChannelEngineVersionRequestProperty
+      Stratosphere.MediaLive.Channel.CmafIngestCaptionLanguageMappingProperty
       Stratosphere.MediaLive.Channel.CmafIngestGroupSettingsProperty
       Stratosphere.MediaLive.Channel.CmafIngestOutputSettingsProperty
       Stratosphere.MediaLive.Channel.ColorCorrectionProperty
@@ -136,6 +139,8 @@ library
       Stratosphere.MediaLive.Channel.MediaPackageGroupSettingsProperty
       Stratosphere.MediaLive.Channel.MediaPackageOutputDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.MediaPackageOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.MediaPackageV2DestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.MediaPackageV2GroupSettingsProperty
       Stratosphere.MediaLive.Channel.MotionGraphicsConfigurationProperty
       Stratosphere.MediaLive.Channel.MotionGraphicsSettingsProperty
       Stratosphere.MediaLive.Channel.Mp2SettingsProperty
@@ -220,6 +225,7 @@ library
       Stratosphere.MediaLive.Input.InputDeviceRequestProperty
       Stratosphere.MediaLive.Input.InputDeviceSettingsProperty
       Stratosphere.MediaLive.Input.InputRequestDestinationRouteProperty
+      Stratosphere.MediaLive.Input.InputSdpLocationProperty
       Stratosphere.MediaLive.Input.InputSourceRequestProperty
       Stratosphere.MediaLive.Input.InputVpcRequestProperty
       Stratosphere.MediaLive.Input.MediaConnectFlowRequestProperty
@@ -227,6 +233,9 @@ library
       Stratosphere.MediaLive.Input.MulticastSettingsUpdateRequestProperty
       Stratosphere.MediaLive.Input.MulticastSourceCreateRequestProperty
       Stratosphere.MediaLive.Input.MulticastSourceUpdateRequestProperty
+      Stratosphere.MediaLive.Input.Smpte2110ReceiverGroupProperty
+      Stratosphere.MediaLive.Input.Smpte2110ReceiverGroupSdpSettingsProperty
+      Stratosphere.MediaLive.Input.Smpte2110ReceiverGroupSettingsProperty
       Stratosphere.MediaLive.Input.SrtCallerDecryptionRequestProperty
       Stratosphere.MediaLive.Input.SrtCallerSourceRequestProperty
       Stratosphere.MediaLive.Input.SrtSettingsRequestProperty

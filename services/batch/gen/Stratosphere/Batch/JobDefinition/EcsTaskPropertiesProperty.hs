@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EphemeralStorageProperty 
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RuntimePlatformProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.TaskContainerPropertiesProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsTaskPropertiesProperty
@@ -17,6 +17,8 @@ data EcsTaskPropertiesProperty
     EcsTaskPropertiesProperty {haddock_workaround_ :: (),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-containers>
                                containers :: (Prelude.Maybe [TaskContainerPropertiesProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-enableexecutecommand>
+                               enableExecuteCommand :: (Prelude.Maybe (Value Prelude.Bool)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-ephemeralstorage>
                                ephemeralStorage :: (Prelude.Maybe EphemeralStorageProperty),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-executionrolearn>
@@ -34,12 +36,13 @@ data EcsTaskPropertiesProperty
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-taskrolearn>
                                taskRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-volumes>
-                               volumes :: (Prelude.Maybe [VolumesProperty])}
+                               volumes :: (Prelude.Maybe [VolumeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsTaskPropertiesProperty :: EcsTaskPropertiesProperty
 mkEcsTaskPropertiesProperty
   = EcsTaskPropertiesProperty
       {haddock_workaround_ = (), containers = Prelude.Nothing,
+       enableExecuteCommand = Prelude.Nothing,
        ephemeralStorage = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing, ipcMode = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing, pidMode = Prelude.Nothing,
@@ -54,6 +57,7 @@ instance ToResourceProperties EcsTaskPropertiesProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Containers" Prelude.<$> containers,
+                            (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
                             (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                             (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                             (JSON..=) "IpcMode" Prelude.<$> ipcMode,
@@ -69,6 +73,7 @@ instance JSON.ToJSON EcsTaskPropertiesProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Containers" Prelude.<$> containers,
+               (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
                (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                (JSON..=) "IpcMode" Prelude.<$> ipcMode,
@@ -83,6 +88,11 @@ instance Property "Containers" EcsTaskPropertiesProperty where
   set newValue EcsTaskPropertiesProperty {..}
     = EcsTaskPropertiesProperty
         {containers = Prelude.pure newValue, ..}
+instance Property "EnableExecuteCommand" EcsTaskPropertiesProperty where
+  type PropertyType "EnableExecuteCommand" EcsTaskPropertiesProperty = Value Prelude.Bool
+  set newValue EcsTaskPropertiesProperty {..}
+    = EcsTaskPropertiesProperty
+        {enableExecuteCommand = Prelude.pure newValue, ..}
 instance Property "EphemeralStorage" EcsTaskPropertiesProperty where
   type PropertyType "EphemeralStorage" EcsTaskPropertiesProperty = EphemeralStorageProperty
   set newValue EcsTaskPropertiesProperty {..}
@@ -122,6 +132,6 @@ instance Property "TaskRoleArn" EcsTaskPropertiesProperty where
     = EcsTaskPropertiesProperty
         {taskRoleArn = Prelude.pure newValue, ..}
 instance Property "Volumes" EcsTaskPropertiesProperty where
-  type PropertyType "Volumes" EcsTaskPropertiesProperty = [VolumesProperty]
+  type PropertyType "Volumes" EcsTaskPropertiesProperty = [VolumeProperty]
   set newValue EcsTaskPropertiesProperty {..}
     = EcsTaskPropertiesProperty {volumes = Prelude.pure newValue, ..}

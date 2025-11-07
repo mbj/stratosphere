@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.BedrockGuardrailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BedrockGuardrailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BedrockGuardrailConfigurationProperty
+instance Prelude.Eq BedrockGuardrailConfigurationProperty
+instance Prelude.Show BedrockGuardrailConfigurationProperty
+instance JSON.ToJSON BedrockGuardrailConfigurationProperty

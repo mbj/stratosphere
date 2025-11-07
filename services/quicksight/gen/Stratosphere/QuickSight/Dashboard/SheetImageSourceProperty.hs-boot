@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.SheetImageSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SheetImageSourceProperty :: Prelude.Type
+instance ToResourceProperties SheetImageSourceProperty
+instance Prelude.Eq SheetImageSourceProperty
+instance Prelude.Show SheetImageSourceProperty
+instance JSON.ToJSON SheetImageSourceProperty

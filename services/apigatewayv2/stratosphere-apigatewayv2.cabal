@@ -53,6 +53,13 @@ library
       Stratosphere.ApiGatewayV2.Route
       Stratosphere.ApiGatewayV2.RouteResponse
       Stratosphere.ApiGatewayV2.RouteResponse.ParameterConstraintsProperty
+      Stratosphere.ApiGatewayV2.RoutingRule
+      Stratosphere.ApiGatewayV2.RoutingRule.ActionInvokeApiProperty
+      Stratosphere.ApiGatewayV2.RoutingRule.ActionProperty
+      Stratosphere.ApiGatewayV2.RoutingRule.ConditionProperty
+      Stratosphere.ApiGatewayV2.RoutingRule.MatchBasePathsProperty
+      Stratosphere.ApiGatewayV2.RoutingRule.MatchHeadersProperty
+      Stratosphere.ApiGatewayV2.RoutingRule.MatchHeaderValueProperty
       Stratosphere.ApiGatewayV2.Stage
       Stratosphere.ApiGatewayV2.Stage.AccessLogSettingsProperty
       Stratosphere.ApiGatewayV2.Stage.RouteSettingsProperty

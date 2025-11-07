@@ -1,0 +1,9 @@
+module Stratosphere.RUM.AppMonitor.JavaScriptSourceMapsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JavaScriptSourceMapsProperty :: Prelude.Type
+instance ToResourceProperties JavaScriptSourceMapsProperty
+instance Prelude.Eq JavaScriptSourceMapsProperty
+instance Prelude.Show JavaScriptSourceMapsProperty
+instance JSON.ToJSON JavaScriptSourceMapsProperty

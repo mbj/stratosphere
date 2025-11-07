@@ -16,7 +16,9 @@ data OriginGroupProperty
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id>
                          id :: (Value Prelude.Text),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members>
-                         members :: OriginGroupMembersProperty}
+                         members :: OriginGroupMembersProperty,
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-selectioncriteria>
+                         selectionCriteria :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupProperty ::
   OriginGroupFailoverCriteriaProperty
@@ -25,19 +27,27 @@ mkOriginGroupProperty ::
 mkOriginGroupProperty failoverCriteria id members
   = OriginGroupProperty
       {haddock_workaround_ = (), failoverCriteria = failoverCriteria,
-       id = id, members = members}
+       id = id, members = members, selectionCriteria = Prelude.Nothing}
 instance ToResourceProperties OriginGroupProperty where
   toResourceProperties OriginGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.OriginGroup",
          supportsTags = Prelude.False,
-         properties = ["FailoverCriteria" JSON..= failoverCriteria,
-                       "Id" JSON..= id, "Members" JSON..= members]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["FailoverCriteria" JSON..= failoverCriteria, "Id" JSON..= id,
+                            "Members" JSON..= members]
+                           (Prelude.catMaybes
+                              [(JSON..=) "SelectionCriteria" Prelude.<$> selectionCriteria]))}
 instance JSON.ToJSON OriginGroupProperty where
   toJSON OriginGroupProperty {..}
     = JSON.object
-        ["FailoverCriteria" JSON..= failoverCriteria, "Id" JSON..= id,
-         "Members" JSON..= members]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["FailoverCriteria" JSON..= failoverCriteria, "Id" JSON..= id,
+               "Members" JSON..= members]
+              (Prelude.catMaybes
+                 [(JSON..=) "SelectionCriteria" Prelude.<$> selectionCriteria])))
 instance Property "FailoverCriteria" OriginGroupProperty where
   type PropertyType "FailoverCriteria" OriginGroupProperty = OriginGroupFailoverCriteriaProperty
   set newValue OriginGroupProperty {..}
@@ -50,3 +60,8 @@ instance Property "Members" OriginGroupProperty where
   type PropertyType "Members" OriginGroupProperty = OriginGroupMembersProperty
   set newValue OriginGroupProperty {..}
     = OriginGroupProperty {members = newValue, ..}
+instance Property "SelectionCriteria" OriginGroupProperty where
+  type PropertyType "SelectionCriteria" OriginGroupProperty = Value Prelude.Text
+  set newValue OriginGroupProperty {..}
+    = OriginGroupProperty
+        {selectionCriteria = Prelude.pure newValue, ..}

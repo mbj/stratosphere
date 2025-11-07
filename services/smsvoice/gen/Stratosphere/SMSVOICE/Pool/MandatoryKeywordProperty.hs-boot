@@ -1,0 +1,9 @@
+module Stratosphere.SMSVOICE.Pool.MandatoryKeywordProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MandatoryKeywordProperty :: Prelude.Type
+instance ToResourceProperties MandatoryKeywordProperty
+instance Prelude.Eq MandatoryKeywordProperty
+instance Prelude.Show MandatoryKeywordProperty
+instance JSON.ToJSON MandatoryKeywordProperty

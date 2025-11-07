@@ -1,0 +1,9 @@
+module Stratosphere.EC2.LaunchTemplate.NetworkPerformanceOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkPerformanceOptionsProperty :: Prelude.Type
+instance ToResourceProperties NetworkPerformanceOptionsProperty
+instance Prelude.Eq NetworkPerformanceOptionsProperty
+instance Prelude.Show NetworkPerformanceOptionsProperty
+instance JSON.ToJSON NetworkPerformanceOptionsProperty

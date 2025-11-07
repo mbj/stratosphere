@@ -12,11 +12,15 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DestinationTab
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SchemaEvolutionConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.TableCreationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IcebergDestinationConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html>
     IcebergDestinationConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-appendonly>
+                                             appendOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-bufferinghints>
                                              bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-catalogconfiguration>
@@ -33,6 +37,10 @@ data IcebergDestinationConfigurationProperty
                                              roleARN :: (Value Prelude.Text),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3configuration>
                                              s3Configuration :: S3DestinationConfigurationProperty,
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-schemaevolutionconfiguration>
+                                             schemaEvolutionConfiguration :: (Prelude.Maybe SchemaEvolutionConfigurationProperty),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-tablecreationconfiguration>
+                                             tableCreationConfiguration :: (Prelude.Maybe TableCreationConfigurationProperty),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3backupmode>
                                              s3BackupMode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -48,12 +56,15 @@ mkIcebergDestinationConfigurationProperty
   = IcebergDestinationConfigurationProperty
       {haddock_workaround_ = (),
        catalogConfiguration = catalogConfiguration, roleARN = roleARN,
-       s3Configuration = s3Configuration,
+       s3Configuration = s3Configuration, appendOnly = Prelude.Nothing,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
        destinationTableConfigurationList = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
-       retryOptions = Prelude.Nothing, s3BackupMode = Prelude.Nothing}
+       retryOptions = Prelude.Nothing,
+       schemaEvolutionConfiguration = Prelude.Nothing,
+       tableCreationConfiguration = Prelude.Nothing,
+       s3BackupMode = Prelude.Nothing}
 instance ToResourceProperties IcebergDestinationConfigurationProperty where
   toResourceProperties IcebergDestinationConfigurationProperty {..}
     = ResourceProperties
@@ -65,7 +76,8 @@ instance ToResourceProperties IcebergDestinationConfigurationProperty where
                             "RoleARN" JSON..= roleARN,
                             "S3Configuration" JSON..= s3Configuration]
                            (Prelude.catMaybes
-                              [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                              [(JSON..=) "AppendOnly" Prelude.<$> appendOnly,
+                               (JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
                                (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "DestinationTableConfigurationList"
@@ -73,6 +85,10 @@ instance ToResourceProperties IcebergDestinationConfigurationProperty where
                                (JSON..=) "ProcessingConfiguration"
                                  Prelude.<$> processingConfiguration,
                                (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
+                               (JSON..=) "SchemaEvolutionConfiguration"
+                                 Prelude.<$> schemaEvolutionConfiguration,
+                               (JSON..=) "TableCreationConfiguration"
+                                 Prelude.<$> tableCreationConfiguration,
                                (JSON..=) "s3BackupMode" Prelude.<$> s3BackupMode]))}
 instance JSON.ToJSON IcebergDestinationConfigurationProperty where
   toJSON IcebergDestinationConfigurationProperty {..}
@@ -83,7 +99,8 @@ instance JSON.ToJSON IcebergDestinationConfigurationProperty where
                "RoleARN" JSON..= roleARN,
                "S3Configuration" JSON..= s3Configuration]
               (Prelude.catMaybes
-                 [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                 [(JSON..=) "AppendOnly" Prelude.<$> appendOnly,
+                  (JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
                   (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "DestinationTableConfigurationList"
@@ -91,7 +108,16 @@ instance JSON.ToJSON IcebergDestinationConfigurationProperty where
                   (JSON..=) "ProcessingConfiguration"
                     Prelude.<$> processingConfiguration,
                   (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
+                  (JSON..=) "SchemaEvolutionConfiguration"
+                    Prelude.<$> schemaEvolutionConfiguration,
+                  (JSON..=) "TableCreationConfiguration"
+                    Prelude.<$> tableCreationConfiguration,
                   (JSON..=) "s3BackupMode" Prelude.<$> s3BackupMode])))
+instance Property "AppendOnly" IcebergDestinationConfigurationProperty where
+  type PropertyType "AppendOnly" IcebergDestinationConfigurationProperty = Value Prelude.Bool
+  set newValue IcebergDestinationConfigurationProperty {..}
+    = IcebergDestinationConfigurationProperty
+        {appendOnly = Prelude.pure newValue, ..}
 instance Property "BufferingHints" IcebergDestinationConfigurationProperty where
   type PropertyType "BufferingHints" IcebergDestinationConfigurationProperty = BufferingHintsProperty
   set newValue IcebergDestinationConfigurationProperty {..}
@@ -131,6 +157,16 @@ instance Property "S3Configuration" IcebergDestinationConfigurationProperty wher
   set newValue IcebergDestinationConfigurationProperty {..}
     = IcebergDestinationConfigurationProperty
         {s3Configuration = newValue, ..}
+instance Property "SchemaEvolutionConfiguration" IcebergDestinationConfigurationProperty where
+  type PropertyType "SchemaEvolutionConfiguration" IcebergDestinationConfigurationProperty = SchemaEvolutionConfigurationProperty
+  set newValue IcebergDestinationConfigurationProperty {..}
+    = IcebergDestinationConfigurationProperty
+        {schemaEvolutionConfiguration = Prelude.pure newValue, ..}
+instance Property "TableCreationConfiguration" IcebergDestinationConfigurationProperty where
+  type PropertyType "TableCreationConfiguration" IcebergDestinationConfigurationProperty = TableCreationConfigurationProperty
+  set newValue IcebergDestinationConfigurationProperty {..}
+    = IcebergDestinationConfigurationProperty
+        {tableCreationConfiguration = Prelude.pure newValue, ..}
 instance Property "s3BackupMode" IcebergDestinationConfigurationProperty where
   type PropertyType "s3BackupMode" IcebergDestinationConfigurationProperty = Value Prelude.Text
   set newValue IcebergDestinationConfigurationProperty {..}

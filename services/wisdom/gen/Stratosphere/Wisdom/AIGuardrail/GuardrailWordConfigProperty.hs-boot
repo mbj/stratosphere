@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIGuardrail.GuardrailWordConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GuardrailWordConfigProperty :: Prelude.Type
+instance ToResourceProperties GuardrailWordConfigProperty
+instance Prelude.Eq GuardrailWordConfigProperty
+instance Prelude.Show GuardrailWordConfigProperty
+instance JSON.ToJSON GuardrailWordConfigProperty

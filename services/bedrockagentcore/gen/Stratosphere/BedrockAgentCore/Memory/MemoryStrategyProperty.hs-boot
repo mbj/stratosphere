@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.MemoryStrategyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MemoryStrategyProperty :: Prelude.Type
+instance ToResourceProperties MemoryStrategyProperty
+instance Prelude.Eq MemoryStrategyProperty
+instance Prelude.Show MemoryStrategyProperty
+instance JSON.ToJSON MemoryStrategyProperty

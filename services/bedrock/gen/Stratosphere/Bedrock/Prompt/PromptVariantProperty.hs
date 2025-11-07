@@ -4,15 +4,23 @@ module Stratosphere.Bedrock.Prompt.PromptVariantProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptGenAiResourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptInferenceConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptMetadataEntryProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptTemplateConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PromptVariantProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html>
     PromptVariantProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-additionalmodelrequestfields>
+                           additionalModelRequestFields :: (Prelude.Maybe JSON.Object),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-genairesource>
+                           genAiResource :: (Prelude.Maybe PromptGenAiResourceProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-inferenceconfiguration>
                            inferenceConfiguration :: (Prelude.Maybe PromptInferenceConfigurationProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-metadata>
+                           metadata :: (Prelude.Maybe [PromptMetadataEntryProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-modelid>
                            modelId :: (Prelude.Maybe (Value Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-name>
@@ -31,8 +39,10 @@ mkPromptVariantProperty name templateConfiguration templateType
       {haddock_workaround_ = (), name = name,
        templateConfiguration = templateConfiguration,
        templateType = templateType,
+       additionalModelRequestFields = Prelude.Nothing,
+       genAiResource = Prelude.Nothing,
        inferenceConfiguration = Prelude.Nothing,
-       modelId = Prelude.Nothing}
+       metadata = Prelude.Nothing, modelId = Prelude.Nothing}
 instance ToResourceProperties PromptVariantProperty where
   toResourceProperties PromptVariantProperty {..}
     = ResourceProperties
@@ -44,8 +54,12 @@ instance ToResourceProperties PromptVariantProperty where
                             "TemplateConfiguration" JSON..= templateConfiguration,
                             "TemplateType" JSON..= templateType]
                            (Prelude.catMaybes
-                              [(JSON..=) "InferenceConfiguration"
+                              [(JSON..=) "AdditionalModelRequestFields"
+                                 Prelude.<$> additionalModelRequestFields,
+                               (JSON..=) "GenAiResource" Prelude.<$> genAiResource,
+                               (JSON..=) "InferenceConfiguration"
                                  Prelude.<$> inferenceConfiguration,
+                               (JSON..=) "Metadata" Prelude.<$> metadata,
                                (JSON..=) "ModelId" Prelude.<$> modelId]))}
 instance JSON.ToJSON PromptVariantProperty where
   toJSON PromptVariantProperty {..}
@@ -56,14 +70,31 @@ instance JSON.ToJSON PromptVariantProperty where
                "TemplateConfiguration" JSON..= templateConfiguration,
                "TemplateType" JSON..= templateType]
               (Prelude.catMaybes
-                 [(JSON..=) "InferenceConfiguration"
+                 [(JSON..=) "AdditionalModelRequestFields"
+                    Prelude.<$> additionalModelRequestFields,
+                  (JSON..=) "GenAiResource" Prelude.<$> genAiResource,
+                  (JSON..=) "InferenceConfiguration"
                     Prelude.<$> inferenceConfiguration,
+                  (JSON..=) "Metadata" Prelude.<$> metadata,
                   (JSON..=) "ModelId" Prelude.<$> modelId])))
+instance Property "AdditionalModelRequestFields" PromptVariantProperty where
+  type PropertyType "AdditionalModelRequestFields" PromptVariantProperty = JSON.Object
+  set newValue PromptVariantProperty {..}
+    = PromptVariantProperty
+        {additionalModelRequestFields = Prelude.pure newValue, ..}
+instance Property "GenAiResource" PromptVariantProperty where
+  type PropertyType "GenAiResource" PromptVariantProperty = PromptGenAiResourceProperty
+  set newValue PromptVariantProperty {..}
+    = PromptVariantProperty {genAiResource = Prelude.pure newValue, ..}
 instance Property "InferenceConfiguration" PromptVariantProperty where
   type PropertyType "InferenceConfiguration" PromptVariantProperty = PromptInferenceConfigurationProperty
   set newValue PromptVariantProperty {..}
     = PromptVariantProperty
         {inferenceConfiguration = Prelude.pure newValue, ..}
+instance Property "Metadata" PromptVariantProperty where
+  type PropertyType "Metadata" PromptVariantProperty = [PromptMetadataEntryProperty]
+  set newValue PromptVariantProperty {..}
+    = PromptVariantProperty {metadata = Prelude.pure newValue, ..}
 instance Property "ModelId" PromptVariantProperty where
   type PropertyType "ModelId" PromptVariantProperty = Value Prelude.Text
   set newValue PromptVariantProperty {..}

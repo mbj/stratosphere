@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.QnAKendraConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QnAKendraConfigurationProperty :: Prelude.Type
+instance ToResourceProperties QnAKendraConfigurationProperty
+instance Prelude.Eq QnAKendraConfigurationProperty
+instance Prelude.Show QnAKendraConfigurationProperty
+instance JSON.ToJSON QnAKendraConfigurationProperty

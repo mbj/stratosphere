@@ -40,6 +40,7 @@ library
       Stratosphere.IAM.Role.PolicyProperty
       Stratosphere.IAM.RolePolicy
       Stratosphere.IAM.SAMLProvider
+      Stratosphere.IAM.SAMLProvider.SAMLPrivateKeyProperty
       Stratosphere.IAM.ServerCertificate
       Stratosphere.IAM.ServiceLinkedRole
       Stratosphere.IAM.User

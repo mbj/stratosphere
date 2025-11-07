@@ -13,6 +13,8 @@ data Av1SettingsProperty
     Av1SettingsProperty {haddock_workaround_ :: (),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-afdsignaling>
                          afdSignaling :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-bitrate>
+                         bitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-bufsize>
                          bufSize :: (Prelude.Maybe (Value Prelude.Integer)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-colorspacesettings>
@@ -33,6 +35,8 @@ data Av1SettingsProperty
                          lookAheadRateControl :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-maxbitrate>
                          maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-minbitrate>
+                         minBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-miniinterval>
                          minIInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-pardenominator>
@@ -41,6 +45,8 @@ data Av1SettingsProperty
                          parNumerator :: (Prelude.Maybe (Value Prelude.Integer)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-qvbrqualitylevel>
                          qvbrQualityLevel :: (Prelude.Maybe (Value Prelude.Integer)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-ratecontrolmode>
+                         rateControlMode :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-scenechangedetect>
                          sceneChangeDetect :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-timecodeburninsettings>
@@ -50,14 +56,16 @@ mkAv1SettingsProperty :: Av1SettingsProperty
 mkAv1SettingsProperty
   = Av1SettingsProperty
       {haddock_workaround_ = (), afdSignaling = Prelude.Nothing,
-       bufSize = Prelude.Nothing, colorSpaceSettings = Prelude.Nothing,
-       fixedAfd = Prelude.Nothing, framerateDenominator = Prelude.Nothing,
+       bitrate = Prelude.Nothing, bufSize = Prelude.Nothing,
+       colorSpaceSettings = Prelude.Nothing, fixedAfd = Prelude.Nothing,
+       framerateDenominator = Prelude.Nothing,
        framerateNumerator = Prelude.Nothing, gopSize = Prelude.Nothing,
        gopSizeUnits = Prelude.Nothing, level = Prelude.Nothing,
        lookAheadRateControl = Prelude.Nothing,
-       maxBitrate = Prelude.Nothing, minIInterval = Prelude.Nothing,
-       parDenominator = Prelude.Nothing, parNumerator = Prelude.Nothing,
-       qvbrQualityLevel = Prelude.Nothing,
+       maxBitrate = Prelude.Nothing, minBitrate = Prelude.Nothing,
+       minIInterval = Prelude.Nothing, parDenominator = Prelude.Nothing,
+       parNumerator = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
+       rateControlMode = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing,
        timecodeBurninSettings = Prelude.Nothing}
 instance ToResourceProperties Av1SettingsProperty where
@@ -68,6 +76,7 @@ instance ToResourceProperties Av1SettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AfdSignaling" Prelude.<$> afdSignaling,
+                            (JSON..=) "Bitrate" Prelude.<$> bitrate,
                             (JSON..=) "BufSize" Prelude.<$> bufSize,
                             (JSON..=) "ColorSpaceSettings" Prelude.<$> colorSpaceSettings,
                             (JSON..=) "FixedAfd" Prelude.<$> fixedAfd,
@@ -78,10 +87,12 @@ instance ToResourceProperties Av1SettingsProperty where
                             (JSON..=) "Level" Prelude.<$> level,
                             (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+                            (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                             (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                             (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
                             (JSON..=) "ParNumerator" Prelude.<$> parNumerator,
                             (JSON..=) "QvbrQualityLevel" Prelude.<$> qvbrQualityLevel,
+                            (JSON..=) "RateControlMode" Prelude.<$> rateControlMode,
                             (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                             (JSON..=) "TimecodeBurninSettings"
                               Prelude.<$> timecodeBurninSettings])}
@@ -91,6 +102,7 @@ instance JSON.ToJSON Av1SettingsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AfdSignaling" Prelude.<$> afdSignaling,
+               (JSON..=) "Bitrate" Prelude.<$> bitrate,
                (JSON..=) "BufSize" Prelude.<$> bufSize,
                (JSON..=) "ColorSpaceSettings" Prelude.<$> colorSpaceSettings,
                (JSON..=) "FixedAfd" Prelude.<$> fixedAfd,
@@ -101,10 +113,12 @@ instance JSON.ToJSON Av1SettingsProperty where
                (JSON..=) "Level" Prelude.<$> level,
                (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+               (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
                (JSON..=) "ParNumerator" Prelude.<$> parNumerator,
                (JSON..=) "QvbrQualityLevel" Prelude.<$> qvbrQualityLevel,
+               (JSON..=) "RateControlMode" Prelude.<$> rateControlMode,
                (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                (JSON..=) "TimecodeBurninSettings"
                  Prelude.<$> timecodeBurninSettings]))
@@ -112,6 +126,10 @@ instance Property "AfdSignaling" Av1SettingsProperty where
   type PropertyType "AfdSignaling" Av1SettingsProperty = Value Prelude.Text
   set newValue Av1SettingsProperty {..}
     = Av1SettingsProperty {afdSignaling = Prelude.pure newValue, ..}
+instance Property "Bitrate" Av1SettingsProperty where
+  type PropertyType "Bitrate" Av1SettingsProperty = Value Prelude.Integer
+  set newValue Av1SettingsProperty {..}
+    = Av1SettingsProperty {bitrate = Prelude.pure newValue, ..}
 instance Property "BufSize" Av1SettingsProperty where
   type PropertyType "BufSize" Av1SettingsProperty = Value Prelude.Integer
   set newValue Av1SettingsProperty {..}
@@ -156,6 +174,10 @@ instance Property "MaxBitrate" Av1SettingsProperty where
   type PropertyType "MaxBitrate" Av1SettingsProperty = Value Prelude.Integer
   set newValue Av1SettingsProperty {..}
     = Av1SettingsProperty {maxBitrate = Prelude.pure newValue, ..}
+instance Property "MinBitrate" Av1SettingsProperty where
+  type PropertyType "MinBitrate" Av1SettingsProperty = Value Prelude.Integer
+  set newValue Av1SettingsProperty {..}
+    = Av1SettingsProperty {minBitrate = Prelude.pure newValue, ..}
 instance Property "MinIInterval" Av1SettingsProperty where
   type PropertyType "MinIInterval" Av1SettingsProperty = Value Prelude.Integer
   set newValue Av1SettingsProperty {..}
@@ -173,6 +195,10 @@ instance Property "QvbrQualityLevel" Av1SettingsProperty where
   set newValue Av1SettingsProperty {..}
     = Av1SettingsProperty
         {qvbrQualityLevel = Prelude.pure newValue, ..}
+instance Property "RateControlMode" Av1SettingsProperty where
+  type PropertyType "RateControlMode" Av1SettingsProperty = Value Prelude.Text
+  set newValue Av1SettingsProperty {..}
+    = Av1SettingsProperty {rateControlMode = Prelude.pure newValue, ..}
 instance Property "SceneChangeDetect" Av1SettingsProperty where
   type PropertyType "SceneChangeDetect" Av1SettingsProperty = Value Prelude.Text
   set newValue Av1SettingsProperty {..}

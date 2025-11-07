@@ -14,6 +14,8 @@ data NetworkInsightsAnalysis
                              additionalAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns>
                              filterInArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filteroutarns>
+                             filterOutArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid>
                              networkInsightsPathId :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags>
@@ -26,7 +28,8 @@ mkNetworkInsightsAnalysis networkInsightsPathId
       {haddock_workaround_ = (),
        networkInsightsPathId = networkInsightsPathId,
        additionalAccounts = Prelude.Nothing,
-       filterInArns = Prelude.Nothing, tags = Prelude.Nothing}
+       filterInArns = Prelude.Nothing, filterOutArns = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties NetworkInsightsAnalysis where
   toResourceProperties NetworkInsightsAnalysis {..}
     = ResourceProperties
@@ -38,6 +41,7 @@ instance ToResourceProperties NetworkInsightsAnalysis where
                            (Prelude.catMaybes
                               [(JSON..=) "AdditionalAccounts" Prelude.<$> additionalAccounts,
                                (JSON..=) "FilterInArns" Prelude.<$> filterInArns,
+                               (JSON..=) "FilterOutArns" Prelude.<$> filterOutArns,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON NetworkInsightsAnalysis where
   toJSON NetworkInsightsAnalysis {..}
@@ -48,6 +52,7 @@ instance JSON.ToJSON NetworkInsightsAnalysis where
               (Prelude.catMaybes
                  [(JSON..=) "AdditionalAccounts" Prelude.<$> additionalAccounts,
                   (JSON..=) "FilterInArns" Prelude.<$> filterInArns,
+                  (JSON..=) "FilterOutArns" Prelude.<$> filterOutArns,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AdditionalAccounts" NetworkInsightsAnalysis where
   type PropertyType "AdditionalAccounts" NetworkInsightsAnalysis = ValueList Prelude.Text
@@ -59,6 +64,11 @@ instance Property "FilterInArns" NetworkInsightsAnalysis where
   set newValue NetworkInsightsAnalysis {..}
     = NetworkInsightsAnalysis
         {filterInArns = Prelude.pure newValue, ..}
+instance Property "FilterOutArns" NetworkInsightsAnalysis where
+  type PropertyType "FilterOutArns" NetworkInsightsAnalysis = ValueList Prelude.Text
+  set newValue NetworkInsightsAnalysis {..}
+    = NetworkInsightsAnalysis
+        {filterOutArns = Prelude.pure newValue, ..}
 instance Property "NetworkInsightsPathId" NetworkInsightsAnalysis where
   type PropertyType "NetworkInsightsPathId" NetworkInsightsAnalysis = Value Prelude.Text
   set newValue NetworkInsightsAnalysis {..}

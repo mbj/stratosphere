@@ -13,6 +13,8 @@ data SamlConfigOptionsProperty
                                groupAttribute :: (Prelude.Maybe (Value Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-metadata>
                                metadata :: (Value Prelude.Text),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-opensearchserverlessentityid>
+                               openSearchServerlessEntityId :: (Prelude.Maybe (Value Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-sessiontimeout>
                                sessionTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-userattribute>
@@ -23,8 +25,9 @@ mkSamlConfigOptionsProperty ::
 mkSamlConfigOptionsProperty metadata
   = SamlConfigOptionsProperty
       {haddock_workaround_ = (), metadata = metadata,
-       groupAttribute = Prelude.Nothing, sessionTimeout = Prelude.Nothing,
-       userAttribute = Prelude.Nothing}
+       groupAttribute = Prelude.Nothing,
+       openSearchServerlessEntityId = Prelude.Nothing,
+       sessionTimeout = Prelude.Nothing, userAttribute = Prelude.Nothing}
 instance ToResourceProperties SamlConfigOptionsProperty where
   toResourceProperties SamlConfigOptionsProperty {..}
     = ResourceProperties
@@ -35,6 +38,8 @@ instance ToResourceProperties SamlConfigOptionsProperty where
                            ["Metadata" JSON..= metadata]
                            (Prelude.catMaybes
                               [(JSON..=) "GroupAttribute" Prelude.<$> groupAttribute,
+                               (JSON..=) "OpenSearchServerlessEntityId"
+                                 Prelude.<$> openSearchServerlessEntityId,
                                (JSON..=) "SessionTimeout" Prelude.<$> sessionTimeout,
                                (JSON..=) "UserAttribute" Prelude.<$> userAttribute]))}
 instance JSON.ToJSON SamlConfigOptionsProperty where
@@ -45,6 +50,8 @@ instance JSON.ToJSON SamlConfigOptionsProperty where
               ["Metadata" JSON..= metadata]
               (Prelude.catMaybes
                  [(JSON..=) "GroupAttribute" Prelude.<$> groupAttribute,
+                  (JSON..=) "OpenSearchServerlessEntityId"
+                    Prelude.<$> openSearchServerlessEntityId,
                   (JSON..=) "SessionTimeout" Prelude.<$> sessionTimeout,
                   (JSON..=) "UserAttribute" Prelude.<$> userAttribute])))
 instance Property "GroupAttribute" SamlConfigOptionsProperty where
@@ -56,6 +63,11 @@ instance Property "Metadata" SamlConfigOptionsProperty where
   type PropertyType "Metadata" SamlConfigOptionsProperty = Value Prelude.Text
   set newValue SamlConfigOptionsProperty {..}
     = SamlConfigOptionsProperty {metadata = newValue, ..}
+instance Property "OpenSearchServerlessEntityId" SamlConfigOptionsProperty where
+  type PropertyType "OpenSearchServerlessEntityId" SamlConfigOptionsProperty = Value Prelude.Text
+  set newValue SamlConfigOptionsProperty {..}
+    = SamlConfigOptionsProperty
+        {openSearchServerlessEntityId = Prelude.pure newValue, ..}
 instance Property "SessionTimeout" SamlConfigOptionsProperty where
   type PropertyType "SessionTimeout" SamlConfigOptionsProperty = Value Prelude.Integer
   set newValue SamlConfigOptionsProperty {..}

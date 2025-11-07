@@ -32,13 +32,24 @@ library
       Stratosphere.Connect.ApprovedOrigin
       Stratosphere.Connect.ContactFlow
       Stratosphere.Connect.ContactFlowModule
+      Stratosphere.Connect.ContactFlowVersion
       Stratosphere.Connect.EmailAddress
+      Stratosphere.Connect.EmailAddress.AliasConfigurationProperty
       Stratosphere.Connect.EvaluationForm
+      Stratosphere.Connect.EvaluationForm.AutoEvaluationConfigurationProperty
+      Stratosphere.Connect.EvaluationForm.AutomaticFailConfigurationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormBaseItemProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConditionOperandProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConditionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConfigurationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementExpressionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementSourceProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementSourceValueProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormItemProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionAutomationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionOptionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionAutomationAnswerSourceProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionTypePropertiesProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty
@@ -46,6 +57,8 @@ library
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionOptionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormTextQuestionAutomationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormTextQuestionPropertiesProperty
       Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty
       Stratosphere.Connect.EvaluationForm.ScoringStrategyProperty
       Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty
@@ -66,10 +79,12 @@ library
       Stratosphere.Connect.IntegrationAssociation
       Stratosphere.Connect.PhoneNumber
       Stratosphere.Connect.PredefinedAttribute
+      Stratosphere.Connect.PredefinedAttribute.AttributeConfigurationProperty
       Stratosphere.Connect.PredefinedAttribute.ValuesProperty
       Stratosphere.Connect.Prompt
       Stratosphere.Connect.Queue
       Stratosphere.Connect.Queue.OutboundCallerConfigProperty
+      Stratosphere.Connect.Queue.OutboundEmailConfigProperty
       Stratosphere.Connect.QuickConnect
       Stratosphere.Connect.QuickConnect.PhoneNumberQuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.QueueQuickConnectConfigProperty
@@ -78,6 +93,7 @@ library
       Stratosphere.Connect.RoutingProfile
       Stratosphere.Connect.RoutingProfile.CrossChannelBehaviorProperty
       Stratosphere.Connect.RoutingProfile.MediaConcurrencyProperty
+      Stratosphere.Connect.RoutingProfile.RoutingProfileManualAssignmentQueueConfigProperty
       Stratosphere.Connect.RoutingProfile.RoutingProfileQueueConfigProperty
       Stratosphere.Connect.RoutingProfile.RoutingProfileQueueReferenceProperty
       Stratosphere.Connect.Rule

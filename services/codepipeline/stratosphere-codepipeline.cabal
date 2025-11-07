@@ -41,6 +41,7 @@ library
       Stratosphere.CodePipeline.Pipeline.BlockerDeclarationProperty
       Stratosphere.CodePipeline.Pipeline.ConditionProperty
       Stratosphere.CodePipeline.Pipeline.EncryptionKeyProperty
+      Stratosphere.CodePipeline.Pipeline.EnvironmentVariableProperty
       Stratosphere.CodePipeline.Pipeline.FailureConditionsProperty
       Stratosphere.CodePipeline.Pipeline.GitBranchFilterCriteriaProperty
       Stratosphere.CodePipeline.Pipeline.GitConfigurationProperty

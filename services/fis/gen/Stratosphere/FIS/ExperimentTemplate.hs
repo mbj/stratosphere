@@ -30,7 +30,7 @@ data ExperimentTemplate
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions>
                         stopConditions :: [ExperimentTemplateStopConditionProperty],
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags>
-                        tags :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                        tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets>
                         targets :: (Prelude.Map Prelude.Text ExperimentTemplateTargetProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -38,22 +38,16 @@ mkExperimentTemplate ::
   Value Prelude.Text
   -> Value Prelude.Text
      -> [ExperimentTemplateStopConditionProperty]
-        -> Prelude.Map Prelude.Text (Value Prelude.Text)
-           -> Prelude.Map Prelude.Text ExperimentTemplateTargetProperty
-              -> ExperimentTemplate
-mkExperimentTemplate
-  description
-  roleArn
-  stopConditions
-  tags
-  targets
+        -> Prelude.Map Prelude.Text ExperimentTemplateTargetProperty
+           -> ExperimentTemplate
+mkExperimentTemplate description roleArn stopConditions targets
   = ExperimentTemplate
       {haddock_workaround_ = (), description = description,
-       roleArn = roleArn, stopConditions = stopConditions, tags = tags,
+       roleArn = roleArn, stopConditions = stopConditions,
        targets = targets, actions = Prelude.Nothing,
        experimentOptions = Prelude.Nothing,
        experimentReportConfiguration = Prelude.Nothing,
-       logConfiguration = Prelude.Nothing}
+       logConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplate where
   toResourceProperties ExperimentTemplate {..}
     = ResourceProperties
@@ -62,28 +56,28 @@ instance ToResourceProperties ExperimentTemplate where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "RoleArn" JSON..= roleArn,
-                            "StopConditions" JSON..= stopConditions, "Tags" JSON..= tags,
-                            "Targets" JSON..= targets]
+                            "StopConditions" JSON..= stopConditions, "Targets" JSON..= targets]
                            (Prelude.catMaybes
                               [(JSON..=) "Actions" Prelude.<$> actions,
                                (JSON..=) "ExperimentOptions" Prelude.<$> experimentOptions,
                                (JSON..=) "ExperimentReportConfiguration"
                                  Prelude.<$> experimentReportConfiguration,
-                               (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration]))}
+                               (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ExperimentTemplate where
   toJSON ExperimentTemplate {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Description" JSON..= description, "RoleArn" JSON..= roleArn,
-               "StopConditions" JSON..= stopConditions, "Tags" JSON..= tags,
-               "Targets" JSON..= targets]
+               "StopConditions" JSON..= stopConditions, "Targets" JSON..= targets]
               (Prelude.catMaybes
                  [(JSON..=) "Actions" Prelude.<$> actions,
                   (JSON..=) "ExperimentOptions" Prelude.<$> experimentOptions,
                   (JSON..=) "ExperimentReportConfiguration"
                     Prelude.<$> experimentReportConfiguration,
-                  (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration])))
+                  (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Actions" ExperimentTemplate where
   type PropertyType "Actions" ExperimentTemplate = Prelude.Map Prelude.Text ExperimentTemplateActionProperty
   set newValue ExperimentTemplate {..}
@@ -117,7 +111,7 @@ instance Property "StopConditions" ExperimentTemplate where
 instance Property "Tags" ExperimentTemplate where
   type PropertyType "Tags" ExperimentTemplate = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue ExperimentTemplate {..}
-    = ExperimentTemplate {tags = newValue, ..}
+    = ExperimentTemplate {tags = Prelude.pure newValue, ..}
 instance Property "Targets" ExperimentTemplate where
   type PropertyType "Targets" ExperimentTemplate = Prelude.Map Prelude.Text ExperimentTemplateTargetProperty
   set newValue ExperimentTemplate {..}

@@ -22,6 +22,8 @@ data ConfiguredTable
                      description :: (Prelude.Maybe (Value Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-selectedanalysismethods>
+                     selectedAnalysisMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tablereference>
                      tableReference :: TableReferenceProperty,
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tags>
@@ -36,7 +38,8 @@ mkConfiguredTable allowedColumns analysisMethod name tableReference
       {haddock_workaround_ = (), allowedColumns = allowedColumns,
        analysisMethod = analysisMethod, name = name,
        tableReference = tableReference, analysisRules = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing,
+       selectedAnalysisMethods = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTable where
   toResourceProperties ConfiguredTable {..}
     = ResourceProperties
@@ -50,6 +53,8 @@ instance ToResourceProperties ConfiguredTable where
                            (Prelude.catMaybes
                               [(JSON..=) "AnalysisRules" Prelude.<$> analysisRules,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "SelectedAnalysisMethods"
+                                 Prelude.<$> selectedAnalysisMethods,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ConfiguredTable where
   toJSON ConfiguredTable {..}
@@ -62,6 +67,8 @@ instance JSON.ToJSON ConfiguredTable where
               (Prelude.catMaybes
                  [(JSON..=) "AnalysisRules" Prelude.<$> analysisRules,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "SelectedAnalysisMethods"
+                    Prelude.<$> selectedAnalysisMethods,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AllowedColumns" ConfiguredTable where
   type PropertyType "AllowedColumns" ConfiguredTable = ValueList Prelude.Text
@@ -83,6 +90,11 @@ instance Property "Name" ConfiguredTable where
   type PropertyType "Name" ConfiguredTable = Value Prelude.Text
   set newValue ConfiguredTable {..}
     = ConfiguredTable {name = newValue, ..}
+instance Property "SelectedAnalysisMethods" ConfiguredTable where
+  type PropertyType "SelectedAnalysisMethods" ConfiguredTable = ValueList Prelude.Text
+  set newValue ConfiguredTable {..}
+    = ConfiguredTable
+        {selectedAnalysisMethods = Prelude.pure newValue, ..}
 instance Property "TableReference" ConfiguredTable where
   type PropertyType "TableReference" ConfiguredTable = TableReferenceProperty
   set newValue ConfiguredTable {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.AudioExtractionCategoryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioExtractionCategoryProperty :: Prelude.Type
+instance ToResourceProperties AudioExtractionCategoryProperty
+instance Prelude.Eq AudioExtractionCategoryProperty
+instance Prelude.Show AudioExtractionCategoryProperty
+instance JSON.ToJSON AudioExtractionCategoryProperty

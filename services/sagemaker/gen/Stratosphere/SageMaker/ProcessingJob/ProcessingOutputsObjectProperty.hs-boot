@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.ProcessingOutputsObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProcessingOutputsObjectProperty :: Prelude.Type
+instance ToResourceProperties ProcessingOutputsObjectProperty
+instance Prelude.Eq ProcessingOutputsObjectProperty
+instance Prelude.Show ProcessingOutputsObjectProperty
+instance JSON.ToJSON ProcessingOutputsObjectProperty

@@ -1,0 +1,9 @@
+module Stratosphere.EC2.Instance.MetadataOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetadataOptionsProperty :: Prelude.Type
+instance ToResourceProperties MetadataOptionsProperty
+instance Prelude.Eq MetadataOptionsProperty
+instance Prelude.Show MetadataOptionsProperty
+instance JSON.ToJSON MetadataOptionsProperty

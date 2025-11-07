@@ -1,0 +1,9 @@
+module Stratosphere.SystemsManagerSAP.Application.ComponentInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentInfoProperty :: Prelude.Type
+instance ToResourceProperties ComponentInfoProperty
+instance Prelude.Eq ComponentInfoProperty
+instance Prelude.Show ComponentInfoProperty
+instance JSON.ToJSON ComponentInfoProperty

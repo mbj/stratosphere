@@ -1,0 +1,9 @@
+module Stratosphere.Connect.EvaluationForm.AutoEvaluationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoEvaluationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AutoEvaluationConfigurationProperty
+instance Prelude.Eq AutoEvaluationConfigurationProperty
+instance Prelude.Show AutoEvaluationConfigurationProperty
+instance JSON.ToJSON AutoEvaluationConfigurationProperty

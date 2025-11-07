@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.RuleIsInAddressListProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleIsInAddressListProperty :: Prelude.Type
+instance ToResourceProperties RuleIsInAddressListProperty
+instance Prelude.Eq RuleIsInAddressListProperty
+instance Prelude.Show RuleIsInAddressListProperty
+instance JSON.ToJSON RuleIsInAddressListProperty

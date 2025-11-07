@@ -24,12 +24,12 @@ data DBInstance
                 dBInstanceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbparametergroupname>
                 dBParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsnapshotidentifier>
-                dBSnapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsubnetgroupname>
                 dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-preferredmaintenancewindow>
                 preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-publiclyaccessible>
+                publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -43,10 +43,9 @@ mkDBInstance dBInstanceClass
        dBClusterIdentifier = Prelude.Nothing,
        dBInstanceIdentifier = Prelude.Nothing,
        dBParameterGroupName = Prelude.Nothing,
-       dBSnapshotIdentifier = Prelude.Nothing,
        dBSubnetGroupName = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       publiclyAccessible = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DBInstance where
   toResourceProperties DBInstance {..}
     = ResourceProperties
@@ -63,10 +62,10 @@ instance ToResourceProperties DBInstance where
                                (JSON..=) "DBClusterIdentifier" Prelude.<$> dBClusterIdentifier,
                                (JSON..=) "DBInstanceIdentifier" Prelude.<$> dBInstanceIdentifier,
                                (JSON..=) "DBParameterGroupName" Prelude.<$> dBParameterGroupName,
-                               (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                                (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                                (JSON..=) "PreferredMaintenanceWindow"
                                  Prelude.<$> preferredMaintenanceWindow,
+                               (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DBInstance where
   toJSON DBInstance {..}
@@ -83,10 +82,10 @@ instance JSON.ToJSON DBInstance where
                   (JSON..=) "DBClusterIdentifier" Prelude.<$> dBClusterIdentifier,
                   (JSON..=) "DBInstanceIdentifier" Prelude.<$> dBInstanceIdentifier,
                   (JSON..=) "DBParameterGroupName" Prelude.<$> dBParameterGroupName,
-                  (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                   (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                   (JSON..=) "PreferredMaintenanceWindow"
                     Prelude.<$> preferredMaintenanceWindow,
+                  (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AllowMajorVersionUpgrade" DBInstance where
   type PropertyType "AllowMajorVersionUpgrade" DBInstance = Value Prelude.Bool
@@ -116,10 +115,6 @@ instance Property "DBParameterGroupName" DBInstance where
   type PropertyType "DBParameterGroupName" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {dBParameterGroupName = Prelude.pure newValue, ..}
-instance Property "DBSnapshotIdentifier" DBInstance where
-  type PropertyType "DBSnapshotIdentifier" DBInstance = Value Prelude.Text
-  set newValue DBInstance {..}
-    = DBInstance {dBSnapshotIdentifier = Prelude.pure newValue, ..}
 instance Property "DBSubnetGroupName" DBInstance where
   type PropertyType "DBSubnetGroupName" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
@@ -129,6 +124,10 @@ instance Property "PreferredMaintenanceWindow" DBInstance where
   set newValue DBInstance {..}
     = DBInstance
         {preferredMaintenanceWindow = Prelude.pure newValue, ..}
+instance Property "PubliclyAccessible" DBInstance where
+  type PropertyType "PubliclyAccessible" DBInstance = Value Prelude.Bool
+  set newValue DBInstance {..}
+    = DBInstance {publiclyAccessible = Prelude.pure newValue, ..}
 instance Property "Tags" DBInstance where
   type PropertyType "Tags" DBInstance = [Tag]
   set newValue DBInstance {..}

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QBusiness.Application.AutoSubscriptionConfigu
 import {-# SOURCE #-} Stratosphere.QBusiness.Application.EncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QBusiness.Application.PersonalizationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QBusiness.Application.QAppsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QBusiness.Application.QuickSightConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -37,6 +38,8 @@ data Application
                  personalizationConfiguration :: (Prelude.Maybe PersonalizationConfigurationProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration>
                  qAppsConfiguration :: (Prelude.Maybe QAppsConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-quicksightconfiguration>
+                 quickSightConfiguration :: (Prelude.Maybe QuickSightConfigurationProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-rolearn>
                  roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-tags>
@@ -54,8 +57,9 @@ mkApplication displayName
        identityCenterInstanceArn = Prelude.Nothing,
        identityType = Prelude.Nothing,
        personalizationConfiguration = Prelude.Nothing,
-       qAppsConfiguration = Prelude.Nothing, roleArn = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       qAppsConfiguration = Prelude.Nothing,
+       quickSightConfiguration = Prelude.Nothing,
+       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
@@ -81,6 +85,8 @@ instance ToResourceProperties Application where
                                (JSON..=) "PersonalizationConfiguration"
                                  Prelude.<$> personalizationConfiguration,
                                (JSON..=) "QAppsConfiguration" Prelude.<$> qAppsConfiguration,
+                               (JSON..=) "QuickSightConfiguration"
+                                 Prelude.<$> quickSightConfiguration,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Application where
@@ -106,6 +112,8 @@ instance JSON.ToJSON Application where
                   (JSON..=) "PersonalizationConfiguration"
                     Prelude.<$> personalizationConfiguration,
                   (JSON..=) "QAppsConfiguration" Prelude.<$> qAppsConfiguration,
+                  (JSON..=) "QuickSightConfiguration"
+                    Prelude.<$> quickSightConfiguration,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AttachmentsConfiguration" Application where
@@ -156,6 +164,10 @@ instance Property "QAppsConfiguration" Application where
   type PropertyType "QAppsConfiguration" Application = QAppsConfigurationProperty
   set newValue Application {..}
     = Application {qAppsConfiguration = Prelude.pure newValue, ..}
+instance Property "QuickSightConfiguration" Application where
+  type PropertyType "QuickSightConfiguration" Application = QuickSightConfigurationProperty
+  set newValue Application {..}
+    = Application {quickSightConfiguration = Prelude.pure newValue, ..}
 instance Property "RoleArn" Application where
   type PropertyType "RoleArn" Application = Value Prelude.Text
   set newValue Application {..}

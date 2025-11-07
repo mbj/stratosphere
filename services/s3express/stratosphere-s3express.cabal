@@ -28,6 +28,10 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.S3Express.AccessPoint
+      Stratosphere.S3Express.AccessPoint.PublicAccessBlockConfigurationProperty
+      Stratosphere.S3Express.AccessPoint.ScopeProperty
+      Stratosphere.S3Express.AccessPoint.VpcConfigurationProperty
       Stratosphere.S3Express.BucketPolicy
       Stratosphere.S3Express.DirectoryBucket
       Stratosphere.S3Express.DirectoryBucket.AbortIncompleteMultipartUploadProperty

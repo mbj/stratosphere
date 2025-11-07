@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.KendraKnowledgeBaseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KendraKnowledgeBaseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties KendraKnowledgeBaseConfigurationProperty
+instance Prelude.Eq KendraKnowledgeBaseConfigurationProperty
+instance Prelude.Show KendraKnowledgeBaseConfigurationProperty
+instance JSON.ToJSON KendraKnowledgeBaseConfigurationProperty

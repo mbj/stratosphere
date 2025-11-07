@@ -6,6 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditCheckConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.DeviceCertAgeAuditCheckConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.DeviceCertExpirationAuditCheckConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data AuditCheckConfigurationsProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html>
@@ -18,8 +20,10 @@ data AuditCheckConfigurationsProperty
                                       caCertificateKeyQualityCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck>
                                       conflictingClientIdsCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateagecheck>
+                                      deviceCertificateAgeCheck :: (Prelude.Maybe DeviceCertAgeAuditCheckConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck>
-                                      deviceCertificateExpiringCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
+                                      deviceCertificateExpiringCheck :: (Prelude.Maybe DeviceCertExpirationAuditCheckConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck>
                                       deviceCertificateKeyQualityCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck>
@@ -52,6 +56,7 @@ mkAuditCheckConfigurationsProperty
        caCertificateExpiringCheck = Prelude.Nothing,
        caCertificateKeyQualityCheck = Prelude.Nothing,
        conflictingClientIdsCheck = Prelude.Nothing,
+       deviceCertificateAgeCheck = Prelude.Nothing,
        deviceCertificateExpiringCheck = Prelude.Nothing,
        deviceCertificateKeyQualityCheck = Prelude.Nothing,
        deviceCertificateSharedCheck = Prelude.Nothing,
@@ -79,6 +84,8 @@ instance ToResourceProperties AuditCheckConfigurationsProperty where
                               Prelude.<$> caCertificateKeyQualityCheck,
                             (JSON..=) "ConflictingClientIdsCheck"
                               Prelude.<$> conflictingClientIdsCheck,
+                            (JSON..=) "DeviceCertificateAgeCheck"
+                              Prelude.<$> deviceCertificateAgeCheck,
                             (JSON..=) "DeviceCertificateExpiringCheck"
                               Prelude.<$> deviceCertificateExpiringCheck,
                             (JSON..=) "DeviceCertificateKeyQualityCheck"
@@ -115,6 +122,8 @@ instance JSON.ToJSON AuditCheckConfigurationsProperty where
                  Prelude.<$> caCertificateKeyQualityCheck,
                (JSON..=) "ConflictingClientIdsCheck"
                  Prelude.<$> conflictingClientIdsCheck,
+               (JSON..=) "DeviceCertificateAgeCheck"
+                 Prelude.<$> deviceCertificateAgeCheck,
                (JSON..=) "DeviceCertificateExpiringCheck"
                  Prelude.<$> deviceCertificateExpiringCheck,
                (JSON..=) "DeviceCertificateKeyQualityCheck"
@@ -160,8 +169,13 @@ instance Property "ConflictingClientIdsCheck" AuditCheckConfigurationsProperty w
   set newValue AuditCheckConfigurationsProperty {..}
     = AuditCheckConfigurationsProperty
         {conflictingClientIdsCheck = Prelude.pure newValue, ..}
+instance Property "DeviceCertificateAgeCheck" AuditCheckConfigurationsProperty where
+  type PropertyType "DeviceCertificateAgeCheck" AuditCheckConfigurationsProperty = DeviceCertAgeAuditCheckConfigurationProperty
+  set newValue AuditCheckConfigurationsProperty {..}
+    = AuditCheckConfigurationsProperty
+        {deviceCertificateAgeCheck = Prelude.pure newValue, ..}
 instance Property "DeviceCertificateExpiringCheck" AuditCheckConfigurationsProperty where
-  type PropertyType "DeviceCertificateExpiringCheck" AuditCheckConfigurationsProperty = AuditCheckConfigurationProperty
+  type PropertyType "DeviceCertificateExpiringCheck" AuditCheckConfigurationsProperty = DeviceCertExpirationAuditCheckConfigurationProperty
   set newValue AuditCheckConfigurationsProperty {..}
     = AuditCheckConfigurationsProperty
         {deviceCertificateExpiringCheck = Prelude.pure newValue, ..}

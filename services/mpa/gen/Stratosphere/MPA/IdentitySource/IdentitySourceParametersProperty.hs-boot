@@ -1,0 +1,9 @@
+module Stratosphere.MPA.IdentitySource.IdentitySourceParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdentitySourceParametersProperty :: Prelude.Type
+instance ToResourceProperties IdentitySourceParametersProperty
+instance Prelude.Eq IdentitySourceParametersProperty
+instance Prelude.Show IdentitySourceParametersProperty
+instance JSON.ToJSON IdentitySourceParametersProperty

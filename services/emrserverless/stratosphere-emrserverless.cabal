@@ -33,6 +33,7 @@ library
       Stratosphere.EMRServerless.Application.AutoStopConfigurationProperty
       Stratosphere.EMRServerless.Application.CloudWatchLoggingConfigurationProperty
       Stratosphere.EMRServerless.Application.ConfigurationObjectProperty
+      Stratosphere.EMRServerless.Application.IdentityCenterConfigurationProperty
       Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty
       Stratosphere.EMRServerless.Application.InitialCapacityConfigKeyValuePairProperty
       Stratosphere.EMRServerless.Application.InitialCapacityConfigProperty
@@ -42,7 +43,9 @@ library
       Stratosphere.EMRServerless.Application.MaximumAllowedResourcesProperty
       Stratosphere.EMRServerless.Application.MonitoringConfigurationProperty
       Stratosphere.EMRServerless.Application.NetworkConfigurationProperty
+      Stratosphere.EMRServerless.Application.PrometheusMonitoringConfigurationProperty
       Stratosphere.EMRServerless.Application.S3MonitoringConfigurationProperty
+      Stratosphere.EMRServerless.Application.SchedulerConfigurationProperty
       Stratosphere.EMRServerless.Application.WorkerConfigurationProperty
       Stratosphere.EMRServerless.Application.WorkerTypeSpecificationInputProperty
   other-modules:

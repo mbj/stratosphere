@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.BrowserCustom.BrowserNetworkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BrowserNetworkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BrowserNetworkConfigurationProperty
+instance Prelude.Eq BrowserNetworkConfigurationProperty
+instance Prelude.Show BrowserNetworkConfigurationProperty
+instance JSON.ToJSON BrowserNetworkConfigurationProperty

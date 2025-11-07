@@ -39,6 +39,8 @@ library
       Stratosphere.Athena.WorkGroup.CustomerContentEncryptionConfigurationProperty
       Stratosphere.Athena.WorkGroup.EncryptionConfigurationProperty
       Stratosphere.Athena.WorkGroup.EngineVersionProperty
+      Stratosphere.Athena.WorkGroup.ManagedQueryResultsConfigurationProperty
+      Stratosphere.Athena.WorkGroup.ManagedStorageEncryptionConfigurationProperty
       Stratosphere.Athena.WorkGroup.ResultConfigurationProperty
       Stratosphere.Athena.WorkGroup.WorkGroupConfigurationProperty
   other-modules:

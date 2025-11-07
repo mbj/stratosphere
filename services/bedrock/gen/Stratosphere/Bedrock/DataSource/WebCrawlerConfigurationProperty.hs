@@ -18,7 +18,11 @@ data WebCrawlerConfigurationProperty
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-inclusionfilters>
                                      inclusionFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-scope>
-                                     scope :: (Prelude.Maybe (Value Prelude.Text))}
+                                     scope :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragent>
+                                     userAgent :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragentheader>
+                                     userAgentHeader :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerConfigurationProperty ::
   WebCrawlerConfigurationProperty
@@ -26,7 +30,8 @@ mkWebCrawlerConfigurationProperty
   = WebCrawlerConfigurationProperty
       {haddock_workaround_ = (), crawlerLimits = Prelude.Nothing,
        exclusionFilters = Prelude.Nothing,
-       inclusionFilters = Prelude.Nothing, scope = Prelude.Nothing}
+       inclusionFilters = Prelude.Nothing, scope = Prelude.Nothing,
+       userAgent = Prelude.Nothing, userAgentHeader = Prelude.Nothing}
 instance ToResourceProperties WebCrawlerConfigurationProperty where
   toResourceProperties WebCrawlerConfigurationProperty {..}
     = ResourceProperties
@@ -37,7 +42,9 @@ instance ToResourceProperties WebCrawlerConfigurationProperty where
                            [(JSON..=) "CrawlerLimits" Prelude.<$> crawlerLimits,
                             (JSON..=) "ExclusionFilters" Prelude.<$> exclusionFilters,
                             (JSON..=) "InclusionFilters" Prelude.<$> inclusionFilters,
-                            (JSON..=) "Scope" Prelude.<$> scope])}
+                            (JSON..=) "Scope" Prelude.<$> scope,
+                            (JSON..=) "UserAgent" Prelude.<$> userAgent,
+                            (JSON..=) "UserAgentHeader" Prelude.<$> userAgentHeader])}
 instance JSON.ToJSON WebCrawlerConfigurationProperty where
   toJSON WebCrawlerConfigurationProperty {..}
     = JSON.object
@@ -46,7 +53,9 @@ instance JSON.ToJSON WebCrawlerConfigurationProperty where
               [(JSON..=) "CrawlerLimits" Prelude.<$> crawlerLimits,
                (JSON..=) "ExclusionFilters" Prelude.<$> exclusionFilters,
                (JSON..=) "InclusionFilters" Prelude.<$> inclusionFilters,
-               (JSON..=) "Scope" Prelude.<$> scope]))
+               (JSON..=) "Scope" Prelude.<$> scope,
+               (JSON..=) "UserAgent" Prelude.<$> userAgent,
+               (JSON..=) "UserAgentHeader" Prelude.<$> userAgentHeader]))
 instance Property "CrawlerLimits" WebCrawlerConfigurationProperty where
   type PropertyType "CrawlerLimits" WebCrawlerConfigurationProperty = WebCrawlerLimitsProperty
   set newValue WebCrawlerConfigurationProperty {..}
@@ -67,3 +76,13 @@ instance Property "Scope" WebCrawlerConfigurationProperty where
   set newValue WebCrawlerConfigurationProperty {..}
     = WebCrawlerConfigurationProperty
         {scope = Prelude.pure newValue, ..}
+instance Property "UserAgent" WebCrawlerConfigurationProperty where
+  type PropertyType "UserAgent" WebCrawlerConfigurationProperty = Value Prelude.Text
+  set newValue WebCrawlerConfigurationProperty {..}
+    = WebCrawlerConfigurationProperty
+        {userAgent = Prelude.pure newValue, ..}
+instance Property "UserAgentHeader" WebCrawlerConfigurationProperty where
+  type PropertyType "UserAgentHeader" WebCrawlerConfigurationProperty = Value Prelude.Text
+  set newValue WebCrawlerConfigurationProperty {..}
+    = WebCrawlerConfigurationProperty
+        {userAgentHeader = Prelude.pure newValue, ..}

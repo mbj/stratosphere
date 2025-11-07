@@ -28,7 +28,9 @@ data HlsManifestConfigurationProperty
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-starttag>
                                       startTag :: (Prelude.Maybe StartTagProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-url>
-                                      url :: (Prelude.Maybe (Value Prelude.Text))}
+                                      url :: (Prelude.Maybe (Value Prelude.Text)),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-urlencodechildmanifest>
+                                      urlEncodeChildManifest :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestConfigurationProperty ::
   Value Prelude.Text -> HlsManifestConfigurationProperty
@@ -40,7 +42,7 @@ mkHlsManifestConfigurationProperty manifestName
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,
        scteHls = Prelude.Nothing, startTag = Prelude.Nothing,
-       url = Prelude.Nothing}
+       url = Prelude.Nothing, urlEncodeChildManifest = Prelude.Nothing}
 instance ToResourceProperties HlsManifestConfigurationProperty where
   toResourceProperties HlsManifestConfigurationProperty {..}
     = ResourceProperties
@@ -58,7 +60,9 @@ instance ToResourceProperties HlsManifestConfigurationProperty where
                                  Prelude.<$> programDateTimeIntervalSeconds,
                                (JSON..=) "ScteHls" Prelude.<$> scteHls,
                                (JSON..=) "StartTag" Prelude.<$> startTag,
-                               (JSON..=) "Url" Prelude.<$> url]))}
+                               (JSON..=) "Url" Prelude.<$> url,
+                               (JSON..=) "UrlEncodeChildManifest"
+                                 Prelude.<$> urlEncodeChildManifest]))}
 instance JSON.ToJSON HlsManifestConfigurationProperty where
   toJSON HlsManifestConfigurationProperty {..}
     = JSON.object
@@ -74,7 +78,9 @@ instance JSON.ToJSON HlsManifestConfigurationProperty where
                     Prelude.<$> programDateTimeIntervalSeconds,
                   (JSON..=) "ScteHls" Prelude.<$> scteHls,
                   (JSON..=) "StartTag" Prelude.<$> startTag,
-                  (JSON..=) "Url" Prelude.<$> url])))
+                  (JSON..=) "Url" Prelude.<$> url,
+                  (JSON..=) "UrlEncodeChildManifest"
+                    Prelude.<$> urlEncodeChildManifest])))
 instance Property "ChildManifestName" HlsManifestConfigurationProperty where
   type PropertyType "ChildManifestName" HlsManifestConfigurationProperty = Value Prelude.Text
   set newValue HlsManifestConfigurationProperty {..}
@@ -114,3 +120,8 @@ instance Property "Url" HlsManifestConfigurationProperty where
   set newValue HlsManifestConfigurationProperty {..}
     = HlsManifestConfigurationProperty
         {url = Prelude.pure newValue, ..}
+instance Property "UrlEncodeChildManifest" HlsManifestConfigurationProperty where
+  type PropertyType "UrlEncodeChildManifest" HlsManifestConfigurationProperty = Value Prelude.Bool
+  set newValue HlsManifestConfigurationProperty {..}
+    = HlsManifestConfigurationProperty
+        {urlEncodeChildManifest = Prelude.pure newValue, ..}

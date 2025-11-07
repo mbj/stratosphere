@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.BrowserCustom.RecordingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecordingConfigProperty :: Prelude.Type
+instance ToResourceProperties RecordingConfigProperty
+instance Prelude.Eq RecordingConfigProperty
+instance Prelude.Show RecordingConfigProperty
+instance JSON.ToJSON RecordingConfigProperty

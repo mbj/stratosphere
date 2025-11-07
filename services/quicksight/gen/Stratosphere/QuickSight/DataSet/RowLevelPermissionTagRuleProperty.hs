@@ -11,7 +11,7 @@ data RowLevelPermissionTagRuleProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html>
     RowLevelPermissionTagRuleProperty {haddock_workaround_ :: (),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-columnname>
-                                       columnName :: (Value Prelude.Text),
+                                       columnName :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-matchallvalue>
                                        matchAllValue :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html#cfn-quicksight-dataset-rowlevelpermissiontagrule-tagkey>
@@ -20,12 +20,11 @@ data RowLevelPermissionTagRuleProperty
                                        tagMultiValueDelimiter :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagRuleProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> RowLevelPermissionTagRuleProperty
-mkRowLevelPermissionTagRuleProperty columnName tagKey
+  Value Prelude.Text -> RowLevelPermissionTagRuleProperty
+mkRowLevelPermissionTagRuleProperty tagKey
   = RowLevelPermissionTagRuleProperty
-      {haddock_workaround_ = (), columnName = columnName,
-       tagKey = tagKey, matchAllValue = Prelude.Nothing,
+      {haddock_workaround_ = (), tagKey = tagKey,
+       columnName = Prelude.Nothing, matchAllValue = Prelude.Nothing,
        tagMultiValueDelimiter = Prelude.Nothing}
 instance ToResourceProperties RowLevelPermissionTagRuleProperty where
   toResourceProperties RowLevelPermissionTagRuleProperty {..}
@@ -34,9 +33,10 @@ instance ToResourceProperties RowLevelPermissionTagRuleProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ColumnName" JSON..= columnName, "TagKey" JSON..= tagKey]
+                           ["TagKey" JSON..= tagKey]
                            (Prelude.catMaybes
-                              [(JSON..=) "MatchAllValue" Prelude.<$> matchAllValue,
+                              [(JSON..=) "ColumnName" Prelude.<$> columnName,
+                               (JSON..=) "MatchAllValue" Prelude.<$> matchAllValue,
                                (JSON..=) "TagMultiValueDelimiter"
                                  Prelude.<$> tagMultiValueDelimiter]))}
 instance JSON.ToJSON RowLevelPermissionTagRuleProperty where
@@ -44,15 +44,17 @@ instance JSON.ToJSON RowLevelPermissionTagRuleProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ColumnName" JSON..= columnName, "TagKey" JSON..= tagKey]
+              ["TagKey" JSON..= tagKey]
               (Prelude.catMaybes
-                 [(JSON..=) "MatchAllValue" Prelude.<$> matchAllValue,
+                 [(JSON..=) "ColumnName" Prelude.<$> columnName,
+                  (JSON..=) "MatchAllValue" Prelude.<$> matchAllValue,
                   (JSON..=) "TagMultiValueDelimiter"
                     Prelude.<$> tagMultiValueDelimiter])))
 instance Property "ColumnName" RowLevelPermissionTagRuleProperty where
   type PropertyType "ColumnName" RowLevelPermissionTagRuleProperty = Value Prelude.Text
   set newValue RowLevelPermissionTagRuleProperty {..}
-    = RowLevelPermissionTagRuleProperty {columnName = newValue, ..}
+    = RowLevelPermissionTagRuleProperty
+        {columnName = Prelude.pure newValue, ..}
 instance Property "MatchAllValue" RowLevelPermissionTagRuleProperty where
   type PropertyType "MatchAllValue" RowLevelPermissionTagRuleProperty = Value Prelude.Text
   set newValue RowLevelPermissionTagRuleProperty {..}

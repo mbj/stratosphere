@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.MailManagerIngressPoint.IngressPointConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.MailManagerIngressPoint.NetworkConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -16,6 +17,8 @@ data MailManagerIngressPoint
                              ingressPointConfiguration :: (Prelude.Maybe IngressPointConfigurationProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-ingresspointname>
                              ingressPointName :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-networkconfiguration>
+                             networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-rulesetid>
                              ruleSetId :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-statustoupdate>
@@ -37,6 +40,7 @@ mkMailManagerIngressPoint ruleSetId trafficPolicyId type'
        trafficPolicyId = trafficPolicyId, type' = type',
        ingressPointConfiguration = Prelude.Nothing,
        ingressPointName = Prelude.Nothing,
+       networkConfiguration = Prelude.Nothing,
        statusToUpdate = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties MailManagerIngressPoint where
   toResourceProperties MailManagerIngressPoint {..}
@@ -51,6 +55,7 @@ instance ToResourceProperties MailManagerIngressPoint where
                               [(JSON..=) "IngressPointConfiguration"
                                  Prelude.<$> ingressPointConfiguration,
                                (JSON..=) "IngressPointName" Prelude.<$> ingressPointName,
+                               (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                                (JSON..=) "StatusToUpdate" Prelude.<$> statusToUpdate,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON MailManagerIngressPoint where
@@ -64,6 +69,7 @@ instance JSON.ToJSON MailManagerIngressPoint where
                  [(JSON..=) "IngressPointConfiguration"
                     Prelude.<$> ingressPointConfiguration,
                   (JSON..=) "IngressPointName" Prelude.<$> ingressPointName,
+                  (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                   (JSON..=) "StatusToUpdate" Prelude.<$> statusToUpdate,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "IngressPointConfiguration" MailManagerIngressPoint where
@@ -76,6 +82,11 @@ instance Property "IngressPointName" MailManagerIngressPoint where
   set newValue MailManagerIngressPoint {..}
     = MailManagerIngressPoint
         {ingressPointName = Prelude.pure newValue, ..}
+instance Property "NetworkConfiguration" MailManagerIngressPoint where
+  type PropertyType "NetworkConfiguration" MailManagerIngressPoint = NetworkConfigurationProperty
+  set newValue MailManagerIngressPoint {..}
+    = MailManagerIngressPoint
+        {networkConfiguration = Prelude.pure newValue, ..}
 instance Property "RuleSetId" MailManagerIngressPoint where
   type PropertyType "RuleSetId" MailManagerIngressPoint = Value Prelude.Text
   set newValue MailManagerIngressPoint {..}

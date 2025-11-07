@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DonutCenterOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DonutCenterOptionsProperty :: Prelude.Type
+instance ToResourceProperties DonutCenterOptionsProperty
+instance Prelude.Eq DonutCenterOptionsProperty
+instance Prelude.Show DonutCenterOptionsProperty
+instance JSON.ToJSON DonutCenterOptionsProperty

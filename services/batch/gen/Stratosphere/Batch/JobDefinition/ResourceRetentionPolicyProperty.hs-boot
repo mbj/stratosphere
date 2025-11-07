@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.ResourceRetentionPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceRetentionPolicyProperty :: Prelude.Type
+instance ToResourceProperties ResourceRetentionPolicyProperty
+instance Prelude.Eq ResourceRetentionPolicyProperty
+instance Prelude.Show ResourceRetentionPolicyProperty
+instance JSON.ToJSON ResourceRetentionPolicyProperty

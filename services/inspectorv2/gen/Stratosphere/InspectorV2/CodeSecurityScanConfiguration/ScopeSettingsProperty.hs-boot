@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ScopeSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScopeSettingsProperty :: Prelude.Type
+instance ToResourceProperties ScopeSettingsProperty
+instance Prelude.Eq ScopeSettingsProperty
+instance Prelude.Show ScopeSettingsProperty
+instance JSON.ToJSON ScopeSettingsProperty

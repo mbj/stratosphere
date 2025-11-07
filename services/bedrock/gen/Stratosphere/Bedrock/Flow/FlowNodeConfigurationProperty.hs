@@ -7,9 +7,12 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.AgentFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.ConditionFlowNodeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.Flow.InlineCodeFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.KnowledgeBaseFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.LambdaFunctionFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.LexFlowNodeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.Flow.LoopControllerFlowNodeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.Flow.LoopFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.PromptFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.RetrievalFlowNodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Flow.StorageFlowNodeConfigurationProperty as Exports
@@ -23,6 +26,8 @@ data FlowNodeConfigurationProperty
                                    collector :: (Prelude.Maybe JSON.Object),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-condition>
                                    condition :: (Prelude.Maybe ConditionFlowNodeConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-inlinecode>
+                                   inlineCode :: (Prelude.Maybe InlineCodeFlowNodeConfigurationProperty),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-input>
                                    input :: (Prelude.Maybe JSON.Object),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-iterator>
@@ -33,6 +38,12 @@ data FlowNodeConfigurationProperty
                                    lambdaFunction :: (Prelude.Maybe LambdaFunctionFlowNodeConfigurationProperty),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-lex>
                                    lex :: (Prelude.Maybe LexFlowNodeConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loop>
+                                   loop :: (Prelude.Maybe LoopFlowNodeConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopcontroller>
+                                   loopController :: (Prelude.Maybe LoopControllerFlowNodeConfigurationProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopinput>
+                                   loopInput :: (Prelude.Maybe JSON.Object),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-output>
                                    output :: (Prelude.Maybe JSON.Object),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-prompt>
@@ -47,9 +58,11 @@ mkFlowNodeConfigurationProperty
   = FlowNodeConfigurationProperty
       {haddock_workaround_ = (), agent = Prelude.Nothing,
        collector = Prelude.Nothing, condition = Prelude.Nothing,
-       input = Prelude.Nothing, iterator = Prelude.Nothing,
-       knowledgeBase = Prelude.Nothing, lambdaFunction = Prelude.Nothing,
-       lex = Prelude.Nothing, output = Prelude.Nothing,
+       inlineCode = Prelude.Nothing, input = Prelude.Nothing,
+       iterator = Prelude.Nothing, knowledgeBase = Prelude.Nothing,
+       lambdaFunction = Prelude.Nothing, lex = Prelude.Nothing,
+       loop = Prelude.Nothing, loopController = Prelude.Nothing,
+       loopInput = Prelude.Nothing, output = Prelude.Nothing,
        prompt = Prelude.Nothing, retrieval = Prelude.Nothing,
        storage = Prelude.Nothing}
 instance ToResourceProperties FlowNodeConfigurationProperty where
@@ -62,11 +75,14 @@ instance ToResourceProperties FlowNodeConfigurationProperty where
                            [(JSON..=) "Agent" Prelude.<$> agent,
                             (JSON..=) "Collector" Prelude.<$> collector,
                             (JSON..=) "Condition" Prelude.<$> condition,
+                            (JSON..=) "InlineCode" Prelude.<$> inlineCode,
                             (JSON..=) "Input" Prelude.<$> input,
                             (JSON..=) "Iterator" Prelude.<$> iterator,
                             (JSON..=) "KnowledgeBase" Prelude.<$> knowledgeBase,
                             (JSON..=) "LambdaFunction" Prelude.<$> lambdaFunction,
-                            (JSON..=) "Lex" Prelude.<$> lex,
+                            (JSON..=) "Lex" Prelude.<$> lex, (JSON..=) "Loop" Prelude.<$> loop,
+                            (JSON..=) "LoopController" Prelude.<$> loopController,
+                            (JSON..=) "LoopInput" Prelude.<$> loopInput,
                             (JSON..=) "Output" Prelude.<$> output,
                             (JSON..=) "Prompt" Prelude.<$> prompt,
                             (JSON..=) "Retrieval" Prelude.<$> retrieval,
@@ -79,11 +95,14 @@ instance JSON.ToJSON FlowNodeConfigurationProperty where
               [(JSON..=) "Agent" Prelude.<$> agent,
                (JSON..=) "Collector" Prelude.<$> collector,
                (JSON..=) "Condition" Prelude.<$> condition,
+               (JSON..=) "InlineCode" Prelude.<$> inlineCode,
                (JSON..=) "Input" Prelude.<$> input,
                (JSON..=) "Iterator" Prelude.<$> iterator,
                (JSON..=) "KnowledgeBase" Prelude.<$> knowledgeBase,
                (JSON..=) "LambdaFunction" Prelude.<$> lambdaFunction,
-               (JSON..=) "Lex" Prelude.<$> lex,
+               (JSON..=) "Lex" Prelude.<$> lex, (JSON..=) "Loop" Prelude.<$> loop,
+               (JSON..=) "LoopController" Prelude.<$> loopController,
+               (JSON..=) "LoopInput" Prelude.<$> loopInput,
                (JSON..=) "Output" Prelude.<$> output,
                (JSON..=) "Prompt" Prelude.<$> prompt,
                (JSON..=) "Retrieval" Prelude.<$> retrieval,
@@ -102,6 +121,11 @@ instance Property "Condition" FlowNodeConfigurationProperty where
   set newValue FlowNodeConfigurationProperty {..}
     = FlowNodeConfigurationProperty
         {condition = Prelude.pure newValue, ..}
+instance Property "InlineCode" FlowNodeConfigurationProperty where
+  type PropertyType "InlineCode" FlowNodeConfigurationProperty = InlineCodeFlowNodeConfigurationProperty
+  set newValue FlowNodeConfigurationProperty {..}
+    = FlowNodeConfigurationProperty
+        {inlineCode = Prelude.pure newValue, ..}
 instance Property "Input" FlowNodeConfigurationProperty where
   type PropertyType "Input" FlowNodeConfigurationProperty = JSON.Object
   set newValue FlowNodeConfigurationProperty {..}
@@ -125,6 +149,20 @@ instance Property "Lex" FlowNodeConfigurationProperty where
   type PropertyType "Lex" FlowNodeConfigurationProperty = LexFlowNodeConfigurationProperty
   set newValue FlowNodeConfigurationProperty {..}
     = FlowNodeConfigurationProperty {lex = Prelude.pure newValue, ..}
+instance Property "Loop" FlowNodeConfigurationProperty where
+  type PropertyType "Loop" FlowNodeConfigurationProperty = LoopFlowNodeConfigurationProperty
+  set newValue FlowNodeConfigurationProperty {..}
+    = FlowNodeConfigurationProperty {loop = Prelude.pure newValue, ..}
+instance Property "LoopController" FlowNodeConfigurationProperty where
+  type PropertyType "LoopController" FlowNodeConfigurationProperty = LoopControllerFlowNodeConfigurationProperty
+  set newValue FlowNodeConfigurationProperty {..}
+    = FlowNodeConfigurationProperty
+        {loopController = Prelude.pure newValue, ..}
+instance Property "LoopInput" FlowNodeConfigurationProperty where
+  type PropertyType "LoopInput" FlowNodeConfigurationProperty = JSON.Object
+  set newValue FlowNodeConfigurationProperty {..}
+    = FlowNodeConfigurationProperty
+        {loopInput = Prelude.pure newValue, ..}
 instance Property "Output" FlowNodeConfigurationProperty where
   type PropertyType "Output" FlowNodeConfigurationProperty = JSON.Object
   set newValue FlowNodeConfigurationProperty {..}

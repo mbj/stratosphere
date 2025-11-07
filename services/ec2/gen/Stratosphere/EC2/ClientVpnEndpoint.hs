@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.ClientAuthenticationRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.ClientConnectOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.ClientLoginBannerOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.ClientRouteEnforcementOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.ConnectionLogOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.ClientVpnEndpoint.TagSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,15 +18,19 @@ data ClientVpnEndpoint
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authenticationoptions>
                        authenticationOptions :: [ClientAuthenticationRequestProperty],
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock>
-                       clientCidrBlock :: (Value Prelude.Text),
+                       clientCidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions>
                        clientConnectOptions :: (Prelude.Maybe ClientConnectOptionsProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientloginbanneroptions>
                        clientLoginBannerOptions :: (Prelude.Maybe ClientLoginBannerOptionsProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientrouteenforcementoptions>
+                       clientRouteEnforcementOptions :: (Prelude.Maybe ClientRouteEnforcementOptionsProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions>
                        connectionLogOptions :: ConnectionLogOptionsProperty,
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-disconnectonsessiontimeout>
+                       disconnectOnSessionTimeout :: (Prelude.Maybe (Value Prelude.Bool)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers>
                        dnsServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids>
@@ -49,24 +54,24 @@ data ClientVpnEndpoint
   deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnEndpoint ::
   [ClientAuthenticationRequestProperty]
-  -> Value Prelude.Text
-     -> ConnectionLogOptionsProperty
-        -> Value Prelude.Text -> ClientVpnEndpoint
+  -> ConnectionLogOptionsProperty
+     -> Value Prelude.Text -> ClientVpnEndpoint
 mkClientVpnEndpoint
   authenticationOptions
-  clientCidrBlock
   connectionLogOptions
   serverCertificateArn
   = ClientVpnEndpoint
       {haddock_workaround_ = (),
        authenticationOptions = authenticationOptions,
-       clientCidrBlock = clientCidrBlock,
        connectionLogOptions = connectionLogOptions,
        serverCertificateArn = serverCertificateArn,
+       clientCidrBlock = Prelude.Nothing,
        clientConnectOptions = Prelude.Nothing,
        clientLoginBannerOptions = Prelude.Nothing,
-       description = Prelude.Nothing, dnsServers = Prelude.Nothing,
-       securityGroupIds = Prelude.Nothing,
+       clientRouteEnforcementOptions = Prelude.Nothing,
+       description = Prelude.Nothing,
+       disconnectOnSessionTimeout = Prelude.Nothing,
+       dnsServers = Prelude.Nothing, securityGroupIds = Prelude.Nothing,
        selfServicePortal = Prelude.Nothing,
        sessionTimeoutHours = Prelude.Nothing,
        splitTunnel = Prelude.Nothing, tagSpecifications = Prelude.Nothing,
@@ -80,14 +85,18 @@ instance ToResourceProperties ClientVpnEndpoint where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationOptions" JSON..= authenticationOptions,
-                            "ClientCidrBlock" JSON..= clientCidrBlock,
                             "ConnectionLogOptions" JSON..= connectionLogOptions,
                             "ServerCertificateArn" JSON..= serverCertificateArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "ClientConnectOptions" Prelude.<$> clientConnectOptions,
+                              [(JSON..=) "ClientCidrBlock" Prelude.<$> clientCidrBlock,
+                               (JSON..=) "ClientConnectOptions" Prelude.<$> clientConnectOptions,
                                (JSON..=) "ClientLoginBannerOptions"
                                  Prelude.<$> clientLoginBannerOptions,
+                               (JSON..=) "ClientRouteEnforcementOptions"
+                                 Prelude.<$> clientRouteEnforcementOptions,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "DisconnectOnSessionTimeout"
+                                 Prelude.<$> disconnectOnSessionTimeout,
                                (JSON..=) "DnsServers" Prelude.<$> dnsServers,
                                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                                (JSON..=) "SelfServicePortal" Prelude.<$> selfServicePortal,
@@ -103,14 +112,18 @@ instance JSON.ToJSON ClientVpnEndpoint where
         (Prelude.fromList
            ((Prelude.<>)
               ["AuthenticationOptions" JSON..= authenticationOptions,
-               "ClientCidrBlock" JSON..= clientCidrBlock,
                "ConnectionLogOptions" JSON..= connectionLogOptions,
                "ServerCertificateArn" JSON..= serverCertificateArn]
               (Prelude.catMaybes
-                 [(JSON..=) "ClientConnectOptions" Prelude.<$> clientConnectOptions,
+                 [(JSON..=) "ClientCidrBlock" Prelude.<$> clientCidrBlock,
+                  (JSON..=) "ClientConnectOptions" Prelude.<$> clientConnectOptions,
                   (JSON..=) "ClientLoginBannerOptions"
                     Prelude.<$> clientLoginBannerOptions,
+                  (JSON..=) "ClientRouteEnforcementOptions"
+                    Prelude.<$> clientRouteEnforcementOptions,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "DisconnectOnSessionTimeout"
+                    Prelude.<$> disconnectOnSessionTimeout,
                   (JSON..=) "DnsServers" Prelude.<$> dnsServers,
                   (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                   (JSON..=) "SelfServicePortal" Prelude.<$> selfServicePortal,
@@ -127,7 +140,7 @@ instance Property "AuthenticationOptions" ClientVpnEndpoint where
 instance Property "ClientCidrBlock" ClientVpnEndpoint where
   type PropertyType "ClientCidrBlock" ClientVpnEndpoint = Value Prelude.Text
   set newValue ClientVpnEndpoint {..}
-    = ClientVpnEndpoint {clientCidrBlock = newValue, ..}
+    = ClientVpnEndpoint {clientCidrBlock = Prelude.pure newValue, ..}
 instance Property "ClientConnectOptions" ClientVpnEndpoint where
   type PropertyType "ClientConnectOptions" ClientVpnEndpoint = ClientConnectOptionsProperty
   set newValue ClientVpnEndpoint {..}
@@ -138,6 +151,11 @@ instance Property "ClientLoginBannerOptions" ClientVpnEndpoint where
   set newValue ClientVpnEndpoint {..}
     = ClientVpnEndpoint
         {clientLoginBannerOptions = Prelude.pure newValue, ..}
+instance Property "ClientRouteEnforcementOptions" ClientVpnEndpoint where
+  type PropertyType "ClientRouteEnforcementOptions" ClientVpnEndpoint = ClientRouteEnforcementOptionsProperty
+  set newValue ClientVpnEndpoint {..}
+    = ClientVpnEndpoint
+        {clientRouteEnforcementOptions = Prelude.pure newValue, ..}
 instance Property "ConnectionLogOptions" ClientVpnEndpoint where
   type PropertyType "ConnectionLogOptions" ClientVpnEndpoint = ConnectionLogOptionsProperty
   set newValue ClientVpnEndpoint {..}
@@ -146,6 +164,11 @@ instance Property "Description" ClientVpnEndpoint where
   type PropertyType "Description" ClientVpnEndpoint = Value Prelude.Text
   set newValue ClientVpnEndpoint {..}
     = ClientVpnEndpoint {description = Prelude.pure newValue, ..}
+instance Property "DisconnectOnSessionTimeout" ClientVpnEndpoint where
+  type PropertyType "DisconnectOnSessionTimeout" ClientVpnEndpoint = Value Prelude.Bool
+  set newValue ClientVpnEndpoint {..}
+    = ClientVpnEndpoint
+        {disconnectOnSessionTimeout = Prelude.pure newValue, ..}
 instance Property "DnsServers" ClientVpnEndpoint where
   type PropertyType "DnsServers" ClientVpnEndpoint = ValueList Prelude.Text
   set newValue ClientVpnEndpoint {..}

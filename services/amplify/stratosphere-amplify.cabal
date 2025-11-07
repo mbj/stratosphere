@@ -34,6 +34,7 @@ library
       Stratosphere.Amplify.App.CacheConfigProperty
       Stratosphere.Amplify.App.CustomRuleProperty
       Stratosphere.Amplify.App.EnvironmentVariableProperty
+      Stratosphere.Amplify.App.JobConfigProperty
       Stratosphere.Amplify.Branch
       Stratosphere.Amplify.Branch.BackendProperty
       Stratosphere.Amplify.Branch.BasicAuthConfigProperty

@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.CloudWatchLoggingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ManagedPersistenceMonitoringConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.PrometheusMonitoringConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.S3MonitoringConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data MonitoringConfigurationProperty
@@ -16,6 +17,8 @@ data MonitoringConfigurationProperty
                                      cloudWatchLoggingConfiguration :: (Prelude.Maybe CloudWatchLoggingConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration>
                                      managedPersistenceMonitoringConfiguration :: (Prelude.Maybe ManagedPersistenceMonitoringConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-prometheusmonitoringconfiguration>
+                                     prometheusMonitoringConfiguration :: (Prelude.Maybe PrometheusMonitoringConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-s3monitoringconfiguration>
                                      s3MonitoringConfiguration :: (Prelude.Maybe S3MonitoringConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -26,6 +29,7 @@ mkMonitoringConfigurationProperty
       {haddock_workaround_ = (),
        cloudWatchLoggingConfiguration = Prelude.Nothing,
        managedPersistenceMonitoringConfiguration = Prelude.Nothing,
+       prometheusMonitoringConfiguration = Prelude.Nothing,
        s3MonitoringConfiguration = Prelude.Nothing}
 instance ToResourceProperties MonitoringConfigurationProperty where
   toResourceProperties MonitoringConfigurationProperty {..}
@@ -38,6 +42,8 @@ instance ToResourceProperties MonitoringConfigurationProperty where
                               Prelude.<$> cloudWatchLoggingConfiguration,
                             (JSON..=) "ManagedPersistenceMonitoringConfiguration"
                               Prelude.<$> managedPersistenceMonitoringConfiguration,
+                            (JSON..=) "PrometheusMonitoringConfiguration"
+                              Prelude.<$> prometheusMonitoringConfiguration,
                             (JSON..=) "S3MonitoringConfiguration"
                               Prelude.<$> s3MonitoringConfiguration])}
 instance JSON.ToJSON MonitoringConfigurationProperty where
@@ -49,6 +55,8 @@ instance JSON.ToJSON MonitoringConfigurationProperty where
                  Prelude.<$> cloudWatchLoggingConfiguration,
                (JSON..=) "ManagedPersistenceMonitoringConfiguration"
                  Prelude.<$> managedPersistenceMonitoringConfiguration,
+               (JSON..=) "PrometheusMonitoringConfiguration"
+                 Prelude.<$> prometheusMonitoringConfiguration,
                (JSON..=) "S3MonitoringConfiguration"
                  Prelude.<$> s3MonitoringConfiguration]))
 instance Property "CloudWatchLoggingConfiguration" MonitoringConfigurationProperty where
@@ -62,6 +70,11 @@ instance Property "ManagedPersistenceMonitoringConfiguration" MonitoringConfigur
     = MonitoringConfigurationProperty
         {managedPersistenceMonitoringConfiguration = Prelude.pure newValue,
          ..}
+instance Property "PrometheusMonitoringConfiguration" MonitoringConfigurationProperty where
+  type PropertyType "PrometheusMonitoringConfiguration" MonitoringConfigurationProperty = PrometheusMonitoringConfigurationProperty
+  set newValue MonitoringConfigurationProperty {..}
+    = MonitoringConfigurationProperty
+        {prometheusMonitoringConfiguration = Prelude.pure newValue, ..}
 instance Property "S3MonitoringConfiguration" MonitoringConfigurationProperty where
   type PropertyType "S3MonitoringConfiguration" MonitoringConfigurationProperty = S3MonitoringConfigurationProperty
   set newValue MonitoringConfigurationProperty {..}

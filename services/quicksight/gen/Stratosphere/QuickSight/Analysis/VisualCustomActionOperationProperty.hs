@@ -1,0 +1,74 @@
+module Stratosphere.QuickSight.Analysis.VisualCustomActionOperationProperty (
+        module Exports, VisualCustomActionOperationProperty(..),
+        mkVisualCustomActionOperationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CustomActionFilterOperationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CustomActionNavigationOperationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CustomActionSetParametersOperationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CustomActionURLOperationProperty as Exports
+import Stratosphere.ResourceProperties
+data VisualCustomActionOperationProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html>
+    VisualCustomActionOperationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-filteroperation>
+                                         filterOperation :: (Prelude.Maybe CustomActionFilterOperationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-navigationoperation>
+                                         navigationOperation :: (Prelude.Maybe CustomActionNavigationOperationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-setparametersoperation>
+                                         setParametersOperation :: (Prelude.Maybe CustomActionSetParametersOperationProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactionoperation.html#cfn-quicksight-analysis-visualcustomactionoperation-urloperation>
+                                         uRLOperation :: (Prelude.Maybe CustomActionURLOperationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkVisualCustomActionOperationProperty ::
+  VisualCustomActionOperationProperty
+mkVisualCustomActionOperationProperty
+  = VisualCustomActionOperationProperty
+      {haddock_workaround_ = (), filterOperation = Prelude.Nothing,
+       navigationOperation = Prelude.Nothing,
+       setParametersOperation = Prelude.Nothing,
+       uRLOperation = Prelude.Nothing}
+instance ToResourceProperties VisualCustomActionOperationProperty where
+  toResourceProperties VisualCustomActionOperationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.VisualCustomActionOperation",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "FilterOperation" Prelude.<$> filterOperation,
+                            (JSON..=) "NavigationOperation" Prelude.<$> navigationOperation,
+                            (JSON..=) "SetParametersOperation"
+                              Prelude.<$> setParametersOperation,
+                            (JSON..=) "URLOperation" Prelude.<$> uRLOperation])}
+instance JSON.ToJSON VisualCustomActionOperationProperty where
+  toJSON VisualCustomActionOperationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "FilterOperation" Prelude.<$> filterOperation,
+               (JSON..=) "NavigationOperation" Prelude.<$> navigationOperation,
+               (JSON..=) "SetParametersOperation"
+                 Prelude.<$> setParametersOperation,
+               (JSON..=) "URLOperation" Prelude.<$> uRLOperation]))
+instance Property "FilterOperation" VisualCustomActionOperationProperty where
+  type PropertyType "FilterOperation" VisualCustomActionOperationProperty = CustomActionFilterOperationProperty
+  set newValue VisualCustomActionOperationProperty {..}
+    = VisualCustomActionOperationProperty
+        {filterOperation = Prelude.pure newValue, ..}
+instance Property "NavigationOperation" VisualCustomActionOperationProperty where
+  type PropertyType "NavigationOperation" VisualCustomActionOperationProperty = CustomActionNavigationOperationProperty
+  set newValue VisualCustomActionOperationProperty {..}
+    = VisualCustomActionOperationProperty
+        {navigationOperation = Prelude.pure newValue, ..}
+instance Property "SetParametersOperation" VisualCustomActionOperationProperty where
+  type PropertyType "SetParametersOperation" VisualCustomActionOperationProperty = CustomActionSetParametersOperationProperty
+  set newValue VisualCustomActionOperationProperty {..}
+    = VisualCustomActionOperationProperty
+        {setParametersOperation = Prelude.pure newValue, ..}
+instance Property "URLOperation" VisualCustomActionOperationProperty where
+  type PropertyType "URLOperation" VisualCustomActionOperationProperty = CustomActionURLOperationProperty
+  set newValue VisualCustomActionOperationProperty {..}
+    = VisualCustomActionOperationProperty
+        {uRLOperation = Prelude.pure newValue, ..}

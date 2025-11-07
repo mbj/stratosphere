@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.DefaultRelativeDateTimeControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultRelativeDateTimeControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultRelativeDateTimeControlOptionsProperty
+instance Prelude.Eq DefaultRelativeDateTimeControlOptionsProperty
+instance Prelude.Show DefaultRelativeDateTimeControlOptionsProperty
+instance JSON.ToJSON DefaultRelativeDateTimeControlOptionsProperty

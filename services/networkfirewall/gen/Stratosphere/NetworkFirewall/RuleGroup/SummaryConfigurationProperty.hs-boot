@@ -1,0 +1,9 @@
+module Stratosphere.NetworkFirewall.RuleGroup.SummaryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SummaryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SummaryConfigurationProperty
+instance Prelude.Eq SummaryConfigurationProperty
+instance Prelude.Show SummaryConfigurationProperty
+instance JSON.ToJSON SummaryConfigurationProperty

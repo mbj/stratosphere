@@ -12,6 +12,10 @@ data EbuTtDDestinationSettingsProperty
     EbuTtDDestinationSettingsProperty {haddock_workaround_ :: (),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-copyrightholder>
                                        copyrightHolder :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-defaultfontsize>
+                                       defaultFontSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-defaultlineheight>
+                                       defaultLineHeight :: (Prelude.Maybe (Value Prelude.Integer)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-filllinegap>
                                        fillLineGap :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html#cfn-medialive-channel-ebuttddestinationsettings-fontfamily>
@@ -24,8 +28,9 @@ mkEbuTtDDestinationSettingsProperty ::
 mkEbuTtDDestinationSettingsProperty
   = EbuTtDDestinationSettingsProperty
       {haddock_workaround_ = (), copyrightHolder = Prelude.Nothing,
-       fillLineGap = Prelude.Nothing, fontFamily = Prelude.Nothing,
-       styleControl = Prelude.Nothing}
+       defaultFontSize = Prelude.Nothing,
+       defaultLineHeight = Prelude.Nothing, fillLineGap = Prelude.Nothing,
+       fontFamily = Prelude.Nothing, styleControl = Prelude.Nothing}
 instance ToResourceProperties EbuTtDDestinationSettingsProperty where
   toResourceProperties EbuTtDDestinationSettingsProperty {..}
     = ResourceProperties
@@ -34,6 +39,8 @@ instance ToResourceProperties EbuTtDDestinationSettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CopyrightHolder" Prelude.<$> copyrightHolder,
+                            (JSON..=) "DefaultFontSize" Prelude.<$> defaultFontSize,
+                            (JSON..=) "DefaultLineHeight" Prelude.<$> defaultLineHeight,
                             (JSON..=) "FillLineGap" Prelude.<$> fillLineGap,
                             (JSON..=) "FontFamily" Prelude.<$> fontFamily,
                             (JSON..=) "StyleControl" Prelude.<$> styleControl])}
@@ -43,6 +50,8 @@ instance JSON.ToJSON EbuTtDDestinationSettingsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "CopyrightHolder" Prelude.<$> copyrightHolder,
+               (JSON..=) "DefaultFontSize" Prelude.<$> defaultFontSize,
+               (JSON..=) "DefaultLineHeight" Prelude.<$> defaultLineHeight,
                (JSON..=) "FillLineGap" Prelude.<$> fillLineGap,
                (JSON..=) "FontFamily" Prelude.<$> fontFamily,
                (JSON..=) "StyleControl" Prelude.<$> styleControl]))
@@ -51,6 +60,16 @@ instance Property "CopyrightHolder" EbuTtDDestinationSettingsProperty where
   set newValue EbuTtDDestinationSettingsProperty {..}
     = EbuTtDDestinationSettingsProperty
         {copyrightHolder = Prelude.pure newValue, ..}
+instance Property "DefaultFontSize" EbuTtDDestinationSettingsProperty where
+  type PropertyType "DefaultFontSize" EbuTtDDestinationSettingsProperty = Value Prelude.Integer
+  set newValue EbuTtDDestinationSettingsProperty {..}
+    = EbuTtDDestinationSettingsProperty
+        {defaultFontSize = Prelude.pure newValue, ..}
+instance Property "DefaultLineHeight" EbuTtDDestinationSettingsProperty where
+  type PropertyType "DefaultLineHeight" EbuTtDDestinationSettingsProperty = Value Prelude.Integer
+  set newValue EbuTtDDestinationSettingsProperty {..}
+    = EbuTtDDestinationSettingsProperty
+        {defaultLineHeight = Prelude.pure newValue, ..}
 instance Property "FillLineGap" EbuTtDDestinationSettingsProperty where
   type PropertyType "FillLineGap" EbuTtDDestinationSettingsProperty = Value Prelude.Text
   set newValue EbuTtDDestinationSettingsProperty {..}

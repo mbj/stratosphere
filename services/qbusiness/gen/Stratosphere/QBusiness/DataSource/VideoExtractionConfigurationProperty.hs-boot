@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataSource.VideoExtractionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoExtractionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VideoExtractionConfigurationProperty
+instance Prelude.Eq VideoExtractionConfigurationProperty
+instance Prelude.Show VideoExtractionConfigurationProperty
+instance JSON.ToJSON VideoExtractionConfigurationProperty

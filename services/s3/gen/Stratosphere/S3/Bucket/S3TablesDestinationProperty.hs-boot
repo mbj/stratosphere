@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.S3TablesDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3TablesDestinationProperty :: Prelude.Type
+instance ToResourceProperties S3TablesDestinationProperty
+instance Prelude.Eq S3TablesDestinationProperty
+instance Prelude.Show S3TablesDestinationProperty
+instance JSON.ToJSON S3TablesDestinationProperty

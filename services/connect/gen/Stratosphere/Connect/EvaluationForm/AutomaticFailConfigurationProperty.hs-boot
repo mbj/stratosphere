@@ -1,0 +1,9 @@
+module Stratosphere.Connect.EvaluationForm.AutomaticFailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutomaticFailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AutomaticFailConfigurationProperty
+instance Prelude.Eq AutomaticFailConfigurationProperty
+instance Prelude.Show AutomaticFailConfigurationProperty
+instance JSON.ToJSON AutomaticFailConfigurationProperty

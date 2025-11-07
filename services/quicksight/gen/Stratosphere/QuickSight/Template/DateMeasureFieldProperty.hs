@@ -1,0 +1,69 @@
+module Stratosphere.QuickSight.Template.DateMeasureFieldProperty (
+        module Exports, DateMeasureFieldProperty(..),
+        mkDateMeasureFieldProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.ColumnIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.DateTimeFormatConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DateMeasureFieldProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html>
+    DateMeasureFieldProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html#cfn-quicksight-template-datemeasurefield-aggregationfunction>
+                              aggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html#cfn-quicksight-template-datemeasurefield-column>
+                              column :: ColumnIdentifierProperty,
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html#cfn-quicksight-template-datemeasurefield-fieldid>
+                              fieldId :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html#cfn-quicksight-template-datemeasurefield-formatconfiguration>
+                              formatConfiguration :: (Prelude.Maybe DateTimeFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkDateMeasureFieldProperty ::
+  ColumnIdentifierProperty
+  -> Value Prelude.Text -> DateMeasureFieldProperty
+mkDateMeasureFieldProperty column fieldId
+  = DateMeasureFieldProperty
+      {haddock_workaround_ = (), column = column, fieldId = fieldId,
+       aggregationFunction = Prelude.Nothing,
+       formatConfiguration = Prelude.Nothing}
+instance ToResourceProperties DateMeasureFieldProperty where
+  toResourceProperties DateMeasureFieldProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Template.DateMeasureField",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Column" JSON..= column, "FieldId" JSON..= fieldId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AggregationFunction" Prelude.<$> aggregationFunction,
+                               (JSON..=) "FormatConfiguration" Prelude.<$> formatConfiguration]))}
+instance JSON.ToJSON DateMeasureFieldProperty where
+  toJSON DateMeasureFieldProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Column" JSON..= column, "FieldId" JSON..= fieldId]
+              (Prelude.catMaybes
+                 [(JSON..=) "AggregationFunction" Prelude.<$> aggregationFunction,
+                  (JSON..=) "FormatConfiguration" Prelude.<$> formatConfiguration])))
+instance Property "AggregationFunction" DateMeasureFieldProperty where
+  type PropertyType "AggregationFunction" DateMeasureFieldProperty = Value Prelude.Text
+  set newValue DateMeasureFieldProperty {..}
+    = DateMeasureFieldProperty
+        {aggregationFunction = Prelude.pure newValue, ..}
+instance Property "Column" DateMeasureFieldProperty where
+  type PropertyType "Column" DateMeasureFieldProperty = ColumnIdentifierProperty
+  set newValue DateMeasureFieldProperty {..}
+    = DateMeasureFieldProperty {column = newValue, ..}
+instance Property "FieldId" DateMeasureFieldProperty where
+  type PropertyType "FieldId" DateMeasureFieldProperty = Value Prelude.Text
+  set newValue DateMeasureFieldProperty {..}
+    = DateMeasureFieldProperty {fieldId = newValue, ..}
+instance Property "FormatConfiguration" DateMeasureFieldProperty where
+  type PropertyType "FormatConfiguration" DateMeasureFieldProperty = DateTimeFormatConfigurationProperty
+  set newValue DateMeasureFieldProperty {..}
+    = DateMeasureFieldProperty
+        {formatConfiguration = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.RUM.AppMonitor.DeobfuscationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeobfuscationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DeobfuscationConfigurationProperty
+instance Prelude.Eq DeobfuscationConfigurationProperty
+instance Prelude.Show DeobfuscationConfigurationProperty
+instance JSON.ToJSON DeobfuscationConfigurationProperty

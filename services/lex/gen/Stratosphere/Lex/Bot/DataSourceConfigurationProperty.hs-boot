@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.DataSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DataSourceConfigurationProperty
+instance Prelude.Eq DataSourceConfigurationProperty
+instance Prelude.Show DataSourceConfigurationProperty
+instance JSON.ToJSON DataSourceConfigurationProperty

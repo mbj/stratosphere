@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PaginationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PaginationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PaginationConfigurationProperty
+instance Prelude.Eq PaginationConfigurationProperty
+instance Prelude.Show PaginationConfigurationProperty
+instance JSON.ToJSON PaginationConfigurationProperty

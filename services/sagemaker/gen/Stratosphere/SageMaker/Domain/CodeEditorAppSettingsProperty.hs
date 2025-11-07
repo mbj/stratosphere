@@ -15,6 +15,8 @@ data CodeEditorAppSettingsProperty
     CodeEditorAppSettingsProperty {haddock_workaround_ :: (),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-applifecyclemanagement>
                                    appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-builtinlifecycleconfigarn>
+                                   builtInLifecycleConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-customimages>
                                    customImages :: (Prelude.Maybe [CustomImageProperty]),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-defaultresourcespec>
@@ -27,6 +29,7 @@ mkCodeEditorAppSettingsProperty
   = CodeEditorAppSettingsProperty
       {haddock_workaround_ = (),
        appLifecycleManagement = Prelude.Nothing,
+       builtInLifecycleConfigArn = Prelude.Nothing,
        customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}
@@ -39,6 +42,8 @@ instance ToResourceProperties CodeEditorAppSettingsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AppLifecycleManagement"
                               Prelude.<$> appLifecycleManagement,
+                            (JSON..=) "BuiltInLifecycleConfigArn"
+                              Prelude.<$> builtInLifecycleConfigArn,
                             (JSON..=) "CustomImages" Prelude.<$> customImages,
                             (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
                             (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns])}
@@ -49,6 +54,8 @@ instance JSON.ToJSON CodeEditorAppSettingsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AppLifecycleManagement"
                  Prelude.<$> appLifecycleManagement,
+               (JSON..=) "BuiltInLifecycleConfigArn"
+                 Prelude.<$> builtInLifecycleConfigArn,
                (JSON..=) "CustomImages" Prelude.<$> customImages,
                (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
                (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns]))
@@ -57,6 +64,11 @@ instance Property "AppLifecycleManagement" CodeEditorAppSettingsProperty where
   set newValue CodeEditorAppSettingsProperty {..}
     = CodeEditorAppSettingsProperty
         {appLifecycleManagement = Prelude.pure newValue, ..}
+instance Property "BuiltInLifecycleConfigArn" CodeEditorAppSettingsProperty where
+  type PropertyType "BuiltInLifecycleConfigArn" CodeEditorAppSettingsProperty = Value Prelude.Text
+  set newValue CodeEditorAppSettingsProperty {..}
+    = CodeEditorAppSettingsProperty
+        {builtInLifecycleConfigArn = Prelude.pure newValue, ..}
 instance Property "CustomImages" CodeEditorAppSettingsProperty where
   type PropertyType "CustomImages" CodeEditorAppSettingsProperty = [CustomImageProperty]
   set newValue CodeEditorAppSettingsProperty {..}

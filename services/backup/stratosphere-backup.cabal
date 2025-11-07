@@ -33,6 +33,7 @@ library
       Stratosphere.Backup.BackupPlan.BackupPlanResourceTypeProperty
       Stratosphere.Backup.BackupPlan.BackupRuleResourceTypeProperty
       Stratosphere.Backup.BackupPlan.CopyActionResourceTypeProperty
+      Stratosphere.Backup.BackupPlan.IndexActionsResourceTypeProperty
       Stratosphere.Backup.BackupPlan.LifecycleResourceTypeProperty
       Stratosphere.Backup.BackupSelection
       Stratosphere.Backup.BackupSelection.BackupSelectionResourceTypeProperty

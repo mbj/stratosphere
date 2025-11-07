@@ -12,7 +12,9 @@ data ThingPrincipalAttachment
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal>
                               principal :: (Value Prelude.Text),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname>
-                              thingName :: (Value Prelude.Text)}
+                              thingName :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingprincipaltype>
+                              thingPrincipalType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkThingPrincipalAttachment ::
   Value Prelude.Text
@@ -20,18 +22,25 @@ mkThingPrincipalAttachment ::
 mkThingPrincipalAttachment principal thingName
   = ThingPrincipalAttachment
       {haddock_workaround_ = (), principal = principal,
-       thingName = thingName}
+       thingName = thingName, thingPrincipalType = Prelude.Nothing}
 instance ToResourceProperties ThingPrincipalAttachment where
   toResourceProperties ThingPrincipalAttachment {..}
     = ResourceProperties
         {awsType = "AWS::IoT::ThingPrincipalAttachment",
          supportsTags = Prelude.False,
-         properties = ["Principal" JSON..= principal,
-                       "ThingName" JSON..= thingName]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Principal" JSON..= principal, "ThingName" JSON..= thingName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ThingPrincipalType" Prelude.<$> thingPrincipalType]))}
 instance JSON.ToJSON ThingPrincipalAttachment where
   toJSON ThingPrincipalAttachment {..}
     = JSON.object
-        ["Principal" JSON..= principal, "ThingName" JSON..= thingName]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Principal" JSON..= principal, "ThingName" JSON..= thingName]
+              (Prelude.catMaybes
+                 [(JSON..=) "ThingPrincipalType" Prelude.<$> thingPrincipalType])))
 instance Property "Principal" ThingPrincipalAttachment where
   type PropertyType "Principal" ThingPrincipalAttachment = Value Prelude.Text
   set newValue ThingPrincipalAttachment {..}
@@ -40,3 +49,8 @@ instance Property "ThingName" ThingPrincipalAttachment where
   type PropertyType "ThingName" ThingPrincipalAttachment = Value Prelude.Text
   set newValue ThingPrincipalAttachment {..}
     = ThingPrincipalAttachment {thingName = newValue, ..}
+instance Property "ThingPrincipalType" ThingPrincipalAttachment where
+  type PropertyType "ThingPrincipalType" ThingPrincipalAttachment = Value Prelude.Text
+  set newValue ThingPrincipalAttachment {..}
+    = ThingPrincipalAttachment
+        {thingPrincipalType = Prelude.pure newValue, ..}

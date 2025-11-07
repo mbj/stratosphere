@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.CreditSpecificationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CreditSpecificationRequestProperty :: Prelude.Type
+instance ToResourceProperties CreditSpecificationRequestProperty
+instance Prelude.Eq CreditSpecificationRequestProperty
+instance Prelude.Show CreditSpecificationRequestProperty
+instance JSON.ToJSON CreditSpecificationRequestProperty

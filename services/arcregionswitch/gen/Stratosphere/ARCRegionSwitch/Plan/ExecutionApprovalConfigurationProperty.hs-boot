@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.ExecutionApprovalConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutionApprovalConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ExecutionApprovalConfigurationProperty
+instance Prelude.Eq ExecutionApprovalConfigurationProperty
+instance Prelude.Show ExecutionApprovalConfigurationProperty
+instance JSON.ToJSON ExecutionApprovalConfigurationProperty

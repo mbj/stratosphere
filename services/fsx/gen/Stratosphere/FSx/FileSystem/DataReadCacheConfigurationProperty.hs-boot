@@ -1,0 +1,9 @@
+module Stratosphere.FSx.FileSystem.DataReadCacheConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataReadCacheConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DataReadCacheConfigurationProperty
+instance Prelude.Eq DataReadCacheConfigurationProperty
+instance Prelude.Show DataReadCacheConfigurationProperty
+instance JSON.ToJSON DataReadCacheConfigurationProperty

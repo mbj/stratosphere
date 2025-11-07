@@ -4,6 +4,7 @@ module Stratosphere.Connect.EvaluationForm (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.AutoEvaluationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormBaseItemProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.ScoringStrategyProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,6 +13,8 @@ import Stratosphere.Value
 data EvaluationForm
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html>
     EvaluationForm {haddock_workaround_ :: (),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-autoevaluationconfiguration>
+                    autoEvaluationConfiguration :: (Prelude.Maybe AutoEvaluationConfigurationProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-instancearn>
@@ -35,6 +38,7 @@ mkEvaluationForm instanceArn items status title
   = EvaluationForm
       {haddock_workaround_ = (), instanceArn = instanceArn,
        items = items, status = status, title = title,
+       autoEvaluationConfiguration = Prelude.Nothing,
        description = Prelude.Nothing, scoringStrategy = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties EvaluationForm where
@@ -47,7 +51,9 @@ instance ToResourceProperties EvaluationForm where
                            ["InstanceArn" JSON..= instanceArn, "Items" JSON..= items,
                             "Status" JSON..= status, "Title" JSON..= title]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "AutoEvaluationConfiguration"
+                                 Prelude.<$> autoEvaluationConfiguration,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "ScoringStrategy" Prelude.<$> scoringStrategy,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON EvaluationForm where
@@ -58,9 +64,16 @@ instance JSON.ToJSON EvaluationForm where
               ["InstanceArn" JSON..= instanceArn, "Items" JSON..= items,
                "Status" JSON..= status, "Title" JSON..= title]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "AutoEvaluationConfiguration"
+                    Prelude.<$> autoEvaluationConfiguration,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "ScoringStrategy" Prelude.<$> scoringStrategy,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AutoEvaluationConfiguration" EvaluationForm where
+  type PropertyType "AutoEvaluationConfiguration" EvaluationForm = AutoEvaluationConfigurationProperty
+  set newValue EvaluationForm {..}
+    = EvaluationForm
+        {autoEvaluationConfiguration = Prelude.pure newValue, ..}
 instance Property "Description" EvaluationForm where
   type PropertyType "Description" EvaluationForm = Value Prelude.Text
   set newValue EvaluationForm {..}

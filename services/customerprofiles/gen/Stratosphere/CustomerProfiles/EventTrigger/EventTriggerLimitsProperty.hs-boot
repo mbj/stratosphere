@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.EventTrigger.EventTriggerLimitsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventTriggerLimitsProperty :: Prelude.Type
+instance ToResourceProperties EventTriggerLimitsProperty
+instance Prelude.Eq EventTriggerLimitsProperty
+instance Prelude.Show EventTriggerLimitsProperty
+instance JSON.ToJSON EventTriggerLimitsProperty

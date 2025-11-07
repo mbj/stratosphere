@@ -29,6 +29,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.ImageBuilder.Component
+      Stratosphere.ImageBuilder.Component.LatestVersionProperty
       Stratosphere.ImageBuilder.ContainerRecipe
       Stratosphere.ImageBuilder.ContainerRecipe.ComponentConfigurationProperty
       Stratosphere.ImageBuilder.ContainerRecipe.ComponentParameterProperty
@@ -45,17 +46,24 @@ library
       Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchSnapshotConfigurationProperty
       Stratosphere.ImageBuilder.DistributionConfiguration.LaunchPermissionConfigurationProperty
       Stratosphere.ImageBuilder.DistributionConfiguration.LaunchTemplateConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.SsmParameterConfigurationProperty
       Stratosphere.ImageBuilder.DistributionConfiguration.TargetContainerRepositoryProperty
       Stratosphere.ImageBuilder.Image
+      Stratosphere.ImageBuilder.Image.DeletionSettingsProperty
       Stratosphere.ImageBuilder.Image.EcrConfigurationProperty
+      Stratosphere.ImageBuilder.Image.ImageLoggingConfigurationProperty
+      Stratosphere.ImageBuilder.Image.ImagePipelineExecutionSettingsProperty
       Stratosphere.ImageBuilder.Image.ImageScanningConfigurationProperty
       Stratosphere.ImageBuilder.Image.ImageTestsConfigurationProperty
+      Stratosphere.ImageBuilder.Image.LatestVersionProperty
       Stratosphere.ImageBuilder.Image.WorkflowConfigurationProperty
       Stratosphere.ImageBuilder.Image.WorkflowParameterProperty
       Stratosphere.ImageBuilder.ImagePipeline
+      Stratosphere.ImageBuilder.ImagePipeline.AutoDisablePolicyProperty
       Stratosphere.ImageBuilder.ImagePipeline.EcrConfigurationProperty
       Stratosphere.ImageBuilder.ImagePipeline.ImageScanningConfigurationProperty
       Stratosphere.ImageBuilder.ImagePipeline.ImageTestsConfigurationProperty
+      Stratosphere.ImageBuilder.ImagePipeline.PipelineLoggingConfigurationProperty
       Stratosphere.ImageBuilder.ImagePipeline.ScheduleProperty
       Stratosphere.ImageBuilder.ImagePipeline.WorkflowConfigurationProperty
       Stratosphere.ImageBuilder.ImagePipeline.WorkflowParameterProperty
@@ -82,6 +90,7 @@ library
       Stratosphere.ImageBuilder.LifecyclePolicy.RecipeSelectionProperty
       Stratosphere.ImageBuilder.LifecyclePolicy.ResourceSelectionProperty
       Stratosphere.ImageBuilder.Workflow
+      Stratosphere.ImageBuilder.Workflow.LatestVersionProperty
   other-modules:
       Paths_stratosphere_imagebuilder
   hs-source-dirs:

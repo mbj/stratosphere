@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.Agreement.CustomDirectoriesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomDirectoriesProperty :: Prelude.Type
+instance ToResourceProperties CustomDirectoriesProperty
+instance Prelude.Eq CustomDirectoriesProperty
+instance Prelude.Show CustomDirectoriesProperty
+instance JSON.ToJSON CustomDirectoriesProperty

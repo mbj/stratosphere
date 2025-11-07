@@ -50,8 +50,8 @@ library
       Stratosphere.Events.Endpoint.SecondaryProperty
       Stratosphere.Events.EventBus
       Stratosphere.Events.EventBus.DeadLetterConfigProperty
+      Stratosphere.Events.EventBus.LogConfigProperty
       Stratosphere.Events.EventBusPolicy
-      Stratosphere.Events.EventBusPolicy.ConditionProperty
       Stratosphere.Events.Rule
       Stratosphere.Events.Rule.AppSyncParametersProperty
       Stratosphere.Events.Rule.AwsVpcConfigurationProperty

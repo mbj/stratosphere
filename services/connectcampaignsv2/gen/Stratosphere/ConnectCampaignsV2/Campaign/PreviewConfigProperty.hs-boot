@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.PreviewConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PreviewConfigProperty :: Prelude.Type
+instance ToResourceProperties PreviewConfigProperty
+instance Prelude.Eq PreviewConfigProperty
+instance Prelude.Show PreviewConfigProperty
+instance JSON.ToJSON PreviewConfigProperty

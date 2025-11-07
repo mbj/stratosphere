@@ -12,12 +12,16 @@ data LogGroup
     LogGroup {haddock_workaround_ :: (),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-dataprotectionpolicy>
               dataProtectionPolicy :: (Prelude.Maybe JSON.Object),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-fieldindexpolicies>
+              fieldIndexPolicies :: (Prelude.Maybe JSON.Object),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid>
               kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupclass>
               logGroupClass :: (Prelude.Maybe (Value Prelude.Text)),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname>
               logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-resourcepolicydocument>
+              resourcePolicyDocument :: (Prelude.Maybe JSON.Object),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays>
               retentionInDays :: (Prelude.Maybe (Value Prelude.Integer)),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-tags>
@@ -27,9 +31,10 @@ mkLogGroup :: LogGroup
 mkLogGroup
   = LogGroup
       {haddock_workaround_ = (), dataProtectionPolicy = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing, logGroupClass = Prelude.Nothing,
-       logGroupName = Prelude.Nothing, retentionInDays = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       fieldIndexPolicies = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
+       logGroupClass = Prelude.Nothing, logGroupName = Prelude.Nothing,
+       resourcePolicyDocument = Prelude.Nothing,
+       retentionInDays = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LogGroup where
   toResourceProperties LogGroup {..}
     = ResourceProperties
@@ -37,9 +42,12 @@ instance ToResourceProperties LogGroup where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
+                            (JSON..=) "FieldIndexPolicies" Prelude.<$> fieldIndexPolicies,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                             (JSON..=) "LogGroupClass" Prelude.<$> logGroupClass,
                             (JSON..=) "LogGroupName" Prelude.<$> logGroupName,
+                            (JSON..=) "ResourcePolicyDocument"
+                              Prelude.<$> resourcePolicyDocument,
                             (JSON..=) "RetentionInDays" Prelude.<$> retentionInDays,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON LogGroup where
@@ -48,15 +56,22 @@ instance JSON.ToJSON LogGroup where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
+               (JSON..=) "FieldIndexPolicies" Prelude.<$> fieldIndexPolicies,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                (JSON..=) "LogGroupClass" Prelude.<$> logGroupClass,
                (JSON..=) "LogGroupName" Prelude.<$> logGroupName,
+               (JSON..=) "ResourcePolicyDocument"
+                 Prelude.<$> resourcePolicyDocument,
                (JSON..=) "RetentionInDays" Prelude.<$> retentionInDays,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "DataProtectionPolicy" LogGroup where
   type PropertyType "DataProtectionPolicy" LogGroup = JSON.Object
   set newValue LogGroup {..}
     = LogGroup {dataProtectionPolicy = Prelude.pure newValue, ..}
+instance Property "FieldIndexPolicies" LogGroup where
+  type PropertyType "FieldIndexPolicies" LogGroup = JSON.Object
+  set newValue LogGroup {..}
+    = LogGroup {fieldIndexPolicies = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" LogGroup where
   type PropertyType "KmsKeyId" LogGroup = Value Prelude.Text
   set newValue LogGroup {..}
@@ -69,6 +84,10 @@ instance Property "LogGroupName" LogGroup where
   type PropertyType "LogGroupName" LogGroup = Value Prelude.Text
   set newValue LogGroup {..}
     = LogGroup {logGroupName = Prelude.pure newValue, ..}
+instance Property "ResourcePolicyDocument" LogGroup where
+  type PropertyType "ResourcePolicyDocument" LogGroup = JSON.Object
+  set newValue LogGroup {..}
+    = LogGroup {resourcePolicyDocument = Prelude.pure newValue, ..}
 instance Property "RetentionInDays" LogGroup where
   type PropertyType "RetentionInDays" LogGroup = Value Prelude.Integer
   set newValue LogGroup {..}

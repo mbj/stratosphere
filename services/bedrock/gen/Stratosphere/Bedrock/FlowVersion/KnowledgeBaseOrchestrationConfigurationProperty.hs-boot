@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.KnowledgeBaseOrchestrationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KnowledgeBaseOrchestrationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties KnowledgeBaseOrchestrationConfigurationProperty
+instance Prelude.Eq KnowledgeBaseOrchestrationConfigurationProperty
+instance Prelude.Show KnowledgeBaseOrchestrationConfigurationProperty
+instance JSON.ToJSON KnowledgeBaseOrchestrationConfigurationProperty

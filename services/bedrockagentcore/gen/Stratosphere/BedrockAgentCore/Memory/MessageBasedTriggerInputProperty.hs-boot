@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.MessageBasedTriggerInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MessageBasedTriggerInputProperty :: Prelude.Type
+instance ToResourceProperties MessageBasedTriggerInputProperty
+instance Prelude.Eq MessageBasedTriggerInputProperty
+instance Prelude.Show MessageBasedTriggerInputProperty
+instance JSON.ToJSON MessageBasedTriggerInputProperty

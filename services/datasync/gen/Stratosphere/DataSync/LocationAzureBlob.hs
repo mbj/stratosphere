@@ -5,6 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationAzureBlob.AzureBlobSasConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DataSync.LocationAzureBlob.CmkSecretConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.DataSync.LocationAzureBlob.CustomSecretConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -12,7 +14,7 @@ data LocationAzureBlob
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html>
     LocationAzureBlob {haddock_workaround_ :: (),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-agentarns>
-                       agentArns :: (ValueList Prelude.Text),
+                       agentArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-azureaccesstier>
                        azureAccessTier :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-azureblobauthenticationtype>
@@ -23,22 +25,26 @@ data LocationAzureBlob
                        azureBlobSasConfiguration :: (Prelude.Maybe AzureBlobSasConfigurationProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-azureblobtype>
                        azureBlobType :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-cmksecretconfig>
+                       cmkSecretConfig :: (Prelude.Maybe CmkSecretConfigProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-customsecretconfig>
+                       customSecretConfig :: (Prelude.Maybe CustomSecretConfigProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-subdirectory>
                        subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-tags>
                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkLocationAzureBlob ::
-  ValueList Prelude.Text -> Value Prelude.Text -> LocationAzureBlob
-mkLocationAzureBlob agentArns azureBlobAuthenticationType
+mkLocationAzureBlob :: Value Prelude.Text -> LocationAzureBlob
+mkLocationAzureBlob azureBlobAuthenticationType
   = LocationAzureBlob
-      {haddock_workaround_ = (), agentArns = agentArns,
+      {haddock_workaround_ = (),
        azureBlobAuthenticationType = azureBlobAuthenticationType,
-       azureAccessTier = Prelude.Nothing,
+       agentArns = Prelude.Nothing, azureAccessTier = Prelude.Nothing,
        azureBlobContainerUrl = Prelude.Nothing,
        azureBlobSasConfiguration = Prelude.Nothing,
-       azureBlobType = Prelude.Nothing, subdirectory = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       azureBlobType = Prelude.Nothing, cmkSecretConfig = Prelude.Nothing,
+       customSecretConfig = Prelude.Nothing,
+       subdirectory = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties LocationAzureBlob where
   toResourceProperties LocationAzureBlob {..}
     = ResourceProperties
@@ -46,15 +52,17 @@ instance ToResourceProperties LocationAzureBlob where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AgentArns" JSON..= agentArns,
-                            "AzureBlobAuthenticationType" JSON..= azureBlobAuthenticationType]
+                           ["AzureBlobAuthenticationType" JSON..= azureBlobAuthenticationType]
                            (Prelude.catMaybes
-                              [(JSON..=) "AzureAccessTier" Prelude.<$> azureAccessTier,
+                              [(JSON..=) "AgentArns" Prelude.<$> agentArns,
+                               (JSON..=) "AzureAccessTier" Prelude.<$> azureAccessTier,
                                (JSON..=) "AzureBlobContainerUrl"
                                  Prelude.<$> azureBlobContainerUrl,
                                (JSON..=) "AzureBlobSasConfiguration"
                                  Prelude.<$> azureBlobSasConfiguration,
                                (JSON..=) "AzureBlobType" Prelude.<$> azureBlobType,
+                               (JSON..=) "CmkSecretConfig" Prelude.<$> cmkSecretConfig,
+                               (JSON..=) "CustomSecretConfig" Prelude.<$> customSecretConfig,
                                (JSON..=) "Subdirectory" Prelude.<$> subdirectory,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON LocationAzureBlob where
@@ -62,21 +70,23 @@ instance JSON.ToJSON LocationAzureBlob where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AgentArns" JSON..= agentArns,
-               "AzureBlobAuthenticationType" JSON..= azureBlobAuthenticationType]
+              ["AzureBlobAuthenticationType" JSON..= azureBlobAuthenticationType]
               (Prelude.catMaybes
-                 [(JSON..=) "AzureAccessTier" Prelude.<$> azureAccessTier,
+                 [(JSON..=) "AgentArns" Prelude.<$> agentArns,
+                  (JSON..=) "AzureAccessTier" Prelude.<$> azureAccessTier,
                   (JSON..=) "AzureBlobContainerUrl"
                     Prelude.<$> azureBlobContainerUrl,
                   (JSON..=) "AzureBlobSasConfiguration"
                     Prelude.<$> azureBlobSasConfiguration,
                   (JSON..=) "AzureBlobType" Prelude.<$> azureBlobType,
+                  (JSON..=) "CmkSecretConfig" Prelude.<$> cmkSecretConfig,
+                  (JSON..=) "CustomSecretConfig" Prelude.<$> customSecretConfig,
                   (JSON..=) "Subdirectory" Prelude.<$> subdirectory,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AgentArns" LocationAzureBlob where
   type PropertyType "AgentArns" LocationAzureBlob = ValueList Prelude.Text
   set newValue LocationAzureBlob {..}
-    = LocationAzureBlob {agentArns = newValue, ..}
+    = LocationAzureBlob {agentArns = Prelude.pure newValue, ..}
 instance Property "AzureAccessTier" LocationAzureBlob where
   type PropertyType "AzureAccessTier" LocationAzureBlob = Value Prelude.Text
   set newValue LocationAzureBlob {..}
@@ -99,6 +109,15 @@ instance Property "AzureBlobType" LocationAzureBlob where
   type PropertyType "AzureBlobType" LocationAzureBlob = Value Prelude.Text
   set newValue LocationAzureBlob {..}
     = LocationAzureBlob {azureBlobType = Prelude.pure newValue, ..}
+instance Property "CmkSecretConfig" LocationAzureBlob where
+  type PropertyType "CmkSecretConfig" LocationAzureBlob = CmkSecretConfigProperty
+  set newValue LocationAzureBlob {..}
+    = LocationAzureBlob {cmkSecretConfig = Prelude.pure newValue, ..}
+instance Property "CustomSecretConfig" LocationAzureBlob where
+  type PropertyType "CustomSecretConfig" LocationAzureBlob = CustomSecretConfigProperty
+  set newValue LocationAzureBlob {..}
+    = LocationAzureBlob
+        {customSecretConfig = Prelude.pure newValue, ..}
 instance Property "Subdirectory" LocationAzureBlob where
   type PropertyType "Subdirectory" LocationAzureBlob = Value Prelude.Text
   set newValue LocationAzureBlob {..}

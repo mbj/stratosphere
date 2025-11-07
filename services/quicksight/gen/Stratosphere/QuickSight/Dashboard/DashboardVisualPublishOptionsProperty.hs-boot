@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DashboardVisualPublishOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashboardVisualPublishOptionsProperty :: Prelude.Type
+instance ToResourceProperties DashboardVisualPublishOptionsProperty
+instance Prelude.Eq DashboardVisualPublishOptionsProperty
+instance Prelude.Show DashboardVisualPublishOptionsProperty
+instance JSON.ToJSON DashboardVisualPublishOptionsProperty

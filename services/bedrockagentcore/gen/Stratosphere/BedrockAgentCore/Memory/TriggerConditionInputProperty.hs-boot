@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.TriggerConditionInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TriggerConditionInputProperty :: Prelude.Type
+instance ToResourceProperties TriggerConditionInputProperty
+instance Prelude.Eq TriggerConditionInputProperty
+instance Prelude.Show TriggerConditionInputProperty
+instance JSON.ToJSON TriggerConditionInputProperty

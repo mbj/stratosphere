@@ -31,6 +31,8 @@ data Api
          disableSchemaValidation :: (Prelude.Maybe (Value Prelude.Bool)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings>
          failOnWarnings :: (Prelude.Maybe (Value Prelude.Bool)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-ipaddresstype>
+         ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-name>
          name :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-protocoltype>
@@ -57,8 +59,9 @@ mkApi
        credentialsArn = Prelude.Nothing, description = Prelude.Nothing,
        disableExecuteApiEndpoint = Prelude.Nothing,
        disableSchemaValidation = Prelude.Nothing,
-       failOnWarnings = Prelude.Nothing, name = Prelude.Nothing,
-       protocolType = Prelude.Nothing, routeKey = Prelude.Nothing,
+       failOnWarnings = Prelude.Nothing, ipAddressType = Prelude.Nothing,
+       name = Prelude.Nothing, protocolType = Prelude.Nothing,
+       routeKey = Prelude.Nothing,
        routeSelectionExpression = Prelude.Nothing, tags = Prelude.Nothing,
        target = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties Api where
@@ -80,6 +83,7 @@ instance ToResourceProperties Api where
                             (JSON..=) "DisableSchemaValidation"
                               Prelude.<$> disableSchemaValidation,
                             (JSON..=) "FailOnWarnings" Prelude.<$> failOnWarnings,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "ProtocolType" Prelude.<$> protocolType,
                             (JSON..=) "RouteKey" Prelude.<$> routeKey,
@@ -106,6 +110,7 @@ instance JSON.ToJSON Api where
                (JSON..=) "DisableSchemaValidation"
                  Prelude.<$> disableSchemaValidation,
                (JSON..=) "FailOnWarnings" Prelude.<$> failOnWarnings,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "ProtocolType" Prelude.<$> protocolType,
                (JSON..=) "RouteKey" Prelude.<$> routeKey,
@@ -152,6 +157,10 @@ instance Property "FailOnWarnings" Api where
   type PropertyType "FailOnWarnings" Api = Value Prelude.Bool
   set newValue Api {..}
     = Api {failOnWarnings = Prelude.pure newValue, ..}
+instance Property "IpAddressType" Api where
+  type PropertyType "IpAddressType" Api = Value Prelude.Text
+  set newValue Api {..}
+    = Api {ipAddressType = Prelude.pure newValue, ..}
 instance Property "Name" Api where
   type PropertyType "Name" Api = Value Prelude.Text
   set newValue Api {..} = Api {name = Prelude.pure newValue, ..}

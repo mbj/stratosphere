@@ -10,16 +10,16 @@ data LoggingProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html>
     LoggingProperty {haddock_workaround_ :: (),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket>
-                     bucket :: (Value Prelude.Text),
+                     bucket :: (Prelude.Maybe (Value Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies>
                      includeCookies :: (Prelude.Maybe (Value Prelude.Bool)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix>
                      prefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkLoggingProperty :: Value Prelude.Text -> LoggingProperty
-mkLoggingProperty bucket
+mkLoggingProperty :: LoggingProperty
+mkLoggingProperty
   = LoggingProperty
-      {haddock_workaround_ = (), bucket = bucket,
+      {haddock_workaround_ = (), bucket = Prelude.Nothing,
        includeCookies = Prelude.Nothing, prefix = Prelude.Nothing}
 instance ToResourceProperties LoggingProperty where
   toResourceProperties LoggingProperty {..}
@@ -27,24 +27,22 @@ instance ToResourceProperties LoggingProperty where
         {awsType = "AWS::CloudFront::Distribution.Logging",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["Bucket" JSON..= bucket]
-                           (Prelude.catMaybes
-                              [(JSON..=) "IncludeCookies" Prelude.<$> includeCookies,
-                               (JSON..=) "Prefix" Prelude.<$> prefix]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "Bucket" Prelude.<$> bucket,
+                            (JSON..=) "IncludeCookies" Prelude.<$> includeCookies,
+                            (JSON..=) "Prefix" Prelude.<$> prefix])}
 instance JSON.ToJSON LoggingProperty where
   toJSON LoggingProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["Bucket" JSON..= bucket]
-              (Prelude.catMaybes
-                 [(JSON..=) "IncludeCookies" Prelude.<$> includeCookies,
-                  (JSON..=) "Prefix" Prelude.<$> prefix])))
+           (Prelude.catMaybes
+              [(JSON..=) "Bucket" Prelude.<$> bucket,
+               (JSON..=) "IncludeCookies" Prelude.<$> includeCookies,
+               (JSON..=) "Prefix" Prelude.<$> prefix]))
 instance Property "Bucket" LoggingProperty where
   type PropertyType "Bucket" LoggingProperty = Value Prelude.Text
   set newValue LoggingProperty {..}
-    = LoggingProperty {bucket = newValue, ..}
+    = LoggingProperty {bucket = Prelude.pure newValue, ..}
 instance Property "IncludeCookies" LoggingProperty where
   type PropertyType "IncludeCookies" LoggingProperty = Value Prelude.Bool
   set newValue LoggingProperty {..}

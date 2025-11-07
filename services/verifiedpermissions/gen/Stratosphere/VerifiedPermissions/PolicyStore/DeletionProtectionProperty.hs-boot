@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.PolicyStore.DeletionProtectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeletionProtectionProperty :: Prelude.Type
+instance ToResourceProperties DeletionProtectionProperty
+instance Prelude.Eq DeletionProtectionProperty
+instance Prelude.Show DeletionProtectionProperty
+instance JSON.ToJSON DeletionProtectionProperty

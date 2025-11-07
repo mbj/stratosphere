@@ -35,13 +35,16 @@ library
       Stratosphere.Batch.ComputeEnvironment.LaunchTemplateSpecificationOverrideProperty
       Stratosphere.Batch.ComputeEnvironment.LaunchTemplateSpecificationProperty
       Stratosphere.Batch.ComputeEnvironment.UpdatePolicyProperty
+      Stratosphere.Batch.ConsumableResource
       Stratosphere.Batch.JobDefinition
-      Stratosphere.Batch.JobDefinition.AuthorizationConfigProperty
+      Stratosphere.Batch.JobDefinition.ConsumableResourcePropertiesProperty
+      Stratosphere.Batch.JobDefinition.ConsumableResourceRequirementProperty
       Stratosphere.Batch.JobDefinition.ContainerPropertiesProperty
       Stratosphere.Batch.JobDefinition.DeviceProperty
       Stratosphere.Batch.JobDefinition.EcsPropertiesProperty
       Stratosphere.Batch.JobDefinition.EcsTaskPropertiesProperty
-      Stratosphere.Batch.JobDefinition.EfsVolumeConfigurationProperty
+      Stratosphere.Batch.JobDefinition.EFSAuthorizationConfigProperty
+      Stratosphere.Batch.JobDefinition.EFSVolumeConfigurationProperty
       Stratosphere.Batch.JobDefinition.EksContainerEnvironmentVariableProperty
       Stratosphere.Batch.JobDefinition.EksContainerProperty
       Stratosphere.Batch.JobDefinition.EksContainerResourceRequirementsProperty
@@ -49,6 +52,9 @@ library
       Stratosphere.Batch.JobDefinition.EksContainerVolumeMountProperty
       Stratosphere.Batch.JobDefinition.EksEmptyDirProperty
       Stratosphere.Batch.JobDefinition.EksHostPathProperty
+      Stratosphere.Batch.JobDefinition.EksMetadataProperty
+      Stratosphere.Batch.JobDefinition.EksPersistentVolumeClaimProperty
+      Stratosphere.Batch.JobDefinition.EksPodPropertiesProperty
       Stratosphere.Batch.JobDefinition.EksPropertiesProperty
       Stratosphere.Batch.JobDefinition.EksSecretProperty
       Stratosphere.Batch.JobDefinition.EksVolumeProperty
@@ -56,33 +62,39 @@ library
       Stratosphere.Batch.JobDefinition.EphemeralStorageProperty
       Stratosphere.Batch.JobDefinition.EvaluateOnExitProperty
       Stratosphere.Batch.JobDefinition.FargatePlatformConfigurationProperty
+      Stratosphere.Batch.JobDefinition.FirelensConfigurationProperty
+      Stratosphere.Batch.JobDefinition.HostProperty
       Stratosphere.Batch.JobDefinition.ImagePullSecretProperty
+      Stratosphere.Batch.JobDefinition.JobTimeoutProperty
       Stratosphere.Batch.JobDefinition.LinuxParametersProperty
       Stratosphere.Batch.JobDefinition.LogConfigurationProperty
-      Stratosphere.Batch.JobDefinition.MetadataProperty
-      Stratosphere.Batch.JobDefinition.MountPointsProperty
+      Stratosphere.Batch.JobDefinition.MountPointProperty
+      Stratosphere.Batch.JobDefinition.MultiNodeContainerPropertiesProperty
+      Stratosphere.Batch.JobDefinition.MultiNodeEcsPropertiesProperty
+      Stratosphere.Batch.JobDefinition.MultiNodeEcsTaskPropertiesProperty
       Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty
       Stratosphere.Batch.JobDefinition.NodePropertiesProperty
       Stratosphere.Batch.JobDefinition.NodeRangePropertyProperty
-      Stratosphere.Batch.JobDefinition.PodPropertiesProperty
       Stratosphere.Batch.JobDefinition.RepositoryCredentialsProperty
       Stratosphere.Batch.JobDefinition.ResourceRequirementProperty
+      Stratosphere.Batch.JobDefinition.ResourceRetentionPolicyProperty
       Stratosphere.Batch.JobDefinition.RetryStrategyProperty
       Stratosphere.Batch.JobDefinition.RuntimePlatformProperty
       Stratosphere.Batch.JobDefinition.SecretProperty
       Stratosphere.Batch.JobDefinition.TaskContainerDependencyProperty
       Stratosphere.Batch.JobDefinition.TaskContainerPropertiesProperty
-      Stratosphere.Batch.JobDefinition.TimeoutProperty
       Stratosphere.Batch.JobDefinition.TmpfsProperty
       Stratosphere.Batch.JobDefinition.UlimitProperty
-      Stratosphere.Batch.JobDefinition.VolumesHostProperty
-      Stratosphere.Batch.JobDefinition.VolumesProperty
+      Stratosphere.Batch.JobDefinition.VolumeProperty
       Stratosphere.Batch.JobQueue
       Stratosphere.Batch.JobQueue.ComputeEnvironmentOrderProperty
       Stratosphere.Batch.JobQueue.JobStateTimeLimitActionProperty
+      Stratosphere.Batch.JobQueue.ServiceEnvironmentOrderProperty
       Stratosphere.Batch.SchedulingPolicy
       Stratosphere.Batch.SchedulingPolicy.FairsharePolicyProperty
       Stratosphere.Batch.SchedulingPolicy.ShareAttributesProperty
+      Stratosphere.Batch.ServiceEnvironment
+      Stratosphere.Batch.ServiceEnvironment.CapacityLimitProperty
   other-modules:
       Paths_stratosphere_batch
   hs-source-dirs:

@@ -1,0 +1,9 @@
+module Stratosphere.Omics.WorkflowVersion.ContainerRegistryMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerRegistryMapProperty :: Prelude.Type
+instance ToResourceProperties ContainerRegistryMapProperty
+instance Prelude.Eq ContainerRegistryMapProperty
+instance Prelude.Show ContainerRegistryMapProperty
+instance JSON.ToJSON ContainerRegistryMapProperty

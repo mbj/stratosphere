@@ -1,0 +1,9 @@
+module Stratosphere.AccessAnalyzer.Analyzer.InternalAccessAnalysisRuleCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InternalAccessAnalysisRuleCriteriaProperty :: Prelude.Type
+instance ToResourceProperties InternalAccessAnalysisRuleCriteriaProperty
+instance Prelude.Eq InternalAccessAnalysisRuleCriteriaProperty
+instance Prelude.Show InternalAccessAnalysisRuleCriteriaProperty
+instance JSON.ToJSON InternalAccessAnalysisRuleCriteriaProperty

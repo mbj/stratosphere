@@ -13,8 +13,12 @@ data CrlConfigurationProperty
     CrlConfigurationProperty {haddock_workaround_ :: (),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-crldistributionpointextensionconfiguration>
                               crlDistributionPointExtensionConfiguration :: (Prelude.Maybe CrlDistributionPointExtensionConfigurationProperty),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-crltype>
+                              crlType :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname>
                               customCname :: (Prelude.Maybe (Value Prelude.Text)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-custompath>
+                              customPath :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled>
                               enabled :: (Value Prelude.Bool),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays>
@@ -30,7 +34,8 @@ mkCrlConfigurationProperty enabled
   = CrlConfigurationProperty
       {haddock_workaround_ = (), enabled = enabled,
        crlDistributionPointExtensionConfiguration = Prelude.Nothing,
-       customCname = Prelude.Nothing, expirationInDays = Prelude.Nothing,
+       crlType = Prelude.Nothing, customCname = Prelude.Nothing,
+       customPath = Prelude.Nothing, expirationInDays = Prelude.Nothing,
        s3BucketName = Prelude.Nothing, s3ObjectAcl = Prelude.Nothing}
 instance ToResourceProperties CrlConfigurationProperty where
   toResourceProperties CrlConfigurationProperty {..}
@@ -43,7 +48,9 @@ instance ToResourceProperties CrlConfigurationProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "CrlDistributionPointExtensionConfiguration"
                                  Prelude.<$> crlDistributionPointExtensionConfiguration,
+                               (JSON..=) "CrlType" Prelude.<$> crlType,
                                (JSON..=) "CustomCname" Prelude.<$> customCname,
+                               (JSON..=) "CustomPath" Prelude.<$> customPath,
                                (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
                                (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
                                (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl]))}
@@ -56,7 +63,9 @@ instance JSON.ToJSON CrlConfigurationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "CrlDistributionPointExtensionConfiguration"
                     Prelude.<$> crlDistributionPointExtensionConfiguration,
+                  (JSON..=) "CrlType" Prelude.<$> crlType,
                   (JSON..=) "CustomCname" Prelude.<$> customCname,
+                  (JSON..=) "CustomPath" Prelude.<$> customPath,
                   (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
                   (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
                   (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl])))
@@ -67,11 +76,19 @@ instance Property "CrlDistributionPointExtensionConfiguration" CrlConfigurationP
         {crlDistributionPointExtensionConfiguration = Prelude.pure
                                                         newValue,
          ..}
+instance Property "CrlType" CrlConfigurationProperty where
+  type PropertyType "CrlType" CrlConfigurationProperty = Value Prelude.Text
+  set newValue CrlConfigurationProperty {..}
+    = CrlConfigurationProperty {crlType = Prelude.pure newValue, ..}
 instance Property "CustomCname" CrlConfigurationProperty where
   type PropertyType "CustomCname" CrlConfigurationProperty = Value Prelude.Text
   set newValue CrlConfigurationProperty {..}
     = CrlConfigurationProperty
         {customCname = Prelude.pure newValue, ..}
+instance Property "CustomPath" CrlConfigurationProperty where
+  type PropertyType "CustomPath" CrlConfigurationProperty = Value Prelude.Text
+  set newValue CrlConfigurationProperty {..}
+    = CrlConfigurationProperty {customPath = Prelude.pure newValue, ..}
 instance Property "Enabled" CrlConfigurationProperty where
   type PropertyType "Enabled" CrlConfigurationProperty = Value Prelude.Bool
   set newValue CrlConfigurationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.PolicyGrant.DomainUnitFilterForProjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DomainUnitFilterForProjectProperty :: Prelude.Type
+instance ToResourceProperties DomainUnitFilterForProjectProperty
+instance Prelude.Eq DomainUnitFilterForProjectProperty
+instance Prelude.Show DomainUnitFilterForProjectProperty
+instance JSON.ToJSON DomainUnitFilterForProjectProperty

@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.PartitionFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PartitionFieldProperty :: Prelude.Type
+instance ToResourceProperties PartitionFieldProperty
+instance Prelude.Eq PartitionFieldProperty
+instance Prelude.Show PartitionFieldProperty
+instance JSON.ToJSON PartitionFieldProperty

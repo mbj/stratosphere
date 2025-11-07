@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.DistributionTenant.GeoRestrictionCustomizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeoRestrictionCustomizationProperty :: Prelude.Type
+instance ToResourceProperties GeoRestrictionCustomizationProperty
+instance Prelude.Eq GeoRestrictionCustomizationProperty
+instance Prelude.Show GeoRestrictionCustomizationProperty
+instance JSON.ToJSON GeoRestrictionCustomizationProperty

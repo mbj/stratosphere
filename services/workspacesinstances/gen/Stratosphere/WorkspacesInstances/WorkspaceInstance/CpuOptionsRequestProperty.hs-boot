@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.CpuOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CpuOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties CpuOptionsRequestProperty
+instance Prelude.Eq CpuOptionsRequestProperty
+instance Prelude.Show CpuOptionsRequestProperty
+instance JSON.ToJSON CpuOptionsRequestProperty

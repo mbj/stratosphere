@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIGuardrail.AIGuardrailContentPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AIGuardrailContentPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties AIGuardrailContentPolicyConfigProperty
+instance Prelude.Eq AIGuardrailContentPolicyConfigProperty
+instance Prelude.Show AIGuardrailContentPolicyConfigProperty
+instance JSON.ToJSON AIGuardrailContentPolicyConfigProperty

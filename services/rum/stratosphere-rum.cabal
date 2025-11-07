@@ -31,8 +31,11 @@ library
       Stratosphere.RUM.AppMonitor
       Stratosphere.RUM.AppMonitor.AppMonitorConfigurationProperty
       Stratosphere.RUM.AppMonitor.CustomEventsProperty
+      Stratosphere.RUM.AppMonitor.DeobfuscationConfigurationProperty
+      Stratosphere.RUM.AppMonitor.JavaScriptSourceMapsProperty
       Stratosphere.RUM.AppMonitor.MetricDefinitionProperty
       Stratosphere.RUM.AppMonitor.MetricDestinationProperty
+      Stratosphere.RUM.AppMonitor.ResourcePolicyProperty
   other-modules:
       Paths_stratosphere_rum
   hs-source-dirs:

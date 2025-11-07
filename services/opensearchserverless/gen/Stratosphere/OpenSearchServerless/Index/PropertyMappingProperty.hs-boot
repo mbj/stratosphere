@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchServerless.Index.PropertyMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PropertyMappingProperty :: Prelude.Type
+instance ToResourceProperties PropertyMappingProperty
+instance Prelude.Eq PropertyMappingProperty
+instance Prelude.Show PropertyMappingProperty
+instance JSON.ToJSON PropertyMappingProperty

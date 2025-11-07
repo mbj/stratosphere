@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.VideoBoundingBoxProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoBoundingBoxProperty :: Prelude.Type
+instance ToResourceProperties VideoBoundingBoxProperty
+instance Prelude.Eq VideoBoundingBoxProperty
+instance Prelude.Show VideoBoundingBoxProperty
+instance JSON.ToJSON VideoBoundingBoxProperty

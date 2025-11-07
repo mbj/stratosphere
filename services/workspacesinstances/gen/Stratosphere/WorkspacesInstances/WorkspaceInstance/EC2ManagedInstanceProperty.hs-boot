@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.EC2ManagedInstanceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EC2ManagedInstanceProperty :: Prelude.Type
+instance ToResourceProperties EC2ManagedInstanceProperty
+instance Prelude.Eq EC2ManagedInstanceProperty
+instance Prelude.Show EC2ManagedInstanceProperty
+instance JSON.ToJSON EC2ManagedInstanceProperty

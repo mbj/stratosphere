@@ -28,21 +28,28 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.ApplicationSignals.Discovery
+      Stratosphere.ApplicationSignals.GroupingConfiguration
+      Stratosphere.ApplicationSignals.GroupingConfiguration.GroupingAttributeDefinitionProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective
       Stratosphere.ApplicationSignals.ServiceLevelObjective.BurnRateConfigurationProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.CalendarIntervalProperty
+      Stratosphere.ApplicationSignals.ServiceLevelObjective.DependencyConfigProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.DimensionProperty
+      Stratosphere.ApplicationSignals.ServiceLevelObjective.ExclusionWindowProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.GoalProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.IntervalProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.MetricDataQueryProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.MetricProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.MetricStatProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.MonitoredRequestCountMetricProperty
+      Stratosphere.ApplicationSignals.ServiceLevelObjective.RecurrenceRuleProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.RequestBasedSliMetricProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.RequestBasedSliProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.RollingIntervalProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.SliMetricProperty
       Stratosphere.ApplicationSignals.ServiceLevelObjective.SliProperty
+      Stratosphere.ApplicationSignals.ServiceLevelObjective.WindowProperty
   other-modules:
       Paths_stratosphere_applicationsignals
   hs-source-dirs:

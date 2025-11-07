@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.NetworkBandwidthGbpsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkBandwidthGbpsRequestProperty :: Prelude.Type
+instance ToResourceProperties NetworkBandwidthGbpsRequestProperty
+instance Prelude.Eq NetworkBandwidthGbpsRequestProperty
+instance Prelude.Show NetworkBandwidthGbpsRequestProperty
+instance JSON.ToJSON NetworkBandwidthGbpsRequestProperty

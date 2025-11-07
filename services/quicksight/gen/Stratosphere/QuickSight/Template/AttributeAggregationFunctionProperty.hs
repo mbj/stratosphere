@@ -1,0 +1,54 @@
+module Stratosphere.QuickSight.Template.AttributeAggregationFunctionProperty (
+        AttributeAggregationFunctionProperty(..),
+        mkAttributeAggregationFunctionProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data AttributeAggregationFunctionProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html>
+    AttributeAggregationFunctionProperty {haddock_workaround_ :: (),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html#cfn-quicksight-template-attributeaggregationfunction-simpleattributeaggregation>
+                                          simpleAttributeAggregation :: (Prelude.Maybe (Value Prelude.Text)),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html#cfn-quicksight-template-attributeaggregationfunction-valueformultiplevalues>
+                                          valueForMultipleValues :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkAttributeAggregationFunctionProperty ::
+  AttributeAggregationFunctionProperty
+mkAttributeAggregationFunctionProperty
+  = AttributeAggregationFunctionProperty
+      {haddock_workaround_ = (),
+       simpleAttributeAggregation = Prelude.Nothing,
+       valueForMultipleValues = Prelude.Nothing}
+instance ToResourceProperties AttributeAggregationFunctionProperty where
+  toResourceProperties AttributeAggregationFunctionProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Template.AttributeAggregationFunction",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "SimpleAttributeAggregation"
+                              Prelude.<$> simpleAttributeAggregation,
+                            (JSON..=) "ValueForMultipleValues"
+                              Prelude.<$> valueForMultipleValues])}
+instance JSON.ToJSON AttributeAggregationFunctionProperty where
+  toJSON AttributeAggregationFunctionProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "SimpleAttributeAggregation"
+                 Prelude.<$> simpleAttributeAggregation,
+               (JSON..=) "ValueForMultipleValues"
+                 Prelude.<$> valueForMultipleValues]))
+instance Property "SimpleAttributeAggregation" AttributeAggregationFunctionProperty where
+  type PropertyType "SimpleAttributeAggregation" AttributeAggregationFunctionProperty = Value Prelude.Text
+  set newValue AttributeAggregationFunctionProperty {..}
+    = AttributeAggregationFunctionProperty
+        {simpleAttributeAggregation = Prelude.pure newValue, ..}
+instance Property "ValueForMultipleValues" AttributeAggregationFunctionProperty where
+  type PropertyType "ValueForMultipleValues" AttributeAggregationFunctionProperty = Value Prelude.Text
+  set newValue AttributeAggregationFunctionProperty {..}
+    = AttributeAggregationFunctionProperty
+        {valueForMultipleValues = Prelude.pure newValue, ..}

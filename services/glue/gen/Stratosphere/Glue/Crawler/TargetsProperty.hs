@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.CatalogTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.DeltaTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.DynamoDBTargetProperty as Exports
+import {-# SOURCE #-} Stratosphere.Glue.Crawler.HudiTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.IcebergTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.JdbcTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.MongoDBTargetProperty as Exports
@@ -21,6 +22,8 @@ data TargetsProperty
                      deltaTargets :: (Prelude.Maybe [DeltaTargetProperty]),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets>
                      dynamoDBTargets :: (Prelude.Maybe [DynamoDBTargetProperty]),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-huditargets>
+                     hudiTargets :: (Prelude.Maybe [HudiTargetProperty]),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets>
                      icebergTargets :: (Prelude.Maybe [IcebergTargetProperty]),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets>
@@ -35,8 +38,9 @@ mkTargetsProperty
   = TargetsProperty
       {haddock_workaround_ = (), catalogTargets = Prelude.Nothing,
        deltaTargets = Prelude.Nothing, dynamoDBTargets = Prelude.Nothing,
-       icebergTargets = Prelude.Nothing, jdbcTargets = Prelude.Nothing,
-       mongoDBTargets = Prelude.Nothing, s3Targets = Prelude.Nothing}
+       hudiTargets = Prelude.Nothing, icebergTargets = Prelude.Nothing,
+       jdbcTargets = Prelude.Nothing, mongoDBTargets = Prelude.Nothing,
+       s3Targets = Prelude.Nothing}
 instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}
     = ResourceProperties
@@ -47,6 +51,7 @@ instance ToResourceProperties TargetsProperty where
                            [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
                             (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                             (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
+                            (JSON..=) "HudiTargets" Prelude.<$> hudiTargets,
                             (JSON..=) "IcebergTargets" Prelude.<$> icebergTargets,
                             (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                             (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
@@ -59,6 +64,7 @@ instance JSON.ToJSON TargetsProperty where
               [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
                (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
+               (JSON..=) "HudiTargets" Prelude.<$> hudiTargets,
                (JSON..=) "IcebergTargets" Prelude.<$> icebergTargets,
                (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
@@ -75,6 +81,10 @@ instance Property "DynamoDBTargets" TargetsProperty where
   type PropertyType "DynamoDBTargets" TargetsProperty = [DynamoDBTargetProperty]
   set newValue TargetsProperty {..}
     = TargetsProperty {dynamoDBTargets = Prelude.pure newValue, ..}
+instance Property "HudiTargets" TargetsProperty where
+  type PropertyType "HudiTargets" TargetsProperty = [HudiTargetProperty]
+  set newValue TargetsProperty {..}
+    = TargetsProperty {hudiTargets = Prelude.pure newValue, ..}
 instance Property "IcebergTargets" TargetsProperty where
   type PropertyType "IcebergTargets" TargetsProperty = [IcebergTargetProperty]
   set newValue TargetsProperty {..}

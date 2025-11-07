@@ -5,8 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppConfig.Deployment.DynamicExtensionParametersProperty as Exports
-import {-# SOURCE #-} Stratosphere.AppConfig.Deployment.TagsProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Deployment
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html>
@@ -28,7 +28,7 @@ data Deployment
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-kmskeyidentifier>
                 kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-tags>
-                tags :: (Prelude.Maybe [TagsProperty])}
+                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment ::
   Value Prelude.Text
@@ -117,6 +117,6 @@ instance Property "KmsKeyIdentifier" Deployment where
   set newValue Deployment {..}
     = Deployment {kmsKeyIdentifier = Prelude.pure newValue, ..}
 instance Property "Tags" Deployment where
-  type PropertyType "Tags" Deployment = [TagsProperty]
+  type PropertyType "Tags" Deployment = [Tag]
   set newValue Deployment {..}
     = Deployment {tags = Prelude.pure newValue, ..}

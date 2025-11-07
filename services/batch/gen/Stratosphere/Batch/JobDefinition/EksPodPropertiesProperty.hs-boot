@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.EksPodPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksPodPropertiesProperty :: Prelude.Type
+instance ToResourceProperties EksPodPropertiesProperty
+instance Prelude.Eq EksPodPropertiesProperty
+instance Prelude.Show EksPodPropertiesProperty
+instance JSON.ToJSON EksPodPropertiesProperty

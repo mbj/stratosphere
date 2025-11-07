@@ -17,6 +17,8 @@ data DataSource
                 assetFormsInput :: (Prelude.Maybe [FormInputProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-configuration>
                 configuration :: (Prelude.Maybe DataSourceConfigurationInputProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-connectionidentifier>
+                connectionIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-domainidentifier>
@@ -24,7 +26,7 @@ data DataSource
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-enablesetting>
                 enableSetting :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-environmentidentifier>
-                environmentIdentifier :: (Value Prelude.Text),
+                environmentIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-name>
                 name :: (Value Prelude.Text),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-projectidentifier>
@@ -41,20 +43,15 @@ data DataSource
 mkDataSource ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> Value Prelude.Text -> Value Prelude.Text -> DataSource
-mkDataSource
-  domainIdentifier
-  environmentIdentifier
-  name
-  projectIdentifier
-  type'
+     -> Value Prelude.Text -> Value Prelude.Text -> DataSource
+mkDataSource domainIdentifier name projectIdentifier type'
   = DataSource
       {haddock_workaround_ = (), domainIdentifier = domainIdentifier,
-       environmentIdentifier = environmentIdentifier, name = name,
-       projectIdentifier = projectIdentifier, type' = type',
+       name = name, projectIdentifier = projectIdentifier, type' = type',
        assetFormsInput = Prelude.Nothing, configuration = Prelude.Nothing,
+       connectionIdentifier = Prelude.Nothing,
        description = Prelude.Nothing, enableSetting = Prelude.Nothing,
+       environmentIdentifier = Prelude.Nothing,
        publishOnImport = Prelude.Nothing,
        recommendation = Prelude.Nothing, schedule = Prelude.Nothing}
 instance ToResourceProperties DataSource where
@@ -64,15 +61,17 @@ instance ToResourceProperties DataSource where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DomainIdentifier" JSON..= domainIdentifier,
-                            "EnvironmentIdentifier" JSON..= environmentIdentifier,
-                            "Name" JSON..= name, "ProjectIdentifier" JSON..= projectIdentifier,
+                           ["DomainIdentifier" JSON..= domainIdentifier, "Name" JSON..= name,
+                            "ProjectIdentifier" JSON..= projectIdentifier,
                             "Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "AssetFormsInput" Prelude.<$> assetFormsInput,
                                (JSON..=) "Configuration" Prelude.<$> configuration,
+                               (JSON..=) "ConnectionIdentifier" Prelude.<$> connectionIdentifier,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EnableSetting" Prelude.<$> enableSetting,
+                               (JSON..=) "EnvironmentIdentifier"
+                                 Prelude.<$> environmentIdentifier,
                                (JSON..=) "PublishOnImport" Prelude.<$> publishOnImport,
                                (JSON..=) "Recommendation" Prelude.<$> recommendation,
                                (JSON..=) "Schedule" Prelude.<$> schedule]))}
@@ -81,15 +80,17 @@ instance JSON.ToJSON DataSource where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DomainIdentifier" JSON..= domainIdentifier,
-               "EnvironmentIdentifier" JSON..= environmentIdentifier,
-               "Name" JSON..= name, "ProjectIdentifier" JSON..= projectIdentifier,
+              ["DomainIdentifier" JSON..= domainIdentifier, "Name" JSON..= name,
+               "ProjectIdentifier" JSON..= projectIdentifier,
                "Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "AssetFormsInput" Prelude.<$> assetFormsInput,
                   (JSON..=) "Configuration" Prelude.<$> configuration,
+                  (JSON..=) "ConnectionIdentifier" Prelude.<$> connectionIdentifier,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EnableSetting" Prelude.<$> enableSetting,
+                  (JSON..=) "EnvironmentIdentifier"
+                    Prelude.<$> environmentIdentifier,
                   (JSON..=) "PublishOnImport" Prelude.<$> publishOnImport,
                   (JSON..=) "Recommendation" Prelude.<$> recommendation,
                   (JSON..=) "Schedule" Prelude.<$> schedule])))
@@ -101,6 +102,10 @@ instance Property "Configuration" DataSource where
   type PropertyType "Configuration" DataSource = DataSourceConfigurationInputProperty
   set newValue DataSource {..}
     = DataSource {configuration = Prelude.pure newValue, ..}
+instance Property "ConnectionIdentifier" DataSource where
+  type PropertyType "ConnectionIdentifier" DataSource = Value Prelude.Text
+  set newValue DataSource {..}
+    = DataSource {connectionIdentifier = Prelude.pure newValue, ..}
 instance Property "Description" DataSource where
   type PropertyType "Description" DataSource = Value Prelude.Text
   set newValue DataSource {..}
@@ -116,7 +121,7 @@ instance Property "EnableSetting" DataSource where
 instance Property "EnvironmentIdentifier" DataSource where
   type PropertyType "EnvironmentIdentifier" DataSource = Value Prelude.Text
   set newValue DataSource {..}
-    = DataSource {environmentIdentifier = newValue, ..}
+    = DataSource {environmentIdentifier = Prelude.pure newValue, ..}
 instance Property "Name" DataSource where
   type PropertyType "Name" DataSource = Value Prelude.Text
   set newValue DataSource {..} = DataSource {name = newValue, ..}

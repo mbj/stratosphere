@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.ActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.RuleConditionProperty as Exports
+import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.TransformProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerRule
@@ -18,7 +19,9 @@ data ListenerRule
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn>
                   listenerArn :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority>
-                  priority :: (Value Prelude.Integer)}
+                  priority :: (Value Prelude.Integer),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-transforms>
+                  transforms :: (Prelude.Maybe [TransformProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerRule ::
   [ActionProperty]
@@ -27,7 +30,7 @@ mkListenerRule actions conditions priority
   = ListenerRule
       {haddock_workaround_ = (), actions = actions,
        conditions = conditions, priority = priority,
-       listenerArn = Prelude.Nothing}
+       listenerArn = Prelude.Nothing, transforms = Prelude.Nothing}
 instance ToResourceProperties ListenerRule where
   toResourceProperties ListenerRule {..}
     = ResourceProperties
@@ -38,7 +41,8 @@ instance ToResourceProperties ListenerRule where
                            ["Actions" JSON..= actions, "Conditions" JSON..= conditions,
                             "Priority" JSON..= priority]
                            (Prelude.catMaybes
-                              [(JSON..=) "ListenerArn" Prelude.<$> listenerArn]))}
+                              [(JSON..=) "ListenerArn" Prelude.<$> listenerArn,
+                               (JSON..=) "Transforms" Prelude.<$> transforms]))}
 instance JSON.ToJSON ListenerRule where
   toJSON ListenerRule {..}
     = JSON.object
@@ -47,7 +51,8 @@ instance JSON.ToJSON ListenerRule where
               ["Actions" JSON..= actions, "Conditions" JSON..= conditions,
                "Priority" JSON..= priority]
               (Prelude.catMaybes
-                 [(JSON..=) "ListenerArn" Prelude.<$> listenerArn])))
+                 [(JSON..=) "ListenerArn" Prelude.<$> listenerArn,
+                  (JSON..=) "Transforms" Prelude.<$> transforms])))
 instance Property "Actions" ListenerRule where
   type PropertyType "Actions" ListenerRule = [ActionProperty]
   set newValue ListenerRule {..}
@@ -64,3 +69,7 @@ instance Property "Priority" ListenerRule where
   type PropertyType "Priority" ListenerRule = Value Prelude.Integer
   set newValue ListenerRule {..}
     = ListenerRule {priority = newValue, ..}
+instance Property "Transforms" ListenerRule where
+  type PropertyType "Transforms" ListenerRule = [TransformProperty]
+  set newValue ListenerRule {..}
+    = ListenerRule {transforms = Prelude.pure newValue, ..}

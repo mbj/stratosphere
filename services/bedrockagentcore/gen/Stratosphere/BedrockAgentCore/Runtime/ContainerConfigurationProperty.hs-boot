@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Runtime.ContainerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ContainerConfigurationProperty
+instance Prelude.Eq ContainerConfigurationProperty
+instance Prelude.Show ContainerConfigurationProperty
+instance JSON.ToJSON ContainerConfigurationProperty

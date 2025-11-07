@@ -1,0 +1,9 @@
+module Stratosphere.Athena.WorkGroup.ManagedStorageEncryptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedStorageEncryptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedStorageEncryptionConfigurationProperty
+instance Prelude.Eq ManagedStorageEncryptionConfigurationProperty
+instance Prelude.Show ManagedStorageEncryptionConfigurationProperty
+instance JSON.ToJSON ManagedStorageEncryptionConfigurationProperty

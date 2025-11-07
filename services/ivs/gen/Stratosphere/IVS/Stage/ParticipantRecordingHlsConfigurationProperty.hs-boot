@@ -1,0 +1,9 @@
+module Stratosphere.IVS.Stage.ParticipantRecordingHlsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParticipantRecordingHlsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ParticipantRecordingHlsConfigurationProperty
+instance Prelude.Eq ParticipantRecordingHlsConfigurationProperty
+instance Prelude.Show ParticipantRecordingHlsConfigurationProperty
+instance JSON.ToJSON ParticipantRecordingHlsConfigurationProperty

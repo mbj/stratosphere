@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.MinimumLabelTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MinimumLabelTypeProperty :: Prelude.Type
+instance ToResourceProperties MinimumLabelTypeProperty
+instance Prelude.Eq MinimumLabelTypeProperty
+instance Prelude.Show MinimumLabelTypeProperty
+instance JSON.ToJSON MinimumLabelTypeProperty

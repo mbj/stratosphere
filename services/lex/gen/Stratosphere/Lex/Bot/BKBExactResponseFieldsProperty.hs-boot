@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.BKBExactResponseFieldsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BKBExactResponseFieldsProperty :: Prelude.Type
+instance ToResourceProperties BKBExactResponseFieldsProperty
+instance Prelude.Eq BKBExactResponseFieldsProperty
+instance Prelude.Show BKBExactResponseFieldsProperty
+instance JSON.ToJSON BKBExactResponseFieldsProperty

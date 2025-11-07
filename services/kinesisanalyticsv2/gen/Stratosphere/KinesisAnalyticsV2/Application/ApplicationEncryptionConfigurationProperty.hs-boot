@@ -1,0 +1,9 @@
+module Stratosphere.KinesisAnalyticsV2.Application.ApplicationEncryptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationEncryptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ApplicationEncryptionConfigurationProperty
+instance Prelude.Eq ApplicationEncryptionConfigurationProperty
+instance Prelude.Show ApplicationEncryptionConfigurationProperty
+instance JSON.ToJSON ApplicationEncryptionConfigurationProperty

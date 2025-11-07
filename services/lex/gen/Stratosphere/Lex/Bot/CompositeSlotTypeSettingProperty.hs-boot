@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.CompositeSlotTypeSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CompositeSlotTypeSettingProperty :: Prelude.Type
+instance ToResourceProperties CompositeSlotTypeSettingProperty
+instance Prelude.Eq CompositeSlotTypeSettingProperty
+instance Prelude.Show CompositeSlotTypeSettingProperty
+instance JSON.ToJSON CompositeSlotTypeSettingProperty

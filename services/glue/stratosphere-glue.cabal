@@ -34,12 +34,19 @@ library
       Stratosphere.Glue.Classifier.JsonClassifierProperty
       Stratosphere.Glue.Classifier.XMLClassifierProperty
       Stratosphere.Glue.Connection
+      Stratosphere.Glue.Connection.AuthenticationConfigurationInputProperty
+      Stratosphere.Glue.Connection.AuthorizationCodePropertiesProperty
+      Stratosphere.Glue.Connection.BasicAuthenticationCredentialsProperty
       Stratosphere.Glue.Connection.ConnectionInputProperty
+      Stratosphere.Glue.Connection.OAuth2ClientApplicationProperty
+      Stratosphere.Glue.Connection.OAuth2CredentialsProperty
+      Stratosphere.Glue.Connection.OAuth2PropertiesInputProperty
       Stratosphere.Glue.Connection.PhysicalConnectionRequirementsProperty
       Stratosphere.Glue.Crawler
       Stratosphere.Glue.Crawler.CatalogTargetProperty
       Stratosphere.Glue.Crawler.DeltaTargetProperty
       Stratosphere.Glue.Crawler.DynamoDBTargetProperty
+      Stratosphere.Glue.Crawler.HudiTargetProperty
       Stratosphere.Glue.Crawler.IcebergTargetProperty
       Stratosphere.Glue.Crawler.JdbcTargetProperty
       Stratosphere.Glue.Crawler.LakeFormationConfigurationProperty
@@ -111,7 +118,12 @@ library
       Stratosphere.Glue.Table.TableIdentifierProperty
       Stratosphere.Glue.Table.TableInputProperty
       Stratosphere.Glue.TableOptimizer
+      Stratosphere.Glue.TableOptimizer.IcebergConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.IcebergRetentionConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.OrphanFileDeletionConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.RetentionConfigurationProperty
       Stratosphere.Glue.TableOptimizer.TableOptimizerConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.VpcConfigurationProperty
       Stratosphere.Glue.Trigger
       Stratosphere.Glue.Trigger.ActionProperty
       Stratosphere.Glue.Trigger.ConditionProperty

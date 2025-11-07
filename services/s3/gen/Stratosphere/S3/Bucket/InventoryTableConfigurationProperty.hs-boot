@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.InventoryTableConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InventoryTableConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InventoryTableConfigurationProperty
+instance Prelude.Eq InventoryTableConfigurationProperty
+instance Prelude.Show InventoryTableConfigurationProperty
+instance JSON.ToJSON InventoryTableConfigurationProperty

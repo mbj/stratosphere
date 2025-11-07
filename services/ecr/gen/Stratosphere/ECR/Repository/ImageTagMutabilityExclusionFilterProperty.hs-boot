@@ -1,0 +1,9 @@
+module Stratosphere.ECR.Repository.ImageTagMutabilityExclusionFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageTagMutabilityExclusionFilterProperty :: Prelude.Type
+instance ToResourceProperties ImageTagMutabilityExclusionFilterProperty
+instance Prelude.Eq ImageTagMutabilityExclusionFilterProperty
+instance Prelude.Show ImageTagMutabilityExclusionFilterProperty
+instance JSON.ToJSON ImageTagMutabilityExclusionFilterProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.VectorSearchBedrockRerankingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VectorSearchBedrockRerankingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VectorSearchBedrockRerankingConfigurationProperty
+instance Prelude.Eq VectorSearchBedrockRerankingConfigurationProperty
+instance Prelude.Show VectorSearchBedrockRerankingConfigurationProperty
+instance JSON.ToJSON VectorSearchBedrockRerankingConfigurationProperty

@@ -5,12 +5,15 @@ module Stratosphere.Bedrock.DataSource.ParsingConfigurationProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.BedrockDataAutomationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.BedrockFoundationModelConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParsingConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html>
     ParsingConfigurationProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockdataautomationconfiguration>
+                                  bedrockDataAutomationConfiguration :: (Prelude.Maybe BedrockDataAutomationConfigurationProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockfoundationmodelconfiguration>
                                   bedrockFoundationModelConfiguration :: (Prelude.Maybe BedrockFoundationModelConfigurationProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-parsingstrategy>
@@ -21,6 +24,7 @@ mkParsingConfigurationProperty ::
 mkParsingConfigurationProperty parsingStrategy
   = ParsingConfigurationProperty
       {haddock_workaround_ = (), parsingStrategy = parsingStrategy,
+       bedrockDataAutomationConfiguration = Prelude.Nothing,
        bedrockFoundationModelConfiguration = Prelude.Nothing}
 instance ToResourceProperties ParsingConfigurationProperty where
   toResourceProperties ParsingConfigurationProperty {..}
@@ -31,7 +35,9 @@ instance ToResourceProperties ParsingConfigurationProperty where
                         ((Prelude.<>)
                            ["ParsingStrategy" JSON..= parsingStrategy]
                            (Prelude.catMaybes
-                              [(JSON..=) "BedrockFoundationModelConfiguration"
+                              [(JSON..=) "BedrockDataAutomationConfiguration"
+                                 Prelude.<$> bedrockDataAutomationConfiguration,
+                               (JSON..=) "BedrockFoundationModelConfiguration"
                                  Prelude.<$> bedrockFoundationModelConfiguration]))}
 instance JSON.ToJSON ParsingConfigurationProperty where
   toJSON ParsingConfigurationProperty {..}
@@ -40,8 +46,15 @@ instance JSON.ToJSON ParsingConfigurationProperty where
            ((Prelude.<>)
               ["ParsingStrategy" JSON..= parsingStrategy]
               (Prelude.catMaybes
-                 [(JSON..=) "BedrockFoundationModelConfiguration"
+                 [(JSON..=) "BedrockDataAutomationConfiguration"
+                    Prelude.<$> bedrockDataAutomationConfiguration,
+                  (JSON..=) "BedrockFoundationModelConfiguration"
                     Prelude.<$> bedrockFoundationModelConfiguration])))
+instance Property "BedrockDataAutomationConfiguration" ParsingConfigurationProperty where
+  type PropertyType "BedrockDataAutomationConfiguration" ParsingConfigurationProperty = BedrockDataAutomationConfigurationProperty
+  set newValue ParsingConfigurationProperty {..}
+    = ParsingConfigurationProperty
+        {bedrockDataAutomationConfiguration = Prelude.pure newValue, ..}
 instance Property "BedrockFoundationModelConfiguration" ParsingConfigurationProperty where
   type PropertyType "BedrockFoundationModelConfiguration" ParsingConfigurationProperty = BedrockFoundationModelConfigurationProperty
   set newValue ParsingConfigurationProperty {..}

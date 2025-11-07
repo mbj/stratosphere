@@ -28,6 +28,8 @@ data NetworkInterfaceProperty
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex>
                               deviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enaqueuecount>
+                              enaQueueCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enasrdspecification>
                               enaSrdSpecification :: (Prelude.Maybe EnaSrdSpecificationProperty),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups>
@@ -70,6 +72,7 @@ mkNetworkInterfaceProperty
        connectionTrackingSpecification = Prelude.Nothing,
        deleteOnTermination = Prelude.Nothing,
        description = Prelude.Nothing, deviceIndex = Prelude.Nothing,
+       enaQueueCount = Prelude.Nothing,
        enaSrdSpecification = Prelude.Nothing, groups = Prelude.Nothing,
        interfaceType = Prelude.Nothing, ipv4PrefixCount = Prelude.Nothing,
        ipv4Prefixes = Prelude.Nothing, ipv6AddressCount = Prelude.Nothing,
@@ -96,6 +99,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
                             (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                             (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "DeviceIndex" Prelude.<$> deviceIndex,
+                            (JSON..=) "EnaQueueCount" Prelude.<$> enaQueueCount,
                             (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                             (JSON..=) "Groups" Prelude.<$> groups,
                             (JSON..=) "InterfaceType" Prelude.<$> interfaceType,
@@ -127,6 +131,7 @@ instance JSON.ToJSON NetworkInterfaceProperty where
                (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "DeviceIndex" Prelude.<$> deviceIndex,
+               (JSON..=) "EnaQueueCount" Prelude.<$> enaQueueCount,
                (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                (JSON..=) "Groups" Prelude.<$> groups,
                (JSON..=) "InterfaceType" Prelude.<$> interfaceType,
@@ -174,6 +179,11 @@ instance Property "DeviceIndex" NetworkInterfaceProperty where
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty
         {deviceIndex = Prelude.pure newValue, ..}
+instance Property "EnaQueueCount" NetworkInterfaceProperty where
+  type PropertyType "EnaQueueCount" NetworkInterfaceProperty = Value Prelude.Integer
+  set newValue NetworkInterfaceProperty {..}
+    = NetworkInterfaceProperty
+        {enaQueueCount = Prelude.pure newValue, ..}
 instance Property "EnaSrdSpecification" NetworkInterfaceProperty where
   type PropertyType "EnaSrdSpecification" NetworkInterfaceProperty = EnaSrdSpecificationProperty
   set newValue NetworkInterfaceProperty {..}

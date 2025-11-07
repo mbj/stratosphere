@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationTelemetryRule.VPCFlowLogParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VPCFlowLogParametersProperty :: Prelude.Type
+instance ToResourceProperties VPCFlowLogParametersProperty
+instance Prelude.Eq VPCFlowLogParametersProperty
+instance Prelude.Show VPCFlowLogParametersProperty
+instance JSON.ToJSON VPCFlowLogParametersProperty

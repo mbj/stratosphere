@@ -35,12 +35,21 @@ library
       Stratosphere.Lex.Bot.AudioLogDestinationProperty
       Stratosphere.Lex.Bot.AudioLogSettingProperty
       Stratosphere.Lex.Bot.AudioSpecificationProperty
+      Stratosphere.Lex.Bot.BedrockAgentConfigurationProperty
+      Stratosphere.Lex.Bot.BedrockAgentIntentConfigurationProperty
+      Stratosphere.Lex.Bot.BedrockAgentIntentKnowledgeBaseConfigurationProperty
+      Stratosphere.Lex.Bot.BedrockGuardrailConfigurationProperty
+      Stratosphere.Lex.Bot.BedrockKnowledgeStoreConfigurationProperty
+      Stratosphere.Lex.Bot.BedrockModelSpecificationProperty
+      Stratosphere.Lex.Bot.BKBExactResponseFieldsProperty
       Stratosphere.Lex.Bot.BotAliasLocaleSettingsItemProperty
       Stratosphere.Lex.Bot.BotAliasLocaleSettingsProperty
       Stratosphere.Lex.Bot.BotLocaleProperty
+      Stratosphere.Lex.Bot.BuildtimeSettingsProperty
       Stratosphere.Lex.Bot.ButtonProperty
       Stratosphere.Lex.Bot.CloudWatchLogGroupLogDestinationProperty
       Stratosphere.Lex.Bot.CodeHookSpecificationProperty
+      Stratosphere.Lex.Bot.CompositeSlotTypeSettingProperty
       Stratosphere.Lex.Bot.ConditionalBranchProperty
       Stratosphere.Lex.Bot.ConditionalSpecificationProperty
       Stratosphere.Lex.Bot.ConditionProperty
@@ -49,18 +58,23 @@ library
       Stratosphere.Lex.Bot.CustomVocabularyItemProperty
       Stratosphere.Lex.Bot.CustomVocabularyProperty
       Stratosphere.Lex.Bot.DataPrivacyProperty
+      Stratosphere.Lex.Bot.DataSourceConfigurationProperty
       Stratosphere.Lex.Bot.DefaultConditionalBranchProperty
+      Stratosphere.Lex.Bot.DescriptiveBotBuilderSpecificationProperty
       Stratosphere.Lex.Bot.DialogActionProperty
       Stratosphere.Lex.Bot.DialogCodeHookInvocationSettingProperty
       Stratosphere.Lex.Bot.DialogCodeHookSettingProperty
       Stratosphere.Lex.Bot.DialogStateProperty
       Stratosphere.Lex.Bot.DTMFSpecificationProperty
       Stratosphere.Lex.Bot.ElicitationCodeHookInvocationSettingProperty
+      Stratosphere.Lex.Bot.ErrorLogSettingsProperty
+      Stratosphere.Lex.Bot.ExactResponseFieldsProperty
       Stratosphere.Lex.Bot.ExternalSourceSettingProperty
       Stratosphere.Lex.Bot.FulfillmentCodeHookSettingProperty
       Stratosphere.Lex.Bot.FulfillmentStartResponseSpecificationProperty
       Stratosphere.Lex.Bot.FulfillmentUpdateResponseSpecificationProperty
       Stratosphere.Lex.Bot.FulfillmentUpdatesSpecificationProperty
+      Stratosphere.Lex.Bot.GenerativeAISettingsProperty
       Stratosphere.Lex.Bot.GrammarSlotTypeSettingProperty
       Stratosphere.Lex.Bot.GrammarSlotTypeSourceProperty
       Stratosphere.Lex.Bot.ImageResponseCardProperty
@@ -75,16 +89,25 @@ library
       Stratosphere.Lex.Bot.MessageGroupProperty
       Stratosphere.Lex.Bot.MessageProperty
       Stratosphere.Lex.Bot.MultipleValuesSettingProperty
+      Stratosphere.Lex.Bot.NluImprovementSpecificationProperty
       Stratosphere.Lex.Bot.ObfuscationSettingProperty
+      Stratosphere.Lex.Bot.OpensearchConfigurationProperty
       Stratosphere.Lex.Bot.OutputContextProperty
       Stratosphere.Lex.Bot.PlainTextMessageProperty
       Stratosphere.Lex.Bot.PostDialogCodeHookInvocationSpecificationProperty
       Stratosphere.Lex.Bot.PostFulfillmentStatusSpecificationProperty
       Stratosphere.Lex.Bot.PromptAttemptSpecificationProperty
       Stratosphere.Lex.Bot.PromptSpecificationProperty
+      Stratosphere.Lex.Bot.QInConnectAssistantConfigurationProperty
+      Stratosphere.Lex.Bot.QInConnectIntentConfigurationProperty
+      Stratosphere.Lex.Bot.QnAIntentConfigurationProperty
+      Stratosphere.Lex.Bot.QnAKendraConfigurationProperty
+      Stratosphere.Lex.Bot.ReplicationProperty
       Stratosphere.Lex.Bot.ResponseSpecificationProperty
+      Stratosphere.Lex.Bot.RuntimeSettingsProperty
       Stratosphere.Lex.Bot.S3BucketLogDestinationProperty
       Stratosphere.Lex.Bot.S3LocationProperty
+      Stratosphere.Lex.Bot.SampleUtteranceGenerationSpecificationProperty
       Stratosphere.Lex.Bot.SampleUtteranceProperty
       Stratosphere.Lex.Bot.SampleValueProperty
       Stratosphere.Lex.Bot.SentimentAnalysisSettingsProperty
@@ -94,6 +117,7 @@ library
       Stratosphere.Lex.Bot.SlotDefaultValueSpecificationProperty
       Stratosphere.Lex.Bot.SlotPriorityProperty
       Stratosphere.Lex.Bot.SlotProperty
+      Stratosphere.Lex.Bot.SlotResolutionImprovementSpecificationProperty
       Stratosphere.Lex.Bot.SlotTypeProperty
       Stratosphere.Lex.Bot.SlotTypeValueProperty
       Stratosphere.Lex.Bot.SlotValueElicitationSettingProperty
@@ -102,8 +126,12 @@ library
       Stratosphere.Lex.Bot.SlotValueProperty
       Stratosphere.Lex.Bot.SlotValueRegexFilterProperty
       Stratosphere.Lex.Bot.SlotValueSelectionSettingProperty
+      Stratosphere.Lex.Bot.SpecificationsProperty
       Stratosphere.Lex.Bot.SSMLMessageProperty
       Stratosphere.Lex.Bot.StillWaitingResponseSpecificationProperty
+      Stratosphere.Lex.Bot.SubSlotSettingProperty
+      Stratosphere.Lex.Bot.SubSlotTypeCompositionProperty
+      Stratosphere.Lex.Bot.SubSlotValueElicitationSettingProperty
       Stratosphere.Lex.Bot.TestBotAliasSettingsProperty
       Stratosphere.Lex.Bot.TextInputSpecificationProperty
       Stratosphere.Lex.Bot.TextLogDestinationProperty

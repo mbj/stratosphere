@@ -23,6 +23,8 @@ data MongoDbAtlasConfigurationProperty
                                        endpointServiceName :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-fieldmapping>
                                        fieldMapping :: MongoDbAtlasFieldMappingProperty,
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-textindexname>
+                                       textIndexName :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-vectorindexname>
                                        vectorIndexName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -45,7 +47,8 @@ mkMongoDbAtlasConfigurationProperty
        credentialsSecretArn = credentialsSecretArn,
        databaseName = databaseName, endpoint = endpoint,
        fieldMapping = fieldMapping, vectorIndexName = vectorIndexName,
-       endpointServiceName = Prelude.Nothing}
+       endpointServiceName = Prelude.Nothing,
+       textIndexName = Prelude.Nothing}
 instance ToResourceProperties MongoDbAtlasConfigurationProperty where
   toResourceProperties MongoDbAtlasConfigurationProperty {..}
     = ResourceProperties
@@ -59,8 +62,8 @@ instance ToResourceProperties MongoDbAtlasConfigurationProperty where
                             "FieldMapping" JSON..= fieldMapping,
                             "VectorIndexName" JSON..= vectorIndexName]
                            (Prelude.catMaybes
-                              [(JSON..=) "EndpointServiceName"
-                                 Prelude.<$> endpointServiceName]))}
+                              [(JSON..=) "EndpointServiceName" Prelude.<$> endpointServiceName,
+                               (JSON..=) "TextIndexName" Prelude.<$> textIndexName]))}
 instance JSON.ToJSON MongoDbAtlasConfigurationProperty where
   toJSON MongoDbAtlasConfigurationProperty {..}
     = JSON.object
@@ -72,8 +75,8 @@ instance JSON.ToJSON MongoDbAtlasConfigurationProperty where
                "FieldMapping" JSON..= fieldMapping,
                "VectorIndexName" JSON..= vectorIndexName]
               (Prelude.catMaybes
-                 [(JSON..=) "EndpointServiceName"
-                    Prelude.<$> endpointServiceName])))
+                 [(JSON..=) "EndpointServiceName" Prelude.<$> endpointServiceName,
+                  (JSON..=) "TextIndexName" Prelude.<$> textIndexName])))
 instance Property "CollectionName" MongoDbAtlasConfigurationProperty where
   type PropertyType "CollectionName" MongoDbAtlasConfigurationProperty = Value Prelude.Text
   set newValue MongoDbAtlasConfigurationProperty {..}
@@ -100,6 +103,11 @@ instance Property "FieldMapping" MongoDbAtlasConfigurationProperty where
   type PropertyType "FieldMapping" MongoDbAtlasConfigurationProperty = MongoDbAtlasFieldMappingProperty
   set newValue MongoDbAtlasConfigurationProperty {..}
     = MongoDbAtlasConfigurationProperty {fieldMapping = newValue, ..}
+instance Property "TextIndexName" MongoDbAtlasConfigurationProperty where
+  type PropertyType "TextIndexName" MongoDbAtlasConfigurationProperty = Value Prelude.Text
+  set newValue MongoDbAtlasConfigurationProperty {..}
+    = MongoDbAtlasConfigurationProperty
+        {textIndexName = Prelude.pure newValue, ..}
 instance Property "VectorIndexName" MongoDbAtlasConfigurationProperty where
   type PropertyType "VectorIndexName" MongoDbAtlasConfigurationProperty = Value Prelude.Text
   set newValue MongoDbAtlasConfigurationProperty {..}

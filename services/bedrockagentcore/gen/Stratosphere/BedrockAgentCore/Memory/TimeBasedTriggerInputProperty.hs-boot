@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.TimeBasedTriggerInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeBasedTriggerInputProperty :: Prelude.Type
+instance ToResourceProperties TimeBasedTriggerInputProperty
+instance Prelude.Eq TimeBasedTriggerInputProperty
+instance Prelude.Show TimeBasedTriggerInputProperty
+instance JSON.ToJSON TimeBasedTriggerInputProperty

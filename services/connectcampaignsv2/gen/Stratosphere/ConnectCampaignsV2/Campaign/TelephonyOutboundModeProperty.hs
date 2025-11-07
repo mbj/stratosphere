@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.PredictiveConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.PreviewConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.ConnectCampaignsV2.Campaign.ProgressiveConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data TelephonyOutboundModeProperty
@@ -15,6 +16,8 @@ data TelephonyOutboundModeProperty
                                    agentlessConfig :: (Prelude.Maybe JSON.Object),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-predictiveconfig>
                                    predictiveConfig :: (Prelude.Maybe PredictiveConfigProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-previewconfig>
+                                   previewConfig :: (Prelude.Maybe PreviewConfigProperty),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-progressiveconfig>
                                    progressiveConfig :: (Prelude.Maybe ProgressiveConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -23,6 +26,7 @@ mkTelephonyOutboundModeProperty
   = TelephonyOutboundModeProperty
       {haddock_workaround_ = (), agentlessConfig = Prelude.Nothing,
        predictiveConfig = Prelude.Nothing,
+       previewConfig = Prelude.Nothing,
        progressiveConfig = Prelude.Nothing}
 instance ToResourceProperties TelephonyOutboundModeProperty where
   toResourceProperties TelephonyOutboundModeProperty {..}
@@ -33,6 +37,7 @@ instance ToResourceProperties TelephonyOutboundModeProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AgentlessConfig" Prelude.<$> agentlessConfig,
                             (JSON..=) "PredictiveConfig" Prelude.<$> predictiveConfig,
+                            (JSON..=) "PreviewConfig" Prelude.<$> previewConfig,
                             (JSON..=) "ProgressiveConfig" Prelude.<$> progressiveConfig])}
 instance JSON.ToJSON TelephonyOutboundModeProperty where
   toJSON TelephonyOutboundModeProperty {..}
@@ -41,6 +46,7 @@ instance JSON.ToJSON TelephonyOutboundModeProperty where
            (Prelude.catMaybes
               [(JSON..=) "AgentlessConfig" Prelude.<$> agentlessConfig,
                (JSON..=) "PredictiveConfig" Prelude.<$> predictiveConfig,
+               (JSON..=) "PreviewConfig" Prelude.<$> previewConfig,
                (JSON..=) "ProgressiveConfig" Prelude.<$> progressiveConfig]))
 instance Property "AgentlessConfig" TelephonyOutboundModeProperty where
   type PropertyType "AgentlessConfig" TelephonyOutboundModeProperty = JSON.Object
@@ -52,6 +58,11 @@ instance Property "PredictiveConfig" TelephonyOutboundModeProperty where
   set newValue TelephonyOutboundModeProperty {..}
     = TelephonyOutboundModeProperty
         {predictiveConfig = Prelude.pure newValue, ..}
+instance Property "PreviewConfig" TelephonyOutboundModeProperty where
+  type PropertyType "PreviewConfig" TelephonyOutboundModeProperty = PreviewConfigProperty
+  set newValue TelephonyOutboundModeProperty {..}
+    = TelephonyOutboundModeProperty
+        {previewConfig = Prelude.pure newValue, ..}
 instance Property "ProgressiveConfig" TelephonyOutboundModeProperty where
   type PropertyType "ProgressiveConfig" TelephonyOutboundModeProperty = ProgressiveConfigProperty
   set newValue TelephonyOutboundModeProperty {..}

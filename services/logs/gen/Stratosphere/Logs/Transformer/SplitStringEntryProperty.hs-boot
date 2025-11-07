@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.SplitStringEntryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SplitStringEntryProperty :: Prelude.Type
+instance ToResourceProperties SplitStringEntryProperty
+instance Prelude.Eq SplitStringEntryProperty
+instance Prelude.Show SplitStringEntryProperty
+instance JSON.ToJSON SplitStringEntryProperty

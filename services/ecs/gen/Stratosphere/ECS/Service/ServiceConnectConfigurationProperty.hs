@@ -6,12 +6,15 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECS.Service.LogConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectAccessLogConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectServiceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceConnectConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html>
     ServiceConnectConfigurationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-accesslogconfiguration>
+                                         accessLogConfiguration :: (Prelude.Maybe ServiceConnectAccessLogConfigurationProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled>
                                          enabled :: (Value Prelude.Bool),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-logconfiguration>
@@ -26,6 +29,7 @@ mkServiceConnectConfigurationProperty ::
 mkServiceConnectConfigurationProperty enabled
   = ServiceConnectConfigurationProperty
       {haddock_workaround_ = (), enabled = enabled,
+       accessLogConfiguration = Prelude.Nothing,
        logConfiguration = Prelude.Nothing, namespace = Prelude.Nothing,
        services = Prelude.Nothing}
 instance ToResourceProperties ServiceConnectConfigurationProperty where
@@ -37,7 +41,9 @@ instance ToResourceProperties ServiceConnectConfigurationProperty where
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]
                            (Prelude.catMaybes
-                              [(JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
+                              [(JSON..=) "AccessLogConfiguration"
+                                 Prelude.<$> accessLogConfiguration,
+                               (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                                (JSON..=) "Namespace" Prelude.<$> namespace,
                                (JSON..=) "Services" Prelude.<$> services]))}
 instance JSON.ToJSON ServiceConnectConfigurationProperty where
@@ -47,9 +53,16 @@ instance JSON.ToJSON ServiceConnectConfigurationProperty where
            ((Prelude.<>)
               ["Enabled" JSON..= enabled]
               (Prelude.catMaybes
-                 [(JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
+                 [(JSON..=) "AccessLogConfiguration"
+                    Prelude.<$> accessLogConfiguration,
+                  (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                   (JSON..=) "Namespace" Prelude.<$> namespace,
                   (JSON..=) "Services" Prelude.<$> services])))
+instance Property "AccessLogConfiguration" ServiceConnectConfigurationProperty where
+  type PropertyType "AccessLogConfiguration" ServiceConnectConfigurationProperty = ServiceConnectAccessLogConfigurationProperty
+  set newValue ServiceConnectConfigurationProperty {..}
+    = ServiceConnectConfigurationProperty
+        {accessLogConfiguration = Prelude.pure newValue, ..}
 instance Property "Enabled" ServiceConnectConfigurationProperty where
   type PropertyType "Enabled" ServiceConnectConfigurationProperty = Value Prelude.Bool
   set newValue ServiceConnectConfigurationProperty {..}

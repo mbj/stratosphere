@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.PartnerApp.PartnerAppConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PartnerAppConfigProperty :: Prelude.Type
+instance ToResourceProperties PartnerAppConfigProperty
+instance Prelude.Eq PartnerAppConfigProperty
+instance Prelude.Show PartnerAppConfigProperty
+instance JSON.ToJSON PartnerAppConfigProperty

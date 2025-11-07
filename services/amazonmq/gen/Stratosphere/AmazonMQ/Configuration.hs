@@ -13,7 +13,7 @@ data Configuration
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-authenticationstrategy>
                    authenticationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data>
-                   data' :: (Value Prelude.Text),
+                   data' :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description>
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-enginetype>
@@ -26,12 +26,11 @@ data Configuration
                    tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> Configuration
-mkConfiguration data' engineType name
+  Value Prelude.Text -> Value Prelude.Text -> Configuration
+mkConfiguration engineType name
   = Configuration
-      {haddock_workaround_ = (), data' = data', engineType = engineType,
-       name = name, authenticationStrategy = Prelude.Nothing,
+      {haddock_workaround_ = (), engineType = engineType, name = name,
+       authenticationStrategy = Prelude.Nothing, data' = Prelude.Nothing,
        description = Prelude.Nothing, engineVersion = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Configuration where
@@ -41,11 +40,11 @@ instance ToResourceProperties Configuration where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Data" JSON..= data', "EngineType" JSON..= engineType,
-                            "Name" JSON..= name]
+                           ["EngineType" JSON..= engineType, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "AuthenticationStrategy"
                                  Prelude.<$> authenticationStrategy,
+                               (JSON..=) "Data" Prelude.<$> data',
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -54,11 +53,11 @@ instance JSON.ToJSON Configuration where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Data" JSON..= data', "EngineType" JSON..= engineType,
-               "Name" JSON..= name]
+              ["EngineType" JSON..= engineType, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "AuthenticationStrategy"
                     Prelude.<$> authenticationStrategy,
+                  (JSON..=) "Data" Prelude.<$> data',
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -70,7 +69,7 @@ instance Property "AuthenticationStrategy" Configuration where
 instance Property "Data" Configuration where
   type PropertyType "Data" Configuration = Value Prelude.Text
   set newValue Configuration {..}
-    = Configuration {data' = newValue, ..}
+    = Configuration {data' = Prelude.pure newValue, ..}
 instance Property "Description" Configuration where
   type PropertyType "Description" Configuration = Value Prelude.Text
   set newValue Configuration {..}

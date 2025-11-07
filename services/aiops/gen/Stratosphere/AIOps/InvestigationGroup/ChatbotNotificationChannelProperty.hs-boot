@@ -1,0 +1,9 @@
+module Stratosphere.AIOps.InvestigationGroup.ChatbotNotificationChannelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChatbotNotificationChannelProperty :: Prelude.Type
+instance ToResourceProperties ChatbotNotificationChannelProperty
+instance Prelude.Eq ChatbotNotificationChannelProperty
+instance Prelude.Show ChatbotNotificationChannelProperty
+instance JSON.ToJSON ChatbotNotificationChannelProperty

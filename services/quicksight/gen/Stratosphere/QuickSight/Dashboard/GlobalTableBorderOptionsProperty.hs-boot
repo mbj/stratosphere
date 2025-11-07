@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GlobalTableBorderOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlobalTableBorderOptionsProperty :: Prelude.Type
+instance ToResourceProperties GlobalTableBorderOptionsProperty
+instance Prelude.Eq GlobalTableBorderOptionsProperty
+instance Prelude.Show GlobalTableBorderOptionsProperty
+instance JSON.ToJSON GlobalTableBorderOptionsProperty

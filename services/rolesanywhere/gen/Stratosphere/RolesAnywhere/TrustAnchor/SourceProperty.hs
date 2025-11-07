@@ -11,36 +11,32 @@ data SourceProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html>
     SourceProperty {haddock_workaround_ :: (),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html#cfn-rolesanywhere-trustanchor-source-sourcedata>
-                    sourceData :: (Prelude.Maybe SourceDataProperty),
+                    sourceData :: SourceDataProperty,
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html#cfn-rolesanywhere-trustanchor-source-sourcetype>
-                    sourceType :: (Prelude.Maybe (Value Prelude.Text))}
+                    sourceType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkSourceProperty :: SourceProperty
-mkSourceProperty
+mkSourceProperty ::
+  SourceDataProperty -> Value Prelude.Text -> SourceProperty
+mkSourceProperty sourceData sourceType
   = SourceProperty
-      {haddock_workaround_ = (), sourceData = Prelude.Nothing,
-       sourceType = Prelude.Nothing}
+      {haddock_workaround_ = (), sourceData = sourceData,
+       sourceType = sourceType}
 instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::RolesAnywhere::TrustAnchor.Source",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "SourceData" Prelude.<$> sourceData,
-                            (JSON..=) "SourceType" Prelude.<$> sourceType])}
+         properties = ["SourceData" JSON..= sourceData,
+                       "SourceType" JSON..= sourceType]}
 instance JSON.ToJSON SourceProperty where
   toJSON SourceProperty {..}
     = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "SourceData" Prelude.<$> sourceData,
-               (JSON..=) "SourceType" Prelude.<$> sourceType]))
+        ["SourceData" JSON..= sourceData, "SourceType" JSON..= sourceType]
 instance Property "SourceData" SourceProperty where
   type PropertyType "SourceData" SourceProperty = SourceDataProperty
   set newValue SourceProperty {..}
-    = SourceProperty {sourceData = Prelude.pure newValue, ..}
+    = SourceProperty {sourceData = newValue, ..}
 instance Property "SourceType" SourceProperty where
   type PropertyType "SourceType" SourceProperty = Value Prelude.Text
   set newValue SourceProperty {..}
-    = SourceProperty {sourceType = Prelude.pure newValue, ..}
+    = SourceProperty {sourceType = newValue, ..}

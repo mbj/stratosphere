@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.ImageCustomActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageCustomActionProperty :: Prelude.Type
+instance ToResourceProperties ImageCustomActionProperty
+instance Prelude.Eq ImageCustomActionProperty
+instance Prelude.Show ImageCustomActionProperty
+instance JSON.ToJSON ImageCustomActionProperty

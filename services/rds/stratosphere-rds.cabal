@@ -40,6 +40,7 @@ library
       Stratosphere.RDS.DBInstance
       Stratosphere.RDS.DBInstance.CertificateDetailsProperty
       Stratosphere.RDS.DBInstance.DBInstanceRoleProperty
+      Stratosphere.RDS.DBInstance.DBInstanceStatusInfoProperty
       Stratosphere.RDS.DBInstance.EndpointProperty
       Stratosphere.RDS.DBInstance.MasterUserSecretProperty
       Stratosphere.RDS.DBInstance.ProcessorFeatureProperty

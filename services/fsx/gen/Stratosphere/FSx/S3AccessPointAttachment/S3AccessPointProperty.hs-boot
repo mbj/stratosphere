@@ -1,0 +1,9 @@
+module Stratosphere.FSx.S3AccessPointAttachment.S3AccessPointProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3AccessPointProperty :: Prelude.Type
+instance ToResourceProperties S3AccessPointProperty
+instance Prelude.Eq S3AccessPointProperty
+instance Prelude.Show S3AccessPointProperty
+instance JSON.ToJSON S3AccessPointProperty

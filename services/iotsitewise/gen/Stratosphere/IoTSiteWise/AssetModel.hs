@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.AssetModelCompositeModelProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.AssetModelHierarchyProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.AssetModelPropertyProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.EnforcedAssetModelInterfaceRelationshipProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -27,6 +28,8 @@ data AssetModel
                 assetModelProperties :: (Prelude.Maybe [AssetModelPropertyProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeltype>
                 assetModelType :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-enforcedassetmodelinterfacerelationships>
+                enforcedAssetModelInterfaceRelationships :: (Prelude.Maybe [EnforcedAssetModelInterfaceRelationshipProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags>
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -39,7 +42,9 @@ mkAssetModel assetModelName
        assetModelExternalId = Prelude.Nothing,
        assetModelHierarchies = Prelude.Nothing,
        assetModelProperties = Prelude.Nothing,
-       assetModelType = Prelude.Nothing, tags = Prelude.Nothing}
+       assetModelType = Prelude.Nothing,
+       enforcedAssetModelInterfaceRelationships = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties AssetModel where
   toResourceProperties AssetModel {..}
     = ResourceProperties
@@ -58,6 +63,8 @@ instance ToResourceProperties AssetModel where
                                  Prelude.<$> assetModelHierarchies,
                                (JSON..=) "AssetModelProperties" Prelude.<$> assetModelProperties,
                                (JSON..=) "AssetModelType" Prelude.<$> assetModelType,
+                               (JSON..=) "EnforcedAssetModelInterfaceRelationships"
+                                 Prelude.<$> enforcedAssetModelInterfaceRelationships,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON AssetModel where
   toJSON AssetModel {..}
@@ -75,6 +82,8 @@ instance JSON.ToJSON AssetModel where
                     Prelude.<$> assetModelHierarchies,
                   (JSON..=) "AssetModelProperties" Prelude.<$> assetModelProperties,
                   (JSON..=) "AssetModelType" Prelude.<$> assetModelType,
+                  (JSON..=) "EnforcedAssetModelInterfaceRelationships"
+                    Prelude.<$> enforcedAssetModelInterfaceRelationships,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AssetModelCompositeModels" AssetModel where
   type PropertyType "AssetModelCompositeModels" AssetModel = [AssetModelCompositeModelProperty]
@@ -105,6 +114,12 @@ instance Property "AssetModelType" AssetModel where
   type PropertyType "AssetModelType" AssetModel = Value Prelude.Text
   set newValue AssetModel {..}
     = AssetModel {assetModelType = Prelude.pure newValue, ..}
+instance Property "EnforcedAssetModelInterfaceRelationships" AssetModel where
+  type PropertyType "EnforcedAssetModelInterfaceRelationships" AssetModel = [EnforcedAssetModelInterfaceRelationshipProperty]
+  set newValue AssetModel {..}
+    = AssetModel
+        {enforcedAssetModelInterfaceRelationships = Prelude.pure newValue,
+         ..}
 instance Property "Tags" AssetModel where
   type PropertyType "Tags" AssetModel = [Tag]
   set newValue AssetModel {..}

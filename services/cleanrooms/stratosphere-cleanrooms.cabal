@@ -31,10 +31,22 @@ library
       Stratosphere.CleanRooms.AnalysisTemplate
       Stratosphere.CleanRooms.AnalysisTemplate.AnalysisParameterProperty
       Stratosphere.CleanRooms.AnalysisTemplate.AnalysisSchemaProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.AnalysisSourceMetadataProperty
       Stratosphere.CleanRooms.AnalysisTemplate.AnalysisSourceProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.AnalysisTemplateArtifactMetadataProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.AnalysisTemplateArtifactProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.AnalysisTemplateArtifactsProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.ErrorMessageConfigurationProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.HashProperty
+      Stratosphere.CleanRooms.AnalysisTemplate.S3LocationProperty
       Stratosphere.CleanRooms.Collaboration
       Stratosphere.CleanRooms.Collaboration.DataEncryptionMetadataProperty
+      Stratosphere.CleanRooms.Collaboration.JobComputePaymentConfigProperty
       Stratosphere.CleanRooms.Collaboration.MemberSpecificationProperty
+      Stratosphere.CleanRooms.Collaboration.MLMemberAbilitiesProperty
+      Stratosphere.CleanRooms.Collaboration.MLPaymentConfigProperty
+      Stratosphere.CleanRooms.Collaboration.ModelInferencePaymentConfigProperty
+      Stratosphere.CleanRooms.Collaboration.ModelTrainingPaymentConfigProperty
       Stratosphere.CleanRooms.Collaboration.PaymentConfigurationProperty
       Stratosphere.CleanRooms.Collaboration.QueryComputePaymentConfigProperty
       Stratosphere.CleanRooms.ConfiguredTable
@@ -44,11 +56,15 @@ library
       Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleCustomProperty
       Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleListProperty
       Stratosphere.CleanRooms.ConfiguredTable.AnalysisRuleProperty
+      Stratosphere.CleanRooms.ConfiguredTable.AthenaTableReferenceProperty
       Stratosphere.CleanRooms.ConfiguredTable.ConfiguredTableAnalysisRulePolicyProperty
       Stratosphere.CleanRooms.ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1Property
       Stratosphere.CleanRooms.ConfiguredTable.DifferentialPrivacyColumnProperty
       Stratosphere.CleanRooms.ConfiguredTable.DifferentialPrivacyProperty
       Stratosphere.CleanRooms.ConfiguredTable.GlueTableReferenceProperty
+      Stratosphere.CleanRooms.ConfiguredTable.SnowflakeTableReferenceProperty
+      Stratosphere.CleanRooms.ConfiguredTable.SnowflakeTableSchemaProperty
+      Stratosphere.CleanRooms.ConfiguredTable.SnowflakeTableSchemaV1Property
       Stratosphere.CleanRooms.ConfiguredTable.TableReferenceProperty
       Stratosphere.CleanRooms.ConfiguredTableAssociation
       Stratosphere.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleAggregationProperty
@@ -66,10 +82,17 @@ library
       Stratosphere.CleanRooms.IdNamespaceAssociation.IdNamespaceAssociationInputReferenceConfigProperty
       Stratosphere.CleanRooms.IdNamespaceAssociation.IdNamespaceAssociationInputReferencePropertiesProperty
       Stratosphere.CleanRooms.Membership
+      Stratosphere.CleanRooms.Membership.MembershipJobComputePaymentConfigProperty
+      Stratosphere.CleanRooms.Membership.MembershipMLPaymentConfigProperty
+      Stratosphere.CleanRooms.Membership.MembershipModelInferencePaymentConfigProperty
+      Stratosphere.CleanRooms.Membership.MembershipModelTrainingPaymentConfigProperty
       Stratosphere.CleanRooms.Membership.MembershipPaymentConfigurationProperty
+      Stratosphere.CleanRooms.Membership.MembershipProtectedJobOutputConfigurationProperty
+      Stratosphere.CleanRooms.Membership.MembershipProtectedJobResultConfigurationProperty
       Stratosphere.CleanRooms.Membership.MembershipProtectedQueryOutputConfigurationProperty
       Stratosphere.CleanRooms.Membership.MembershipProtectedQueryResultConfigurationProperty
       Stratosphere.CleanRooms.Membership.MembershipQueryComputePaymentConfigProperty
+      Stratosphere.CleanRooms.Membership.ProtectedJobS3OutputConfigurationInputProperty
       Stratosphere.CleanRooms.Membership.ProtectedQueryS3OutputConfigurationProperty
       Stratosphere.CleanRooms.PrivacyBudgetTemplate
       Stratosphere.CleanRooms.PrivacyBudgetTemplate.ParametersProperty

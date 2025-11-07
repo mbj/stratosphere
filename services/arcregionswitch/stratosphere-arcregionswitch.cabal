@@ -1,0 +1,100 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-arcregionswitch
+version:        1.0.0
+synopsis:       Stratosphere integration for AWS ARCRegionSwitch.
+description:    Integration into stratosphere to generate resources and properties for AWS ARCRegionSwitch
+category:       AWS, Cloud, ARCRegionSwitch
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+license-file:   LICENSE.md
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ARCRegionSwitch.Plan
+      Stratosphere.ARCRegionSwitch.Plan.ArcRoutingControlConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.AsgProperty
+      Stratosphere.ARCRegionSwitch.Plan.AssociatedAlarmProperty
+      Stratosphere.ARCRegionSwitch.Plan.CustomActionLambdaConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.Ec2AsgCapacityIncreaseConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.Ec2UngracefulProperty
+      Stratosphere.ARCRegionSwitch.Plan.EcsCapacityIncreaseConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.EcsUngracefulProperty
+      Stratosphere.ARCRegionSwitch.Plan.EksClusterProperty
+      Stratosphere.ARCRegionSwitch.Plan.EksResourceScalingConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.EksResourceScalingUngracefulProperty
+      Stratosphere.ARCRegionSwitch.Plan.ExecutionApprovalConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.ExecutionBlockConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.GlobalAuroraConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.GlobalAuroraUngracefulProperty
+      Stratosphere.ARCRegionSwitch.Plan.KubernetesResourceTypeProperty
+      Stratosphere.ARCRegionSwitch.Plan.LambdasProperty
+      Stratosphere.ARCRegionSwitch.Plan.LambdaUngracefulProperty
+      Stratosphere.ARCRegionSwitch.Plan.ParallelExecutionBlockConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.RegionSwitchPlanConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.Route53HealthCheckConfigurationProperty
+      Stratosphere.ARCRegionSwitch.Plan.Route53ResourceRecordSetProperty
+      Stratosphere.ARCRegionSwitch.Plan.ServiceProperty
+      Stratosphere.ARCRegionSwitch.Plan.StepProperty
+      Stratosphere.ARCRegionSwitch.Plan.TriggerConditionProperty
+      Stratosphere.ARCRegionSwitch.Plan.TriggerProperty
+      Stratosphere.ARCRegionSwitch.Plan.WorkflowProperty
+  other-modules:
+      Paths_stratosphere_arcregionswitch
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson ==2.*
+    , base >=4.8 && <4.22
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

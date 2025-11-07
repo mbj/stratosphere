@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.InstanceMarketOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMarketOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties InstanceMarketOptionsRequestProperty
+instance Prelude.Eq InstanceMarketOptionsRequestProperty
+instance Prelude.Show InstanceMarketOptionsRequestProperty
+instance JSON.ToJSON InstanceMarketOptionsRequestProperty

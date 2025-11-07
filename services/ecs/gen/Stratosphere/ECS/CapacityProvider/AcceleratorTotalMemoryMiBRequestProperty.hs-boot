@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.AcceleratorTotalMemoryMiBRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorTotalMemoryMiBRequestProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorTotalMemoryMiBRequestProperty
+instance Prelude.Eq AcceleratorTotalMemoryMiBRequestProperty
+instance Prelude.Show AcceleratorTotalMemoryMiBRequestProperty
+instance JSON.ToJSON AcceleratorTotalMemoryMiBRequestProperty

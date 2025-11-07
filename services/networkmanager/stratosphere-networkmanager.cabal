@@ -45,6 +45,9 @@ library
       Stratosphere.NetworkManager.Device
       Stratosphere.NetworkManager.Device.AWSLocationProperty
       Stratosphere.NetworkManager.Device.LocationProperty
+      Stratosphere.NetworkManager.DirectConnectGatewayAttachment
+      Stratosphere.NetworkManager.DirectConnectGatewayAttachment.ProposedNetworkFunctionGroupChangeProperty
+      Stratosphere.NetworkManager.DirectConnectGatewayAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.GlobalNetwork
       Stratosphere.NetworkManager.Link
       Stratosphere.NetworkManager.Link.BandwidthProperty

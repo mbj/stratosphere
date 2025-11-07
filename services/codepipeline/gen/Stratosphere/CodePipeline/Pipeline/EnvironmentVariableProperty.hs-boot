@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.EnvironmentVariableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnvironmentVariableProperty :: Prelude.Type
+instance ToResourceProperties EnvironmentVariableProperty
+instance Prelude.Eq EnvironmentVariableProperty
+instance Prelude.Show EnvironmentVariableProperty
+instance JSON.ToJSON EnvironmentVariableProperty

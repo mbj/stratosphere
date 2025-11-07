@@ -1,0 +1,9 @@
+module Stratosphere.PCS.ComputeNodeGroup.CustomLaunchTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomLaunchTemplateProperty :: Prelude.Type
+instance ToResourceProperties CustomLaunchTemplateProperty
+instance Prelude.Eq CustomLaunchTemplateProperty
+instance Prelude.Show CustomLaunchTemplateProperty
+instance JSON.ToJSON CustomLaunchTemplateProperty

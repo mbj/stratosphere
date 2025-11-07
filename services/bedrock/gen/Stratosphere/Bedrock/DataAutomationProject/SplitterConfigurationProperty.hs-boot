@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.SplitterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SplitterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SplitterConfigurationProperty
+instance Prelude.Eq SplitterConfigurationProperty
+instance Prelude.Show SplitterConfigurationProperty
+instance JSON.ToJSON SplitterConfigurationProperty

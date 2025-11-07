@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.PluginVisualOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PluginVisualOptionsProperty :: Prelude.Type
+instance ToResourceProperties PluginVisualOptionsProperty
+instance Prelude.Eq PluginVisualOptionsProperty
+instance Prelude.Show PluginVisualOptionsProperty
+instance JSON.ToJSON PluginVisualOptionsProperty

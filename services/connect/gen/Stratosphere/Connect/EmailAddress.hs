@@ -1,15 +1,18 @@
 module Stratosphere.Connect.EmailAddress (
-        EmailAddress(..), mkEmailAddress
+        module Exports, EmailAddress(..), mkEmailAddress
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EmailAddress.AliasConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EmailAddress
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html>
     EmailAddress {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-aliasconfigurations>
+                  aliasConfigurations :: (Prelude.Maybe [AliasConfigurationProperty]),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-description>
                   description :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-displayname>
@@ -26,8 +29,9 @@ mkEmailAddress ::
 mkEmailAddress emailAddress instanceArn
   = EmailAddress
       {haddock_workaround_ = (), emailAddress = emailAddress,
-       instanceArn = instanceArn, description = Prelude.Nothing,
-       displayName = Prelude.Nothing, tags = Prelude.Nothing}
+       instanceArn = instanceArn, aliasConfigurations = Prelude.Nothing,
+       description = Prelude.Nothing, displayName = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EmailAddress where
   toResourceProperties EmailAddress {..}
     = ResourceProperties
@@ -38,7 +42,8 @@ instance ToResourceProperties EmailAddress where
                            ["EmailAddress" JSON..= emailAddress,
                             "InstanceArn" JSON..= instanceArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "AliasConfigurations" Prelude.<$> aliasConfigurations,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DisplayName" Prelude.<$> displayName,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON EmailAddress where
@@ -49,9 +54,14 @@ instance JSON.ToJSON EmailAddress where
               ["EmailAddress" JSON..= emailAddress,
                "InstanceArn" JSON..= instanceArn]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "AliasConfigurations" Prelude.<$> aliasConfigurations,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DisplayName" Prelude.<$> displayName,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AliasConfigurations" EmailAddress where
+  type PropertyType "AliasConfigurations" EmailAddress = [AliasConfigurationProperty]
+  set newValue EmailAddress {..}
+    = EmailAddress {aliasConfigurations = Prelude.pure newValue, ..}
 instance Property "Description" EmailAddress where
   type PropertyType "Description" EmailAddress = Value Prelude.Text
   set newValue EmailAddress {..}

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialGradientStepColorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialGradientStepColorProperty :: Prelude.Type
+instance ToResourceProperties GeospatialGradientStepColorProperty
+instance Prelude.Eq GeospatialGradientStepColorProperty
+instance Prelude.Show GeospatialGradientStepColorProperty
+instance JSON.ToJSON GeospatialGradientStepColorProperty

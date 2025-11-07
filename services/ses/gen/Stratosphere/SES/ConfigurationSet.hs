@@ -11,6 +11,7 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.SuppressionOptionsProper
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.TrackingOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSet.VdmOptionsProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data ConfigurationSet
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html>
@@ -25,6 +26,8 @@ data ConfigurationSet
                       sendingOptions :: (Prelude.Maybe SendingOptionsProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-suppressionoptions>
                       suppressionOptions :: (Prelude.Maybe SuppressionOptionsProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-tags>
+                      tags :: (Prelude.Maybe [Tag]),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-trackingoptions>
                       trackingOptions :: (Prelude.Maybe TrackingOptionsProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-vdmoptions>
@@ -36,13 +39,13 @@ mkConfigurationSet
       {haddock_workaround_ = (), deliveryOptions = Prelude.Nothing,
        name = Prelude.Nothing, reputationOptions = Prelude.Nothing,
        sendingOptions = Prelude.Nothing,
-       suppressionOptions = Prelude.Nothing,
+       suppressionOptions = Prelude.Nothing, tags = Prelude.Nothing,
        trackingOptions = Prelude.Nothing, vdmOptions = Prelude.Nothing}
 instance ToResourceProperties ConfigurationSet where
   toResourceProperties ConfigurationSet {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeliveryOptions" Prelude.<$> deliveryOptions,
@@ -50,6 +53,7 @@ instance ToResourceProperties ConfigurationSet where
                             (JSON..=) "ReputationOptions" Prelude.<$> reputationOptions,
                             (JSON..=) "SendingOptions" Prelude.<$> sendingOptions,
                             (JSON..=) "SuppressionOptions" Prelude.<$> suppressionOptions,
+                            (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "TrackingOptions" Prelude.<$> trackingOptions,
                             (JSON..=) "VdmOptions" Prelude.<$> vdmOptions])}
 instance JSON.ToJSON ConfigurationSet where
@@ -62,6 +66,7 @@ instance JSON.ToJSON ConfigurationSet where
                (JSON..=) "ReputationOptions" Prelude.<$> reputationOptions,
                (JSON..=) "SendingOptions" Prelude.<$> sendingOptions,
                (JSON..=) "SuppressionOptions" Prelude.<$> suppressionOptions,
+               (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TrackingOptions" Prelude.<$> trackingOptions,
                (JSON..=) "VdmOptions" Prelude.<$> vdmOptions]))
 instance Property "DeliveryOptions" ConfigurationSet where
@@ -84,6 +89,10 @@ instance Property "SuppressionOptions" ConfigurationSet where
   type PropertyType "SuppressionOptions" ConfigurationSet = SuppressionOptionsProperty
   set newValue ConfigurationSet {..}
     = ConfigurationSet {suppressionOptions = Prelude.pure newValue, ..}
+instance Property "Tags" ConfigurationSet where
+  type PropertyType "Tags" ConfigurationSet = [Tag]
+  set newValue ConfigurationSet {..}
+    = ConfigurationSet {tags = Prelude.pure newValue, ..}
 instance Property "TrackingOptions" ConfigurationSet where
   type PropertyType "TrackingOptions" ConfigurationSet = TrackingOptionsProperty
   set newValue ConfigurationSet {..}

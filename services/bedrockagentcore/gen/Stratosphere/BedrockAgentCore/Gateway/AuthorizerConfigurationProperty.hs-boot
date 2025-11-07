@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Gateway.AuthorizerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuthorizerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AuthorizerConfigurationProperty
+instance Prelude.Eq AuthorizerConfigurationProperty
+instance Prelude.Show AuthorizerConfigurationProperty
+instance JSON.ToJSON AuthorizerConfigurationProperty

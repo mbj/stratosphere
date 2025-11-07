@@ -33,7 +33,9 @@ library
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.AttributeItemProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ConditionsProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.RangeProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ReadinessProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ThresholdProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ValueRangeProperty
       Stratosphere.CustomerProfiles.Domain
       Stratosphere.CustomerProfiles.Domain.AttributeTypesSelectorProperty
       Stratosphere.CustomerProfiles.Domain.AutoMergingProperty
@@ -48,6 +50,12 @@ library
       Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty
       Stratosphere.CustomerProfiles.EventStream
       Stratosphere.CustomerProfiles.EventStream.DestinationDetailsProperty
+      Stratosphere.CustomerProfiles.EventTrigger
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerConditionProperty
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerDimensionProperty
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerLimitsProperty
+      Stratosphere.CustomerProfiles.EventTrigger.ObjectAttributeProperty
+      Stratosphere.CustomerProfiles.EventTrigger.PeriodProperty
       Stratosphere.CustomerProfiles.Integration
       Stratosphere.CustomerProfiles.Integration.ConnectorOperatorProperty
       Stratosphere.CustomerProfiles.Integration.FlowDefinitionProperty
@@ -81,6 +89,7 @@ library
       Stratosphere.CustomerProfiles.SegmentDefinition.GroupProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.ProfileAttributesProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.ProfileDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ProfileTypeDimensionProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.RangeOverrideProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.SegmentGroupProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.SourceSegmentProperty

@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.PrivateDnsNameOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrivateDnsNameOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties PrivateDnsNameOptionsRequestProperty
+instance Prelude.Eq PrivateDnsNameOptionsRequestProperty
+instance Prelude.Show PrivateDnsNameOptionsRequestProperty
+instance JSON.ToJSON PrivateDnsNameOptionsRequestProperty

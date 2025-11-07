@@ -23,6 +23,8 @@ data CanSignalProperty
                        name :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-offset>
                        offset :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-signalvaluetype>
+                       signalValueType :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-startbit>
                        startBit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -45,7 +47,7 @@ mkCanSignalProperty
       {haddock_workaround_ = (), factor = factor,
        isBigEndian = isBigEndian, isSigned = isSigned, length = length,
        messageId = messageId, offset = offset, startBit = startBit,
-       name = Prelude.Nothing}
+       name = Prelude.Nothing, signalValueType = Prelude.Nothing}
 instance ToResourceProperties CanSignalProperty where
   toResourceProperties CanSignalProperty {..}
     = ResourceProperties
@@ -57,7 +59,9 @@ instance ToResourceProperties CanSignalProperty where
                             "IsSigned" JSON..= isSigned, "Length" JSON..= length,
                             "MessageId" JSON..= messageId, "Offset" JSON..= offset,
                             "StartBit" JSON..= startBit]
-                           (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "SignalValueType" Prelude.<$> signalValueType]))}
 instance JSON.ToJSON CanSignalProperty where
   toJSON CanSignalProperty {..}
     = JSON.object
@@ -67,7 +71,9 @@ instance JSON.ToJSON CanSignalProperty where
                "IsSigned" JSON..= isSigned, "Length" JSON..= length,
                "MessageId" JSON..= messageId, "Offset" JSON..= offset,
                "StartBit" JSON..= startBit]
-              (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])))
+              (Prelude.catMaybes
+                 [(JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "SignalValueType" Prelude.<$> signalValueType])))
 instance Property "Factor" CanSignalProperty where
   type PropertyType "Factor" CanSignalProperty = Value Prelude.Text
   set newValue CanSignalProperty {..}
@@ -96,6 +102,10 @@ instance Property "Offset" CanSignalProperty where
   type PropertyType "Offset" CanSignalProperty = Value Prelude.Text
   set newValue CanSignalProperty {..}
     = CanSignalProperty {offset = newValue, ..}
+instance Property "SignalValueType" CanSignalProperty where
+  type PropertyType "SignalValueType" CanSignalProperty = Value Prelude.Text
+  set newValue CanSignalProperty {..}
+    = CanSignalProperty {signalValueType = Prelude.pure newValue, ..}
 instance Property "StartBit" CanSignalProperty where
   type PropertyType "StartBit" CanSignalProperty = Value Prelude.Text
   set newValue CanSignalProperty {..}

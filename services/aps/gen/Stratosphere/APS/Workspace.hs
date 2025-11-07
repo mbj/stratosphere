@@ -5,6 +5,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.APS.Workspace.LoggingConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.APS.Workspace.QueryLoggingConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.APS.Workspace.WorkspaceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,8 +21,12 @@ data Workspace
                kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration>
                loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-queryloggingconfiguration>
+               queryLoggingConfiguration :: (Prelude.Maybe QueryLoggingConfigurationProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-tags>
-               tags :: (Prelude.Maybe [Tag])}
+               tags :: (Prelude.Maybe [Tag]),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-workspaceconfiguration>
+               workspaceConfiguration :: (Prelude.Maybe WorkspaceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace :: Workspace
 mkWorkspace
@@ -28,7 +34,9 @@ mkWorkspace
       {haddock_workaround_ = (),
        alertManagerDefinition = Prelude.Nothing, alias = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing,
-       loggingConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
+       loggingConfiguration = Prelude.Nothing,
+       queryLoggingConfiguration = Prelude.Nothing,
+       tags = Prelude.Nothing, workspaceConfiguration = Prelude.Nothing}
 instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
     = ResourceProperties
@@ -40,7 +48,11 @@ instance ToResourceProperties Workspace where
                             (JSON..=) "Alias" Prelude.<$> alias,
                             (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                             (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
-                            (JSON..=) "Tags" Prelude.<$> tags])}
+                            (JSON..=) "QueryLoggingConfiguration"
+                              Prelude.<$> queryLoggingConfiguration,
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "WorkspaceConfiguration"
+                              Prelude.<$> workspaceConfiguration])}
 instance JSON.ToJSON Workspace where
   toJSON Workspace {..}
     = JSON.object
@@ -51,7 +63,11 @@ instance JSON.ToJSON Workspace where
                (JSON..=) "Alias" Prelude.<$> alias,
                (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
-               (JSON..=) "Tags" Prelude.<$> tags]))
+               (JSON..=) "QueryLoggingConfiguration"
+                 Prelude.<$> queryLoggingConfiguration,
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "WorkspaceConfiguration"
+                 Prelude.<$> workspaceConfiguration]))
 instance Property "AlertManagerDefinition" Workspace where
   type PropertyType "AlertManagerDefinition" Workspace = Value Prelude.Text
   set newValue Workspace {..}
@@ -68,7 +84,15 @@ instance Property "LoggingConfiguration" Workspace where
   type PropertyType "LoggingConfiguration" Workspace = LoggingConfigurationProperty
   set newValue Workspace {..}
     = Workspace {loggingConfiguration = Prelude.pure newValue, ..}
+instance Property "QueryLoggingConfiguration" Workspace where
+  type PropertyType "QueryLoggingConfiguration" Workspace = QueryLoggingConfigurationProperty
+  set newValue Workspace {..}
+    = Workspace {queryLoggingConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" Workspace where
   type PropertyType "Tags" Workspace = [Tag]
   set newValue Workspace {..}
     = Workspace {tags = Prelude.pure newValue, ..}
+instance Property "WorkspaceConfiguration" Workspace where
+  type PropertyType "WorkspaceConfiguration" Workspace = WorkspaceConfigurationProperty
+  set newValue Workspace {..}
+    = Workspace {workspaceConfiguration = Prelude.pure newValue, ..}

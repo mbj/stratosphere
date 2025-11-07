@@ -1,0 +1,9 @@
+module Stratosphere.APS.Workspace.WorkspaceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkspaceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WorkspaceConfigurationProperty
+instance Prelude.Eq WorkspaceConfigurationProperty
+instance Prelude.Show WorkspaceConfigurationProperty
+instance JSON.ToJSON WorkspaceConfigurationProperty

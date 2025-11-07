@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.DataPathLabelTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataPathLabelTypeProperty :: Prelude.Type
+instance ToResourceProperties DataPathLabelTypeProperty
+instance Prelude.Eq DataPathLabelTypeProperty
+instance Prelude.Show DataPathLabelTypeProperty
+instance JSON.ToJSON DataPathLabelTypeProperty

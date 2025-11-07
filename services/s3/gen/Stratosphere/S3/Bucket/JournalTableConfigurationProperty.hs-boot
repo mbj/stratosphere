@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.JournalTableConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JournalTableConfigurationProperty :: Prelude.Type
+instance ToResourceProperties JournalTableConfigurationProperty
+instance Prelude.Eq JournalTableConfigurationProperty
+instance Prelude.Show JournalTableConfigurationProperty
+instance JSON.ToJSON JournalTableConfigurationProperty

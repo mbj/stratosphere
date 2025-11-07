@@ -36,21 +36,34 @@ library
       Stratosphere.B2BI.Capability.X12DetailsProperty
       Stratosphere.B2BI.Partnership
       Stratosphere.B2BI.Partnership.CapabilityOptionsProperty
+      Stratosphere.B2BI.Partnership.InboundEdiOptionsProperty
       Stratosphere.B2BI.Partnership.OutboundEdiOptionsProperty
+      Stratosphere.B2BI.Partnership.WrapOptionsProperty
+      Stratosphere.B2BI.Partnership.X12AcknowledgmentOptionsProperty
+      Stratosphere.B2BI.Partnership.X12ControlNumbersProperty
       Stratosphere.B2BI.Partnership.X12DelimitersProperty
       Stratosphere.B2BI.Partnership.X12EnvelopeProperty
       Stratosphere.B2BI.Partnership.X12FunctionalGroupHeadersProperty
+      Stratosphere.B2BI.Partnership.X12InboundEdiOptionsProperty
       Stratosphere.B2BI.Partnership.X12InterchangeControlHeadersProperty
       Stratosphere.B2BI.Partnership.X12OutboundEdiHeadersProperty
       Stratosphere.B2BI.Profile
       Stratosphere.B2BI.Transformer
+      Stratosphere.B2BI.Transformer.AdvancedOptionsProperty
       Stratosphere.B2BI.Transformer.FormatOptionsProperty
       Stratosphere.B2BI.Transformer.InputConversionProperty
       Stratosphere.B2BI.Transformer.MappingProperty
       Stratosphere.B2BI.Transformer.OutputConversionProperty
       Stratosphere.B2BI.Transformer.SampleDocumentKeysProperty
       Stratosphere.B2BI.Transformer.SampleDocumentsProperty
+      Stratosphere.B2BI.Transformer.X12AdvancedOptionsProperty
+      Stratosphere.B2BI.Transformer.X12CodeListValidationRuleProperty
       Stratosphere.B2BI.Transformer.X12DetailsProperty
+      Stratosphere.B2BI.Transformer.X12ElementLengthValidationRuleProperty
+      Stratosphere.B2BI.Transformer.X12ElementRequirementValidationRuleProperty
+      Stratosphere.B2BI.Transformer.X12SplitOptionsProperty
+      Stratosphere.B2BI.Transformer.X12ValidationOptionsProperty
+      Stratosphere.B2BI.Transformer.X12ValidationRuleProperty
   other-modules:
       Paths_stratosphere_b2bi
   hs-source-dirs:

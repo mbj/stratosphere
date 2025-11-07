@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.X12ElementLengthValidationRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12ElementLengthValidationRuleProperty :: Prelude.Type
+instance ToResourceProperties X12ElementLengthValidationRuleProperty
+instance Prelude.Eq X12ElementLengthValidationRuleProperty
+instance Prelude.Show X12ElementLengthValidationRuleProperty
+instance JSON.ToJSON X12ElementLengthValidationRuleProperty

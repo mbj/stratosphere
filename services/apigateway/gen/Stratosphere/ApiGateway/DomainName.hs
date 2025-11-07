@@ -24,6 +24,8 @@ data DomainName
                 ownershipVerificationCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn>
                 regionalCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-routingmode>
+                routingMode :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy>
                 securityPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags>
@@ -38,7 +40,8 @@ mkDomainName
        mutualTlsAuthentication = Prelude.Nothing,
        ownershipVerificationCertificateArn = Prelude.Nothing,
        regionalCertificateArn = Prelude.Nothing,
-       securityPolicy = Prelude.Nothing, tags = Prelude.Nothing}
+       routingMode = Prelude.Nothing, securityPolicy = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
@@ -56,6 +59,7 @@ instance ToResourceProperties DomainName where
                               Prelude.<$> ownershipVerificationCertificateArn,
                             (JSON..=) "RegionalCertificateArn"
                               Prelude.<$> regionalCertificateArn,
+                            (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                             (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON DomainName where
@@ -73,6 +77,7 @@ instance JSON.ToJSON DomainName where
                  Prelude.<$> ownershipVerificationCertificateArn,
                (JSON..=) "RegionalCertificateArn"
                  Prelude.<$> regionalCertificateArn,
+               (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "CertificateArn" DomainName where
@@ -100,6 +105,10 @@ instance Property "RegionalCertificateArn" DomainName where
   type PropertyType "RegionalCertificateArn" DomainName = Value Prelude.Text
   set newValue DomainName {..}
     = DomainName {regionalCertificateArn = Prelude.pure newValue, ..}
+instance Property "RoutingMode" DomainName where
+  type PropertyType "RoutingMode" DomainName = Value Prelude.Text
+  set newValue DomainName {..}
+    = DomainName {routingMode = Prelude.pure newValue, ..}
 instance Property "SecurityPolicy" DomainName where
   type PropertyType "SecurityPolicy" DomainName = Value Prelude.Text
   set newValue DomainName {..}

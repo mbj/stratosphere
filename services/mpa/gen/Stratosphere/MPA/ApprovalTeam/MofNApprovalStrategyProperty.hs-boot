@@ -1,0 +1,9 @@
+module Stratosphere.MPA.ApprovalTeam.MofNApprovalStrategyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MofNApprovalStrategyProperty :: Prelude.Type
+instance ToResourceProperties MofNApprovalStrategyProperty
+instance Prelude.Eq MofNApprovalStrategyProperty
+instance Prelude.Show MofNApprovalStrategyProperty
+instance JSON.ToJSON MofNApprovalStrategyProperty

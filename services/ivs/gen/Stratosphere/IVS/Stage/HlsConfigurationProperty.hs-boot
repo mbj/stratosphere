@@ -1,0 +1,9 @@
+module Stratosphere.IVS.Stage.HlsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HlsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HlsConfigurationProperty
+instance Prelude.Eq HlsConfigurationProperty
+instance Prelude.Show HlsConfigurationProperty
+instance JSON.ToJSON HlsConfigurationProperty

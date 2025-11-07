@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.TopicsTierConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicsTierConfigProperty :: Prelude.Type
+instance ToResourceProperties TopicsTierConfigProperty
+instance Prelude.Eq TopicsTierConfigProperty
+instance Prelude.Show TopicsTierConfigProperty
+instance JSON.ToJSON TopicsTierConfigProperty

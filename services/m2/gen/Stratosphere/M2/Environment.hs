@@ -25,6 +25,8 @@ data Environment
                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-name>
                  name :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-networktype>
+                 networkType :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-preferredmaintenancewindow>
                  preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-publiclyaccessible>
@@ -47,7 +49,7 @@ mkEnvironment engineType instanceType name
        instanceType = instanceType, name = name,
        description = Prelude.Nothing, engineVersion = Prelude.Nothing,
        highAvailabilityConfig = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing, networkType = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing,
@@ -67,6 +69,7 @@ instance ToResourceProperties Environment where
                                (JSON..=) "HighAvailabilityConfig"
                                  Prelude.<$> highAvailabilityConfig,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                               (JSON..=) "NetworkType" Prelude.<$> networkType,
                                (JSON..=) "PreferredMaintenanceWindow"
                                  Prelude.<$> preferredMaintenanceWindow,
                                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -88,6 +91,7 @@ instance JSON.ToJSON Environment where
                   (JSON..=) "HighAvailabilityConfig"
                     Prelude.<$> highAvailabilityConfig,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                  (JSON..=) "NetworkType" Prelude.<$> networkType,
                   (JSON..=) "PreferredMaintenanceWindow"
                     Prelude.<$> preferredMaintenanceWindow,
                   (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -123,6 +127,10 @@ instance Property "KmsKeyId" Environment where
 instance Property "Name" Environment where
   type PropertyType "Name" Environment = Value Prelude.Text
   set newValue Environment {..} = Environment {name = newValue, ..}
+instance Property "NetworkType" Environment where
+  type PropertyType "NetworkType" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment {networkType = Prelude.pure newValue, ..}
 instance Property "PreferredMaintenanceWindow" Environment where
   type PropertyType "PreferredMaintenanceWindow" Environment = Value Prelude.Text
   set newValue Environment {..}

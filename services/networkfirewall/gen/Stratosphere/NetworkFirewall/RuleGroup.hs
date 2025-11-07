@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.RuleGroupProperty as Exports
+import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.SummaryConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,6 +20,8 @@ data RuleGroup
                ruleGroup :: (Prelude.Maybe RuleGroupProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname>
                ruleGroupName :: (Value Prelude.Text),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-summaryconfiguration>
+               summaryConfiguration :: (Prelude.Maybe SummaryConfigurationProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags>
                tags :: (Prelude.Maybe [Tag]),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type>
@@ -32,7 +35,7 @@ mkRuleGroup capacity ruleGroupName type'
       {haddock_workaround_ = (), capacity = capacity,
        ruleGroupName = ruleGroupName, type' = type',
        description = Prelude.Nothing, ruleGroup = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       summaryConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties RuleGroup where
   toResourceProperties RuleGroup {..}
     = ResourceProperties
@@ -45,6 +48,7 @@ instance ToResourceProperties RuleGroup where
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "RuleGroup" Prelude.<$> ruleGroup,
+                               (JSON..=) "SummaryConfiguration" Prelude.<$> summaryConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON RuleGroup where
   toJSON RuleGroup {..}
@@ -56,6 +60,7 @@ instance JSON.ToJSON RuleGroup where
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "RuleGroup" Prelude.<$> ruleGroup,
+                  (JSON..=) "SummaryConfiguration" Prelude.<$> summaryConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Capacity" RuleGroup where
   type PropertyType "Capacity" RuleGroup = Value Prelude.Integer
@@ -72,6 +77,10 @@ instance Property "RuleGroupName" RuleGroup where
   type PropertyType "RuleGroupName" RuleGroup = Value Prelude.Text
   set newValue RuleGroup {..}
     = RuleGroup {ruleGroupName = newValue, ..}
+instance Property "SummaryConfiguration" RuleGroup where
+  type PropertyType "SummaryConfiguration" RuleGroup = SummaryConfigurationProperty
+  set newValue RuleGroup {..}
+    = RuleGroup {summaryConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" RuleGroup where
   type PropertyType "Tags" RuleGroup = [Tag]
   set newValue RuleGroup {..}

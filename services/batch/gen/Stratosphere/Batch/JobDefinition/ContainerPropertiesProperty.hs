@@ -10,14 +10,14 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EphemeralStorageProperty 
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.FargatePlatformConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LinuxParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LogConfigurationProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MountPointsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MountPointProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RepositoryCredentialsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ResourceRequirementProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RuntimePlatformProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.UlimitProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerPropertiesProperty
@@ -25,6 +25,8 @@ data ContainerPropertiesProperty
     ContainerPropertiesProperty {haddock_workaround_ :: (),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command>
                                  command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-enableexecutecommand>
+                                 enableExecuteCommand :: (Prelude.Maybe (Value Prelude.Bool)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment>
                                  environment :: (Prelude.Maybe [EnvironmentProperty]),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ephemeralstorage>
@@ -35,8 +37,6 @@ data ContainerPropertiesProperty
                                  fargatePlatformConfiguration :: (Prelude.Maybe FargatePlatformConfigurationProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image>
                                  image :: (Value Prelude.Text),
-                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype>
-                                 instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-jobrolearn>
                                  jobRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters>
@@ -46,7 +46,7 @@ data ContainerPropertiesProperty
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory>
                                  memory :: (Prelude.Maybe (Value Prelude.Integer)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints>
-                                 mountPoints :: (Prelude.Maybe [MountPointsProperty]),
+                                 mountPoints :: (Prelude.Maybe [MountPointProperty]),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration>
                                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged>
@@ -68,19 +68,18 @@ data ContainerPropertiesProperty
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus>
                                  vcpus :: (Prelude.Maybe (Value Prelude.Integer)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes>
-                                 volumes :: (Prelude.Maybe [VolumesProperty])}
+                                 volumes :: (Prelude.Maybe [VolumeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerPropertiesProperty ::
   Value Prelude.Text -> ContainerPropertiesProperty
 mkContainerPropertiesProperty image
   = ContainerPropertiesProperty
       {haddock_workaround_ = (), image = image,
-       command = Prelude.Nothing, environment = Prelude.Nothing,
-       ephemeralStorage = Prelude.Nothing,
+       command = Prelude.Nothing, enableExecuteCommand = Prelude.Nothing,
+       environment = Prelude.Nothing, ephemeralStorage = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing,
        fargatePlatformConfiguration = Prelude.Nothing,
-       instanceType = Prelude.Nothing, jobRoleArn = Prelude.Nothing,
-       linuxParameters = Prelude.Nothing,
+       jobRoleArn = Prelude.Nothing, linuxParameters = Prelude.Nothing,
        logConfiguration = Prelude.Nothing, memory = Prelude.Nothing,
        mountPoints = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
@@ -101,12 +100,12 @@ instance ToResourceProperties ContainerPropertiesProperty where
                            ["Image" JSON..= image]
                            (Prelude.catMaybes
                               [(JSON..=) "Command" Prelude.<$> command,
+                               (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
                                (JSON..=) "Environment" Prelude.<$> environment,
                                (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                                (JSON..=) "FargatePlatformConfiguration"
                                  Prelude.<$> fargatePlatformConfiguration,
-                               (JSON..=) "InstanceType" Prelude.<$> instanceType,
                                (JSON..=) "JobRoleArn" Prelude.<$> jobRoleArn,
                                (JSON..=) "LinuxParameters" Prelude.<$> linuxParameters,
                                (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
@@ -133,12 +132,12 @@ instance JSON.ToJSON ContainerPropertiesProperty where
               ["Image" JSON..= image]
               (Prelude.catMaybes
                  [(JSON..=) "Command" Prelude.<$> command,
+                  (JSON..=) "EnableExecuteCommand" Prelude.<$> enableExecuteCommand,
                   (JSON..=) "Environment" Prelude.<$> environment,
                   (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                   (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                   (JSON..=) "FargatePlatformConfiguration"
                     Prelude.<$> fargatePlatformConfiguration,
-                  (JSON..=) "InstanceType" Prelude.<$> instanceType,
                   (JSON..=) "JobRoleArn" Prelude.<$> jobRoleArn,
                   (JSON..=) "LinuxParameters" Prelude.<$> linuxParameters,
                   (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
@@ -161,6 +160,11 @@ instance Property "Command" ContainerPropertiesProperty where
   type PropertyType "Command" ContainerPropertiesProperty = ValueList Prelude.Text
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {command = Prelude.pure newValue, ..}
+instance Property "EnableExecuteCommand" ContainerPropertiesProperty where
+  type PropertyType "EnableExecuteCommand" ContainerPropertiesProperty = Value Prelude.Bool
+  set newValue ContainerPropertiesProperty {..}
+    = ContainerPropertiesProperty
+        {enableExecuteCommand = Prelude.pure newValue, ..}
 instance Property "Environment" ContainerPropertiesProperty where
   type PropertyType "Environment" ContainerPropertiesProperty = [EnvironmentProperty]
   set newValue ContainerPropertiesProperty {..}
@@ -185,11 +189,6 @@ instance Property "Image" ContainerPropertiesProperty where
   type PropertyType "Image" ContainerPropertiesProperty = Value Prelude.Text
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {image = newValue, ..}
-instance Property "InstanceType" ContainerPropertiesProperty where
-  type PropertyType "InstanceType" ContainerPropertiesProperty = Value Prelude.Text
-  set newValue ContainerPropertiesProperty {..}
-    = ContainerPropertiesProperty
-        {instanceType = Prelude.pure newValue, ..}
 instance Property "JobRoleArn" ContainerPropertiesProperty where
   type PropertyType "JobRoleArn" ContainerPropertiesProperty = Value Prelude.Text
   set newValue ContainerPropertiesProperty {..}
@@ -210,7 +209,7 @@ instance Property "Memory" ContainerPropertiesProperty where
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {memory = Prelude.pure newValue, ..}
 instance Property "MountPoints" ContainerPropertiesProperty where
-  type PropertyType "MountPoints" ContainerPropertiesProperty = [MountPointsProperty]
+  type PropertyType "MountPoints" ContainerPropertiesProperty = [MountPointProperty]
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty
         {mountPoints = Prelude.pure newValue, ..}
@@ -261,6 +260,6 @@ instance Property "Vcpus" ContainerPropertiesProperty where
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {vcpus = Prelude.pure newValue, ..}
 instance Property "Volumes" ContainerPropertiesProperty where
-  type PropertyType "Volumes" ContainerPropertiesProperty = [VolumesProperty]
+  type PropertyType "Volumes" ContainerPropertiesProperty = [VolumeProperty]
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {volumes = Prelude.pure newValue, ..}

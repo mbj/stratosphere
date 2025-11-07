@@ -29,9 +29,12 @@ flag development
 library
   exposed-modules:
       Stratosphere.Transfer.Agreement
+      Stratosphere.Transfer.Agreement.CustomDirectoriesProperty
       Stratosphere.Transfer.Certificate
       Stratosphere.Transfer.Connector
       Stratosphere.Transfer.Connector.As2ConfigProperty
+      Stratosphere.Transfer.Connector.ConnectorEgressConfigProperty
+      Stratosphere.Transfer.Connector.ConnectorVpcLatticeEgressConfigProperty
       Stratosphere.Transfer.Connector.SftpConfigProperty
       Stratosphere.Transfer.Profile
       Stratosphere.Transfer.Server
@@ -44,6 +47,10 @@ library
       Stratosphere.Transfer.User
       Stratosphere.Transfer.User.HomeDirectoryMapEntryProperty
       Stratosphere.Transfer.User.PosixProfileProperty
+      Stratosphere.Transfer.WebApp
+      Stratosphere.Transfer.WebApp.IdentityProviderDetailsProperty
+      Stratosphere.Transfer.WebApp.WebAppCustomizationProperty
+      Stratosphere.Transfer.WebApp.WebAppUnitsProperty
       Stratosphere.Transfer.Workflow
       Stratosphere.Transfer.Workflow.CopyStepDetailsProperty
       Stratosphere.Transfer.Workflow.CustomStepDetailsProperty

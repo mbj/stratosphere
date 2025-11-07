@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.RateLimitJA4FingerprintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateLimitJA4FingerprintProperty :: Prelude.Type
+instance ToResourceProperties RateLimitJA4FingerprintProperty
+instance Prelude.Eq RateLimitJA4FingerprintProperty
+instance Prelude.Show RateLimitJA4FingerprintProperty
+instance JSON.ToJSON RateLimitJA4FingerprintProperty

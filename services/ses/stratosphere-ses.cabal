@@ -55,10 +55,14 @@ library
       Stratosphere.SES.EmailIdentity.MailFromAttributesProperty
       Stratosphere.SES.MailManagerAddonInstance
       Stratosphere.SES.MailManagerAddonSubscription
+      Stratosphere.SES.MailManagerAddressList
       Stratosphere.SES.MailManagerArchive
       Stratosphere.SES.MailManagerArchive.ArchiveRetentionProperty
       Stratosphere.SES.MailManagerIngressPoint
       Stratosphere.SES.MailManagerIngressPoint.IngressPointConfigurationProperty
+      Stratosphere.SES.MailManagerIngressPoint.NetworkConfigurationProperty
+      Stratosphere.SES.MailManagerIngressPoint.PrivateNetworkConfigurationProperty
+      Stratosphere.SES.MailManagerIngressPoint.PublicNetworkConfigurationProperty
       Stratosphere.SES.MailManagerRelay
       Stratosphere.SES.MailManagerRelay.RelayAuthenticationProperty
       Stratosphere.SES.MailManagerRuleSet
@@ -66,6 +70,7 @@ library
       Stratosphere.SES.MailManagerRuleSet.AnalysisProperty
       Stratosphere.SES.MailManagerRuleSet.ArchiveActionProperty
       Stratosphere.SES.MailManagerRuleSet.DeliverToMailboxActionProperty
+      Stratosphere.SES.MailManagerRuleSet.DeliverToQBusinessActionProperty
       Stratosphere.SES.MailManagerRuleSet.RelayActionProperty
       Stratosphere.SES.MailManagerRuleSet.ReplaceRecipientActionProperty
       Stratosphere.SES.MailManagerRuleSet.RuleActionProperty
@@ -75,6 +80,7 @@ library
       Stratosphere.SES.MailManagerRuleSet.RuleDmarcExpressionProperty
       Stratosphere.SES.MailManagerRuleSet.RuleIpExpressionProperty
       Stratosphere.SES.MailManagerRuleSet.RuleIpToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleIsInAddressListProperty
       Stratosphere.SES.MailManagerRuleSet.RuleNumberExpressionProperty
       Stratosphere.SES.MailManagerRuleSet.RuleNumberToEvaluateProperty
       Stratosphere.SES.MailManagerRuleSet.RuleProperty
@@ -84,12 +90,16 @@ library
       Stratosphere.SES.MailManagerRuleSet.RuleVerdictToEvaluateProperty
       Stratosphere.SES.MailManagerRuleSet.S3ActionProperty
       Stratosphere.SES.MailManagerRuleSet.SendActionProperty
+      Stratosphere.SES.MailManagerRuleSet.SnsActionProperty
       Stratosphere.SES.MailManagerTrafficPolicy
       Stratosphere.SES.MailManagerTrafficPolicy.IngressAnalysisProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanExpressionProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanToEvaluateProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressIpToEvaluateProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv4ExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv6ExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv6ToEvaluateProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressIsInAddressListProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressStringExpressionProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressStringToEvaluateProperty
       Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolExpressionProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Notifications.NotificationHub.NotificationHubStatusSummaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationHubStatusSummaryProperty :: Prelude.Type
+instance ToResourceProperties NotificationHubStatusSummaryProperty
+instance Prelude.Eq NotificationHubStatusSummaryProperty
+instance Prelude.Show NotificationHubStatusSummaryProperty
+instance JSON.ToJSON NotificationHubStatusSummaryProperty

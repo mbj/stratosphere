@@ -1,0 +1,9 @@
+module Stratosphere.APS.Scraper.ScraperLoggingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScraperLoggingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ScraperLoggingConfigurationProperty
+instance Prelude.Eq ScraperLoggingConfigurationProperty
+instance Prelude.Show ScraperLoggingConfigurationProperty
+instance JSON.ToJSON ScraperLoggingConfigurationProperty

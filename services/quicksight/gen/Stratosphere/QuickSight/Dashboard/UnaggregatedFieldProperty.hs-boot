@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.UnaggregatedFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UnaggregatedFieldProperty :: Prelude.Type
+instance ToResourceProperties UnaggregatedFieldProperty
+instance Prelude.Eq UnaggregatedFieldProperty
+instance Prelude.Show UnaggregatedFieldProperty
+instance JSON.ToJSON UnaggregatedFieldProperty

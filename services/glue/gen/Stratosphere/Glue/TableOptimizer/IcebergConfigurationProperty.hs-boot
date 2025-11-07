@@ -1,0 +1,9 @@
+module Stratosphere.Glue.TableOptimizer.IcebergConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IcebergConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IcebergConfigurationProperty
+instance Prelude.Eq IcebergConfigurationProperty
+instance Prelude.Show IcebergConfigurationProperty
+instance JSON.ToJSON IcebergConfigurationProperty

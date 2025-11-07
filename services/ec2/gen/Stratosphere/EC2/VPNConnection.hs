@@ -21,6 +21,8 @@ data VPNConnection
                    localIpv6NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-outsideipaddresstype>
                    outsideIpAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-presharedkeystorage>
+                   preSharedKeyStorage :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv4networkcidr>
                    remoteIpv4NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv6networkcidr>
@@ -51,6 +53,7 @@ mkVPNConnection customerGatewayId type'
        localIpv4NetworkCidr = Prelude.Nothing,
        localIpv6NetworkCidr = Prelude.Nothing,
        outsideIpAddressType = Prelude.Nothing,
+       preSharedKeyStorage = Prelude.Nothing,
        remoteIpv4NetworkCidr = Prelude.Nothing,
        remoteIpv6NetworkCidr = Prelude.Nothing,
        staticRoutesOnly = Prelude.Nothing, tags = Prelude.Nothing,
@@ -72,6 +75,7 @@ instance ToResourceProperties VPNConnection where
                                (JSON..=) "LocalIpv4NetworkCidr" Prelude.<$> localIpv4NetworkCidr,
                                (JSON..=) "LocalIpv6NetworkCidr" Prelude.<$> localIpv6NetworkCidr,
                                (JSON..=) "OutsideIpAddressType" Prelude.<$> outsideIpAddressType,
+                               (JSON..=) "PreSharedKeyStorage" Prelude.<$> preSharedKeyStorage,
                                (JSON..=) "RemoteIpv4NetworkCidr"
                                  Prelude.<$> remoteIpv4NetworkCidr,
                                (JSON..=) "RemoteIpv6NetworkCidr"
@@ -98,6 +102,7 @@ instance JSON.ToJSON VPNConnection where
                   (JSON..=) "LocalIpv4NetworkCidr" Prelude.<$> localIpv4NetworkCidr,
                   (JSON..=) "LocalIpv6NetworkCidr" Prelude.<$> localIpv6NetworkCidr,
                   (JSON..=) "OutsideIpAddressType" Prelude.<$> outsideIpAddressType,
+                  (JSON..=) "PreSharedKeyStorage" Prelude.<$> preSharedKeyStorage,
                   (JSON..=) "RemoteIpv4NetworkCidr"
                     Prelude.<$> remoteIpv4NetworkCidr,
                   (JSON..=) "RemoteIpv6NetworkCidr"
@@ -132,6 +137,10 @@ instance Property "OutsideIpAddressType" VPNConnection where
   type PropertyType "OutsideIpAddressType" VPNConnection = Value Prelude.Text
   set newValue VPNConnection {..}
     = VPNConnection {outsideIpAddressType = Prelude.pure newValue, ..}
+instance Property "PreSharedKeyStorage" VPNConnection where
+  type PropertyType "PreSharedKeyStorage" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {preSharedKeyStorage = Prelude.pure newValue, ..}
 instance Property "RemoteIpv4NetworkCidr" VPNConnection where
   type PropertyType "RemoteIpv4NetworkCidr" VPNConnection = Value Prelude.Text
   set newValue VPNConnection {..}

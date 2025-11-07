@@ -1,9 +1,0 @@
-module Stratosphere.ECS.TaskDefinition.InferenceAcceleratorProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data InferenceAcceleratorProperty :: Prelude.Type
-instance ToResourceProperties InferenceAcceleratorProperty
-instance Prelude.Eq InferenceAcceleratorProperty
-instance Prelude.Show InferenceAcceleratorProperty
-instance JSON.ToJSON InferenceAcceleratorProperty

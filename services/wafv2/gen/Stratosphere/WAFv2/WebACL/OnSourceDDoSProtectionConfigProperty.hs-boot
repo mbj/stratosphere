@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.OnSourceDDoSProtectionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OnSourceDDoSProtectionConfigProperty :: Prelude.Type
+instance ToResourceProperties OnSourceDDoSProtectionConfigProperty
+instance Prelude.Eq OnSourceDDoSProtectionConfigProperty
+instance Prelude.Show OnSourceDDoSProtectionConfigProperty
+instance JSON.ToJSON OnSourceDDoSProtectionConfigProperty

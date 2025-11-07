@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.Channel.OutputHeaderConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutputHeaderConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OutputHeaderConfigurationProperty
+instance Prelude.Eq OutputHeaderConfigurationProperty
+instance Prelude.Show OutputHeaderConfigurationProperty
+instance JSON.ToJSON OutputHeaderConfigurationProperty

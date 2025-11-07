@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GrowthRateComputationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GrowthRateComputationProperty :: Prelude.Type
+instance ToResourceProperties GrowthRateComputationProperty
+instance Prelude.Eq GrowthRateComputationProperty
+instance Prelude.Show GrowthRateComputationProperty
+instance JSON.ToJSON GrowthRateComputationProperty

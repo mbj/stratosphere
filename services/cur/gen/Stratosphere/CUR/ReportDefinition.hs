@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data ReportDefinition
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html>
@@ -31,6 +32,8 @@ data ReportDefinition
                       s3Prefix :: (Value Prelude.Text),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-s3region>
                       s3Region :: (Value Prelude.Text),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-tags>
+                      tags :: (Prelude.Maybe [Tag]),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-timeunit>
                       timeUnit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -60,12 +63,12 @@ mkReportDefinition
        s3Bucket = s3Bucket, s3Prefix = s3Prefix, s3Region = s3Region,
        timeUnit = timeUnit, additionalArtifacts = Prelude.Nothing,
        additionalSchemaElements = Prelude.Nothing,
-       billingViewArn = Prelude.Nothing}
+       billingViewArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ReportDefinition where
   toResourceProperties ReportDefinition {..}
     = ResourceProperties
         {awsType = "AWS::CUR::ReportDefinition",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Compression" JSON..= compression, "Format" JSON..= format,
@@ -78,7 +81,8 @@ instance ToResourceProperties ReportDefinition where
                               [(JSON..=) "AdditionalArtifacts" Prelude.<$> additionalArtifacts,
                                (JSON..=) "AdditionalSchemaElements"
                                  Prelude.<$> additionalSchemaElements,
-                               (JSON..=) "BillingViewArn" Prelude.<$> billingViewArn]))}
+                               (JSON..=) "BillingViewArn" Prelude.<$> billingViewArn,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ReportDefinition where
   toJSON ReportDefinition {..}
     = JSON.object
@@ -94,7 +98,8 @@ instance JSON.ToJSON ReportDefinition where
                  [(JSON..=) "AdditionalArtifacts" Prelude.<$> additionalArtifacts,
                   (JSON..=) "AdditionalSchemaElements"
                     Prelude.<$> additionalSchemaElements,
-                  (JSON..=) "BillingViewArn" Prelude.<$> billingViewArn])))
+                  (JSON..=) "BillingViewArn" Prelude.<$> billingViewArn,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AdditionalArtifacts" ReportDefinition where
   type PropertyType "AdditionalArtifacts" ReportDefinition = ValueList Prelude.Text
   set newValue ReportDefinition {..}
@@ -141,6 +146,10 @@ instance Property "S3Region" ReportDefinition where
   type PropertyType "S3Region" ReportDefinition = Value Prelude.Text
   set newValue ReportDefinition {..}
     = ReportDefinition {s3Region = newValue, ..}
+instance Property "Tags" ReportDefinition where
+  type PropertyType "Tags" ReportDefinition = [Tag]
+  set newValue ReportDefinition {..}
+    = ReportDefinition {tags = Prelude.pure newValue, ..}
 instance Property "TimeUnit" ReportDefinition where
   type PropertyType "TimeUnit" ReportDefinition = Value Prelude.Text
   set newValue ReportDefinition {..}

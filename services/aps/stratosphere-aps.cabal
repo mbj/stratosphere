@@ -28,15 +28,36 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.APS.AnomalyDetector
+      Stratosphere.APS.AnomalyDetector.AnomalyDetectorConfigurationProperty
+      Stratosphere.APS.AnomalyDetector.IgnoreNearExpectedProperty
+      Stratosphere.APS.AnomalyDetector.LabelProperty
+      Stratosphere.APS.AnomalyDetector.MissingDataActionProperty
+      Stratosphere.APS.AnomalyDetector.RandomCutForestConfigurationProperty
+      Stratosphere.APS.ResourcePolicy
       Stratosphere.APS.RuleGroupsNamespace
       Stratosphere.APS.Scraper
       Stratosphere.APS.Scraper.AmpConfigurationProperty
+      Stratosphere.APS.Scraper.CloudWatchLogDestinationProperty
+      Stratosphere.APS.Scraper.ComponentConfigProperty
       Stratosphere.APS.Scraper.DestinationProperty
       Stratosphere.APS.Scraper.EksConfigurationProperty
+      Stratosphere.APS.Scraper.RoleConfigurationProperty
       Stratosphere.APS.Scraper.ScrapeConfigurationProperty
+      Stratosphere.APS.Scraper.ScraperComponentProperty
+      Stratosphere.APS.Scraper.ScraperLoggingConfigurationProperty
+      Stratosphere.APS.Scraper.ScraperLoggingDestinationProperty
       Stratosphere.APS.Scraper.SourceProperty
       Stratosphere.APS.Workspace
+      Stratosphere.APS.Workspace.CloudWatchLogDestinationProperty
+      Stratosphere.APS.Workspace.LabelProperty
+      Stratosphere.APS.Workspace.LimitsPerLabelSetEntryProperty
+      Stratosphere.APS.Workspace.LimitsPerLabelSetProperty
       Stratosphere.APS.Workspace.LoggingConfigurationProperty
+      Stratosphere.APS.Workspace.LoggingDestinationProperty
+      Stratosphere.APS.Workspace.LoggingFilterProperty
+      Stratosphere.APS.Workspace.QueryLoggingConfigurationProperty
+      Stratosphere.APS.Workspace.WorkspaceConfigurationProperty
   other-modules:
       Paths_stratosphere_aps
   hs-source-dirs:

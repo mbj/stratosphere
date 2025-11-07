@@ -1,0 +1,9 @@
+module Stratosphere.Omics.WorkflowVersion.DefinitionRepositoryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefinitionRepositoryProperty :: Prelude.Type
+instance ToResourceProperties DefinitionRepositoryProperty
+instance Prelude.Eq DefinitionRepositoryProperty
+instance Prelude.Show DefinitionRepositoryProperty
+instance JSON.ToJSON DefinitionRepositoryProperty

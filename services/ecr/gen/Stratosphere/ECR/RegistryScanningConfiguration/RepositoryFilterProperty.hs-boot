@@ -1,0 +1,9 @@
+module Stratosphere.ECR.RegistryScanningConfiguration.RepositoryFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepositoryFilterProperty :: Prelude.Type
+instance ToResourceProperties RepositoryFilterProperty
+instance Prelude.Eq RepositoryFilterProperty
+instance Prelude.Show RepositoryFilterProperty
+instance JSON.ToJSON RepositoryFilterProperty

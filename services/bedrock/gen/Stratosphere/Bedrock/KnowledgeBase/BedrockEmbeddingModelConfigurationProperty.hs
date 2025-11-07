@@ -11,13 +11,16 @@ data BedrockEmbeddingModelConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>
     BedrockEmbeddingModelConfigurationProperty {haddock_workaround_ :: (),
                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-dimensions>
-                                                dimensions :: (Prelude.Maybe (Value Prelude.Integer))}
+                                                dimensions :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-embeddingdatatype>
+                                                embeddingDataType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBedrockEmbeddingModelConfigurationProperty ::
   BedrockEmbeddingModelConfigurationProperty
 mkBedrockEmbeddingModelConfigurationProperty
   = BedrockEmbeddingModelConfigurationProperty
-      {haddock_workaround_ = (), dimensions = Prelude.Nothing}
+      {haddock_workaround_ = (), dimensions = Prelude.Nothing,
+       embeddingDataType = Prelude.Nothing}
 instance ToResourceProperties BedrockEmbeddingModelConfigurationProperty where
   toResourceProperties
     BedrockEmbeddingModelConfigurationProperty {..}
@@ -26,15 +29,22 @@ instance ToResourceProperties BedrockEmbeddingModelConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Dimensions" Prelude.<$> dimensions])}
+                           [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+                            (JSON..=) "EmbeddingDataType" Prelude.<$> embeddingDataType])}
 instance JSON.ToJSON BedrockEmbeddingModelConfigurationProperty where
   toJSON BedrockEmbeddingModelConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Dimensions" Prelude.<$> dimensions]))
+              [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+               (JSON..=) "EmbeddingDataType" Prelude.<$> embeddingDataType]))
 instance Property "Dimensions" BedrockEmbeddingModelConfigurationProperty where
   type PropertyType "Dimensions" BedrockEmbeddingModelConfigurationProperty = Value Prelude.Integer
   set newValue BedrockEmbeddingModelConfigurationProperty {..}
     = BedrockEmbeddingModelConfigurationProperty
         {dimensions = Prelude.pure newValue, ..}
+instance Property "EmbeddingDataType" BedrockEmbeddingModelConfigurationProperty where
+  type PropertyType "EmbeddingDataType" BedrockEmbeddingModelConfigurationProperty = Value Prelude.Text
+  set newValue BedrockEmbeddingModelConfigurationProperty {..}
+    = BedrockEmbeddingModelConfigurationProperty
+        {embeddingDataType = Prelude.pure newValue, ..}

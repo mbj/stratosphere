@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.HostConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HostConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HostConfigurationProperty
+instance Prelude.Eq HostConfigurationProperty
+instance Prelude.Show HostConfigurationProperty
+instance JSON.ToJSON HostConfigurationProperty

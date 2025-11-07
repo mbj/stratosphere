@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataSource.AudioExtractionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioExtractionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AudioExtractionConfigurationProperty
+instance Prelude.Eq AudioExtractionConfigurationProperty
+instance Prelude.Show AudioExtractionConfigurationProperty
+instance JSON.ToJSON AudioExtractionConfigurationProperty

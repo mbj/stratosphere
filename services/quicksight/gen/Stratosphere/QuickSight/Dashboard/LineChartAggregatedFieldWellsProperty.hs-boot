@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.LineChartAggregatedFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LineChartAggregatedFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties LineChartAggregatedFieldWellsProperty
+instance Prelude.Eq LineChartAggregatedFieldWellsProperty
+instance Prelude.Show LineChartAggregatedFieldWellsProperty
+instance JSON.ToJSON LineChartAggregatedFieldWellsProperty

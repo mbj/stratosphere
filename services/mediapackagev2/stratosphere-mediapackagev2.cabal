@@ -30,10 +30,19 @@ library
   exposed-modules:
       Stratosphere.MediaPackageV2.Channel
       Stratosphere.MediaPackageV2.Channel.IngestEndpointProperty
+      Stratosphere.MediaPackageV2.Channel.InputSwitchConfigurationProperty
+      Stratosphere.MediaPackageV2.Channel.OutputHeaderConfigurationProperty
       Stratosphere.MediaPackageV2.ChannelGroup
       Stratosphere.MediaPackageV2.ChannelPolicy
       Stratosphere.MediaPackageV2.OriginEndpoint
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashBaseUrlProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbFontDownloadProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbMetricsReportingProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbSettingsProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.DashManifestConfigurationProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashProgramInformationProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashSubtitleConfigurationProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.DashTtmlConfigurationProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.DashUtcTimingProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.EncryptionContractConfigurationProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.EncryptionMethodProperty
@@ -42,6 +51,7 @@ library
       Stratosphere.MediaPackageV2.OriginEndpoint.ForceEndpointErrorConfigurationProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.HlsManifestConfigurationProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.LowLatencyHlsManifestConfigurationProperty
+      Stratosphere.MediaPackageV2.OriginEndpoint.MssManifestConfigurationProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.ScteDashProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.ScteHlsProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.ScteProperty
@@ -49,6 +59,7 @@ library
       Stratosphere.MediaPackageV2.OriginEndpoint.SpekeKeyProviderProperty
       Stratosphere.MediaPackageV2.OriginEndpoint.StartTagProperty
       Stratosphere.MediaPackageV2.OriginEndpointPolicy
+      Stratosphere.MediaPackageV2.OriginEndpointPolicy.CdnAuthConfigurationProperty
   other-modules:
       Paths_stratosphere_mediapackagev2
   hs-source-dirs:

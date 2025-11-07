@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashDvbSettingsProperty :: Prelude.Type
+instance ToResourceProperties DashDvbSettingsProperty
+instance Prelude.Eq DashDvbSettingsProperty
+instance Prelude.Show DashDvbSettingsProperty
+instance JSON.ToJSON DashDvbSettingsProperty

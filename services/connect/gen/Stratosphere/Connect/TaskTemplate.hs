@@ -29,6 +29,8 @@ data TaskTemplate
                   instanceArn :: (Value Prelude.Text),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-name>
                   name :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-selfassigncontactflowarn>
+                  selfAssignContactFlowArn :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-status>
                   status :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-tags>
@@ -41,8 +43,8 @@ mkTaskTemplate instanceArn
        clientToken = Prelude.Nothing, constraints = Prelude.Nothing,
        contactFlowArn = Prelude.Nothing, defaults = Prelude.Nothing,
        description = Prelude.Nothing, fields = Prelude.Nothing,
-       name = Prelude.Nothing, status = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       name = Prelude.Nothing, selfAssignContactFlowArn = Prelude.Nothing,
+       status = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TaskTemplate where
   toResourceProperties TaskTemplate {..}
     = ResourceProperties
@@ -59,6 +61,8 @@ instance ToResourceProperties TaskTemplate where
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Fields" Prelude.<$> fields,
                                (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "SelfAssignContactFlowArn"
+                                 Prelude.<$> selfAssignContactFlowArn,
                                (JSON..=) "Status" Prelude.<$> status,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON TaskTemplate where
@@ -75,6 +79,8 @@ instance JSON.ToJSON TaskTemplate where
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Fields" Prelude.<$> fields,
                   (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "SelfAssignContactFlowArn"
+                    Prelude.<$> selfAssignContactFlowArn,
                   (JSON..=) "Status" Prelude.<$> status,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ClientToken" TaskTemplate where
@@ -109,6 +115,11 @@ instance Property "Name" TaskTemplate where
   type PropertyType "Name" TaskTemplate = Value Prelude.Text
   set newValue TaskTemplate {..}
     = TaskTemplate {name = Prelude.pure newValue, ..}
+instance Property "SelfAssignContactFlowArn" TaskTemplate where
+  type PropertyType "SelfAssignContactFlowArn" TaskTemplate = Value Prelude.Text
+  set newValue TaskTemplate {..}
+    = TaskTemplate
+        {selfAssignContactFlowArn = Prelude.pure newValue, ..}
 instance Property "Status" TaskTemplate where
   type PropertyType "Status" TaskTemplate = Value Prelude.Text
   set newValue TaskTemplate {..}

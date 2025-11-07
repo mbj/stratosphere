@@ -55,26 +55,24 @@ data Broker
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags>
             tags :: (Prelude.Maybe [TagsEntryProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users>
-            users :: [UserProperty]}
+            users :: (Prelude.Maybe [UserProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBroker ::
   Value Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
-        -> Value Prelude.Text
-           -> Value Prelude.Bool -> [UserProperty] -> Broker
+        -> Value Prelude.Text -> Value Prelude.Bool -> Broker
 mkBroker
   brokerName
   deploymentMode
   engineType
   hostInstanceType
   publiclyAccessible
-  users
   = Broker
       {haddock_workaround_ = (), brokerName = brokerName,
        deploymentMode = deploymentMode, engineType = engineType,
        hostInstanceType = hostInstanceType,
-       publiclyAccessible = publiclyAccessible, users = users,
+       publiclyAccessible = publiclyAccessible,
        authenticationStrategy = Prelude.Nothing,
        autoMinorVersionUpgrade = Prelude.Nothing,
        configuration = Prelude.Nothing,
@@ -85,7 +83,8 @@ mkBroker
        ldapServerMetadata = Prelude.Nothing, logs = Prelude.Nothing,
        maintenanceWindowStartTime = Prelude.Nothing,
        securityGroups = Prelude.Nothing, storageType = Prelude.Nothing,
-       subnetIds = Prelude.Nothing, tags = Prelude.Nothing}
+       subnetIds = Prelude.Nothing, tags = Prelude.Nothing,
+       users = Prelude.Nothing}
 instance ToResourceProperties Broker where
   toResourceProperties Broker {..}
     = ResourceProperties
@@ -96,8 +95,7 @@ instance ToResourceProperties Broker where
                             "DeploymentMode" JSON..= deploymentMode,
                             "EngineType" JSON..= engineType,
                             "HostInstanceType" JSON..= hostInstanceType,
-                            "PubliclyAccessible" JSON..= publiclyAccessible,
-                            "Users" JSON..= users]
+                            "PubliclyAccessible" JSON..= publiclyAccessible]
                            (Prelude.catMaybes
                               [(JSON..=) "AuthenticationStrategy"
                                  Prelude.<$> authenticationStrategy,
@@ -116,7 +114,8 @@ instance ToResourceProperties Broker where
                                (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
                                (JSON..=) "StorageType" Prelude.<$> storageType,
                                (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "Users" Prelude.<$> users]))}
 instance JSON.ToJSON Broker where
   toJSON Broker {..}
     = JSON.object
@@ -126,8 +125,7 @@ instance JSON.ToJSON Broker where
                "DeploymentMode" JSON..= deploymentMode,
                "EngineType" JSON..= engineType,
                "HostInstanceType" JSON..= hostInstanceType,
-               "PubliclyAccessible" JSON..= publiclyAccessible,
-               "Users" JSON..= users]
+               "PubliclyAccessible" JSON..= publiclyAccessible]
               (Prelude.catMaybes
                  [(JSON..=) "AuthenticationStrategy"
                     Prelude.<$> authenticationStrategy,
@@ -146,7 +144,8 @@ instance JSON.ToJSON Broker where
                   (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
                   (JSON..=) "StorageType" Prelude.<$> storageType,
                   (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "Users" Prelude.<$> users])))
 instance Property "AuthenticationStrategy" Broker where
   type PropertyType "AuthenticationStrategy" Broker = Value Prelude.Text
   set newValue Broker {..}
@@ -222,4 +221,5 @@ instance Property "Tags" Broker where
     = Broker {tags = Prelude.pure newValue, ..}
 instance Property "Users" Broker where
   type PropertyType "Users" Broker = [UserProperty]
-  set newValue Broker {..} = Broker {users = newValue, ..}
+  set newValue Broker {..}
+    = Broker {users = Prelude.pure newValue, ..}

@@ -17,6 +17,8 @@ data DomainName
                 domainNameConfigurations :: (Prelude.Maybe [DomainNameConfigurationProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication>
                 mutualTlsAuthentication :: (Prelude.Maybe MutualTlsAuthenticationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-routingmode>
+                routingMode :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags>
                 tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -25,7 +27,8 @@ mkDomainName domainName
   = DomainName
       {haddock_workaround_ = (), domainName = domainName,
        domainNameConfigurations = Prelude.Nothing,
-       mutualTlsAuthentication = Prelude.Nothing, tags = Prelude.Nothing}
+       mutualTlsAuthentication = Prelude.Nothing,
+       routingMode = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
@@ -39,6 +42,7 @@ instance ToResourceProperties DomainName where
                                  Prelude.<$> domainNameConfigurations,
                                (JSON..=) "MutualTlsAuthentication"
                                  Prelude.<$> mutualTlsAuthentication,
+                               (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DomainName where
   toJSON DomainName {..}
@@ -51,6 +55,7 @@ instance JSON.ToJSON DomainName where
                     Prelude.<$> domainNameConfigurations,
                   (JSON..=) "MutualTlsAuthentication"
                     Prelude.<$> mutualTlsAuthentication,
+                  (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DomainName" DomainName where
   type PropertyType "DomainName" DomainName = Value Prelude.Text
@@ -64,6 +69,10 @@ instance Property "MutualTlsAuthentication" DomainName where
   type PropertyType "MutualTlsAuthentication" DomainName = MutualTlsAuthenticationProperty
   set newValue DomainName {..}
     = DomainName {mutualTlsAuthentication = Prelude.pure newValue, ..}
+instance Property "RoutingMode" DomainName where
+  type PropertyType "RoutingMode" DomainName = Value Prelude.Text
+  set newValue DomainName {..}
+    = DomainName {routingMode = Prelude.pure newValue, ..}
 instance Property "Tags" DomainName where
   type PropertyType "Tags" DomainName = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue DomainName {..}

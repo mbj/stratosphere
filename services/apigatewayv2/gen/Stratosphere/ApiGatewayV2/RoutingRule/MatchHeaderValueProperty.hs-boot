@@ -1,0 +1,9 @@
+module Stratosphere.ApiGatewayV2.RoutingRule.MatchHeaderValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MatchHeaderValueProperty :: Prelude.Type
+instance ToResourceProperties MatchHeaderValueProperty
+instance Prelude.Eq MatchHeaderValueProperty
+instance Prelude.Show MatchHeaderValueProperty
+instance JSON.ToJSON MatchHeaderValueProperty

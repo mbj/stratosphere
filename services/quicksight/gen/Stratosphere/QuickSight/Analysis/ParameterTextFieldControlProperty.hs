@@ -1,0 +1,75 @@
+module Stratosphere.QuickSight.Analysis.ParameterTextFieldControlProperty (
+        module Exports, ParameterTextFieldControlProperty(..),
+        mkParameterTextFieldControlProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.TextFieldControlDisplayOptionsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ParameterTextFieldControlProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parametertextfieldcontrol.html>
+    ParameterTextFieldControlProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parametertextfieldcontrol.html#cfn-quicksight-analysis-parametertextfieldcontrol-displayoptions>
+                                       displayOptions :: (Prelude.Maybe TextFieldControlDisplayOptionsProperty),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parametertextfieldcontrol.html#cfn-quicksight-analysis-parametertextfieldcontrol-parametercontrolid>
+                                       parameterControlId :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parametertextfieldcontrol.html#cfn-quicksight-analysis-parametertextfieldcontrol-sourceparametername>
+                                       sourceParameterName :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parametertextfieldcontrol.html#cfn-quicksight-analysis-parametertextfieldcontrol-title>
+                                       title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkParameterTextFieldControlProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> ParameterTextFieldControlProperty
+mkParameterTextFieldControlProperty
+  parameterControlId
+  sourceParameterName
+  title
+  = ParameterTextFieldControlProperty
+      {haddock_workaround_ = (), parameterControlId = parameterControlId,
+       sourceParameterName = sourceParameterName, title = title,
+       displayOptions = Prelude.Nothing}
+instance ToResourceProperties ParameterTextFieldControlProperty where
+  toResourceProperties ParameterTextFieldControlProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.ParameterTextFieldControl",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["ParameterControlId" JSON..= parameterControlId,
+                            "SourceParameterName" JSON..= sourceParameterName,
+                            "Title" JSON..= title]
+                           (Prelude.catMaybes
+                              [(JSON..=) "DisplayOptions" Prelude.<$> displayOptions]))}
+instance JSON.ToJSON ParameterTextFieldControlProperty where
+  toJSON ParameterTextFieldControlProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["ParameterControlId" JSON..= parameterControlId,
+               "SourceParameterName" JSON..= sourceParameterName,
+               "Title" JSON..= title]
+              (Prelude.catMaybes
+                 [(JSON..=) "DisplayOptions" Prelude.<$> displayOptions])))
+instance Property "DisplayOptions" ParameterTextFieldControlProperty where
+  type PropertyType "DisplayOptions" ParameterTextFieldControlProperty = TextFieldControlDisplayOptionsProperty
+  set newValue ParameterTextFieldControlProperty {..}
+    = ParameterTextFieldControlProperty
+        {displayOptions = Prelude.pure newValue, ..}
+instance Property "ParameterControlId" ParameterTextFieldControlProperty where
+  type PropertyType "ParameterControlId" ParameterTextFieldControlProperty = Value Prelude.Text
+  set newValue ParameterTextFieldControlProperty {..}
+    = ParameterTextFieldControlProperty
+        {parameterControlId = newValue, ..}
+instance Property "SourceParameterName" ParameterTextFieldControlProperty where
+  type PropertyType "SourceParameterName" ParameterTextFieldControlProperty = Value Prelude.Text
+  set newValue ParameterTextFieldControlProperty {..}
+    = ParameterTextFieldControlProperty
+        {sourceParameterName = newValue, ..}
+instance Property "Title" ParameterTextFieldControlProperty where
+  type PropertyType "Title" ParameterTextFieldControlProperty = Value Prelude.Text
+  set newValue ParameterTextFieldControlProperty {..}
+    = ParameterTextFieldControlProperty {title = newValue, ..}

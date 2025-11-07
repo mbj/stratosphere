@@ -19,6 +19,8 @@ data DomainNameV2
                   endpointConfiguration :: (Prelude.Maybe EndpointConfigurationProperty),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-policy>
                   policy :: (Prelude.Maybe JSON.Object),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-routingmode>
+                  routingMode :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-securitypolicy>
                   securityPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-tags>
@@ -30,7 +32,8 @@ mkDomainNameV2
       {haddock_workaround_ = (), certificateArn = Prelude.Nothing,
        domainName = Prelude.Nothing,
        endpointConfiguration = Prelude.Nothing, policy = Prelude.Nothing,
-       securityPolicy = Prelude.Nothing, tags = Prelude.Nothing}
+       routingMode = Prelude.Nothing, securityPolicy = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties DomainNameV2 where
   toResourceProperties DomainNameV2 {..}
     = ResourceProperties
@@ -43,6 +46,7 @@ instance ToResourceProperties DomainNameV2 where
                             (JSON..=) "EndpointConfiguration"
                               Prelude.<$> endpointConfiguration,
                             (JSON..=) "Policy" Prelude.<$> policy,
+                            (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                             (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON DomainNameV2 where
@@ -55,6 +59,7 @@ instance JSON.ToJSON DomainNameV2 where
                (JSON..=) "EndpointConfiguration"
                  Prelude.<$> endpointConfiguration,
                (JSON..=) "Policy" Prelude.<$> policy,
+               (JSON..=) "RoutingMode" Prelude.<$> routingMode,
                (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "CertificateArn" DomainNameV2 where
@@ -73,6 +78,10 @@ instance Property "Policy" DomainNameV2 where
   type PropertyType "Policy" DomainNameV2 = JSON.Object
   set newValue DomainNameV2 {..}
     = DomainNameV2 {policy = Prelude.pure newValue, ..}
+instance Property "RoutingMode" DomainNameV2 where
+  type PropertyType "RoutingMode" DomainNameV2 = Value Prelude.Text
+  set newValue DomainNameV2 {..}
+    = DomainNameV2 {routingMode = Prelude.pure newValue, ..}
 instance Property "SecurityPolicy" DomainNameV2 where
   type PropertyType "SecurityPolicy" DomainNameV2 = Value Prelude.Text
   set newValue DomainNameV2 {..}

@@ -1,0 +1,9 @@
+module Stratosphere.SMSVOICE.ProtectConfiguration.CountryRuleSetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CountryRuleSetProperty :: Prelude.Type
+instance ToResourceProperties CountryRuleSetProperty
+instance Prelude.Eq CountryRuleSetProperty
+instance Prelude.Show CountryRuleSetProperty
+instance JSON.ToJSON CountryRuleSetProperty

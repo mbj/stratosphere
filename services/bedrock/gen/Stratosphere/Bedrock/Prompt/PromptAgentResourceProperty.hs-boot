@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Prompt.PromptAgentResourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptAgentResourceProperty :: Prelude.Type
+instance ToResourceProperties PromptAgentResourceProperty
+instance Prelude.Eq PromptAgentResourceProperty
+instance Prelude.Show PromptAgentResourceProperty
+instance JSON.ToJSON PromptAgentResourceProperty

@@ -35,7 +35,6 @@ library
       Stratosphere.AppConfig.ConfigurationProfile.ValidatorsProperty
       Stratosphere.AppConfig.Deployment
       Stratosphere.AppConfig.Deployment.DynamicExtensionParametersProperty
-      Stratosphere.AppConfig.Deployment.TagsProperty
       Stratosphere.AppConfig.DeploymentStrategy
       Stratosphere.AppConfig.Environment
       Stratosphere.AppConfig.Environment.MonitorProperty

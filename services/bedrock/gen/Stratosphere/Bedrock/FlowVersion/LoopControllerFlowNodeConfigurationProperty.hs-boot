@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.LoopControllerFlowNodeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoopControllerFlowNodeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LoopControllerFlowNodeConfigurationProperty
+instance Prelude.Eq LoopControllerFlowNodeConfigurationProperty
+instance Prelude.Show LoopControllerFlowNodeConfigurationProperty
+instance JSON.ToJSON LoopControllerFlowNodeConfigurationProperty

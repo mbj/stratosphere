@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashManifestCon
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ForceEndpointErrorConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.HlsManifestConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.LowLatencyHlsManifestConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.MssManifestConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.SegmentProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -31,6 +32,8 @@ data OriginEndpoint
                     hlsManifests :: (Prelude.Maybe [HlsManifestConfigurationProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifests>
                     lowLatencyHlsManifests :: (Prelude.Maybe [LowLatencyHlsManifestConfigurationProperty]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-mssmanifests>
+                    mssManifests :: (Prelude.Maybe [MssManifestConfigurationProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname>
                     originEndpointName :: (Value Prelude.Text),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-segment>
@@ -57,7 +60,7 @@ mkOriginEndpoint
        forceEndpointErrorConfiguration = Prelude.Nothing,
        hlsManifests = Prelude.Nothing,
        lowLatencyHlsManifests = Prelude.Nothing,
-       segment = Prelude.Nothing,
+       mssManifests = Prelude.Nothing, segment = Prelude.Nothing,
        startoverWindowSeconds = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties OriginEndpoint where
   toResourceProperties OriginEndpoint {..}
@@ -78,6 +81,7 @@ instance ToResourceProperties OriginEndpoint where
                                (JSON..=) "HlsManifests" Prelude.<$> hlsManifests,
                                (JSON..=) "LowLatencyHlsManifests"
                                  Prelude.<$> lowLatencyHlsManifests,
+                               (JSON..=) "MssManifests" Prelude.<$> mssManifests,
                                (JSON..=) "Segment" Prelude.<$> segment,
                                (JSON..=) "StartoverWindowSeconds"
                                  Prelude.<$> startoverWindowSeconds,
@@ -99,6 +103,7 @@ instance JSON.ToJSON OriginEndpoint where
                   (JSON..=) "HlsManifests" Prelude.<$> hlsManifests,
                   (JSON..=) "LowLatencyHlsManifests"
                     Prelude.<$> lowLatencyHlsManifests,
+                  (JSON..=) "MssManifests" Prelude.<$> mssManifests,
                   (JSON..=) "Segment" Prelude.<$> segment,
                   (JSON..=) "StartoverWindowSeconds"
                     Prelude.<$> startoverWindowSeconds,
@@ -137,6 +142,10 @@ instance Property "LowLatencyHlsManifests" OriginEndpoint where
   set newValue OriginEndpoint {..}
     = OriginEndpoint
         {lowLatencyHlsManifests = Prelude.pure newValue, ..}
+instance Property "MssManifests" OriginEndpoint where
+  type PropertyType "MssManifests" OriginEndpoint = [MssManifestConfigurationProperty]
+  set newValue OriginEndpoint {..}
+    = OriginEndpoint {mssManifests = Prelude.pure newValue, ..}
 instance Property "OriginEndpointName" OriginEndpoint where
   type PropertyType "OriginEndpointName" OriginEndpoint = Value Prelude.Text
   set newValue OriginEndpoint {..}

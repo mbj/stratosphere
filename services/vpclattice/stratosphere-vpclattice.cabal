@@ -35,6 +35,10 @@ library
       Stratosphere.VpcLattice.Listener.FixedResponseProperty
       Stratosphere.VpcLattice.Listener.ForwardProperty
       Stratosphere.VpcLattice.Listener.WeightedTargetGroupProperty
+      Stratosphere.VpcLattice.ResourceConfiguration
+      Stratosphere.VpcLattice.ResourceConfiguration.DnsResourceProperty
+      Stratosphere.VpcLattice.ResourceConfiguration.ResourceConfigurationDefinitionProperty
+      Stratosphere.VpcLattice.ResourceGateway
       Stratosphere.VpcLattice.ResourcePolicy
       Stratosphere.VpcLattice.Rule
       Stratosphere.VpcLattice.Rule.ActionProperty
@@ -51,6 +55,7 @@ library
       Stratosphere.VpcLattice.Service.DnsEntryProperty
       Stratosphere.VpcLattice.ServiceNetwork
       Stratosphere.VpcLattice.ServiceNetwork.SharingConfigProperty
+      Stratosphere.VpcLattice.ServiceNetworkResourceAssociation
       Stratosphere.VpcLattice.ServiceNetworkServiceAssociation
       Stratosphere.VpcLattice.ServiceNetworkServiceAssociation.DnsEntryProperty
       Stratosphere.VpcLattice.ServiceNetworkVpcAssociation

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Project.EnvironmentConfigurationUserParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnvironmentConfigurationUserParameterProperty :: Prelude.Type
+instance ToResourceProperties EnvironmentConfigurationUserParameterProperty
+instance Prelude.Eq EnvironmentConfigurationUserParameterProperty
+instance Prelude.Show EnvironmentConfigurationUserParameterProperty
+instance JSON.ToJSON EnvironmentConfigurationUserParameterProperty

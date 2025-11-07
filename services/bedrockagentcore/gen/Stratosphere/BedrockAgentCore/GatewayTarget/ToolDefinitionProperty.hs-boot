@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.GatewayTarget.ToolDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ToolDefinitionProperty :: Prelude.Type
+instance ToResourceProperties ToolDefinitionProperty
+instance Prelude.Eq ToolDefinitionProperty
+instance Prelude.Show ToolDefinitionProperty
+instance JSON.ToJSON ToolDefinitionProperty

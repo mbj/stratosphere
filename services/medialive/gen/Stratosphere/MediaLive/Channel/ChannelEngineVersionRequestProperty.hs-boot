@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.ChannelEngineVersionRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChannelEngineVersionRequestProperty :: Prelude.Type
+instance ToResourceProperties ChannelEngineVersionRequestProperty
+instance Prelude.Eq ChannelEngineVersionRequestProperty
+instance Prelude.Show ChannelEngineVersionRequestProperty
+instance JSON.ToJSON ChannelEngineVersionRequestProperty

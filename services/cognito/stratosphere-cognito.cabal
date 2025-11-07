@@ -69,6 +69,7 @@ library
       Stratosphere.Cognito.UserPool.VerificationMessageTemplateProperty
       Stratosphere.Cognito.UserPoolClient
       Stratosphere.Cognito.UserPoolClient.AnalyticsConfigurationProperty
+      Stratosphere.Cognito.UserPoolClient.RefreshTokenRotationProperty
       Stratosphere.Cognito.UserPoolClient.TokenValidityUnitsProperty
       Stratosphere.Cognito.UserPoolDomain
       Stratosphere.Cognito.UserPoolDomain.CustomDomainConfigTypeProperty

@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.GatewayTarget.ApiSchemaConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApiSchemaConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ApiSchemaConfigurationProperty
+instance Prelude.Eq ApiSchemaConfigurationProperty
+instance Prelude.Show ApiSchemaConfigurationProperty
+instance JSON.ToJSON ApiSchemaConfigurationProperty

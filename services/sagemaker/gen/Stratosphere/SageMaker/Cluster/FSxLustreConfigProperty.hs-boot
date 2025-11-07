@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.FSxLustreConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FSxLustreConfigProperty :: Prelude.Type
+instance ToResourceProperties FSxLustreConfigProperty
+instance Prelude.Eq FSxLustreConfigProperty
+instance Prelude.Show FSxLustreConfigProperty
+instance JSON.ToJSON FSxLustreConfigProperty

@@ -8,7 +8,9 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.AssociationConfigProperty as Exp
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CaptchaConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ChallengeConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomResponseBodyProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.DataProtectionConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.DefaultActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.OnSourceDDoSProtectionConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RuleProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.VisibilityConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -25,12 +27,16 @@ data WebACL
             challengeConfig :: (Prelude.Maybe ChallengeConfigProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies>
             customResponseBodies :: (Prelude.Maybe (Prelude.Map Prelude.Text CustomResponseBodyProperty)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-dataprotectionconfig>
+            dataProtectionConfig :: (Prelude.Maybe DataProtectionConfigProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction>
             defaultAction :: DefaultActionProperty,
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-onsourceddosprotectionconfig>
+            onSourceDDoSProtectionConfig :: (Prelude.Maybe OnSourceDDoSProtectionConfigProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules>
             rules :: (Prelude.Maybe [RuleProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope>
@@ -52,7 +58,9 @@ mkWebACL defaultAction scope visibilityConfig
        associationConfig = Prelude.Nothing,
        captchaConfig = Prelude.Nothing, challengeConfig = Prelude.Nothing,
        customResponseBodies = Prelude.Nothing,
+       dataProtectionConfig = Prelude.Nothing,
        description = Prelude.Nothing, name = Prelude.Nothing,
+       onSourceDDoSProtectionConfig = Prelude.Nothing,
        rules = Prelude.Nothing, tags = Prelude.Nothing,
        tokenDomains = Prelude.Nothing}
 instance ToResourceProperties WebACL where
@@ -68,8 +76,11 @@ instance ToResourceProperties WebACL where
                                (JSON..=) "CaptchaConfig" Prelude.<$> captchaConfig,
                                (JSON..=) "ChallengeConfig" Prelude.<$> challengeConfig,
                                (JSON..=) "CustomResponseBodies" Prelude.<$> customResponseBodies,
+                               (JSON..=) "DataProtectionConfig" Prelude.<$> dataProtectionConfig,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "OnSourceDDoSProtectionConfig"
+                                 Prelude.<$> onSourceDDoSProtectionConfig,
                                (JSON..=) "Rules" Prelude.<$> rules,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TokenDomains" Prelude.<$> tokenDomains]))}
@@ -85,8 +96,11 @@ instance JSON.ToJSON WebACL where
                   (JSON..=) "CaptchaConfig" Prelude.<$> captchaConfig,
                   (JSON..=) "ChallengeConfig" Prelude.<$> challengeConfig,
                   (JSON..=) "CustomResponseBodies" Prelude.<$> customResponseBodies,
+                  (JSON..=) "DataProtectionConfig" Prelude.<$> dataProtectionConfig,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "OnSourceDDoSProtectionConfig"
+                    Prelude.<$> onSourceDDoSProtectionConfig,
                   (JSON..=) "Rules" Prelude.<$> rules,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TokenDomains" Prelude.<$> tokenDomains])))
@@ -106,6 +120,10 @@ instance Property "CustomResponseBodies" WebACL where
   type PropertyType "CustomResponseBodies" WebACL = Prelude.Map Prelude.Text CustomResponseBodyProperty
   set newValue WebACL {..}
     = WebACL {customResponseBodies = Prelude.pure newValue, ..}
+instance Property "DataProtectionConfig" WebACL where
+  type PropertyType "DataProtectionConfig" WebACL = DataProtectionConfigProperty
+  set newValue WebACL {..}
+    = WebACL {dataProtectionConfig = Prelude.pure newValue, ..}
 instance Property "DefaultAction" WebACL where
   type PropertyType "DefaultAction" WebACL = DefaultActionProperty
   set newValue WebACL {..} = WebACL {defaultAction = newValue, ..}
@@ -117,6 +135,10 @@ instance Property "Name" WebACL where
   type PropertyType "Name" WebACL = Value Prelude.Text
   set newValue WebACL {..}
     = WebACL {name = Prelude.pure newValue, ..}
+instance Property "OnSourceDDoSProtectionConfig" WebACL where
+  type PropertyType "OnSourceDDoSProtectionConfig" WebACL = OnSourceDDoSProtectionConfigProperty
+  set newValue WebACL {..}
+    = WebACL {onSourceDDoSProtectionConfig = Prelude.pure newValue, ..}
 instance Property "Rules" WebACL where
   type PropertyType "Rules" WebACL = [RuleProperty]
   set newValue WebACL {..}

@@ -11,14 +11,17 @@ data PointInTimeRecoverySpecificationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html>
     PointInTimeRecoverySpecificationProperty {haddock_workaround_ :: (),
                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled>
-                                              pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+                                              pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-recoveryperiodindays>
+                                              recoveryPeriodInDays :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPointInTimeRecoverySpecificationProperty ::
   PointInTimeRecoverySpecificationProperty
 mkPointInTimeRecoverySpecificationProperty
   = PointInTimeRecoverySpecificationProperty
       {haddock_workaround_ = (),
-       pointInTimeRecoveryEnabled = Prelude.Nothing}
+       pointInTimeRecoveryEnabled = Prelude.Nothing,
+       recoveryPeriodInDays = Prelude.Nothing}
 instance ToResourceProperties PointInTimeRecoverySpecificationProperty where
   toResourceProperties PointInTimeRecoverySpecificationProperty {..}
     = ResourceProperties
@@ -27,16 +30,25 @@ instance ToResourceProperties PointInTimeRecoverySpecificationProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PointInTimeRecoveryEnabled"
-                              Prelude.<$> pointInTimeRecoveryEnabled])}
+                              Prelude.<$> pointInTimeRecoveryEnabled,
+                            (JSON..=) "RecoveryPeriodInDays"
+                              Prelude.<$> recoveryPeriodInDays])}
 instance JSON.ToJSON PointInTimeRecoverySpecificationProperty where
   toJSON PointInTimeRecoverySpecificationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "PointInTimeRecoveryEnabled"
-                 Prelude.<$> pointInTimeRecoveryEnabled]))
+                 Prelude.<$> pointInTimeRecoveryEnabled,
+               (JSON..=) "RecoveryPeriodInDays"
+                 Prelude.<$> recoveryPeriodInDays]))
 instance Property "PointInTimeRecoveryEnabled" PointInTimeRecoverySpecificationProperty where
   type PropertyType "PointInTimeRecoveryEnabled" PointInTimeRecoverySpecificationProperty = Value Prelude.Bool
   set newValue PointInTimeRecoverySpecificationProperty {..}
     = PointInTimeRecoverySpecificationProperty
         {pointInTimeRecoveryEnabled = Prelude.pure newValue, ..}
+instance Property "RecoveryPeriodInDays" PointInTimeRecoverySpecificationProperty where
+  type PropertyType "RecoveryPeriodInDays" PointInTimeRecoverySpecificationProperty = Value Prelude.Integer
+  set newValue PointInTimeRecoverySpecificationProperty {..}
+    = PointInTimeRecoverySpecificationProperty
+        {recoveryPeriodInDays = Prelude.pure newValue, ..}

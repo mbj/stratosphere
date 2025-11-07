@@ -21,6 +21,8 @@ data OntapConfigurationProperty
                                 diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipaddressrange>
                                 endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipv6addressrange>
+                                endpointIpv6AddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-fsxadminpassword>
                                 fsxAdminPassword :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-hapairs>
@@ -45,6 +47,7 @@ mkOntapConfigurationProperty deploymentType
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        diskIopsConfiguration = Prelude.Nothing,
        endpointIpAddressRange = Prelude.Nothing,
+       endpointIpv6AddressRange = Prelude.Nothing,
        fsxAdminPassword = Prelude.Nothing, hAPairs = Prelude.Nothing,
        preferredSubnetId = Prelude.Nothing,
        routeTableIds = Prelude.Nothing,
@@ -68,6 +71,8 @@ instance ToResourceProperties OntapConfigurationProperty where
                                  Prelude.<$> diskIopsConfiguration,
                                (JSON..=) "EndpointIpAddressRange"
                                  Prelude.<$> endpointIpAddressRange,
+                               (JSON..=) "EndpointIpv6AddressRange"
+                                 Prelude.<$> endpointIpv6AddressRange,
                                (JSON..=) "FsxAdminPassword" Prelude.<$> fsxAdminPassword,
                                (JSON..=) "HAPairs" Prelude.<$> hAPairs,
                                (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
@@ -92,6 +97,8 @@ instance JSON.ToJSON OntapConfigurationProperty where
                     Prelude.<$> diskIopsConfiguration,
                   (JSON..=) "EndpointIpAddressRange"
                     Prelude.<$> endpointIpAddressRange,
+                  (JSON..=) "EndpointIpv6AddressRange"
+                    Prelude.<$> endpointIpv6AddressRange,
                   (JSON..=) "FsxAdminPassword" Prelude.<$> fsxAdminPassword,
                   (JSON..=) "HAPairs" Prelude.<$> hAPairs,
                   (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
@@ -125,6 +132,11 @@ instance Property "EndpointIpAddressRange" OntapConfigurationProperty where
   set newValue OntapConfigurationProperty {..}
     = OntapConfigurationProperty
         {endpointIpAddressRange = Prelude.pure newValue, ..}
+instance Property "EndpointIpv6AddressRange" OntapConfigurationProperty where
+  type PropertyType "EndpointIpv6AddressRange" OntapConfigurationProperty = Value Prelude.Text
+  set newValue OntapConfigurationProperty {..}
+    = OntapConfigurationProperty
+        {endpointIpv6AddressRange = Prelude.pure newValue, ..}
 instance Property "FsxAdminPassword" OntapConfigurationProperty where
   type PropertyType "FsxAdminPassword" OntapConfigurationProperty = Value Prelude.Text
   set newValue OntapConfigurationProperty {..}

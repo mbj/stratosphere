@@ -43,6 +43,7 @@ library
       Stratosphere.VerifiedPermissions.Policy.StaticPolicyDefinitionProperty
       Stratosphere.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinitionProperty
       Stratosphere.VerifiedPermissions.PolicyStore
+      Stratosphere.VerifiedPermissions.PolicyStore.DeletionProtectionProperty
       Stratosphere.VerifiedPermissions.PolicyStore.SchemaDefinitionProperty
       Stratosphere.VerifiedPermissions.PolicyStore.ValidationSettingsProperty
       Stratosphere.VerifiedPermissions.PolicyTemplate

@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VerifiedAccessTrustProvider.NativeApplicationOidcOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NativeApplicationOidcOptionsProperty :: Prelude.Type
+instance ToResourceProperties NativeApplicationOidcOptionsProperty
+instance Prelude.Eq NativeApplicationOidcOptionsProperty
+instance Prelude.Show NativeApplicationOidcOptionsProperty
+instance JSON.ToJSON NativeApplicationOidcOptionsProperty

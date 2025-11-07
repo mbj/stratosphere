@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECR.Repository.EncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECR.Repository.ImageScanningConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECR.Repository.ImageTagMutabilityExclusionFilterProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECR.Repository.LifecyclePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -21,6 +22,8 @@ data Repository
                 imageScanningConfiguration :: (Prelude.Maybe ImageScanningConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability>
                 imageTagMutability :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutabilityexclusionfilters>
+                imageTagMutabilityExclusionFilters :: (Prelude.Maybe [ImageTagMutabilityExclusionFilterProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy>
                 lifecyclePolicy :: (Prelude.Maybe LifecyclePolicyProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname>
@@ -37,6 +40,7 @@ mkRepository
        encryptionConfiguration = Prelude.Nothing,
        imageScanningConfiguration = Prelude.Nothing,
        imageTagMutability = Prelude.Nothing,
+       imageTagMutabilityExclusionFilters = Prelude.Nothing,
        lifecyclePolicy = Prelude.Nothing,
        repositoryName = Prelude.Nothing,
        repositoryPolicyText = Prelude.Nothing, tags = Prelude.Nothing}
@@ -52,6 +56,8 @@ instance ToResourceProperties Repository where
                             (JSON..=) "ImageScanningConfiguration"
                               Prelude.<$> imageScanningConfiguration,
                             (JSON..=) "ImageTagMutability" Prelude.<$> imageTagMutability,
+                            (JSON..=) "ImageTagMutabilityExclusionFilters"
+                              Prelude.<$> imageTagMutabilityExclusionFilters,
                             (JSON..=) "LifecyclePolicy" Prelude.<$> lifecyclePolicy,
                             (JSON..=) "RepositoryName" Prelude.<$> repositoryName,
                             (JSON..=) "RepositoryPolicyText" Prelude.<$> repositoryPolicyText,
@@ -67,6 +73,8 @@ instance JSON.ToJSON Repository where
                (JSON..=) "ImageScanningConfiguration"
                  Prelude.<$> imageScanningConfiguration,
                (JSON..=) "ImageTagMutability" Prelude.<$> imageTagMutability,
+               (JSON..=) "ImageTagMutabilityExclusionFilters"
+                 Prelude.<$> imageTagMutabilityExclusionFilters,
                (JSON..=) "LifecyclePolicy" Prelude.<$> lifecyclePolicy,
                (JSON..=) "RepositoryName" Prelude.<$> repositoryName,
                (JSON..=) "RepositoryPolicyText" Prelude.<$> repositoryPolicyText,
@@ -88,6 +96,11 @@ instance Property "ImageTagMutability" Repository where
   type PropertyType "ImageTagMutability" Repository = Value Prelude.Text
   set newValue Repository {..}
     = Repository {imageTagMutability = Prelude.pure newValue, ..}
+instance Property "ImageTagMutabilityExclusionFilters" Repository where
+  type PropertyType "ImageTagMutabilityExclusionFilters" Repository = [ImageTagMutabilityExclusionFilterProperty]
+  set newValue Repository {..}
+    = Repository
+        {imageTagMutabilityExclusionFilters = Prelude.pure newValue, ..}
 instance Property "LifecyclePolicy" Repository where
   type PropertyType "LifecyclePolicy" Repository = LifecyclePolicyProperty
   set newValue Repository {..}

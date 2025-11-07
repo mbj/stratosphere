@@ -30,6 +30,10 @@ data FlowOutput
                 minLatency :: (Prelude.Maybe (Value Prelude.Integer)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name>
                 name :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndiprogramname>
+                ndiProgramName :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndispeedhqquality>
+                ndiSpeedHqQuality :: (Prelude.Maybe (Value Prelude.Integer)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus>
                 outputStatus :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port>
@@ -55,6 +59,8 @@ mkFlowOutput flowArn protocol
        maxLatency = Prelude.Nothing,
        mediaStreamOutputConfigurations = Prelude.Nothing,
        minLatency = Prelude.Nothing, name = Prelude.Nothing,
+       ndiProgramName = Prelude.Nothing,
+       ndiSpeedHqQuality = Prelude.Nothing,
        outputStatus = Prelude.Nothing, port = Prelude.Nothing,
        remoteId = Prelude.Nothing, smoothingLatency = Prelude.Nothing,
        streamId = Prelude.Nothing,
@@ -77,6 +83,8 @@ instance ToResourceProperties FlowOutput where
                                  Prelude.<$> mediaStreamOutputConfigurations,
                                (JSON..=) "MinLatency" Prelude.<$> minLatency,
                                (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "NdiProgramName" Prelude.<$> ndiProgramName,
+                               (JSON..=) "NdiSpeedHqQuality" Prelude.<$> ndiSpeedHqQuality,
                                (JSON..=) "OutputStatus" Prelude.<$> outputStatus,
                                (JSON..=) "Port" Prelude.<$> port,
                                (JSON..=) "RemoteId" Prelude.<$> remoteId,
@@ -100,6 +108,8 @@ instance JSON.ToJSON FlowOutput where
                     Prelude.<$> mediaStreamOutputConfigurations,
                   (JSON..=) "MinLatency" Prelude.<$> minLatency,
                   (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "NdiProgramName" Prelude.<$> ndiProgramName,
+                  (JSON..=) "NdiSpeedHqQuality" Prelude.<$> ndiSpeedHqQuality,
                   (JSON..=) "OutputStatus" Prelude.<$> outputStatus,
                   (JSON..=) "Port" Prelude.<$> port,
                   (JSON..=) "RemoteId" Prelude.<$> remoteId,
@@ -143,6 +153,14 @@ instance Property "Name" FlowOutput where
   type PropertyType "Name" FlowOutput = Value Prelude.Text
   set newValue FlowOutput {..}
     = FlowOutput {name = Prelude.pure newValue, ..}
+instance Property "NdiProgramName" FlowOutput where
+  type PropertyType "NdiProgramName" FlowOutput = Value Prelude.Text
+  set newValue FlowOutput {..}
+    = FlowOutput {ndiProgramName = Prelude.pure newValue, ..}
+instance Property "NdiSpeedHqQuality" FlowOutput where
+  type PropertyType "NdiSpeedHqQuality" FlowOutput = Value Prelude.Integer
+  set newValue FlowOutput {..}
+    = FlowOutput {ndiSpeedHqQuality = Prelude.pure newValue, ..}
 instance Property "OutputStatus" FlowOutput where
   type PropertyType "OutputStatus" FlowOutput = Value Prelude.Text
   set newValue FlowOutput {..}

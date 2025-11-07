@@ -14,6 +14,8 @@ data TrafficMirrorSession
                           description :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-networkinterfaceid>
                           networkInterfaceId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-ownerid>
+                          ownerId :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-packetlength>
                           packetLength :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html#cfn-ec2-trafficmirrorsession-sessionnumber>
@@ -41,8 +43,9 @@ mkTrafficMirrorSession
        sessionNumber = sessionNumber,
        trafficMirrorFilterId = trafficMirrorFilterId,
        trafficMirrorTargetId = trafficMirrorTargetId,
-       description = Prelude.Nothing, packetLength = Prelude.Nothing,
-       tags = Prelude.Nothing, virtualNetworkId = Prelude.Nothing}
+       description = Prelude.Nothing, ownerId = Prelude.Nothing,
+       packetLength = Prelude.Nothing, tags = Prelude.Nothing,
+       virtualNetworkId = Prelude.Nothing}
 instance ToResourceProperties TrafficMirrorSession where
   toResourceProperties TrafficMirrorSession {..}
     = ResourceProperties
@@ -56,6 +59,7 @@ instance ToResourceProperties TrafficMirrorSession where
                             "TrafficMirrorTargetId" JSON..= trafficMirrorTargetId]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "OwnerId" Prelude.<$> ownerId,
                                (JSON..=) "PacketLength" Prelude.<$> packetLength,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VirtualNetworkId" Prelude.<$> virtualNetworkId]))}
@@ -70,6 +74,7 @@ instance JSON.ToJSON TrafficMirrorSession where
                "TrafficMirrorTargetId" JSON..= trafficMirrorTargetId]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "OwnerId" Prelude.<$> ownerId,
                   (JSON..=) "PacketLength" Prelude.<$> packetLength,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VirtualNetworkId" Prelude.<$> virtualNetworkId])))
@@ -81,6 +86,10 @@ instance Property "NetworkInterfaceId" TrafficMirrorSession where
   type PropertyType "NetworkInterfaceId" TrafficMirrorSession = Value Prelude.Text
   set newValue TrafficMirrorSession {..}
     = TrafficMirrorSession {networkInterfaceId = newValue, ..}
+instance Property "OwnerId" TrafficMirrorSession where
+  type PropertyType "OwnerId" TrafficMirrorSession = Value Prelude.Text
+  set newValue TrafficMirrorSession {..}
+    = TrafficMirrorSession {ownerId = Prelude.pure newValue, ..}
 instance Property "PacketLength" TrafficMirrorSession where
   type PropertyType "PacketLength" TrafficMirrorSession = Value Prelude.Integer
   set newValue TrafficMirrorSession {..}

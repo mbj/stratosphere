@@ -30,8 +30,16 @@ library
   exposed-modules:
       Stratosphere.OpenSearchServerless.AccessPolicy
       Stratosphere.OpenSearchServerless.Collection
+      Stratosphere.OpenSearchServerless.Index
+      Stratosphere.OpenSearchServerless.Index.IndexProperty
+      Stratosphere.OpenSearchServerless.Index.IndexSettingsProperty
+      Stratosphere.OpenSearchServerless.Index.MappingsProperty
+      Stratosphere.OpenSearchServerless.Index.MethodProperty
+      Stratosphere.OpenSearchServerless.Index.ParametersProperty
+      Stratosphere.OpenSearchServerless.Index.PropertyMappingProperty
       Stratosphere.OpenSearchServerless.LifecyclePolicy
       Stratosphere.OpenSearchServerless.SecurityConfig
+      Stratosphere.OpenSearchServerless.SecurityConfig.IamFederationConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityConfig.IamIdentityCenterConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityConfig.SamlConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityPolicy

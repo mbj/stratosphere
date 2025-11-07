@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.MembershipPaymentConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.MembershipProtectedJobResultConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.CleanRooms.Membership.MembershipProtectedQueryResultConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -14,8 +15,12 @@ data Membership
     Membership {haddock_workaround_ :: (),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-collaborationidentifier>
                 collaborationIdentifier :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-defaultjobresultconfiguration>
+                defaultJobResultConfiguration :: (Prelude.Maybe MembershipProtectedJobResultConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-defaultresultconfiguration>
                 defaultResultConfiguration :: (Prelude.Maybe MembershipProtectedQueryResultConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-joblogstatus>
+                jobLogStatus :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-paymentconfiguration>
                 paymentConfiguration :: (Prelude.Maybe MembershipPaymentConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-querylogstatus>
@@ -30,7 +35,9 @@ mkMembership collaborationIdentifier queryLogStatus
       {haddock_workaround_ = (),
        collaborationIdentifier = collaborationIdentifier,
        queryLogStatus = queryLogStatus,
+       defaultJobResultConfiguration = Prelude.Nothing,
        defaultResultConfiguration = Prelude.Nothing,
+       jobLogStatus = Prelude.Nothing,
        paymentConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Membership where
   toResourceProperties Membership {..}
@@ -42,8 +49,11 @@ instance ToResourceProperties Membership where
                            ["CollaborationIdentifier" JSON..= collaborationIdentifier,
                             "QueryLogStatus" JSON..= queryLogStatus]
                            (Prelude.catMaybes
-                              [(JSON..=) "DefaultResultConfiguration"
+                              [(JSON..=) "DefaultJobResultConfiguration"
+                                 Prelude.<$> defaultJobResultConfiguration,
+                               (JSON..=) "DefaultResultConfiguration"
                                  Prelude.<$> defaultResultConfiguration,
+                               (JSON..=) "JobLogStatus" Prelude.<$> jobLogStatus,
                                (JSON..=) "PaymentConfiguration" Prelude.<$> paymentConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Membership where
@@ -54,19 +64,31 @@ instance JSON.ToJSON Membership where
               ["CollaborationIdentifier" JSON..= collaborationIdentifier,
                "QueryLogStatus" JSON..= queryLogStatus]
               (Prelude.catMaybes
-                 [(JSON..=) "DefaultResultConfiguration"
+                 [(JSON..=) "DefaultJobResultConfiguration"
+                    Prelude.<$> defaultJobResultConfiguration,
+                  (JSON..=) "DefaultResultConfiguration"
                     Prelude.<$> defaultResultConfiguration,
+                  (JSON..=) "JobLogStatus" Prelude.<$> jobLogStatus,
                   (JSON..=) "PaymentConfiguration" Prelude.<$> paymentConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "CollaborationIdentifier" Membership where
   type PropertyType "CollaborationIdentifier" Membership = Value Prelude.Text
   set newValue Membership {..}
     = Membership {collaborationIdentifier = newValue, ..}
+instance Property "DefaultJobResultConfiguration" Membership where
+  type PropertyType "DefaultJobResultConfiguration" Membership = MembershipProtectedJobResultConfigurationProperty
+  set newValue Membership {..}
+    = Membership
+        {defaultJobResultConfiguration = Prelude.pure newValue, ..}
 instance Property "DefaultResultConfiguration" Membership where
   type PropertyType "DefaultResultConfiguration" Membership = MembershipProtectedQueryResultConfigurationProperty
   set newValue Membership {..}
     = Membership
         {defaultResultConfiguration = Prelude.pure newValue, ..}
+instance Property "JobLogStatus" Membership where
+  type PropertyType "JobLogStatus" Membership = Value Prelude.Text
+  set newValue Membership {..}
+    = Membership {jobLogStatus = Prelude.pure newValue, ..}
 instance Property "PaymentConfiguration" Membership where
   type PropertyType "PaymentConfiguration" Membership = MembershipPaymentConfigurationProperty
   set newValue Membership {..}

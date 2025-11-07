@@ -1,0 +1,9 @@
+module Stratosphere.IoT.AccountAuditConfiguration.CertExpirationCheckCustomConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertExpirationCheckCustomConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CertExpirationCheckCustomConfigurationProperty
+instance Prelude.Eq CertExpirationCheckCustomConfigurationProperty
+instance Prelude.Show CertExpirationCheckCustomConfigurationProperty
+instance JSON.ToJSON CertExpirationCheckCustomConfigurationProperty

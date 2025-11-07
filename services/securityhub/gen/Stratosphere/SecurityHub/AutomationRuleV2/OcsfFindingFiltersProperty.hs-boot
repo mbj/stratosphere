@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.OcsfFindingFiltersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OcsfFindingFiltersProperty :: Prelude.Type
+instance ToResourceProperties OcsfFindingFiltersProperty
+instance Prelude.Eq OcsfFindingFiltersProperty
+instance Prelude.Show OcsfFindingFiltersProperty
+instance JSON.ToJSON OcsfFindingFiltersProperty

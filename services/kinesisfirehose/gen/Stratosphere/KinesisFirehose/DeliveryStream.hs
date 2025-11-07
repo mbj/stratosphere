@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonOpenSear
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DirectPutSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty as Exports
@@ -36,6 +37,8 @@ data DeliveryStream
                     deliveryStreamName :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype>
                     deliveryStreamType :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-directputsourceconfiguration>
+                    directPutSourceConfiguration :: (Prelude.Maybe DirectPutSourceConfigurationProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration>
                     elasticsearchDestinationConfiguration :: (Prelude.Maybe ElasticsearchDestinationConfigurationProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration>
@@ -69,6 +72,7 @@ mkDeliveryStream
        deliveryStreamEncryptionConfigurationInput = Prelude.Nothing,
        deliveryStreamName = Prelude.Nothing,
        deliveryStreamType = Prelude.Nothing,
+       directPutSourceConfiguration = Prelude.Nothing,
        elasticsearchDestinationConfiguration = Prelude.Nothing,
        extendedS3DestinationConfiguration = Prelude.Nothing,
        httpEndpointDestinationConfiguration = Prelude.Nothing,
@@ -97,6 +101,8 @@ instance ToResourceProperties DeliveryStream where
                               Prelude.<$> deliveryStreamEncryptionConfigurationInput,
                             (JSON..=) "DeliveryStreamName" Prelude.<$> deliveryStreamName,
                             (JSON..=) "DeliveryStreamType" Prelude.<$> deliveryStreamType,
+                            (JSON..=) "DirectPutSourceConfiguration"
+                              Prelude.<$> directPutSourceConfiguration,
                             (JSON..=) "ElasticsearchDestinationConfiguration"
                               Prelude.<$> elasticsearchDestinationConfiguration,
                             (JSON..=) "ExtendedS3DestinationConfiguration"
@@ -133,6 +139,8 @@ instance JSON.ToJSON DeliveryStream where
                  Prelude.<$> deliveryStreamEncryptionConfigurationInput,
                (JSON..=) "DeliveryStreamName" Prelude.<$> deliveryStreamName,
                (JSON..=) "DeliveryStreamType" Prelude.<$> deliveryStreamType,
+               (JSON..=) "DirectPutSourceConfiguration"
+                 Prelude.<$> directPutSourceConfiguration,
                (JSON..=) "ElasticsearchDestinationConfiguration"
                  Prelude.<$> elasticsearchDestinationConfiguration,
                (JSON..=) "ExtendedS3DestinationConfiguration"
@@ -188,6 +196,11 @@ instance Property "DeliveryStreamType" DeliveryStream where
   type PropertyType "DeliveryStreamType" DeliveryStream = Value Prelude.Text
   set newValue DeliveryStream {..}
     = DeliveryStream {deliveryStreamType = Prelude.pure newValue, ..}
+instance Property "DirectPutSourceConfiguration" DeliveryStream where
+  type PropertyType "DirectPutSourceConfiguration" DeliveryStream = DirectPutSourceConfigurationProperty
+  set newValue DeliveryStream {..}
+    = DeliveryStream
+        {directPutSourceConfiguration = Prelude.pure newValue, ..}
 instance Property "ElasticsearchDestinationConfiguration" DeliveryStream where
   type PropertyType "ElasticsearchDestinationConfiguration" DeliveryStream = ElasticsearchDestinationConfigurationProperty
   set newValue DeliveryStream {..}

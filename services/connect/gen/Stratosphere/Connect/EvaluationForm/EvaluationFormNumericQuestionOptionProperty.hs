@@ -1,10 +1,11 @@
 module Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionOptionProperty (
-        EvaluationFormNumericQuestionOptionProperty(..),
+        module Exports, EvaluationFormNumericQuestionOptionProperty(..),
         mkEvaluationFormNumericQuestionOptionProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.AutomaticFailConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormNumericQuestionOptionProperty
@@ -12,6 +13,8 @@ data EvaluationFormNumericQuestionOptionProperty
     EvaluationFormNumericQuestionOptionProperty {haddock_workaround_ :: (),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfail>
                                                  automaticFail :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfailconfiguration>
+                                                 automaticFailConfiguration :: (Prelude.Maybe AutomaticFailConfigurationProperty),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-maxvalue>
                                                  maxValue :: (Value Prelude.Integer),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-minvalue>
@@ -27,6 +30,7 @@ mkEvaluationFormNumericQuestionOptionProperty maxValue minValue
   = EvaluationFormNumericQuestionOptionProperty
       {haddock_workaround_ = (), maxValue = maxValue,
        minValue = minValue, automaticFail = Prelude.Nothing,
+       automaticFailConfiguration = Prelude.Nothing,
        score = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormNumericQuestionOptionProperty where
   toResourceProperties
@@ -39,6 +43,8 @@ instance ToResourceProperties EvaluationFormNumericQuestionOptionProperty where
                            ["MaxValue" JSON..= maxValue, "MinValue" JSON..= minValue]
                            (Prelude.catMaybes
                               [(JSON..=) "AutomaticFail" Prelude.<$> automaticFail,
+                               (JSON..=) "AutomaticFailConfiguration"
+                                 Prelude.<$> automaticFailConfiguration,
                                (JSON..=) "Score" Prelude.<$> score]))}
 instance JSON.ToJSON EvaluationFormNumericQuestionOptionProperty where
   toJSON EvaluationFormNumericQuestionOptionProperty {..}
@@ -48,12 +54,19 @@ instance JSON.ToJSON EvaluationFormNumericQuestionOptionProperty where
               ["MaxValue" JSON..= maxValue, "MinValue" JSON..= minValue]
               (Prelude.catMaybes
                  [(JSON..=) "AutomaticFail" Prelude.<$> automaticFail,
+                  (JSON..=) "AutomaticFailConfiguration"
+                    Prelude.<$> automaticFailConfiguration,
                   (JSON..=) "Score" Prelude.<$> score])))
 instance Property "AutomaticFail" EvaluationFormNumericQuestionOptionProperty where
   type PropertyType "AutomaticFail" EvaluationFormNumericQuestionOptionProperty = Value Prelude.Bool
   set newValue EvaluationFormNumericQuestionOptionProperty {..}
     = EvaluationFormNumericQuestionOptionProperty
         {automaticFail = Prelude.pure newValue, ..}
+instance Property "AutomaticFailConfiguration" EvaluationFormNumericQuestionOptionProperty where
+  type PropertyType "AutomaticFailConfiguration" EvaluationFormNumericQuestionOptionProperty = AutomaticFailConfigurationProperty
+  set newValue EvaluationFormNumericQuestionOptionProperty {..}
+    = EvaluationFormNumericQuestionOptionProperty
+        {automaticFailConfiguration = Prelude.pure newValue, ..}
 instance Property "MaxValue" EvaluationFormNumericQuestionOptionProperty where
   type PropertyType "MaxValue" EvaluationFormNumericQuestionOptionProperty = Value Prelude.Integer
   set newValue EvaluationFormNumericQuestionOptionProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.RelativeDatesFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RelativeDatesFilterProperty :: Prelude.Type
+instance ToResourceProperties RelativeDatesFilterProperty
+instance Prelude.Eq RelativeDatesFilterProperty
+instance Prelude.Show RelativeDatesFilterProperty
+instance JSON.ToJSON RelativeDatesFilterProperty

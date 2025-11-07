@@ -66,6 +66,10 @@ library
       Stratosphere.IoTFleetWise.SignalCatalog.SensorProperty
       Stratosphere.IoTFleetWise.StateTemplate
       Stratosphere.IoTFleetWise.Vehicle
+      Stratosphere.IoTFleetWise.Vehicle.PeriodicStateTemplateUpdateStrategyProperty
+      Stratosphere.IoTFleetWise.Vehicle.StateTemplateAssociationProperty
+      Stratosphere.IoTFleetWise.Vehicle.StateTemplateUpdateStrategyProperty
+      Stratosphere.IoTFleetWise.Vehicle.TimePeriodProperty
   other-modules:
       Paths_stratosphere_iotfleetwise
   hs-source-dirs:

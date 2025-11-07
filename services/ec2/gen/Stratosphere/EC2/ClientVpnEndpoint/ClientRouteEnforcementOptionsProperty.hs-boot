@@ -1,0 +1,9 @@
+module Stratosphere.EC2.ClientVpnEndpoint.ClientRouteEnforcementOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClientRouteEnforcementOptionsProperty :: Prelude.Type
+instance ToResourceProperties ClientRouteEnforcementOptionsProperty
+instance Prelude.Eq ClientRouteEnforcementOptionsProperty
+instance Prelude.Show ClientRouteEnforcementOptionsProperty
+instance JSON.ToJSON ClientRouteEnforcementOptionsProperty

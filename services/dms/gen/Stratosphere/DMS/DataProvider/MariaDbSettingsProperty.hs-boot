@@ -1,0 +1,9 @@
+module Stratosphere.DMS.DataProvider.MariaDbSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MariaDbSettingsProperty :: Prelude.Type
+instance ToResourceProperties MariaDbSettingsProperty
+instance Prelude.Eq MariaDbSettingsProperty
+instance Prelude.Show MariaDbSettingsProperty
+instance JSON.ToJSON MariaDbSettingsProperty

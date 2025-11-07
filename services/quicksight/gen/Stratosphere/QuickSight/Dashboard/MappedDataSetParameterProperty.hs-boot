@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.MappedDataSetParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MappedDataSetParameterProperty :: Prelude.Type
+instance ToResourceProperties MappedDataSetParameterProperty
+instance Prelude.Eq MappedDataSetParameterProperty
+instance Prelude.Show MappedDataSetParameterProperty
+instance JSON.ToJSON MappedDataSetParameterProperty

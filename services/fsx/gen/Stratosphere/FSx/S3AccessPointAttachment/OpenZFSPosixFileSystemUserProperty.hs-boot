@@ -1,0 +1,9 @@
+module Stratosphere.FSx.S3AccessPointAttachment.OpenZFSPosixFileSystemUserProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenZFSPosixFileSystemUserProperty :: Prelude.Type
+instance ToResourceProperties OpenZFSPosixFileSystemUserProperty
+instance Prelude.Eq OpenZFSPosixFileSystemUserProperty
+instance Prelude.Show OpenZFSPosixFileSystemUserProperty
+instance JSON.ToJSON OpenZFSPosixFileSystemUserProperty

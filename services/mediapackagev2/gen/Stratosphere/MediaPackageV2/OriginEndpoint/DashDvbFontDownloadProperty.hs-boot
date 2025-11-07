@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbFontDownloadProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashDvbFontDownloadProperty :: Prelude.Type
+instance ToResourceProperties DashDvbFontDownloadProperty
+instance Prelude.Eq DashDvbFontDownloadProperty
+instance Prelude.Show DashDvbFontDownloadProperty
+instance JSON.ToJSON DashDvbFontDownloadProperty

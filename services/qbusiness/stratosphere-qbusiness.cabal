@@ -34,19 +34,35 @@ library
       Stratosphere.QBusiness.Application.EncryptionConfigurationProperty
       Stratosphere.QBusiness.Application.PersonalizationConfigurationProperty
       Stratosphere.QBusiness.Application.QAppsConfigurationProperty
+      Stratosphere.QBusiness.Application.QuickSightConfigurationProperty
+      Stratosphere.QBusiness.DataAccessor
+      Stratosphere.QBusiness.DataAccessor.ActionConfigurationProperty
+      Stratosphere.QBusiness.DataAccessor.ActionFilterConfigurationProperty
+      Stratosphere.QBusiness.DataAccessor.AttributeFilterProperty
+      Stratosphere.QBusiness.DataAccessor.DataAccessorAuthenticationConfigurationProperty
+      Stratosphere.QBusiness.DataAccessor.DataAccessorAuthenticationDetailProperty
+      Stratosphere.QBusiness.DataAccessor.DataAccessorIdcTrustedTokenIssuerConfigurationProperty
+      Stratosphere.QBusiness.DataAccessor.DocumentAttributeProperty
+      Stratosphere.QBusiness.DataAccessor.DocumentAttributeValueProperty
       Stratosphere.QBusiness.DataSource
+      Stratosphere.QBusiness.DataSource.AudioExtractionConfigurationProperty
       Stratosphere.QBusiness.DataSource.DataSourceVpcConfigurationProperty
       Stratosphere.QBusiness.DataSource.DocumentAttributeConditionProperty
       Stratosphere.QBusiness.DataSource.DocumentAttributeTargetProperty
       Stratosphere.QBusiness.DataSource.DocumentAttributeValueProperty
       Stratosphere.QBusiness.DataSource.DocumentEnrichmentConfigurationProperty
       Stratosphere.QBusiness.DataSource.HookConfigurationProperty
+      Stratosphere.QBusiness.DataSource.ImageExtractionConfigurationProperty
       Stratosphere.QBusiness.DataSource.InlineDocumentEnrichmentConfigurationProperty
+      Stratosphere.QBusiness.DataSource.MediaExtractionConfigurationProperty
+      Stratosphere.QBusiness.DataSource.VideoExtractionConfigurationProperty
       Stratosphere.QBusiness.Index
       Stratosphere.QBusiness.Index.DocumentAttributeConfigurationProperty
       Stratosphere.QBusiness.Index.IndexCapacityConfigurationProperty
       Stratosphere.QBusiness.Index.IndexStatisticsProperty
       Stratosphere.QBusiness.Index.TextDocumentStatisticsProperty
+      Stratosphere.QBusiness.Permission
+      Stratosphere.QBusiness.Permission.ConditionProperty
       Stratosphere.QBusiness.Plugin
       Stratosphere.QBusiness.Plugin.APISchemaProperty
       Stratosphere.QBusiness.Plugin.BasicAuthConfigurationProperty
@@ -59,6 +75,8 @@ library
       Stratosphere.QBusiness.Retriever.NativeIndexConfigurationProperty
       Stratosphere.QBusiness.Retriever.RetrieverConfigurationProperty
       Stratosphere.QBusiness.WebExperience
+      Stratosphere.QBusiness.WebExperience.BrowserExtensionConfigurationProperty
+      Stratosphere.QBusiness.WebExperience.CustomizationConfigurationProperty
       Stratosphere.QBusiness.WebExperience.IdentityProviderConfigurationProperty
       Stratosphere.QBusiness.WebExperience.OpenIDConnectProviderConfigurationProperty
       Stratosphere.QBusiness.WebExperience.SamlProviderConfigurationProperty

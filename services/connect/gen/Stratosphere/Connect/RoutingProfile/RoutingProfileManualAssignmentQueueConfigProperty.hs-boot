@@ -1,0 +1,9 @@
+module Stratosphere.Connect.RoutingProfile.RoutingProfileManualAssignmentQueueConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RoutingProfileManualAssignmentQueueConfigProperty :: Prelude.Type
+instance ToResourceProperties RoutingProfileManualAssignmentQueueConfigProperty
+instance Prelude.Eq RoutingProfileManualAssignmentQueueConfigProperty
+instance Prelude.Show RoutingProfileManualAssignmentQueueConfigProperty
+instance JSON.ToJSON RoutingProfileManualAssignmentQueueConfigProperty

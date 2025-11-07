@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.FieldSeriesItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FieldSeriesItemProperty :: Prelude.Type
+instance ToResourceProperties FieldSeriesItemProperty
+instance Prelude.Eq FieldSeriesItemProperty
+instance Prelude.Show FieldSeriesItemProperty
+instance JSON.ToJSON FieldSeriesItemProperty

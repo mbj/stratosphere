@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSet.RefreshFailureConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshFailureConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RefreshFailureConfigurationProperty
+instance Prelude.Eq RefreshFailureConfigurationProperty
+instance Prelude.Show RefreshFailureConfigurationProperty
+instance JSON.ToJSON RefreshFailureConfigurationProperty

@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanExpressionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv4ExpressionProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv6ExpressionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressStringExpressionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolExpressionProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,8 @@ data PolicyConditionProperty
                              booleanExpression :: (Prelude.Maybe IngressBooleanExpressionProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipexpression>
                              ipExpression :: (Prelude.Maybe IngressIpv4ExpressionProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipv6expression>
+                             ipv6Expression :: (Prelude.Maybe IngressIpv6ExpressionProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-stringexpression>
                              stringExpression :: (Prelude.Maybe IngressStringExpressionProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-tlsexpression>
@@ -26,7 +29,8 @@ mkPolicyConditionProperty :: PolicyConditionProperty
 mkPolicyConditionProperty
   = PolicyConditionProperty
       {haddock_workaround_ = (), booleanExpression = Prelude.Nothing,
-       ipExpression = Prelude.Nothing, stringExpression = Prelude.Nothing,
+       ipExpression = Prelude.Nothing, ipv6Expression = Prelude.Nothing,
+       stringExpression = Prelude.Nothing,
        tlsExpression = Prelude.Nothing}
 instance ToResourceProperties PolicyConditionProperty where
   toResourceProperties PolicyConditionProperty {..}
@@ -37,6 +41,7 @@ instance ToResourceProperties PolicyConditionProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "BooleanExpression" Prelude.<$> booleanExpression,
                             (JSON..=) "IpExpression" Prelude.<$> ipExpression,
+                            (JSON..=) "Ipv6Expression" Prelude.<$> ipv6Expression,
                             (JSON..=) "StringExpression" Prelude.<$> stringExpression,
                             (JSON..=) "TlsExpression" Prelude.<$> tlsExpression])}
 instance JSON.ToJSON PolicyConditionProperty where
@@ -46,6 +51,7 @@ instance JSON.ToJSON PolicyConditionProperty where
            (Prelude.catMaybes
               [(JSON..=) "BooleanExpression" Prelude.<$> booleanExpression,
                (JSON..=) "IpExpression" Prelude.<$> ipExpression,
+               (JSON..=) "Ipv6Expression" Prelude.<$> ipv6Expression,
                (JSON..=) "StringExpression" Prelude.<$> stringExpression,
                (JSON..=) "TlsExpression" Prelude.<$> tlsExpression]))
 instance Property "BooleanExpression" PolicyConditionProperty where
@@ -58,6 +64,11 @@ instance Property "IpExpression" PolicyConditionProperty where
   set newValue PolicyConditionProperty {..}
     = PolicyConditionProperty
         {ipExpression = Prelude.pure newValue, ..}
+instance Property "Ipv6Expression" PolicyConditionProperty where
+  type PropertyType "Ipv6Expression" PolicyConditionProperty = IngressIpv6ExpressionProperty
+  set newValue PolicyConditionProperty {..}
+    = PolicyConditionProperty
+        {ipv6Expression = Prelude.pure newValue, ..}
 instance Property "StringExpression" PolicyConditionProperty where
   type PropertyType "StringExpression" PolicyConditionProperty = IngressStringExpressionProperty
   set newValue PolicyConditionProperty {..}

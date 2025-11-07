@@ -12,6 +12,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.DatasetParameterProperty a
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.FieldFolderProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.IngestionWaitPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.LogicalTableProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.PerformanceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.PhysicalTableProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.ResourcePermissionProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RowLevelPermissionDataSetProperty as Exports
@@ -48,6 +49,8 @@ data DataSet
              logicalTableMap :: (Prelude.Maybe (Prelude.Map Prelude.Text LogicalTableProperty)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-performanceconfiguration>
+             performanceConfiguration :: (Prelude.Maybe PerformanceConfigurationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions>
              permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap>
@@ -57,7 +60,9 @@ data DataSet
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration>
              rowLevelPermissionTagConfiguration :: (Prelude.Maybe RowLevelPermissionTagConfigurationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags>
-             tags :: (Prelude.Maybe [Tag])}
+             tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-useas>
+             useAs :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSet :: DataSet
 mkDataSet
@@ -73,10 +78,11 @@ mkDataSet
        importMode = Prelude.Nothing,
        ingestionWaitPolicy = Prelude.Nothing,
        logicalTableMap = Prelude.Nothing, name = Prelude.Nothing,
+       performanceConfiguration = Prelude.Nothing,
        permissions = Prelude.Nothing, physicalTableMap = Prelude.Nothing,
        rowLevelPermissionDataSet = Prelude.Nothing,
        rowLevelPermissionTagConfiguration = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       tags = Prelude.Nothing, useAs = Prelude.Nothing}
 instance ToResourceProperties DataSet where
   toResourceProperties DataSet {..}
     = ResourceProperties
@@ -99,13 +105,16 @@ instance ToResourceProperties DataSet where
                             (JSON..=) "IngestionWaitPolicy" Prelude.<$> ingestionWaitPolicy,
                             (JSON..=) "LogicalTableMap" Prelude.<$> logicalTableMap,
                             (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "PerformanceConfiguration"
+                              Prelude.<$> performanceConfiguration,
                             (JSON..=) "Permissions" Prelude.<$> permissions,
                             (JSON..=) "PhysicalTableMap" Prelude.<$> physicalTableMap,
                             (JSON..=) "RowLevelPermissionDataSet"
                               Prelude.<$> rowLevelPermissionDataSet,
                             (JSON..=) "RowLevelPermissionTagConfiguration"
                               Prelude.<$> rowLevelPermissionTagConfiguration,
-                            (JSON..=) "Tags" Prelude.<$> tags])}
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "UseAs" Prelude.<$> useAs])}
 instance JSON.ToJSON DataSet where
   toJSON DataSet {..}
     = JSON.object
@@ -127,13 +136,16 @@ instance JSON.ToJSON DataSet where
                (JSON..=) "IngestionWaitPolicy" Prelude.<$> ingestionWaitPolicy,
                (JSON..=) "LogicalTableMap" Prelude.<$> logicalTableMap,
                (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "PerformanceConfiguration"
+                 Prelude.<$> performanceConfiguration,
                (JSON..=) "Permissions" Prelude.<$> permissions,
                (JSON..=) "PhysicalTableMap" Prelude.<$> physicalTableMap,
                (JSON..=) "RowLevelPermissionDataSet"
                  Prelude.<$> rowLevelPermissionDataSet,
                (JSON..=) "RowLevelPermissionTagConfiguration"
                  Prelude.<$> rowLevelPermissionTagConfiguration,
-               (JSON..=) "Tags" Prelude.<$> tags]))
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "UseAs" Prelude.<$> useAs]))
 instance Property "AwsAccountId" DataSet where
   type PropertyType "AwsAccountId" DataSet = Value Prelude.Text
   set newValue DataSet {..}
@@ -186,6 +198,10 @@ instance Property "Name" DataSet where
   type PropertyType "Name" DataSet = Value Prelude.Text
   set newValue DataSet {..}
     = DataSet {name = Prelude.pure newValue, ..}
+instance Property "PerformanceConfiguration" DataSet where
+  type PropertyType "PerformanceConfiguration" DataSet = PerformanceConfigurationProperty
+  set newValue DataSet {..}
+    = DataSet {performanceConfiguration = Prelude.pure newValue, ..}
 instance Property "Permissions" DataSet where
   type PropertyType "Permissions" DataSet = [ResourcePermissionProperty]
   set newValue DataSet {..}
@@ -207,3 +223,7 @@ instance Property "Tags" DataSet where
   type PropertyType "Tags" DataSet = [Tag]
   set newValue DataSet {..}
     = DataSet {tags = Prelude.pure newValue, ..}
+instance Property "UseAs" DataSet where
+  type PropertyType "UseAs" DataSet = Value Prelude.Text
+  set newValue DataSet {..}
+    = DataSet {useAs = Prelude.pure newValue, ..}

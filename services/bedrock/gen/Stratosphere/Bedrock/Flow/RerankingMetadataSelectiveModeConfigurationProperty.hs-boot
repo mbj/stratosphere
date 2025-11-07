@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Flow.RerankingMetadataSelectiveModeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RerankingMetadataSelectiveModeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RerankingMetadataSelectiveModeConfigurationProperty
+instance Prelude.Eq RerankingMetadataSelectiveModeConfigurationProperty
+instance Prelude.Show RerankingMetadataSelectiveModeConfigurationProperty
+instance JSON.ToJSON RerankingMetadataSelectiveModeConfigurationProperty

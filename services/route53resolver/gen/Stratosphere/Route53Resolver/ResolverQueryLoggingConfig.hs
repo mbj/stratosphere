@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data ResolverQueryLoggingConfig
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html>
@@ -12,29 +13,33 @@ data ResolverQueryLoggingConfig
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn>
                                 destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name>
-                                name :: (Prelude.Maybe (Value Prelude.Text))}
+                                name :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-tags>
+                                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverQueryLoggingConfig :: ResolverQueryLoggingConfig
 mkResolverQueryLoggingConfig
   = ResolverQueryLoggingConfig
       {haddock_workaround_ = (), destinationArn = Prelude.Nothing,
-       name = Prelude.Nothing}
+       name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ResolverQueryLoggingConfig where
   toResourceProperties ResolverQueryLoggingConfig {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationArn" Prelude.<$> destinationArn,
-                            (JSON..=) "Name" Prelude.<$> name])}
+                            (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON ResolverQueryLoggingConfig where
   toJSON ResolverQueryLoggingConfig {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "DestinationArn" Prelude.<$> destinationArn,
-               (JSON..=) "Name" Prelude.<$> name]))
+               (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "DestinationArn" ResolverQueryLoggingConfig where
   type PropertyType "DestinationArn" ResolverQueryLoggingConfig = Value Prelude.Text
   set newValue ResolverQueryLoggingConfig {..}
@@ -44,3 +49,7 @@ instance Property "Name" ResolverQueryLoggingConfig where
   type PropertyType "Name" ResolverQueryLoggingConfig = Value Prelude.Text
   set newValue ResolverQueryLoggingConfig {..}
     = ResolverQueryLoggingConfig {name = Prelude.pure newValue, ..}
+instance Property "Tags" ResolverQueryLoggingConfig where
+  type PropertyType "Tags" ResolverQueryLoggingConfig = [Tag]
+  set newValue ResolverQueryLoggingConfig {..}
+    = ResolverQueryLoggingConfig {tags = Prelude.pure newValue, ..}

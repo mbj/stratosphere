@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.ManagedInstancesStorageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedInstancesStorageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedInstancesStorageConfigurationProperty
+instance Prelude.Eq ManagedInstancesStorageConfigurationProperty
+instance Prelude.Show ManagedInstancesStorageConfigurationProperty
+instance JSON.ToJSON ManagedInstancesStorageConfigurationProperty

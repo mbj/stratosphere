@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.SingleAxisOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleAxisOptionsProperty :: Prelude.Type
+instance ToResourceProperties SingleAxisOptionsProperty
+instance Prelude.Eq SingleAxisOptionsProperty
+instance Prelude.Show SingleAxisOptionsProperty
+instance JSON.ToJSON SingleAxisOptionsProperty

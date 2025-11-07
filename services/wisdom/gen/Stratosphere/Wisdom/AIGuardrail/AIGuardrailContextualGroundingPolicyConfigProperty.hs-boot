@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIGuardrail.AIGuardrailContextualGroundingPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AIGuardrailContextualGroundingPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties AIGuardrailContextualGroundingPolicyConfigProperty
+instance Prelude.Eq AIGuardrailContextualGroundingPolicyConfigProperty
+instance Prelude.Show AIGuardrailContextualGroundingPolicyConfigProperty
+instance JSON.ToJSON AIGuardrailContextualGroundingPolicyConfigProperty

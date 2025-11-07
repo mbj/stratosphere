@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.AthenaTableReferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AthenaTableReferenceProperty :: Prelude.Type
+instance ToResourceProperties AthenaTableReferenceProperty
+instance Prelude.Eq AthenaTableReferenceProperty
+instance Prelude.Show AthenaTableReferenceProperty
+instance JSON.ToJSON AthenaTableReferenceProperty

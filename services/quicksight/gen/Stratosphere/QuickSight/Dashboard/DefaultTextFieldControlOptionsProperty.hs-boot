@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DefaultTextFieldControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultTextFieldControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultTextFieldControlOptionsProperty
+instance Prelude.Eq DefaultTextFieldControlOptionsProperty
+instance Prelude.Show DefaultTextFieldControlOptionsProperty
+instance JSON.ToJSON DefaultTextFieldControlOptionsProperty

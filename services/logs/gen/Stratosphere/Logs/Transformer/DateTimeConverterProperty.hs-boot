@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.DateTimeConverterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateTimeConverterProperty :: Prelude.Type
+instance ToResourceProperties DateTimeConverterProperty
+instance Prelude.Eq DateTimeConverterProperty
+instance Prelude.Show DateTimeConverterProperty
+instance JSON.ToJSON DateTimeConverterProperty

@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.EventTrigger.EventTriggerConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventTriggerConditionProperty :: Prelude.Type
+instance ToResourceProperties EventTriggerConditionProperty
+instance Prelude.Eq EventTriggerConditionProperty
+instance Prelude.Show EventTriggerConditionProperty
+instance JSON.ToJSON EventTriggerConditionProperty

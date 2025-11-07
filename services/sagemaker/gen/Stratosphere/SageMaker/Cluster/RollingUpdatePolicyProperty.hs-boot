@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.RollingUpdatePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RollingUpdatePolicyProperty :: Prelude.Type
+instance ToResourceProperties RollingUpdatePolicyProperty
+instance Prelude.Eq RollingUpdatePolicyProperty
+instance Prelude.Show RollingUpdatePolicyProperty
+instance JSON.ToJSON RollingUpdatePolicyProperty

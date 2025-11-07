@@ -1,0 +1,9 @@
+module Stratosphere.DynamoDB.GlobalTable.GlobalTableWitnessProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlobalTableWitnessProperty :: Prelude.Type
+instance ToResourceProperties GlobalTableWitnessProperty
+instance Prelude.Eq GlobalTableWitnessProperty
+instance Prelude.Show GlobalTableWitnessProperty
+instance JSON.ToJSON GlobalTableWitnessProperty

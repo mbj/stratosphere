@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.Route53ResourceRecordSetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Route53ResourceRecordSetProperty :: Prelude.Type
+instance ToResourceProperties Route53ResourceRecordSetProperty
+instance Prelude.Eq Route53ResourceRecordSetProperty
+instance Prelude.Show Route53ResourceRecordSetProperty
+instance JSON.ToJSON Route53ResourceRecordSetProperty

@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.EksResourceScalingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksResourceScalingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EksResourceScalingConfigurationProperty
+instance Prelude.Eq EksResourceScalingConfigurationProperty
+instance Prelude.Show EksResourceScalingConfigurationProperty
+instance JSON.ToJSON EksResourceScalingConfigurationProperty

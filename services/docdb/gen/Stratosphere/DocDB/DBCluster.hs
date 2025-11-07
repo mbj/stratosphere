@@ -29,12 +29,20 @@ data DBCluster
                enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion>
                engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-globalclusteridentifier>
+               globalClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid>
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-managemasteruserpassword>
+               manageMasterUserPassword :: (Prelude.Maybe (Value Prelude.Bool)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword>
                masterUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusersecretkmskeyid>
+               masterUserSecretKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername>
                masterUsername :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-networktype>
+               networkType :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port>
                port :: (Prelude.Maybe (Value Prelude.Integer)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredbackupwindow>
@@ -45,6 +53,8 @@ data DBCluster
                restoreToTime :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretype>
                restoreType :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-rotatemasteruserpassword>
+               rotateMasterUserPassword :: (Prelude.Maybe (Value Prelude.Bool)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-serverlessv2scalingconfiguration>
                serverlessV2ScalingConfiguration :: (Prelude.Maybe ServerlessV2ScalingConfigurationProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-snapshotidentifier>
@@ -73,12 +83,17 @@ mkDBCluster
        dBSubnetGroupName = Prelude.Nothing,
        deletionProtection = Prelude.Nothing,
        enableCloudwatchLogsExports = Prelude.Nothing,
-       engineVersion = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
+       engineVersion = Prelude.Nothing,
+       globalClusterIdentifier = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing,
+       manageMasterUserPassword = Prelude.Nothing,
        masterUserPassword = Prelude.Nothing,
-       masterUsername = Prelude.Nothing, port = Prelude.Nothing,
-       preferredBackupWindow = Prelude.Nothing,
+       masterUserSecretKmsKeyId = Prelude.Nothing,
+       masterUsername = Prelude.Nothing, networkType = Prelude.Nothing,
+       port = Prelude.Nothing, preferredBackupWindow = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
        restoreToTime = Prelude.Nothing, restoreType = Prelude.Nothing,
+       rotateMasterUserPassword = Prelude.Nothing,
        serverlessV2ScalingConfiguration = Prelude.Nothing,
        snapshotIdentifier = Prelude.Nothing,
        sourceDBClusterIdentifier = Prelude.Nothing,
@@ -103,9 +118,16 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "EnableCloudwatchLogsExports"
                               Prelude.<$> enableCloudwatchLogsExports,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+                            (JSON..=) "GlobalClusterIdentifier"
+                              Prelude.<$> globalClusterIdentifier,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                            (JSON..=) "ManageMasterUserPassword"
+                              Prelude.<$> manageMasterUserPassword,
                             (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
+                            (JSON..=) "MasterUserSecretKmsKeyId"
+                              Prelude.<$> masterUserSecretKmsKeyId,
                             (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
+                            (JSON..=) "NetworkType" Prelude.<$> networkType,
                             (JSON..=) "Port" Prelude.<$> port,
                             (JSON..=) "PreferredBackupWindow"
                               Prelude.<$> preferredBackupWindow,
@@ -113,6 +135,8 @@ instance ToResourceProperties DBCluster where
                               Prelude.<$> preferredMaintenanceWindow,
                             (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                             (JSON..=) "RestoreType" Prelude.<$> restoreType,
+                            (JSON..=) "RotateMasterUserPassword"
+                              Prelude.<$> rotateMasterUserPassword,
                             (JSON..=) "ServerlessV2ScalingConfiguration"
                               Prelude.<$> serverlessV2ScalingConfiguration,
                             (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
@@ -141,9 +165,16 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "EnableCloudwatchLogsExports"
                  Prelude.<$> enableCloudwatchLogsExports,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+               (JSON..=) "GlobalClusterIdentifier"
+                 Prelude.<$> globalClusterIdentifier,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+               (JSON..=) "ManageMasterUserPassword"
+                 Prelude.<$> manageMasterUserPassword,
                (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
+               (JSON..=) "MasterUserSecretKmsKeyId"
+                 Prelude.<$> masterUserSecretKmsKeyId,
                (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
+               (JSON..=) "NetworkType" Prelude.<$> networkType,
                (JSON..=) "Port" Prelude.<$> port,
                (JSON..=) "PreferredBackupWindow"
                  Prelude.<$> preferredBackupWindow,
@@ -151,6 +182,8 @@ instance JSON.ToJSON DBCluster where
                  Prelude.<$> preferredMaintenanceWindow,
                (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                (JSON..=) "RestoreType" Prelude.<$> restoreType,
+               (JSON..=) "RotateMasterUserPassword"
+                 Prelude.<$> rotateMasterUserPassword,
                (JSON..=) "ServerlessV2ScalingConfiguration"
                  Prelude.<$> serverlessV2ScalingConfiguration,
                (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
@@ -200,18 +233,34 @@ instance Property "EngineVersion" DBCluster where
   type PropertyType "EngineVersion" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {engineVersion = Prelude.pure newValue, ..}
+instance Property "GlobalClusterIdentifier" DBCluster where
+  type PropertyType "GlobalClusterIdentifier" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {globalClusterIdentifier = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" DBCluster where
   type PropertyType "KmsKeyId" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {kmsKeyId = Prelude.pure newValue, ..}
+instance Property "ManageMasterUserPassword" DBCluster where
+  type PropertyType "ManageMasterUserPassword" DBCluster = Value Prelude.Bool
+  set newValue DBCluster {..}
+    = DBCluster {manageMasterUserPassword = Prelude.pure newValue, ..}
 instance Property "MasterUserPassword" DBCluster where
   type PropertyType "MasterUserPassword" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {masterUserPassword = Prelude.pure newValue, ..}
+instance Property "MasterUserSecretKmsKeyId" DBCluster where
+  type PropertyType "MasterUserSecretKmsKeyId" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {masterUserSecretKmsKeyId = Prelude.pure newValue, ..}
 instance Property "MasterUsername" DBCluster where
   type PropertyType "MasterUsername" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {masterUsername = Prelude.pure newValue, ..}
+instance Property "NetworkType" DBCluster where
+  type PropertyType "NetworkType" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {networkType = Prelude.pure newValue, ..}
 instance Property "Port" DBCluster where
   type PropertyType "Port" DBCluster = Value Prelude.Integer
   set newValue DBCluster {..}
@@ -233,6 +282,10 @@ instance Property "RestoreType" DBCluster where
   type PropertyType "RestoreType" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {restoreType = Prelude.pure newValue, ..}
+instance Property "RotateMasterUserPassword" DBCluster where
+  type PropertyType "RotateMasterUserPassword" DBCluster = Value Prelude.Bool
+  set newValue DBCluster {..}
+    = DBCluster {rotateMasterUserPassword = Prelude.pure newValue, ..}
 instance Property "ServerlessV2ScalingConfiguration" DBCluster where
   type PropertyType "ServerlessV2ScalingConfiguration" DBCluster = ServerlessV2ScalingConfigurationProperty
   set newValue DBCluster {..}

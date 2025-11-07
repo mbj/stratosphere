@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityIntegration.CreateGitLabSelfManagedIntegrationDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CreateGitLabSelfManagedIntegrationDetailProperty :: Prelude.Type
+instance ToResourceProperties CreateGitLabSelfManagedIntegrationDetailProperty
+instance Prelude.Eq CreateGitLabSelfManagedIntegrationDetailProperty
+instance Prelude.Show CreateGitLabSelfManagedIntegrationDetailProperty
+instance JSON.ToJSON CreateGitLabSelfManagedIntegrationDetailProperty

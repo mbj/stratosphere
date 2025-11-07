@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.BucketEncryptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3Express.DirectoryBucket.LifecycleConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data DirectoryBucket
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html>
@@ -20,7 +21,9 @@ data DirectoryBucket
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-lifecycleconfiguration>
                      lifecycleConfiguration :: (Prelude.Maybe LifecycleConfigurationProperty),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-locationname>
-                     locationName :: (Value Prelude.Text)}
+                     locationName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-tags>
+                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryBucket ::
   Value Prelude.Text -> Value Prelude.Text -> DirectoryBucket
@@ -29,12 +32,12 @@ mkDirectoryBucket dataRedundancy locationName
       {haddock_workaround_ = (), dataRedundancy = dataRedundancy,
        locationName = locationName, bucketEncryption = Prelude.Nothing,
        bucketName = Prelude.Nothing,
-       lifecycleConfiguration = Prelude.Nothing}
+       lifecycleConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DirectoryBucket where
   toResourceProperties DirectoryBucket {..}
     = ResourceProperties
         {awsType = "AWS::S3Express::DirectoryBucket",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataRedundancy" JSON..= dataRedundancy,
@@ -43,7 +46,8 @@ instance ToResourceProperties DirectoryBucket where
                               [(JSON..=) "BucketEncryption" Prelude.<$> bucketEncryption,
                                (JSON..=) "BucketName" Prelude.<$> bucketName,
                                (JSON..=) "LifecycleConfiguration"
-                                 Prelude.<$> lifecycleConfiguration]))}
+                                 Prelude.<$> lifecycleConfiguration,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DirectoryBucket where
   toJSON DirectoryBucket {..}
     = JSON.object
@@ -55,7 +59,8 @@ instance JSON.ToJSON DirectoryBucket where
                  [(JSON..=) "BucketEncryption" Prelude.<$> bucketEncryption,
                   (JSON..=) "BucketName" Prelude.<$> bucketName,
                   (JSON..=) "LifecycleConfiguration"
-                    Prelude.<$> lifecycleConfiguration])))
+                    Prelude.<$> lifecycleConfiguration,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "BucketEncryption" DirectoryBucket where
   type PropertyType "BucketEncryption" DirectoryBucket = BucketEncryptionProperty
   set newValue DirectoryBucket {..}
@@ -77,3 +82,7 @@ instance Property "LocationName" DirectoryBucket where
   type PropertyType "LocationName" DirectoryBucket = Value Prelude.Text
   set newValue DirectoryBucket {..}
     = DirectoryBucket {locationName = newValue, ..}
+instance Property "Tags" DirectoryBucket where
+  type PropertyType "Tags" DirectoryBucket = [Tag]
+  set newValue DirectoryBucket {..}
+    = DirectoryBucket {tags = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.ExperimentConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExperimentConfigProperty :: Prelude.Type
+instance ToResourceProperties ExperimentConfigProperty
+instance Prelude.Eq ExperimentConfigProperty
+instance Prelude.Show ExperimentConfigProperty
+instance JSON.ToJSON ExperimentConfigProperty

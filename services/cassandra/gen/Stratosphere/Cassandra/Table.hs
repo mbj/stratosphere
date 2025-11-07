@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.AutoScalingSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.BillingModeProperty as Exports
+import {-# SOURCE #-} Stratosphere.Cassandra.Table.CdcSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.ClusteringKeyColumnProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.ColumnProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.EncryptionSpecificationProperty as Exports
@@ -20,6 +21,8 @@ data Table
            autoScalingSpecifications :: (Prelude.Maybe AutoScalingSpecificationProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode>
            billingMode :: (Prelude.Maybe BillingModeProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-cdcspecification>
+           cdcSpecification :: (Prelude.Maybe CdcSpecificationProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clientsidetimestampsenabled>
            clientSideTimestampsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns>
@@ -49,7 +52,7 @@ mkTable keyspaceName partitionKeyColumns
       {haddock_workaround_ = (), keyspaceName = keyspaceName,
        partitionKeyColumns = partitionKeyColumns,
        autoScalingSpecifications = Prelude.Nothing,
-       billingMode = Prelude.Nothing,
+       billingMode = Prelude.Nothing, cdcSpecification = Prelude.Nothing,
        clientSideTimestampsEnabled = Prelude.Nothing,
        clusteringKeyColumns = Prelude.Nothing,
        defaultTimeToLive = Prelude.Nothing,
@@ -70,6 +73,7 @@ instance ToResourceProperties Table where
                               [(JSON..=) "AutoScalingSpecifications"
                                  Prelude.<$> autoScalingSpecifications,
                                (JSON..=) "BillingMode" Prelude.<$> billingMode,
+                               (JSON..=) "CdcSpecification" Prelude.<$> cdcSpecification,
                                (JSON..=) "ClientSideTimestampsEnabled"
                                  Prelude.<$> clientSideTimestampsEnabled,
                                (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
@@ -94,6 +98,7 @@ instance JSON.ToJSON Table where
                  [(JSON..=) "AutoScalingSpecifications"
                     Prelude.<$> autoScalingSpecifications,
                   (JSON..=) "BillingMode" Prelude.<$> billingMode,
+                  (JSON..=) "CdcSpecification" Prelude.<$> cdcSpecification,
                   (JSON..=) "ClientSideTimestampsEnabled"
                     Prelude.<$> clientSideTimestampsEnabled,
                   (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
@@ -115,6 +120,10 @@ instance Property "BillingMode" Table where
   type PropertyType "BillingMode" Table = BillingModeProperty
   set newValue Table {..}
     = Table {billingMode = Prelude.pure newValue, ..}
+instance Property "CdcSpecification" Table where
+  type PropertyType "CdcSpecification" Table = CdcSpecificationProperty
+  set newValue Table {..}
+    = Table {cdcSpecification = Prelude.pure newValue, ..}
 instance Property "ClientSideTimestampsEnabled" Table where
   type PropertyType "ClientSideTimestampsEnabled" Table = Value Prelude.Bool
   set newValue Table {..}

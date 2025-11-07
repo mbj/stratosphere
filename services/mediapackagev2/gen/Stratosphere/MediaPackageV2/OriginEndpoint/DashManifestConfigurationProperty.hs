@@ -5,6 +5,10 @@ module Stratosphere.MediaPackageV2.OriginEndpoint.DashManifestConfigurationPrope
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashBaseUrlProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashProgramInformationProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashSubtitleConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashUtcTimingProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.FilterConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ScteDashProperty as Exports
@@ -13,8 +17,14 @@ import Stratosphere.Value
 data DashManifestConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html>
     DashManifestConfigurationProperty {haddock_workaround_ :: (),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-baseurls>
+                                       baseUrls :: (Prelude.Maybe [DashBaseUrlProperty]),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-compactness>
+                                       compactness :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-drmsignaling>
                                        drmSignaling :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-dvbsettings>
+                                       dvbSettings :: (Prelude.Maybe DashDvbSettingsProperty),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-filterconfiguration>
                                        filterConfiguration :: (Prelude.Maybe FilterConfigurationProperty),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-manifestname>
@@ -27,10 +37,16 @@ data DashManifestConfigurationProperty
                                        minUpdatePeriodSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-periodtriggers>
                                        periodTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-profiles>
+                                       profiles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-programinformation>
+                                       programInformation :: (Prelude.Maybe DashProgramInformationProperty),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-sctedash>
                                        scteDash :: (Prelude.Maybe ScteDashProperty),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-segmenttemplateformat>
                                        segmentTemplateFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-subtitleconfiguration>
+                                       subtitleConfiguration :: (Prelude.Maybe DashSubtitleConfigurationProperty),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-suggestedpresentationdelayseconds>
                                        suggestedPresentationDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-utctiming>
@@ -41,13 +57,16 @@ mkDashManifestConfigurationProperty ::
 mkDashManifestConfigurationProperty manifestName
   = DashManifestConfigurationProperty
       {haddock_workaround_ = (), manifestName = manifestName,
-       drmSignaling = Prelude.Nothing,
+       baseUrls = Prelude.Nothing, compactness = Prelude.Nothing,
+       drmSignaling = Prelude.Nothing, dvbSettings = Prelude.Nothing,
        filterConfiguration = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        minBufferTimeSeconds = Prelude.Nothing,
        minUpdatePeriodSeconds = Prelude.Nothing,
-       periodTriggers = Prelude.Nothing, scteDash = Prelude.Nothing,
+       periodTriggers = Prelude.Nothing, profiles = Prelude.Nothing,
+       programInformation = Prelude.Nothing, scteDash = Prelude.Nothing,
        segmentTemplateFormat = Prelude.Nothing,
+       subtitleConfiguration = Prelude.Nothing,
        suggestedPresentationDelaySeconds = Prelude.Nothing,
        utcTiming = Prelude.Nothing}
 instance ToResourceProperties DashManifestConfigurationProperty where
@@ -59,7 +78,10 @@ instance ToResourceProperties DashManifestConfigurationProperty where
                         ((Prelude.<>)
                            ["ManifestName" JSON..= manifestName]
                            (Prelude.catMaybes
-                              [(JSON..=) "DrmSignaling" Prelude.<$> drmSignaling,
+                              [(JSON..=) "BaseUrls" Prelude.<$> baseUrls,
+                               (JSON..=) "Compactness" Prelude.<$> compactness,
+                               (JSON..=) "DrmSignaling" Prelude.<$> drmSignaling,
+                               (JSON..=) "DvbSettings" Prelude.<$> dvbSettings,
                                (JSON..=) "FilterConfiguration" Prelude.<$> filterConfiguration,
                                (JSON..=) "ManifestWindowSeconds"
                                  Prelude.<$> manifestWindowSeconds,
@@ -67,9 +89,13 @@ instance ToResourceProperties DashManifestConfigurationProperty where
                                (JSON..=) "MinUpdatePeriodSeconds"
                                  Prelude.<$> minUpdatePeriodSeconds,
                                (JSON..=) "PeriodTriggers" Prelude.<$> periodTriggers,
+                               (JSON..=) "Profiles" Prelude.<$> profiles,
+                               (JSON..=) "ProgramInformation" Prelude.<$> programInformation,
                                (JSON..=) "ScteDash" Prelude.<$> scteDash,
                                (JSON..=) "SegmentTemplateFormat"
                                  Prelude.<$> segmentTemplateFormat,
+                               (JSON..=) "SubtitleConfiguration"
+                                 Prelude.<$> subtitleConfiguration,
                                (JSON..=) "SuggestedPresentationDelaySeconds"
                                  Prelude.<$> suggestedPresentationDelaySeconds,
                                (JSON..=) "UtcTiming" Prelude.<$> utcTiming]))}
@@ -80,7 +106,10 @@ instance JSON.ToJSON DashManifestConfigurationProperty where
            ((Prelude.<>)
               ["ManifestName" JSON..= manifestName]
               (Prelude.catMaybes
-                 [(JSON..=) "DrmSignaling" Prelude.<$> drmSignaling,
+                 [(JSON..=) "BaseUrls" Prelude.<$> baseUrls,
+                  (JSON..=) "Compactness" Prelude.<$> compactness,
+                  (JSON..=) "DrmSignaling" Prelude.<$> drmSignaling,
+                  (JSON..=) "DvbSettings" Prelude.<$> dvbSettings,
                   (JSON..=) "FilterConfiguration" Prelude.<$> filterConfiguration,
                   (JSON..=) "ManifestWindowSeconds"
                     Prelude.<$> manifestWindowSeconds,
@@ -88,17 +117,36 @@ instance JSON.ToJSON DashManifestConfigurationProperty where
                   (JSON..=) "MinUpdatePeriodSeconds"
                     Prelude.<$> minUpdatePeriodSeconds,
                   (JSON..=) "PeriodTriggers" Prelude.<$> periodTriggers,
+                  (JSON..=) "Profiles" Prelude.<$> profiles,
+                  (JSON..=) "ProgramInformation" Prelude.<$> programInformation,
                   (JSON..=) "ScteDash" Prelude.<$> scteDash,
                   (JSON..=) "SegmentTemplateFormat"
                     Prelude.<$> segmentTemplateFormat,
+                  (JSON..=) "SubtitleConfiguration"
+                    Prelude.<$> subtitleConfiguration,
                   (JSON..=) "SuggestedPresentationDelaySeconds"
                     Prelude.<$> suggestedPresentationDelaySeconds,
                   (JSON..=) "UtcTiming" Prelude.<$> utcTiming])))
+instance Property "BaseUrls" DashManifestConfigurationProperty where
+  type PropertyType "BaseUrls" DashManifestConfigurationProperty = [DashBaseUrlProperty]
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {baseUrls = Prelude.pure newValue, ..}
+instance Property "Compactness" DashManifestConfigurationProperty where
+  type PropertyType "Compactness" DashManifestConfigurationProperty = Value Prelude.Text
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {compactness = Prelude.pure newValue, ..}
 instance Property "DrmSignaling" DashManifestConfigurationProperty where
   type PropertyType "DrmSignaling" DashManifestConfigurationProperty = Value Prelude.Text
   set newValue DashManifestConfigurationProperty {..}
     = DashManifestConfigurationProperty
         {drmSignaling = Prelude.pure newValue, ..}
+instance Property "DvbSettings" DashManifestConfigurationProperty where
+  type PropertyType "DvbSettings" DashManifestConfigurationProperty = DashDvbSettingsProperty
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {dvbSettings = Prelude.pure newValue, ..}
 instance Property "FilterConfiguration" DashManifestConfigurationProperty where
   type PropertyType "FilterConfiguration" DashManifestConfigurationProperty = FilterConfigurationProperty
   set newValue DashManifestConfigurationProperty {..}
@@ -128,6 +176,16 @@ instance Property "PeriodTriggers" DashManifestConfigurationProperty where
   set newValue DashManifestConfigurationProperty {..}
     = DashManifestConfigurationProperty
         {periodTriggers = Prelude.pure newValue, ..}
+instance Property "Profiles" DashManifestConfigurationProperty where
+  type PropertyType "Profiles" DashManifestConfigurationProperty = ValueList Prelude.Text
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {profiles = Prelude.pure newValue, ..}
+instance Property "ProgramInformation" DashManifestConfigurationProperty where
+  type PropertyType "ProgramInformation" DashManifestConfigurationProperty = DashProgramInformationProperty
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {programInformation = Prelude.pure newValue, ..}
 instance Property "ScteDash" DashManifestConfigurationProperty where
   type PropertyType "ScteDash" DashManifestConfigurationProperty = ScteDashProperty
   set newValue DashManifestConfigurationProperty {..}
@@ -138,6 +196,11 @@ instance Property "SegmentTemplateFormat" DashManifestConfigurationProperty wher
   set newValue DashManifestConfigurationProperty {..}
     = DashManifestConfigurationProperty
         {segmentTemplateFormat = Prelude.pure newValue, ..}
+instance Property "SubtitleConfiguration" DashManifestConfigurationProperty where
+  type PropertyType "SubtitleConfiguration" DashManifestConfigurationProperty = DashSubtitleConfigurationProperty
+  set newValue DashManifestConfigurationProperty {..}
+    = DashManifestConfigurationProperty
+        {subtitleConfiguration = Prelude.pure newValue, ..}
 instance Property "SuggestedPresentationDelaySeconds" DashManifestConfigurationProperty where
   type PropertyType "SuggestedPresentationDelaySeconds" DashManifestConfigurationProperty = Value Prelude.Integer
   set newValue DashManifestConfigurationProperty {..}

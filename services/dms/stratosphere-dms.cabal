@@ -33,10 +33,16 @@ library
       Stratosphere.DMS.DataMigration.DataMigrationSettingsProperty
       Stratosphere.DMS.DataMigration.SourceDataSettingsProperty
       Stratosphere.DMS.DataProvider
+      Stratosphere.DMS.DataProvider.DocDbSettingsProperty
+      Stratosphere.DMS.DataProvider.IbmDb2LuwSettingsProperty
+      Stratosphere.DMS.DataProvider.IbmDb2zOsSettingsProperty
+      Stratosphere.DMS.DataProvider.MariaDbSettingsProperty
       Stratosphere.DMS.DataProvider.MicrosoftSqlServerSettingsProperty
+      Stratosphere.DMS.DataProvider.MongoDbSettingsProperty
       Stratosphere.DMS.DataProvider.MySqlSettingsProperty
       Stratosphere.DMS.DataProvider.OracleSettingsProperty
       Stratosphere.DMS.DataProvider.PostgreSqlSettingsProperty
+      Stratosphere.DMS.DataProvider.RedshiftSettingsProperty
       Stratosphere.DMS.DataProvider.SettingsProperty
       Stratosphere.DMS.Endpoint
       Stratosphere.DMS.Endpoint.DocDbSettingsProperty

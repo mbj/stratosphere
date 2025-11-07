@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GeospatialSolidColorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialSolidColorProperty :: Prelude.Type
+instance ToResourceProperties GeospatialSolidColorProperty
+instance Prelude.Eq GeospatialSolidColorProperty
+instance Prelude.Show GeospatialSolidColorProperty
+instance JSON.ToJSON GeospatialSolidColorProperty

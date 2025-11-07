@@ -29,6 +29,8 @@ data MicrosoftTeamsChannelConfiguration
                                         teamId :: (Value Prelude.Text),
                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamschannelid>
                                         teamsChannelId :: (Value Prelude.Text),
+                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamschannelname>
+                                        teamsChannelName :: (Prelude.Maybe (Value Prelude.Text)),
                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamstenantid>
                                         teamsTenantId :: (Value Prelude.Text),
                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-userrolerequired>
@@ -53,7 +55,8 @@ mkMicrosoftTeamsChannelConfiguration
        customizationResourceArns = Prelude.Nothing,
        guardrailPolicies = Prelude.Nothing,
        loggingLevel = Prelude.Nothing, snsTopicArns = Prelude.Nothing,
-       tags = Prelude.Nothing, userRoleRequired = Prelude.Nothing}
+       tags = Prelude.Nothing, teamsChannelName = Prelude.Nothing,
+       userRoleRequired = Prelude.Nothing}
 instance ToResourceProperties MicrosoftTeamsChannelConfiguration where
   toResourceProperties MicrosoftTeamsChannelConfiguration {..}
     = ResourceProperties
@@ -72,6 +75,7 @@ instance ToResourceProperties MicrosoftTeamsChannelConfiguration where
                                (JSON..=) "LoggingLevel" Prelude.<$> loggingLevel,
                                (JSON..=) "SnsTopicArns" Prelude.<$> snsTopicArns,
                                (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TeamsChannelName" Prelude.<$> teamsChannelName,
                                (JSON..=) "UserRoleRequired" Prelude.<$> userRoleRequired]))}
 instance JSON.ToJSON MicrosoftTeamsChannelConfiguration where
   toJSON MicrosoftTeamsChannelConfiguration {..}
@@ -89,6 +93,7 @@ instance JSON.ToJSON MicrosoftTeamsChannelConfiguration where
                   (JSON..=) "LoggingLevel" Prelude.<$> loggingLevel,
                   (JSON..=) "SnsTopicArns" Prelude.<$> snsTopicArns,
                   (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TeamsChannelName" Prelude.<$> teamsChannelName,
                   (JSON..=) "UserRoleRequired" Prelude.<$> userRoleRequired])))
 instance Property "ConfigurationName" MicrosoftTeamsChannelConfiguration where
   type PropertyType "ConfigurationName" MicrosoftTeamsChannelConfiguration = Value Prelude.Text
@@ -133,6 +138,11 @@ instance Property "TeamsChannelId" MicrosoftTeamsChannelConfiguration where
   set newValue MicrosoftTeamsChannelConfiguration {..}
     = MicrosoftTeamsChannelConfiguration
         {teamsChannelId = newValue, ..}
+instance Property "TeamsChannelName" MicrosoftTeamsChannelConfiguration where
+  type PropertyType "TeamsChannelName" MicrosoftTeamsChannelConfiguration = Value Prelude.Text
+  set newValue MicrosoftTeamsChannelConfiguration {..}
+    = MicrosoftTeamsChannelConfiguration
+        {teamsChannelName = Prelude.pure newValue, ..}
 instance Property "TeamsTenantId" MicrosoftTeamsChannelConfiguration where
   type PropertyType "TeamsTenantId" MicrosoftTeamsChannelConfiguration = Value Prelude.Text
   set newValue MicrosoftTeamsChannelConfiguration {..}

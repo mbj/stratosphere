@@ -33,6 +33,10 @@ library
       Stratosphere.IoT.AccountAuditConfiguration.AuditCheckConfigurationsProperty
       Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurationsProperty
       Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty
+      Stratosphere.IoT.AccountAuditConfiguration.CertAgeCheckCustomConfigurationProperty
+      Stratosphere.IoT.AccountAuditConfiguration.CertExpirationCheckCustomConfigurationProperty
+      Stratosphere.IoT.AccountAuditConfiguration.DeviceCertAgeAuditCheckConfigurationProperty
+      Stratosphere.IoT.AccountAuditConfiguration.DeviceCertExpirationAuditCheckConfigurationProperty
       Stratosphere.IoT.Authorizer
       Stratosphere.IoT.BillingGroup
       Stratosphere.IoT.BillingGroup.BillingGroupPropertiesProperty
@@ -40,6 +44,10 @@ library
       Stratosphere.IoT.CACertificate.RegistrationConfigProperty
       Stratosphere.IoT.Certificate
       Stratosphere.IoT.CertificateProvider
+      Stratosphere.IoT.Command
+      Stratosphere.IoT.Command.CommandParameterProperty
+      Stratosphere.IoT.Command.CommandParameterValueProperty
+      Stratosphere.IoT.Command.CommandPayloadProperty
       Stratosphere.IoT.CustomMetric
       Stratosphere.IoT.Dimension
       Stratosphere.IoT.DomainConfiguration
@@ -48,6 +56,8 @@ library
       Stratosphere.IoT.DomainConfiguration.ServerCertificateConfigProperty
       Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty
       Stratosphere.IoT.DomainConfiguration.TlsConfigProperty
+      Stratosphere.IoT.EncryptionConfiguration
+      Stratosphere.IoT.EncryptionConfiguration.ConfigurationDetailsProperty
       Stratosphere.IoT.FleetMetric
       Stratosphere.IoT.FleetMetric.AggregationTypeProperty
       Stratosphere.IoT.JobTemplate
@@ -89,6 +99,9 @@ library
       Stratosphere.IoT.SecurityProfile.StatisticalThresholdProperty
       Stratosphere.IoT.SoftwarePackage
       Stratosphere.IoT.SoftwarePackageVersion
+      Stratosphere.IoT.SoftwarePackageVersion.PackageVersionArtifactProperty
+      Stratosphere.IoT.SoftwarePackageVersion.S3LocationProperty
+      Stratosphere.IoT.SoftwarePackageVersion.SbomProperty
       Stratosphere.IoT.Thing
       Stratosphere.IoT.Thing.AttributePayloadProperty
       Stratosphere.IoT.ThingGroup

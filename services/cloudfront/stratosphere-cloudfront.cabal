@@ -28,6 +28,9 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.CloudFront.AnycastIpList
+      Stratosphere.CloudFront.AnycastIpList.AnycastIpListProperty
+      Stratosphere.CloudFront.AnycastIpList.TagsProperty
       Stratosphere.CloudFront.CachePolicy
       Stratosphere.CloudFront.CachePolicy.CachePolicyConfigProperty
       Stratosphere.CloudFront.CachePolicy.CookiesConfigProperty
@@ -36,6 +39,7 @@ library
       Stratosphere.CloudFront.CachePolicy.QueryStringsConfigProperty
       Stratosphere.CloudFront.CloudFrontOriginAccessIdentity
       Stratosphere.CloudFront.CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty
+      Stratosphere.CloudFront.ConnectionGroup
       Stratosphere.CloudFront.ContinuousDeploymentPolicy
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.SessionStickinessConfigProperty
@@ -50,10 +54,12 @@ library
       Stratosphere.CloudFront.Distribution.CustomErrorResponseProperty
       Stratosphere.CloudFront.Distribution.CustomOriginConfigProperty
       Stratosphere.CloudFront.Distribution.DefaultCacheBehaviorProperty
+      Stratosphere.CloudFront.Distribution.DefinitionProperty
       Stratosphere.CloudFront.Distribution.DistributionConfigProperty
       Stratosphere.CloudFront.Distribution.ForwardedValuesProperty
       Stratosphere.CloudFront.Distribution.FunctionAssociationProperty
       Stratosphere.CloudFront.Distribution.GeoRestrictionProperty
+      Stratosphere.CloudFront.Distribution.GrpcConfigProperty
       Stratosphere.CloudFront.Distribution.LambdaFunctionAssociationProperty
       Stratosphere.CloudFront.Distribution.LegacyCustomOriginProperty
       Stratosphere.CloudFront.Distribution.LegacyS3OriginProperty
@@ -66,10 +72,22 @@ library
       Stratosphere.CloudFront.Distribution.OriginGroupsProperty
       Stratosphere.CloudFront.Distribution.OriginProperty
       Stratosphere.CloudFront.Distribution.OriginShieldProperty
+      Stratosphere.CloudFront.Distribution.ParameterDefinitionProperty
       Stratosphere.CloudFront.Distribution.RestrictionsProperty
       Stratosphere.CloudFront.Distribution.S3OriginConfigProperty
       Stratosphere.CloudFront.Distribution.StatusCodesProperty
+      Stratosphere.CloudFront.Distribution.StringSchemaProperty
+      Stratosphere.CloudFront.Distribution.TenantConfigProperty
       Stratosphere.CloudFront.Distribution.ViewerCertificateProperty
+      Stratosphere.CloudFront.Distribution.VpcOriginConfigProperty
+      Stratosphere.CloudFront.DistributionTenant
+      Stratosphere.CloudFront.DistributionTenant.CertificateProperty
+      Stratosphere.CloudFront.DistributionTenant.CustomizationsProperty
+      Stratosphere.CloudFront.DistributionTenant.DomainResultProperty
+      Stratosphere.CloudFront.DistributionTenant.GeoRestrictionCustomizationProperty
+      Stratosphere.CloudFront.DistributionTenant.ManagedCertificateRequestProperty
+      Stratosphere.CloudFront.DistributionTenant.ParameterProperty
+      Stratosphere.CloudFront.DistributionTenant.WebAclCustomizationProperty
       Stratosphere.CloudFront.Function
       Stratosphere.CloudFront.Function.FunctionConfigProperty
       Stratosphere.CloudFront.Function.FunctionMetadataProperty
@@ -117,6 +135,8 @@ library
       Stratosphere.CloudFront.StreamingDistribution.S3OriginProperty
       Stratosphere.CloudFront.StreamingDistribution.StreamingDistributionConfigProperty
       Stratosphere.CloudFront.StreamingDistribution.TrustedSignersProperty
+      Stratosphere.CloudFront.VpcOrigin
+      Stratosphere.CloudFront.VpcOrigin.VpcOriginEndpointConfigProperty
   other-modules:
       Paths_stratosphere_cloudfront
   hs-source-dirs:

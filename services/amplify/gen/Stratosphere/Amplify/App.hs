@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Amplify.App.BasicAuthConfigProperty as Export
 import {-# SOURCE #-} Stratosphere.Amplify.App.CacheConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.App.CustomRuleProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.App.EnvironmentVariableProperty as Exports
+import {-# SOURCE #-} Stratosphere.Amplify.App.JobConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -25,6 +26,8 @@ data App
          buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-cacheconfig>
          cacheConfig :: (Prelude.Maybe CacheConfigProperty),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-computerolearn>
+         computeRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders>
          customHeaders :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules>
@@ -37,6 +40,8 @@ data App
          environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole>
          iAMServiceRole :: (Prelude.Maybe (Value Prelude.Text)),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-jobconfig>
+         jobConfig :: (Prelude.Maybe JobConfigProperty),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name>
          name :: (Value Prelude.Text),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken>
@@ -55,13 +60,14 @@ mkApp name
        accessToken = Prelude.Nothing,
        autoBranchCreationConfig = Prelude.Nothing,
        basicAuthConfig = Prelude.Nothing, buildSpec = Prelude.Nothing,
-       cacheConfig = Prelude.Nothing, customHeaders = Prelude.Nothing,
-       customRules = Prelude.Nothing, description = Prelude.Nothing,
+       cacheConfig = Prelude.Nothing, computeRoleArn = Prelude.Nothing,
+       customHeaders = Prelude.Nothing, customRules = Prelude.Nothing,
+       description = Prelude.Nothing,
        enableBranchAutoDeletion = Prelude.Nothing,
        environmentVariables = Prelude.Nothing,
-       iAMServiceRole = Prelude.Nothing, oauthToken = Prelude.Nothing,
-       platform = Prelude.Nothing, repository = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       iAMServiceRole = Prelude.Nothing, jobConfig = Prelude.Nothing,
+       oauthToken = Prelude.Nothing, platform = Prelude.Nothing,
+       repository = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
@@ -76,6 +82,7 @@ instance ToResourceProperties App where
                                (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                                (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
                                (JSON..=) "CacheConfig" Prelude.<$> cacheConfig,
+                               (JSON..=) "ComputeRoleArn" Prelude.<$> computeRoleArn,
                                (JSON..=) "CustomHeaders" Prelude.<$> customHeaders,
                                (JSON..=) "CustomRules" Prelude.<$> customRules,
                                (JSON..=) "Description" Prelude.<$> description,
@@ -83,6 +90,7 @@ instance ToResourceProperties App where
                                  Prelude.<$> enableBranchAutoDeletion,
                                (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                                (JSON..=) "IAMServiceRole" Prelude.<$> iAMServiceRole,
+                               (JSON..=) "JobConfig" Prelude.<$> jobConfig,
                                (JSON..=) "OauthToken" Prelude.<$> oauthToken,
                                (JSON..=) "Platform" Prelude.<$> platform,
                                (JSON..=) "Repository" Prelude.<$> repository,
@@ -100,6 +108,7 @@ instance JSON.ToJSON App where
                   (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                   (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
                   (JSON..=) "CacheConfig" Prelude.<$> cacheConfig,
+                  (JSON..=) "ComputeRoleArn" Prelude.<$> computeRoleArn,
                   (JSON..=) "CustomHeaders" Prelude.<$> customHeaders,
                   (JSON..=) "CustomRules" Prelude.<$> customRules,
                   (JSON..=) "Description" Prelude.<$> description,
@@ -107,6 +116,7 @@ instance JSON.ToJSON App where
                     Prelude.<$> enableBranchAutoDeletion,
                   (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                   (JSON..=) "IAMServiceRole" Prelude.<$> iAMServiceRole,
+                  (JSON..=) "JobConfig" Prelude.<$> jobConfig,
                   (JSON..=) "OauthToken" Prelude.<$> oauthToken,
                   (JSON..=) "Platform" Prelude.<$> platform,
                   (JSON..=) "Repository" Prelude.<$> repository,
@@ -130,6 +140,10 @@ instance Property "CacheConfig" App where
   type PropertyType "CacheConfig" App = CacheConfigProperty
   set newValue App {..}
     = App {cacheConfig = Prelude.pure newValue, ..}
+instance Property "ComputeRoleArn" App where
+  type PropertyType "ComputeRoleArn" App = Value Prelude.Text
+  set newValue App {..}
+    = App {computeRoleArn = Prelude.pure newValue, ..}
 instance Property "CustomHeaders" App where
   type PropertyType "CustomHeaders" App = Value Prelude.Text
   set newValue App {..}
@@ -154,6 +168,9 @@ instance Property "IAMServiceRole" App where
   type PropertyType "IAMServiceRole" App = Value Prelude.Text
   set newValue App {..}
     = App {iAMServiceRole = Prelude.pure newValue, ..}
+instance Property "JobConfig" App where
+  type PropertyType "JobConfig" App = JobConfigProperty
+  set newValue App {..} = App {jobConfig = Prelude.pure newValue, ..}
 instance Property "Name" App where
   type PropertyType "Name" App = Value Prelude.Text
   set newValue App {..} = App {name = newValue, ..}

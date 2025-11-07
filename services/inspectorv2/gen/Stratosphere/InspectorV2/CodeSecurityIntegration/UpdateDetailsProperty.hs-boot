@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UpdateDetailsProperty :: Prelude.Type
+instance ToResourceProperties UpdateDetailsProperty
+instance Prelude.Eq UpdateDetailsProperty
+instance Prelude.Show UpdateDetailsProperty
+instance JSON.ToJSON UpdateDetailsProperty

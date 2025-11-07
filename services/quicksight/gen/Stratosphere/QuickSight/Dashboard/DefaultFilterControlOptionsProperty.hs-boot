@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DefaultFilterControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultFilterControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultFilterControlOptionsProperty
+instance Prelude.Eq DefaultFilterControlOptionsProperty
+instance Prelude.Show DefaultFilterControlOptionsProperty
+instance JSON.ToJSON DefaultFilterControlOptionsProperty

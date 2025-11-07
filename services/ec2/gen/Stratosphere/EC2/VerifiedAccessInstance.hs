@@ -13,6 +13,8 @@ import Stratosphere.Value
 data VerifiedAccessInstance
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html>
     VerifiedAccessInstance {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-cidrendpointscustomsubdomain>
+                            cidrEndpointsCustomSubDomain :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-description>
                             description :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-fipsenabled>
@@ -29,8 +31,9 @@ data VerifiedAccessInstance
 mkVerifiedAccessInstance :: VerifiedAccessInstance
 mkVerifiedAccessInstance
   = VerifiedAccessInstance
-      {haddock_workaround_ = (), description = Prelude.Nothing,
-       fipsEnabled = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       cidrEndpointsCustomSubDomain = Prelude.Nothing,
+       description = Prelude.Nothing, fipsEnabled = Prelude.Nothing,
        loggingConfigurations = Prelude.Nothing, tags = Prelude.Nothing,
        verifiedAccessTrustProviderIds = Prelude.Nothing,
        verifiedAccessTrustProviders = Prelude.Nothing}
@@ -41,7 +44,9 @@ instance ToResourceProperties VerifiedAccessInstance where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Description" Prelude.<$> description,
+                           [(JSON..=) "CidrEndpointsCustomSubDomain"
+                              Prelude.<$> cidrEndpointsCustomSubDomain,
+                            (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "FipsEnabled" Prelude.<$> fipsEnabled,
                             (JSON..=) "LoggingConfigurations"
                               Prelude.<$> loggingConfigurations,
@@ -55,7 +60,9 @@ instance JSON.ToJSON VerifiedAccessInstance where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Description" Prelude.<$> description,
+              [(JSON..=) "CidrEndpointsCustomSubDomain"
+                 Prelude.<$> cidrEndpointsCustomSubDomain,
+               (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "FipsEnabled" Prelude.<$> fipsEnabled,
                (JSON..=) "LoggingConfigurations"
                  Prelude.<$> loggingConfigurations,
@@ -64,6 +71,11 @@ instance JSON.ToJSON VerifiedAccessInstance where
                  Prelude.<$> verifiedAccessTrustProviderIds,
                (JSON..=) "VerifiedAccessTrustProviders"
                  Prelude.<$> verifiedAccessTrustProviders]))
+instance Property "CidrEndpointsCustomSubDomain" VerifiedAccessInstance where
+  type PropertyType "CidrEndpointsCustomSubDomain" VerifiedAccessInstance = Value Prelude.Text
+  set newValue VerifiedAccessInstance {..}
+    = VerifiedAccessInstance
+        {cidrEndpointsCustomSubDomain = Prelude.pure newValue, ..}
 instance Property "Description" VerifiedAccessInstance where
   type PropertyType "Description" VerifiedAccessInstance = Value Prelude.Text
   set newValue VerifiedAccessInstance {..}

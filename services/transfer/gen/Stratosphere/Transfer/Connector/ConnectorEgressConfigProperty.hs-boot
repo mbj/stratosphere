@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.Connector.ConnectorEgressConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectorEgressConfigProperty :: Prelude.Type
+instance ToResourceProperties ConnectorEgressConfigProperty
+instance Prelude.Eq ConnectorEgressConfigProperty
+instance Prelude.Show ConnectorEgressConfigProperty
+instance JSON.ToJSON ConnectorEgressConfigProperty

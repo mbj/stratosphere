@@ -55,10 +55,13 @@ library
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStringConfigProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStringKeyValueProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.RedirectConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.RewriteConfigObjectProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.RewriteConfigProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.RuleConditionProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.SourceIpConfigProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupStickinessConfigProperty
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupTupleProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.TransformProperty
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttributeProperty
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer.MinimumLoadBalancerCapacityProperty

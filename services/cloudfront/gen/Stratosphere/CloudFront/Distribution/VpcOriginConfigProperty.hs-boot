@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.Distribution.VpcOriginConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcOriginConfigProperty :: Prelude.Type
+instance ToResourceProperties VpcOriginConfigProperty
+instance Prelude.Eq VpcOriginConfigProperty
+instance Prelude.Show VpcOriginConfigProperty
+instance JSON.ToJSON VpcOriginConfigProperty

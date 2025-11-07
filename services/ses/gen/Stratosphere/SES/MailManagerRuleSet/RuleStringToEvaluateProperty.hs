@@ -1,14 +1,18 @@
 module Stratosphere.SES.MailManagerRuleSet.RuleStringToEvaluateProperty (
-        RuleStringToEvaluateProperty(..), mkRuleStringToEvaluateProperty
+        module Exports, RuleStringToEvaluateProperty(..),
+        mkRuleStringToEvaluateProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.AnalysisProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleStringToEvaluateProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html>
     RuleStringToEvaluateProperty {haddock_workaround_ :: (),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-analysis>
+                                  analysis :: (Prelude.Maybe AnalysisProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-attribute>
                                   attribute :: (Prelude.Maybe (Value Prelude.Text)),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-mimeheaderattribute>
@@ -17,8 +21,8 @@ data RuleStringToEvaluateProperty
 mkRuleStringToEvaluateProperty :: RuleStringToEvaluateProperty
 mkRuleStringToEvaluateProperty
   = RuleStringToEvaluateProperty
-      {haddock_workaround_ = (), attribute = Prelude.Nothing,
-       mimeHeaderAttribute = Prelude.Nothing}
+      {haddock_workaround_ = (), analysis = Prelude.Nothing,
+       attribute = Prelude.Nothing, mimeHeaderAttribute = Prelude.Nothing}
 instance ToResourceProperties RuleStringToEvaluateProperty where
   toResourceProperties RuleStringToEvaluateProperty {..}
     = ResourceProperties
@@ -26,15 +30,22 @@ instance ToResourceProperties RuleStringToEvaluateProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Attribute" Prelude.<$> attribute,
+                           [(JSON..=) "Analysis" Prelude.<$> analysis,
+                            (JSON..=) "Attribute" Prelude.<$> attribute,
                             (JSON..=) "MimeHeaderAttribute" Prelude.<$> mimeHeaderAttribute])}
 instance JSON.ToJSON RuleStringToEvaluateProperty where
   toJSON RuleStringToEvaluateProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Attribute" Prelude.<$> attribute,
+              [(JSON..=) "Analysis" Prelude.<$> analysis,
+               (JSON..=) "Attribute" Prelude.<$> attribute,
                (JSON..=) "MimeHeaderAttribute" Prelude.<$> mimeHeaderAttribute]))
+instance Property "Analysis" RuleStringToEvaluateProperty where
+  type PropertyType "Analysis" RuleStringToEvaluateProperty = AnalysisProperty
+  set newValue RuleStringToEvaluateProperty {..}
+    = RuleStringToEvaluateProperty
+        {analysis = Prelude.pure newValue, ..}
 instance Property "Attribute" RuleStringToEvaluateProperty where
   type PropertyType "Attribute" RuleStringToEvaluateProperty = Value Prelude.Text
   set newValue RuleStringToEvaluateProperty {..}

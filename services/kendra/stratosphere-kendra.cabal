@@ -71,6 +71,7 @@ library
       Stratosphere.Kendra.DataSource.ServiceNowServiceCatalogConfigurationProperty
       Stratosphere.Kendra.DataSource.SharePointConfigurationProperty
       Stratosphere.Kendra.DataSource.SqlConfigurationProperty
+      Stratosphere.Kendra.DataSource.TemplateConfigurationProperty
       Stratosphere.Kendra.DataSource.WebCrawlerAuthenticationConfigurationProperty
       Stratosphere.Kendra.DataSource.WebCrawlerBasicAuthenticationProperty
       Stratosphere.Kendra.DataSource.WebCrawlerConfigurationProperty

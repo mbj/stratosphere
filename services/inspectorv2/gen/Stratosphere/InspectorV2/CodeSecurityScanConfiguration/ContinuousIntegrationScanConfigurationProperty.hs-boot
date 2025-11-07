@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ContinuousIntegrationScanConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContinuousIntegrationScanConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ContinuousIntegrationScanConfigurationProperty
+instance Prelude.Eq ContinuousIntegrationScanConfigurationProperty
+instance Prelude.Show ContinuousIntegrationScanConfigurationProperty
+instance JSON.ToJSON ContinuousIntegrationScanConfigurationProperty

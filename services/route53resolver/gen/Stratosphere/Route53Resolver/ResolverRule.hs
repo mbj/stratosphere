@@ -11,6 +11,8 @@ import Stratosphere.Value
 data ResolverRule
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html>
     ResolverRule {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-delegationrecord>
+                  delegationRecord :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname>
                   domainName :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name>
@@ -28,9 +30,9 @@ mkResolverRule :: Value Prelude.Text -> ResolverRule
 mkResolverRule ruleType
   = ResolverRule
       {haddock_workaround_ = (), ruleType = ruleType,
-       domainName = Prelude.Nothing, name = Prelude.Nothing,
-       resolverEndpointId = Prelude.Nothing, tags = Prelude.Nothing,
-       targetIps = Prelude.Nothing}
+       delegationRecord = Prelude.Nothing, domainName = Prelude.Nothing,
+       name = Prelude.Nothing, resolverEndpointId = Prelude.Nothing,
+       tags = Prelude.Nothing, targetIps = Prelude.Nothing}
 instance ToResourceProperties ResolverRule where
   toResourceProperties ResolverRule {..}
     = ResourceProperties
@@ -40,7 +42,8 @@ instance ToResourceProperties ResolverRule where
                         ((Prelude.<>)
                            ["RuleType" JSON..= ruleType]
                            (Prelude.catMaybes
-                              [(JSON..=) "DomainName" Prelude.<$> domainName,
+                              [(JSON..=) "DelegationRecord" Prelude.<$> delegationRecord,
+                               (JSON..=) "DomainName" Prelude.<$> domainName,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "ResolverEndpointId" Prelude.<$> resolverEndpointId,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -52,11 +55,16 @@ instance JSON.ToJSON ResolverRule where
            ((Prelude.<>)
               ["RuleType" JSON..= ruleType]
               (Prelude.catMaybes
-                 [(JSON..=) "DomainName" Prelude.<$> domainName,
+                 [(JSON..=) "DelegationRecord" Prelude.<$> delegationRecord,
+                  (JSON..=) "DomainName" Prelude.<$> domainName,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "ResolverEndpointId" Prelude.<$> resolverEndpointId,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TargetIps" Prelude.<$> targetIps])))
+instance Property "DelegationRecord" ResolverRule where
+  type PropertyType "DelegationRecord" ResolverRule = Value Prelude.Text
+  set newValue ResolverRule {..}
+    = ResolverRule {delegationRecord = Prelude.pure newValue, ..}
 instance Property "DomainName" ResolverRule where
   type PropertyType "DomainName" ResolverRule = Value Prelude.Text
   set newValue ResolverRule {..}

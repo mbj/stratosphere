@@ -35,6 +35,17 @@ library
       Stratosphere.InspectorV2.CisScanConfiguration.ScheduleProperty
       Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty
       Stratosphere.InspectorV2.CisScanConfiguration.WeeklyScheduleProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration
+      Stratosphere.InspectorV2.CodeSecurityIntegration.CreateDetailsProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.CreateGitLabSelfManagedIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateDetailsProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateGitHubIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateGitLabSelfManagedIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.CodeSecurityScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ContinuousIntegrationScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.PeriodicScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ScopeSettingsProperty
       Stratosphere.InspectorV2.Filter
       Stratosphere.InspectorV2.Filter.DateFilterProperty
       Stratosphere.InspectorV2.Filter.FilterCriteriaProperty

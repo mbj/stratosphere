@@ -32,6 +32,9 @@ library
       Stratosphere.ECR.PublicRepository.RepositoryCatalogDataProperty
       Stratosphere.ECR.PullThroughCacheRule
       Stratosphere.ECR.RegistryPolicy
+      Stratosphere.ECR.RegistryScanningConfiguration
+      Stratosphere.ECR.RegistryScanningConfiguration.RepositoryFilterProperty
+      Stratosphere.ECR.RegistryScanningConfiguration.ScanningRuleProperty
       Stratosphere.ECR.ReplicationConfiguration
       Stratosphere.ECR.ReplicationConfiguration.ReplicationConfigurationProperty
       Stratosphere.ECR.ReplicationConfiguration.ReplicationDestinationProperty
@@ -40,9 +43,11 @@ library
       Stratosphere.ECR.Repository
       Stratosphere.ECR.Repository.EncryptionConfigurationProperty
       Stratosphere.ECR.Repository.ImageScanningConfigurationProperty
+      Stratosphere.ECR.Repository.ImageTagMutabilityExclusionFilterProperty
       Stratosphere.ECR.Repository.LifecyclePolicyProperty
       Stratosphere.ECR.RepositoryCreationTemplate
       Stratosphere.ECR.RepositoryCreationTemplate.EncryptionConfigurationProperty
+      Stratosphere.ECR.RepositoryCreationTemplate.ImageTagMutabilityExclusionFilterProperty
   other-modules:
       Paths_stratosphere_ecr
   hs-source-dirs:

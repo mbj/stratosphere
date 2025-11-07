@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.LowerCaseStringProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LowerCaseStringProperty :: Prelude.Type
+instance ToResourceProperties LowerCaseStringProperty
+instance Prelude.Eq LowerCaseStringProperty
+instance Prelude.Show LowerCaseStringProperty
+instance JSON.ToJSON LowerCaseStringProperty

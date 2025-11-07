@@ -31,13 +31,17 @@ library
       Stratosphere.Budgets.Budget
       Stratosphere.Budgets.Budget.AutoAdjustDataProperty
       Stratosphere.Budgets.Budget.BudgetDataProperty
+      Stratosphere.Budgets.Budget.CostCategoryValuesProperty
       Stratosphere.Budgets.Budget.CostTypesProperty
+      Stratosphere.Budgets.Budget.ExpressionDimensionValuesProperty
+      Stratosphere.Budgets.Budget.ExpressionProperty
       Stratosphere.Budgets.Budget.HistoricalOptionsProperty
       Stratosphere.Budgets.Budget.NotificationProperty
       Stratosphere.Budgets.Budget.NotificationWithSubscribersProperty
       Stratosphere.Budgets.Budget.ResourceTagProperty
       Stratosphere.Budgets.Budget.SpendProperty
       Stratosphere.Budgets.Budget.SubscriberProperty
+      Stratosphere.Budgets.Budget.TagValuesProperty
       Stratosphere.Budgets.Budget.TimePeriodProperty
       Stratosphere.Budgets.BudgetsAction
       Stratosphere.Budgets.BudgetsAction.ActionThresholdProperty

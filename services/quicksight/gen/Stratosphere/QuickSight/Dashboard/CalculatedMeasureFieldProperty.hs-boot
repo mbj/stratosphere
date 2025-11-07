@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.CalculatedMeasureFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CalculatedMeasureFieldProperty :: Prelude.Type
+instance ToResourceProperties CalculatedMeasureFieldProperty
+instance Prelude.Eq CalculatedMeasureFieldProperty
+instance Prelude.Show CalculatedMeasureFieldProperty
+instance JSON.ToJSON CalculatedMeasureFieldProperty

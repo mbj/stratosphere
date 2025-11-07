@@ -1,0 +1,9 @@
+module Stratosphere.FSx.S3AccessPointAttachment.FileSystemGIDProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FileSystemGIDProperty :: Prelude.Type
+instance ToResourceProperties FileSystemGIDProperty
+instance Prelude.Eq FileSystemGIDProperty
+instance Prelude.Show FileSystemGIDProperty
+instance JSON.ToJSON FileSystemGIDProperty

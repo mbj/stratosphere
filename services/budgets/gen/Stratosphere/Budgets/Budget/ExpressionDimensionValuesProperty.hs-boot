@@ -1,0 +1,9 @@
+module Stratosphere.Budgets.Budget.ExpressionDimensionValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExpressionDimensionValuesProperty :: Prelude.Type
+instance ToResourceProperties ExpressionDimensionValuesProperty
+instance Prelude.Eq ExpressionDimensionValuesProperty
+instance Prelude.Show ExpressionDimensionValuesProperty
+instance JSON.ToJSON ExpressionDimensionValuesProperty

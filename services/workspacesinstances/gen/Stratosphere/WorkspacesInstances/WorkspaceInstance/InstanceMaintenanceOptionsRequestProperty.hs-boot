@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.InstanceMaintenanceOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMaintenanceOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties InstanceMaintenanceOptionsRequestProperty
+instance Prelude.Eq InstanceMaintenanceOptionsRequestProperty
+instance Prelude.Show InstanceMaintenanceOptionsRequestProperty
+instance JSON.ToJSON InstanceMaintenanceOptionsRequestProperty

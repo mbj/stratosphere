@@ -5,6 +5,7 @@ module Stratosphere.CleanRooms.Collaboration.MemberSpecificationProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CleanRooms.Collaboration.MLMemberAbilitiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.CleanRooms.Collaboration.PaymentConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -15,19 +16,21 @@ data MemberSpecificationProperty
                                  accountId :: (Value Prelude.Text),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-displayname>
                                  displayName :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-mlmemberabilities>
+                                 mLMemberAbilities :: (Prelude.Maybe MLMemberAbilitiesProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities>
-                                 memberAbilities :: (ValueList Prelude.Text),
+                                 memberAbilities :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-paymentconfiguration>
                                  paymentConfiguration :: (Prelude.Maybe PaymentConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberSpecificationProperty ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> ValueList Prelude.Text -> MemberSpecificationProperty
-mkMemberSpecificationProperty accountId displayName memberAbilities
+  -> Value Prelude.Text -> MemberSpecificationProperty
+mkMemberSpecificationProperty accountId displayName
   = MemberSpecificationProperty
       {haddock_workaround_ = (), accountId = accountId,
-       displayName = displayName, memberAbilities = memberAbilities,
+       displayName = displayName, mLMemberAbilities = Prelude.Nothing,
+       memberAbilities = Prelude.Nothing,
        paymentConfiguration = Prelude.Nothing}
 instance ToResourceProperties MemberSpecificationProperty where
   toResourceProperties MemberSpecificationProperty {..}
@@ -36,20 +39,22 @@ instance ToResourceProperties MemberSpecificationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AccountId" JSON..= accountId, "DisplayName" JSON..= displayName,
-                            "MemberAbilities" JSON..= memberAbilities]
+                           ["AccountId" JSON..= accountId, "DisplayName" JSON..= displayName]
                            (Prelude.catMaybes
-                              [(JSON..=) "PaymentConfiguration"
+                              [(JSON..=) "MLMemberAbilities" Prelude.<$> mLMemberAbilities,
+                               (JSON..=) "MemberAbilities" Prelude.<$> memberAbilities,
+                               (JSON..=) "PaymentConfiguration"
                                  Prelude.<$> paymentConfiguration]))}
 instance JSON.ToJSON MemberSpecificationProperty where
   toJSON MemberSpecificationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AccountId" JSON..= accountId, "DisplayName" JSON..= displayName,
-               "MemberAbilities" JSON..= memberAbilities]
+              ["AccountId" JSON..= accountId, "DisplayName" JSON..= displayName]
               (Prelude.catMaybes
-                 [(JSON..=) "PaymentConfiguration"
+                 [(JSON..=) "MLMemberAbilities" Prelude.<$> mLMemberAbilities,
+                  (JSON..=) "MemberAbilities" Prelude.<$> memberAbilities,
+                  (JSON..=) "PaymentConfiguration"
                     Prelude.<$> paymentConfiguration])))
 instance Property "AccountId" MemberSpecificationProperty where
   type PropertyType "AccountId" MemberSpecificationProperty = Value Prelude.Text
@@ -59,10 +64,16 @@ instance Property "DisplayName" MemberSpecificationProperty where
   type PropertyType "DisplayName" MemberSpecificationProperty = Value Prelude.Text
   set newValue MemberSpecificationProperty {..}
     = MemberSpecificationProperty {displayName = newValue, ..}
+instance Property "MLMemberAbilities" MemberSpecificationProperty where
+  type PropertyType "MLMemberAbilities" MemberSpecificationProperty = MLMemberAbilitiesProperty
+  set newValue MemberSpecificationProperty {..}
+    = MemberSpecificationProperty
+        {mLMemberAbilities = Prelude.pure newValue, ..}
 instance Property "MemberAbilities" MemberSpecificationProperty where
   type PropertyType "MemberAbilities" MemberSpecificationProperty = ValueList Prelude.Text
   set newValue MemberSpecificationProperty {..}
-    = MemberSpecificationProperty {memberAbilities = newValue, ..}
+    = MemberSpecificationProperty
+        {memberAbilities = Prelude.pure newValue, ..}
 instance Property "PaymentConfiguration" MemberSpecificationProperty where
   type PropertyType "PaymentConfiguration" MemberSpecificationProperty = PaymentConfigurationProperty
   set newValue MemberSpecificationProperty {..}

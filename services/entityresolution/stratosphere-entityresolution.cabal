@@ -29,6 +29,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.EntityResolution.IdMappingWorkflow
+      Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingIncrementalRunConfigProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingRuleBasedPropertiesProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingTechniquesProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingWorkflowInputSourceProperty
@@ -51,6 +52,8 @@ library
       Stratosphere.EntityResolution.MatchingWorkflow.ProviderPropertiesProperty
       Stratosphere.EntityResolution.MatchingWorkflow.ResolutionTechniquesProperty
       Stratosphere.EntityResolution.MatchingWorkflow.RuleBasedPropertiesProperty
+      Stratosphere.EntityResolution.MatchingWorkflow.RuleConditionPropertiesProperty
+      Stratosphere.EntityResolution.MatchingWorkflow.RuleConditionProperty
       Stratosphere.EntityResolution.MatchingWorkflow.RuleProperty
       Stratosphere.EntityResolution.PolicyStatement
       Stratosphere.EntityResolution.SchemaMapping

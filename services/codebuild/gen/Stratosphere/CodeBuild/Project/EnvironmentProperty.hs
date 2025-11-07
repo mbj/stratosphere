@@ -4,6 +4,7 @@ module Stratosphere.CodeBuild.Project.EnvironmentProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CodeBuild.Project.DockerServerProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.EnvironmentVariableProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.ProjectFleetProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.RegistryCredentialProperty as Exports
@@ -16,6 +17,8 @@ data EnvironmentProperty
                          certificate :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype>
                          computeType :: (Value Prelude.Text),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-dockerserver>
+                         dockerServer :: (Prelude.Maybe DockerServerProperty),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables>
                          environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet>
@@ -38,6 +41,7 @@ mkEnvironmentProperty computeType image type'
   = EnvironmentProperty
       {haddock_workaround_ = (), computeType = computeType,
        image = image, type' = type', certificate = Prelude.Nothing,
+       dockerServer = Prelude.Nothing,
        environmentVariables = Prelude.Nothing, fleet = Prelude.Nothing,
        imagePullCredentialsType = Prelude.Nothing,
        privilegedMode = Prelude.Nothing,
@@ -53,6 +57,7 @@ instance ToResourceProperties EnvironmentProperty where
                             "Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "Certificate" Prelude.<$> certificate,
+                               (JSON..=) "DockerServer" Prelude.<$> dockerServer,
                                (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                                (JSON..=) "Fleet" Prelude.<$> fleet,
                                (JSON..=) "ImagePullCredentialsType"
@@ -68,6 +73,7 @@ instance JSON.ToJSON EnvironmentProperty where
                "Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "Certificate" Prelude.<$> certificate,
+                  (JSON..=) "DockerServer" Prelude.<$> dockerServer,
                   (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                   (JSON..=) "Fleet" Prelude.<$> fleet,
                   (JSON..=) "ImagePullCredentialsType"
@@ -82,6 +88,10 @@ instance Property "ComputeType" EnvironmentProperty where
   type PropertyType "ComputeType" EnvironmentProperty = Value Prelude.Text
   set newValue EnvironmentProperty {..}
     = EnvironmentProperty {computeType = newValue, ..}
+instance Property "DockerServer" EnvironmentProperty where
+  type PropertyType "DockerServer" EnvironmentProperty = DockerServerProperty
+  set newValue EnvironmentProperty {..}
+    = EnvironmentProperty {dockerServer = Prelude.pure newValue, ..}
 instance Property "EnvironmentVariables" EnvironmentProperty where
   type PropertyType "EnvironmentVariables" EnvironmentProperty = [EnvironmentVariableProperty]
   set newValue EnvironmentProperty {..}

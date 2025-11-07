@@ -1,0 +1,9 @@
+module Stratosphere.EVS.Environment.InitialVlanInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InitialVlanInfoProperty :: Prelude.Type
+instance ToResourceProperties InitialVlanInfoProperty
+instance Prelude.Eq InitialVlanInfoProperty
+instance Prelude.Show InitialVlanInfoProperty
+instance JSON.ToJSON InitialVlanInfoProperty

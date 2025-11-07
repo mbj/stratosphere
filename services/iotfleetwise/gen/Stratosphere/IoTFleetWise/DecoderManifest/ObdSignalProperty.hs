@@ -15,6 +15,8 @@ data ObdSignalProperty
                        bitRightShift :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bytelength>
                        byteLength :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-issigned>
+                       isSigned :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-offset>
                        offset :: (Value Prelude.Text),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-pid>
@@ -25,6 +27,8 @@ data ObdSignalProperty
                        scaling :: (Value Prelude.Text),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-servicemode>
                        serviceMode :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-signalvaluetype>
+                       signalValueType :: (Prelude.Maybe (Value Prelude.Text)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-startbyte>
                        startByte :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -48,7 +52,8 @@ mkObdSignalProperty
        offset = offset, pid = pid, pidResponseLength = pidResponseLength,
        scaling = scaling, serviceMode = serviceMode,
        startByte = startByte, bitMaskLength = Prelude.Nothing,
-       bitRightShift = Prelude.Nothing}
+       bitRightShift = Prelude.Nothing, isSigned = Prelude.Nothing,
+       signalValueType = Prelude.Nothing}
 instance ToResourceProperties ObdSignalProperty where
   toResourceProperties ObdSignalProperty {..}
     = ResourceProperties
@@ -62,7 +67,9 @@ instance ToResourceProperties ObdSignalProperty where
                             "StartByte" JSON..= startByte]
                            (Prelude.catMaybes
                               [(JSON..=) "BitMaskLength" Prelude.<$> bitMaskLength,
-                               (JSON..=) "BitRightShift" Prelude.<$> bitRightShift]))}
+                               (JSON..=) "BitRightShift" Prelude.<$> bitRightShift,
+                               (JSON..=) "IsSigned" Prelude.<$> isSigned,
+                               (JSON..=) "SignalValueType" Prelude.<$> signalValueType]))}
 instance JSON.ToJSON ObdSignalProperty where
   toJSON ObdSignalProperty {..}
     = JSON.object
@@ -74,7 +81,9 @@ instance JSON.ToJSON ObdSignalProperty where
                "StartByte" JSON..= startByte]
               (Prelude.catMaybes
                  [(JSON..=) "BitMaskLength" Prelude.<$> bitMaskLength,
-                  (JSON..=) "BitRightShift" Prelude.<$> bitRightShift])))
+                  (JSON..=) "BitRightShift" Prelude.<$> bitRightShift,
+                  (JSON..=) "IsSigned" Prelude.<$> isSigned,
+                  (JSON..=) "SignalValueType" Prelude.<$> signalValueType])))
 instance Property "BitMaskLength" ObdSignalProperty where
   type PropertyType "BitMaskLength" ObdSignalProperty = Value Prelude.Text
   set newValue ObdSignalProperty {..}
@@ -87,6 +96,10 @@ instance Property "ByteLength" ObdSignalProperty where
   type PropertyType "ByteLength" ObdSignalProperty = Value Prelude.Text
   set newValue ObdSignalProperty {..}
     = ObdSignalProperty {byteLength = newValue, ..}
+instance Property "IsSigned" ObdSignalProperty where
+  type PropertyType "IsSigned" ObdSignalProperty = Value Prelude.Text
+  set newValue ObdSignalProperty {..}
+    = ObdSignalProperty {isSigned = Prelude.pure newValue, ..}
 instance Property "Offset" ObdSignalProperty where
   type PropertyType "Offset" ObdSignalProperty = Value Prelude.Text
   set newValue ObdSignalProperty {..}
@@ -107,6 +120,10 @@ instance Property "ServiceMode" ObdSignalProperty where
   type PropertyType "ServiceMode" ObdSignalProperty = Value Prelude.Text
   set newValue ObdSignalProperty {..}
     = ObdSignalProperty {serviceMode = newValue, ..}
+instance Property "SignalValueType" ObdSignalProperty where
+  type PropertyType "SignalValueType" ObdSignalProperty = Value Prelude.Text
+  set newValue ObdSignalProperty {..}
+    = ObdSignalProperty {signalValueType = Prelude.pure newValue, ..}
 instance Property "StartByte" ObdSignalProperty where
   type PropertyType "StartByte" ObdSignalProperty = Value Prelude.Text
   set newValue ObdSignalProperty {..}

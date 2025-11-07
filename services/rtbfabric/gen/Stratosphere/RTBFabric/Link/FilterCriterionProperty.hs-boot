@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.FilterCriterionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterCriterionProperty :: Prelude.Type
+instance ToResourceProperties FilterCriterionProperty
+instance Prelude.Eq FilterCriterionProperty
+instance Prelude.Show FilterCriterionProperty
+instance JSON.ToJSON FilterCriterionProperty

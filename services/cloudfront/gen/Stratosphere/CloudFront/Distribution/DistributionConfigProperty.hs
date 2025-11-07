@@ -14,6 +14,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.LoggingProperty as Ex
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginGroupsProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.RestrictionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.TenantConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.ViewerCertificateProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -22,12 +23,16 @@ data DistributionConfigProperty
     DistributionConfigProperty {haddock_workaround_ :: (),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases>
                                 aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-anycastiplistid>
+                                anycastIpListId :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames>
                                 cNAMEs :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors>
                                 cacheBehaviors :: (Prelude.Maybe [CacheBehaviorProperty]),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment>
                                 comment :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-connectionmode>
+                                connectionMode :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-continuousdeploymentpolicyid>
                                 continuousDeploymentPolicyId :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses>
@@ -58,6 +63,8 @@ data DistributionConfigProperty
                                 s3Origin :: (Prelude.Maybe LegacyS3OriginProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-staging>
                                 staging :: (Prelude.Maybe (Value Prelude.Bool)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-tenantconfig>
+                                tenantConfig :: (Prelude.Maybe TenantConfigProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate>
                                 viewerCertificate :: (Prelude.Maybe ViewerCertificateProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid>
@@ -70,8 +77,9 @@ mkDistributionConfigProperty defaultCacheBehavior enabled
   = DistributionConfigProperty
       {haddock_workaround_ = (),
        defaultCacheBehavior = defaultCacheBehavior, enabled = enabled,
-       aliases = Prelude.Nothing, cNAMEs = Prelude.Nothing,
-       cacheBehaviors = Prelude.Nothing, comment = Prelude.Nothing,
+       aliases = Prelude.Nothing, anycastIpListId = Prelude.Nothing,
+       cNAMEs = Prelude.Nothing, cacheBehaviors = Prelude.Nothing,
+       comment = Prelude.Nothing, connectionMode = Prelude.Nothing,
        continuousDeploymentPolicyId = Prelude.Nothing,
        customErrorResponses = Prelude.Nothing,
        customOrigin = Prelude.Nothing,
@@ -80,6 +88,7 @@ mkDistributionConfigProperty defaultCacheBehavior enabled
        originGroups = Prelude.Nothing, origins = Prelude.Nothing,
        priceClass = Prelude.Nothing, restrictions = Prelude.Nothing,
        s3Origin = Prelude.Nothing, staging = Prelude.Nothing,
+       tenantConfig = Prelude.Nothing,
        viewerCertificate = Prelude.Nothing, webACLId = Prelude.Nothing}
 instance ToResourceProperties DistributionConfigProperty where
   toResourceProperties DistributionConfigProperty {..}
@@ -92,9 +101,11 @@ instance ToResourceProperties DistributionConfigProperty where
                             "Enabled" JSON..= enabled]
                            (Prelude.catMaybes
                               [(JSON..=) "Aliases" Prelude.<$> aliases,
+                               (JSON..=) "AnycastIpListId" Prelude.<$> anycastIpListId,
                                (JSON..=) "CNAMEs" Prelude.<$> cNAMEs,
                                (JSON..=) "CacheBehaviors" Prelude.<$> cacheBehaviors,
                                (JSON..=) "Comment" Prelude.<$> comment,
+                               (JSON..=) "ConnectionMode" Prelude.<$> connectionMode,
                                (JSON..=) "ContinuousDeploymentPolicyId"
                                  Prelude.<$> continuousDeploymentPolicyId,
                                (JSON..=) "CustomErrorResponses" Prelude.<$> customErrorResponses,
@@ -109,6 +120,7 @@ instance ToResourceProperties DistributionConfigProperty where
                                (JSON..=) "Restrictions" Prelude.<$> restrictions,
                                (JSON..=) "S3Origin" Prelude.<$> s3Origin,
                                (JSON..=) "Staging" Prelude.<$> staging,
+                               (JSON..=) "TenantConfig" Prelude.<$> tenantConfig,
                                (JSON..=) "ViewerCertificate" Prelude.<$> viewerCertificate,
                                (JSON..=) "WebACLId" Prelude.<$> webACLId]))}
 instance JSON.ToJSON DistributionConfigProperty where
@@ -120,9 +132,11 @@ instance JSON.ToJSON DistributionConfigProperty where
                "Enabled" JSON..= enabled]
               (Prelude.catMaybes
                  [(JSON..=) "Aliases" Prelude.<$> aliases,
+                  (JSON..=) "AnycastIpListId" Prelude.<$> anycastIpListId,
                   (JSON..=) "CNAMEs" Prelude.<$> cNAMEs,
                   (JSON..=) "CacheBehaviors" Prelude.<$> cacheBehaviors,
                   (JSON..=) "Comment" Prelude.<$> comment,
+                  (JSON..=) "ConnectionMode" Prelude.<$> connectionMode,
                   (JSON..=) "ContinuousDeploymentPolicyId"
                     Prelude.<$> continuousDeploymentPolicyId,
                   (JSON..=) "CustomErrorResponses" Prelude.<$> customErrorResponses,
@@ -137,12 +151,18 @@ instance JSON.ToJSON DistributionConfigProperty where
                   (JSON..=) "Restrictions" Prelude.<$> restrictions,
                   (JSON..=) "S3Origin" Prelude.<$> s3Origin,
                   (JSON..=) "Staging" Prelude.<$> staging,
+                  (JSON..=) "TenantConfig" Prelude.<$> tenantConfig,
                   (JSON..=) "ViewerCertificate" Prelude.<$> viewerCertificate,
                   (JSON..=) "WebACLId" Prelude.<$> webACLId])))
 instance Property "Aliases" DistributionConfigProperty where
   type PropertyType "Aliases" DistributionConfigProperty = ValueList Prelude.Text
   set newValue DistributionConfigProperty {..}
     = DistributionConfigProperty {aliases = Prelude.pure newValue, ..}
+instance Property "AnycastIpListId" DistributionConfigProperty where
+  type PropertyType "AnycastIpListId" DistributionConfigProperty = Value Prelude.Text
+  set newValue DistributionConfigProperty {..}
+    = DistributionConfigProperty
+        {anycastIpListId = Prelude.pure newValue, ..}
 instance Property "CNAMEs" DistributionConfigProperty where
   type PropertyType "CNAMEs" DistributionConfigProperty = ValueList Prelude.Text
   set newValue DistributionConfigProperty {..}
@@ -156,6 +176,11 @@ instance Property "Comment" DistributionConfigProperty where
   type PropertyType "Comment" DistributionConfigProperty = Value Prelude.Text
   set newValue DistributionConfigProperty {..}
     = DistributionConfigProperty {comment = Prelude.pure newValue, ..}
+instance Property "ConnectionMode" DistributionConfigProperty where
+  type PropertyType "ConnectionMode" DistributionConfigProperty = Value Prelude.Text
+  set newValue DistributionConfigProperty {..}
+    = DistributionConfigProperty
+        {connectionMode = Prelude.pure newValue, ..}
 instance Property "ContinuousDeploymentPolicyId" DistributionConfigProperty where
   type PropertyType "ContinuousDeploymentPolicyId" DistributionConfigProperty = Value Prelude.Text
   set newValue DistributionConfigProperty {..}
@@ -225,6 +250,11 @@ instance Property "Staging" DistributionConfigProperty where
   type PropertyType "Staging" DistributionConfigProperty = Value Prelude.Bool
   set newValue DistributionConfigProperty {..}
     = DistributionConfigProperty {staging = Prelude.pure newValue, ..}
+instance Property "TenantConfig" DistributionConfigProperty where
+  type PropertyType "TenantConfig" DistributionConfigProperty = TenantConfigProperty
+  set newValue DistributionConfigProperty {..}
+    = DistributionConfigProperty
+        {tenantConfig = Prelude.pure newValue, ..}
 instance Property "ViewerCertificate" DistributionConfigProperty where
   type PropertyType "ViewerCertificate" DistributionConfigProperty = ViewerCertificateProperty
   set newValue DistributionConfigProperty {..}

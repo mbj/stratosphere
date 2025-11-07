@@ -1,0 +1,9 @@
+module Stratosphere.IoTSiteWise.ComputationModel.ComputationModelConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComputationModelConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ComputationModelConfigurationProperty
+instance Prelude.Eq ComputationModelConfigurationProperty
+instance Prelude.Show ComputationModelConfigurationProperty
+instance JSON.ToJSON ComputationModelConfigurationProperty

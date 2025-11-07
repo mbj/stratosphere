@@ -1,0 +1,9 @@
+module Stratosphere.DMS.DataProvider.IbmDb2zOsSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IbmDb2zOsSettingsProperty :: Prelude.Type
+instance ToResourceProperties IbmDb2zOsSettingsProperty
+instance Prelude.Eq IbmDb2zOsSettingsProperty
+instance Prelude.Show IbmDb2zOsSettingsProperty
+instance JSON.ToJSON IbmDb2zOsSettingsProperty

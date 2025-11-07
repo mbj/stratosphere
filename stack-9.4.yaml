@@ -5,6 +5,8 @@ flags:
     development: true
   stratosphere-acmpca:
     development: true
+  stratosphere-aiops:
+    development: true
   stratosphere-amazonmq:
     development: true
   stratosphere-amplify:
@@ -39,6 +41,8 @@ flags:
     development: true
   stratosphere-aps:
     development: true
+  stratosphere-arcregionswitch:
+    development: true
   stratosphere-arczonalshift:
     development: true
   stratosphere-ask:
@@ -62,6 +66,10 @@ flags:
   stratosphere-bcmdataexports:
     development: true
   stratosphere-bedrock:
+    development: true
+  stratosphere-bedrockagentcore:
+    development: true
+  stratosphere-billing:
     development: true
   stratosphere-billingconductor:
     development: true
@@ -155,6 +163,8 @@ flags:
     development: true
   stratosphere-docdbelastic:
     development: true
+  stratosphere-dsql:
+    development: true
   stratosphere-dynamodb:
     development: true
   stratosphere-ec2:
@@ -190,6 +200,8 @@ flags:
   stratosphere-eventschemas:
     development: true
   stratosphere-evidently:
+    development: true
+  stratosphere-evs:
     development: true
   stratosphere-finspace:
     development: true
@@ -238,8 +250,6 @@ flags:
   stratosphere-invoicing:
     development: true
   stratosphere-iot:
-    development: true
-  stratosphere-iot1click:
     development: true
   stratosphere-iotanalytics:
     development: true
@@ -325,6 +335,8 @@ flags:
     development: true
   stratosphere-memorydb:
     development: true
+  stratosphere-mpa:
+    development: true
   stratosphere-msk:
     development: true
   stratosphere-mwaa:
@@ -337,9 +349,15 @@ flags:
     development: true
   stratosphere-networkmanager:
     development: true
-  stratosphere-nimblestudio:
+  stratosphere-notifications:
+    development: true
+  stratosphere-notificationscontacts:
     development: true
   stratosphere-oam:
+    development: true
+  stratosphere-observabilityadmin:
+    development: true
+  stratosphere-odb:
     development: true
   stratosphere-omics:
     development: true
@@ -348,8 +366,6 @@ flags:
   stratosphere-opensearchservice:
     development: true
   stratosphere-opsworks:
-    development: true
-  stratosphere-opsworkscm:
     development: true
   stratosphere-organizations:
     development: true
@@ -362,6 +378,8 @@ flags:
   stratosphere-pcaconnectorad:
     development: true
   stratosphere-pcaconnectorscep:
+    development: true
+  stratosphere-pcs:
     development: true
   stratosphere-personalize:
     development: true
@@ -413,6 +431,8 @@ flags:
     development: true
   stratosphere-route53resolver:
     development: true
+  stratosphere-rtbfabric:
+    development: true
   stratosphere-rum:
     development: true
   stratosphere-s3:
@@ -422,6 +442,8 @@ flags:
   stratosphere-s3objectlambda:
     development: true
   stratosphere-s3outposts:
+    development: true
+  stratosphere-s3tables:
     development: true
   stratosphere-sagemaker:
     development: true
@@ -449,6 +471,8 @@ flags:
     development: true
   stratosphere-simspaceweaver:
     development: true
+  stratosphere-smsvoice:
+    development: true
   stratosphere-sns:
     development: true
   stratosphere-sqs:
@@ -456,6 +480,8 @@ flags:
   stratosphere-ssm:
     development: true
   stratosphere-ssmcontacts:
+    development: true
+  stratosphere-ssmguiconnect:
     development: true
   stratosphere-ssmincidents:
     development: true
@@ -491,6 +517,8 @@ flags:
     development: true
   stratosphere-workspaces:
     development: true
+  stratosphere-workspacesinstances:
+    development: true
   stratosphere-workspacesthinclient:
     development: true
   stratosphere-workspacesweb:
@@ -501,7 +529,9 @@ packages:
 - .
 - examples
 - services/acmpca
+- services/aiops
 - services/aps
+- services/arcregionswitch
 - services/arczonalshift
 - services/accessanalyzer
 - services/amazonmq
@@ -530,6 +560,8 @@ packages:
 - services/backupgateway
 - services/batch
 - services/bedrock
+- services/bedrockagentcore
+- services/billing
 - services/billingconductor
 - services/budgets
 - services/ce
@@ -566,6 +598,7 @@ packages:
 - services/dax
 - services/dlm
 - services/dms
+- services/dsql
 - services/databrew
 - services/datapipeline
 - services/datasync
@@ -585,6 +618,7 @@ packages:
 - services/emr
 - services/emrcontainers
 - services/emrserverless
+- services/evs
 - services/elasticache
 - services/elasticbeanstalk
 - services/elasticloadbalancing
@@ -620,7 +654,6 @@ packages:
 - services/internetmonitor
 - services/invoicing
 - services/iot
-- services/iot1click
 - services/iotanalytics
 - services/iotcoredeviceadvisor
 - services/iotevents
@@ -651,6 +684,7 @@ packages:
 - services/lookoutmetrics
 - services/lookoutvision
 - services/m2
+- services/mpa
 - services/msk
 - services/mwaa
 - services/macie
@@ -667,17 +701,20 @@ packages:
 - services/neptunegraph
 - services/networkfirewall
 - services/networkmanager
-- services/nimblestudio
+- services/notifications
+- services/notificationscontacts
+- services/odb
 - services/osis
 - services/oam
+- services/observabilityadmin
 - services/omics
 - services/opensearchserverless
 - services/opensearchservice
 - services/opsworks
-- services/opsworkscm
 - services/organizations
 - services/pcaconnectorad
 - services/pcaconnectorscep
+- services/pcs
 - services/panorama
 - services/paymentcryptography
 - services/personalize
@@ -690,6 +727,7 @@ packages:
 - services/quicksight
 - services/ram
 - services/rds
+- services/rtbfabric
 - services/rum
 - services/rbin
 - services/redshift
@@ -710,12 +748,15 @@ packages:
 - services/s3express
 - services/s3objectlambda
 - services/s3outposts
+- services/s3tables
 - services/sdb
 - services/ses
+- services/smsvoice
 - services/sns
 - services/sqs
 - services/ssm
 - services/ssmcontacts
+- services/ssmguiconnect
 - services/ssmincidents
 - services/ssmquicksetup
 - services/sso
@@ -746,6 +787,7 @@ packages:
 - services/workspaces
 - services/workspacesthinclient
 - services/workspacesweb
+- services/workspacesinstances
 - services/xray
 - services/ask
 resolver: lts-21.25

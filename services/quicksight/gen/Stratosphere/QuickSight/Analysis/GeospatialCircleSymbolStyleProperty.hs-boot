@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialCircleSymbolStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialCircleSymbolStyleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialCircleSymbolStyleProperty
+instance Prelude.Eq GeospatialCircleSymbolStyleProperty
+instance Prelude.Show GeospatialCircleSymbolStyleProperty
+instance JSON.ToJSON GeospatialCircleSymbolStyleProperty

@@ -36,9 +36,24 @@ library
       Stratosphere.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationDataProperty
       Stratosphere.Wisdom.AIAgent.ManualSearchAIAgentConfigurationProperty
       Stratosphere.Wisdom.AIAgent.OrConditionProperty
+      Stratosphere.Wisdom.AIAgent.SelfServiceAIAgentConfigurationProperty
       Stratosphere.Wisdom.AIAgent.TagConditionProperty
       Stratosphere.Wisdom.AIAgent.TagFilterProperty
       Stratosphere.Wisdom.AIAgentVersion
+      Stratosphere.Wisdom.AIGuardrail
+      Stratosphere.Wisdom.AIGuardrail.AIGuardrailContentPolicyConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.AIGuardrailContextualGroundingPolicyConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.AIGuardrailSensitiveInformationPolicyConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.AIGuardrailTopicPolicyConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.AIGuardrailWordPolicyConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailContentFilterConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailContextualGroundingFilterConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailManagedWordsConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailPiiEntityConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailRegexConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailTopicConfigProperty
+      Stratosphere.Wisdom.AIGuardrail.GuardrailWordConfigProperty
+      Stratosphere.Wisdom.AIGuardrailVersion
       Stratosphere.Wisdom.AIPrompt
       Stratosphere.Wisdom.AIPrompt.AIPromptTemplateConfigurationProperty
       Stratosphere.Wisdom.AIPrompt.TextFullAIPromptEditTemplateConfigurationProperty
@@ -74,6 +89,7 @@ library
       Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateContentProperty
       Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateHeaderProperty
       Stratosphere.Wisdom.MessageTemplate.GroupingConfigurationProperty
+      Stratosphere.Wisdom.MessageTemplate.MessageTemplateAttachmentProperty
       Stratosphere.Wisdom.MessageTemplate.MessageTemplateAttributesProperty
       Stratosphere.Wisdom.MessageTemplate.MessageTemplateBodyContentProviderProperty
       Stratosphere.Wisdom.MessageTemplate.SmsMessageTemplateContentBodyProperty
@@ -81,6 +97,10 @@ library
       Stratosphere.Wisdom.MessageTemplate.SystemAttributesProperty
       Stratosphere.Wisdom.MessageTemplate.SystemEndpointAttributesProperty
       Stratosphere.Wisdom.MessageTemplateVersion
+      Stratosphere.Wisdom.QuickResponse
+      Stratosphere.Wisdom.QuickResponse.GroupingConfigurationProperty
+      Stratosphere.Wisdom.QuickResponse.QuickResponseContentProviderProperty
+      Stratosphere.Wisdom.QuickResponse.QuickResponseContentsProperty
   other-modules:
       Paths_stratosphere_wisdom
   hs-source-dirs:

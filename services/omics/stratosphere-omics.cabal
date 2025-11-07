@@ -42,7 +42,19 @@ library
       Stratosphere.Omics.VariantStore.ReferenceItemProperty
       Stratosphere.Omics.VariantStore.SseConfigProperty
       Stratosphere.Omics.Workflow
+      Stratosphere.Omics.Workflow.ContainerRegistryMapProperty
+      Stratosphere.Omics.Workflow.DefinitionRepositoryProperty
+      Stratosphere.Omics.Workflow.ImageMappingProperty
+      Stratosphere.Omics.Workflow.RegistryMappingProperty
+      Stratosphere.Omics.Workflow.SourceReferenceProperty
       Stratosphere.Omics.Workflow.WorkflowParameterProperty
+      Stratosphere.Omics.WorkflowVersion
+      Stratosphere.Omics.WorkflowVersion.ContainerRegistryMapProperty
+      Stratosphere.Omics.WorkflowVersion.DefinitionRepositoryProperty
+      Stratosphere.Omics.WorkflowVersion.ImageMappingProperty
+      Stratosphere.Omics.WorkflowVersion.RegistryMappingProperty
+      Stratosphere.Omics.WorkflowVersion.SourceReferenceProperty
+      Stratosphere.Omics.WorkflowVersion.WorkflowParameterProperty
   other-modules:
       Paths_stratosphere_omics
   hs-source-dirs:

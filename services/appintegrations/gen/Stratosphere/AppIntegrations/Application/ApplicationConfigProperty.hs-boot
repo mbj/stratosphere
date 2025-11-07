@@ -1,0 +1,9 @@
+module Stratosphere.AppIntegrations.Application.ApplicationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationConfigProperty :: Prelude.Type
+instance ToResourceProperties ApplicationConfigProperty
+instance Prelude.Eq ApplicationConfigProperty
+instance Prelude.Show ApplicationConfigProperty
+instance JSON.ToJSON ApplicationConfigProperty

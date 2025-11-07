@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.SheetImageTooltipConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SheetImageTooltipConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SheetImageTooltipConfigurationProperty
+instance Prelude.Eq SheetImageTooltipConfigurationProperty
+instance Prelude.Show SheetImageTooltipConfigurationProperty
+instance JSON.ToJSON SheetImageTooltipConfigurationProperty

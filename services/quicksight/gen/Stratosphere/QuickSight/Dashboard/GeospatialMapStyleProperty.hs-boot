@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GeospatialMapStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialMapStyleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialMapStyleProperty
+instance Prelude.Eq GeospatialMapStyleProperty
+instance Prelude.Show GeospatialMapStyleProperty
+instance JSON.ToJSON GeospatialMapStyleProperty

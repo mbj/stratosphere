@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.TranscriptConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TranscriptConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TranscriptConfigurationProperty
+instance Prelude.Eq TranscriptConfigurationProperty
+instance Prelude.Show TranscriptConfigurationProperty
+instance JSON.ToJSON TranscriptConfigurationProperty

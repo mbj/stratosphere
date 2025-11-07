@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ImageExtractionCategoryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageExtractionCategoryProperty :: Prelude.Type
+instance ToResourceProperties ImageExtractionCategoryProperty
+instance Prelude.Eq ImageExtractionCategoryProperty
+instance Prelude.Show ImageExtractionCategoryProperty
+instance JSON.ToJSON ImageExtractionCategoryProperty

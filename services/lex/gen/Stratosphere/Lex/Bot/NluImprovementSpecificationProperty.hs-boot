@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.NluImprovementSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NluImprovementSpecificationProperty :: Prelude.Type
+instance ToResourceProperties NluImprovementSpecificationProperty
+instance Prelude.Eq NluImprovementSpecificationProperty
+instance Prelude.Show NluImprovementSpecificationProperty
+instance JSON.ToJSON NluImprovementSpecificationProperty

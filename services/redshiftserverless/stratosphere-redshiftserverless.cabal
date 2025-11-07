@@ -31,10 +31,13 @@ library
       Stratosphere.RedshiftServerless.Namespace
       Stratosphere.RedshiftServerless.Namespace.NamespaceProperty
       Stratosphere.RedshiftServerless.Namespace.SnapshotCopyConfigurationProperty
+      Stratosphere.RedshiftServerless.Snapshot
+      Stratosphere.RedshiftServerless.Snapshot.SnapshotProperty
       Stratosphere.RedshiftServerless.Workgroup
       Stratosphere.RedshiftServerless.Workgroup.ConfigParameterProperty
       Stratosphere.RedshiftServerless.Workgroup.EndpointProperty
       Stratosphere.RedshiftServerless.Workgroup.NetworkInterfaceProperty
+      Stratosphere.RedshiftServerless.Workgroup.PerformanceTargetProperty
       Stratosphere.RedshiftServerless.Workgroup.VpcEndpointProperty
       Stratosphere.RedshiftServerless.Workgroup.WorkgroupProperty
   other-modules:

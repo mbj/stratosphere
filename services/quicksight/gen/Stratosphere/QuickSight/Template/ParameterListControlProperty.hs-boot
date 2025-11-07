@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.ParameterListControlProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParameterListControlProperty :: Prelude.Type
+instance ToResourceProperties ParameterListControlProperty
+instance Prelude.Eq ParameterListControlProperty
+instance Prelude.Show ParameterListControlProperty
+instance JSON.ToJSON ParameterListControlProperty

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.InferenceComponent.InferenceComponentCapacitySizeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceComponentCapacitySizeProperty :: Prelude.Type
+instance ToResourceProperties InferenceComponentCapacitySizeProperty
+instance Prelude.Eq InferenceComponentCapacitySizeProperty
+instance Prelude.Show InferenceComponentCapacitySizeProperty
+instance JSON.ToJSON InferenceComponentCapacitySizeProperty

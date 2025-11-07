@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.GlueOAuth2CredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlueOAuth2CredentialsProperty :: Prelude.Type
+instance ToResourceProperties GlueOAuth2CredentialsProperty
+instance Prelude.Eq GlueOAuth2CredentialsProperty
+instance Prelude.Show GlueOAuth2CredentialsProperty
+instance JSON.ToJSON GlueOAuth2CredentialsProperty

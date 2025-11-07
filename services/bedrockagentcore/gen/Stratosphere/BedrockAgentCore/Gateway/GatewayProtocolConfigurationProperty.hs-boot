@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Gateway.GatewayProtocolConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GatewayProtocolConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GatewayProtocolConfigurationProperty
+instance Prelude.Eq GatewayProtocolConfigurationProperty
+instance Prelude.Show GatewayProtocolConfigurationProperty
+instance JSON.ToJSON GatewayProtocolConfigurationProperty

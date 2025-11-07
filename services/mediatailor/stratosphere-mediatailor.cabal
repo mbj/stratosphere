@@ -39,14 +39,18 @@ library
       Stratosphere.MediaTailor.LiveSource
       Stratosphere.MediaTailor.LiveSource.HttpPackageConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration
+      Stratosphere.MediaTailor.PlaybackConfiguration.AdConditioningConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty
+      Stratosphere.MediaTailor.PlaybackConfiguration.AdsInteractionLogProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.AvailSuppressionProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.BumperProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.CdnConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.DashConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.HlsConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.LivePreRollConfigurationProperty
+      Stratosphere.MediaTailor.PlaybackConfiguration.LogConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.ManifestProcessingRulesProperty
+      Stratosphere.MediaTailor.PlaybackConfiguration.ManifestServiceInteractionLogProperty
       Stratosphere.MediaTailor.SourceLocation
       Stratosphere.MediaTailor.SourceLocation.AccessConfigurationProperty
       Stratosphere.MediaTailor.SourceLocation.DefaultSegmentDeliveryConfigurationProperty

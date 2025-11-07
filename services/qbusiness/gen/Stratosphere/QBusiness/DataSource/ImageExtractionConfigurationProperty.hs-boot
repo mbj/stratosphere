@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataSource.ImageExtractionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageExtractionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ImageExtractionConfigurationProperty
+instance Prelude.Eq ImageExtractionConfigurationProperty
+instance Prelude.Show ImageExtractionConfigurationProperty
+instance JSON.ToJSON ImageExtractionConfigurationProperty

@@ -40,11 +40,14 @@ library
       Stratosphere.OpenSearchService.Domain.DomainEndpointOptionsProperty
       Stratosphere.OpenSearchService.Domain.EBSOptionsProperty
       Stratosphere.OpenSearchService.Domain.EncryptionAtRestOptionsProperty
+      Stratosphere.OpenSearchService.Domain.IAMFederationOptionsProperty
       Stratosphere.OpenSearchService.Domain.IdentityCenterOptionsProperty
       Stratosphere.OpenSearchService.Domain.IdpProperty
       Stratosphere.OpenSearchService.Domain.JWTOptionsProperty
       Stratosphere.OpenSearchService.Domain.LogPublishingOptionProperty
       Stratosphere.OpenSearchService.Domain.MasterUserOptionsProperty
+      Stratosphere.OpenSearchService.Domain.NodeConfigProperty
+      Stratosphere.OpenSearchService.Domain.NodeOptionProperty
       Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty
       Stratosphere.OpenSearchService.Domain.OffPeakWindowOptionsProperty
       Stratosphere.OpenSearchService.Domain.OffPeakWindowProperty

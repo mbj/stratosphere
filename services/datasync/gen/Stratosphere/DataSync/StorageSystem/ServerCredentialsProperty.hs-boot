@@ -1,9 +1,0 @@
-module Stratosphere.DataSync.StorageSystem.ServerCredentialsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ServerCredentialsProperty :: Prelude.Type
-instance ToResourceProperties ServerCredentialsProperty
-instance Prelude.Eq ServerCredentialsProperty
-instance Prelude.Show ServerCredentialsProperty
-instance JSON.ToJSON ServerCredentialsProperty

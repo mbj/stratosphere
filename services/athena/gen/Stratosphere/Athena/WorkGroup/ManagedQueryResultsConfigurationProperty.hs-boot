@@ -1,0 +1,9 @@
+module Stratosphere.Athena.WorkGroup.ManagedQueryResultsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedQueryResultsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedQueryResultsConfigurationProperty
+instance Prelude.Eq ManagedQueryResultsConfigurationProperty
+instance Prelude.Show ManagedQueryResultsConfigurationProperty
+instance JSON.ToJSON ManagedQueryResultsConfigurationProperty

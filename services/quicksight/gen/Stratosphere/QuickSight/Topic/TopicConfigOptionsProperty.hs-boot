@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Topic.TopicConfigOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicConfigOptionsProperty :: Prelude.Type
+instance ToResourceProperties TopicConfigOptionsProperty
+instance Prelude.Eq TopicConfigOptionsProperty
+instance Prelude.Show TopicConfigOptionsProperty
+instance JSON.ToJSON TopicConfigOptionsProperty

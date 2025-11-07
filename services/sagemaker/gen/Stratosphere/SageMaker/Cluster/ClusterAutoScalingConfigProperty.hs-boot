@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ClusterAutoScalingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterAutoScalingConfigProperty :: Prelude.Type
+instance ToResourceProperties ClusterAutoScalingConfigProperty
+instance Prelude.Eq ClusterAutoScalingConfigProperty
+instance Prelude.Show ClusterAutoScalingConfigProperty
+instance JSON.ToJSON ClusterAutoScalingConfigProperty

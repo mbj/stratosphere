@@ -27,6 +27,8 @@ data Server
             identityProviderDetails :: (Prelude.Maybe IdentityProviderDetailsProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-identityprovidertype>
             identityProviderType :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-ipaddresstype>
+            ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-loggingrole>
             loggingRole :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-postauthenticationloginbanner>
@@ -56,7 +58,7 @@ mkServer
        endpointType = Prelude.Nothing,
        identityProviderDetails = Prelude.Nothing,
        identityProviderType = Prelude.Nothing,
-       loggingRole = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing, loggingRole = Prelude.Nothing,
        postAuthenticationLoginBanner = Prelude.Nothing,
        preAuthenticationLoginBanner = Prelude.Nothing,
        protocolDetails = Prelude.Nothing, protocols = Prelude.Nothing,
@@ -77,6 +79,7 @@ instance ToResourceProperties Server where
                             (JSON..=) "IdentityProviderDetails"
                               Prelude.<$> identityProviderDetails,
                             (JSON..=) "IdentityProviderType" Prelude.<$> identityProviderType,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                             (JSON..=) "LoggingRole" Prelude.<$> loggingRole,
                             (JSON..=) "PostAuthenticationLoginBanner"
                               Prelude.<$> postAuthenticationLoginBanner,
@@ -102,6 +105,7 @@ instance JSON.ToJSON Server where
                (JSON..=) "IdentityProviderDetails"
                  Prelude.<$> identityProviderDetails,
                (JSON..=) "IdentityProviderType" Prelude.<$> identityProviderType,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                (JSON..=) "LoggingRole" Prelude.<$> loggingRole,
                (JSON..=) "PostAuthenticationLoginBanner"
                  Prelude.<$> postAuthenticationLoginBanner,
@@ -139,6 +143,10 @@ instance Property "IdentityProviderType" Server where
   type PropertyType "IdentityProviderType" Server = Value Prelude.Text
   set newValue Server {..}
     = Server {identityProviderType = Prelude.pure newValue, ..}
+instance Property "IpAddressType" Server where
+  type PropertyType "IpAddressType" Server = Value Prelude.Text
+  set newValue Server {..}
+    = Server {ipAddressType = Prelude.pure newValue, ..}
 instance Property "LoggingRole" Server where
   type PropertyType "LoggingRole" Server = Value Prelude.Text
   set newValue Server {..}

@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.ResponderGateway.AutoScalingGroupsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoScalingGroupsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AutoScalingGroupsConfigurationProperty
+instance Prelude.Eq AutoScalingGroupsConfigurationProperty
+instance Prelude.Show AutoScalingGroupsConfigurationProperty
+instance JSON.ToJSON AutoScalingGroupsConfigurationProperty

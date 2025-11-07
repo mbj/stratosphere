@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ExecutiveSummaryOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutiveSummaryOptionProperty :: Prelude.Type
+instance ToResourceProperties ExecutiveSummaryOptionProperty
+instance Prelude.Eq ExecutiveSummaryOptionProperty
+instance Prelude.Show ExecutiveSummaryOptionProperty
+instance JSON.ToJSON ExecutiveSummaryOptionProperty

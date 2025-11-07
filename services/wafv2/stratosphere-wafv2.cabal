@@ -41,6 +41,7 @@ library
       Stratosphere.WAFv2.RuleGroup
       Stratosphere.WAFv2.RuleGroup.AllowActionProperty
       Stratosphere.WAFv2.RuleGroup.AndStatementProperty
+      Stratosphere.WAFv2.RuleGroup.AsnMatchStatementProperty
       Stratosphere.WAFv2.RuleGroup.BlockActionProperty
       Stratosphere.WAFv2.RuleGroup.BodyProperty
       Stratosphere.WAFv2.RuleGroup.ByteMatchStatementProperty
@@ -64,6 +65,7 @@ library
       Stratosphere.WAFv2.RuleGroup.IPSetForwardedIPConfigurationProperty
       Stratosphere.WAFv2.RuleGroup.IPSetReferenceStatementProperty
       Stratosphere.WAFv2.RuleGroup.JA3FingerprintProperty
+      Stratosphere.WAFv2.RuleGroup.JA4FingerprintProperty
       Stratosphere.WAFv2.RuleGroup.JsonBodyProperty
       Stratosphere.WAFv2.RuleGroup.JsonMatchPatternProperty
       Stratosphere.WAFv2.RuleGroup.LabelMatchStatementProperty
@@ -75,6 +77,8 @@ library
       Stratosphere.WAFv2.RuleGroup.RateBasedStatementProperty
       Stratosphere.WAFv2.RuleGroup.RateLimitCookieProperty
       Stratosphere.WAFv2.RuleGroup.RateLimitHeaderProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitJA3FingerprintProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitJA4FingerprintProperty
       Stratosphere.WAFv2.RuleGroup.RateLimitLabelNamespaceProperty
       Stratosphere.WAFv2.RuleGroup.RateLimitQueryArgumentProperty
       Stratosphere.WAFv2.RuleGroup.RateLimitQueryStringProperty
@@ -89,13 +93,16 @@ library
       Stratosphere.WAFv2.RuleGroup.SqliMatchStatementProperty
       Stratosphere.WAFv2.RuleGroup.StatementProperty
       Stratosphere.WAFv2.RuleGroup.TextTransformationProperty
+      Stratosphere.WAFv2.RuleGroup.UriFragmentProperty
       Stratosphere.WAFv2.RuleGroup.VisibilityConfigProperty
       Stratosphere.WAFv2.RuleGroup.XssMatchStatementProperty
       Stratosphere.WAFv2.WebACL
       Stratosphere.WAFv2.WebACL.AllowActionProperty
       Stratosphere.WAFv2.WebACL.AndStatementProperty
+      Stratosphere.WAFv2.WebACL.AsnMatchStatementProperty
       Stratosphere.WAFv2.WebACL.AssociationConfigProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesACFPRuleSetProperty
+      Stratosphere.WAFv2.WebACL.AWSManagedRulesAntiDDoSRuleSetProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesATPRuleSetProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty
       Stratosphere.WAFv2.WebACL.BlockActionProperty
@@ -105,6 +112,8 @@ library
       Stratosphere.WAFv2.WebACL.CaptchaConfigProperty
       Stratosphere.WAFv2.WebACL.ChallengeActionProperty
       Stratosphere.WAFv2.WebACL.ChallengeConfigProperty
+      Stratosphere.WAFv2.WebACL.ClientSideActionConfigProperty
+      Stratosphere.WAFv2.WebACL.ClientSideActionProperty
       Stratosphere.WAFv2.WebACL.CookieMatchPatternProperty
       Stratosphere.WAFv2.WebACL.CookiesProperty
       Stratosphere.WAFv2.WebACL.CountActionProperty
@@ -112,10 +121,13 @@ library
       Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty
       Stratosphere.WAFv2.WebACL.CustomResponseBodyProperty
       Stratosphere.WAFv2.WebACL.CustomResponseProperty
+      Stratosphere.WAFv2.WebACL.DataProtectionConfigProperty
+      Stratosphere.WAFv2.WebACL.DataProtectProperty
       Stratosphere.WAFv2.WebACL.DefaultActionProperty
       Stratosphere.WAFv2.WebACL.ExcludedRuleProperty
       Stratosphere.WAFv2.WebACL.FieldIdentifierProperty
       Stratosphere.WAFv2.WebACL.FieldToMatchProperty
+      Stratosphere.WAFv2.WebACL.FieldToProtectProperty
       Stratosphere.WAFv2.WebACL.ForwardedIPConfigurationProperty
       Stratosphere.WAFv2.WebACL.GeoMatchStatementProperty
       Stratosphere.WAFv2.WebACL.HeaderMatchPatternProperty
@@ -124,6 +136,7 @@ library
       Stratosphere.WAFv2.WebACL.IPSetForwardedIPConfigurationProperty
       Stratosphere.WAFv2.WebACL.IPSetReferenceStatementProperty
       Stratosphere.WAFv2.WebACL.JA3FingerprintProperty
+      Stratosphere.WAFv2.WebACL.JA4FingerprintProperty
       Stratosphere.WAFv2.WebACL.JsonBodyProperty
       Stratosphere.WAFv2.WebACL.JsonMatchPatternProperty
       Stratosphere.WAFv2.WebACL.LabelMatchStatementProperty
@@ -131,18 +144,22 @@ library
       Stratosphere.WAFv2.WebACL.ManagedRuleGroupConfigProperty
       Stratosphere.WAFv2.WebACL.ManagedRuleGroupStatementProperty
       Stratosphere.WAFv2.WebACL.NotStatementProperty
+      Stratosphere.WAFv2.WebACL.OnSourceDDoSProtectionConfigProperty
       Stratosphere.WAFv2.WebACL.OrStatementProperty
       Stratosphere.WAFv2.WebACL.OverrideActionProperty
       Stratosphere.WAFv2.WebACL.RateBasedStatementCustomKeyProperty
       Stratosphere.WAFv2.WebACL.RateBasedStatementProperty
       Stratosphere.WAFv2.WebACL.RateLimitCookieProperty
       Stratosphere.WAFv2.WebACL.RateLimitHeaderProperty
+      Stratosphere.WAFv2.WebACL.RateLimitJA3FingerprintProperty
+      Stratosphere.WAFv2.WebACL.RateLimitJA4FingerprintProperty
       Stratosphere.WAFv2.WebACL.RateLimitLabelNamespaceProperty
       Stratosphere.WAFv2.WebACL.RateLimitQueryArgumentProperty
       Stratosphere.WAFv2.WebACL.RateLimitQueryStringProperty
       Stratosphere.WAFv2.WebACL.RateLimitUriPathProperty
       Stratosphere.WAFv2.WebACL.RegexMatchStatementProperty
       Stratosphere.WAFv2.WebACL.RegexPatternSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.RegexProperty
       Stratosphere.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfigProperty
       Stratosphere.WAFv2.WebACL.RequestInspectionACFPProperty
       Stratosphere.WAFv2.WebACL.RequestInspectionProperty
@@ -161,6 +178,7 @@ library
       Stratosphere.WAFv2.WebACL.SqliMatchStatementProperty
       Stratosphere.WAFv2.WebACL.StatementProperty
       Stratosphere.WAFv2.WebACL.TextTransformationProperty
+      Stratosphere.WAFv2.WebACL.UriFragmentProperty
       Stratosphere.WAFv2.WebACL.VisibilityConfigProperty
       Stratosphere.WAFv2.WebACL.XssMatchStatementProperty
       Stratosphere.WAFv2.WebACLAssociation

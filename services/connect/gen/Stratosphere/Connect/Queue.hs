@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.Queue.OutboundCallerConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.Queue.OutboundEmailConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -23,6 +24,8 @@ data Queue
            name :: (Value Prelude.Text),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundcallerconfig>
            outboundCallerConfig :: (Prelude.Maybe OutboundCallerConfigProperty),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundemailconfig>
+           outboundEmailConfig :: (Prelude.Maybe OutboundEmailConfigProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-quickconnectarns>
            quickConnectArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-status>
@@ -40,6 +43,7 @@ mkQueue hoursOfOperationArn instanceArn name
        instanceArn = instanceArn, name = name,
        description = Prelude.Nothing, maxContacts = Prelude.Nothing,
        outboundCallerConfig = Prelude.Nothing,
+       outboundEmailConfig = Prelude.Nothing,
        quickConnectArns = Prelude.Nothing, status = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Queue where
@@ -54,6 +58,7 @@ instance ToResourceProperties Queue where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "MaxContacts" Prelude.<$> maxContacts,
                                (JSON..=) "OutboundCallerConfig" Prelude.<$> outboundCallerConfig,
+                               (JSON..=) "OutboundEmailConfig" Prelude.<$> outboundEmailConfig,
                                (JSON..=) "QuickConnectArns" Prelude.<$> quickConnectArns,
                                (JSON..=) "Status" Prelude.<$> status,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -68,6 +73,7 @@ instance JSON.ToJSON Queue where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "MaxContacts" Prelude.<$> maxContacts,
                   (JSON..=) "OutboundCallerConfig" Prelude.<$> outboundCallerConfig,
+                  (JSON..=) "OutboundEmailConfig" Prelude.<$> outboundEmailConfig,
                   (JSON..=) "QuickConnectArns" Prelude.<$> quickConnectArns,
                   (JSON..=) "Status" Prelude.<$> status,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -93,6 +99,10 @@ instance Property "OutboundCallerConfig" Queue where
   type PropertyType "OutboundCallerConfig" Queue = OutboundCallerConfigProperty
   set newValue Queue {..}
     = Queue {outboundCallerConfig = Prelude.pure newValue, ..}
+instance Property "OutboundEmailConfig" Queue where
+  type PropertyType "OutboundEmailConfig" Queue = OutboundEmailConfigProperty
+  set newValue Queue {..}
+    = Queue {outboundEmailConfig = Prelude.pure newValue, ..}
 instance Property "QuickConnectArns" Queue where
   type PropertyType "QuickConnectArns" Queue = ValueList Prelude.Text
   set newValue Queue {..}

@@ -1,0 +1,9 @@
+module Stratosphere.EC2.TransitGatewayConnectPeer.TransitGatewayAttachmentBgpConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransitGatewayAttachmentBgpConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TransitGatewayAttachmentBgpConfigurationProperty
+instance Prelude.Eq TransitGatewayAttachmentBgpConfigurationProperty
+instance Prelude.Show TransitGatewayAttachmentBgpConfigurationProperty
+instance JSON.ToJSON TransitGatewayAttachmentBgpConfigurationProperty

@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.FilterGroupProperty as Exports
+import {-# SOURCE #-} Stratosphere.CodeBuild.Project.PullRequestBuildPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.ScopeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -16,6 +17,8 @@ data ProjectTriggersProperty
                              buildType :: (Prelude.Maybe (Value Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups>
                              filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-pullrequestbuildpolicy>
+                             pullRequestBuildPolicy :: (Prelude.Maybe PullRequestBuildPolicyProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration>
                              scopeConfiguration :: (Prelude.Maybe ScopeConfigurationProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook>
@@ -26,6 +29,7 @@ mkProjectTriggersProperty
   = ProjectTriggersProperty
       {haddock_workaround_ = (), buildType = Prelude.Nothing,
        filterGroups = Prelude.Nothing,
+       pullRequestBuildPolicy = Prelude.Nothing,
        scopeConfiguration = Prelude.Nothing, webhook = Prelude.Nothing}
 instance ToResourceProperties ProjectTriggersProperty where
   toResourceProperties ProjectTriggersProperty {..}
@@ -36,6 +40,8 @@ instance ToResourceProperties ProjectTriggersProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "BuildType" Prelude.<$> buildType,
                             (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                            (JSON..=) "PullRequestBuildPolicy"
+                              Prelude.<$> pullRequestBuildPolicy,
                             (JSON..=) "ScopeConfiguration" Prelude.<$> scopeConfiguration,
                             (JSON..=) "Webhook" Prelude.<$> webhook])}
 instance JSON.ToJSON ProjectTriggersProperty where
@@ -45,6 +51,8 @@ instance JSON.ToJSON ProjectTriggersProperty where
            (Prelude.catMaybes
               [(JSON..=) "BuildType" Prelude.<$> buildType,
                (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+               (JSON..=) "PullRequestBuildPolicy"
+                 Prelude.<$> pullRequestBuildPolicy,
                (JSON..=) "ScopeConfiguration" Prelude.<$> scopeConfiguration,
                (JSON..=) "Webhook" Prelude.<$> webhook]))
 instance Property "BuildType" ProjectTriggersProperty where
@@ -56,6 +64,11 @@ instance Property "FilterGroups" ProjectTriggersProperty where
   set newValue ProjectTriggersProperty {..}
     = ProjectTriggersProperty
         {filterGroups = Prelude.pure newValue, ..}
+instance Property "PullRequestBuildPolicy" ProjectTriggersProperty where
+  type PropertyType "PullRequestBuildPolicy" ProjectTriggersProperty = PullRequestBuildPolicyProperty
+  set newValue ProjectTriggersProperty {..}
+    = ProjectTriggersProperty
+        {pullRequestBuildPolicy = Prelude.pure newValue, ..}
 instance Property "ScopeConfiguration" ProjectTriggersProperty where
   type PropertyType "ScopeConfiguration" ProjectTriggersProperty = ScopeConfigurationProperty
   set newValue ProjectTriggersProperty {..}

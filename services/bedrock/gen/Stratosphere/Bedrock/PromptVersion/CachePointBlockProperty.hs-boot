@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.PromptVersion.CachePointBlockProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CachePointBlockProperty :: Prelude.Type
+instance ToResourceProperties CachePointBlockProperty
+instance Prelude.Eq CachePointBlockProperty
+instance Prelude.Show CachePointBlockProperty
+instance JSON.ToJSON CachePointBlockProperty

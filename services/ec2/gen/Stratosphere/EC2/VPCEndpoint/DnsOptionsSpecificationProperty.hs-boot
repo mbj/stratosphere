@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VPCEndpoint.DnsOptionsSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DnsOptionsSpecificationProperty :: Prelude.Type
+instance ToResourceProperties DnsOptionsSpecificationProperty
+instance Prelude.Eq DnsOptionsSpecificationProperty
+instance Prelude.Show DnsOptionsSpecificationProperty
+instance JSON.ToJSON DnsOptionsSpecificationProperty

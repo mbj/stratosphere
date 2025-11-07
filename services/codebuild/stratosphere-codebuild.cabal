@@ -40,6 +40,7 @@ library
       Stratosphere.CodeBuild.Project.BatchRestrictionsProperty
       Stratosphere.CodeBuild.Project.BuildStatusConfigProperty
       Stratosphere.CodeBuild.Project.CloudWatchLogsConfigProperty
+      Stratosphere.CodeBuild.Project.DockerServerProperty
       Stratosphere.CodeBuild.Project.EnvironmentProperty
       Stratosphere.CodeBuild.Project.EnvironmentVariableProperty
       Stratosphere.CodeBuild.Project.FilterGroupProperty
@@ -51,6 +52,7 @@ library
       Stratosphere.CodeBuild.Project.ProjectFleetProperty
       Stratosphere.CodeBuild.Project.ProjectSourceVersionProperty
       Stratosphere.CodeBuild.Project.ProjectTriggersProperty
+      Stratosphere.CodeBuild.Project.PullRequestBuildPolicyProperty
       Stratosphere.CodeBuild.Project.RegistryCredentialProperty
       Stratosphere.CodeBuild.Project.S3LogsConfigProperty
       Stratosphere.CodeBuild.Project.ScopeConfigurationProperty

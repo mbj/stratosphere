@@ -15,13 +15,16 @@ data FunctionProperty
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-name>
                       name :: (Value Prelude.Text),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-parameters>
-                      parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterDetailProperty))}
+                      parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterDetailProperty)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-requireconfirmation>
+                      requireConfirmation :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty :: Value Prelude.Text -> FunctionProperty
 mkFunctionProperty name
   = FunctionProperty
       {haddock_workaround_ = (), name = name,
-       description = Prelude.Nothing, parameters = Prelude.Nothing}
+       description = Prelude.Nothing, parameters = Prelude.Nothing,
+       requireConfirmation = Prelude.Nothing}
 instance ToResourceProperties FunctionProperty where
   toResourceProperties FunctionProperty {..}
     = ResourceProperties
@@ -32,7 +35,8 @@ instance ToResourceProperties FunctionProperty where
                            ["Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "Parameters" Prelude.<$> parameters]))}
+                               (JSON..=) "Parameters" Prelude.<$> parameters,
+                               (JSON..=) "RequireConfirmation" Prelude.<$> requireConfirmation]))}
 instance JSON.ToJSON FunctionProperty where
   toJSON FunctionProperty {..}
     = JSON.object
@@ -41,7 +45,8 @@ instance JSON.ToJSON FunctionProperty where
               ["Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "Parameters" Prelude.<$> parameters])))
+                  (JSON..=) "Parameters" Prelude.<$> parameters,
+                  (JSON..=) "RequireConfirmation" Prelude.<$> requireConfirmation])))
 instance Property "Description" FunctionProperty where
   type PropertyType "Description" FunctionProperty = Value Prelude.Text
   set newValue FunctionProperty {..}
@@ -54,3 +59,8 @@ instance Property "Parameters" FunctionProperty where
   type PropertyType "Parameters" FunctionProperty = Prelude.Map Prelude.Text ParameterDetailProperty
   set newValue FunctionProperty {..}
     = FunctionProperty {parameters = Prelude.pure newValue, ..}
+instance Property "RequireConfirmation" FunctionProperty where
+  type PropertyType "RequireConfirmation" FunctionProperty = Value Prelude.Text
+  set newValue FunctionProperty {..}
+    = FunctionProperty
+        {requireConfirmation = Prelude.pure newValue, ..}

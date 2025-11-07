@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialCircleRadiusProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialCircleRadiusProperty :: Prelude.Type
+instance ToResourceProperties GeospatialCircleRadiusProperty
+instance Prelude.Eq GeospatialCircleRadiusProperty
+instance Prelude.Show GeospatialCircleRadiusProperty
+instance JSON.ToJSON GeospatialCircleRadiusProperty

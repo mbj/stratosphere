@@ -1,0 +1,53 @@
+module Stratosphere.QuickSight.Analysis.TreeMapSortConfigurationProperty (
+        module Exports, TreeMapSortConfigurationProperty(..),
+        mkTreeMapSortConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.FieldSortOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ItemsLimitConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+data TreeMapSortConfigurationProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-treemapsortconfiguration.html>
+    TreeMapSortConfigurationProperty {haddock_workaround_ :: (),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-treemapsortconfiguration.html#cfn-quicksight-analysis-treemapsortconfiguration-treemapgroupitemslimitconfiguration>
+                                      treeMapGroupItemsLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-treemapsortconfiguration.html#cfn-quicksight-analysis-treemapsortconfiguration-treemapsort>
+                                      treeMapSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkTreeMapSortConfigurationProperty ::
+  TreeMapSortConfigurationProperty
+mkTreeMapSortConfigurationProperty
+  = TreeMapSortConfigurationProperty
+      {haddock_workaround_ = (),
+       treeMapGroupItemsLimitConfiguration = Prelude.Nothing,
+       treeMapSort = Prelude.Nothing}
+instance ToResourceProperties TreeMapSortConfigurationProperty where
+  toResourceProperties TreeMapSortConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.TreeMapSortConfiguration",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "TreeMapGroupItemsLimitConfiguration"
+                              Prelude.<$> treeMapGroupItemsLimitConfiguration,
+                            (JSON..=) "TreeMapSort" Prelude.<$> treeMapSort])}
+instance JSON.ToJSON TreeMapSortConfigurationProperty where
+  toJSON TreeMapSortConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "TreeMapGroupItemsLimitConfiguration"
+                 Prelude.<$> treeMapGroupItemsLimitConfiguration,
+               (JSON..=) "TreeMapSort" Prelude.<$> treeMapSort]))
+instance Property "TreeMapGroupItemsLimitConfiguration" TreeMapSortConfigurationProperty where
+  type PropertyType "TreeMapGroupItemsLimitConfiguration" TreeMapSortConfigurationProperty = ItemsLimitConfigurationProperty
+  set newValue TreeMapSortConfigurationProperty {..}
+    = TreeMapSortConfigurationProperty
+        {treeMapGroupItemsLimitConfiguration = Prelude.pure newValue, ..}
+instance Property "TreeMapSort" TreeMapSortConfigurationProperty where
+  type PropertyType "TreeMapSort" TreeMapSortConfigurationProperty = [FieldSortOptionsProperty]
+  set newValue TreeMapSortConfigurationProperty {..}
+    = TreeMapSortConfigurationProperty
+        {treeMapSort = Prelude.pure newValue, ..}

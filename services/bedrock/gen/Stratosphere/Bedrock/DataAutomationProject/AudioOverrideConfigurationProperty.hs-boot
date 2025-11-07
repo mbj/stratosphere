@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.AudioOverrideConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioOverrideConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AudioOverrideConfigurationProperty
+instance Prelude.Eq AudioOverrideConfigurationProperty
+instance Prelude.Show AudioOverrideConfigurationProperty
+instance JSON.ToJSON AudioOverrideConfigurationProperty

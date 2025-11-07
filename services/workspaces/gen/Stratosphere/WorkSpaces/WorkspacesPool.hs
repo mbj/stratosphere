@@ -8,7 +8,6 @@ import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.ApplicationSettings
 import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.CapacityProperty as Exports
 import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.TimeoutSettingsProperty as Exports
 import Stratosphere.ResourceProperties
-import Stratosphere.Tag
 import Stratosphere.Value
 data WorkspacesPool
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html>
@@ -25,8 +24,8 @@ data WorkspacesPool
                     directoryId :: (Value Prelude.Text),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-poolname>
                     poolName :: (Value Prelude.Text),
-                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-tags>
-                    tags :: (Prelude.Maybe [Tag]),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-runningmode>
+                    runningMode :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-timeoutsettings>
                     timeoutSettings :: (Prelude.Maybe TimeoutSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -39,13 +38,13 @@ mkWorkspacesPool bundleId capacity directoryId poolName
       {haddock_workaround_ = (), bundleId = bundleId,
        capacity = capacity, directoryId = directoryId,
        poolName = poolName, applicationSettings = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing,
+       description = Prelude.Nothing, runningMode = Prelude.Nothing,
        timeoutSettings = Prelude.Nothing}
 instance ToResourceProperties WorkspacesPool where
   toResourceProperties WorkspacesPool {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpaces::WorkspacesPool",
-         supportsTags = Prelude.True,
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BundleId" JSON..= bundleId, "Capacity" JSON..= capacity,
@@ -53,7 +52,7 @@ instance ToResourceProperties WorkspacesPool where
                            (Prelude.catMaybes
                               [(JSON..=) "ApplicationSettings" Prelude.<$> applicationSettings,
                                (JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "RunningMode" Prelude.<$> runningMode,
                                (JSON..=) "TimeoutSettings" Prelude.<$> timeoutSettings]))}
 instance JSON.ToJSON WorkspacesPool where
   toJSON WorkspacesPool {..}
@@ -65,7 +64,7 @@ instance JSON.ToJSON WorkspacesPool where
               (Prelude.catMaybes
                  [(JSON..=) "ApplicationSettings" Prelude.<$> applicationSettings,
                   (JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "RunningMode" Prelude.<$> runningMode,
                   (JSON..=) "TimeoutSettings" Prelude.<$> timeoutSettings])))
 instance Property "ApplicationSettings" WorkspacesPool where
   type PropertyType "ApplicationSettings" WorkspacesPool = ApplicationSettingsProperty
@@ -91,10 +90,10 @@ instance Property "PoolName" WorkspacesPool where
   type PropertyType "PoolName" WorkspacesPool = Value Prelude.Text
   set newValue WorkspacesPool {..}
     = WorkspacesPool {poolName = newValue, ..}
-instance Property "Tags" WorkspacesPool where
-  type PropertyType "Tags" WorkspacesPool = [Tag]
+instance Property "RunningMode" WorkspacesPool where
+  type PropertyType "RunningMode" WorkspacesPool = Value Prelude.Text
   set newValue WorkspacesPool {..}
-    = WorkspacesPool {tags = Prelude.pure newValue, ..}
+    = WorkspacesPool {runningMode = Prelude.pure newValue, ..}
 instance Property "TimeoutSettings" WorkspacesPool where
   type PropertyType "TimeoutSettings" WorkspacesPool = TimeoutSettingsProperty
   set newValue WorkspacesPool {..}

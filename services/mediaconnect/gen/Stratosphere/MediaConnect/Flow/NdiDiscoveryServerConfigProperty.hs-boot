@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Flow.NdiDiscoveryServerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NdiDiscoveryServerConfigProperty :: Prelude.Type
+instance ToResourceProperties NdiDiscoveryServerConfigProperty
+instance Prelude.Eq NdiDiscoveryServerConfigProperty
+instance Prelude.Show NdiDiscoveryServerConfigProperty
+instance JSON.ToJSON NdiDiscoveryServerConfigProperty

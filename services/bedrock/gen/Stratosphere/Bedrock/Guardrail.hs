@@ -4,8 +4,10 @@ module Stratosphere.Bedrock.Guardrail (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.AutomatedReasoningPolicyConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContentPolicyConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.ContextualGroundingPolicyConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.GuardrailCrossRegionConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.SensitiveInformationPolicyConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.TopicPolicyConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Guardrail.WordPolicyConfigProperty as Exports
@@ -15,6 +17,8 @@ import Stratosphere.Value
 data Guardrail
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html>
     Guardrail {haddock_workaround_ :: (),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-automatedreasoningpolicyconfig>
+               automatedReasoningPolicyConfig :: (Prelude.Maybe AutomatedReasoningPolicyConfigProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-blockedinputmessaging>
                blockedInputMessaging :: (Value Prelude.Text),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-blockedoutputsmessaging>
@@ -23,6 +27,8 @@ data Guardrail
                contentPolicyConfig :: (Prelude.Maybe ContentPolicyConfigProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig>
                contextualGroundingPolicyConfig :: (Prelude.Maybe ContextualGroundingPolicyConfigProperty),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-crossregionconfig>
+               crossRegionConfig :: (Prelude.Maybe GuardrailCrossRegionConfigProperty),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-description>
                description :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-kmskeyarn>
@@ -46,9 +52,11 @@ mkGuardrail blockedInputMessaging blockedOutputsMessaging name
       {haddock_workaround_ = (),
        blockedInputMessaging = blockedInputMessaging,
        blockedOutputsMessaging = blockedOutputsMessaging, name = name,
+       automatedReasoningPolicyConfig = Prelude.Nothing,
        contentPolicyConfig = Prelude.Nothing,
        contextualGroundingPolicyConfig = Prelude.Nothing,
-       description = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
+       crossRegionConfig = Prelude.Nothing, description = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing,
        sensitiveInformationPolicyConfig = Prelude.Nothing,
        tags = Prelude.Nothing, topicPolicyConfig = Prelude.Nothing,
        wordPolicyConfig = Prelude.Nothing}
@@ -62,9 +70,12 @@ instance ToResourceProperties Guardrail where
                             "BlockedOutputsMessaging" JSON..= blockedOutputsMessaging,
                             "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "ContentPolicyConfig" Prelude.<$> contentPolicyConfig,
+                              [(JSON..=) "AutomatedReasoningPolicyConfig"
+                                 Prelude.<$> automatedReasoningPolicyConfig,
+                               (JSON..=) "ContentPolicyConfig" Prelude.<$> contentPolicyConfig,
                                (JSON..=) "ContextualGroundingPolicyConfig"
                                  Prelude.<$> contextualGroundingPolicyConfig,
+                               (JSON..=) "CrossRegionConfig" Prelude.<$> crossRegionConfig,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                                (JSON..=) "SensitiveInformationPolicyConfig"
@@ -81,9 +92,12 @@ instance JSON.ToJSON Guardrail where
                "BlockedOutputsMessaging" JSON..= blockedOutputsMessaging,
                "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "ContentPolicyConfig" Prelude.<$> contentPolicyConfig,
+                 [(JSON..=) "AutomatedReasoningPolicyConfig"
+                    Prelude.<$> automatedReasoningPolicyConfig,
+                  (JSON..=) "ContentPolicyConfig" Prelude.<$> contentPolicyConfig,
                   (JSON..=) "ContextualGroundingPolicyConfig"
                     Prelude.<$> contextualGroundingPolicyConfig,
+                  (JSON..=) "CrossRegionConfig" Prelude.<$> crossRegionConfig,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                   (JSON..=) "SensitiveInformationPolicyConfig"
@@ -91,6 +105,11 @@ instance JSON.ToJSON Guardrail where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TopicPolicyConfig" Prelude.<$> topicPolicyConfig,
                   (JSON..=) "WordPolicyConfig" Prelude.<$> wordPolicyConfig])))
+instance Property "AutomatedReasoningPolicyConfig" Guardrail where
+  type PropertyType "AutomatedReasoningPolicyConfig" Guardrail = AutomatedReasoningPolicyConfigProperty
+  set newValue Guardrail {..}
+    = Guardrail
+        {automatedReasoningPolicyConfig = Prelude.pure newValue, ..}
 instance Property "BlockedInputMessaging" Guardrail where
   type PropertyType "BlockedInputMessaging" Guardrail = Value Prelude.Text
   set newValue Guardrail {..}
@@ -108,6 +127,10 @@ instance Property "ContextualGroundingPolicyConfig" Guardrail where
   set newValue Guardrail {..}
     = Guardrail
         {contextualGroundingPolicyConfig = Prelude.pure newValue, ..}
+instance Property "CrossRegionConfig" Guardrail where
+  type PropertyType "CrossRegionConfig" Guardrail = GuardrailCrossRegionConfigProperty
+  set newValue Guardrail {..}
+    = Guardrail {crossRegionConfig = Prelude.pure newValue, ..}
 instance Property "Description" Guardrail where
   type PropertyType "Description" Guardrail = Value Prelude.Text
   set newValue Guardrail {..}

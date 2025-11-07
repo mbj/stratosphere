@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.WordCloudChartConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WordCloudChartConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WordCloudChartConfigurationProperty
+instance Prelude.Eq WordCloudChartConfigurationProperty
+instance Prelude.Show WordCloudChartConfigurationProperty
+instance JSON.ToJSON WordCloudChartConfigurationProperty

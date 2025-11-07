@@ -1,0 +1,9 @@
+module Stratosphere.EC2.CapacityReservation.CommitmentInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CommitmentInfoProperty :: Prelude.Type
+instance ToResourceProperties CommitmentInfoProperty
+instance Prelude.Eq CommitmentInfoProperty
+instance Prelude.Show CommitmentInfoProperty
+instance JSON.ToJSON CommitmentInfoProperty

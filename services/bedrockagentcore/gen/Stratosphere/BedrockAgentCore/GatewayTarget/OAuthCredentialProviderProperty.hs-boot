@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.GatewayTarget.OAuthCredentialProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OAuthCredentialProviderProperty :: Prelude.Type
+instance ToResourceProperties OAuthCredentialProviderProperty
+instance Prelude.Eq OAuthCredentialProviderProperty
+instance Prelude.Show OAuthCredentialProviderProperty
+instance JSON.ToJSON OAuthCredentialProviderProperty

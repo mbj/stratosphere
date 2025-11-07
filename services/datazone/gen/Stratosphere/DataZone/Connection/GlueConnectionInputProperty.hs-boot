@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.GlueConnectionInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlueConnectionInputProperty :: Prelude.Type
+instance ToResourceProperties GlueConnectionInputProperty
+instance Prelude.Eq GlueConnectionInputProperty
+instance Prelude.Show GlueConnectionInputProperty
+instance JSON.ToJSON GlueConnectionInputProperty

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.HyperPodPropertiesInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HyperPodPropertiesInputProperty :: Prelude.Type
+instance ToResourceProperties HyperPodPropertiesInputProperty
+instance Prelude.Eq HyperPodPropertiesInputProperty
+instance Prelude.Show HyperPodPropertiesInputProperty
+instance JSON.ToJSON HyperPodPropertiesInputProperty

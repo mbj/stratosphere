@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.TieredStorageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TieredStorageConfigProperty :: Prelude.Type
+instance ToResourceProperties TieredStorageConfigProperty
+instance Prelude.Eq TieredStorageConfigProperty
+instance Prelude.Show TieredStorageConfigProperty
+instance JSON.ToJSON TieredStorageConfigProperty

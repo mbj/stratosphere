@@ -1,0 +1,9 @@
+module Stratosphere.PCS.ComputeNodeGroup.SlurmConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlurmConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SlurmConfigurationProperty
+instance Prelude.Eq SlurmConfigurationProperty
+instance Prelude.Show SlurmConfigurationProperty
+instance JSON.ToJSON SlurmConfigurationProperty

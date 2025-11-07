@@ -1,0 +1,9 @@
+module Stratosphere.ODB.CloudVmCluster.DataCollectionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataCollectionOptionsProperty :: Prelude.Type
+instance ToResourceProperties DataCollectionOptionsProperty
+instance Prelude.Eq DataCollectionOptionsProperty
+instance Prelude.Show DataCollectionOptionsProperty
+instance JSON.ToJSON DataCollectionOptionsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.SparkEmrPropertiesInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SparkEmrPropertiesInputProperty :: Prelude.Type
+instance ToResourceProperties SparkEmrPropertiesInputProperty
+instance Prelude.Eq SparkEmrPropertiesInputProperty
+instance Prelude.Show SparkEmrPropertiesInputProperty
+instance JSON.ToJSON SparkEmrPropertiesInputProperty

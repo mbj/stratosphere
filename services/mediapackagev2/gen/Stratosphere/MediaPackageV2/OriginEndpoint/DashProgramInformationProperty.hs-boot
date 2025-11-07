@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashProgramInformationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashProgramInformationProperty :: Prelude.Type
+instance ToResourceProperties DashProgramInformationProperty
+instance Prelude.Eq DashProgramInformationProperty
+instance Prelude.Show DashProgramInformationProperty
+instance JSON.ToJSON DashProgramInformationProperty

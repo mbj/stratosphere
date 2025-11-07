@@ -39,11 +39,16 @@ library
       Stratosphere.WorkSpacesWeb.IpAccessSettings.IpRuleProperty
       Stratosphere.WorkSpacesWeb.NetworkSettings
       Stratosphere.WorkSpacesWeb.Portal
+      Stratosphere.WorkSpacesWeb.SessionLogger
+      Stratosphere.WorkSpacesWeb.SessionLogger.EventFilterProperty
+      Stratosphere.WorkSpacesWeb.SessionLogger.LogConfigurationProperty
+      Stratosphere.WorkSpacesWeb.SessionLogger.S3LogConfigurationProperty
       Stratosphere.WorkSpacesWeb.TrustStore
       Stratosphere.WorkSpacesWeb.UserAccessLoggingSettings
       Stratosphere.WorkSpacesWeb.UserSettings
       Stratosphere.WorkSpacesWeb.UserSettings.CookieSpecificationProperty
       Stratosphere.WorkSpacesWeb.UserSettings.CookieSynchronizationConfigurationProperty
+      Stratosphere.WorkSpacesWeb.UserSettings.ToolbarConfigurationProperty
   other-modules:
       Paths_stratosphere_workspacesweb
   hs-source-dirs:

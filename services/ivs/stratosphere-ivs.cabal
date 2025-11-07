@@ -29,6 +29,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.IVS.Channel
+      Stratosphere.IVS.Channel.MultitrackInputConfigurationProperty
       Stratosphere.IVS.EncoderConfiguration
       Stratosphere.IVS.EncoderConfiguration.VideoProperty
       Stratosphere.IVS.IngestConfiguration
@@ -42,6 +43,10 @@ library
       Stratosphere.IVS.RecordingConfiguration.ThumbnailConfigurationProperty
       Stratosphere.IVS.Stage
       Stratosphere.IVS.Stage.AutoParticipantRecordingConfigurationProperty
+      Stratosphere.IVS.Stage.HlsConfigurationProperty
+      Stratosphere.IVS.Stage.ParticipantRecordingHlsConfigurationProperty
+      Stratosphere.IVS.Stage.ParticipantThumbnailConfigurationProperty
+      Stratosphere.IVS.Stage.ThumbnailConfigurationProperty
       Stratosphere.IVS.StorageConfiguration
       Stratosphere.IVS.StorageConfiguration.S3StorageConfigurationProperty
       Stratosphere.IVS.StreamKey

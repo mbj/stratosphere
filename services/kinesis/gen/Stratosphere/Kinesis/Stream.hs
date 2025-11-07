@@ -12,6 +12,8 @@ import Stratosphere.Value
 data Stream
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html>
     Stream {haddock_workaround_ :: (),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-desiredshardlevelmetrics>
+            desiredShardLevelMetrics :: (Prelude.Maybe (ValueList Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name>
             name :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours>
@@ -28,7 +30,8 @@ data Stream
 mkStream :: Stream
 mkStream
   = Stream
-      {haddock_workaround_ = (), name = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       desiredShardLevelMetrics = Prelude.Nothing, name = Prelude.Nothing,
        retentionPeriodHours = Prelude.Nothing,
        shardCount = Prelude.Nothing, streamEncryption = Prelude.Nothing,
        streamModeDetails = Prelude.Nothing, tags = Prelude.Nothing}
@@ -38,7 +41,9 @@ instance ToResourceProperties Stream where
         {awsType = "AWS::Kinesis::Stream", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Name" Prelude.<$> name,
+                           [(JSON..=) "DesiredShardLevelMetrics"
+                              Prelude.<$> desiredShardLevelMetrics,
+                            (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "RetentionPeriodHours" Prelude.<$> retentionPeriodHours,
                             (JSON..=) "ShardCount" Prelude.<$> shardCount,
                             (JSON..=) "StreamEncryption" Prelude.<$> streamEncryption,
@@ -49,12 +54,18 @@ instance JSON.ToJSON Stream where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Name" Prelude.<$> name,
+              [(JSON..=) "DesiredShardLevelMetrics"
+                 Prelude.<$> desiredShardLevelMetrics,
+               (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "RetentionPeriodHours" Prelude.<$> retentionPeriodHours,
                (JSON..=) "ShardCount" Prelude.<$> shardCount,
                (JSON..=) "StreamEncryption" Prelude.<$> streamEncryption,
                (JSON..=) "StreamModeDetails" Prelude.<$> streamModeDetails,
                (JSON..=) "Tags" Prelude.<$> tags]))
+instance Property "DesiredShardLevelMetrics" Stream where
+  type PropertyType "DesiredShardLevelMetrics" Stream = ValueList Prelude.Text
+  set newValue Stream {..}
+    = Stream {desiredShardLevelMetrics = Prelude.pure newValue, ..}
 instance Property "Name" Stream where
   type PropertyType "Name" Stream = Value Prelude.Text
   set newValue Stream {..}

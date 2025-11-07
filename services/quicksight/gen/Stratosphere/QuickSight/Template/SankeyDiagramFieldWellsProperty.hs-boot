@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.SankeyDiagramFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SankeyDiagramFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties SankeyDiagramFieldWellsProperty
+instance Prelude.Eq SankeyDiagramFieldWellsProperty
+instance Prelude.Show SankeyDiagramFieldWellsProperty
+instance JSON.ToJSON SankeyDiagramFieldWellsProperty

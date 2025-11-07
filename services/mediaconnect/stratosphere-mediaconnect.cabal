@@ -37,6 +37,7 @@ library
       Stratosphere.MediaConnect.Bridge.EgressGatewayBridgeProperty
       Stratosphere.MediaConnect.Bridge.FailoverConfigProperty
       Stratosphere.MediaConnect.Bridge.IngressGatewayBridgeProperty
+      Stratosphere.MediaConnect.Bridge.MulticastSourceSettingsProperty
       Stratosphere.MediaConnect.Bridge.SourcePriorityProperty
       Stratosphere.MediaConnect.Bridge.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.BridgeOutput
@@ -44,11 +45,15 @@ library
       Stratosphere.MediaConnect.BridgeSource
       Stratosphere.MediaConnect.BridgeSource.BridgeFlowSourceProperty
       Stratosphere.MediaConnect.BridgeSource.BridgeNetworkSourceProperty
+      Stratosphere.MediaConnect.BridgeSource.MulticastSourceSettingsProperty
       Stratosphere.MediaConnect.BridgeSource.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.Flow
+      Stratosphere.MediaConnect.Flow.AudioMonitoringSettingProperty
+      Stratosphere.MediaConnect.Flow.BlackFramesProperty
       Stratosphere.MediaConnect.Flow.EncryptionProperty
       Stratosphere.MediaConnect.Flow.FailoverConfigProperty
       Stratosphere.MediaConnect.Flow.FmtpProperty
+      Stratosphere.MediaConnect.Flow.FrozenFramesProperty
       Stratosphere.MediaConnect.Flow.GatewayBridgeSourceProperty
       Stratosphere.MediaConnect.Flow.InputConfigurationProperty
       Stratosphere.MediaConnect.Flow.InterfaceProperty
@@ -56,9 +61,13 @@ library
       Stratosphere.MediaConnect.Flow.MediaStreamAttributesProperty
       Stratosphere.MediaConnect.Flow.MediaStreamProperty
       Stratosphere.MediaConnect.Flow.MediaStreamSourceConfigurationProperty
+      Stratosphere.MediaConnect.Flow.NdiConfigProperty
+      Stratosphere.MediaConnect.Flow.NdiDiscoveryServerConfigProperty
+      Stratosphere.MediaConnect.Flow.SilentAudioProperty
       Stratosphere.MediaConnect.Flow.SourceMonitoringConfigProperty
       Stratosphere.MediaConnect.Flow.SourcePriorityProperty
       Stratosphere.MediaConnect.Flow.SourceProperty
+      Stratosphere.MediaConnect.Flow.VideoMonitoringSettingProperty
       Stratosphere.MediaConnect.Flow.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.Flow.VpcInterfaceProperty
       Stratosphere.MediaConnect.FlowEntitlement

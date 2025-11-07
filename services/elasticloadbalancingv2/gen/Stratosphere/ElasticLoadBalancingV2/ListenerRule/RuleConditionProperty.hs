@@ -27,6 +27,8 @@ data RuleConditionProperty
                            pathPatternConfig :: (Prelude.Maybe PathPatternConfigProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig>
                            queryStringConfig :: (Prelude.Maybe QueryStringConfigProperty),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-regexvalues>
+                           regexValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig>
                            sourceIpConfig :: (Prelude.Maybe SourceIpConfigProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values>
@@ -40,7 +42,7 @@ mkRuleConditionProperty
        httpHeaderConfig = Prelude.Nothing,
        httpRequestMethodConfig = Prelude.Nothing,
        pathPatternConfig = Prelude.Nothing,
-       queryStringConfig = Prelude.Nothing,
+       queryStringConfig = Prelude.Nothing, regexValues = Prelude.Nothing,
        sourceIpConfig = Prelude.Nothing, values = Prelude.Nothing}
 instance ToResourceProperties RuleConditionProperty where
   toResourceProperties RuleConditionProperty {..}
@@ -56,6 +58,7 @@ instance ToResourceProperties RuleConditionProperty where
                               Prelude.<$> httpRequestMethodConfig,
                             (JSON..=) "PathPatternConfig" Prelude.<$> pathPatternConfig,
                             (JSON..=) "QueryStringConfig" Prelude.<$> queryStringConfig,
+                            (JSON..=) "RegexValues" Prelude.<$> regexValues,
                             (JSON..=) "SourceIpConfig" Prelude.<$> sourceIpConfig,
                             (JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON RuleConditionProperty where
@@ -70,6 +73,7 @@ instance JSON.ToJSON RuleConditionProperty where
                  Prelude.<$> httpRequestMethodConfig,
                (JSON..=) "PathPatternConfig" Prelude.<$> pathPatternConfig,
                (JSON..=) "QueryStringConfig" Prelude.<$> queryStringConfig,
+               (JSON..=) "RegexValues" Prelude.<$> regexValues,
                (JSON..=) "SourceIpConfig" Prelude.<$> sourceIpConfig,
                (JSON..=) "Values" Prelude.<$> values]))
 instance Property "Field" RuleConditionProperty where
@@ -101,6 +105,10 @@ instance Property "QueryStringConfig" RuleConditionProperty where
   set newValue RuleConditionProperty {..}
     = RuleConditionProperty
         {queryStringConfig = Prelude.pure newValue, ..}
+instance Property "RegexValues" RuleConditionProperty where
+  type PropertyType "RegexValues" RuleConditionProperty = ValueList Prelude.Text
+  set newValue RuleConditionProperty {..}
+    = RuleConditionProperty {regexValues = Prelude.pure newValue, ..}
 instance Property "SourceIpConfig" RuleConditionProperty where
   type PropertyType "SourceIpConfig" RuleConditionProperty = SourceIpConfigProperty
   set newValue RuleConditionProperty {..}

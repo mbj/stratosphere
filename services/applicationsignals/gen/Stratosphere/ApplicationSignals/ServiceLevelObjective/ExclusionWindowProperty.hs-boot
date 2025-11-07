@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.ExclusionWindowProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExclusionWindowProperty :: Prelude.Type
+instance ToResourceProperties ExclusionWindowProperty
+instance Prelude.Eq ExclusionWindowProperty
+instance Prelude.Show ExclusionWindowProperty
+instance JSON.ToJSON ExclusionWindowProperty

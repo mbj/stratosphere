@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Prompt.ToolSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ToolSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ToolSpecificationProperty
+instance Prelude.Eq ToolSpecificationProperty
+instance Prelude.Show ToolSpecificationProperty
+instance JSON.ToJSON ToolSpecificationProperty

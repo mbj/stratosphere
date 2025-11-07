@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.RewriteConfigObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RewriteConfigObjectProperty :: Prelude.Type
+instance ToResourceProperties RewriteConfigObjectProperty
+instance Prelude.Eq RewriteConfigObjectProperty
+instance Prelude.Show RewriteConfigObjectProperty
+instance JSON.ToJSON RewriteConfigObjectProperty

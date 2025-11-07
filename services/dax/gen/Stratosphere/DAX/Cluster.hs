@@ -20,6 +20,8 @@ data Cluster
              description :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-iamrolearn>
              iAMRoleARN :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-networktype>
+             networkType :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-nodetype>
              nodeType :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-notificationtopicarn>
@@ -49,6 +51,7 @@ mkCluster iAMRoleARN nodeType replicationFactor
        availabilityZones = Prelude.Nothing,
        clusterEndpointEncryptionType = Prelude.Nothing,
        clusterName = Prelude.Nothing, description = Prelude.Nothing,
+       networkType = Prelude.Nothing,
        notificationTopicARN = Prelude.Nothing,
        parameterGroupName = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
@@ -69,6 +72,7 @@ instance ToResourceProperties Cluster where
                                  Prelude.<$> clusterEndpointEncryptionType,
                                (JSON..=) "ClusterName" Prelude.<$> clusterName,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "NetworkType" Prelude.<$> networkType,
                                (JSON..=) "NotificationTopicARN" Prelude.<$> notificationTopicARN,
                                (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
                                (JSON..=) "PreferredMaintenanceWindow"
@@ -90,6 +94,7 @@ instance JSON.ToJSON Cluster where
                     Prelude.<$> clusterEndpointEncryptionType,
                   (JSON..=) "ClusterName" Prelude.<$> clusterName,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "NetworkType" Prelude.<$> networkType,
                   (JSON..=) "NotificationTopicARN" Prelude.<$> notificationTopicARN,
                   (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
                   (JSON..=) "PreferredMaintenanceWindow"
@@ -118,6 +123,10 @@ instance Property "Description" Cluster where
 instance Property "IAMRoleARN" Cluster where
   type PropertyType "IAMRoleARN" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {iAMRoleARN = newValue, ..}
+instance Property "NetworkType" Cluster where
+  type PropertyType "NetworkType" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {networkType = Prelude.pure newValue, ..}
 instance Property "NodeType" Cluster where
   type PropertyType "NodeType" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {nodeType = newValue, ..}

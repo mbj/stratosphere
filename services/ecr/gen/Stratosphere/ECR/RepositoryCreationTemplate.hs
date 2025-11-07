@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECR.RepositoryCreationTemplate.EncryptionConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECR.RepositoryCreationTemplate.ImageTagMutabilityExclusionFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -22,6 +23,8 @@ data RepositoryCreationTemplate
                                 encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-imagetagmutability>
                                 imageTagMutability :: (Prelude.Maybe (Value Prelude.Text)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-imagetagmutabilityexclusionfilters>
+                                imageTagMutabilityExclusionFilters :: (Prelude.Maybe [ImageTagMutabilityExclusionFilterProperty]),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-lifecyclepolicy>
                                 lifecyclePolicy :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-prefix>
@@ -41,6 +44,7 @@ mkRepositoryCreationTemplate appliedFor prefix
        description = Prelude.Nothing,
        encryptionConfiguration = Prelude.Nothing,
        imageTagMutability = Prelude.Nothing,
+       imageTagMutabilityExclusionFilters = Prelude.Nothing,
        lifecyclePolicy = Prelude.Nothing,
        repositoryPolicy = Prelude.Nothing, resourceTags = Prelude.Nothing}
 instance ToResourceProperties RepositoryCreationTemplate where
@@ -57,6 +61,8 @@ instance ToResourceProperties RepositoryCreationTemplate where
                                (JSON..=) "EncryptionConfiguration"
                                  Prelude.<$> encryptionConfiguration,
                                (JSON..=) "ImageTagMutability" Prelude.<$> imageTagMutability,
+                               (JSON..=) "ImageTagMutabilityExclusionFilters"
+                                 Prelude.<$> imageTagMutabilityExclusionFilters,
                                (JSON..=) "LifecyclePolicy" Prelude.<$> lifecyclePolicy,
                                (JSON..=) "RepositoryPolicy" Prelude.<$> repositoryPolicy,
                                (JSON..=) "ResourceTags" Prelude.<$> resourceTags]))}
@@ -72,6 +78,8 @@ instance JSON.ToJSON RepositoryCreationTemplate where
                   (JSON..=) "EncryptionConfiguration"
                     Prelude.<$> encryptionConfiguration,
                   (JSON..=) "ImageTagMutability" Prelude.<$> imageTagMutability,
+                  (JSON..=) "ImageTagMutabilityExclusionFilters"
+                    Prelude.<$> imageTagMutabilityExclusionFilters,
                   (JSON..=) "LifecyclePolicy" Prelude.<$> lifecyclePolicy,
                   (JSON..=) "RepositoryPolicy" Prelude.<$> repositoryPolicy,
                   (JSON..=) "ResourceTags" Prelude.<$> resourceTags])))
@@ -99,6 +107,11 @@ instance Property "ImageTagMutability" RepositoryCreationTemplate where
   set newValue RepositoryCreationTemplate {..}
     = RepositoryCreationTemplate
         {imageTagMutability = Prelude.pure newValue, ..}
+instance Property "ImageTagMutabilityExclusionFilters" RepositoryCreationTemplate where
+  type PropertyType "ImageTagMutabilityExclusionFilters" RepositoryCreationTemplate = [ImageTagMutabilityExclusionFilterProperty]
+  set newValue RepositoryCreationTemplate {..}
+    = RepositoryCreationTemplate
+        {imageTagMutabilityExclusionFilters = Prelude.pure newValue, ..}
 instance Property "LifecyclePolicy" RepositoryCreationTemplate where
   type PropertyType "LifecyclePolicy" RepositoryCreationTemplate = Value Prelude.Text
   set newValue RepositoryCreationTemplate {..}

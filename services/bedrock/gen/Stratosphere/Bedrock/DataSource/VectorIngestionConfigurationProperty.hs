@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ChunkingConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ContextEnrichmentConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.CustomTransformationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.DataSource.ParsingConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,8 @@ data VectorIngestionConfigurationProperty
     VectorIngestionConfigurationProperty {haddock_workaround_ :: (),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-chunkingconfiguration>
                                           chunkingConfiguration :: (Prelude.Maybe ChunkingConfigurationProperty),
+                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-contextenrichmentconfiguration>
+                                          contextEnrichmentConfiguration :: (Prelude.Maybe ContextEnrichmentConfigurationProperty),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-customtransformationconfiguration>
                                           customTransformationConfiguration :: (Prelude.Maybe CustomTransformationConfigurationProperty),
                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-parsingconfiguration>
@@ -24,6 +27,7 @@ mkVectorIngestionConfigurationProperty ::
 mkVectorIngestionConfigurationProperty
   = VectorIngestionConfigurationProperty
       {haddock_workaround_ = (), chunkingConfiguration = Prelude.Nothing,
+       contextEnrichmentConfiguration = Prelude.Nothing,
        customTransformationConfiguration = Prelude.Nothing,
        parsingConfiguration = Prelude.Nothing}
 instance ToResourceProperties VectorIngestionConfigurationProperty where
@@ -35,6 +39,8 @@ instance ToResourceProperties VectorIngestionConfigurationProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "ChunkingConfiguration"
                               Prelude.<$> chunkingConfiguration,
+                            (JSON..=) "ContextEnrichmentConfiguration"
+                              Prelude.<$> contextEnrichmentConfiguration,
                             (JSON..=) "CustomTransformationConfiguration"
                               Prelude.<$> customTransformationConfiguration,
                             (JSON..=) "ParsingConfiguration"
@@ -46,6 +52,8 @@ instance JSON.ToJSON VectorIngestionConfigurationProperty where
            (Prelude.catMaybes
               [(JSON..=) "ChunkingConfiguration"
                  Prelude.<$> chunkingConfiguration,
+               (JSON..=) "ContextEnrichmentConfiguration"
+                 Prelude.<$> contextEnrichmentConfiguration,
                (JSON..=) "CustomTransformationConfiguration"
                  Prelude.<$> customTransformationConfiguration,
                (JSON..=) "ParsingConfiguration"
@@ -55,6 +63,11 @@ instance Property "ChunkingConfiguration" VectorIngestionConfigurationProperty w
   set newValue VectorIngestionConfigurationProperty {..}
     = VectorIngestionConfigurationProperty
         {chunkingConfiguration = Prelude.pure newValue, ..}
+instance Property "ContextEnrichmentConfiguration" VectorIngestionConfigurationProperty where
+  type PropertyType "ContextEnrichmentConfiguration" VectorIngestionConfigurationProperty = ContextEnrichmentConfigurationProperty
+  set newValue VectorIngestionConfigurationProperty {..}
+    = VectorIngestionConfigurationProperty
+        {contextEnrichmentConfiguration = Prelude.pure newValue, ..}
 instance Property "CustomTransformationConfiguration" VectorIngestionConfigurationProperty where
   type PropertyType "CustomTransformationConfiguration" VectorIngestionConfigurationProperty = CustomTransformationConfigurationProperty
   set newValue VectorIngestionConfigurationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.EnvironmentBlueprintConfiguration.ProvisioningConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisioningConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ProvisioningConfigurationProperty
+instance Prelude.Eq ProvisioningConfigurationProperty
+instance Prelude.Show ProvisioningConfigurationProperty
+instance JSON.ToJSON ProvisioningConfigurationProperty

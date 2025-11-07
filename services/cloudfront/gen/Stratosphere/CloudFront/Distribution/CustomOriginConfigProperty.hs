@@ -13,6 +13,8 @@ data CustomOriginConfigProperty
                                 hTTPPort :: (Prelude.Maybe (Value Prelude.Integer)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport>
                                 hTTPSPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-ipaddresstype>
+                                ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout>
                                 originKeepaliveTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy>
@@ -29,6 +31,7 @@ mkCustomOriginConfigProperty originProtocolPolicy
       {haddock_workaround_ = (),
        originProtocolPolicy = originProtocolPolicy,
        hTTPPort = Prelude.Nothing, hTTPSPort = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing,
        originKeepaliveTimeout = Prelude.Nothing,
        originReadTimeout = Prelude.Nothing,
        originSSLProtocols = Prelude.Nothing}
@@ -43,6 +46,7 @@ instance ToResourceProperties CustomOriginConfigProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "HTTPPort" Prelude.<$> hTTPPort,
                                (JSON..=) "HTTPSPort" Prelude.<$> hTTPSPort,
+                               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                                (JSON..=) "OriginKeepaliveTimeout"
                                  Prelude.<$> originKeepaliveTimeout,
                                (JSON..=) "OriginReadTimeout" Prelude.<$> originReadTimeout,
@@ -56,6 +60,7 @@ instance JSON.ToJSON CustomOriginConfigProperty where
               (Prelude.catMaybes
                  [(JSON..=) "HTTPPort" Prelude.<$> hTTPPort,
                   (JSON..=) "HTTPSPort" Prelude.<$> hTTPSPort,
+                  (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                   (JSON..=) "OriginKeepaliveTimeout"
                     Prelude.<$> originKeepaliveTimeout,
                   (JSON..=) "OriginReadTimeout" Prelude.<$> originReadTimeout,
@@ -69,6 +74,11 @@ instance Property "HTTPSPort" CustomOriginConfigProperty where
   set newValue CustomOriginConfigProperty {..}
     = CustomOriginConfigProperty
         {hTTPSPort = Prelude.pure newValue, ..}
+instance Property "IpAddressType" CustomOriginConfigProperty where
+  type PropertyType "IpAddressType" CustomOriginConfigProperty = Value Prelude.Text
+  set newValue CustomOriginConfigProperty {..}
+    = CustomOriginConfigProperty
+        {ipAddressType = Prelude.pure newValue, ..}
 instance Property "OriginKeepaliveTimeout" CustomOriginConfigProperty where
   type PropertyType "OriginKeepaliveTimeout" CustomOriginConfigProperty = Value Prelude.Integer
   set newValue CustomOriginConfigProperty {..}

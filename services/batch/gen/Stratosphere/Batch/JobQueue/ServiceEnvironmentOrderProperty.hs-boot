@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobQueue.ServiceEnvironmentOrderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceEnvironmentOrderProperty :: Prelude.Type
+instance ToResourceProperties ServiceEnvironmentOrderProperty
+instance Prelude.Eq ServiceEnvironmentOrderProperty
+instance Prelude.Show ServiceEnvironmentOrderProperty
+instance JSON.ToJSON ServiceEnvironmentOrderProperty

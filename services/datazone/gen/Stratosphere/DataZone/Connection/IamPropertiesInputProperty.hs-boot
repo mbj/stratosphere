@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.IamPropertiesInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamPropertiesInputProperty :: Prelude.Type
+instance ToResourceProperties IamPropertiesInputProperty
+instance Prelude.Eq IamPropertiesInputProperty
+instance Prelude.Show IamPropertiesInputProperty
+instance JSON.ToJSON IamPropertiesInputProperty

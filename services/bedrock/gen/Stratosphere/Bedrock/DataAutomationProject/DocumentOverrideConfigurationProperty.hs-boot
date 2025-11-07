@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.DocumentOverrideConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentOverrideConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DocumentOverrideConfigurationProperty
+instance Prelude.Eq DocumentOverrideConfigurationProperty
+instance Prelude.Show DocumentOverrideConfigurationProperty
+instance JSON.ToJSON DocumentOverrideConfigurationProperty

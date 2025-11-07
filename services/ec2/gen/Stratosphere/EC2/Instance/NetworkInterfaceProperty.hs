@@ -5,6 +5,7 @@ module Stratosphere.EC2.Instance.NetworkInterfaceProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.Instance.EnaSrdSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.InstanceIpv6AddressProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.PrivateIpAddressSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -22,6 +23,8 @@ data NetworkInterfaceProperty
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-deviceindex>
                               deviceIndex :: (Value Prelude.Text),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-enasrdspecification>
+                              enaSrdSpecification :: (Prelude.Maybe EnaSrdSpecificationProperty),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-groupset>
                               groupSet :: (Prelude.Maybe (ValueList Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-ipv6addresscount>
@@ -47,7 +50,8 @@ mkNetworkInterfaceProperty deviceIndex
        associateCarrierIpAddress = Prelude.Nothing,
        associatePublicIpAddress = Prelude.Nothing,
        deleteOnTermination = Prelude.Nothing,
-       description = Prelude.Nothing, groupSet = Prelude.Nothing,
+       description = Prelude.Nothing,
+       enaSrdSpecification = Prelude.Nothing, groupSet = Prelude.Nothing,
        ipv6AddressCount = Prelude.Nothing,
        ipv6Addresses = Prelude.Nothing,
        networkInterfaceId = Prelude.Nothing,
@@ -70,6 +74,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
                                  Prelude.<$> associatePublicIpAddress,
                                (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                                (JSON..=) "GroupSet" Prelude.<$> groupSet,
                                (JSON..=) "Ipv6AddressCount" Prelude.<$> ipv6AddressCount,
                                (JSON..=) "Ipv6Addresses" Prelude.<$> ipv6Addresses,
@@ -92,6 +97,7 @@ instance JSON.ToJSON NetworkInterfaceProperty where
                     Prelude.<$> associatePublicIpAddress,
                   (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                   (JSON..=) "GroupSet" Prelude.<$> groupSet,
                   (JSON..=) "Ipv6AddressCount" Prelude.<$> ipv6AddressCount,
                   (JSON..=) "Ipv6Addresses" Prelude.<$> ipv6Addresses,
@@ -125,6 +131,11 @@ instance Property "DeviceIndex" NetworkInterfaceProperty where
   type PropertyType "DeviceIndex" NetworkInterfaceProperty = Value Prelude.Text
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty {deviceIndex = newValue, ..}
+instance Property "EnaSrdSpecification" NetworkInterfaceProperty where
+  type PropertyType "EnaSrdSpecification" NetworkInterfaceProperty = EnaSrdSpecificationProperty
+  set newValue NetworkInterfaceProperty {..}
+    = NetworkInterfaceProperty
+        {enaSrdSpecification = Prelude.pure newValue, ..}
 instance Property "GroupSet" NetworkInterfaceProperty where
   type PropertyType "GroupSet" NetworkInterfaceProperty = ValueList Prelude.Text
   set newValue NetworkInterfaceProperty {..}

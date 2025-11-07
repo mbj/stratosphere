@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.TimeBasedForecastPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeBasedForecastPropertiesProperty :: Prelude.Type
+instance ToResourceProperties TimeBasedForecastPropertiesProperty
+instance Prelude.Eq TimeBasedForecastPropertiesProperty
+instance Prelude.Show TimeBasedForecastPropertiesProperty
+instance JSON.ToJSON TimeBasedForecastPropertiesProperty

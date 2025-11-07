@@ -11,7 +11,9 @@ data CapacityReservation
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html>
     CapacityReservation {haddock_workaround_ :: (),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzone>
-                         availabilityZone :: (Value Prelude.Text),
+                         availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzoneid>
+                         availabilityZoneId :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-ebsoptimized>
                          ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-enddate>
@@ -40,20 +42,16 @@ data CapacityReservation
                          unusedReservationBillingOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservation ::
-  Value Prelude.Text
-  -> Value Prelude.Integer
-     -> Value Prelude.Text -> Value Prelude.Text -> CapacityReservation
-mkCapacityReservation
-  availabilityZone
-  instanceCount
-  instancePlatform
-  instanceType
+  Value Prelude.Integer
+  -> Value Prelude.Text -> Value Prelude.Text -> CapacityReservation
+mkCapacityReservation instanceCount instancePlatform instanceType
   = CapacityReservation
-      {haddock_workaround_ = (), availabilityZone = availabilityZone,
-       instanceCount = instanceCount, instancePlatform = instancePlatform,
-       instanceType = instanceType, ebsOptimized = Prelude.Nothing,
-       endDate = Prelude.Nothing, endDateType = Prelude.Nothing,
-       ephemeralStorage = Prelude.Nothing,
+      {haddock_workaround_ = (), instanceCount = instanceCount,
+       instancePlatform = instancePlatform, instanceType = instanceType,
+       availabilityZone = Prelude.Nothing,
+       availabilityZoneId = Prelude.Nothing,
+       ebsOptimized = Prelude.Nothing, endDate = Prelude.Nothing,
+       endDateType = Prelude.Nothing, ephemeralStorage = Prelude.Nothing,
        instanceMatchCriteria = Prelude.Nothing,
        outPostArn = Prelude.Nothing, placementGroupArn = Prelude.Nothing,
        tagSpecifications = Prelude.Nothing, tenancy = Prelude.Nothing,
@@ -65,12 +63,13 @@ instance ToResourceProperties CapacityReservation where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AvailabilityZone" JSON..= availabilityZone,
-                            "InstanceCount" JSON..= instanceCount,
+                           ["InstanceCount" JSON..= instanceCount,
                             "InstancePlatform" JSON..= instancePlatform,
                             "InstanceType" JSON..= instanceType]
                            (Prelude.catMaybes
-                              [(JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
+                              [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                               (JSON..=) "AvailabilityZoneId" Prelude.<$> availabilityZoneId,
+                               (JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
                                (JSON..=) "EndDate" Prelude.<$> endDate,
                                (JSON..=) "EndDateType" Prelude.<$> endDateType,
                                (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
@@ -87,12 +86,13 @@ instance JSON.ToJSON CapacityReservation where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AvailabilityZone" JSON..= availabilityZone,
-               "InstanceCount" JSON..= instanceCount,
+              ["InstanceCount" JSON..= instanceCount,
                "InstancePlatform" JSON..= instancePlatform,
                "InstanceType" JSON..= instanceType]
               (Prelude.catMaybes
-                 [(JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
+                 [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                  (JSON..=) "AvailabilityZoneId" Prelude.<$> availabilityZoneId,
+                  (JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
                   (JSON..=) "EndDate" Prelude.<$> endDate,
                   (JSON..=) "EndDateType" Prelude.<$> endDateType,
                   (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
@@ -107,7 +107,13 @@ instance JSON.ToJSON CapacityReservation where
 instance Property "AvailabilityZone" CapacityReservation where
   type PropertyType "AvailabilityZone" CapacityReservation = Value Prelude.Text
   set newValue CapacityReservation {..}
-    = CapacityReservation {availabilityZone = newValue, ..}
+    = CapacityReservation
+        {availabilityZone = Prelude.pure newValue, ..}
+instance Property "AvailabilityZoneId" CapacityReservation where
+  type PropertyType "AvailabilityZoneId" CapacityReservation = Value Prelude.Text
+  set newValue CapacityReservation {..}
+    = CapacityReservation
+        {availabilityZoneId = Prelude.pure newValue, ..}
 instance Property "EbsOptimized" CapacityReservation where
   type PropertyType "EbsOptimized" CapacityReservation = Value Prelude.Bool
   set newValue CapacityReservation {..}

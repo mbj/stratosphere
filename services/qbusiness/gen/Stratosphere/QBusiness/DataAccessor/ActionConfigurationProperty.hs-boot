@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataAccessor.ActionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ActionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ActionConfigurationProperty
+instance Prelude.Eq ActionConfigurationProperty
+instance Prelude.Show ActionConfigurationProperty
+instance JSON.ToJSON ActionConfigurationProperty

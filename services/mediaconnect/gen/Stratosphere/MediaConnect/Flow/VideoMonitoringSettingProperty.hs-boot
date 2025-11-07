@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Flow.VideoMonitoringSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoMonitoringSettingProperty :: Prelude.Type
+instance ToResourceProperties VideoMonitoringSettingProperty
+instance Prelude.Eq VideoMonitoringSettingProperty
+instance Prelude.Show VideoMonitoringSettingProperty
+instance JSON.ToJSON VideoMonitoringSettingProperty

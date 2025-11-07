@@ -4,17 +4,21 @@ module Stratosphere.Batch.JobDefinition (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ConsumableResourcePropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ContainerPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EcsPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksPropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.JobTimeoutProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NodePropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ResourceRetentionPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RetryStrategyProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.TimeoutProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobDefinition
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html>
     JobDefinition {haddock_workaround_ :: (),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-consumableresourceproperties>
+                   consumableResourceProperties :: (Prelude.Maybe ConsumableResourcePropertiesProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties>
                    containerProperties :: (Prelude.Maybe ContainerPropertiesProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-ecsproperties>
@@ -26,19 +30,21 @@ data JobDefinition
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties>
                    nodeProperties :: (Prelude.Maybe NodePropertiesProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters>
-                   parameters :: (Prelude.Maybe JSON.Object),
+                   parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities>
                    platformCapabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags>
                    propagateTags :: (Prelude.Maybe (Value Prelude.Bool)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-resourceretentionpolicy>
+                   resourceRetentionPolicy :: (Prelude.Maybe ResourceRetentionPolicyProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy>
                    retryStrategy :: (Prelude.Maybe RetryStrategyProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-schedulingpriority>
                    schedulingPriority :: (Prelude.Maybe (Value Prelude.Integer)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags>
-                   tags :: (Prelude.Maybe JSON.Object),
+                   tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout>
-                   timeout :: (Prelude.Maybe TimeoutProperty),
+                   timeout :: (Prelude.Maybe JobTimeoutProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type>
                    type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -46,12 +52,15 @@ mkJobDefinition :: Value Prelude.Text -> JobDefinition
 mkJobDefinition type'
   = JobDefinition
       {haddock_workaround_ = (), type' = type',
+       consumableResourceProperties = Prelude.Nothing,
        containerProperties = Prelude.Nothing,
        ecsProperties = Prelude.Nothing, eksProperties = Prelude.Nothing,
        jobDefinitionName = Prelude.Nothing,
        nodeProperties = Prelude.Nothing, parameters = Prelude.Nothing,
        platformCapabilities = Prelude.Nothing,
-       propagateTags = Prelude.Nothing, retryStrategy = Prelude.Nothing,
+       propagateTags = Prelude.Nothing,
+       resourceRetentionPolicy = Prelude.Nothing,
+       retryStrategy = Prelude.Nothing,
        schedulingPriority = Prelude.Nothing, tags = Prelude.Nothing,
        timeout = Prelude.Nothing}
 instance ToResourceProperties JobDefinition where
@@ -63,7 +72,9 @@ instance ToResourceProperties JobDefinition where
                         ((Prelude.<>)
                            ["Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
+                              [(JSON..=) "ConsumableResourceProperties"
+                                 Prelude.<$> consumableResourceProperties,
+                               (JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
                                (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
                                (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                                (JSON..=) "JobDefinitionName" Prelude.<$> jobDefinitionName,
@@ -71,6 +82,8 @@ instance ToResourceProperties JobDefinition where
                                (JSON..=) "Parameters" Prelude.<$> parameters,
                                (JSON..=) "PlatformCapabilities" Prelude.<$> platformCapabilities,
                                (JSON..=) "PropagateTags" Prelude.<$> propagateTags,
+                               (JSON..=) "ResourceRetentionPolicy"
+                                 Prelude.<$> resourceRetentionPolicy,
                                (JSON..=) "RetryStrategy" Prelude.<$> retryStrategy,
                                (JSON..=) "SchedulingPriority" Prelude.<$> schedulingPriority,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -82,7 +95,9 @@ instance JSON.ToJSON JobDefinition where
            ((Prelude.<>)
               ["Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
+                 [(JSON..=) "ConsumableResourceProperties"
+                    Prelude.<$> consumableResourceProperties,
+                  (JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
                   (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
                   (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                   (JSON..=) "JobDefinitionName" Prelude.<$> jobDefinitionName,
@@ -90,10 +105,17 @@ instance JSON.ToJSON JobDefinition where
                   (JSON..=) "Parameters" Prelude.<$> parameters,
                   (JSON..=) "PlatformCapabilities" Prelude.<$> platformCapabilities,
                   (JSON..=) "PropagateTags" Prelude.<$> propagateTags,
+                  (JSON..=) "ResourceRetentionPolicy"
+                    Prelude.<$> resourceRetentionPolicy,
                   (JSON..=) "RetryStrategy" Prelude.<$> retryStrategy,
                   (JSON..=) "SchedulingPriority" Prelude.<$> schedulingPriority,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Timeout" Prelude.<$> timeout])))
+instance Property "ConsumableResourceProperties" JobDefinition where
+  type PropertyType "ConsumableResourceProperties" JobDefinition = ConsumableResourcePropertiesProperty
+  set newValue JobDefinition {..}
+    = JobDefinition
+        {consumableResourceProperties = Prelude.pure newValue, ..}
 instance Property "ContainerProperties" JobDefinition where
   type PropertyType "ContainerProperties" JobDefinition = ContainerPropertiesProperty
   set newValue JobDefinition {..}
@@ -115,7 +137,7 @@ instance Property "NodeProperties" JobDefinition where
   set newValue JobDefinition {..}
     = JobDefinition {nodeProperties = Prelude.pure newValue, ..}
 instance Property "Parameters" JobDefinition where
-  type PropertyType "Parameters" JobDefinition = JSON.Object
+  type PropertyType "Parameters" JobDefinition = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue JobDefinition {..}
     = JobDefinition {parameters = Prelude.pure newValue, ..}
 instance Property "PlatformCapabilities" JobDefinition where
@@ -126,6 +148,11 @@ instance Property "PropagateTags" JobDefinition where
   type PropertyType "PropagateTags" JobDefinition = Value Prelude.Bool
   set newValue JobDefinition {..}
     = JobDefinition {propagateTags = Prelude.pure newValue, ..}
+instance Property "ResourceRetentionPolicy" JobDefinition where
+  type PropertyType "ResourceRetentionPolicy" JobDefinition = ResourceRetentionPolicyProperty
+  set newValue JobDefinition {..}
+    = JobDefinition
+        {resourceRetentionPolicy = Prelude.pure newValue, ..}
 instance Property "RetryStrategy" JobDefinition where
   type PropertyType "RetryStrategy" JobDefinition = RetryStrategyProperty
   set newValue JobDefinition {..}
@@ -135,11 +162,11 @@ instance Property "SchedulingPriority" JobDefinition where
   set newValue JobDefinition {..}
     = JobDefinition {schedulingPriority = Prelude.pure newValue, ..}
 instance Property "Tags" JobDefinition where
-  type PropertyType "Tags" JobDefinition = JSON.Object
+  type PropertyType "Tags" JobDefinition = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue JobDefinition {..}
     = JobDefinition {tags = Prelude.pure newValue, ..}
 instance Property "Timeout" JobDefinition where
-  type PropertyType "Timeout" JobDefinition = TimeoutProperty
+  type PropertyType "Timeout" JobDefinition = JobTimeoutProperty
   set newValue JobDefinition {..}
     = JobDefinition {timeout = Prelude.pure newValue, ..}
 instance Property "Type" JobDefinition where

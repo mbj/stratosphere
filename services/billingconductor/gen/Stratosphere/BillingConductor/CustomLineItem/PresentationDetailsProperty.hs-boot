@@ -1,0 +1,9 @@
+module Stratosphere.BillingConductor.CustomLineItem.PresentationDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PresentationDetailsProperty :: Prelude.Type
+instance ToResourceProperties PresentationDetailsProperty
+instance Prelude.Eq PresentationDetailsProperty
+instance Prelude.Show PresentationDetailsProperty
+instance JSON.ToJSON PresentationDetailsProperty

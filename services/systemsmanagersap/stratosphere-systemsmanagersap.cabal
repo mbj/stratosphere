@@ -29,6 +29,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.SystemsManagerSAP.Application
+      Stratosphere.SystemsManagerSAP.Application.ComponentInfoProperty
       Stratosphere.SystemsManagerSAP.Application.CredentialProperty
   other-modules:
       Paths_stratosphere_systemsmanagersap

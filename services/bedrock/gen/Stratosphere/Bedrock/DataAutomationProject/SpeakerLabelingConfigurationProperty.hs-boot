@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.SpeakerLabelingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpeakerLabelingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SpeakerLabelingConfigurationProperty
+instance Prelude.Eq SpeakerLabelingConfigurationProperty
+instance Prelude.Show SpeakerLabelingConfigurationProperty
+instance JSON.ToJSON SpeakerLabelingConfigurationProperty

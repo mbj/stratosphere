@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.StaticFileSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StaticFileSourceProperty :: Prelude.Type
+instance ToResourceProperties StaticFileSourceProperty
+instance Prelude.Eq StaticFileSourceProperty
+instance Prelude.Show StaticFileSourceProperty
+instance JSON.ToJSON StaticFileSourceProperty

@@ -18,6 +18,8 @@ data Gateway
              gatewayName :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform>
              gatewayPlatform :: GatewayPlatformProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayversion>
+             gatewayVersion :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -28,7 +30,7 @@ mkGateway gatewayName gatewayPlatform
       {haddock_workaround_ = (), gatewayName = gatewayName,
        gatewayPlatform = gatewayPlatform,
        gatewayCapabilitySummaries = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       gatewayVersion = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Gateway where
   toResourceProperties Gateway {..}
     = ResourceProperties
@@ -41,6 +43,7 @@ instance ToResourceProperties Gateway where
                            (Prelude.catMaybes
                               [(JSON..=) "GatewayCapabilitySummaries"
                                  Prelude.<$> gatewayCapabilitySummaries,
+                               (JSON..=) "GatewayVersion" Prelude.<$> gatewayVersion,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Gateway where
   toJSON Gateway {..}
@@ -52,6 +55,7 @@ instance JSON.ToJSON Gateway where
               (Prelude.catMaybes
                  [(JSON..=) "GatewayCapabilitySummaries"
                     Prelude.<$> gatewayCapabilitySummaries,
+                  (JSON..=) "GatewayVersion" Prelude.<$> gatewayVersion,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "GatewayCapabilitySummaries" Gateway where
   type PropertyType "GatewayCapabilitySummaries" Gateway = [GatewayCapabilitySummaryProperty]
@@ -64,6 +68,10 @@ instance Property "GatewayPlatform" Gateway where
   type PropertyType "GatewayPlatform" Gateway = GatewayPlatformProperty
   set newValue Gateway {..}
     = Gateway {gatewayPlatform = newValue, ..}
+instance Property "GatewayVersion" Gateway where
+  type PropertyType "GatewayVersion" Gateway = Value Prelude.Text
+  set newValue Gateway {..}
+    = Gateway {gatewayVersion = Prelude.pure newValue, ..}
 instance Property "Tags" Gateway where
   type PropertyType "Tags" Gateway = [Tag]
   set newValue Gateway {..}

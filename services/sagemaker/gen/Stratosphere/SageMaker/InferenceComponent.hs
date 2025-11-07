@@ -4,6 +4,7 @@ module Stratosphere.SageMaker.InferenceComponent (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.InferenceComponentDeploymentConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.InferenceComponentRuntimeConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.InferenceComponentSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,6 +13,8 @@ import Stratosphere.Value
 data InferenceComponent
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html>
     InferenceComponent {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-deploymentconfig>
+                        deploymentConfig :: (Prelude.Maybe InferenceComponentDeploymentConfigProperty),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointarn>
                         endpointArn :: (Prelude.Maybe (Value Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointname>
@@ -33,7 +36,8 @@ mkInferenceComponent ::
 mkInferenceComponent endpointName specification
   = InferenceComponent
       {haddock_workaround_ = (), endpointName = endpointName,
-       specification = specification, endpointArn = Prelude.Nothing,
+       specification = specification, deploymentConfig = Prelude.Nothing,
+       endpointArn = Prelude.Nothing,
        inferenceComponentName = Prelude.Nothing,
        runtimeConfig = Prelude.Nothing, tags = Prelude.Nothing,
        variantName = Prelude.Nothing}
@@ -47,7 +51,8 @@ instance ToResourceProperties InferenceComponent where
                            ["EndpointName" JSON..= endpointName,
                             "Specification" JSON..= specification]
                            (Prelude.catMaybes
-                              [(JSON..=) "EndpointArn" Prelude.<$> endpointArn,
+                              [(JSON..=) "DeploymentConfig" Prelude.<$> deploymentConfig,
+                               (JSON..=) "EndpointArn" Prelude.<$> endpointArn,
                                (JSON..=) "InferenceComponentName"
                                  Prelude.<$> inferenceComponentName,
                                (JSON..=) "RuntimeConfig" Prelude.<$> runtimeConfig,
@@ -61,12 +66,17 @@ instance JSON.ToJSON InferenceComponent where
               ["EndpointName" JSON..= endpointName,
                "Specification" JSON..= specification]
               (Prelude.catMaybes
-                 [(JSON..=) "EndpointArn" Prelude.<$> endpointArn,
+                 [(JSON..=) "DeploymentConfig" Prelude.<$> deploymentConfig,
+                  (JSON..=) "EndpointArn" Prelude.<$> endpointArn,
                   (JSON..=) "InferenceComponentName"
                     Prelude.<$> inferenceComponentName,
                   (JSON..=) "RuntimeConfig" Prelude.<$> runtimeConfig,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VariantName" Prelude.<$> variantName])))
+instance Property "DeploymentConfig" InferenceComponent where
+  type PropertyType "DeploymentConfig" InferenceComponent = InferenceComponentDeploymentConfigProperty
+  set newValue InferenceComponent {..}
+    = InferenceComponent {deploymentConfig = Prelude.pure newValue, ..}
 instance Property "EndpointArn" InferenceComponent where
   type PropertyType "EndpointArn" InferenceComponent = Value Prelude.Text
   set newValue InferenceComponent {..}

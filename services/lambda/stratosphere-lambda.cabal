@@ -50,6 +50,9 @@ library
       Stratosphere.Lambda.EventSourceMapping.OnFailureProperty
       Stratosphere.Lambda.EventSourceMapping.ProvisionedPollerConfigProperty
       Stratosphere.Lambda.EventSourceMapping.ScalingConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.SchemaRegistryAccessConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.SchemaRegistryConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.SchemaValidationConfigProperty
       Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty
       Stratosphere.Lambda.EventSourceMapping.SelfManagedKafkaEventSourceConfigProperty
       Stratosphere.Lambda.EventSourceMapping.SourceAccessConfigurationProperty

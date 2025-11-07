@@ -1,0 +1,9 @@
+module Stratosphere.IoTSiteWise.AssetModel.EnforcedAssetModelInterfacePropertyMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnforcedAssetModelInterfacePropertyMappingProperty :: Prelude.Type
+instance ToResourceProperties EnforcedAssetModelInterfacePropertyMappingProperty
+instance Prelude.Eq EnforcedAssetModelInterfacePropertyMappingProperty
+instance Prelude.Show EnforcedAssetModelInterfacePropertyMappingProperty
+instance JSON.ToJSON EnforcedAssetModelInterfacePropertyMappingProperty

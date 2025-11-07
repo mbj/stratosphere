@@ -26,28 +26,26 @@ data Webhook
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipeline>
              targetPipeline :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipelineversion>
-             targetPipelineVersion :: (Value Prelude.Integer)}
+             targetPipelineVersion :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhook ::
   Value Prelude.Text
   -> WebhookAuthConfigurationProperty
      -> [WebhookFilterRuleProperty]
-        -> Value Prelude.Text
-           -> Value Prelude.Text -> Value Prelude.Integer -> Webhook
+        -> Value Prelude.Text -> Value Prelude.Text -> Webhook
 mkWebhook
   authentication
   authenticationConfiguration
   filters
   targetAction
   targetPipeline
-  targetPipelineVersion
   = Webhook
       {haddock_workaround_ = (), authentication = authentication,
        authenticationConfiguration = authenticationConfiguration,
        filters = filters, targetAction = targetAction,
-       targetPipeline = targetPipeline,
-       targetPipelineVersion = targetPipelineVersion,
-       name = Prelude.Nothing, registerWithThirdParty = Prelude.Nothing}
+       targetPipeline = targetPipeline, name = Prelude.Nothing,
+       registerWithThirdParty = Prelude.Nothing,
+       targetPipelineVersion = Prelude.Nothing}
 instance ToResourceProperties Webhook where
   toResourceProperties Webhook {..}
     = ResourceProperties
@@ -58,12 +56,13 @@ instance ToResourceProperties Webhook where
                            ["Authentication" JSON..= authentication,
                             "AuthenticationConfiguration" JSON..= authenticationConfiguration,
                             "Filters" JSON..= filters, "TargetAction" JSON..= targetAction,
-                            "TargetPipeline" JSON..= targetPipeline,
-                            "TargetPipelineVersion" JSON..= targetPipelineVersion]
+                            "TargetPipeline" JSON..= targetPipeline]
                            (Prelude.catMaybes
                               [(JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "RegisterWithThirdParty"
-                                 Prelude.<$> registerWithThirdParty]))}
+                                 Prelude.<$> registerWithThirdParty,
+                               (JSON..=) "TargetPipelineVersion"
+                                 Prelude.<$> targetPipelineVersion]))}
 instance JSON.ToJSON Webhook where
   toJSON Webhook {..}
     = JSON.object
@@ -72,12 +71,13 @@ instance JSON.ToJSON Webhook where
               ["Authentication" JSON..= authentication,
                "AuthenticationConfiguration" JSON..= authenticationConfiguration,
                "Filters" JSON..= filters, "TargetAction" JSON..= targetAction,
-               "TargetPipeline" JSON..= targetPipeline,
-               "TargetPipelineVersion" JSON..= targetPipelineVersion]
+               "TargetPipeline" JSON..= targetPipeline]
               (Prelude.catMaybes
                  [(JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "RegisterWithThirdParty"
-                    Prelude.<$> registerWithThirdParty])))
+                    Prelude.<$> registerWithThirdParty,
+                  (JSON..=) "TargetPipelineVersion"
+                    Prelude.<$> targetPipelineVersion])))
 instance Property "Authentication" Webhook where
   type PropertyType "Authentication" Webhook = Value Prelude.Text
   set newValue Webhook {..} = Webhook {authentication = newValue, ..}
@@ -105,4 +105,4 @@ instance Property "TargetPipeline" Webhook where
 instance Property "TargetPipelineVersion" Webhook where
   type PropertyType "TargetPipelineVersion" Webhook = Value Prelude.Integer
   set newValue Webhook {..}
-    = Webhook {targetPipelineVersion = newValue, ..}
+    = Webhook {targetPipelineVersion = Prelude.pure newValue, ..}

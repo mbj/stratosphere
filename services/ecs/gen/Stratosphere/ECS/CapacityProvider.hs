@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECS.CapacityProvider.AutoScalingGroupProviderProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.CapacityProvider.ManagedInstancesProviderProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -13,6 +14,10 @@ data CapacityProvider
     CapacityProvider {haddock_workaround_ :: (),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider>
                       autoScalingGroupProvider :: (Prelude.Maybe AutoScalingGroupProviderProperty),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-clustername>
+                      clusterName :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-managedinstancesprovider>
+                      managedInstancesProvider :: (Prelude.Maybe ManagedInstancesProviderProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags>
@@ -22,7 +27,9 @@ mkCapacityProvider :: CapacityProvider
 mkCapacityProvider
   = CapacityProvider
       {haddock_workaround_ = (),
-       autoScalingGroupProvider = Prelude.Nothing, name = Prelude.Nothing,
+       autoScalingGroupProvider = Prelude.Nothing,
+       clusterName = Prelude.Nothing,
+       managedInstancesProvider = Prelude.Nothing, name = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties CapacityProvider where
   toResourceProperties CapacityProvider {..}
@@ -33,6 +40,9 @@ instance ToResourceProperties CapacityProvider where
                         (Prelude.catMaybes
                            [(JSON..=) "AutoScalingGroupProvider"
                               Prelude.<$> autoScalingGroupProvider,
+                            (JSON..=) "ClusterName" Prelude.<$> clusterName,
+                            (JSON..=) "ManagedInstancesProvider"
+                              Prelude.<$> managedInstancesProvider,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON CapacityProvider where
@@ -42,6 +52,9 @@ instance JSON.ToJSON CapacityProvider where
            (Prelude.catMaybes
               [(JSON..=) "AutoScalingGroupProvider"
                  Prelude.<$> autoScalingGroupProvider,
+               (JSON..=) "ClusterName" Prelude.<$> clusterName,
+               (JSON..=) "ManagedInstancesProvider"
+                 Prelude.<$> managedInstancesProvider,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "AutoScalingGroupProvider" CapacityProvider where
@@ -49,6 +62,15 @@ instance Property "AutoScalingGroupProvider" CapacityProvider where
   set newValue CapacityProvider {..}
     = CapacityProvider
         {autoScalingGroupProvider = Prelude.pure newValue, ..}
+instance Property "ClusterName" CapacityProvider where
+  type PropertyType "ClusterName" CapacityProvider = Value Prelude.Text
+  set newValue CapacityProvider {..}
+    = CapacityProvider {clusterName = Prelude.pure newValue, ..}
+instance Property "ManagedInstancesProvider" CapacityProvider where
+  type PropertyType "ManagedInstancesProvider" CapacityProvider = ManagedInstancesProviderProperty
+  set newValue CapacityProvider {..}
+    = CapacityProvider
+        {managedInstancesProvider = Prelude.pure newValue, ..}
 instance Property "Name" CapacityProvider where
   type PropertyType "Name" CapacityProvider = Value Prelude.Text
   set newValue CapacityProvider {..}

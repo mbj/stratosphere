@@ -1,0 +1,9 @@
+module Stratosphere.Connect.Queue.OutboundEmailConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutboundEmailConfigProperty :: Prelude.Type
+instance ToResourceProperties OutboundEmailConfigProperty
+instance Prelude.Eq OutboundEmailConfigProperty
+instance Prelude.Show OutboundEmailConfigProperty
+instance JSON.ToJSON OutboundEmailConfigProperty

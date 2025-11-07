@@ -1,0 +1,9 @@
+module Stratosphere.DSQL.Cluster.MultiRegionPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiRegionPropertiesProperty :: Prelude.Type
+instance ToResourceProperties MultiRegionPropertiesProperty
+instance Prelude.Eq MultiRegionPropertiesProperty
+instance Prelude.Show MultiRegionPropertiesProperty
+instance JSON.ToJSON MultiRegionPropertiesProperty

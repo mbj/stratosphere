@@ -1,0 +1,9 @@
+module Stratosphere.Backup.BackupPlan.IndexActionsResourceTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IndexActionsResourceTypeProperty :: Prelude.Type
+instance ToResourceProperties IndexActionsResourceTypeProperty
+instance Prelude.Eq IndexActionsResourceTypeProperty
+instance Prelude.Show IndexActionsResourceTypeProperty
+instance JSON.ToJSON IndexActionsResourceTypeProperty

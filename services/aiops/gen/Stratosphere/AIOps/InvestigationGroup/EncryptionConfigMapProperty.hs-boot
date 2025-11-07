@@ -1,0 +1,9 @@
+module Stratosphere.AIOps.InvestigationGroup.EncryptionConfigMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncryptionConfigMapProperty :: Prelude.Type
+instance ToResourceProperties EncryptionConfigMapProperty
+instance Prelude.Eq EncryptionConfigMapProperty
+instance Prelude.Show EncryptionConfigMapProperty
+instance JSON.ToJSON EncryptionConfigMapProperty

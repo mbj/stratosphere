@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.TriggerConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TriggerConditionProperty :: Prelude.Type
+instance ToResourceProperties TriggerConditionProperty
+instance Prelude.Eq TriggerConditionProperty
+instance Prelude.Show TriggerConditionProperty
+instance JSON.ToJSON TriggerConditionProperty

@@ -50,6 +50,7 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DeserializerProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DestinationTableConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DirectPutSourceConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DocumentIdOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DynamicPartitioningConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHintsProperty
@@ -71,6 +72,8 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.OrcSerDeProperty
       Stratosphere.KinesisFirehose.DeliveryStream.OutputFormatConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ParquetSerDeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.PartitionFieldProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.PartitionSpecProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ProcessorParameterProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ProcessorProperty
@@ -79,6 +82,7 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SchemaConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SchemaEvolutionConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SerializerProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeBufferingHintsProperty
@@ -89,6 +93,7 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.SplunkBufferingHintsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SplunkDestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SplunkRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.TableCreationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.VpcConfigurationProperty
   other-modules:
       Paths_stratosphere_kinesisfirehose

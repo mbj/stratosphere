@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.HeaderTagActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HeaderTagActionProperty :: Prelude.Type
+instance ToResourceProperties HeaderTagActionProperty
+instance Prelude.Eq HeaderTagActionProperty
+instance Prelude.Show HeaderTagActionProperty
+instance JSON.ToJSON HeaderTagActionProperty

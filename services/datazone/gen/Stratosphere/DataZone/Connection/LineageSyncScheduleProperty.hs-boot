@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.LineageSyncScheduleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LineageSyncScheduleProperty :: Prelude.Type
+instance ToResourceProperties LineageSyncScheduleProperty
+instance Prelude.Eq LineageSyncScheduleProperty
+instance Prelude.Show LineageSyncScheduleProperty
+instance JSON.ToJSON LineageSyncScheduleProperty

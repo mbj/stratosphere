@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.DistributionConfiguration.SsmParameterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SsmParameterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SsmParameterConfigurationProperty
+instance Prelude.Eq SsmParameterConfigurationProperty
+instance Prelude.Show SsmParameterConfigurationProperty
+instance JSON.ToJSON SsmParameterConfigurationProperty

@@ -4,6 +4,7 @@ module Stratosphere.Lex.Bot.SlotTypeProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Lex.Bot.CompositeSlotTypeSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ExternalSourceSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotTypeValueProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueSelectionSettingProperty as Exports
@@ -12,6 +13,8 @@ import Stratosphere.Value
 data SlotTypeProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html>
     SlotTypeProperty {haddock_workaround_ :: (),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-compositeslottypesetting>
+                      compositeSlotTypeSetting :: (Prelude.Maybe CompositeSlotTypeSettingProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-description>
                       description :: (Prelude.Maybe (Value Prelude.Text)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-externalsourcesetting>
@@ -29,6 +32,7 @@ mkSlotTypeProperty :: Value Prelude.Text -> SlotTypeProperty
 mkSlotTypeProperty name
   = SlotTypeProperty
       {haddock_workaround_ = (), name = name,
+       compositeSlotTypeSetting = Prelude.Nothing,
        description = Prelude.Nothing,
        externalSourceSetting = Prelude.Nothing,
        parentSlotTypeSignature = Prelude.Nothing,
@@ -42,7 +46,9 @@ instance ToResourceProperties SlotTypeProperty where
                         ((Prelude.<>)
                            ["Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "CompositeSlotTypeSetting"
+                                 Prelude.<$> compositeSlotTypeSetting,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "ExternalSourceSetting"
                                  Prelude.<$> externalSourceSetting,
                                (JSON..=) "ParentSlotTypeSignature"
@@ -57,7 +63,9 @@ instance JSON.ToJSON SlotTypeProperty where
            ((Prelude.<>)
               ["Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "CompositeSlotTypeSetting"
+                    Prelude.<$> compositeSlotTypeSetting,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "ExternalSourceSetting"
                     Prelude.<$> externalSourceSetting,
                   (JSON..=) "ParentSlotTypeSignature"
@@ -65,6 +73,11 @@ instance JSON.ToJSON SlotTypeProperty where
                   (JSON..=) "SlotTypeValues" Prelude.<$> slotTypeValues,
                   (JSON..=) "ValueSelectionSetting"
                     Prelude.<$> valueSelectionSetting])))
+instance Property "CompositeSlotTypeSetting" SlotTypeProperty where
+  type PropertyType "CompositeSlotTypeSetting" SlotTypeProperty = CompositeSlotTypeSettingProperty
+  set newValue SlotTypeProperty {..}
+    = SlotTypeProperty
+        {compositeSlotTypeSetting = Prelude.pure newValue, ..}
 instance Property "Description" SlotTypeProperty where
   type PropertyType "Description" SlotTypeProperty = Value Prelude.Text
   set newValue SlotTypeProperty {..}

@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.BurnRateConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.ExclusionWindowProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.GoalProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.RequestBasedSliProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.SliProperty as Exports
@@ -18,6 +19,8 @@ data ServiceLevelObjective
                            burnRateConfigurations :: (Prelude.Maybe [BurnRateConfigurationProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-description>
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-exclusionwindows>
+                           exclusionWindows :: (Prelude.Maybe [ExclusionWindowProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-goal>
                            goal :: (Prelude.Maybe GoalProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-name>
@@ -35,9 +38,9 @@ mkServiceLevelObjective name
   = ServiceLevelObjective
       {haddock_workaround_ = (), name = name,
        burnRateConfigurations = Prelude.Nothing,
-       description = Prelude.Nothing, goal = Prelude.Nothing,
-       requestBasedSli = Prelude.Nothing, sli = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       description = Prelude.Nothing, exclusionWindows = Prelude.Nothing,
+       goal = Prelude.Nothing, requestBasedSli = Prelude.Nothing,
+       sli = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ServiceLevelObjective where
   toResourceProperties ServiceLevelObjective {..}
     = ResourceProperties
@@ -50,6 +53,7 @@ instance ToResourceProperties ServiceLevelObjective where
                               [(JSON..=) "BurnRateConfigurations"
                                  Prelude.<$> burnRateConfigurations,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "ExclusionWindows" Prelude.<$> exclusionWindows,
                                (JSON..=) "Goal" Prelude.<$> goal,
                                (JSON..=) "RequestBasedSli" Prelude.<$> requestBasedSli,
                                (JSON..=) "Sli" Prelude.<$> sli,
@@ -64,6 +68,7 @@ instance JSON.ToJSON ServiceLevelObjective where
                  [(JSON..=) "BurnRateConfigurations"
                     Prelude.<$> burnRateConfigurations,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "ExclusionWindows" Prelude.<$> exclusionWindows,
                   (JSON..=) "Goal" Prelude.<$> goal,
                   (JSON..=) "RequestBasedSli" Prelude.<$> requestBasedSli,
                   (JSON..=) "Sli" Prelude.<$> sli,
@@ -77,6 +82,11 @@ instance Property "Description" ServiceLevelObjective where
   type PropertyType "Description" ServiceLevelObjective = Value Prelude.Text
   set newValue ServiceLevelObjective {..}
     = ServiceLevelObjective {description = Prelude.pure newValue, ..}
+instance Property "ExclusionWindows" ServiceLevelObjective where
+  type PropertyType "ExclusionWindows" ServiceLevelObjective = [ExclusionWindowProperty]
+  set newValue ServiceLevelObjective {..}
+    = ServiceLevelObjective
+        {exclusionWindows = Prelude.pure newValue, ..}
 instance Property "Goal" ServiceLevelObjective where
   type PropertyType "Goal" ServiceLevelObjective = GoalProperty
   set newValue ServiceLevelObjective {..}

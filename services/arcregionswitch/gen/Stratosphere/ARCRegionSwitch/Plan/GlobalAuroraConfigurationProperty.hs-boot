@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.GlobalAuroraConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlobalAuroraConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GlobalAuroraConfigurationProperty
+instance Prelude.Eq GlobalAuroraConfigurationProperty
+instance Prelude.Show GlobalAuroraConfigurationProperty
+instance JSON.ToJSON GlobalAuroraConfigurationProperty

@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.AttributeD
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.DateDimensionProperty as Exports
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ExtraLengthValueProfileDimensionProperty as Exports
 import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ProfileDimensionProperty as Exports
+import {-# SOURCE #-} Stratosphere.CustomerProfiles.SegmentDefinition.ProfileTypeDimensionProperty as Exports
 import Stratosphere.ResourceProperties
 data ProfileAttributesProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>
@@ -54,6 +55,8 @@ data ProfileAttributesProperty
                                personalEmailAddress :: (Prelude.Maybe ProfileDimensionProperty),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html#cfn-customerprofiles-segmentdefinition-profileattributes-phonenumber>
                                phoneNumber :: (Prelude.Maybe ProfileDimensionProperty),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html#cfn-customerprofiles-segmentdefinition-profileattributes-profiletype>
+                               profileType :: (Prelude.Maybe ProfileTypeDimensionProperty),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html#cfn-customerprofiles-segmentdefinition-profileattributes-shippingaddress>
                                shippingAddress :: (Prelude.Maybe AddressDimensionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -73,7 +76,8 @@ mkProfileAttributesProperty
        middleName = Prelude.Nothing, mobilePhoneNumber = Prelude.Nothing,
        partyTypeString = Prelude.Nothing,
        personalEmailAddress = Prelude.Nothing,
-       phoneNumber = Prelude.Nothing, shippingAddress = Prelude.Nothing}
+       phoneNumber = Prelude.Nothing, profileType = Prelude.Nothing,
+       shippingAddress = Prelude.Nothing}
 instance ToResourceProperties ProfileAttributesProperty where
   toResourceProperties ProfileAttributesProperty {..}
     = ResourceProperties
@@ -102,6 +106,7 @@ instance ToResourceProperties ProfileAttributesProperty where
                             (JSON..=) "PartyTypeString" Prelude.<$> partyTypeString,
                             (JSON..=) "PersonalEmailAddress" Prelude.<$> personalEmailAddress,
                             (JSON..=) "PhoneNumber" Prelude.<$> phoneNumber,
+                            (JSON..=) "ProfileType" Prelude.<$> profileType,
                             (JSON..=) "ShippingAddress" Prelude.<$> shippingAddress])}
 instance JSON.ToJSON ProfileAttributesProperty where
   toJSON ProfileAttributesProperty {..}
@@ -129,6 +134,7 @@ instance JSON.ToJSON ProfileAttributesProperty where
                (JSON..=) "PartyTypeString" Prelude.<$> partyTypeString,
                (JSON..=) "PersonalEmailAddress" Prelude.<$> personalEmailAddress,
                (JSON..=) "PhoneNumber" Prelude.<$> phoneNumber,
+               (JSON..=) "ProfileType" Prelude.<$> profileType,
                (JSON..=) "ShippingAddress" Prelude.<$> shippingAddress]))
 instance Property "AccountNumber" ProfileAttributesProperty where
   type PropertyType "AccountNumber" ProfileAttributesProperty = ProfileDimensionProperty
@@ -226,6 +232,11 @@ instance Property "PhoneNumber" ProfileAttributesProperty where
   set newValue ProfileAttributesProperty {..}
     = ProfileAttributesProperty
         {phoneNumber = Prelude.pure newValue, ..}
+instance Property "ProfileType" ProfileAttributesProperty where
+  type PropertyType "ProfileType" ProfileAttributesProperty = ProfileTypeDimensionProperty
+  set newValue ProfileAttributesProperty {..}
+    = ProfileAttributesProperty
+        {profileType = Prelude.pure newValue, ..}
 instance Property "ShippingAddress" ProfileAttributesProperty where
   type PropertyType "ShippingAddress" ProfileAttributesProperty = AddressDimensionProperty
   set newValue ProfileAttributesProperty {..}

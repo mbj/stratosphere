@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.VideoExtractionCategoryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoExtractionCategoryProperty :: Prelude.Type
+instance ToResourceProperties VideoExtractionCategoryProperty
+instance Prelude.Eq VideoExtractionCategoryProperty
+instance Prelude.Show VideoExtractionCategoryProperty
+instance JSON.ToJSON VideoExtractionCategoryProperty

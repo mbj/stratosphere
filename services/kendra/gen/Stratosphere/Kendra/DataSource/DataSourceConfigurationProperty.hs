@@ -13,6 +13,7 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.S3DataSourceConfigurationPr
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.SalesforceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ServiceNowConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.SharePointConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Kendra.DataSource.TemplateConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WorkDocsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -35,6 +36,8 @@ data DataSourceConfigurationProperty
                                      serviceNowConfiguration :: (Prelude.Maybe ServiceNowConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration>
                                      sharePointConfiguration :: (Prelude.Maybe SharePointConfigurationProperty),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-templateconfiguration>
+                                     templateConfiguration :: (Prelude.Maybe TemplateConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-webcrawlerconfiguration>
                                      webCrawlerConfiguration :: (Prelude.Maybe WebCrawlerConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-workdocsconfiguration>
@@ -53,6 +56,7 @@ mkDataSourceConfigurationProperty
        salesforceConfiguration = Prelude.Nothing,
        serviceNowConfiguration = Prelude.Nothing,
        sharePointConfiguration = Prelude.Nothing,
+       templateConfiguration = Prelude.Nothing,
        webCrawlerConfiguration = Prelude.Nothing,
        workDocsConfiguration = Prelude.Nothing}
 instance ToResourceProperties DataSourceConfigurationProperty where
@@ -77,6 +81,8 @@ instance ToResourceProperties DataSourceConfigurationProperty where
                               Prelude.<$> serviceNowConfiguration,
                             (JSON..=) "SharePointConfiguration"
                               Prelude.<$> sharePointConfiguration,
+                            (JSON..=) "TemplateConfiguration"
+                              Prelude.<$> templateConfiguration,
                             (JSON..=) "WebCrawlerConfiguration"
                               Prelude.<$> webCrawlerConfiguration,
                             (JSON..=) "WorkDocsConfiguration"
@@ -101,6 +107,8 @@ instance JSON.ToJSON DataSourceConfigurationProperty where
                  Prelude.<$> serviceNowConfiguration,
                (JSON..=) "SharePointConfiguration"
                  Prelude.<$> sharePointConfiguration,
+               (JSON..=) "TemplateConfiguration"
+                 Prelude.<$> templateConfiguration,
                (JSON..=) "WebCrawlerConfiguration"
                  Prelude.<$> webCrawlerConfiguration,
                (JSON..=) "WorkDocsConfiguration"
@@ -145,6 +153,11 @@ instance Property "SharePointConfiguration" DataSourceConfigurationProperty wher
   set newValue DataSourceConfigurationProperty {..}
     = DataSourceConfigurationProperty
         {sharePointConfiguration = Prelude.pure newValue, ..}
+instance Property "TemplateConfiguration" DataSourceConfigurationProperty where
+  type PropertyType "TemplateConfiguration" DataSourceConfigurationProperty = TemplateConfigurationProperty
+  set newValue DataSourceConfigurationProperty {..}
+    = DataSourceConfigurationProperty
+        {templateConfiguration = Prelude.pure newValue, ..}
 instance Property "WebCrawlerConfiguration" DataSourceConfigurationProperty where
   type PropertyType "WebCrawlerConfiguration" DataSourceConfigurationProperty = WebCrawlerConfigurationProperty
   set newValue DataSourceConfigurationProperty {..}

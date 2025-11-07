@@ -39,6 +39,8 @@ data BurnInDestinationSettingsProperty
                                        shadowXOffset :: (Prelude.Maybe (Value Prelude.Integer)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-shadowyoffset>
                                        shadowYOffset :: (Prelude.Maybe (Value Prelude.Integer)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-subtitlerows>
+                                       subtitleRows :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-teletextgridcontrol>
                                        teletextGridControl :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-xposition>
@@ -58,6 +60,7 @@ mkBurnInDestinationSettingsProperty
        outlineColor = Prelude.Nothing, outlineSize = Prelude.Nothing,
        shadowColor = Prelude.Nothing, shadowOpacity = Prelude.Nothing,
        shadowXOffset = Prelude.Nothing, shadowYOffset = Prelude.Nothing,
+       subtitleRows = Prelude.Nothing,
        teletextGridControl = Prelude.Nothing, xPosition = Prelude.Nothing,
        yPosition = Prelude.Nothing}
 instance ToResourceProperties BurnInDestinationSettingsProperty where
@@ -81,6 +84,7 @@ instance ToResourceProperties BurnInDestinationSettingsProperty where
                             (JSON..=) "ShadowOpacity" Prelude.<$> shadowOpacity,
                             (JSON..=) "ShadowXOffset" Prelude.<$> shadowXOffset,
                             (JSON..=) "ShadowYOffset" Prelude.<$> shadowYOffset,
+                            (JSON..=) "SubtitleRows" Prelude.<$> subtitleRows,
                             (JSON..=) "TeletextGridControl" Prelude.<$> teletextGridControl,
                             (JSON..=) "XPosition" Prelude.<$> xPosition,
                             (JSON..=) "YPosition" Prelude.<$> yPosition])}
@@ -103,6 +107,7 @@ instance JSON.ToJSON BurnInDestinationSettingsProperty where
                (JSON..=) "ShadowOpacity" Prelude.<$> shadowOpacity,
                (JSON..=) "ShadowXOffset" Prelude.<$> shadowXOffset,
                (JSON..=) "ShadowYOffset" Prelude.<$> shadowYOffset,
+               (JSON..=) "SubtitleRows" Prelude.<$> subtitleRows,
                (JSON..=) "TeletextGridControl" Prelude.<$> teletextGridControl,
                (JSON..=) "XPosition" Prelude.<$> xPosition,
                (JSON..=) "YPosition" Prelude.<$> yPosition]))
@@ -176,6 +181,11 @@ instance Property "ShadowYOffset" BurnInDestinationSettingsProperty where
   set newValue BurnInDestinationSettingsProperty {..}
     = BurnInDestinationSettingsProperty
         {shadowYOffset = Prelude.pure newValue, ..}
+instance Property "SubtitleRows" BurnInDestinationSettingsProperty where
+  type PropertyType "SubtitleRows" BurnInDestinationSettingsProperty = Value Prelude.Text
+  set newValue BurnInDestinationSettingsProperty {..}
+    = BurnInDestinationSettingsProperty
+        {subtitleRows = Prelude.pure newValue, ..}
 instance Property "TeletextGridControl" BurnInDestinationSettingsProperty where
   type PropertyType "TeletextGridControl" BurnInDestinationSettingsProperty = Value Prelude.Text
   set newValue BurnInDestinationSettingsProperty {..}

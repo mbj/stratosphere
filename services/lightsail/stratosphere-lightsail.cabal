@@ -48,6 +48,8 @@ library
       Stratosphere.Lightsail.Disk.AddOnProperty
       Stratosphere.Lightsail.Disk.AutoSnapshotAddOnProperty
       Stratosphere.Lightsail.Disk.LocationProperty
+      Stratosphere.Lightsail.DiskSnapshot
+      Stratosphere.Lightsail.DiskSnapshot.LocationProperty
       Stratosphere.Lightsail.Distribution
       Stratosphere.Lightsail.Distribution.CacheBehaviorPerPathProperty
       Stratosphere.Lightsail.Distribution.CacheBehaviorProperty
@@ -56,6 +58,9 @@ library
       Stratosphere.Lightsail.Distribution.HeaderObjectProperty
       Stratosphere.Lightsail.Distribution.InputOriginProperty
       Stratosphere.Lightsail.Distribution.QueryStringObjectProperty
+      Stratosphere.Lightsail.Domain
+      Stratosphere.Lightsail.Domain.DomainEntryProperty
+      Stratosphere.Lightsail.Domain.LocationProperty
       Stratosphere.Lightsail.Instance
       Stratosphere.Lightsail.Instance.AddOnProperty
       Stratosphere.Lightsail.Instance.AutoSnapshotAddOnProperty
@@ -66,6 +71,8 @@ library
       Stratosphere.Lightsail.Instance.NetworkingProperty
       Stratosphere.Lightsail.Instance.PortProperty
       Stratosphere.Lightsail.Instance.StateProperty
+      Stratosphere.Lightsail.InstanceSnapshot
+      Stratosphere.Lightsail.InstanceSnapshot.LocationProperty
       Stratosphere.Lightsail.LoadBalancer
       Stratosphere.Lightsail.LoadBalancerTlsCertificate
       Stratosphere.Lightsail.StaticIp

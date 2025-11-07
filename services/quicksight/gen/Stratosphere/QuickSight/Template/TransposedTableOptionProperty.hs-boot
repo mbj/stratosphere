@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.TransposedTableOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransposedTableOptionProperty :: Prelude.Type
+instance ToResourceProperties TransposedTableOptionProperty
+instance Prelude.Eq TransposedTableOptionProperty
+instance Prelude.Show TransposedTableOptionProperty
+instance JSON.ToJSON TransposedTableOptionProperty

@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.SessionLogger.S3LogConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3LogConfigurationProperty :: Prelude.Type
+instance ToResourceProperties S3LogConfigurationProperty
+instance Prelude.Eq S3LogConfigurationProperty
+instance Prelude.Show S3LogConfigurationProperty
+instance JSON.ToJSON S3LogConfigurationProperty

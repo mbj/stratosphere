@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PredefinedHierarchyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PredefinedHierarchyProperty :: Prelude.Type
+instance ToResourceProperties PredefinedHierarchyProperty
+instance Prelude.Eq PredefinedHierarchyProperty
+instance Prelude.Show PredefinedHierarchyProperty
+instance JSON.ToJSON PredefinedHierarchyProperty

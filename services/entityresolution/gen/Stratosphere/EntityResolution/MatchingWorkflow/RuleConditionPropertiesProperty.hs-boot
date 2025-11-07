@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.MatchingWorkflow.RuleConditionPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleConditionPropertiesProperty :: Prelude.Type
+instance ToResourceProperties RuleConditionPropertiesProperty
+instance Prelude.Eq RuleConditionPropertiesProperty
+instance Prelude.Show RuleConditionPropertiesProperty
+instance JSON.ToJSON RuleConditionPropertiesProperty

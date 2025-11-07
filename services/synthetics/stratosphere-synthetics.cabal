@@ -31,7 +31,10 @@ library
       Stratosphere.Synthetics.Canary
       Stratosphere.Synthetics.Canary.ArtifactConfigProperty
       Stratosphere.Synthetics.Canary.BaseScreenshotProperty
+      Stratosphere.Synthetics.Canary.BrowserConfigProperty
       Stratosphere.Synthetics.Canary.CodeProperty
+      Stratosphere.Synthetics.Canary.DependencyProperty
+      Stratosphere.Synthetics.Canary.RetryConfigProperty
       Stratosphere.Synthetics.Canary.RunConfigProperty
       Stratosphere.Synthetics.Canary.S3EncryptionProperty
       Stratosphere.Synthetics.Canary.ScheduleProperty

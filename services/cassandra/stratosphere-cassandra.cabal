@@ -34,6 +34,7 @@ library
       Stratosphere.Cassandra.Table.AutoScalingSettingProperty
       Stratosphere.Cassandra.Table.AutoScalingSpecificationProperty
       Stratosphere.Cassandra.Table.BillingModeProperty
+      Stratosphere.Cassandra.Table.CdcSpecificationProperty
       Stratosphere.Cassandra.Table.ClusteringKeyColumnProperty
       Stratosphere.Cassandra.Table.ColumnProperty
       Stratosphere.Cassandra.Table.EncryptionSpecificationProperty
@@ -41,6 +42,8 @@ library
       Stratosphere.Cassandra.Table.ReplicaSpecificationProperty
       Stratosphere.Cassandra.Table.ScalingPolicyProperty
       Stratosphere.Cassandra.Table.TargetTrackingScalingPolicyConfigurationProperty
+      Stratosphere.Cassandra.Type
+      Stratosphere.Cassandra.Type.FieldProperty
   other-modules:
       Paths_stratosphere_cassandra
   hs-source-dirs:

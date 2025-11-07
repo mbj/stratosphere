@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.AndStatementProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.AsnMatchStatementProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ByteMatchStatementProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.GeoMatchStatementProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.IPSetReferenceStatementProperty as Exports
@@ -23,6 +24,8 @@ data StatementProperty
     StatementProperty {haddock_workaround_ :: (),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement>
                        andStatement :: (Prelude.Maybe AndStatementProperty),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-asnmatchstatement>
+                       asnMatchStatement :: (Prelude.Maybe AsnMatchStatementProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement>
                        byteMatchStatement :: (Prelude.Maybe ByteMatchStatementProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement>
@@ -52,6 +55,7 @@ mkStatementProperty :: StatementProperty
 mkStatementProperty
   = StatementProperty
       {haddock_workaround_ = (), andStatement = Prelude.Nothing,
+       asnMatchStatement = Prelude.Nothing,
        byteMatchStatement = Prelude.Nothing,
        geoMatchStatement = Prelude.Nothing,
        iPSetReferenceStatement = Prelude.Nothing,
@@ -71,6 +75,7 @@ instance ToResourceProperties StatementProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AndStatement" Prelude.<$> andStatement,
+                            (JSON..=) "AsnMatchStatement" Prelude.<$> asnMatchStatement,
                             (JSON..=) "ByteMatchStatement" Prelude.<$> byteMatchStatement,
                             (JSON..=) "GeoMatchStatement" Prelude.<$> geoMatchStatement,
                             (JSON..=) "IPSetReferenceStatement"
@@ -92,6 +97,7 @@ instance JSON.ToJSON StatementProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AndStatement" Prelude.<$> andStatement,
+               (JSON..=) "AsnMatchStatement" Prelude.<$> asnMatchStatement,
                (JSON..=) "ByteMatchStatement" Prelude.<$> byteMatchStatement,
                (JSON..=) "GeoMatchStatement" Prelude.<$> geoMatchStatement,
                (JSON..=) "IPSetReferenceStatement"
@@ -111,6 +117,10 @@ instance Property "AndStatement" StatementProperty where
   type PropertyType "AndStatement" StatementProperty = AndStatementProperty
   set newValue StatementProperty {..}
     = StatementProperty {andStatement = Prelude.pure newValue, ..}
+instance Property "AsnMatchStatement" StatementProperty where
+  type PropertyType "AsnMatchStatement" StatementProperty = AsnMatchStatementProperty
+  set newValue StatementProperty {..}
+    = StatementProperty {asnMatchStatement = Prelude.pure newValue, ..}
 instance Property "ByteMatchStatement" StatementProperty where
   type PropertyType "ByteMatchStatement" StatementProperty = ByteMatchStatementProperty
   set newValue StatementProperty {..}

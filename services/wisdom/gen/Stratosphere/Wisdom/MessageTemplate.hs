@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.ContentProperty as Exports
 import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.GroupingConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.MessageTemplateAttachmentProperty as Exports
 import {-# SOURCE #-} Stratosphere.Wisdom.MessageTemplate.MessageTemplateAttributesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -27,6 +28,8 @@ data MessageTemplate
                      knowledgeBaseArn :: (Value Prelude.Text),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-language>
                      language :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-messagetemplateattachments>
+                     messageTemplateAttachments :: (Prelude.Maybe [MessageTemplateAttachmentProperty]),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-name>
                      name :: (Value Prelude.Text),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-tags>
@@ -43,7 +46,9 @@ mkMessageTemplate channelSubtype content knowledgeBaseArn name
        name = name, defaultAttributes = Prelude.Nothing,
        description = Prelude.Nothing,
        groupingConfiguration = Prelude.Nothing,
-       language = Prelude.Nothing, tags = Prelude.Nothing}
+       language = Prelude.Nothing,
+       messageTemplateAttachments = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties MessageTemplate where
   toResourceProperties MessageTemplate {..}
     = ResourceProperties
@@ -60,6 +65,8 @@ instance ToResourceProperties MessageTemplate where
                                (JSON..=) "GroupingConfiguration"
                                  Prelude.<$> groupingConfiguration,
                                (JSON..=) "Language" Prelude.<$> language,
+                               (JSON..=) "MessageTemplateAttachments"
+                                 Prelude.<$> messageTemplateAttachments,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON MessageTemplate where
   toJSON MessageTemplate {..}
@@ -75,6 +82,8 @@ instance JSON.ToJSON MessageTemplate where
                   (JSON..=) "GroupingConfiguration"
                     Prelude.<$> groupingConfiguration,
                   (JSON..=) "Language" Prelude.<$> language,
+                  (JSON..=) "MessageTemplateAttachments"
+                    Prelude.<$> messageTemplateAttachments,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ChannelSubtype" MessageTemplate where
   type PropertyType "ChannelSubtype" MessageTemplate = Value Prelude.Text
@@ -105,6 +114,11 @@ instance Property "Language" MessageTemplate where
   type PropertyType "Language" MessageTemplate = Value Prelude.Text
   set newValue MessageTemplate {..}
     = MessageTemplate {language = Prelude.pure newValue, ..}
+instance Property "MessageTemplateAttachments" MessageTemplate where
+  type PropertyType "MessageTemplateAttachments" MessageTemplate = [MessageTemplateAttachmentProperty]
+  set newValue MessageTemplate {..}
+    = MessageTemplate
+        {messageTemplateAttachments = Prelude.pure newValue, ..}
 instance Property "Name" MessageTemplate where
   type PropertyType "Name" MessageTemplate = Value Prelude.Text
   set newValue MessageTemplate {..}

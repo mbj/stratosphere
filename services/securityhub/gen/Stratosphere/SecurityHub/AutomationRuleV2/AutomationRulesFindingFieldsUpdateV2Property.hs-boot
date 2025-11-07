@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.AutomationRulesFindingFieldsUpdateV2Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutomationRulesFindingFieldsUpdateV2Property :: Prelude.Type
+instance ToResourceProperties AutomationRulesFindingFieldsUpdateV2Property
+instance Prelude.Eq AutomationRulesFindingFieldsUpdateV2Property
+instance Prelude.Show AutomationRulesFindingFieldsUpdateV2Property
+instance JSON.ToJSON AutomationRulesFindingFieldsUpdateV2Property

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.GuardrailCrossRegionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GuardrailCrossRegionConfigProperty :: Prelude.Type
+instance ToResourceProperties GuardrailCrossRegionConfigProperty
+instance Prelude.Eq GuardrailCrossRegionConfigProperty
+instance Prelude.Show GuardrailCrossRegionConfigProperty
+instance JSON.ToJSON GuardrailCrossRegionConfigProperty

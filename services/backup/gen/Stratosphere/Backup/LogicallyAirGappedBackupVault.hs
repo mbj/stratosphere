@@ -22,11 +22,7 @@ data LogicallyAirGappedBackupVault
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-minretentiondays>
                                    minRetentionDays :: (Value Prelude.Integer),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-notifications>
-                                   notifications :: (Prelude.Maybe NotificationObjectTypeProperty),
-                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaultstate>
-                                   vaultState :: (Prelude.Maybe (Value Prelude.Text)),
-                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaulttype>
-                                   vaultType :: (Prelude.Maybe (Value Prelude.Text))}
+                                   notifications :: (Prelude.Maybe NotificationObjectTypeProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicallyAirGappedBackupVault ::
   Value Prelude.Text
@@ -41,8 +37,7 @@ mkLogicallyAirGappedBackupVault
        maxRetentionDays = maxRetentionDays,
        minRetentionDays = minRetentionDays,
        accessPolicy = Prelude.Nothing, backupVaultTags = Prelude.Nothing,
-       notifications = Prelude.Nothing, vaultState = Prelude.Nothing,
-       vaultType = Prelude.Nothing}
+       notifications = Prelude.Nothing}
 instance ToResourceProperties LogicallyAirGappedBackupVault where
   toResourceProperties LogicallyAirGappedBackupVault {..}
     = ResourceProperties
@@ -56,9 +51,7 @@ instance ToResourceProperties LogicallyAirGappedBackupVault where
                            (Prelude.catMaybes
                               [(JSON..=) "AccessPolicy" Prelude.<$> accessPolicy,
                                (JSON..=) "BackupVaultTags" Prelude.<$> backupVaultTags,
-                               (JSON..=) "Notifications" Prelude.<$> notifications,
-                               (JSON..=) "VaultState" Prelude.<$> vaultState,
-                               (JSON..=) "VaultType" Prelude.<$> vaultType]))}
+                               (JSON..=) "Notifications" Prelude.<$> notifications]))}
 instance JSON.ToJSON LogicallyAirGappedBackupVault where
   toJSON LogicallyAirGappedBackupVault {..}
     = JSON.object
@@ -70,9 +63,7 @@ instance JSON.ToJSON LogicallyAirGappedBackupVault where
               (Prelude.catMaybes
                  [(JSON..=) "AccessPolicy" Prelude.<$> accessPolicy,
                   (JSON..=) "BackupVaultTags" Prelude.<$> backupVaultTags,
-                  (JSON..=) "Notifications" Prelude.<$> notifications,
-                  (JSON..=) "VaultState" Prelude.<$> vaultState,
-                  (JSON..=) "VaultType" Prelude.<$> vaultType])))
+                  (JSON..=) "Notifications" Prelude.<$> notifications])))
 instance Property "AccessPolicy" LogicallyAirGappedBackupVault where
   type PropertyType "AccessPolicy" LogicallyAirGappedBackupVault = JSON.Object
   set newValue LogicallyAirGappedBackupVault {..}
@@ -100,13 +91,3 @@ instance Property "Notifications" LogicallyAirGappedBackupVault where
   set newValue LogicallyAirGappedBackupVault {..}
     = LogicallyAirGappedBackupVault
         {notifications = Prelude.pure newValue, ..}
-instance Property "VaultState" LogicallyAirGappedBackupVault where
-  type PropertyType "VaultState" LogicallyAirGappedBackupVault = Value Prelude.Text
-  set newValue LogicallyAirGappedBackupVault {..}
-    = LogicallyAirGappedBackupVault
-        {vaultState = Prelude.pure newValue, ..}
-instance Property "VaultType" LogicallyAirGappedBackupVault where
-  type PropertyType "VaultType" LogicallyAirGappedBackupVault = Value Prelude.Text
-  set newValue LogicallyAirGappedBackupVault {..}
-    = LogicallyAirGappedBackupVault
-        {vaultType = Prelude.pure newValue, ..}

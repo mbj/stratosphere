@@ -19,7 +19,7 @@ data SubscriptionTarget
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-environmentidentifier>
                         environmentIdentifier :: (Value Prelude.Text),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-manageaccessrole>
-                        manageAccessRole :: (Value Prelude.Text),
+                        manageAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-name>
                         name :: (Value Prelude.Text),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-provider>
@@ -35,15 +35,13 @@ mkSubscriptionTarget ::
      -> Value Prelude.Text
         -> Value Prelude.Text
            -> Value Prelude.Text
-              -> Value Prelude.Text
-                 -> [SubscriptionTargetFormProperty]
-                    -> Value Prelude.Text -> SubscriptionTarget
+              -> [SubscriptionTargetFormProperty]
+                 -> Value Prelude.Text -> SubscriptionTarget
 mkSubscriptionTarget
   applicableAssetTypes
   authorizedPrincipals
   domainIdentifier
   environmentIdentifier
-  manageAccessRole
   name
   subscriptionTargetConfig
   type'
@@ -52,10 +50,9 @@ mkSubscriptionTarget
        applicableAssetTypes = applicableAssetTypes,
        authorizedPrincipals = authorizedPrincipals,
        domainIdentifier = domainIdentifier,
-       environmentIdentifier = environmentIdentifier,
-       manageAccessRole = manageAccessRole, name = name,
+       environmentIdentifier = environmentIdentifier, name = name,
        subscriptionTargetConfig = subscriptionTargetConfig, type' = type',
-       provider = Prelude.Nothing}
+       manageAccessRole = Prelude.Nothing, provider = Prelude.Nothing}
 instance ToResourceProperties SubscriptionTarget where
   toResourceProperties SubscriptionTarget {..}
     = ResourceProperties
@@ -67,10 +64,12 @@ instance ToResourceProperties SubscriptionTarget where
                             "AuthorizedPrincipals" JSON..= authorizedPrincipals,
                             "DomainIdentifier" JSON..= domainIdentifier,
                             "EnvironmentIdentifier" JSON..= environmentIdentifier,
-                            "ManageAccessRole" JSON..= manageAccessRole, "Name" JSON..= name,
+                            "Name" JSON..= name,
                             "SubscriptionTargetConfig" JSON..= subscriptionTargetConfig,
                             "Type" JSON..= type']
-                           (Prelude.catMaybes [(JSON..=) "Provider" Prelude.<$> provider]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "ManageAccessRole" Prelude.<$> manageAccessRole,
+                               (JSON..=) "Provider" Prelude.<$> provider]))}
 instance JSON.ToJSON SubscriptionTarget where
   toJSON SubscriptionTarget {..}
     = JSON.object
@@ -80,10 +79,12 @@ instance JSON.ToJSON SubscriptionTarget where
                "AuthorizedPrincipals" JSON..= authorizedPrincipals,
                "DomainIdentifier" JSON..= domainIdentifier,
                "EnvironmentIdentifier" JSON..= environmentIdentifier,
-               "ManageAccessRole" JSON..= manageAccessRole, "Name" JSON..= name,
+               "Name" JSON..= name,
                "SubscriptionTargetConfig" JSON..= subscriptionTargetConfig,
                "Type" JSON..= type']
-              (Prelude.catMaybes [(JSON..=) "Provider" Prelude.<$> provider])))
+              (Prelude.catMaybes
+                 [(JSON..=) "ManageAccessRole" Prelude.<$> manageAccessRole,
+                  (JSON..=) "Provider" Prelude.<$> provider])))
 instance Property "ApplicableAssetTypes" SubscriptionTarget where
   type PropertyType "ApplicableAssetTypes" SubscriptionTarget = ValueList Prelude.Text
   set newValue SubscriptionTarget {..}
@@ -103,7 +104,7 @@ instance Property "EnvironmentIdentifier" SubscriptionTarget where
 instance Property "ManageAccessRole" SubscriptionTarget where
   type PropertyType "ManageAccessRole" SubscriptionTarget = Value Prelude.Text
   set newValue SubscriptionTarget {..}
-    = SubscriptionTarget {manageAccessRole = newValue, ..}
+    = SubscriptionTarget {manageAccessRole = Prelude.pure newValue, ..}
 instance Property "Name" SubscriptionTarget where
   type PropertyType "Name" SubscriptionTarget = Value Prelude.Text
   set newValue SubscriptionTarget {..}

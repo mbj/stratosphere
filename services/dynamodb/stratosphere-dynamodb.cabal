@@ -33,6 +33,7 @@ library
       Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSettingsProperty
       Stratosphere.DynamoDB.GlobalTable.ContributorInsightsSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.GlobalSecondaryIndexProperty
+      Stratosphere.DynamoDB.GlobalTable.GlobalTableWitnessProperty
       Stratosphere.DynamoDB.GlobalTable.KeySchemaProperty
       Stratosphere.DynamoDB.GlobalTable.KinesisStreamSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.LocalSecondaryIndexProperty

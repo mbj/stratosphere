@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.UpperCaseStringProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UpperCaseStringProperty :: Prelude.Type
+instance ToResourceProperties UpperCaseStringProperty
+instance Prelude.Eq UpperCaseStringProperty
+instance Prelude.Show UpperCaseStringProperty
+instance JSON.ToJSON UpperCaseStringProperty

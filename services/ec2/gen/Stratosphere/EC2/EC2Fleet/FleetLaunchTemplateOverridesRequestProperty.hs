@@ -5,6 +5,7 @@ module Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateOverridesRequestProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.BlockDeviceMappingProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.InstanceRequirementsRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.PlacementProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,8 @@ data FleetLaunchTemplateOverridesRequestProperty
     FleetLaunchTemplateOverridesRequestProperty {haddock_workaround_ :: (),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone>
                                                  availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-blockdevicemappings>
+                                                 blockDeviceMappings :: (Prelude.Maybe [BlockDeviceMappingProperty]),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancerequirements>
                                                  instanceRequirements :: (Prelude.Maybe InstanceRequirementsRequestProperty),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype>
@@ -34,6 +37,7 @@ mkFleetLaunchTemplateOverridesRequestProperty ::
 mkFleetLaunchTemplateOverridesRequestProperty
   = FleetLaunchTemplateOverridesRequestProperty
       {haddock_workaround_ = (), availabilityZone = Prelude.Nothing,
+       blockDeviceMappings = Prelude.Nothing,
        instanceRequirements = Prelude.Nothing,
        instanceType = Prelude.Nothing, maxPrice = Prelude.Nothing,
        placement = Prelude.Nothing, priority = Prelude.Nothing,
@@ -47,6 +51,7 @@ instance ToResourceProperties FleetLaunchTemplateOverridesRequestProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                            (JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,
                             (JSON..=) "InstanceRequirements" Prelude.<$> instanceRequirements,
                             (JSON..=) "InstanceType" Prelude.<$> instanceType,
                             (JSON..=) "MaxPrice" Prelude.<$> maxPrice,
@@ -60,6 +65,7 @@ instance JSON.ToJSON FleetLaunchTemplateOverridesRequestProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+               (JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,
                (JSON..=) "InstanceRequirements" Prelude.<$> instanceRequirements,
                (JSON..=) "InstanceType" Prelude.<$> instanceType,
                (JSON..=) "MaxPrice" Prelude.<$> maxPrice,
@@ -72,6 +78,11 @@ instance Property "AvailabilityZone" FleetLaunchTemplateOverridesRequestProperty
   set newValue FleetLaunchTemplateOverridesRequestProperty {..}
     = FleetLaunchTemplateOverridesRequestProperty
         {availabilityZone = Prelude.pure newValue, ..}
+instance Property "BlockDeviceMappings" FleetLaunchTemplateOverridesRequestProperty where
+  type PropertyType "BlockDeviceMappings" FleetLaunchTemplateOverridesRequestProperty = [BlockDeviceMappingProperty]
+  set newValue FleetLaunchTemplateOverridesRequestProperty {..}
+    = FleetLaunchTemplateOverridesRequestProperty
+        {blockDeviceMappings = Prelude.pure newValue, ..}
 instance Property "InstanceRequirements" FleetLaunchTemplateOverridesRequestProperty where
   type PropertyType "InstanceRequirements" FleetLaunchTemplateOverridesRequestProperty = InstanceRequirementsRequestProperty
   set newValue FleetLaunchTemplateOverridesRequestProperty {..}

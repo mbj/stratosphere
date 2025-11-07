@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.AnalysisTemplate.ErrorMessageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ErrorMessageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ErrorMessageConfigurationProperty
+instance Prelude.Eq ErrorMessageConfigurationProperty
+instance Prelude.Show ErrorMessageConfigurationProperty
+instance JSON.ToJSON ErrorMessageConfigurationProperty

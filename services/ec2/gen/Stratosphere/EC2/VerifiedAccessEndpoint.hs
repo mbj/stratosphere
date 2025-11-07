@@ -5,8 +5,10 @@ module Stratosphere.EC2.VerifiedAccessEndpoint (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.CidrOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.LoadBalancerOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.RdsOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.SseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -15,15 +17,17 @@ data VerifiedAccessEndpoint
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html>
     VerifiedAccessEndpoint {haddock_workaround_ :: (),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-applicationdomain>
-                            applicationDomain :: (Value Prelude.Text),
+                            applicationDomain :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-attachmenttype>
                             attachmentType :: (Value Prelude.Text),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-cidroptions>
+                            cidrOptions :: (Prelude.Maybe CidrOptionsProperty),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-description>
                             description :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-domaincertificatearn>
-                            domainCertificateArn :: (Value Prelude.Text),
+                            domainCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-endpointdomainprefix>
-                            endpointDomainPrefix :: (Value Prelude.Text),
+                            endpointDomainPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-endpointtype>
                             endpointType :: (Value Prelude.Text),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions>
@@ -34,6 +38,8 @@ data VerifiedAccessEndpoint
                             policyDocument :: (Prelude.Maybe (Value Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-policyenabled>
                             policyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-rdsoptions>
+                            rdsOptions :: (Prelude.Maybe RdsOptionsProperty),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-securitygroupids>
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-ssespecification>
@@ -46,29 +52,23 @@ data VerifiedAccessEndpoint
 mkVerifiedAccessEndpoint ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> Value Prelude.Text
-           -> Value Prelude.Text
-              -> Value Prelude.Text -> VerifiedAccessEndpoint
+     -> Value Prelude.Text -> VerifiedAccessEndpoint
 mkVerifiedAccessEndpoint
-  applicationDomain
   attachmentType
-  domainCertificateArn
-  endpointDomainPrefix
   endpointType
   verifiedAccessGroupId
   = VerifiedAccessEndpoint
-      {haddock_workaround_ = (), applicationDomain = applicationDomain,
-       attachmentType = attachmentType,
-       domainCertificateArn = domainCertificateArn,
-       endpointDomainPrefix = endpointDomainPrefix,
+      {haddock_workaround_ = (), attachmentType = attachmentType,
        endpointType = endpointType,
        verifiedAccessGroupId = verifiedAccessGroupId,
+       applicationDomain = Prelude.Nothing, cidrOptions = Prelude.Nothing,
        description = Prelude.Nothing,
+       domainCertificateArn = Prelude.Nothing,
+       endpointDomainPrefix = Prelude.Nothing,
        loadBalancerOptions = Prelude.Nothing,
        networkInterfaceOptions = Prelude.Nothing,
        policyDocument = Prelude.Nothing, policyEnabled = Prelude.Nothing,
-       securityGroupIds = Prelude.Nothing,
+       rdsOptions = Prelude.Nothing, securityGroupIds = Prelude.Nothing,
        sseSpecification = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VerifiedAccessEndpoint where
   toResourceProperties VerifiedAccessEndpoint {..}
@@ -77,19 +77,21 @@ instance ToResourceProperties VerifiedAccessEndpoint where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ApplicationDomain" JSON..= applicationDomain,
-                            "AttachmentType" JSON..= attachmentType,
-                            "DomainCertificateArn" JSON..= domainCertificateArn,
-                            "EndpointDomainPrefix" JSON..= endpointDomainPrefix,
+                           ["AttachmentType" JSON..= attachmentType,
                             "EndpointType" JSON..= endpointType,
                             "VerifiedAccessGroupId" JSON..= verifiedAccessGroupId]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "ApplicationDomain" Prelude.<$> applicationDomain,
+                               (JSON..=) "CidrOptions" Prelude.<$> cidrOptions,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "DomainCertificateArn" Prelude.<$> domainCertificateArn,
+                               (JSON..=) "EndpointDomainPrefix" Prelude.<$> endpointDomainPrefix,
                                (JSON..=) "LoadBalancerOptions" Prelude.<$> loadBalancerOptions,
                                (JSON..=) "NetworkInterfaceOptions"
                                  Prelude.<$> networkInterfaceOptions,
                                (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                                (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
+                               (JSON..=) "RdsOptions" Prelude.<$> rdsOptions,
                                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                                (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -98,30 +100,37 @@ instance JSON.ToJSON VerifiedAccessEndpoint where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ApplicationDomain" JSON..= applicationDomain,
-               "AttachmentType" JSON..= attachmentType,
-               "DomainCertificateArn" JSON..= domainCertificateArn,
-               "EndpointDomainPrefix" JSON..= endpointDomainPrefix,
+              ["AttachmentType" JSON..= attachmentType,
                "EndpointType" JSON..= endpointType,
                "VerifiedAccessGroupId" JSON..= verifiedAccessGroupId]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "ApplicationDomain" Prelude.<$> applicationDomain,
+                  (JSON..=) "CidrOptions" Prelude.<$> cidrOptions,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "DomainCertificateArn" Prelude.<$> domainCertificateArn,
+                  (JSON..=) "EndpointDomainPrefix" Prelude.<$> endpointDomainPrefix,
                   (JSON..=) "LoadBalancerOptions" Prelude.<$> loadBalancerOptions,
                   (JSON..=) "NetworkInterfaceOptions"
                     Prelude.<$> networkInterfaceOptions,
                   (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                   (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
+                  (JSON..=) "RdsOptions" Prelude.<$> rdsOptions,
                   (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                   (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationDomain" VerifiedAccessEndpoint where
   type PropertyType "ApplicationDomain" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
-    = VerifiedAccessEndpoint {applicationDomain = newValue, ..}
+    = VerifiedAccessEndpoint
+        {applicationDomain = Prelude.pure newValue, ..}
 instance Property "AttachmentType" VerifiedAccessEndpoint where
   type PropertyType "AttachmentType" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
     = VerifiedAccessEndpoint {attachmentType = newValue, ..}
+instance Property "CidrOptions" VerifiedAccessEndpoint where
+  type PropertyType "CidrOptions" VerifiedAccessEndpoint = CidrOptionsProperty
+  set newValue VerifiedAccessEndpoint {..}
+    = VerifiedAccessEndpoint {cidrOptions = Prelude.pure newValue, ..}
 instance Property "Description" VerifiedAccessEndpoint where
   type PropertyType "Description" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
@@ -129,11 +138,13 @@ instance Property "Description" VerifiedAccessEndpoint where
 instance Property "DomainCertificateArn" VerifiedAccessEndpoint where
   type PropertyType "DomainCertificateArn" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
-    = VerifiedAccessEndpoint {domainCertificateArn = newValue, ..}
+    = VerifiedAccessEndpoint
+        {domainCertificateArn = Prelude.pure newValue, ..}
 instance Property "EndpointDomainPrefix" VerifiedAccessEndpoint where
   type PropertyType "EndpointDomainPrefix" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
-    = VerifiedAccessEndpoint {endpointDomainPrefix = newValue, ..}
+    = VerifiedAccessEndpoint
+        {endpointDomainPrefix = Prelude.pure newValue, ..}
 instance Property "EndpointType" VerifiedAccessEndpoint where
   type PropertyType "EndpointType" VerifiedAccessEndpoint = Value Prelude.Text
   set newValue VerifiedAccessEndpoint {..}
@@ -158,6 +169,10 @@ instance Property "PolicyEnabled" VerifiedAccessEndpoint where
   set newValue VerifiedAccessEndpoint {..}
     = VerifiedAccessEndpoint
         {policyEnabled = Prelude.pure newValue, ..}
+instance Property "RdsOptions" VerifiedAccessEndpoint where
+  type PropertyType "RdsOptions" VerifiedAccessEndpoint = RdsOptionsProperty
+  set newValue VerifiedAccessEndpoint {..}
+    = VerifiedAccessEndpoint {rdsOptions = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" VerifiedAccessEndpoint where
   type PropertyType "SecurityGroupIds" VerifiedAccessEndpoint = ValueList Prelude.Text
   set newValue VerifiedAccessEndpoint {..}

@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.InstanceNetworkPerformanceOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceNetworkPerformanceOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties InstanceNetworkPerformanceOptionsRequestProperty
+instance Prelude.Eq InstanceNetworkPerformanceOptionsRequestProperty
+instance Prelude.Show InstanceNetworkPerformanceOptionsRequestProperty
+instance JSON.ToJSON InstanceNetworkPerformanceOptionsRequestProperty

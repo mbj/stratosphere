@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PieChartAggregatedFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PieChartAggregatedFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties PieChartAggregatedFieldWellsProperty
+instance Prelude.Eq PieChartAggregatedFieldWellsProperty
+instance Prelude.Show PieChartAggregatedFieldWellsProperty
+instance JSON.ToJSON PieChartAggregatedFieldWellsProperty

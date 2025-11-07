@@ -1,0 +1,9 @@
+module Stratosphere.DataSync.LocationAzureBlob.CustomSecretConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomSecretConfigProperty :: Prelude.Type
+instance ToResourceProperties CustomSecretConfigProperty
+instance Prelude.Eq CustomSecretConfigProperty
+instance Prelude.Show CustomSecretConfigProperty
+instance JSON.ToJSON CustomSecretConfigProperty

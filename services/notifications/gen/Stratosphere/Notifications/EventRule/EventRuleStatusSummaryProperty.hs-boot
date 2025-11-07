@@ -1,0 +1,9 @@
+module Stratosphere.Notifications.EventRule.EventRuleStatusSummaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventRuleStatusSummaryProperty :: Prelude.Type
+instance ToResourceProperties EventRuleStatusSummaryProperty
+instance Prelude.Eq EventRuleStatusSummaryProperty
+instance Prelude.Show EventRuleStatusSummaryProperty
+instance JSON.ToJSON EventRuleStatusSummaryProperty

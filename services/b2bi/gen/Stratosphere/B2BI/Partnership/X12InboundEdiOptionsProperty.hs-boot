@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12InboundEdiOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12InboundEdiOptionsProperty :: Prelude.Type
+instance ToResourceProperties X12InboundEdiOptionsProperty
+instance Prelude.Eq X12InboundEdiOptionsProperty
+instance Prelude.Show X12InboundEdiOptionsProperty
+instance JSON.ToJSON X12InboundEdiOptionsProperty

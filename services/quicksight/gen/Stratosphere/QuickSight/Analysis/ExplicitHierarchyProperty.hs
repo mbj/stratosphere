@@ -1,0 +1,59 @@
+module Stratosphere.QuickSight.Analysis.ExplicitHierarchyProperty (
+        module Exports, ExplicitHierarchyProperty(..),
+        mkExplicitHierarchyProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ColumnIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.DrillDownFilterProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ExplicitHierarchyProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-explicithierarchy.html>
+    ExplicitHierarchyProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-explicithierarchy.html#cfn-quicksight-analysis-explicithierarchy-columns>
+                               columns :: [ColumnIdentifierProperty],
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-explicithierarchy.html#cfn-quicksight-analysis-explicithierarchy-drilldownfilters>
+                               drillDownFilters :: (Prelude.Maybe [DrillDownFilterProperty]),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-explicithierarchy.html#cfn-quicksight-analysis-explicithierarchy-hierarchyid>
+                               hierarchyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkExplicitHierarchyProperty ::
+  [ColumnIdentifierProperty]
+  -> Value Prelude.Text -> ExplicitHierarchyProperty
+mkExplicitHierarchyProperty columns hierarchyId
+  = ExplicitHierarchyProperty
+      {haddock_workaround_ = (), columns = columns,
+       hierarchyId = hierarchyId, drillDownFilters = Prelude.Nothing}
+instance ToResourceProperties ExplicitHierarchyProperty where
+  toResourceProperties ExplicitHierarchyProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.ExplicitHierarchy",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Columns" JSON..= columns, "HierarchyId" JSON..= hierarchyId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "DrillDownFilters" Prelude.<$> drillDownFilters]))}
+instance JSON.ToJSON ExplicitHierarchyProperty where
+  toJSON ExplicitHierarchyProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Columns" JSON..= columns, "HierarchyId" JSON..= hierarchyId]
+              (Prelude.catMaybes
+                 [(JSON..=) "DrillDownFilters" Prelude.<$> drillDownFilters])))
+instance Property "Columns" ExplicitHierarchyProperty where
+  type PropertyType "Columns" ExplicitHierarchyProperty = [ColumnIdentifierProperty]
+  set newValue ExplicitHierarchyProperty {..}
+    = ExplicitHierarchyProperty {columns = newValue, ..}
+instance Property "DrillDownFilters" ExplicitHierarchyProperty where
+  type PropertyType "DrillDownFilters" ExplicitHierarchyProperty = [DrillDownFilterProperty]
+  set newValue ExplicitHierarchyProperty {..}
+    = ExplicitHierarchyProperty
+        {drillDownFilters = Prelude.pure newValue, ..}
+instance Property "HierarchyId" ExplicitHierarchyProperty where
+  type PropertyType "HierarchyId" ExplicitHierarchyProperty = Value Prelude.Text
+  set newValue ExplicitHierarchyProperty {..}
+    = ExplicitHierarchyProperty {hierarchyId = newValue, ..}

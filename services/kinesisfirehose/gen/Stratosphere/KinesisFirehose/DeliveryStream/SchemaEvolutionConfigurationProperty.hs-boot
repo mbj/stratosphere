@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.SchemaEvolutionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchemaEvolutionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SchemaEvolutionConfigurationProperty
+instance Prelude.Eq SchemaEvolutionConfigurationProperty
+instance Prelude.Show SchemaEvolutionConfigurationProperty
+instance JSON.ToJSON SchemaEvolutionConfigurationProperty

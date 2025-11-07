@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityIntegration.CreateDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CreateDetailsProperty :: Prelude.Type
+instance ToResourceProperties CreateDetailsProperty
+instance Prelude.Eq CreateDetailsProperty
+instance Prelude.Show CreateDetailsProperty
+instance JSON.ToJSON CreateDetailsProperty

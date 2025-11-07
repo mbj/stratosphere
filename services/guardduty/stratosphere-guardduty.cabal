@@ -53,8 +53,15 @@ library
       Stratosphere.GuardDuty.MalwareProtectionPlan.TagItemProperty
       Stratosphere.GuardDuty.Master
       Stratosphere.GuardDuty.Member
+      Stratosphere.GuardDuty.PublishingDestination
+      Stratosphere.GuardDuty.PublishingDestination.CFNDestinationPropertiesProperty
+      Stratosphere.GuardDuty.PublishingDestination.TagItemProperty
+      Stratosphere.GuardDuty.ThreatEntitySet
+      Stratosphere.GuardDuty.ThreatEntitySet.TagItemProperty
       Stratosphere.GuardDuty.ThreatIntelSet
       Stratosphere.GuardDuty.ThreatIntelSet.TagItemProperty
+      Stratosphere.GuardDuty.TrustedEntitySet
+      Stratosphere.GuardDuty.TrustedEntitySet.TagItemProperty
   other-modules:
       Paths_stratosphere_guardduty
   hs-source-dirs:

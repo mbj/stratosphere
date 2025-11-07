@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationCentralizationRule.LogsEncryptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogsEncryptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LogsEncryptionConfigurationProperty
+instance Prelude.Eq LogsEncryptionConfigurationProperty
+instance Prelude.Show LogsEncryptionConfigurationProperty
+instance JSON.ToJSON LogsEncryptionConfigurationProperty

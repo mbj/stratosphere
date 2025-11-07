@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.EnclaveOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnclaveOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties EnclaveOptionsRequestProperty
+instance Prelude.Eq EnclaveOptionsRequestProperty
+instance Prelude.Show EnclaveOptionsRequestProperty
+instance JSON.ToJSON EnclaveOptionsRequestProperty

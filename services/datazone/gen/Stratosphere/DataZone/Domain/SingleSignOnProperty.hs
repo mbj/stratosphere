@@ -9,6 +9,8 @@ import Stratosphere.Value
 data SingleSignOnProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html>
     SingleSignOnProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html#cfn-datazone-domain-singlesignon-idcinstancearn>
+                          idcInstanceArn :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html#cfn-datazone-domain-singlesignon-type>
                           type' :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html#cfn-datazone-domain-singlesignon-userassignment>
@@ -17,8 +19,8 @@ data SingleSignOnProperty
 mkSingleSignOnProperty :: SingleSignOnProperty
 mkSingleSignOnProperty
   = SingleSignOnProperty
-      {haddock_workaround_ = (), type' = Prelude.Nothing,
-       userAssignment = Prelude.Nothing}
+      {haddock_workaround_ = (), idcInstanceArn = Prelude.Nothing,
+       type' = Prelude.Nothing, userAssignment = Prelude.Nothing}
 instance ToResourceProperties SingleSignOnProperty where
   toResourceProperties SingleSignOnProperty {..}
     = ResourceProperties
@@ -26,15 +28,21 @@ instance ToResourceProperties SingleSignOnProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Type" Prelude.<$> type',
+                           [(JSON..=) "IdcInstanceArn" Prelude.<$> idcInstanceArn,
+                            (JSON..=) "Type" Prelude.<$> type',
                             (JSON..=) "UserAssignment" Prelude.<$> userAssignment])}
 instance JSON.ToJSON SingleSignOnProperty where
   toJSON SingleSignOnProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Type" Prelude.<$> type',
+              [(JSON..=) "IdcInstanceArn" Prelude.<$> idcInstanceArn,
+               (JSON..=) "Type" Prelude.<$> type',
                (JSON..=) "UserAssignment" Prelude.<$> userAssignment]))
+instance Property "IdcInstanceArn" SingleSignOnProperty where
+  type PropertyType "IdcInstanceArn" SingleSignOnProperty = Value Prelude.Text
+  set newValue SingleSignOnProperty {..}
+    = SingleSignOnProperty {idcInstanceArn = Prelude.pure newValue, ..}
 instance Property "Type" SingleSignOnProperty where
   type PropertyType "Type" SingleSignOnProperty = Value Prelude.Text
   set newValue SingleSignOnProperty {..}

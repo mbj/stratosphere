@@ -22,6 +22,8 @@ data Topic
            deliveryStatusLogging :: (Prelude.Maybe [LoggingConfigProperty]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-displayname>
            displayName :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-fifothroughputscope>
+           fifoThroughputScope :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-fifotopic>
            fifoTopic :: (Prelude.Maybe (Value Prelude.Bool)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-kmsmasterkeyid>
@@ -44,7 +46,8 @@ mkTopic
        contentBasedDeduplication = Prelude.Nothing,
        dataProtectionPolicy = Prelude.Nothing,
        deliveryStatusLogging = Prelude.Nothing,
-       displayName = Prelude.Nothing, fifoTopic = Prelude.Nothing,
+       displayName = Prelude.Nothing,
+       fifoThroughputScope = Prelude.Nothing, fifoTopic = Prelude.Nothing,
        kmsMasterKeyId = Prelude.Nothing,
        signatureVersion = Prelude.Nothing, subscription = Prelude.Nothing,
        tags = Prelude.Nothing, topicName = Prelude.Nothing,
@@ -62,6 +65,7 @@ instance ToResourceProperties Topic where
                             (JSON..=) "DeliveryStatusLogging"
                               Prelude.<$> deliveryStatusLogging,
                             (JSON..=) "DisplayName" Prelude.<$> displayName,
+                            (JSON..=) "FifoThroughputScope" Prelude.<$> fifoThroughputScope,
                             (JSON..=) "FifoTopic" Prelude.<$> fifoTopic,
                             (JSON..=) "KmsMasterKeyId" Prelude.<$> kmsMasterKeyId,
                             (JSON..=) "SignatureVersion" Prelude.<$> signatureVersion,
@@ -81,6 +85,7 @@ instance JSON.ToJSON Topic where
                (JSON..=) "DeliveryStatusLogging"
                  Prelude.<$> deliveryStatusLogging,
                (JSON..=) "DisplayName" Prelude.<$> displayName,
+               (JSON..=) "FifoThroughputScope" Prelude.<$> fifoThroughputScope,
                (JSON..=) "FifoTopic" Prelude.<$> fifoTopic,
                (JSON..=) "KmsMasterKeyId" Prelude.<$> kmsMasterKeyId,
                (JSON..=) "SignatureVersion" Prelude.<$> signatureVersion,
@@ -108,6 +113,10 @@ instance Property "DisplayName" Topic where
   type PropertyType "DisplayName" Topic = Value Prelude.Text
   set newValue Topic {..}
     = Topic {displayName = Prelude.pure newValue, ..}
+instance Property "FifoThroughputScope" Topic where
+  type PropertyType "FifoThroughputScope" Topic = Value Prelude.Text
+  set newValue Topic {..}
+    = Topic {fifoThroughputScope = Prelude.pure newValue, ..}
 instance Property "FifoTopic" Topic where
   type PropertyType "FifoTopic" Topic = Value Prelude.Bool
   set newValue Topic {..}

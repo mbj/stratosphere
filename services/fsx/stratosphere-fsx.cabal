@@ -35,6 +35,7 @@ library
       Stratosphere.FSx.FileSystem
       Stratosphere.FSx.FileSystem.AuditLogConfigurationProperty
       Stratosphere.FSx.FileSystem.ClientConfigurationsProperty
+      Stratosphere.FSx.FileSystem.DataReadCacheConfigurationProperty
       Stratosphere.FSx.FileSystem.DiskIopsConfigurationProperty
       Stratosphere.FSx.FileSystem.LustreConfigurationProperty
       Stratosphere.FSx.FileSystem.MetadataConfigurationProperty
@@ -46,6 +47,13 @@ library
       Stratosphere.FSx.FileSystem.SelfManagedActiveDirectoryConfigurationProperty
       Stratosphere.FSx.FileSystem.UserAndGroupQuotasProperty
       Stratosphere.FSx.FileSystem.WindowsConfigurationProperty
+      Stratosphere.FSx.S3AccessPointAttachment
+      Stratosphere.FSx.S3AccessPointAttachment.FileSystemGIDProperty
+      Stratosphere.FSx.S3AccessPointAttachment.OpenZFSFileSystemIdentityProperty
+      Stratosphere.FSx.S3AccessPointAttachment.OpenZFSPosixFileSystemUserProperty
+      Stratosphere.FSx.S3AccessPointAttachment.S3AccessPointOpenZFSConfigurationProperty
+      Stratosphere.FSx.S3AccessPointAttachment.S3AccessPointProperty
+      Stratosphere.FSx.S3AccessPointAttachment.S3AccessPointVpcConfigurationProperty
       Stratosphere.FSx.Snapshot
       Stratosphere.FSx.StorageVirtualMachine
       Stratosphere.FSx.StorageVirtualMachine.ActiveDirectoryConfigurationProperty

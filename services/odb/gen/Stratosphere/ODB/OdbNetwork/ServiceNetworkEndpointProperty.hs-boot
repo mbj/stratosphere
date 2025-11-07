@@ -1,0 +1,9 @@
+module Stratosphere.ODB.OdbNetwork.ServiceNetworkEndpointProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceNetworkEndpointProperty :: Prelude.Type
+instance ToResourceProperties ServiceNetworkEndpointProperty
+instance Prelude.Eq ServiceNetworkEndpointProperty
+instance Prelude.Show ServiceNetworkEndpointProperty
+instance JSON.ToJSON ServiceNetworkEndpointProperty

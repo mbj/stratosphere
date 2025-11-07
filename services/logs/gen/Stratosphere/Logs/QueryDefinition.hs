@@ -13,6 +13,8 @@ data QueryDefinition
                      logGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name>
                      name :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querylanguage>
+                     queryLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring>
                      queryString :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -21,7 +23,7 @@ mkQueryDefinition ::
 mkQueryDefinition name queryString
   = QueryDefinition
       {haddock_workaround_ = (), name = name, queryString = queryString,
-       logGroupNames = Prelude.Nothing}
+       logGroupNames = Prelude.Nothing, queryLanguage = Prelude.Nothing}
 instance ToResourceProperties QueryDefinition where
   toResourceProperties QueryDefinition {..}
     = ResourceProperties
@@ -31,7 +33,8 @@ instance ToResourceProperties QueryDefinition where
                         ((Prelude.<>)
                            ["Name" JSON..= name, "QueryString" JSON..= queryString]
                            (Prelude.catMaybes
-                              [(JSON..=) "LogGroupNames" Prelude.<$> logGroupNames]))}
+                              [(JSON..=) "LogGroupNames" Prelude.<$> logGroupNames,
+                               (JSON..=) "QueryLanguage" Prelude.<$> queryLanguage]))}
 instance JSON.ToJSON QueryDefinition where
   toJSON QueryDefinition {..}
     = JSON.object
@@ -39,7 +42,8 @@ instance JSON.ToJSON QueryDefinition where
            ((Prelude.<>)
               ["Name" JSON..= name, "QueryString" JSON..= queryString]
               (Prelude.catMaybes
-                 [(JSON..=) "LogGroupNames" Prelude.<$> logGroupNames])))
+                 [(JSON..=) "LogGroupNames" Prelude.<$> logGroupNames,
+                  (JSON..=) "QueryLanguage" Prelude.<$> queryLanguage])))
 instance Property "LogGroupNames" QueryDefinition where
   type PropertyType "LogGroupNames" QueryDefinition = ValueList Prelude.Text
   set newValue QueryDefinition {..}
@@ -48,6 +52,10 @@ instance Property "Name" QueryDefinition where
   type PropertyType "Name" QueryDefinition = Value Prelude.Text
   set newValue QueryDefinition {..}
     = QueryDefinition {name = newValue, ..}
+instance Property "QueryLanguage" QueryDefinition where
+  type PropertyType "QueryLanguage" QueryDefinition = Value Prelude.Text
+  set newValue QueryDefinition {..}
+    = QueryDefinition {queryLanguage = Prelude.pure newValue, ..}
 instance Property "QueryString" QueryDefinition where
   type PropertyType "QueryString" QueryDefinition = Value Prelude.Text
   set newValue QueryDefinition {..}

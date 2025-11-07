@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.AgentCollaboratorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentCollaboratorProperty :: Prelude.Type
+instance ToResourceProperties AgentCollaboratorProperty
+instance Prelude.Eq AgentCollaboratorProperty
+instance Prelude.Show AgentCollaboratorProperty
+instance JSON.ToJSON AgentCollaboratorProperty

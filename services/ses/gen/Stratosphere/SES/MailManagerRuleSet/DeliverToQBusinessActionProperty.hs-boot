@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.DeliverToQBusinessActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeliverToQBusinessActionProperty :: Prelude.Type
+instance ToResourceProperties DeliverToQBusinessActionProperty
+instance Prelude.Eq DeliverToQBusinessActionProperty
+instance Prelude.Show DeliverToQBusinessActionProperty
+instance JSON.ToJSON DeliverToQBusinessActionProperty

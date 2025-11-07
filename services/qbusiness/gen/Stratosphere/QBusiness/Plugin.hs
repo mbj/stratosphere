@@ -13,7 +13,7 @@ data Plugin
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html>
     Plugin {haddock_workaround_ :: (),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-applicationid>
-            applicationId :: (Value Prelude.Text),
+            applicationId :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-authconfiguration>
             authConfiguration :: PluginAuthConfigurationProperty,
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-custompluginconfiguration>
@@ -30,14 +30,14 @@ data Plugin
             type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlugin ::
-  Value Prelude.Text
-  -> PluginAuthConfigurationProperty
-     -> Value Prelude.Text -> Value Prelude.Text -> Plugin
-mkPlugin applicationId authConfiguration displayName type'
+  PluginAuthConfigurationProperty
+  -> Value Prelude.Text -> Value Prelude.Text -> Plugin
+mkPlugin authConfiguration displayName type'
   = Plugin
-      {haddock_workaround_ = (), applicationId = applicationId,
-       authConfiguration = authConfiguration, displayName = displayName,
-       type' = type', customPluginConfiguration = Prelude.Nothing,
+      {haddock_workaround_ = (), authConfiguration = authConfiguration,
+       displayName = displayName, type' = type',
+       applicationId = Prelude.Nothing,
+       customPluginConfiguration = Prelude.Nothing,
        serverUrl = Prelude.Nothing, state = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Plugin where
@@ -46,11 +46,11 @@ instance ToResourceProperties Plugin where
         {awsType = "AWS::QBusiness::Plugin", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ApplicationId" JSON..= applicationId,
-                            "AuthConfiguration" JSON..= authConfiguration,
+                           ["AuthConfiguration" JSON..= authConfiguration,
                             "DisplayName" JSON..= displayName, "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "CustomPluginConfiguration"
+                              [(JSON..=) "ApplicationId" Prelude.<$> applicationId,
+                               (JSON..=) "CustomPluginConfiguration"
                                  Prelude.<$> customPluginConfiguration,
                                (JSON..=) "ServerUrl" Prelude.<$> serverUrl,
                                (JSON..=) "State" Prelude.<$> state,
@@ -60,18 +60,19 @@ instance JSON.ToJSON Plugin where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ApplicationId" JSON..= applicationId,
-               "AuthConfiguration" JSON..= authConfiguration,
+              ["AuthConfiguration" JSON..= authConfiguration,
                "DisplayName" JSON..= displayName, "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "CustomPluginConfiguration"
+                 [(JSON..=) "ApplicationId" Prelude.<$> applicationId,
+                  (JSON..=) "CustomPluginConfiguration"
                     Prelude.<$> customPluginConfiguration,
                   (JSON..=) "ServerUrl" Prelude.<$> serverUrl,
                   (JSON..=) "State" Prelude.<$> state,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationId" Plugin where
   type PropertyType "ApplicationId" Plugin = Value Prelude.Text
-  set newValue Plugin {..} = Plugin {applicationId = newValue, ..}
+  set newValue Plugin {..}
+    = Plugin {applicationId = Prelude.pure newValue, ..}
 instance Property "AuthConfiguration" Plugin where
   type PropertyType "AuthConfiguration" Plugin = PluginAuthConfigurationProperty
   set newValue Plugin {..}

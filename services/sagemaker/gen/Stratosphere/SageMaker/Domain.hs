@@ -30,29 +30,27 @@ data Domain
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid>
             kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids>
-            subnetIds :: (ValueList Prelude.Text),
+            subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tagpropagation>
             tagPropagation :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags>
             tags :: (Prelude.Maybe [Tag]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid>
-            vpcId :: (Value Prelude.Text)}
+            vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::
   Value Prelude.Text
-  -> UserSettingsProperty
-     -> Value Prelude.Text
-        -> ValueList Prelude.Text -> Value Prelude.Text -> Domain
-mkDomain authMode defaultUserSettings domainName subnetIds vpcId
+  -> UserSettingsProperty -> Value Prelude.Text -> Domain
+mkDomain authMode defaultUserSettings domainName
   = Domain
       {haddock_workaround_ = (), authMode = authMode,
        defaultUserSettings = defaultUserSettings, domainName = domainName,
-       subnetIds = subnetIds, vpcId = vpcId,
        appNetworkAccessType = Prelude.Nothing,
        appSecurityGroupManagement = Prelude.Nothing,
        defaultSpaceSettings = Prelude.Nothing,
        domainSettings = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       tagPropagation = Prelude.Nothing, tags = Prelude.Nothing}
+       subnetIds = Prelude.Nothing, tagPropagation = Prelude.Nothing,
+       tags = Prelude.Nothing, vpcId = Prelude.Nothing}
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
@@ -61,8 +59,7 @@ instance ToResourceProperties Domain where
                         ((Prelude.<>)
                            ["AuthMode" JSON..= authMode,
                             "DefaultUserSettings" JSON..= defaultUserSettings,
-                            "DomainName" JSON..= domainName, "SubnetIds" JSON..= subnetIds,
-                            "VpcId" JSON..= vpcId]
+                            "DomainName" JSON..= domainName]
                            (Prelude.catMaybes
                               [(JSON..=) "AppNetworkAccessType" Prelude.<$> appNetworkAccessType,
                                (JSON..=) "AppSecurityGroupManagement"
@@ -70,8 +67,10 @@ instance ToResourceProperties Domain where
                                (JSON..=) "DefaultSpaceSettings" Prelude.<$> defaultSpaceSettings,
                                (JSON..=) "DomainSettings" Prelude.<$> domainSettings,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                               (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
                                (JSON..=) "TagPropagation" Prelude.<$> tagPropagation,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "VpcId" Prelude.<$> vpcId]))}
 instance JSON.ToJSON Domain where
   toJSON Domain {..}
     = JSON.object
@@ -79,8 +78,7 @@ instance JSON.ToJSON Domain where
            ((Prelude.<>)
               ["AuthMode" JSON..= authMode,
                "DefaultUserSettings" JSON..= defaultUserSettings,
-               "DomainName" JSON..= domainName, "SubnetIds" JSON..= subnetIds,
-               "VpcId" JSON..= vpcId]
+               "DomainName" JSON..= domainName]
               (Prelude.catMaybes
                  [(JSON..=) "AppNetworkAccessType" Prelude.<$> appNetworkAccessType,
                   (JSON..=) "AppSecurityGroupManagement"
@@ -88,8 +86,10 @@ instance JSON.ToJSON Domain where
                   (JSON..=) "DefaultSpaceSettings" Prelude.<$> defaultSpaceSettings,
                   (JSON..=) "DomainSettings" Prelude.<$> domainSettings,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                  (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
                   (JSON..=) "TagPropagation" Prelude.<$> tagPropagation,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "VpcId" Prelude.<$> vpcId])))
 instance Property "AppNetworkAccessType" Domain where
   type PropertyType "AppNetworkAccessType" Domain = Value Prelude.Text
   set newValue Domain {..}
@@ -122,7 +122,8 @@ instance Property "KmsKeyId" Domain where
     = Domain {kmsKeyId = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Domain where
   type PropertyType "SubnetIds" Domain = ValueList Prelude.Text
-  set newValue Domain {..} = Domain {subnetIds = newValue, ..}
+  set newValue Domain {..}
+    = Domain {subnetIds = Prelude.pure newValue, ..}
 instance Property "TagPropagation" Domain where
   type PropertyType "TagPropagation" Domain = Value Prelude.Text
   set newValue Domain {..}
@@ -133,4 +134,5 @@ instance Property "Tags" Domain where
     = Domain {tags = Prelude.pure newValue, ..}
 instance Property "VpcId" Domain where
   type PropertyType "VpcId" Domain = Value Prelude.Text
-  set newValue Domain {..} = Domain {vpcId = newValue, ..}
+  set newValue Domain {..}
+    = Domain {vpcId = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialNullDataSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialNullDataSettingsProperty :: Prelude.Type
+instance ToResourceProperties GeospatialNullDataSettingsProperty
+instance Prelude.Eq GeospatialNullDataSettingsProperty
+instance Prelude.Show GeospatialNullDataSettingsProperty
+instance JSON.ToJSON GeospatialNullDataSettingsProperty

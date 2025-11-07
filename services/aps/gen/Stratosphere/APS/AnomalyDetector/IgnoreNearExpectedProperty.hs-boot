@@ -1,0 +1,9 @@
+module Stratosphere.APS.AnomalyDetector.IgnoreNearExpectedProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IgnoreNearExpectedProperty :: Prelude.Type
+instance ToResourceProperties IgnoreNearExpectedProperty
+instance Prelude.Eq IgnoreNearExpectedProperty
+instance Prelude.Show IgnoreNearExpectedProperty
+instance JSON.ToJSON IgnoreNearExpectedProperty

@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchServerless.SecurityConfig.IamFederationConfigOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamFederationConfigOptionsProperty :: Prelude.Type
+instance ToResourceProperties IamFederationConfigOptionsProperty
+instance Prelude.Eq IamFederationConfigOptionsProperty
+instance Prelude.Show IamFederationConfigOptionsProperty
+instance JSON.ToJSON IamFederationConfigOptionsProperty

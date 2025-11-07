@@ -1,0 +1,9 @@
+module Stratosphere.Glue.Connection.AuthorizationCodePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuthorizationCodePropertiesProperty :: Prelude.Type
+instance ToResourceProperties AuthorizationCodePropertiesProperty
+instance Prelude.Eq AuthorizationCodePropertiesProperty
+instance Prelude.Show AuthorizationCodePropertiesProperty
+instance JSON.ToJSON AuthorizationCodePropertiesProperty

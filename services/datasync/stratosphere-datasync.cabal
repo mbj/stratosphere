@@ -31,6 +31,9 @@ library
       Stratosphere.DataSync.Agent
       Stratosphere.DataSync.LocationAzureBlob
       Stratosphere.DataSync.LocationAzureBlob.AzureBlobSasConfigurationProperty
+      Stratosphere.DataSync.LocationAzureBlob.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationAzureBlob.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationAzureBlob.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationEFS
       Stratosphere.DataSync.LocationEFS.Ec2ConfigProperty
       Stratosphere.DataSync.LocationFSxLustre
@@ -52,13 +55,16 @@ library
       Stratosphere.DataSync.LocationNFS.MountOptionsProperty
       Stratosphere.DataSync.LocationNFS.OnPremConfigProperty
       Stratosphere.DataSync.LocationObjectStorage
+      Stratosphere.DataSync.LocationObjectStorage.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationObjectStorage.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationObjectStorage.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationS3
       Stratosphere.DataSync.LocationS3.S3ConfigProperty
       Stratosphere.DataSync.LocationSMB
+      Stratosphere.DataSync.LocationSMB.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationSMB.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationSMB.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationSMB.MountOptionsProperty
-      Stratosphere.DataSync.StorageSystem
-      Stratosphere.DataSync.StorageSystem.ServerConfigurationProperty
-      Stratosphere.DataSync.StorageSystem.ServerCredentialsProperty
       Stratosphere.DataSync.Task
       Stratosphere.DataSync.Task.DeletedProperty
       Stratosphere.DataSync.Task.DestinationProperty

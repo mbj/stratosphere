@@ -32,6 +32,7 @@ library
       Stratosphere.EKS.AccessEntry.AccessPolicyProperty
       Stratosphere.EKS.AccessEntry.AccessScopeProperty
       Stratosphere.EKS.Addon
+      Stratosphere.EKS.Addon.NamespaceConfigProperty
       Stratosphere.EKS.Addon.PodIdentityAssociationProperty
       Stratosphere.EKS.Cluster
       Stratosphere.EKS.Cluster.AccessConfigProperty

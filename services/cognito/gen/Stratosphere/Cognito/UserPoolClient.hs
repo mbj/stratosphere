@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.UserPoolClient.AnalyticsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Cognito.UserPoolClient.RefreshTokenRotationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cognito.UserPoolClient.TokenValidityUnitsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -45,6 +46,8 @@ data UserPoolClient
                     preventUserExistenceErrors :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-readattributes>
                     readAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenrotation>
+                    refreshTokenRotation :: (Prelude.Maybe RefreshTokenRotationProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenvalidity>
                     refreshTokenValidity :: (Prelude.Maybe (Value Prelude.Integer)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders>
@@ -75,6 +78,7 @@ mkUserPoolClient userPoolId
        idTokenValidity = Prelude.Nothing, logoutURLs = Prelude.Nothing,
        preventUserExistenceErrors = Prelude.Nothing,
        readAttributes = Prelude.Nothing,
+       refreshTokenRotation = Prelude.Nothing,
        refreshTokenValidity = Prelude.Nothing,
        supportedIdentityProviders = Prelude.Nothing,
        tokenValidityUnits = Prelude.Nothing,
@@ -110,6 +114,7 @@ instance ToResourceProperties UserPoolClient where
                                (JSON..=) "PreventUserExistenceErrors"
                                  Prelude.<$> preventUserExistenceErrors,
                                (JSON..=) "ReadAttributes" Prelude.<$> readAttributes,
+                               (JSON..=) "RefreshTokenRotation" Prelude.<$> refreshTokenRotation,
                                (JSON..=) "RefreshTokenValidity" Prelude.<$> refreshTokenValidity,
                                (JSON..=) "SupportedIdentityProviders"
                                  Prelude.<$> supportedIdentityProviders,
@@ -144,6 +149,7 @@ instance JSON.ToJSON UserPoolClient where
                   (JSON..=) "PreventUserExistenceErrors"
                     Prelude.<$> preventUserExistenceErrors,
                   (JSON..=) "ReadAttributes" Prelude.<$> readAttributes,
+                  (JSON..=) "RefreshTokenRotation" Prelude.<$> refreshTokenRotation,
                   (JSON..=) "RefreshTokenValidity" Prelude.<$> refreshTokenValidity,
                   (JSON..=) "SupportedIdentityProviders"
                     Prelude.<$> supportedIdentityProviders,
@@ -223,6 +229,10 @@ instance Property "ReadAttributes" UserPoolClient where
   type PropertyType "ReadAttributes" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {readAttributes = Prelude.pure newValue, ..}
+instance Property "RefreshTokenRotation" UserPoolClient where
+  type PropertyType "RefreshTokenRotation" UserPoolClient = RefreshTokenRotationProperty
+  set newValue UserPoolClient {..}
+    = UserPoolClient {refreshTokenRotation = Prelude.pure newValue, ..}
 instance Property "RefreshTokenValidity" UserPoolClient where
   type PropertyType "RefreshTokenValidity" UserPoolClient = Value Prelude.Integer
   set newValue UserPoolClient {..}

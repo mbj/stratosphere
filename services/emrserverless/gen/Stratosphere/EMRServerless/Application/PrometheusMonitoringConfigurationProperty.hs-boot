@@ -1,0 +1,9 @@
+module Stratosphere.EMRServerless.Application.PrometheusMonitoringConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrometheusMonitoringConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PrometheusMonitoringConfigurationProperty
+instance Prelude.Eq PrometheusMonitoringConfigurationProperty
+instance Prelude.Show PrometheusMonitoringConfigurationProperty
+instance JSON.ToJSON PrometheusMonitoringConfigurationProperty

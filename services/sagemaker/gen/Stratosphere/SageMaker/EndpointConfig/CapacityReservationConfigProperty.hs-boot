@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.EndpointConfig.CapacityReservationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityReservationConfigProperty :: Prelude.Type
+instance ToResourceProperties CapacityReservationConfigProperty
+instance Prelude.Eq CapacityReservationConfigProperty
+instance Prelude.Show CapacityReservationConfigProperty
+instance JSON.ToJSON CapacityReservationConfigProperty

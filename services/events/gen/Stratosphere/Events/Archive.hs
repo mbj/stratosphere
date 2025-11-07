@@ -15,6 +15,8 @@ data Archive
              description :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern>
              eventPattern :: (Prelude.Maybe JSON.Object),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-kmskeyidentifier>
+             kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays>
              retentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn>
@@ -25,7 +27,8 @@ mkArchive sourceArn
   = Archive
       {haddock_workaround_ = (), sourceArn = sourceArn,
        archiveName = Prelude.Nothing, description = Prelude.Nothing,
-       eventPattern = Prelude.Nothing, retentionDays = Prelude.Nothing}
+       eventPattern = Prelude.Nothing, kmsKeyIdentifier = Prelude.Nothing,
+       retentionDays = Prelude.Nothing}
 instance ToResourceProperties Archive where
   toResourceProperties Archive {..}
     = ResourceProperties
@@ -37,6 +40,7 @@ instance ToResourceProperties Archive where
                               [(JSON..=) "ArchiveName" Prelude.<$> archiveName,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EventPattern" Prelude.<$> eventPattern,
+                               (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                                (JSON..=) "RetentionDays" Prelude.<$> retentionDays]))}
 instance JSON.ToJSON Archive where
   toJSON Archive {..}
@@ -48,6 +52,7 @@ instance JSON.ToJSON Archive where
                  [(JSON..=) "ArchiveName" Prelude.<$> archiveName,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EventPattern" Prelude.<$> eventPattern,
+                  (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                   (JSON..=) "RetentionDays" Prelude.<$> retentionDays])))
 instance Property "ArchiveName" Archive where
   type PropertyType "ArchiveName" Archive = Value Prelude.Text
@@ -61,6 +66,10 @@ instance Property "EventPattern" Archive where
   type PropertyType "EventPattern" Archive = JSON.Object
   set newValue Archive {..}
     = Archive {eventPattern = Prelude.pure newValue, ..}
+instance Property "KmsKeyIdentifier" Archive where
+  type PropertyType "KmsKeyIdentifier" Archive = Value Prelude.Text
+  set newValue Archive {..}
+    = Archive {kmsKeyIdentifier = Prelude.pure newValue, ..}
 instance Property "RetentionDays" Archive where
   type PropertyType "RetentionDays" Archive = Value Prelude.Integer
   set newValue Archive {..}

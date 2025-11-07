@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ImageStandardGenerativeFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageStandardGenerativeFieldProperty :: Prelude.Type
+instance ToResourceProperties ImageStandardGenerativeFieldProperty
+instance Prelude.Eq ImageStandardGenerativeFieldProperty
+instance Prelude.Show ImageStandardGenerativeFieldProperty
+instance JSON.ToJSON ImageStandardGenerativeFieldProperty

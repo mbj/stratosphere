@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12AcknowledgmentOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12AcknowledgmentOptionsProperty :: Prelude.Type
+instance ToResourceProperties X12AcknowledgmentOptionsProperty
+instance Prelude.Eq X12AcknowledgmentOptionsProperty
+instance Prelude.Show X12AcknowledgmentOptionsProperty
+instance JSON.ToJSON X12AcknowledgmentOptionsProperty

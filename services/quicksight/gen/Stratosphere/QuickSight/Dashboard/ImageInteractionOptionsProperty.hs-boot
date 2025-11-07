@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ImageInteractionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageInteractionOptionsProperty :: Prelude.Type
+instance ToResourceProperties ImageInteractionOptionsProperty
+instance Prelude.Eq ImageInteractionOptionsProperty
+instance Prelude.Show ImageInteractionOptionsProperty
+instance JSON.ToJSON ImageInteractionOptionsProperty

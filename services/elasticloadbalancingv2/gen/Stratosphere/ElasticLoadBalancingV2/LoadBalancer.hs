@@ -13,12 +13,16 @@ import Stratosphere.Value
 data LoadBalancer
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html>
     LoadBalancer {haddock_workaround_ :: (),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enablecapacityreservationprovisionstabilize>
+                  enableCapacityReservationProvisionStabilize :: (Prelude.Maybe (Value Prelude.Bool)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enableprefixforipv6sourcenat>
                   enablePrefixForIpv6SourceNat :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enforcesecuritygroupinboundrulesonprivatelinktraffic>
                   enforceSecurityGroupInboundRulesOnPrivateLinkTraffic :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype>
                   ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipv4ipampoolid>
+                  ipv4IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes>
                   loadBalancerAttributes :: (Prelude.Maybe [LoadBalancerAttributeProperty]),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity>
@@ -42,9 +46,10 @@ mkLoadBalancer :: LoadBalancer
 mkLoadBalancer
   = LoadBalancer
       {haddock_workaround_ = (),
+       enableCapacityReservationProvisionStabilize = Prelude.Nothing,
        enablePrefixForIpv6SourceNat = Prelude.Nothing,
        enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Prelude.Nothing,
-       ipAddressType = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing, ipv4IpamPoolId = Prelude.Nothing,
        loadBalancerAttributes = Prelude.Nothing,
        minimumLoadBalancerCapacity = Prelude.Nothing,
        name = Prelude.Nothing, scheme = Prelude.Nothing,
@@ -58,11 +63,14 @@ instance ToResourceProperties LoadBalancer where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "EnablePrefixForIpv6SourceNat"
+                           [(JSON..=) "EnableCapacityReservationProvisionStabilize"
+                              Prelude.<$> enableCapacityReservationProvisionStabilize,
+                            (JSON..=) "EnablePrefixForIpv6SourceNat"
                               Prelude.<$> enablePrefixForIpv6SourceNat,
                             (JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
                               Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
                             (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+                            (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                             (JSON..=) "LoadBalancerAttributes"
                               Prelude.<$> loadBalancerAttributes,
                             (JSON..=) "MinimumLoadBalancerCapacity"
@@ -79,11 +87,14 @@ instance JSON.ToJSON LoadBalancer where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "EnablePrefixForIpv6SourceNat"
+              [(JSON..=) "EnableCapacityReservationProvisionStabilize"
+                 Prelude.<$> enableCapacityReservationProvisionStabilize,
+               (JSON..=) "EnablePrefixForIpv6SourceNat"
                  Prelude.<$> enablePrefixForIpv6SourceNat,
                (JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
                  Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
                (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+               (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                (JSON..=) "LoadBalancerAttributes"
                  Prelude.<$> loadBalancerAttributes,
                (JSON..=) "MinimumLoadBalancerCapacity"
@@ -95,6 +106,13 @@ instance JSON.ToJSON LoadBalancer where
                (JSON..=) "Subnets" Prelude.<$> subnets,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Type" Prelude.<$> type']))
+instance Property "EnableCapacityReservationProvisionStabilize" LoadBalancer where
+  type PropertyType "EnableCapacityReservationProvisionStabilize" LoadBalancer = Value Prelude.Bool
+  set newValue LoadBalancer {..}
+    = LoadBalancer
+        {enableCapacityReservationProvisionStabilize = Prelude.pure
+                                                         newValue,
+         ..}
 instance Property "EnablePrefixForIpv6SourceNat" LoadBalancer where
   type PropertyType "EnablePrefixForIpv6SourceNat" LoadBalancer = Value Prelude.Text
   set newValue LoadBalancer {..}
@@ -111,6 +129,10 @@ instance Property "IpAddressType" LoadBalancer where
   type PropertyType "IpAddressType" LoadBalancer = Value Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {ipAddressType = Prelude.pure newValue, ..}
+instance Property "Ipv4IpamPoolId" LoadBalancer where
+  type PropertyType "Ipv4IpamPoolId" LoadBalancer = Value Prelude.Text
+  set newValue LoadBalancer {..}
+    = LoadBalancer {ipv4IpamPoolId = Prelude.pure newValue, ..}
 instance Property "LoadBalancerAttributes" LoadBalancer where
   type PropertyType "LoadBalancerAttributes" LoadBalancer = [LoadBalancerAttributeProperty]
   set newValue LoadBalancer {..}

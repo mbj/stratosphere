@@ -1,0 +1,9 @@
+module Stratosphere.Cassandra.Table.CdcSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CdcSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CdcSpecificationProperty
+instance Prelude.Eq CdcSpecificationProperty
+instance Prelude.Show CdcSpecificationProperty
+instance JSON.ToJSON CdcSpecificationProperty

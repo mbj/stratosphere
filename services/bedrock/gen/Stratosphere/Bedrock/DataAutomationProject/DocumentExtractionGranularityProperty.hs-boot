@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.DocumentExtractionGranularityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentExtractionGranularityProperty :: Prelude.Type
+instance ToResourceProperties DocumentExtractionGranularityProperty
+instance Prelude.Eq DocumentExtractionGranularityProperty
+instance Prelude.Show DocumentExtractionGranularityProperty
+instance JSON.ToJSON DocumentExtractionGranularityProperty

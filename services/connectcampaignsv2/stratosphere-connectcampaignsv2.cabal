@@ -39,9 +39,11 @@ library
       Stratosphere.ConnectCampaignsV2.Campaign.EmailChannelSubtypeConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.EmailOutboundConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.EmailOutboundModeProperty
+      Stratosphere.ConnectCampaignsV2.Campaign.EventTriggerProperty
       Stratosphere.ConnectCampaignsV2.Campaign.LocalTimeZoneConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.OpenHoursProperty
       Stratosphere.ConnectCampaignsV2.Campaign.PredictiveConfigProperty
+      Stratosphere.ConnectCampaignsV2.Campaign.PreviewConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.ProgressiveConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodProperty
       Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodsProperty
@@ -53,6 +55,7 @@ library
       Stratosphere.ConnectCampaignsV2.Campaign.TelephonyChannelSubtypeConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.TelephonyOutboundConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.TelephonyOutboundModeProperty
+      Stratosphere.ConnectCampaignsV2.Campaign.TimeoutConfigProperty
       Stratosphere.ConnectCampaignsV2.Campaign.TimeRangeProperty
       Stratosphere.ConnectCampaignsV2.Campaign.TimeWindowProperty
   other-modules:

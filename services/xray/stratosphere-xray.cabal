@@ -33,6 +33,7 @@ library
       Stratosphere.XRay.ResourcePolicy
       Stratosphere.XRay.SamplingRule
       Stratosphere.XRay.SamplingRule.SamplingRuleProperty
+      Stratosphere.XRay.TransactionSearchConfig
   other-modules:
       Paths_stratosphere_xray
   hs-source-dirs:

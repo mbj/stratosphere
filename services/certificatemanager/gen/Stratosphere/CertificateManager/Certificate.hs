@@ -13,6 +13,8 @@ data Certificate
     Certificate {haddock_workaround_ :: (),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificateauthorityarn>
                  certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificateexport>
+                 certificateExport :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificatetransparencyloggingpreference>
                  certificateTransparencyLoggingPreference :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname>
@@ -33,6 +35,7 @@ mkCertificate domainName
   = Certificate
       {haddock_workaround_ = (), domainName = domainName,
        certificateAuthorityArn = Prelude.Nothing,
+       certificateExport = Prelude.Nothing,
        certificateTransparencyLoggingPreference = Prelude.Nothing,
        domainValidationOptions = Prelude.Nothing,
        keyAlgorithm = Prelude.Nothing,
@@ -49,6 +52,7 @@ instance ToResourceProperties Certificate where
                            (Prelude.catMaybes
                               [(JSON..=) "CertificateAuthorityArn"
                                  Prelude.<$> certificateAuthorityArn,
+                               (JSON..=) "CertificateExport" Prelude.<$> certificateExport,
                                (JSON..=) "CertificateTransparencyLoggingPreference"
                                  Prelude.<$> certificateTransparencyLoggingPreference,
                                (JSON..=) "DomainValidationOptions"
@@ -67,6 +71,7 @@ instance JSON.ToJSON Certificate where
               (Prelude.catMaybes
                  [(JSON..=) "CertificateAuthorityArn"
                     Prelude.<$> certificateAuthorityArn,
+                  (JSON..=) "CertificateExport" Prelude.<$> certificateExport,
                   (JSON..=) "CertificateTransparencyLoggingPreference"
                     Prelude.<$> certificateTransparencyLoggingPreference,
                   (JSON..=) "DomainValidationOptions"
@@ -80,6 +85,10 @@ instance Property "CertificateAuthorityArn" Certificate where
   type PropertyType "CertificateAuthorityArn" Certificate = Value Prelude.Text
   set newValue Certificate {..}
     = Certificate {certificateAuthorityArn = Prelude.pure newValue, ..}
+instance Property "CertificateExport" Certificate where
+  type PropertyType "CertificateExport" Certificate = Value Prelude.Text
+  set newValue Certificate {..}
+    = Certificate {certificateExport = Prelude.pure newValue, ..}
 instance Property "CertificateTransparencyLoggingPreference" Certificate where
   type PropertyType "CertificateTransparencyLoggingPreference" Certificate = Value Prelude.Text
   set newValue Certificate {..}

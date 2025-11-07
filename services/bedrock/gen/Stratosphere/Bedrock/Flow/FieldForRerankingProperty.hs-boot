@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Flow.FieldForRerankingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FieldForRerankingProperty :: Prelude.Type
+instance ToResourceProperties FieldForRerankingProperty
+instance Prelude.Eq FieldForRerankingProperty
+instance Prelude.Show FieldForRerankingProperty
+instance JSON.ToJSON FieldForRerankingProperty

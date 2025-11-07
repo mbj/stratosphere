@@ -1,0 +1,9 @@
+module Stratosphere.CodeBuild.Project.PullRequestBuildPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PullRequestBuildPolicyProperty :: Prelude.Type
+instance ToResourceProperties PullRequestBuildPolicyProperty
+instance Prelude.Eq PullRequestBuildPolicyProperty
+instance Prelude.Show PullRequestBuildPolicyProperty
+instance JSON.ToJSON PullRequestBuildPolicyProperty

@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.X12SplitOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12SplitOptionsProperty :: Prelude.Type
+instance ToResourceProperties X12SplitOptionsProperty
+instance Prelude.Eq X12SplitOptionsProperty
+instance Prelude.Show X12SplitOptionsProperty
+instance JSON.ToJSON X12SplitOptionsProperty

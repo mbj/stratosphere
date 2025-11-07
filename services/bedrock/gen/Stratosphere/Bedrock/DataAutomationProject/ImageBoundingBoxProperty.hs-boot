@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ImageBoundingBoxProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageBoundingBoxProperty :: Prelude.Type
+instance ToResourceProperties ImageBoundingBoxProperty
+instance Prelude.Eq ImageBoundingBoxProperty
+instance Prelude.Show ImageBoundingBoxProperty
+instance JSON.ToJSON ImageBoundingBoxProperty

@@ -14,16 +14,15 @@ data S3SourceProperty
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn>
                       dataSourceArn :: (Value Prelude.Text),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns>
-                      inputColumns :: [InputColumnProperty],
+                      inputColumns :: (Prelude.Maybe [InputColumnProperty]),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings>
                       uploadSettings :: (Prelude.Maybe UploadSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkS3SourceProperty ::
-  Value Prelude.Text -> [InputColumnProperty] -> S3SourceProperty
-mkS3SourceProperty dataSourceArn inputColumns
+mkS3SourceProperty :: Value Prelude.Text -> S3SourceProperty
+mkS3SourceProperty dataSourceArn
   = S3SourceProperty
       {haddock_workaround_ = (), dataSourceArn = dataSourceArn,
-       inputColumns = inputColumns, uploadSettings = Prelude.Nothing}
+       inputColumns = Prelude.Nothing, uploadSettings = Prelude.Nothing}
 instance ToResourceProperties S3SourceProperty where
   toResourceProperties S3SourceProperty {..}
     = ResourceProperties
@@ -31,19 +30,19 @@ instance ToResourceProperties S3SourceProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DataSourceArn" JSON..= dataSourceArn,
-                            "InputColumns" JSON..= inputColumns]
+                           ["DataSourceArn" JSON..= dataSourceArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "UploadSettings" Prelude.<$> uploadSettings]))}
+                              [(JSON..=) "InputColumns" Prelude.<$> inputColumns,
+                               (JSON..=) "UploadSettings" Prelude.<$> uploadSettings]))}
 instance JSON.ToJSON S3SourceProperty where
   toJSON S3SourceProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DataSourceArn" JSON..= dataSourceArn,
-               "InputColumns" JSON..= inputColumns]
+              ["DataSourceArn" JSON..= dataSourceArn]
               (Prelude.catMaybes
-                 [(JSON..=) "UploadSettings" Prelude.<$> uploadSettings])))
+                 [(JSON..=) "InputColumns" Prelude.<$> inputColumns,
+                  (JSON..=) "UploadSettings" Prelude.<$> uploadSettings])))
 instance Property "DataSourceArn" S3SourceProperty where
   type PropertyType "DataSourceArn" S3SourceProperty = Value Prelude.Text
   set newValue S3SourceProperty {..}
@@ -51,7 +50,7 @@ instance Property "DataSourceArn" S3SourceProperty where
 instance Property "InputColumns" S3SourceProperty where
   type PropertyType "InputColumns" S3SourceProperty = [InputColumnProperty]
   set newValue S3SourceProperty {..}
-    = S3SourceProperty {inputColumns = newValue, ..}
+    = S3SourceProperty {inputColumns = Prelude.pure newValue, ..}
 instance Property "UploadSettings" S3SourceProperty where
   type PropertyType "UploadSettings" S3SourceProperty = UploadSettingsProperty
   set newValue S3SourceProperty {..}

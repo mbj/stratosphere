@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationCentralizationRule.LogsBackupConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogsBackupConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LogsBackupConfigurationProperty
+instance Prelude.Eq LogsBackupConfigurationProperty
+instance Prelude.Show LogsBackupConfigurationProperty
+instance JSON.ToJSON LogsBackupConfigurationProperty

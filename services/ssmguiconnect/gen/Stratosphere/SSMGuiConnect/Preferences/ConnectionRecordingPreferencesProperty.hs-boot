@@ -1,0 +1,9 @@
+module Stratosphere.SSMGuiConnect.Preferences.ConnectionRecordingPreferencesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionRecordingPreferencesProperty :: Prelude.Type
+instance ToResourceProperties ConnectionRecordingPreferencesProperty
+instance Prelude.Eq ConnectionRecordingPreferencesProperty
+instance Prelude.Show ConnectionRecordingPreferencesProperty
+instance JSON.ToJSON ConnectionRecordingPreferencesProperty

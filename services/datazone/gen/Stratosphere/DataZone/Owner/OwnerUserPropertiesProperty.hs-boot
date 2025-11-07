@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Owner.OwnerUserPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OwnerUserPropertiesProperty :: Prelude.Type
+instance ToResourceProperties OwnerUserPropertiesProperty
+instance Prelude.Eq OwnerUserPropertiesProperty
+instance Prelude.Show OwnerUserPropertiesProperty
+instance JSON.ToJSON OwnerUserPropertiesProperty

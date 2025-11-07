@@ -9,25 +9,37 @@ import Stratosphere.Value
 data SchemaDefinitionProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html>
     SchemaDefinitionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html#cfn-verifiedpermissions-policystore-schemadefinition-cedarformat>
+                              cedarFormat :: (Prelude.Maybe (Value Prelude.Text)),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html#cfn-verifiedpermissions-policystore-schemadefinition-cedarjson>
                               cedarJson :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaDefinitionProperty :: SchemaDefinitionProperty
 mkSchemaDefinitionProperty
   = SchemaDefinitionProperty
-      {haddock_workaround_ = (), cedarJson = Prelude.Nothing}
+      {haddock_workaround_ = (), cedarFormat = Prelude.Nothing,
+       cedarJson = Prelude.Nothing}
 instance ToResourceProperties SchemaDefinitionProperty where
   toResourceProperties SchemaDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::VerifiedPermissions::PolicyStore.SchemaDefinition",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes [(JSON..=) "CedarJson" Prelude.<$> cedarJson])}
+                        (Prelude.catMaybes
+                           [(JSON..=) "CedarFormat" Prelude.<$> cedarFormat,
+                            (JSON..=) "CedarJson" Prelude.<$> cedarJson])}
 instance JSON.ToJSON SchemaDefinitionProperty where
   toJSON SchemaDefinitionProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes [(JSON..=) "CedarJson" Prelude.<$> cedarJson]))
+           (Prelude.catMaybes
+              [(JSON..=) "CedarFormat" Prelude.<$> cedarFormat,
+               (JSON..=) "CedarJson" Prelude.<$> cedarJson]))
+instance Property "CedarFormat" SchemaDefinitionProperty where
+  type PropertyType "CedarFormat" SchemaDefinitionProperty = Value Prelude.Text
+  set newValue SchemaDefinitionProperty {..}
+    = SchemaDefinitionProperty
+        {cedarFormat = Prelude.pure newValue, ..}
 instance Property "CedarJson" SchemaDefinitionProperty where
   type PropertyType "CedarJson" SchemaDefinitionProperty = Value Prelude.Text
   set newValue SchemaDefinitionProperty {..}

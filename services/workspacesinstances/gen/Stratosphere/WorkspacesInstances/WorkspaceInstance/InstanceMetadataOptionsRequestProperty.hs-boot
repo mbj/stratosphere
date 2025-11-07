@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.InstanceMetadataOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMetadataOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties InstanceMetadataOptionsRequestProperty
+instance Prelude.Eq InstanceMetadataOptionsRequestProperty
+instance Prelude.Show InstanceMetadataOptionsRequestProperty
+instance JSON.ToJSON InstanceMetadataOptionsRequestProperty

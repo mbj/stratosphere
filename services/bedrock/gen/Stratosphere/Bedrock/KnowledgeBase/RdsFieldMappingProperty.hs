@@ -9,6 +9,8 @@ import Stratosphere.Value
 data RdsFieldMappingProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html>
     RdsFieldMappingProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-custommetadatafield>
+                             customMetadataField :: (Prelude.Maybe (Value Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-metadatafield>
                              metadataField :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-primarykeyfield>
@@ -31,21 +33,36 @@ mkRdsFieldMappingProperty
   = RdsFieldMappingProperty
       {haddock_workaround_ = (), metadataField = metadataField,
        primaryKeyField = primaryKeyField, textField = textField,
-       vectorField = vectorField}
+       vectorField = vectorField, customMetadataField = Prelude.Nothing}
 instance ToResourceProperties RdsFieldMappingProperty where
   toResourceProperties RdsFieldMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Bedrock::KnowledgeBase.RdsFieldMapping",
          supportsTags = Prelude.False,
-         properties = ["MetadataField" JSON..= metadataField,
-                       "PrimaryKeyField" JSON..= primaryKeyField,
-                       "TextField" JSON..= textField, "VectorField" JSON..= vectorField]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["MetadataField" JSON..= metadataField,
+                            "PrimaryKeyField" JSON..= primaryKeyField,
+                            "TextField" JSON..= textField, "VectorField" JSON..= vectorField]
+                           (Prelude.catMaybes
+                              [(JSON..=) "CustomMetadataField"
+                                 Prelude.<$> customMetadataField]))}
 instance JSON.ToJSON RdsFieldMappingProperty where
   toJSON RdsFieldMappingProperty {..}
     = JSON.object
-        ["MetadataField" JSON..= metadataField,
-         "PrimaryKeyField" JSON..= primaryKeyField,
-         "TextField" JSON..= textField, "VectorField" JSON..= vectorField]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["MetadataField" JSON..= metadataField,
+               "PrimaryKeyField" JSON..= primaryKeyField,
+               "TextField" JSON..= textField, "VectorField" JSON..= vectorField]
+              (Prelude.catMaybes
+                 [(JSON..=) "CustomMetadataField"
+                    Prelude.<$> customMetadataField])))
+instance Property "CustomMetadataField" RdsFieldMappingProperty where
+  type PropertyType "CustomMetadataField" RdsFieldMappingProperty = Value Prelude.Text
+  set newValue RdsFieldMappingProperty {..}
+    = RdsFieldMappingProperty
+        {customMetadataField = Prelude.pure newValue, ..}
 instance Property "MetadataField" RdsFieldMappingProperty where
   type PropertyType "MetadataField" RdsFieldMappingProperty = Value Prelude.Text
   set newValue RdsFieldMappingProperty {..}

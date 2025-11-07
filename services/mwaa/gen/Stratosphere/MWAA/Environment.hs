@@ -60,7 +60,9 @@ data Environment
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode>
                  webserverAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart>
-                 weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text))}
+                 weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-workerreplacementstrategy>
+                 workerReplacementStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment name
@@ -83,7 +85,8 @@ mkEnvironment name
        startupScriptS3ObjectVersion = Prelude.Nothing,
        startupScriptS3Path = Prelude.Nothing, tags = Prelude.Nothing,
        webserverAccessMode = Prelude.Nothing,
-       weeklyMaintenanceWindowStart = Prelude.Nothing}
+       weeklyMaintenanceWindowStart = Prelude.Nothing,
+       workerReplacementStrategy = Prelude.Nothing}
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
@@ -120,7 +123,9 @@ instance ToResourceProperties Environment where
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "WebserverAccessMode" Prelude.<$> webserverAccessMode,
                                (JSON..=) "WeeklyMaintenanceWindowStart"
-                                 Prelude.<$> weeklyMaintenanceWindowStart]))}
+                                 Prelude.<$> weeklyMaintenanceWindowStart,
+                               (JSON..=) "WorkerReplacementStrategy"
+                                 Prelude.<$> workerReplacementStrategy]))}
 instance JSON.ToJSON Environment where
   toJSON Environment {..}
     = JSON.object
@@ -156,7 +161,9 @@ instance JSON.ToJSON Environment where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "WebserverAccessMode" Prelude.<$> webserverAccessMode,
                   (JSON..=) "WeeklyMaintenanceWindowStart"
-                    Prelude.<$> weeklyMaintenanceWindowStart])))
+                    Prelude.<$> weeklyMaintenanceWindowStart,
+                  (JSON..=) "WorkerReplacementStrategy"
+                    Prelude.<$> workerReplacementStrategy])))
 instance Property "AirflowConfigurationOptions" Environment where
   type PropertyType "AirflowConfigurationOptions" Environment = JSON.Object
   set newValue Environment {..}
@@ -260,3 +267,8 @@ instance Property "WeeklyMaintenanceWindowStart" Environment where
   set newValue Environment {..}
     = Environment
         {weeklyMaintenanceWindowStart = Prelude.pure newValue, ..}
+instance Property "WorkerReplacementStrategy" Environment where
+  type PropertyType "WorkerReplacementStrategy" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment
+        {workerReplacementStrategy = Prelude.pure newValue, ..}

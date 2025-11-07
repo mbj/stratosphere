@@ -1,0 +1,9 @@
+module Stratosphere.APS.Scraper.ScraperComponentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScraperComponentProperty :: Prelude.Type
+instance ToResourceProperties ScraperComponentProperty
+instance Prelude.Eq ScraperComponentProperty
+instance Prelude.Show ScraperComponentProperty
+instance JSON.ToJSON ScraperComponentProperty

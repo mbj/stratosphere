@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.KPIProgressBarConditionalFormattingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KPIProgressBarConditionalFormattingProperty :: Prelude.Type
+instance ToResourceProperties KPIProgressBarConditionalFormattingProperty
+instance Prelude.Eq KPIProgressBarConditionalFormattingProperty
+instance Prelude.Show KPIProgressBarConditionalFormattingProperty
+instance JSON.ToJSON KPIProgressBarConditionalFormattingProperty

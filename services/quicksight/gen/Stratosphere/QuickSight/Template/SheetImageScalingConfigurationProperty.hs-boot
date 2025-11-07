@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.SheetImageScalingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SheetImageScalingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SheetImageScalingConfigurationProperty
+instance Prelude.Eq SheetImageScalingConfigurationProperty
+instance Prelude.Show SheetImageScalingConfigurationProperty
+instance JSON.ToJSON SheetImageScalingConfigurationProperty

@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationCodeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationEncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationSnapshotConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationSystemRollbackConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.EnvironmentPropertiesProperty as Exports
@@ -19,6 +20,8 @@ data ApplicationConfigurationProperty
     ApplicationConfigurationProperty {haddock_workaround_ :: (),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration>
                                       applicationCodeConfiguration :: (Prelude.Maybe ApplicationCodeConfigurationProperty),
+                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationencryptionconfiguration>
+                                      applicationEncryptionConfiguration :: (Prelude.Maybe ApplicationEncryptionConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration>
                                       applicationSnapshotConfiguration :: (Prelude.Maybe ApplicationSnapshotConfigurationProperty),
                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsystemrollbackconfiguration>
@@ -40,6 +43,7 @@ mkApplicationConfigurationProperty
   = ApplicationConfigurationProperty
       {haddock_workaround_ = (),
        applicationCodeConfiguration = Prelude.Nothing,
+       applicationEncryptionConfiguration = Prelude.Nothing,
        applicationSnapshotConfiguration = Prelude.Nothing,
        applicationSystemRollbackConfiguration = Prelude.Nothing,
        environmentProperties = Prelude.Nothing,
@@ -56,6 +60,8 @@ instance ToResourceProperties ApplicationConfigurationProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationCodeConfiguration"
                               Prelude.<$> applicationCodeConfiguration,
+                            (JSON..=) "ApplicationEncryptionConfiguration"
+                              Prelude.<$> applicationEncryptionConfiguration,
                             (JSON..=) "ApplicationSnapshotConfiguration"
                               Prelude.<$> applicationSnapshotConfiguration,
                             (JSON..=) "ApplicationSystemRollbackConfiguration"
@@ -76,6 +82,8 @@ instance JSON.ToJSON ApplicationConfigurationProperty where
            (Prelude.catMaybes
               [(JSON..=) "ApplicationCodeConfiguration"
                  Prelude.<$> applicationCodeConfiguration,
+               (JSON..=) "ApplicationEncryptionConfiguration"
+                 Prelude.<$> applicationEncryptionConfiguration,
                (JSON..=) "ApplicationSnapshotConfiguration"
                  Prelude.<$> applicationSnapshotConfiguration,
                (JSON..=) "ApplicationSystemRollbackConfiguration"
@@ -94,6 +102,11 @@ instance Property "ApplicationCodeConfiguration" ApplicationConfigurationPropert
   set newValue ApplicationConfigurationProperty {..}
     = ApplicationConfigurationProperty
         {applicationCodeConfiguration = Prelude.pure newValue, ..}
+instance Property "ApplicationEncryptionConfiguration" ApplicationConfigurationProperty where
+  type PropertyType "ApplicationEncryptionConfiguration" ApplicationConfigurationProperty = ApplicationEncryptionConfigurationProperty
+  set newValue ApplicationConfigurationProperty {..}
+    = ApplicationConfigurationProperty
+        {applicationEncryptionConfiguration = Prelude.pure newValue, ..}
 instance Property "ApplicationSnapshotConfiguration" ApplicationConfigurationProperty where
   type PropertyType "ApplicationSnapshotConfiguration" ApplicationConfigurationProperty = ApplicationSnapshotConfigurationProperty
   set newValue ApplicationConfigurationProperty {..}
