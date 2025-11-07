@@ -2,7 +2,7 @@
 _common/package: !include "../../common/package.yaml"
 
 name: stratosphere-budgets
-version: 1.0.0
+version: 1.0.1
 synopsis: Stratosphere integration for AWS Budgets.
 description: Integration into stratosphere to generate resources and properties for AWS Budgets
 category: AWS, Cloud, Budgets
@@ -16,4 +16,4 @@ library:
 dependencies:
 - aeson >= 2 && < 3
 - base  >= 4.8  && < 4.22
-- stratosphere == 1.0.0
+- stratosphere == 1.0.1

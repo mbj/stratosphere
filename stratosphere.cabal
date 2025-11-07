@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           stratosphere
-version:        1.0.0
+version:        1.0.1
 synopsis:       EDSL for AWS CloudFormation
 description:    EDSL for AWS CloudFormation, base types to be used by sibling stratosphere-* packages.
 category:       AWS, Cloud

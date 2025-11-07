@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           stratosphere-dms
-version:        1.0.0
+version:        1.0.1
 synopsis:       Stratosphere integration for AWS DMS.
 description:    Integration into stratosphere to generate resources and properties for AWS DMS
 category:       AWS, Cloud, DMS
@@ -108,7 +108,7 @@ library
   build-depends:
       aeson ==2.*
     , base >=4.8 && <4.22
-    , stratosphere ==1.0.0
+    , stratosphere ==1.0.1
   default-language: Haskell2010
   if flag(development)
     ghc-options: -Werror
